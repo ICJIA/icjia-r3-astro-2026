@@ -6,7 +6,7 @@
           <h1 class="mx-auto text-center" style="color: red">
             Under construction. Keep calm. Do not panic.
           </h1>
-          <div v-for="item in sortedResources" :key="item._id">
+          <div v-for="(item, index) in sortedResources" :key="item._id">
             <v-card class="mx-auto my-12 px-5 py-5"
               ><h2>{{ item.title }}</h2>
               <br />{{ item }}</v-card
