@@ -65,6 +65,16 @@
         </v-col></v-row
       ></v-container
     >
+    <v-container
+      ><v-row
+        ><v-col class="text-center mt-6"
+          ><nuxt-link to="/resources/resources-all"
+            >Show all R3 resources on a mobile-friendly
+            page&nbsp;&raquo;</nuxt-link
+          >
+        </v-col></v-row
+      ></v-container
+    >
   </div>
   <div v-else>
     <ThePageLoader></ThePageLoader>
