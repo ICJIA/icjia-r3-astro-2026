@@ -207,7 +207,12 @@
 
 <script setup>
 useHead({
-  title: "InfoNet & Other Victim Services Research",
+  title: "R3 Research at ICJIA",
+  meta: [
+    { name: "description", content: "R3 Research at ICJIA" },
+    { name: "og:title", content: "R3 Research at ICJIA" },
+    { name: "og:description", content: "R3 Research at ICJIA" },
+  ],
 });
 
 const getPublicationType = function (type) {
