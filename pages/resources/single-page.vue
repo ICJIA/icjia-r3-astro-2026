@@ -15,6 +15,17 @@
             ></v-card>
           </div> </v-col></v-row
     ></v-container>
+    <v-container fluid class="mb-10"
+      ><v-row
+        ><v-col
+          class="text-center"
+          style="font-size: 14px; margin-top: -35px !important"
+          ><nuxt-link to="/resources"
+            >Show these R3 resources on multiple pages&nbsp;&raquo;</nuxt-link
+          >
+        </v-col></v-row
+      ></v-container
+    >
   </div>
 </template>
 
