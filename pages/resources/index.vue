@@ -7,6 +7,7 @@
         </v-col></v-row
       ></v-container
     >
+
     <v-container fill-height fluid class=""
       ><v-row
         ><v-col
@@ -65,12 +66,13 @@
         </v-col></v-row
       ></v-container
     >
-    <v-container
+    <v-container fluid
       ><v-row
-        ><v-col class="text-center mt-6"
+        ><v-col
+          class="text-center"
+          style="font-size: 14px; margin-top: 20px !important"
           ><nuxt-link to="/resources/mobile-view"
-            >Show all R3 resources on a mobile-friendly
-            page&nbsp;&raquo;</nuxt-link
+            >Show R3 resources on a mobile-friendly page&nbsp;&raquo;</nuxt-link
           >
         </v-col></v-row
       ></v-container
