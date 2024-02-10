@@ -29,6 +29,7 @@
               min-height="300"
               :src="`https://r3.icjia-api.cloud${item.cover.data.attributes.formats.medium.url}`"
               :lazy-src="`https://r3.icjia-api.cloud${item.cover.data.attributes.formats.thumbnail.url}`"
+              alt="R3 Resources Image"
               cover
               ><template #placeholder>
                 <v-row class="fill-height ma-0" align="center" justify="center">
