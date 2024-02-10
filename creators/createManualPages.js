@@ -119,7 +119,7 @@ const manualPages = [
       createdAt: moment().format(),
       updatedAt: moment().format(),
       publishedAt: moment().format(),
-      searchMeta: "resources tools eligibility mobile ",
+      searchMeta: "resources resources tools eligibility mobile ",
       path: "/resources/mobile-view",
       url: `${SITE_URL}/resources/mobile-view`,
       type: "page",
