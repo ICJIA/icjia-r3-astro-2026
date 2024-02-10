@@ -4,7 +4,7 @@
       ><v-row
         ><v-col>
           <h1 class="mx-auto text-center" style="color: red">
-            Under construction. Keep calm. Do not panic.
+            Under construction.
           </h1>
           <div v-for="(item, index) in sortedResources" :key="item._id">
             <v-card class="mx-auto my-12 px-5 py-5"
