@@ -260,6 +260,17 @@
           </v-col></v-row
         ></v-container
       >
+      <v-container fluid class="mb-12"
+        ><v-row
+          ><v-col
+            class="text-center"
+            style="font-size: 14px; margin-top: 20px !important"
+            ><nuxt-link to="/faqs/single-page"
+              >Show All FAQs (printer-friendly)&nbsp;&raquo;</nuxt-link
+            >
+          </v-col></v-row
+        ></v-container
+      >
     </div>
     <div
       v-else
