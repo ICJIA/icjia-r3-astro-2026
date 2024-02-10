@@ -71,8 +71,9 @@
         ><v-col
           class="text-center"
           style="font-size: 14px; margin-top: 20px !important"
-          ><nuxt-link to="/resources/mobile-view"
-            >Show R3 resources on a mobile-friendly page&nbsp;&raquo;</nuxt-link
+          ><nuxt-link to="/resources/single-page"
+            >Show these R3 resources on a single page
+            (mobile-friendly)&nbsp;&raquo;</nuxt-link
           >
         </v-col></v-row
       ></v-container

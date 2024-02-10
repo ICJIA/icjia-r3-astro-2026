@@ -37,7 +37,7 @@ const { data: resources } = await useAsyncData(`resources`, async () => {
 });
 
 useHead({
-  title: "Resources (Mobile)",
+  title: "Resources (Single Page)",
 });
 
 // sort resources by ranking
