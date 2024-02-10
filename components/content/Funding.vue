@@ -7,7 +7,6 @@
         <v-col
           v-for="(item, index) in splash"
           :key="`funding-photo-${index}`"
-          style="background: #fff"
           cols="12"
           class="mt-10 mb-12"
         >
@@ -18,7 +17,6 @@
               :src="item.src"
               :lazy-src="item.lazySrc"
               aspect-ratio="1"
-              class="grey lighten-2"
               height="500"
             >
               <div class="text-center px-12" style="margin-top: 100px">
