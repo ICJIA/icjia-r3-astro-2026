@@ -5,7 +5,10 @@
         ><v-col>
           <h1 class="mx-auto text-left" style="color: #000">R3 Resources</h1>
           <div v-for="(item, index) in sortedResources" :key="item._id">
-            <v-card class="mx-auto my-5 px-8 py-4" elevation="0"
+            <v-card
+              class="mx-auto my-5 px-8 py-4"
+              elevation="0"
+              style="border: 1px solid #ccc"
               ><h2>{{ item.title }}</h2>
               <div class="px-5">
                 <span v-html="renderer.render(item.markdown)"></span></div
