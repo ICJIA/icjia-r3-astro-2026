@@ -68,7 +68,7 @@
     <v-container
       ><v-row
         ><v-col class="text-center mt-6"
-          ><nuxt-link to="/resources/resources-all"
+          ><nuxt-link to="/resources/mobile-view"
             >Show all R3 resources on a mobile-friendly
             page&nbsp;&raquo;</nuxt-link
           >

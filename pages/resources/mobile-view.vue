@@ -3,29 +3,41 @@
     <v-container
       ><v-row
         ><v-col>
-          <h1 class="mx-auto text-center" style="color: red">
-            Under construction.
-          </h1>
+          <h1 class="mx-auto text-left" style="color: #000">R3 Resources</h1>
           <div v-for="(item, index) in sortedResources" :key="item._id">
-            <v-card class="mx-auto my-12 px-5 py-5"
+            <v-card class="mx-auto my-5 px-8 py-4"
               ><h2>{{ item.title }}</h2>
-              <br />{{ item }}</v-card
-            >
-          </div>
-        </v-col></v-row
-      ></v-container
-    >
+              <div class="px-5">
+                <span v-html="renderer.render(item.markdown)"></span></div
+            ></v-card>
+          </div> </v-col></v-row
+    ></v-container>
   </div>
 </template>
 
 <script setup>
 import _ from "lodash";
 import moment from "moment";
+import md from "markdown-it";
+import attrs from "markdown-it-attrs";
+const renderer = new md({
+  html: true,
+  xhtmlOut: false,
+  breaks: false,
+  langPrefix: "language-",
+  linkify: true,
+  typographer: true,
+  quotes: "“”‘’",
+}).use(attrs);
 const { path } = useRoute();
 const router = useRouter();
 const { data: resources } = await useAsyncData(`resources`, async () => {
   const post = await queryContent("/resources").find();
   return post;
+});
+
+useHead({
+  title: "Resources (Mobile)",
 });
 
 // sort resources by ranking
