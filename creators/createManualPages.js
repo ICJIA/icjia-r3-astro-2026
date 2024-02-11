@@ -165,7 +165,7 @@ const manualPages = [
       updatedAt: moment().format(),
       publishedAt: moment().format(),
       searchMeta:
-        "questions printer friendlysingle FAQs faqs help assistance technical funding apply eligibility ",
+        "questions printer friendly single FAQs faqs help assistance technical funding apply eligibility ",
       path: "/faqs/single-page",
       url: `${SITE_URL}/faqs/single-page`,
       type: "page",

@@ -140,9 +140,9 @@
                       ></span
                     >
                     <span v-else>
-                      <span style="text-transform: uppercase; font-weight: 900"
+                      <!-- <span style="text-transform: uppercase; font-weight: 900"
                         >{{ result.item.category }}&nbsp;|&nbsp;</span
-                      >
+                      > -->
                       {{ moment(result.item.postDate).format("MMMM DD, YYYY") }}
                     </span>
                   </div>
