@@ -29,6 +29,7 @@
             </v-container>
           </v-col></v-row
         >
+
         <v-row
           ><v-col cols="12" md="11" class="text-left">
             <v-form class="pl-2 mt-4">
@@ -162,7 +163,7 @@
                       v-if="isItUpdated(result.item)"
                     >
                       Published
-                      <span style="font-weight: 900">
+                      <span style="font-weight: 700">
                         {{
                           moment(result.item.postDate).format(
                             "MMMM DD  YYYY, h:mm a"
@@ -170,7 +171,7 @@
                         }}
                       </span>
 
-                      <span style="font-weight: 900">
+                      <span style="font-weight: 700">
                         | Updated
                         {{
                           moment(result.item.updatedAt).format(
@@ -253,6 +254,11 @@
                         }}</span
                       >
                     </div>
+                    <!-- <div class="text-right mb-1 mt-3" style="">
+                      <nuxt-link :to="item.path" class="button-href">
+                        <v-icon size="x-small">mdi-open-in-new</v-icon>
+                      </nuxt-link>
+                    </div> -->
                   </v-expansion-panel-text>
                 </v-expansion-panel>
               </v-expansion-panels>
@@ -264,7 +270,7 @@
         ><v-row
           ><v-col
             class="text-center"
-            style="font-size: 14px; margin-top: 20px !important"
+            style="font-size: 14px; margin-top: 0px !important"
             ><nuxt-link to="/faqs/single-page"
               >Show All FAQs (printer-friendly)&nbsp;&raquo;</nuxt-link
             >

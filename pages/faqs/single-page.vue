@@ -8,12 +8,17 @@
           </h1>
 
           <v-card
-            v-for="(item, index) in faqs"
+            v-for="(item, index) in sortedFaqs"
             :key="index"
             class="mb-5 px-6 py-6"
             elevation="0"
             style="border: 1px solid #ddd"
           >
+            <!-- <div class="text-right">
+              <nuxt-link :to="item._path" class="button-href">
+                <v-icon size="x-small">mdi-open-in-new</v-icon>
+              </nuxt-link>
+            </div> -->
             <span style="font-size: 12px; font-weight: 700">
               <!-- <span style="text-transform: uppercase; font-weight: 900"
                         >{{ item.category }}&nbsp;|&nbsp;</span
@@ -61,6 +66,8 @@ const { data: faqs } = await useAsyncData(`faqs`, async () => {
   const post = await queryContent("/faqs/").find();
   return post;
 });
+
+let sortedFaqs = _.orderBy(faqs.value, ["postDate"], ["desc"]);
 
 useHead({
   title: "FAQs (Single Page)",
