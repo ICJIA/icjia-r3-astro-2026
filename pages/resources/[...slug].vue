@@ -27,10 +27,21 @@ onMounted(() => {
 <template>
   <div>
     <div v-if="data">
-      <v-container fluid
+      <v-container class="mt-12"
         ><v-row
           ><v-col cols="12" :md="cols">
-            <div>
+            <v-card class="px-10 pt-8 pb-12">
+              <div class="mb-4">
+                <nuxt-link
+                  to="/resources"
+                  style="
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                  "
+                  >R3 Resources</nuxt-link
+                >&nbsp;&raquo;
+              </div>
               <h1 style="margin-top: 5px">{{ data.title }}</h1>
               <ContentDoc
                 :key="data?.title"
@@ -40,7 +51,19 @@ onMounted(() => {
                 <template #empty>Document not found</template>
                 <template #not-found>Document not found</template>
               </ContentDoc>
-            </div>
+              <!-- <v-container fluid
+                ><v-row
+                  ><v-col
+                    class="text-right"
+                    style="font-size: 12px; margin-top: 80px !important"
+                    ><nuxt-link to="/resources/single-page"
+                      >Show all R3 resources on a single page
+                      (mobile-friendly)&nbsp;&raquo;</nuxt-link
+                    >
+                  </v-col></v-row
+                ></v-container
+              > -->
+            </v-card>
             <!-- <div v-else>{{ redirect() }}</div> -->
           </v-col>
 
