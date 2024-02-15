@@ -9,16 +9,13 @@
       </span>
     </div>
 
+    <!-- <ClientOnly fallback-tag="span" fallback="Loading R3 Map..."> -->
     <iframe
       style="width: 100%; height: 740px; border: none"
       title="R3 Eligible Service Areas"
       src="https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068"
     ></iframe>
-    <!-- <div style="font-weight: 900" class="mt-2 text-right">
-      * indicates high need R3 zone
-    </div> -->
-
-    <!-- </div> -->
+    <!-- </ClientOnly> -->
   </div>
 </template>
 

@@ -5,10 +5,11 @@
 ## Install
 
 ```bash
-git clone https://github.com/ICJIA/icjia-r3-nuxt3.git
-cd icjia-r3-nuxt3
+git clone https://github.com/ICJIA/icjia-r3-v5-nuxt.git
+cd icjia-r3-v5-nuxt
+nvm use
 yarn install
-
+cp .env.sample .env
 ```
 
 ## Development Server
@@ -30,7 +31,7 @@ yarn preview
 Locally preview production build (port 3000):
 
 ```bash
-yarn build:serve
+yarn generate:serve
 ```
 
 ## Production
@@ -38,7 +39,7 @@ yarn build:serve
 Build the application for production:
 
 ```bash
-yarn build
+yarn generate
 ```
 
 _Netlify will automatically deploy the live site when changes are pushed to the master branch._
