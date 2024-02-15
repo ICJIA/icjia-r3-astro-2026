@@ -73,7 +73,7 @@
           class="text-center"
           style="font-size: 14px; margin-top: 20px !important"
           ><nuxt-link to="/resources/single-page"
-            >Show these R3 resources on a single page
+            >Show all R3 resources on a single page
             (mobile-friendly)&nbsp;&raquo;</nuxt-link
           >
         </v-col></v-row
