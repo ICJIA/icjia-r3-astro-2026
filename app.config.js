@@ -8,12 +8,12 @@ export default defineAppConfig({
     {
       externalURL:
         "https://icjia.illinois.gov/grants/funding/restore-reinvest-and-renew-r3-program-r3-planning-and-capacity-building/",
-      src: "https://r3.icjia-api.cloud/uploads/new_splash_01_0ca141e7db.jpg?updated_at=2022-12-15T16:26:21.124Z",
+      src: "https://r3.icjia-api.cloud/uploads/large_new_splash_03_9b9975cfc5.jpg",
       lazySrc:
-        "https://r3.icjia-api.cloud/uploads/thumbnail_new_splash_01_0ca141e7db.jpg",
-      title: "R3 PLANNING AND CAPACITY BUILDING",
+        "https://r3.icjia-api.cloud/uploads/thumbnail_new_splash_03_9b9975cfc5.jpg",
       tagline:
         "Grants to provide funds for organizations to develop a community plan for service provision or to build their own internal capacity to provide services.",
+      title: "SERVICE AND DELIVERY",
     },
     // {
     //   externalURL:
@@ -74,7 +74,7 @@ export default defineAppConfig({
           title: "Board Composition",
           link: "/board",
         },
-         {
+        {
           title: "Research",
           link: "/research",
         },
@@ -109,6 +109,11 @@ export default defineAppConfig({
       link: "/funding",
       nudgeLeft: "78px",
     },
+    {
+      main: "Contact",
+      link: "/contact",
+      nudgeLeft: "78px",
+    },
   ],
   footerMenu: [
     {
@@ -127,6 +132,10 @@ export default defineAppConfig({
     {
       main: "Board",
       link: "/board",
+    },
+    {
+      main: "Contact",
+      link: "/contact",
     },
     {
       main: "Meetings",

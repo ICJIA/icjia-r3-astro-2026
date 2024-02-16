@@ -11,13 +11,13 @@
           class="context-link px-2"
           style="
             font-size: 14px;
-            font-family: 'Roboto', sans-serif !important;
+            font-family: &quot;Roboto&quot;, sans-serif !important;
             font-weight: 900;
           "
           >&nbsp;{{ item.main }}&nbsp;</NuxtLink
         >
       </span>
-      <NuxtLink
+      <!-- <NuxtLink
         to="/sandbox"
         class="context-link px-2"
         style="
@@ -26,7 +26,7 @@
           font-weight: 900;
         "
         >Debug</NuxtLink
-      >
+      > -->
     </div>
   </div>
 </template>

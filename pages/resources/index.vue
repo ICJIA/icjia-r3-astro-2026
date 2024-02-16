@@ -27,7 +27,7 @@
               class="align-end text-white rounded-xl"
               max-height="300"
               min-height="300"
-              :src="`https://r3.icjia-api.cloud${item.cover.data.attributes.formats.medium.url}`"
+              :src="`https://r3.icjia-api.cloud${item.cover.data.attributes.formats.small.url}`"
               :lazy-src="`https://r3.icjia-api.cloud${item.cover.data.attributes.formats.thumbnail.url}`"
               alt="R3 Resources Image"
               cover
