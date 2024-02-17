@@ -31,17 +31,6 @@ onMounted(() => {
         ><v-row
           ><v-col cols="12" :md="cols">
             <v-card class="px-10 pt-8 pb-12">
-              <div class="mb-4">
-                <nuxt-link
-                  to="/resources"
-                  style="
-                    font-weight: 900;
-                    text-transform: uppercase;
-                    font-size: 14px;
-                  "
-                  >R3 Resources</nuxt-link
-                >&nbsp;&raquo;
-              </div>
               <h1 style="margin-top: 5px">{{ data.title }}</h1>
               <ContentDoc
                 :key="data?.title"
@@ -63,6 +52,17 @@ onMounted(() => {
                   </v-col></v-row
                 ></v-container
               > -->
+              <div class="mb-1 mt-16">
+                &laquo;&nbsp;<nuxt-link
+                  to="/resources"
+                  style="
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                  "
+                  >Back to R3 Resources</nuxt-link
+                >
+              </div>
             </v-card>
             <!-- <div v-else>{{ redirect() }}</div> -->
           </v-col>
