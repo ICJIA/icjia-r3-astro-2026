@@ -75,6 +75,7 @@
                   clear-icon="mdi-close-circle"
                   label="Message"
                   :disabled="successfullySubmitted"
+                  :rules="messageRules"
                   auto-grow
                   required
                 ></v-textarea>
@@ -175,13 +176,7 @@ export default {
     firstname: "",
     lastname: "",
     subject: "",
-    subjects: [
-      "Contract status/updates",
-      "Payment status/updates",
-      "Documentation submission/request questions",
-      "General program/grant questions",
-      "Request for Technical Assistance",
-    ],
+    subjects: ["R3 NOFO Questions", "R3 General Questions"],
     phone: "",
     message: "",
     myForm: {},
@@ -196,6 +191,7 @@ export default {
     ],
 
     phoneRules: [(v) => !!v || "Contact phone number is required"],
+    messageRules: [(v) => !!v || "A message is required"],
     email: "",
     emailRules: [
       (v) => !!v || "E-mail is required",
