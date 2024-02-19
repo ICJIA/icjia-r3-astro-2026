@@ -8,14 +8,26 @@
           <v-form ref="form" class="mx-2" v-model="valid" lazy-validation>
             <v-row>
               <v-col cols="12">
-                <v-text-field
+                <!-- <v-text-field
                   v-model="subject"
                   :rules="subjectRules"
                   label="Subject"
                   required
                   :disabled="successfullySubmitted"
                   style="font-weight: 700 !important"
-                ></v-text-field>
+                ></v-text-field> -->
+                <v-select
+                  :items="subjects"
+                  label="Select Type of Request"
+                  dense
+                  v-model="subject"
+                  :rules="subjectRules"
+                  class="heavy"
+                  aria-label="Select Type of Request"
+                  required
+                  :disabled="successfullySubmitted"
+                  style="font-weight: 700 !important"
+                ></v-select>
               </v-col>
               <v-col cols="12" md="6">
                 <v-text-field
@@ -163,6 +175,13 @@ export default {
     firstname: "",
     lastname: "",
     subject: "",
+    subjects: [
+      "Contract status/updates",
+      "Payment status/updates",
+      "Documentation submission/request questions",
+      "General program/grant questions",
+      "Request for Technical Assistance",
+    ],
     phone: "",
     message: "",
     myForm: {},
@@ -250,6 +269,8 @@ export default {
         let emailData = {
           form: myForm,
         };
+        // For different URLs based on subject
+        let targetURL = "https://mail.icjia.cloud/test";
 
         let options = {
           method: "POST",
@@ -257,7 +278,7 @@ export default {
           headers: {
             "Content-Type": "application/json",
           },
-          url: "https://mail.icjia.cloud/test",
+          url: targetURL,
         };
 
         console.log("form email: ", axiosDBSubmitData);
