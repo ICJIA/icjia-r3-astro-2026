@@ -79,7 +79,10 @@
           min-height: 30vh;
         "
       >
-        <div style="background: #ddd" class="px-3 pt-1 pb-3">
+        <div
+          style="background: #ddd; border-bottom: 1px solid #aaa"
+          class="px-3 pt-1 pb-3"
+        >
           <v-container
             ><v-row
               ><v-col>
