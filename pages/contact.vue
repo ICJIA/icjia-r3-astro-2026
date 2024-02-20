@@ -4,6 +4,45 @@
       <v-row justify="center" align="center" class="row">
         <v-col cols="12" md="12" class="text-left">
           <h1>Contact R3</h1>
+          <div class="px-16">
+            <v-card
+              class="px-10 py-10"
+              elevation=""
+              style="
+                background: #093356;
+                margin-bottom: 105px;
+                margin-top: 35px;
+                color: #fff;
+              "
+            >
+              <p>
+                <strong>Have an R3 question or need assistance?</strong>
+              </p>
+              <div class="pl-3">
+                <p>
+                  Please fill out the form below, and we'll get back to you as
+                  soon as possible.
+                </p>
+                <p>Or, contact us via email:</p>
+                <ul>
+                  <li>
+                    <span>General R3-related questions: </span>
+                    <a href="mailto: CJA.r3mbr@illinois.gov" class="white-text"
+                      >CJA.r3mbr@illinois.gov</a
+                    >
+                  </li>
+                  <li>
+                    <span>Questions about the R3 NOFO: </span>
+                    <a
+                      href="mailto: CJA.R3Questions@illinois.gov"
+                      class="white-text"
+                      >CJA.R3Questions@illinois.gov</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </v-card>
+          </div>
 
           <v-form ref="form" class="mx-2" v-model="valid" lazy-validation>
             <v-row>
@@ -339,5 +378,9 @@ export default {
 .fluid {
   margin: 0;
   padding: 0;
+}
+
+.white-text {
+  color: #fff;
 }
 </style>
