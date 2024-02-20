@@ -169,14 +169,15 @@ const api = axios.create({
 // };
 
 export default {
-  name: "RegisterForm",
+  name: "ContactForm",
+
   data: () => ({
     valid: false,
     successfullySubmitted: false,
     firstname: "",
     lastname: "",
     subject: "",
-    subjects: ["R3 NOFO Questions", "R3 General Questions"],
+    subjects: ["R3 General Questions", "R3 NOFO Questions"],
     phone: "",
     message: "",
     myForm: {},
@@ -265,8 +266,15 @@ export default {
         let emailData = {
           form: myForm,
         };
-        // For different URLs based on subject
+        // TODO: For different URLs based on subject
         let targetURL = "https://mail.icjia.cloud/test";
+        if (this.subject === "R3 General Questions") {
+          // targetURL = "https://mail.icjia.cloud/r3-general";
+          console.log('targetURL = "https://mail.icjia.cloud/r3-general"');
+        } else {
+          // targetURL = "https://mail.icjia.cloud/r3-nofo";
+          console.log('targetURL = "https://mail.icjia.cloud/r3-nofo"');
+        }
 
         let options = {
           method: "POST",
