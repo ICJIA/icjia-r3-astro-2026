@@ -70,6 +70,7 @@
           </v-col></v-row
         ></v-container
       >
+
       <div
         class="mt-10 pb-12"
         style="
@@ -78,6 +79,49 @@
           min-height: 30vh;
         "
       >
+        <div style="background: #ddd" class="px-3 py-3">
+          <v-container
+            ><v-row
+              ><v-col>
+                <h2>Letter from ICJIA's Executive Director</h2>
+                <p>
+                  <img
+                    src="/delrice.jpg"
+                    width="125"
+                    alt="Executive Director Delrice Adams"
+                    style="float: left; margin-right: 15px"
+                  />
+                  Delrice Adams is a justice warrior with over 25 years of
+                  directing social service and public health reform efforts.
+                  Governor J.B. Pritzker appointed Executive Director Adams to
+                  lead the Illinois Criminal Justice Information Authority
+                  (ICJIA) in January 2020. In this role, Executive Director
+                  Adams leverages her expertise in criminal justice, violence
+                  prevention, and racial equity to support the agency’s work.
+                  Her expertise informs and enhances public safety priorities,
+                  equitable grant administration, and evidence-based solutions
+                  to violence prevention.
+                </p>
+                <p>
+                  A visionary leader trained in trauma-informed approaches,
+                  Executive Director Adams co-chairs the Government Alliance for
+                  Safer Communities, a first-of-its-kind cross-governmental
+                  violence prevention advisory group of state, county, and city
+                  officials.
+                </p>
+                <p>
+                  In July 2022, Executive Director Adams was selected into the
+                  highly competitive National Criminal Justice Association
+                  Leadership Academy for Executives where she represented the
+                  great state of Illinois. She received a bachelor's degree in
+                  psychology from the University of California at Berkeley and
+                  holds a master's degree in social service administration from
+                  the University of Chicago.
+                </p>
+              </v-col></v-row
+            ></v-container
+          >
+        </div>
         <v-container fluid>
           <v-row>
             <v-col cols="12" md="7"

@@ -15,9 +15,10 @@
                 color: #fff;
               "
             >
-              <p>
-                <strong>Have an R3 question or need assistance?</strong>
-              </p>
+              <h2 style="color: #fff">
+                Have an R3 question or need assistance?
+              </h2>
+
               <div class="pl-3">
                 <p>
                   Please fill out the form below, and we'll get back to you as
