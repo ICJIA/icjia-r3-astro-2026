@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row>
       <v-col v-for="card in cards" :key="card.title" cols="12" :md="card.flex">
-        <v-card elevation="2" class="info-card" @click="routeToLink(card.link)">
+        <v-card elevation="5" class="info-card" @click="routeToLink(card.link)">
           <v-img
             :src="card.src"
             :lazy-src="card.lazySrc"
