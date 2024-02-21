@@ -23,7 +23,7 @@
                   soon as possible.
                 </p>
               </div>
-              <h2 style="color: #fff">Direct email:</h2>
+              <h2 style="color: #fff">R3 Emails:</h2>
 
               <ul>
                 <li>
