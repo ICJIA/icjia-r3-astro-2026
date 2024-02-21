@@ -96,7 +96,7 @@
                     style="
                       float: left;
                       margin-right: 15px;
-                      border: 1px solid #555;
+                      border: 1px solid #888;
                       border-radius: 50%;
                     "
                   />
