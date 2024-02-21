@@ -6,8 +6,8 @@
           <h1>Contact R3</h1>
           <div class="px-16">
             <v-card
-              class="px-10 py-10"
-              elevation=""
+              class="px-10 pt-7 pb-10"
+              elevation="10"
               style="
                 background: #093356;
                 margin-bottom: 105px;

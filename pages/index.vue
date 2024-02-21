@@ -81,7 +81,7 @@
       >
         <div
           style="background: #ddd; border-bottom: 1px solid #aaa"
-          class="px-3 pt-1 pb-3"
+          class="px-3 pt-0 pb-3"
         >
           <v-container
             ><v-row
@@ -90,9 +90,9 @@
                 <p>
                   <img
                     src="/delrice.jpg"
-                    width="125"
-                    alt="Executive Director Delrice Adams"
-                    style="float: left; margin-right: 15px"
+                    width="150"
+                    alt="ICJIA Executive Director, Delrice Adams"
+                    style="float: left; margin-right: 15px; border-radius: 50%"
                   />
                   Delrice Adams is a justice warrior with over 25 years of
                   directing social service and public health reform efforts.
