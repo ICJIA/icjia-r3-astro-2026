@@ -6,11 +6,12 @@ const _ = require("lodash");
 const yaml = require("yaml");
 const contentDir = path.join(__dirname, "../content");
 const moment = require("moment");
+require("dotenv").config();
 // const SITE_URL = process.env.NUXT_PUBLIC_BASE_URL;
 // const API = process.env.NUXT_PUBLIC_API_BASE_URL;
 
-const SITE_URL = "https://r3dev.icjia.dev";
-const API = "https://r3.icjia-api.cloud";
+const SITE_URL = process.env.NUXT_PUBLIC_BASE_URL;
+const API = process.env.NUXT_PUBLIC_API_BASE_URL;
 
 function formatMarkdown(content) {
   const { body } = content;
