@@ -15,33 +15,32 @@
                 color: #fff;
               "
             >
-              <h2 style="color: #fff">
-                Have an R3 question or need assistance?
-              </h2>
+              <h2 style="color: #fff">Have R3 questions or need assistance?</h2>
 
               <div class="pl-3">
                 <p>
                   Please fill out the form below, and we'll get back to you as
                   soon as possible.
                 </p>
-                <p>Or, contact us via email:</p>
-                <ul>
-                  <li>
-                    <span>General R3-related questions: </span>
-                    <a href="mailto: CJA.r3mbr@illinois.gov" class="white-text"
-                      >CJA.r3mbr@illinois.gov</a
-                    >
-                  </li>
-                  <li>
-                    <span>Questions about the R3 NOFO: </span>
-                    <a
-                      href="mailto: CJA.R3Questions@illinois.gov"
-                      class="white-text"
-                      >CJA.R3Questions@illinois.gov</a
-                    >
-                  </li>
-                </ul>
               </div>
+              <h2 style="color: #fff">Direct email:</h2>
+
+              <ul>
+                <li>
+                  <span>General R3-related questions: </span>
+                  <a href="mailto: CJA.r3mbr@illinois.gov" class="white-text"
+                    >CJA.r3mbr@illinois.gov</a
+                  >
+                </li>
+                <li>
+                  <span>Questions about the R3 NOFO: </span>
+                  <a
+                    href="mailto: CJA.R3Questions@illinois.gov"
+                    class="white-text"
+                    >CJA.R3Questions@illinois.gov</a
+                  >
+                </li>
+              </ul>
             </v-card>
           </div>
 
