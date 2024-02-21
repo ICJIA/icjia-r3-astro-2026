@@ -8,7 +8,7 @@
         class="text-center markdown-body pb-4"
         style="background: #0e4474"
       >
-        <the-context-footer></the-context-footer>
+        <the-context-footer class="hidden-sm-and-down"></the-context-footer>
         <v-container class="mt-0" fill-height>
           <v-row align="center" justify="center">
             <v-col

@@ -92,7 +92,13 @@
                     src="/delrice.jpg"
                     width="150"
                     alt="ICJIA Executive Director, Delrice Adams"
-                    style="float: left; margin-right: 15px; border-radius: 50%"
+                    class="elevation-10"
+                    style="
+                      float: left;
+                      margin-right: 15px;
+                      border: 1px solid #555;
+                      border-radius: 50%;
+                    "
                   />
                   Delrice Adams is a justice warrior with over 25 years of
                   directing social service and public health reform efforts.
