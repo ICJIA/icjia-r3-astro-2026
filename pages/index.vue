@@ -29,10 +29,12 @@
                   <v-btn
                     variant="outlined"
                     color="white"
+                    size="small"
                     class="mt-8 button-href"
                     target="_blank"
                     :href="item.externalURL"
-                    >Find out more&nbsp;&nbsp;<v-icon right
+                    >For More Information or to Apply Now&nbsp;&nbsp;<v-icon
+                      right
                       >mdi-open-in-new</v-icon
                     ></v-btn
                   >
