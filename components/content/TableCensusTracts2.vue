@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3><div class="ml-8">R3 Table here</div></h3>
+    <h3><div class="ml-8">Coming soon!</div></h3>
   </div>
 </template>
 

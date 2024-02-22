@@ -18,12 +18,15 @@ const redirect = () => {
   router.push("/404");
 };
 
-onMounted(() => {
+onMounted(async () => {
+  await nextTick();
+  await nextTick();
   if (data.value.showTableOfContents) {
     showTOC.value = true;
     cols.value = 9;
     console.log("showTOC", showTOC.value);
   }
+  // $("table").attr("id", "board");
 });
 </script>
 
@@ -50,7 +53,7 @@ onMounted(() => {
                 <template #not-found>Document not found</template>
               </ContentDoc>
             </div>
-            <div v-else>{{ redirect() }}</div>
+            <!-- <div v-else>{{ redirect() }}</div> -->
           </v-col>
 
           <v-col
@@ -70,17 +73,33 @@ onMounted(() => {
             <TheTableOfContents :data="data.body.toc" class="toc" />
           </v-col> </v-row
       ></v-container>
-      <!-- <v-container fluid style="margin-top: -40px"
+
+      <v-container
+        fluid
+        style="margin-top: -15px"
+        v-if="path === '/board'"
+        class="hidden-sm-and-down"
         ><v-row
           ><v-col
-            ><div class="text-center mb-12" style="font-size: 12px">
-              Last updated:&nbsp;{{
-                moment(data.updatedAt).utc().format("MMM DD, YYYY")
-              }}
+            ><div
+              class="mb-12 d-flex align-center"
+              style="font-size: 12px; font-weight: 700"
+            >
+              <!-- <a
+                href="https://govappointments.illinois.gov/boardsandcommissions/details/?id=2516cb5e-2007-ee11-8f6d-001dd8068008"
+                target="_blank"
+                >https://govappointments.illinois.gov/boardsandcommissions</a
+              > -->
+              <v-spacer></v-spacer>
+              <span class="">
+                This page last updated:&nbsp;{{
+                  moment(data.updatedAt).fromNow()
+                }}</span
+              >
             </div></v-col
           ></v-row
         ></v-container
-      > -->
+      >
     </div>
   </div>
 </template>
