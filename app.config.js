@@ -71,7 +71,7 @@ export default defineAppConfig({
           link: "/meetings",
         },
         {
-          title: "Board Composition",
+          title: "R3 Program Board",
           link: "/board",
         },
         {

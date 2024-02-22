@@ -1,4 +1,5 @@
 <script setup>
+import moment from "moment";
 definePageMeta({
   middleware: ["is-valid-content"],
 });
@@ -69,6 +70,17 @@ onMounted(() => {
             <TheTableOfContents :data="data.body.toc" class="toc" />
           </v-col> </v-row
       ></v-container>
+      <!-- <v-container fluid style="margin-top: -40px"
+        ><v-row
+          ><v-col
+            ><div class="text-center mb-12" style="font-size: 12px">
+              Last updated:&nbsp;{{
+                moment(data.updatedAt).utc().format("MMM DD, YYYY")
+              }}
+            </div></v-col
+          ></v-row
+        ></v-container
+      > -->
     </div>
   </div>
 </template>
