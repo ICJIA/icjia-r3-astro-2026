@@ -10,14 +10,18 @@
             cols="12"
             md="12"
           >
-            <v-card class="hoverCard" style="min-height: 500px">
+            <v-card
+              class="info-card"
+              style="min-height: 600px"
+              @click="gotoURL(item.externalURL)"
+            >
               <v-img
                 cover
                 :src="item.src"
                 :lazy-src="item.lazySrc"
                 aspect-ratio="1"
                 class="grey lighten-2"
-                height="550"
+                height="650"
                 crossorigin
               >
                 <div class="text-center px-12" style="margin-top: 100px">
@@ -30,11 +34,22 @@
                     variant="outlined"
                     color="white"
                     size="small"
-                    class="mt-8 button-href"
+                    class="mt-8 button-href hidden-sm-and-down"
                     target="_blank"
                     :href="item.externalURL"
                     >For More Information or to Apply Now&nbsp;&nbsp;<v-icon
                       right
+                      >mdi-open-in-new</v-icon
+                    ></v-btn
+                  >
+                  <v-btn
+                    variant="outlined"
+                    color="white"
+                    size="small"
+                    class="mt-8 button-href hidden-md-and-up"
+                    target="_blank"
+                    :href="item.externalURL"
+                    >Apply Now&nbsp;&nbsp;<v-icon right
                       >mdi-open-in-new</v-icon
                     ></v-btn
                   >
@@ -248,6 +263,10 @@ const formatDate = (date) => {
     day: "numeric",
   };
   return new Date(date).toLocaleDateString("en-US", options);
+};
+
+const gotoURL = (url) => {
+  window.open(url, "_blank");
 };
 
 onMounted(() => {

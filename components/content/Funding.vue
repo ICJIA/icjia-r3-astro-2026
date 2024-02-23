@@ -10,14 +10,18 @@
           cols="12"
           class="mt-10 mb-12"
         >
-          <v-card class="" style="margin-top: -25px">
+          <v-card
+            class="info-card"
+            style="margin-top: -25px"
+            @click="gotoURL(item)"
+          >
             <v-img
               cover
               crossorigin
               :src="item.src"
               :lazy-src="item.lazySrc"
               aspect-ratio="1"
-              height="500"
+              height="750"
             >
               <div class="text-center px-12" style="margin-top: 100px">
                 <h1 class="nofo-title mt-3">{{ item.title }}</h1>
@@ -29,10 +33,21 @@
                   variant="outlined"
                   color="white"
                   size="small"
-                  class="mt-8 button-href"
+                  class="mt-8 button-href hidden-sm-and-down"
                   target="_blank"
                   :href="item.externalURL"
                   >For More Information or to Apply Now&nbsp;&nbsp;<v-icon right
+                    >mdi-open-in-new</v-icon
+                  ></v-btn
+                >
+                <v-btn
+                  variant="outlined"
+                  color="white"
+                  size="small"
+                  class="mt-8 button-href hidden-md-and-up"
+                  target="_blank"
+                  :href="item.externalURL"
+                  >Apply Now&nbsp;&nbsp;<v-icon right
                     >mdi-open-in-new</v-icon
                   ></v-btn
                 >
@@ -60,6 +75,11 @@ const { splash } = useAppConfig();
 const { path } = useRoute();
 const router = useRouter();
 const isMounted = ref(false);
+
+const gotoURL = ({ externalURL }) => {
+  window.open(externalURL, "_blank");
+  console.log(externalURL);
+};
 
 onMounted(() => {
   isMounted.value = true;
