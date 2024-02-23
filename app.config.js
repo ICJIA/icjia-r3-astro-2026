@@ -2,11 +2,11 @@ export default defineAppConfig({
   title: "R3 (R3)",
   description: "R3 description.",
   api: "https://r3.icjia-api.cloud",
-  root: "https://r3dev.icjia.dev",
+  root: "https://r3.illinois.gov",
 
   splash: [
     {
-      externalURL: "https://r3dev.icjia.dev/",
+      externalURL: "https://icjia.illinois.gov",
       src: "https://r3.icjia-api.cloud/uploads/large_new_splash_03_9b9975cfc5.jpg",
       lazySrc:
         "https://r3.icjia-api.cloud/uploads/thumbnail_new_splash_03_9b9975cfc5.jpg",

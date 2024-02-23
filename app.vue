@@ -58,7 +58,7 @@ watchEffect(() => {
     isHome.value = false;
   }
 });
-// let fullPath = ref(`https://i2i.icjia.dev${routePath.value}`);
+
 useHead({
   link: [
     {
