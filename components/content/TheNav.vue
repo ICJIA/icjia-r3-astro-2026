@@ -41,7 +41,7 @@
             font-weight: 900 !important;
             font-size: 22px;
             letter-spacing: 0.004em;
-            font-family: 'Roboto', sans-serif !important;
+            font-family: &quot;Roboto&quot;, sans-serif !important;
           "
           class="agency app-title"
           @click="$router.push('/')"
@@ -55,7 +55,7 @@
             font-weight: 900 !important;
             font-size: 14px;
             letter-spacing: 0.004em;
-            font-family: 'Roboto', sans-serif !important;
+            font-family: &quot;Roboto&quot;, sans-serif !important;
           "
           class="agency app-title"
           @click="$router.push('/')"
@@ -69,7 +69,7 @@
             font-weight: 900 !important;
             font-size: 30px;
             letter-spacing: 0.004em;
-            font-family: 'Roboto', sans-serif !important;
+            font-family: &quot;Roboto&quot;, sans-serif !important;
           "
           class="agency app-title"
           @click="$router.push('/')"
@@ -162,7 +162,7 @@
           <v-icon icon="mdi-magnify" size="large"></v-icon>
         </v-btn>
 
-        <v-btn
+        <!-- <v-btn
           size="default"
           class="hidden-md-and-down navItem"
           style="font-weight: 900 !important; font-size: 16px"
@@ -170,7 +170,7 @@
         >
           <v-tooltip activator="parent" location="bottom"> Translate </v-tooltip
           ><v-icon icon="mdi-web" size="large"></v-icon
-        ></v-btn>
+        ></v-btn> -->
 
         <span
           class="hover hamburger text-center hidden-md-and-up"
