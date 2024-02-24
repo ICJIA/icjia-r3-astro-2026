@@ -14,6 +14,7 @@
             class="info-card"
             style="margin-top: -25px"
             @click="gotoURL(item)"
+            v-if="!underConstruction"
           >
             <v-img
               cover
@@ -61,6 +62,50 @@
                 </div>
               </template>
             </v-img>
+          </v-card>
+          <v-card class="" style="margin-top: -25px" v-else>
+            <v-img
+              cover
+              crossorigin
+              :src="item.src"
+              :lazy-src="item.lazySrc"
+              aspect-ratio="1"
+              height="750"
+            >
+              <div class="text-center px-12" style="margin-top: 100px">
+                <h1 class="nofo-title mt-3">
+                  2025 SERVICE DELIVERY GRANT OPPORTUNITIES
+                </h1>
+                <div class="nofo-tagline">
+                  {{ item.tagline }}
+                </div>
+
+                <v-btn
+                  variant="outlined"
+                  color="white"
+                  size="small"
+                  class="mt-8 button-href hidden-sm-and-down"
+                  >Coming Soon!</v-btn
+                >
+                <v-btn
+                  variant="outlined"
+                  color="white"
+                  size="small"
+                  class="mt-8 button-href hidden-md-and-up"
+                  target="_blank"
+                  :href="item.externalURL"
+                  >Coming Soon!</v-btn
+                >
+              </div>
+              <template #placeholder>
+                <div class="d-flex align-center justify-center fill-height">
+                  <v-progress-circular
+                    indeterminate
+                    color="grey-lighten-4"
+                  ></v-progress-circular>
+                </div>
+              </template>
+            </v-img>
           </v-card> </v-col></v-row
     ></v-container>
     <v-container v-else
@@ -75,6 +120,7 @@ const { splash } = useAppConfig();
 const { path } = useRoute();
 const router = useRouter();
 const isMounted = ref(false);
+const { underConstruction } = useAppConfig();
 
 const gotoURL = ({ externalURL }) => {
   window.open(externalURL, "_blank");

@@ -306,13 +306,18 @@ export default {
           form: myForm,
         };
         // TODO: For different URLs based on subject
-        let targetURL = "https://mail.icjia.cloud/test";
+        // let targetURL = "https://mail.icjia.cloud/test";
+        let targetURL;
         if (this.subject === "R3 General Questions") {
-          // targetURL = "https://mail.icjia.cloud/r3-general";
-          console.log('targetURL = "https://mail.icjia.cloud/r3-general"');
+          targetURL = "https://mail.icjia.cloud/internet/r3-general";
+          console.log(
+            'targetURL = "https://mail.icjia.cloud/internet/r3-general"'
+          );
         } else {
-          // targetURL = "https://mail.icjia.cloud/r3-nofo";
-          console.log('targetURL = "https://mail.icjia.cloud/r3-nofo"');
+          targetURL = "https://mail.icjia.cloud/internet/r3-nofo";
+          console.log(
+            'targetURL = "https://mail.icjia.cloud/internet/r3-nofo"'
+          );
         }
 
         let options = {

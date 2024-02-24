@@ -14,6 +14,7 @@
               class="info-card"
               style="min-height: 600px"
               @click="gotoURL(item.externalURL)"
+              v-if="!underConstruction"
             >
               <v-img
                 cover
@@ -53,11 +54,43 @@
                       >mdi-open-in-new</v-icon
                     ></v-btn
                   >
-                  <!-- <v-tooltip text="Tooltip">
-                    <template #activator="{ props }">
-                      <v-btn v-bind="props">Tooltip</v-btn>
-                    </template>
-                  </v-tooltip> -->
+                </div>
+                <template #placeholder>
+                  <div class="d-flex align-center justify-center fill-height">
+                    <v-progress-circular
+                      indeterminate
+                      color="grey-lighten-4"
+                    ></v-progress-circular>
+                  </div>
+                </template>
+              </v-img>
+            </v-card>
+
+            <v-card class="" style="min-height: 600px" v-else>
+              <v-img
+                cover
+                :src="item.src"
+                :lazy-src="item.lazySrc"
+                aspect-ratio="1"
+                class="grey lighten-2"
+                height="650"
+                crossorigin
+              >
+                <div class="text-center px-12" style="margin-top: 100px">
+                  <h1 class="nofo-title mt-3">
+                    2025 SERVICE DELIVERY GRANT OPPORTUNITIES
+                  </h1>
+                  <div class="nofo-tagline">
+                    {{ item.tagline }}
+                  </div>
+
+                  <v-btn
+                    variant="outlined"
+                    color="white"
+                    size="small"
+                    class="mt-8 button-href hidden-sm-and-down"
+                    >Coming Soon!</v-btn
+                  >
                 </div>
                 <template #placeholder>
                   <div class="d-flex align-center justify-center fill-height">
@@ -218,6 +251,7 @@
 <script setup>
 import _ from "lodash";
 import moment from "moment";
+const { underConstruction } = useAppConfig();
 // definePageMeta({
 //   middleware: ["is-valid-content"],
 // });
