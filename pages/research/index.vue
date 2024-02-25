@@ -29,6 +29,20 @@
     <v-row>
       <v-col>
         <h1>R3 Research</h1>
+
+        <p>
+          The
+          <a href="https://icjia.illinois.gov" target="_blank"
+            >Illinois Criminal Justice Information Authority (ICJIA)</a
+          >
+          is the state's lead agency on justice funding and research.
+          <a href="https://icjia.illinois.gov/researchhub" target="_blank"
+            >ICJIA's Research Hub</a
+          >
+          provides a host of resources (publications, continuums, dashboards,
+          datasets) to support data-driven decision-making for improved
+          outcomes.
+        </p>
         <!-- <h2 class="text-center" style="border: none; font-size: 22px">
           Filter by tag:
         </h2>
