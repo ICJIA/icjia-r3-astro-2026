@@ -10,25 +10,30 @@
     </div>
 
     <!-- <ClientOnly fallback-tag="span" fallback="Loading R3 Map..."> -->
-    <iframe
-      style="width: 100%; height: 740px; border: none"
-      title="R3 Eligible Service Areas"
-      src="https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068"
-    ></iframe>
-    <div style="font-size: 11px" class="text-left mt-1 hidden-sm-and-down">
-      Source:&nbsp;
-      <a
-        href="https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068"
-      >
-        https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068
-      </a>
+    <div v-if="!underConstruction">
+      <iframe
+        style="width: 100%; height: 740px; border: none"
+        title="R3 Eligible Service Areas"
+        src="https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068"
+      ></iframe>
+      <div style="font-size: 11px" class="text-left mt-1 hidden-sm-and-down">
+        Source:&nbsp;
+        <a
+          href="https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068"
+        >
+          https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068
+        </a>
+      </div>
+    </div>
+    <div v-else>
+      <h2>New 2024 R3 map coming soon!</h2>
     </div>
     <!-- </ClientOnly> -->
   </div>
 </template>
 
-<script>
-export default {};
+<script setup>
+const { underConstruction } = useAppConfig();
 </script>
 
 <style>
