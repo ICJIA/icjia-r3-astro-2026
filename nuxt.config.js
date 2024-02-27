@@ -38,7 +38,7 @@ export default defineNuxtConfig({
           type: "text/javascript",
         },
         {
-          src: "https://plausible.icjia.cloud/js/script.js",
+          src: "https://plausible.icjia.cloud/js/script.outbound-links.js",
           "data-domain": "r3.illinois.gov",
           defer: true,
         },
