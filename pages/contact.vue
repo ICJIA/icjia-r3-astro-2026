@@ -23,15 +23,15 @@
                   soon as possible.
                 </p>
               </div>
-              <h2 style="color: #fff">R3 Emails:</h2>
+              <h2 style="color: #fff">R3 Email:</h2>
 
               <ul>
-                <li>
+                <!-- <li>
                   <span>General R3-related questions: </span>
                   <a href="mailto: CJA.r3mbr@illinois.gov" class="white-text"
                     >CJA.r3mbr@illinois.gov</a
                   >
-                </li>
+                </li> -->
                 <li>
                   <span>Questions about the R3 NOFO: </span>
                   <a
@@ -309,9 +309,9 @@ export default {
         // let targetURL = "https://mail.icjia.cloud/test";
         let targetURL;
         if (this.subject === "R3 General Questions") {
-          targetURL = "https://mail.icjia.cloud/internet/r3-general";
+          targetURL = "https://mail.icjia.cloud/internet/r3-nofo";
           console.log(
-            'targetURL = "https://mail.icjia.cloud/internet/r3-general"'
+            'targetURL = "https://mail.icjia.cloud/internet/r3-nofo"'
           );
         } else {
           targetURL = "https://mail.icjia.cloud/internet/r3-nofo";
