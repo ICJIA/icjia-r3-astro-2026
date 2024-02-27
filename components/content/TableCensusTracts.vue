@@ -24,7 +24,7 @@
             class="text-right"
             style="font-size: 11px; color: #222; font-weight: 900"
           >
-            Last updated: 12/21/2021
+            Last updated: 2/27/2024
           </div>
         </v-col>
       </v-row>
