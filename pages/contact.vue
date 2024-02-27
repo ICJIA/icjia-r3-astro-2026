@@ -33,7 +33,7 @@
                   >
                 </li> -->
                 <li>
-                  <span>Questions about the R3 NOFO: </span>
+                  <!-- <span>Questions about the R3 NOFO: </span> -->
                   <a
                     href="mailto: CJA.R3Questions@illinois.gov"
                     class="white-text"
