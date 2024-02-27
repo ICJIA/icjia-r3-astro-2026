@@ -134,9 +134,9 @@ onMounted(() => {
           [25, 50, 100, 250, "All"],
         ],
       });
-    }, 1000);
+    }, 1500);
 
-    doubleScroll(document.getElementById("doublescroll"));
+    // doubleScroll(document.getElementById("doublescroll"));
     isLoaded.value = true;
   });
 });
