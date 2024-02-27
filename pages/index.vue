@@ -129,7 +129,7 @@
           min-height: 30vh;
         "
       >
-        <div
+        <!-- <div
           style="background: #ddd; border-bottom: 1px solid #aaa"
           class="px-3 pt-0 pb-3"
         >
@@ -180,7 +180,7 @@
               </v-col></v-row
             ></v-container
           >
-        </div>
+        </div> -->
         <v-container fluid>
           <v-row>
             <v-col cols="12" md="7"
