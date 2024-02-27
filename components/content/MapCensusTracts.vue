@@ -4,9 +4,9 @@
     <div style="font-weight: 900" class="flex d-flex mb-2 text-left">
       <!-- <span>* indicates high need R3 zone</span> -->
       <v-spacer></v-spacer>
-      <span class="mb-3 text-right" style="font-size: 11px; color: #333">
+      <!-- <span class="mb-3 text-right" style="font-size: 11px; color: #333">
         Last updated: 02/27/2024
-      </span>
+      </span> -->
     </div>
 
     <!-- <ClientOnly fallback-tag="span" fallback="Loading R3 Map..."> -->
