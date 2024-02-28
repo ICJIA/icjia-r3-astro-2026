@@ -10,7 +10,7 @@
     </div>
 
     <!-- <ClientOnly fallback-tag="span" fallback="Loading R3 Map..."> -->
-    <div v-if="!underConstruction">
+    <div>
       <iframe
         style="width: 100%; height: 740px; border: none"
         title="R3 Eligible Service Areas"
@@ -25,9 +25,7 @@
         </a>
       </div>
     </div>
-    <div v-else>
-      <h2>New 2024 R3 map coming soon!</h2>
-    </div>
+
     <!-- </ClientOnly> -->
   </div>
 </template>
