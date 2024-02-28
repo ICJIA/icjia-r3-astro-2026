@@ -15,15 +15,15 @@
 <script setup>
 const query = useRoute().query;
 const router = useRouter();
-const referrer = ref(
-  query.referrer ? decodeURIComponent(query.referrer) : null
-);
+const referrer = ref(query.referrer ? decodeURIComponent(query.referrer) : null);
 
-const destination = ref(
-  query.destination ? decodeURIComponent(query.destination) : null
-);
+const destination = ref(query.destination ? decodeURIComponent(query.destination) : null);
 
-console.log("404 -- referrer: ", referrer.value, ' destination: ', destination.value);
+console.log("404 -- referrer: ", referrer.value, " destination: ", destination.value);
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   useTrackEvent("404", { props: { path: document.location.pathname } });
+// });
 
 const goHome = () => router.push("/");
 
@@ -35,5 +35,9 @@ useHead({
       content: "404 - Page not found",
     },
   ],
+});
+
+onMounted(() => {
+  useTrackEvent("404", { props: { path: document.location.pathname } });
 });
 </script>

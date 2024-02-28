@@ -107,6 +107,7 @@ export default defineNuxtConfig({
     apiHost: "https://plausible.icjia.cloud",
     // Prevent tracking on localhost
     ignoredHostnames: ["localhost"],
+    autoOutboundTracking: true,
   },
   pinia: {
     autoImports: ["defineStore", "acceptHMRUpdate"],
