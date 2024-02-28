@@ -18,5 +18,22 @@ const router = useRouter();
 const referrer = ref(
   query.referrer ? decodeURIComponent(query.referrer) : null
 );
+
+const destination = ref(
+  query.destination ? decodeURIComponent(query.destination) : null
+);
+
+console.log("404 -- referrer: ", referrer.value, ' destination: ', destination.value);
+
 const goHome = () => router.push("/");
+
+useHead({
+  title: "404 Page Not Found",
+  meta: [
+    {
+      name: "description",
+      content: "404 - Page not found",
+    },
+  ],
+});
 </script>

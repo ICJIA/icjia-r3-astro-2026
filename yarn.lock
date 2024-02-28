@@ -1168,7 +1168,7 @@
     unist-util-visit "^5.0.0"
     unwasm "^0.3.7"
 
-"@nuxtjs/plausible@0.2.4":
+"@nuxtjs/plausible@^0.2.4":
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/@nuxtjs/plausible/-/plausible-0.2.4.tgz#970705847bbb5307cd7ce4f117c4fc9b09c2f771"
   integrity sha512-9HrSl9ZGKS/7bULAt8uzAGo9BJyIZebzRSLQD8ZhiODaGyRdEQlgcJBw5JgUzjcC5n4T0ZlX3FC6C3Wyp7opgA==
@@ -1807,7 +1807,7 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.4.21.tgz#de526a9059d0a599f0b429af7037cd0c3ed7d5a1"
   integrity sha512-PuJe7vDIi6VYSinuEbUIQgMIRZGgM8e4R+G+/dQTk0X1NEdvgvvgv7m+rfmDH1gZzyA1OjjoWskvHlfRNfQf3g==
 
-"@vuetify/loader-shared@^2.0.1":
+"@vuetify/loader-shared@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@vuetify/loader-shared/-/loader-shared-2.0.2.tgz#9b5aadee87402516ca7d332f1472e42cf476a411"
   integrity sha512-91itRxkTRKUhEZhWR/ICfYml1WkVxC7/DIeJEyUzzzLQxRo9wpyk+rhFtwHUUJE2O8wL1VG9L6TkR5SIUswwKQ==
@@ -5234,10 +5234,10 @@ nuxi@^3.10.1:
   optionalDependencies:
     fsevents "~2.3.3"
 
-nuxt-gtag@2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/nuxt-gtag/-/nuxt-gtag-2.0.3.tgz#b517d9c33bb4b57532988313abfb51c3cabb9bd1"
-  integrity sha512-XhwY9pDTnynR4RBFwjQ9cz3bCy/1/pMX0ikuoSUdZrLhbwGSq/SXASxsDOO+vEhQ+46eQHCo0c4/9ob3VzUocQ==
+nuxt-gtag@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/nuxt-gtag/-/nuxt-gtag-2.0.4.tgz#b2b040e08e9ae7e3848a23b7a1c9d0471ba449ab"
+  integrity sha512-oQgLc+GlxX0W0buYW+HYv6G+W5rS2yARA3kITOYN4rPURRbbK15G9XzKErUF8hhQLmTUj3rFGQmWeVzrWuscig==
   dependencies:
     "@nuxt/kit" "^3.10.3"
     defu "^6.1.4"
@@ -7215,12 +7215,12 @@ vite-plugin-vue-inspector@^4.0.2:
     kolorist "^1.8.0"
     magic-string "^0.30.4"
 
-vite-plugin-vuetify@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vite-plugin-vuetify/-/vite-plugin-vuetify-2.0.1.tgz#172ffb6c46fec469fa96b3df03fd11b90d48f5d6"
-  integrity sha512-GlRVAruohE8b0FqmeYYh1cYg3n8THGOv066uMA44qLv9uhUxSLw55CS7fi2yU0wH363TJ2vq36zUsPTjRFrjGQ==
+vite-plugin-vuetify@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/vite-plugin-vuetify/-/vite-plugin-vuetify-2.0.2.tgz#0e764957ebae16c1b05189a67ddc185aa1ef3ff7"
+  integrity sha512-steZz+B3Fj06mzQ9RyV1ewwQ8yGIU+l/Pi3KQhKhyRJSMS5vKCh2jThglbUBLdJER5vv4jxl0FJujPuKJ41tJw==
   dependencies:
-    "@vuetify/loader-shared" "^2.0.1"
+    "@vuetify/loader-shared" "^2.0.2"
     debug "^4.3.3"
     upath "^2.0.1"
 
@@ -7381,6 +7381,7 @@ wide-align@^1.1.2:
     string-width "^1.0.2 || 2 || 3 || 4"
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
