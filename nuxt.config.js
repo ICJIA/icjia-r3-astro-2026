@@ -37,11 +37,11 @@ export default defineNuxtConfig({
           src: "https://cdn.datatables.net/v/dt/dt-1.13.1/b-2.3.3/b-print-2.3.3/fh-3.3.1/r-2.4.0/sb-1.4.0/sp-2.1.0/datatables.min.js",
           type: "text/javascript",
         },
-        // {
-        //   src: "https://plausible.icjia.cloud/js/script.tagged-events.outbound-links.js",
-        //   "data-domain": "r3.illinois.gov",
-        //   defer: true,
-        // },
+        {
+          src: "https://plausible.icjia.cloud/js/script.tagged-events.outbound-links.js",
+          "data-domain": "r3.illinois.gov",
+          defer: true,
+        },
         // {
         //   src: "plausibleEvents.js",
         // },
@@ -82,7 +82,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/google-fonts",
     "nuxt-gtag",
-    "@nuxtjs/plausible",
+    // "@nuxtjs/plausible",
     // "@nuxtjs/apollo",
     "@pinia/nuxt",
     // "@nuxt/image-edge",
