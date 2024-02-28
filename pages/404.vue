@@ -38,9 +38,9 @@ useHead({
 });
 
 onMounted(() => {
-  useTrackEvent("404", {
+  useTrackEvent("404-error", {
     props: {
-      path: document.location.pathname,
+      // path: document.location.pathname,
       referrer: referrer.value,
       destination: destination.value,
     },
