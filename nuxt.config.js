@@ -78,7 +78,7 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxtjs/google-fonts",
-    // 'nuxt-gtag',
+    "nuxt-gtag",
     // "@nuxtjs/apollo",
     "@pinia/nuxt",
     // "@nuxt/image-edge",
@@ -96,9 +96,9 @@ export default defineNuxtConfig({
   imports: {
     dirs: ["stores"],
   },
-  // gtag: {
-  //   id: 'G-G7XDWC7WPG'
-  // },
+  gtag: {
+    id: "G-G7XDWC7WPG",
+  },
   pinia: {
     autoImports: ["defineStore", "acceptHMRUpdate"],
     storesDirs: ["./stores/**"],
