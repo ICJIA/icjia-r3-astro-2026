@@ -38,6 +38,12 @@ useHead({
 });
 
 onMounted(() => {
-  useTrackEvent("404", { props: { path: document.location.pathname } });
+  useTrackEvent("404", {
+    props: {
+      path: document.location.pathname,
+      referrer: referrer.value,
+      destination: destination.value,
+    },
+  });
 });
 </script>
