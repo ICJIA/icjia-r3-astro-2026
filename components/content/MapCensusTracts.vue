@@ -2,7 +2,7 @@
   <div class="my-10">
     <!-- <div class="iframe-container"> -->
     <div style="font-weight: 900" class="flex d-flex mb-2 text-left">
-      <!-- <span>* indicates high need R3 zone</span> -->
+      <!-- <span>* indicates high need R3 area</span> -->
       <v-spacer></v-spacer>
       <span class="mb-3 text-right" style="font-size: 11px; color: #333">
         Last updated: 02/28/2024
