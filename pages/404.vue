@@ -21,10 +21,6 @@ const destination = ref(query.destination ? decodeURIComponent(query.destination
 
 console.log("404 -- referrer: ", referrer.value, " destination: ", destination.value);
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   useTrackEvent("404", { props: { path: document.location.pathname } });
-// });
-
 const goHome = () => router.push("/");
 
 useHead({
