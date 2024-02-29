@@ -20,9 +20,9 @@
               </nuxt-link>
             </div> -->
             <span style="font-size: 12px; font-weight: 700">
-              <!-- <span style="text-transform: uppercase; font-weight: 900"
-                        >{{ item.category }}&nbsp;|&nbsp;</span
-                      > -->
+              <span style="text-transform: uppercase; font-weight: 900"
+                >{{ item.category }}&nbsp;|&nbsp;</span
+              >
               {{ moment(item.postDate).format("MMMM DD, YYYY") }}
             </span>
             <h3 style="margin-top: 5px; font-weight: 700">{{ item.title }}</h3>

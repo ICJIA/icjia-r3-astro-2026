@@ -6,11 +6,11 @@ const { v4: uuidv4 } = require("uuid");
 const jsonfile = require("jsonfile");
 const pages = require("../public/pages.json");
 const posts = require("../public/posts.json");
-const faqs = require("../public/faqs.json");
+// const faqs = require("../public/faqs.json");
 const resources = require("../public/resources.json");
 const manualPages = require("../public/manual.json");
 
-const site = [...pages, ...posts, ...faqs, ...resources, ...manualPages];
+const site = [...pages, ...posts, ...resources, ...manualPages];
 
 const searchIndex = site.map((item) => {
   // console.log(item.attributes);

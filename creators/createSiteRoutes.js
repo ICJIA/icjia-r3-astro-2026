@@ -2,7 +2,7 @@ const { v4: uuidv4 } = require("uuid");
 const jsonfile = require("jsonfile");
 const pageRoutes = require("../public/routesPages.json");
 const newsRoutes = require("../public/routesNews.json");
-const faqRoutes = require("../public/routesFaqs.json");
+// const faqRoutes = require("../public/routesFaqs.json");
 const resourceRoutes = require("../public/routesResources.json");
 const myManualRoutes = require("../public/routesManual.json");
 const dotenv = require("dotenv");
@@ -13,7 +13,7 @@ const appRoutes = Array.from(
   new Set([
     ...pageRoutes,
     ...newsRoutes,
-    ...faqRoutes,
+    // ...faqRoutes,
     ...resourceRoutes,
     ...myManualRoutes,
   ])

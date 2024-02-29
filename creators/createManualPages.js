@@ -148,29 +148,29 @@ const manualPages = [
       type: "page",
     },
   },
-  {
-    id: uuidv4(),
-    attributes: {
-      id: uuidv4(),
-      postDate: moment().format(),
-      title: "Frequently Asked Questions (Printer Friendly)",
-      slug: "faqs/single-page",
-      dateOverride: "",
-      hideFromSearch: false,
-      hideFromSitemap: false,
-      showTableOfContents: false,
-      summary: "Frequently Asked Questions (Printer Friendly)",
-      body: "",
-      createdAt: moment().format(),
-      updatedAt: moment().format(),
-      publishedAt: moment().format(),
-      searchMeta:
-        "questions printer friendly single FAQs faqs help assistance technical funding apply eligibility ",
-      path: "/faqs/single-page",
-      url: `${SITE_URL}/faqs/single-page`,
-      type: "page",
-    },
-  },
+  // {
+  //   id: uuidv4(),
+  //   attributes: {
+  //     id: uuidv4(),
+  //     postDate: moment().format(),
+  //     title: "Frequently Asked Questions (Printer Friendly)",
+  //     slug: "faqs/single-page",
+  //     dateOverride: "",
+  //     hideFromSearch: false,
+  //     hideFromSitemap: false,
+  //     showTableOfContents: false,
+  //     summary: "Frequently Asked Questions (Printer Friendly)",
+  //     body: "",
+  //     createdAt: moment().format(),
+  //     updatedAt: moment().format(),
+  //     publishedAt: moment().format(),
+  //     searchMeta:
+  //       "questions printer friendly single FAQs faqs help assistance technical funding apply eligibility ",
+  //     path: "/faqs/single-page",
+  //     url: `${SITE_URL}/faqs/single-page`,
+  //     type: "page",
+  //   },
+  // },
 ];
 
 // /faqs/single-page/faqs/single-page

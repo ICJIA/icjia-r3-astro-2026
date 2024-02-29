@@ -3,7 +3,7 @@
     <v-container
       ><v-row
         ><v-col>
-          <div v-if="isMounted && data?.title">
+          <v-card v-if="isMounted && data?.title" class="mt-10 px-10 py-5">
             <h2>{{ data.title }}</h2>
 
             <div v-html="md.render(data.markdown)"></div>
@@ -13,15 +13,14 @@
               style="font-size: 13px; font-weight: 700; margin-top: 60px"
               v-if="isItUpdated(data)"
             >
-              Published
               <span style="font-weight: 700">
-                {{ moment(data.postDate).format("MMMM DD  YYYY, h:mm a") }}
+                {{ moment(data.postDate).format("MMMM DD,  YYYY h:mm a") }}
               </span>
 
               <span style="font-weight: 700">
                 | Updated
                 {{
-                  moment(data.updatedAt).format("MMMM DD  YYYY, h:mm a")
+                  moment(data.updatedAt).format("MMMM DD,  YYYY h:mm a")
                 }}</span
               >
             </div>
@@ -30,12 +29,11 @@
               class="text-right"
               style="font-size: 13px; font-weight: 700; margin-top: 60px"
             >
-              Published
               <span style="font-weight: 700">
-                {{ moment(data.postDate).format("MMMM DD  YYYY, h:mm a") }}
+                {{ moment(data.postDate).format("MMMM DD,  YYYY h:mm a") }}
               </span>
             </div>
-          </div>
+          </v-card>
 
           <div v-else>
             <ThePageLoader></ThePageLoader>
