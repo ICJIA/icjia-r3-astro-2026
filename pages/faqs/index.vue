@@ -203,7 +203,7 @@
                     "
                     class="pl-3 pt-3 pb-3"
                   >
-                    <span v-if="isItUpdated(item)"
+                    <!-- <span v-if="isItUpdated(item)"
                       ><v-chip
                         size="small"
                         style="
@@ -219,9 +219,9 @@
                       ></span
                     >
                     <span v-else>
-                      <!-- <span style="text-transform: uppercase; font-weight: 900"
-                        >{{ item.category }}&nbsp;|&nbsp;</span
-                      > -->
+                      {{ moment(item.postDate).format("MMMM DD, YYYY") }}
+                    </span> -->
+                    <span>
                       {{ moment(item.postDate).format("MMMM DD, YYYY") }}
                     </span>
                   </div>
