@@ -129,18 +129,18 @@
           min-height: 30vh;
         "
       >
-        <!-- <div
+        <div
           style="background: #ddd; border-bottom: 1px solid #aaa"
           class="px-3 pt-0 pb-3"
         >
           <v-container
             ><v-row
               ><v-col>
-                <h2>Letter from ICJIA's Executive Director</h2>
+                <h2>R3 Website Letter From the Director</h2>
                 <p>
                   <img
                     src="/delrice.jpg"
-                    width="150"
+                    width="140"
                     alt="ICJIA Executive Director, Delrice Adams"
                     class="elevation-10"
                     style="
@@ -150,37 +150,34 @@
                       border-radius: 50%;
                     "
                   />
-                  Delrice Adams is a justice warrior with over 25 years of
-                  directing social service and public health reform efforts.
-                  Governor J.B. Pritzker appointed Executive Director Adams to
-                  lead the Illinois Criminal Justice Information Authority
-                  (ICJIA) in January 2020. In this role, Executive Director
-                  Adams leverages her expertise in criminal justice, violence
-                  prevention, and racial equity to support the agency’s work.
-                  Her expertise informs and enhances public safety priorities,
-                  equitable grant administration, and evidence-based solutions
-                  to violence prevention.
+                  Thank you for visiting the Restore, Reinvest, Review (R3)
+                  program website. We appreciate your interest in the R3 mission
+                  of investing in communities most affected by systemic racism
+                  and disinvestment.
                 </p>
                 <p>
-                  A visionary leader trained in trauma-informed approaches,
-                  Executive Director Adams co-chairs the Government Alliance for
-                  Safer Communities, a first-of-its-kind cross-governmental
-                  violence prevention advisory group of state, county, and city
-                  officials.
+                  In collaboration with Lt. Gov. Stratton and the Justice Equity
+                  and Opportunity Initiative, ICJIA has provided funding access
+                  and availability to over 400 new small, localized grassroots
+                  organizations that, without R3, may not have received state
+                  grants
                 </p>
                 <p>
-                  In July 2022, Executive Director Adams was selected into the
-                  highly competitive National Criminal Justice Association
-                  Leadership Academy for Executives where she represented the
-                  great state of Illinois. She received a bachelor's degree in
-                  psychology from the University of California at Berkeley and
-                  holds a master's degree in social service administration from
-                  the University of Chicago.
+                  As we initiate our third R3 Notice of Funding Opportunity, we
+                  remain committed to ensuring equity, fairness, and opportunity
+                  in communities across the state. We will continue to empower
+                  organizations to create innovative programs and strategies
+                  that address the diverse needs of their communities and,
+                  ultimately, build a safer Illinois.
                 </p>
+                <div>
+                  <strong>Delrice Adams</strong><br />
+                  ICJIA Executive Director
+                </div>
               </v-col></v-row
             ></v-container
           >
-        </div> -->
+        </div>
         <v-container fluid>
           <v-row>
             <v-col cols="12" md="7"
