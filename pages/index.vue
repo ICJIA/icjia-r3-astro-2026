@@ -136,7 +136,7 @@
           <v-container
             ><v-row
               ><v-col>
-                <h2>R3 Website Letter From the Director</h2>
+                <h2>Letter From the Director</h2>
                 <p>
                   <img
                     src="/DirectorAdamsResized.jpg"
