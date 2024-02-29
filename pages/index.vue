@@ -139,15 +139,15 @@
                 <h2>R3 Website Letter From the Director</h2>
                 <p>
                   <img
-                    src="/delrice.jpg"
+                    src="/DirectorAdamsResized.jpg"
                     width="140"
                     alt="ICJIA Executive Director, Delrice Adams"
-                    class="elevation-10"
+                    class="elevation-12"
                     style="
                       float: left;
                       margin-right: 15px;
                       border: 1px solid #888;
-                      border-radius: 50%;
+                      border-radius: 80%;
                     "
                   />
                   Thank you for visiting the Restore, Reinvest, Review (R3)
