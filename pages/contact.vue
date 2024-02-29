@@ -19,8 +19,8 @@
 
               <div class="pl-3">
                 <p>
-                  Please fill out the form below, and we'll get back to you as soon as
-                  possible.
+                  Please fill out the form below, and we'll get back to you as
+                  soon as possible.
                 </p>
               </div>
               <h2 style="color: #fff">R3 Email:</h2>
@@ -34,7 +34,9 @@
                 </li> -->
                 <li>
                   <!-- <span>Questions about the R3 NOFO: </span> -->
-                  <a href="mailto: CJA.R3Questions@illinois.gov" class="white-text"
+                  <a
+                    href="mailto: CJA.R3Questions@illinois.gov"
+                    class="white-text"
                     >CJA.R3Questions@illinois.gov</a
                   >
                 </li>
@@ -124,10 +126,16 @@
 
               <v-btn @click="clearForm" variant="outlined"> Clear </v-btn>
             </div>
-            <div class="text-center mt-5" style="color: green; font-weight: 900" v-else>
+            <div
+              class="text-center mt-5"
+              style="color: green; font-weight: 900"
+              v-else
+            >
               Your form was successfully submitted!
               <div style="color: #111; font-weight: 400" class="mt-2">
-                &laquo;&nbsp;<nuxt-link to="/" style="color: #111; font-weight: 400"
+                &laquo;&nbsp;<nuxt-link
+                  to="/"
+                  style="color: #111; font-weight: 400"
                   >Back to home</nuxt-link
                 >
               </div>
@@ -208,7 +216,7 @@ export default {
     firstname: "",
     lastname: "",
     subject: "",
-    subjects: ["R3 General Questions", "R3 NOFO Questions"],
+    subjects: ["R3 NOFO Questions", "R3 General Questions"],
     phone: "",
     message: "",
     myForm: {},
@@ -218,7 +226,8 @@ export default {
     ],
     subjectRules: [
       (v) => !!v || "Subject is required",
-      (v) => (v && v.length <= 100) || "Subject must be less than 100 characters",
+      (v) =>
+        (v && v.length <= 100) || "Subject must be less than 100 characters",
     ],
 
     phoneRules: [(v) => !!v || "Contact phone number is required"],
@@ -245,12 +254,24 @@ export default {
       if (this.valid) {
         myForm = {
           type: "R3 Contact Form",
-          subject: DOMPurify.sanitize(this.subject).replace(/(<([^>]+)>)/gi, ""),
-          firstname: DOMPurify.sanitize(this.firstname).replace(/(<([^>]+)>)/gi, ""),
-          lastname: DOMPurify.sanitize(this.lastname).replace(/(<([^>]+)>)/gi, ""),
+          subject: DOMPurify.sanitize(this.subject).replace(
+            /(<([^>]+)>)/gi,
+            ""
+          ),
+          firstname: DOMPurify.sanitize(this.firstname).replace(
+            /(<([^>]+)>)/gi,
+            ""
+          ),
+          lastname: DOMPurify.sanitize(this.lastname).replace(
+            /(<([^>]+)>)/gi,
+            ""
+          ),
           email: DOMPurify.sanitize(this.email).replace(/(<([^>]+)>)/gi, ""),
           phone: DOMPurify.sanitize(this.phone).replace(/(<([^>]+)>)/gi, ""),
-          message: DOMPurify.sanitize(this.message).replace(/(<([^>]+)>)/gi, ""),
+          message: DOMPurify.sanitize(this.message).replace(
+            /(<([^>]+)>)/gi,
+            ""
+          ),
         };
 
         let axiosHeaders = {
@@ -289,10 +310,14 @@ export default {
         let targetURL;
         if (this.subject === "R3 General Questions") {
           targetURL = "https://mail.icjia.cloud/internet/r3-nofo";
-          console.log('targetURL = "https://mail.icjia.cloud/internet/r3-nofo"');
+          console.log(
+            'targetURL = "https://mail.icjia.cloud/internet/r3-nofo"'
+          );
         } else {
           targetURL = "https://mail.icjia.cloud/internet/r3-nofo";
-          console.log('targetURL = "https://mail.icjia.cloud/internet/r3-nofo"');
+          console.log(
+            'targetURL = "https://mail.icjia.cloud/internet/r3-nofo"'
+          );
         }
 
         let options = {
