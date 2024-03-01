@@ -8,11 +8,11 @@
 
             <div v-for="item in faqs" :key="item.title">
               <h2 class="mt-12">{{ item.title }}</h2>
-              <!-- <attachments
+              <attachmentsv2
                 :attachments="item.attachment.data"
                 attachmentHeading="FAQ Downloads"
                 class="mt-6"
-              /> -->
+              />
               <div class="px-5 mt-4">
                 <span v-html="renderer.render(item.markdown)"></span>
               </div>
