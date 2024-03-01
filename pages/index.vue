@@ -77,7 +77,7 @@
                 crossorigin
               >
                 <div class="text-center px-12" style="margin-top: 100px">
-                  <h1 class="nofo-title mt-3">
+                  <h1 class="nofo-title mt-3" style="font-size: 34px">
                     2025 SERVICE DELIVERY GRANT OPPORTUNITIES
                   </h1>
                   <div class="nofo-tagline">

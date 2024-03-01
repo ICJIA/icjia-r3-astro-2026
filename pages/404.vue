@@ -11,19 +11,27 @@
               404 | Page not found
             </div>
             <div class="mt-16">
-              <v-btn text color="#0D4474" dark to="/" class="mr-2"
+              <v-btn text color="#0D4474" dark to="/" class="mr-2 mt-3"
                 >R3 Home&nbsp;&raquo;</v-btn
               >
-              <v-btn text color="#0D4474" dark to="/funding" class="mr-2"
+              <v-btn text color="#0D4474" dark to="/funding" class="mr-2 mt-3"
                 >R3 Funding&nbsp;&raquo;</v-btn
               >
-              <v-btn text color="#0D4474" dark to="/eligibility" class="mr-2"
+              <v-btn
+                text
+                color="#0D4474"
+                dark
+                to="/eligibility"
+                class="mr-2 mt-3"
                 >R3 Eligibility&nbsp;&raquo;</v-btn
               >
-              <v-btn text color="#0D4474" dark to="/news" class="mr-2"
-                >R3 News & Updates&nbsp;&raquo;</v-btn
+              <!-- <v-btn text color="#0D4474" dark to="/news" class="mr-2 mt-3"
+                >R3 News&nbsp;&raquo;</v-btn
+              > -->
+              <v-btn text color="#0D4474" dark to="/faqs" class="mr-2 mt-3"
+                >R3 FAQs&nbsp;&raquo;</v-btn
               >
-              <v-btn text color="#0D4474" dark to="/contact" class="mr-2"
+              <v-btn text color="#0D4474" dark to="/contact" class="mr-2 mt-3"
                 >Contact R3&nbsp;&raquo;</v-btn
               >
 
