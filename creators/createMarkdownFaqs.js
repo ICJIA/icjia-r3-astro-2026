@@ -19,6 +19,7 @@ const styleInject = `
  h3 ~ *:not(h3) {
   margin-left: 8px;
 }
+
   }
 </style>
 `;
@@ -35,7 +36,7 @@ const query = `query {
         dateOverride
         createdAt
         updatedAt
-
+        attachmentHeading
         attachment {
           data {
             id

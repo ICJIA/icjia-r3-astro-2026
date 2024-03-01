@@ -6,11 +6,11 @@
           <div>
             <h1>R3 Frequently Asked Questions</h1>
 
-            <div v-for="item in faqs" :key="item.title">
+            <div v-for="item in sortedFaqs" :key="item.title">
               <h2 class="mt-12">{{ item.title }}</h2>
               <attachmentsv2
                 :attachments="item.attachment.data"
-                attachmentHeading="FAQ Downloads"
+                :attachmentHeading="item.attachmentHeading"
                 class="mt-6"
               />
               <div class="px-5 mt-4">
