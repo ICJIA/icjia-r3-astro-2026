@@ -77,12 +77,12 @@ useHead({
 });
 
 onMounted(() => {
-  // useTrackEvent("404-error", {
-  //   props: {
-  //     path: document.location.pathname,
-  //     referrer: referrer.value,
-  //     destination: destination.value,
-  //   },
-  // });
+  useTrackEvent("404-error", {
+    props: {
+      path: document.location.pathname,
+      referrer: referrer.value,
+      destination: destination.value,
+    },
+  });
 });
 </script>

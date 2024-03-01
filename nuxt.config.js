@@ -102,7 +102,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/google-fonts",
     "nuxt-gtag",
-    // "@nuxtjs/plausible",
+    "@nuxtjs/plausible",
     // "@nuxtjs/apollo",
     "@pinia/nuxt",
     // "@nuxt/image-edge",

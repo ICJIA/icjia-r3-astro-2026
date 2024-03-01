@@ -13,7 +13,6 @@
           <v-card
             class="info-card"
             style="margin-top: -25px"
-            @click="gotoURL(item)"
             v-if="!underConstruction"
           >
             <v-img
@@ -35,7 +34,6 @@
                   color="white"
                   size="small"
                   class="mt-8 button-href hidden-sm-and-down"
-                  target="_blank"
                   :href="item.externalURL"
                   >For More Information or to Apply Now&nbsp;&nbsp;<v-icon right
                     >mdi-open-in-new</v-icon
@@ -46,7 +44,6 @@
                   color="white"
                   size="small"
                   class="mt-8 button-href hidden-md-and-up"
-                  target="_blank"
                   :href="item.externalURL"
                   >Apply Now&nbsp;&nbsp;<v-icon right
                     >mdi-open-in-new</v-icon
@@ -92,7 +89,6 @@
                   color="white"
                   size="small"
                   class="mt-8 button-href hidden-md-and-up"
-                  target="_blank"
                   :href="item.externalURL"
                   >Coming Soon!</v-btn
                 >
