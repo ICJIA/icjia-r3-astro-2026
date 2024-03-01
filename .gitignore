@@ -20,7 +20,7 @@ public/routesNews.json
 public/sitemap.xml
 assets/json/appRoutes.json
 assets/json/searchIndex.json
-assets/json/searchIndexFaqs.json
+# assets/json/searchIndexFaqs.json
 assets/json/faqs.json
 assets/json/resources.json
 public/faqs.json
