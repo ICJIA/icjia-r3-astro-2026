@@ -15,7 +15,7 @@
                 >R3 Home&nbsp;&raquo;</v-btn
               >
               <v-btn text color="#0D4474" dark to="/funding" class="mr-2 mt-3"
-                >R3 Funding&nbsp;&raquo;</v-btn
+                >Funding&nbsp;&raquo;</v-btn
               >
               <v-btn
                 text
@@ -23,16 +23,16 @@
                 dark
                 to="/eligibility"
                 class="mr-2 mt-3"
-                >R3 Eligibility&nbsp;&raquo;</v-btn
+                >Eligibility&nbsp;&raquo;</v-btn
               >
               <!-- <v-btn text color="#0D4474" dark to="/news" class="mr-2 mt-3"
                 >R3 News&nbsp;&raquo;</v-btn
               > -->
               <v-btn text color="#0D4474" dark to="/faqs" class="mr-2 mt-3"
-                >R3 FAQs&nbsp;&raquo;</v-btn
+                >FAQs&nbsp;&raquo;</v-btn
               >
               <v-btn text color="#0D4474" dark to="/contact" class="mr-2 mt-3"
-                >Contact R3&nbsp;&raquo;</v-btn
+                >Contact&nbsp;&raquo;</v-btn
               >
 
               <!-- <v-btn x-small to="/web-support/" class="ml-2"
