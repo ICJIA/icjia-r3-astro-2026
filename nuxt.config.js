@@ -123,12 +123,12 @@ export default defineNuxtConfig({
   gtag: {
     id: "G-G7XDWC7WPG",
   },
-  // plausible: {
-  //   apiHost: "https://plausible.icjia.cloud",
-  //   // Prevent tracking on localhost
-  //   ignoredHostnames: ["localhost"],
-  //   autoOutboundTracking: false,
-  // },
+  plausible: {
+    apiHost: "https://plausible.icjia.cloud",
+    // Prevent tracking on localhost
+    ignoredHostnames: ["localhost"],
+    autoOutboundTracking: true,
+  },
   pinia: {
     autoImports: ["defineStore", "acceptHMRUpdate"],
     storesDirs: ["./stores/**"],
