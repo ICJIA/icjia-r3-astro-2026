@@ -80,11 +80,11 @@ axios
       obj.attributes.postDate = item.attributes.dateOverride
         ? moment(item.attributes.dateOverride).utc().format()
         : moment(item.attributes.publishedAt).utc().format();
-      // rawText = obj.attributes?.answer
-      //   ?.replace(/<[^>]*>?/gm, "")
-      //   .replace(/[^a-z0-9]/gi, " ");
-      // rawText = rawText.replace(/\s\s+/g, " ");
-      // obj.attributes.rawText = rawText.toLowerCase();
+      rawText = obj.attributes?.body
+        ?.replace(/<[^>]*>?/gm, "")
+        .replace(/[^a-z0-9]/gi, " ");
+      rawText = rawText.replace(/\s\s+/g, " ");
+      obj.attributes.rawText = rawText.toLowerCase();
       obj.attributes.draft = false;
       // obj.attributes.title = obj.attributes.question;
       // obj.attributes.summary = obj.attributes.question;

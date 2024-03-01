@@ -3,7 +3,10 @@
     <v-container
       ><v-row
         ><v-col>
-          <v-card v-if="isMounted && data?.title" class="mt-10 px-10 py-5">
+          <div class="pl-3 mt-5 mb-2">
+            &laquo;&nbsp;<nuxt-link to="/faqs">Back to all R3 FAQs</nuxt-link>
+          </div>
+          <v-card v-if="isMounted && data?.title" class="mt-5 px-10 py-5">
             <h2>{{ data.title }}</h2>
 
             <div v-html="md.render(data.markdown)"></div>
@@ -30,7 +33,7 @@
               style="font-size: 13px; font-weight: 700; margin-top: 60px"
             >
               <span style="font-weight: 700">
-                {{ moment(data.postDate).format("MMMM DD,  YYYY h:mm a") }}
+                Posted {{ moment(data.postDate).format("MMMM DD,  YYYY") }}
               </span>
             </div>
           </v-card>
