@@ -3,11 +3,12 @@ export default defineAppConfig({
   description: "R3 description.",
   api: "https://r3.icjia-api.cloud",
   root: "https://r3.illinois.gov",
-  underConstruction: true,
+  underConstruction: false,
 
   splash: [
     {
-      externalURL: "https://icjia.illinois.gov",
+      externalURL:
+        "https://icjia.illinois.gov/grants/funding/r3-nofo-service-delivery-nofo-2378-030124/",
       src: "https://r3.icjia-api.cloud/uploads/large_new_splash_03_9b9975cfc5.jpg",
       lazySrc:
         "https://r3.icjia-api.cloud/uploads/thumbnail_new_splash_03_9b9975cfc5.jpg",

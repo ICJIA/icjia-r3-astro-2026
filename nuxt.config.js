@@ -102,7 +102,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/google-fonts",
     "nuxt-gtag",
-    "@nuxtjs/plausible",
+    // "@nuxtjs/plausible",
     // "@nuxtjs/apollo",
     "@pinia/nuxt",
     // "@nuxt/image-edge",
@@ -123,12 +123,12 @@ export default defineNuxtConfig({
   gtag: {
     id: "G-G7XDWC7WPG",
   },
-  plausible: {
-    apiHost: "https://plausible.icjia.cloud",
-    // Prevent tracking on localhost
-    ignoredHostnames: ["localhost"],
-    autoOutboundTracking: true,
-  },
+  // plausible: {
+  //   apiHost: "https://plausible.icjia.cloud",
+  //   // Prevent tracking on localhost
+  //   ignoredHostnames: ["localhost"],
+  //   autoOutboundTracking: false,
+  // },
   pinia: {
     autoImports: ["defineStore", "acceptHMRUpdate"],
     storesDirs: ["./stores/**"],

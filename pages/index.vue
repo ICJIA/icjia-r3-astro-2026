@@ -11,9 +11,8 @@
             md="12"
           >
             <v-card
-              class="info-card"
+              class=""
               style="min-height: 600px"
-              @click="gotoURL(item.externalURL)"
               v-if="!underConstruction"
             >
               <v-img
@@ -36,7 +35,6 @@
                     color="white"
                     size="small"
                     class="mt-8 button-href hidden-sm-and-down"
-                    target="_blank"
                     :href="item.externalURL"
                     >For More Information or to Apply Now&nbsp;&nbsp;<v-icon
                       right
@@ -48,7 +46,6 @@
                     color="white"
                     size="small"
                     class="mt-8 button-href hidden-md-and-up"
-                    target="_blank"
                     :href="item.externalURL"
                     >Apply Now&nbsp;&nbsp;<v-icon right
                       >mdi-open-in-new</v-icon
@@ -296,9 +293,9 @@ const formatDate = (date) => {
   return new Date(date).toLocaleDateString("en-US", options);
 };
 
-const gotoURL = (url) => {
-  window.open(url, "_blank");
-};
+// const gotoURL = (url) => {
+//   window.open(url, "_blank");
+// };
 
 onMounted(() => {
   isMounted.value = true;
