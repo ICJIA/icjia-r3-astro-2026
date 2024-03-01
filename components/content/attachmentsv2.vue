@@ -66,6 +66,7 @@
             <a
               :href="'https://r3.icjia-api.cloud' + attachment.attributes.url"
               target="_blank"
+              rel="noopener noreferrer"
             >
               {{ attachment.attributes.name }}
             </a>
