@@ -1,70 +1,90 @@
 <template>
   <div>
-    <v-toolbar app elevation="6" class="header d-flex" density="compact">
-      <v-container fluid
+    <div v-if="isMounted">
+      <div class="hidden-sm-and-down">
+        <v-toolbar app elevation="6" class="header d-flex" density="compact">
+          <v-container fluid
+            ><v-row
+              ><v-col cols="9">
+                <v-form class="pl-2 mt-4" style="margin-top: -15px">
+                  <v-text-field
+                    id="textfield"
+                    ref="textfield"
+                    v-model="query"
+                    density="compact"
+                    label="Search FAQs"
+                    style="font-weight: 900; width: 100%"
+                    autocomplete="off"
+                    @keypress.enter.prevent
+                    @input="performMark"
+                  />
+                </v-form> </v-col></v-row
+          ></v-container>
+
+          <v-btn size="x-small" variant="text">
+            <!-- <span style="font-weight: 900">Showing:</span> -->
+            <span style="font-weight: 900; color: #0d4474"
+              >Showing {{ currentIndex }} of {{ results ? results.length : 0 }}</span
+            ></v-btn
+          >&nbsp;&nbsp;&nbsp;&nbsp;
+          <v-btn
+            size="x-small"
+            append-icon="mdi-arrow-up"
+            elevation="2"
+            :disabled="isPrevDisabled"
+            @click="updateCountIndex('prev')"
+            >Previous</v-btn
+          >&nbsp;&nbsp;
+          <v-btn
+            size="x-small"
+            append-icon="mdi-arrow-down"
+            elevation="2"
+            :disabled="isNextDisabled"
+            @click="updateCountIndex('next')"
+            >Next</v-btn
+          >&nbsp;&nbsp;
+          <v-btn
+            size="x-small"
+            variant="tonal"
+            elevation="2"
+            append-icon="mdi-close-circle"
+            @click="clear"
+            >Clear</v-btn
+          >
+        </v-toolbar>
+      </div>
+
+      <v-container
         ><v-row
-          ><v-col cols="9">
-            <v-form class="pl-2 mt-4" style="margin-top: -15px">
-              <v-text-field
-                id="textfield"
-                ref="textfield"
-                v-model="query"
-                density="compact"
-                label="Search FAQs"
-                style="font-weight: 900; width: 100%"
-                autocomplete="off"
-                @keypress.enter.prevent
-                @input="performMark"
-              />
-            </v-form> </v-col></v-row
+          ><v-col>
+            <div style="margin-top: 90px" class="hidden-sm-and-down">
+              <v-card class="px-5 py-5 mb-12">
+                <div class="context">
+                  <div v-for="item in sortedFaqs" :key="item.title">
+                    <h2 class="mt-12">{{ item.title }}</h2>
+
+                    <div class="px-5 mt-4">
+                      <span v-html="renderer.render(item.markdown)"></span>
+                    </div>
+                  </div></div
+              ></v-card>
+            </div>
+            <div style="margin-top: 10px" class="hidden-md-and-up">
+              <v-card class="px-5 py-5 mb-12">
+                <div class="context">
+                  <div v-for="item in sortedFaqs" :key="item.title">
+                    <h2 class="mt-12">{{ item.title }}</h2>
+
+                    <div class="px-5 mt-4">
+                      <span v-html="renderer.render(item.markdown)"></span>
+                    </div>
+                  </div></div
+              ></v-card></div></v-col></v-row
       ></v-container>
-
-      <v-btn size="small" variant="text"
-        >{{ currentIndex }} of {{ results ? results.length : 0 }}</v-btn
-      >&nbsp;&nbsp;
-      <v-btn
-        size="x-small"
-        variant="tonal"
-        append-icon="mdi-arrow-up"
-        elevation="2"
-        @click="updateCountIndex('prev')"
-        >Previous</v-btn
-      >&nbsp;&nbsp;
-      <v-btn
-        size="x-small"
-        variant="tonal"
-        append-icon="mdi-arrow-down"
-        elevation="2"
-        @click="updateCountIndex('next')"
-        >Next</v-btn
-      >&nbsp;&nbsp;
-      <v-btn
-        size="x-small"
-        variant="tonal"
-        elevation="2"
-        append-icon="mdi-close-circle"
-        @click="clear"
-        >Clear</v-btn
-      >
-    </v-toolbar>
-
-    <v-container
-      ><v-row
-        ><v-col>
-          <div style="margin-top: 90px">
-            Results: {{ results ? results.length : 0 }} currentIndex:
-            {{ currentIndex }}
-            <v-card class="px-5 py-5 mb-12">
-              <div class="context">
-                <div v-for="item in sortedFaqs" :key="item.title">
-                  <h2 class="mt-12">{{ item.title }}</h2>
-
-                  <div class="px-5 mt-4">
-                    <span v-html="renderer.render(item.markdown)"></span>
-                  </div>
-                </div></div
-            ></v-card></div></v-col></v-row
-    ></v-container>
+    </div>
+    <div v-else>
+      <the-page-loader></the-page-loader>
+    </div>
   </div>
 </template>
 
@@ -86,6 +106,10 @@ const query = ref("");
 const results = ref(null);
 const currentIndex = ref(0);
 const currentClass = ref("current");
+const isNextDisabled = ref(false);
+const isPrevDisabled = ref(false);
+
+const isMounted = ref(false);
 // const markInstance = ref(null);
 const { path } = useRoute();
 const router = useRouter();
@@ -104,6 +128,26 @@ const options = {
   separateWordSearch: false,
   acrossElements: true,
 };
+
+watch(query, (newQ) => {
+  if (newQ.length < 1) {
+    clear();
+  } else {
+    isNextDisabled.value = false;
+    isPrevDisabled.value = false;
+  }
+});
+
+useHead({
+  title: "FAQs",
+  meta: [
+    {
+      hid: "description",
+      name: "description",
+      content: "FAQs",
+    },
+  ],
+});
 
 const updateCountIndex = (strBtn) => {
   //console.log("strBtn: ", strBtn);
@@ -148,7 +192,6 @@ const updateCountIndex = (strBtn) => {
 
 const performMark = () => {
   let markInstance = new Mark(document.querySelector(".context"));
-
   markInstance.unmark({
     done: function () {
       markInstance.mark(query.value, options);
@@ -164,11 +207,13 @@ const clear = () => {
 
   currentIndex.value = 0;
   results.value = null;
+  // isNextDisabled.value = true;
+  // isPrevDisabled.value = true;
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 onMounted(() => {
-  // el.value = document.querySelector(".context");
+  isMounted.value = true;
 });
 </script>
 
