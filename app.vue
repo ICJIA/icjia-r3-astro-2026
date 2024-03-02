@@ -2,6 +2,7 @@
   <div>
     <v-app id="app-top">
       <TheNav></TheNav>
+
       <!-- <TheNavHome v-if="isHome"></TheNavHome> -->
 
       <TheSidebar></TheSidebar>
@@ -13,7 +14,10 @@
         class="markdown-body"
         style="min-height: 80vh !important; background: #f2f2f2"
       >
-        <TheBreadcrumbBar v-if="!isHome" :key="routePath"></TheBreadcrumbBar>
+        <TheBreadcrumbBar
+          v-if="!hideBreadcrumbBar"
+          :key="routePath"
+        ></TheBreadcrumbBar>
 
         <NuxtPage></NuxtPage>
       </v-main>
@@ -46,16 +50,21 @@
 <script setup>
 // const { isTranslationEnabled } = useAppConfig();
 const isHome = ref(true);
+const hideBreadcrumbBar = ref(false);
 const route = useRoute();
 const routePath = ref(route.path);
 watchEffect(() => {
   routePath.value = route.path;
-  console.log("route.path: ", routePath.value);
+  console.log("route.path from app.vue: ", routePath.value);
 
-  if (route.path === "/") {
-    isHome.value = true;
+  if (
+    route.path === "/" ||
+    route.path === "/sandbox" ||
+    route.path === "/faqs"
+  ) {
+    hideBreadcrumbBar.value = true;
   } else {
-    isHome.value = false;
+    hideBreadcrumbBar.value = false;
   }
 });
 

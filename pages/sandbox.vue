@@ -1,107 +1,130 @@
 <template>
   <div>
-    <v-form class="pl-2 mt-4" style="margin-top: -15px">
-      <v-text-field
-        id="textfield"
-        ref="textfield"
-        v-model="query"
-        clearable
-        label="Search R3"
-        placeholder="Enter search term"
-        style="font-weight: 900"
-        @input="instantSearch"
-        autocomplete="off"
-        @keypress.enter.prevent
-      />
-    </v-form>
-    <div v-for="item in displayMatches(result)" :key="item.item.slug">
-      <v-card class="mb-4" style="cursor: pointer">
-        <v-card-title>
-          <h3>{{ item.item.title }}</h3>
-        </v-card-title>
-      </v-card>
-    </div>
+    <v-toolbar app elevation="6" class="header d-flex" density="compact">
+      <v-container fluid
+        ><v-row
+          ><v-col cols="10">
+            <v-form class="pl-2 mt-4" style="margin-top: -15px">
+              <v-text-field
+                id="textfield"
+                ref="textfield"
+                v-model="query"
+                density="compact"
+                label="Search FAQs"
+                style="font-weight: 900; width: 100%"
+                autocomplete="off"
+                @keypress.enter.prevent
+                @input="performMark"
+              />
+            </v-form> </v-col></v-row
+      ></v-container>
+      <v-btn
+        size="x-small"
+        variant="tonal"
+        append-icon="mdi-arrow-up"
+        elevation="2"
+        >Previous</v-btn
+      >&nbsp;&nbsp;
+      <v-btn
+        size="x-small"
+        variant="tonal"
+        append-icon="mdi-arrow-down"
+        elevation="2"
+        >Next</v-btn
+      >&nbsp;&nbsp;
+      <v-btn
+        size="x-small"
+        variant="tonal"
+        elevation="2"
+        append-icon="mdi-close-circle"
+        @click="clear"
+        >Clear</v-btn
+      >
+    </v-toolbar>
+
+    <v-container
+      ><v-row
+        ><v-col>
+          <div style="margin-top: 90px">
+            Hits: {{ marks ? marks.length : 0 }}
+            <v-card class="px-5 py-5 mb-12">
+              <div class="context">
+                <div v-for="item in sortedFaqs" :key="item.title">
+                  <h2 class="mt-12">{{ item.title }}</h2>
+
+                  <div class="px-5 mt-4">
+                    <span v-html="renderer.render(item.markdown)"></span>
+                  </div>
+                </div></div
+            ></v-card></div></v-col></v-row
+    ></v-container>
   </div>
 </template>
 
 <script setup>
-import Fuse from "fuse.js";
-import searchIndex from "~/assets/json/searchIndexFaqs.json";
-import { useSearchStore } from "@/stores/searchStore";
-let store = useSearchStore();
-
-useHead({
-  title: "Search",
+import md from "markdown-it";
+import attrs from "markdown-it-attrs";
+const renderer = new md({
+  html: true,
+  xhtmlOut: false,
+  breaks: false,
+  langPrefix: "language-",
+  linkify: true,
+  typographer: true,
+  quotes: "“”‘’",
+}).use(attrs);
+import _ from "lodash";
+import moment from "moment";
+const query = ref("");
+const marks = ref(null);
+// const markInstance = ref(null);
+const { path } = useRoute();
+const router = useRouter();
+const { data: faqs } = await useAsyncData(`faqs-${path}`, async () => {
+  const post = await queryContent("/faqs").find();
+  return post;
 });
+const sortedFaqs = _.orderBy(faqs.value, ["postDate"], ["desc"]);
+
+const route = useRoute();
+const routePath = ref(route.path);
+// console.log(routePath);
 
 const options = {
-  isCaseSensitive: false,
-  includeScore: true,
-  shouldSort: true,
-  includeMatches: true,
-  findAllMatches: true,
-  minMatchCharLength: 2,
-  location: 0,
-  threshold: 0.4,
-  distance: 500,
-  useExtendedSearch: false,
-  ignoreLocation: false,
-  ignoreFieldNorm: false,
-  keys: ["title", "body", "slug", "searchMeta", "rawText"],
-};
-const query = ref("");
-const fuse = new Fuse(searchIndex, options);
-const result = ref(fuse.search(query.value.toLowerCase));
-
-const instantSearch = () => {
-  result.value = fuse.search(query.value);
+  accuracy: "partially",
+  separateWordSearch: false,
+  acrossElements: true,
 };
 
-const showIndex = ref(false);
-const toggleIndex = () => {
-  showIndex.value = !showIndex.value;
+const performMark = () => {
+  let markInstance = new Mark(document.querySelector(".context"));
+
+  markInstance.unmark({
+    done: function () {
+      markInstance.mark(query.value, options);
+      marks.value = document.querySelectorAll("[data-markjs]");
+    },
+  });
 };
 
-const addQuery = (q) => {
-  query.value = q;
-  result.value = fuse.search(query.value);
-};
-
-watch(query, (val) => {
-  if (!val) {
-    result.value = [];
-  }
-});
-
-const router = useRouter();
-const navigateTo = (item) => {
-  store.addNewQuery(query.value);
-  console.log("query added to store: ", query.value);
-  console.log("navigateTo: ", item?.path);
-  router.push({ path: item.path });
-};
-
-const clearAll = () => {
+const clear = () => {
   query.value = "";
-  result.value = [];
-  showIndex.value = false;
-  const el = document.getElementById("textfield");
-  el.focus();
+  performMark();
 };
 
 onMounted(() => {
-  const el = document.getElementById("textfield");
-  el.focus();
+  // el.value = document.querySelector(".context");
 });
-
-const displayMatches = (item) => {
-  // console.log(item);
-  //console.log(item.length);
-  item.forEach((i) => {
-    console.log("matches: ", i.matches);
-  });
-  return item;
-};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.header {
+  padding: 10px;
+  width: 100%;
+  background: #ddd;
+  position: fixed;
+  top: 20;
+  left: 0;
+  z-index: 99999;
+}
+</style>
