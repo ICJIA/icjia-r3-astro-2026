@@ -16,6 +16,7 @@
                   <v-text-field
                     id="textfield"
                     ref="textfield"
+                    focused
                     v-model="query"
                     density="compact"
                     label="Search R3 FAQs"
@@ -28,13 +29,15 @@
                 </v-form> </v-col></v-row
           ></v-container>
 
-          <v-btn size="x-small" variant="text">
-            <!-- <span style="font-weight: 900">Showing:</span> -->
-            <span style="font-weight: 900; color: #fff"
-              >Showing {{ currentIndex }} of
-              {{ results ? results.length : 0 }}</span
-            ></v-btn
-          >&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="text-right" style="width: 250px; margin-bottom: 2px">
+            <v-btn size="x-small" variant="text">
+              <!-- <span style="font-weight: 900">Showing:</span> -->
+              <span style="font-weight: 900; color: #fff"
+                >Showing {{ currentIndex }} of
+                {{ results ? results.length : 0 }}</span
+              ></v-btn
+            >&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
           <v-btn
             size="x-small"
             append-icon="mdi-arrow-up"
@@ -210,11 +213,18 @@ const clear = () => {
   results.value = null;
   // isNextDisabled.value = true;
   // isPrevDisabled.value = true;
+  const el = document.getElementById("textfield");
+  el.focus();
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
-onMounted(() => {
+onMounted(async () => {
   isMounted.value = true;
+  await nextTick();
+  await nextTick();
+
+  const el = document.getElementById("textfield");
+  el.focus();
 });
 </script>
 
