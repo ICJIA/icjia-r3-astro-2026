@@ -1,8 +1,14 @@
 <template>
   <div>
     <div v-if="isMounted">
-      <div class="hidden-sm-and-down">
-        <v-toolbar app elevation="6" class="header d-flex" density="compact">
+      <div class="hidden-sm-and-down" style="margin-bottom: 80px">
+        <v-app-bar
+          app
+          elevation="6"
+          class="header"
+          density="compact"
+          color="#0D4474"
+        >
           <v-container fluid
             ><v-row
               ><v-col cols="11">
@@ -12,9 +18,10 @@
                     ref="textfield"
                     v-model="query"
                     density="compact"
-                    label="Search FAQs"
+                    label="Search R3 FAQs"
                     style="font-weight: 900; width: 100%"
                     autocomplete="off"
+                    color="white"
                     @keypress.enter.prevent
                     @input="performMark"
                   />
@@ -23,41 +30,46 @@
 
           <v-btn size="x-small" variant="text">
             <!-- <span style="font-weight: 900">Showing:</span> -->
-            <span style="font-weight: 900; color: #0d4474"
-              >Showing {{ currentIndex }} of {{ results ? results.length : 0 }}</span
+            <span style="font-weight: 900; color: #fff"
+              >Showing {{ currentIndex }} of
+              {{ results ? results.length : 0 }}</span
             ></v-btn
           >&nbsp;&nbsp;&nbsp;&nbsp;
           <v-btn
             size="x-small"
             append-icon="mdi-arrow-up"
             elevation="2"
+            variant="tonal"
             :disabled="isPrevDisabled"
             @click="updateCountIndex('prev')"
+            dark
+            style="font-weight: 900"
             >Previous</v-btn
           >&nbsp;&nbsp;
           <v-btn
             size="x-small"
             append-icon="mdi-arrow-down"
             elevation="2"
+            variant="tonal"
             :disabled="isNextDisabled"
+            style="font-weight: 900"
             @click="updateCountIndex('next')"
             >Next</v-btn
           >&nbsp;&nbsp;
           <v-btn
             size="x-small"
-            variant="tonal"
             elevation="2"
             append-icon="mdi-close-circle"
             @click="clear"
             >Clear</v-btn
           >
-        </v-toolbar>
+        </v-app-bar>
       </div>
 
       <v-container
         ><v-row
           ><v-col>
-            <div style="margin-top: 90px" class="hidden-sm-and-down">
+            <div style="margin-top: -25px">
               <v-card class="px-5 py-5 mb-12">
                 <div class="context">
                   <div v-for="item in sortedFaqs" :key="item.title">
@@ -68,18 +80,7 @@
                     </div>
                   </div></div
               ></v-card>
-            </div>
-            <div style="margin-top: 10px" class="hidden-md-and-up">
-              <v-card class="px-5 py-5 mb-12">
-                <div class="context">
-                  <div v-for="item in sortedFaqs" :key="item.title">
-                    <h2 class="mt-12">{{ item.title }}</h2>
-
-                    <div class="px-5 mt-4">
-                      <span v-html="renderer.render(item.markdown)"></span>
-                    </div>
-                  </div></div
-              ></v-card></div></v-col></v-row
+            </div> </v-col></v-row
       ></v-container>
     </div>
     <div v-else>
@@ -226,7 +227,7 @@ mark.current {
   width: 100%;
   background: #ddd;
   position: fixed;
-  top: 20;
+  top: 0;
   left: 0;
   z-index: 99999;
 }
