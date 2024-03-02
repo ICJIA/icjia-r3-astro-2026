@@ -77,6 +77,11 @@
                 <div class="context">
                   <div v-for="item in sortedFaqs" :key="item.title">
                     <h2 class="mt-12">{{ item.title }}</h2>
+                    <attachmentsv2
+                      :attachments="item.attachment.data"
+                      :attachmentHeading="item.attachmentHeading"
+                      class="mt-6"
+                    />
 
                     <div class="px-5 mt-4">
                       <span v-html="renderer.render(item.markdown)"></span>
