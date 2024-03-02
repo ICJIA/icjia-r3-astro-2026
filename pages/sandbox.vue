@@ -107,7 +107,7 @@ const options = {
 
 const updateCountIndex = (strBtn) => {
   //console.log("strBtn: ", strBtn);
-  if (currentIndex.value.length === 0 && query.value.length === 0) {
+  if (currentIndex.value.length === 0 || query.value.length === 0) {
     return;
   }
   if (results.value.length > 0 && query.value.length > 0) {
@@ -131,8 +131,17 @@ const updateCountIndex = (strBtn) => {
       block: "center",
       inline: "center",
     });
+    var elems = document.querySelectorAll(".current");
+    for (var i = 0; i < elems.length; i++) {
+      elems[i].classList.remove(currentClass.value);
+    }
+
+    results.value[currentIndex.value - 1].classList.add(currentClass.value);
   } else {
-    //scroll to top
+    var elems = document.querySelectorAll(".current");
+    for (var i = 0; i < elems.length; i++) {
+      elems[i].classList.remove(currentClass.value);
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 };
