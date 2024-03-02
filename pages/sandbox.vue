@@ -5,7 +5,7 @@
         <v-toolbar app elevation="6" class="header d-flex" density="compact">
           <v-container fluid
             ><v-row
-              ><v-col cols="9">
+              ><v-col cols="11">
                 <v-form class="pl-2 mt-4" style="margin-top: -15px">
                   <v-text-field
                     id="textfield"
