@@ -20,7 +20,7 @@
                     focused
                     v-model="query"
                     density="compact"
-                    label="Search R3 FAQs"
+                    label="Search R3 FAQs below"
                     style="font-weight: 900; width: 100%"
                     autocomplete="off"
                     color="white"
@@ -34,8 +34,12 @@
             class="text-right fade-in-text"
             style="width: 350px; margin-bottom: 2px"
           >
-            <v-btn size="x-small" variant="text">
-              <span style="font-weight: 900; color: #fff"
+            <v-btn
+              size="x-small"
+              variant="text"
+              style="background: #fff; color: #000"
+            >
+              <span style="font-weight: 900"
                 >Showing {{ currentIndex }} of
                 {{ results ? results.length : 0 }}</span
               ></v-btn
