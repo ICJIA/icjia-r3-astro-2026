@@ -68,7 +68,7 @@
           >&nbsp;&nbsp;
           <v-btn
             size="x-small"
-            elevation="2"
+            elevation="0"
             append-icon="mdi-close-circle"
             @click="clear"
             >Clear</v-btn
@@ -81,9 +81,15 @@
           ><v-col>
             <div style="margin-top: -25px">
               <v-card class="px-8 py-5 mb-12">
-                <h1 class="mb-10">Frequently Asked Questions</h1>
                 <div class="context">
-                  <div v-for="item in sortedFaqs" :key="item.title">
+                  <h1 class="mb-10" style="border: none">
+                    R3 Frequently Asked Questions
+                  </h1>
+                  <div
+                    v-for="item in sortedFaqs"
+                    :key="item.title"
+                    class="pl-5"
+                  >
                     <h2 class="mt-12">{{ item.title }}</h2>
                     <attachmentsv2
                       :attachments="item.attachment.data"
