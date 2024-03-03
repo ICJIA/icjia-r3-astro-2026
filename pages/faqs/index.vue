@@ -90,7 +90,12 @@
                     :key="item.title"
                     class="pl-5"
                   >
-                    <h2 class="mt-12">{{ item.title }}</h2>
+                    <nuxt-link
+                      :to="item.path"
+                      style="text-decoration: none !important"
+                    >
+                      <h2 class="mt-12 title-link">{{ item.title }}&nbsp;</h2>
+                    </nuxt-link>
                     <attachmentsv2
                       :attachments="item.attachment.data"
                       :attachmentHeading="item.attachmentHeading"
@@ -248,6 +253,11 @@ onMounted(async () => {
 </script>
 
 <style lang="scss">
+.title-link:hover {
+  color: #888 !important;
+  text-decoration: none !important;
+}
+
 mark.current {
   background: orange !important;
 }
