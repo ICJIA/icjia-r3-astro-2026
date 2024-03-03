@@ -14,6 +14,7 @@
               ><v-col cols="11">
                 <v-form class="pl-2 mt-4" style="margin-top: -15px">
                   <v-text-field
+                    append-inner-icon="mdi-text-search"
                     id="textfield"
                     ref="textfield"
                     focused
@@ -29,9 +30,11 @@
                 </v-form> </v-col></v-row
           ></v-container>
 
-          <span class="text-right" style="width: 350px; margin-bottom: 2px">
+          <span
+            class="text-right fade-in-text"
+            style="width: 350px; margin-bottom: 2px"
+          >
             <v-btn size="x-small" variant="text">
-              <!-- <span style="font-weight: 900">Showing:</span> -->
               <span style="font-weight: 900; color: #fff"
                 >Showing {{ currentIndex }} of
                 {{ results ? results.length : 0 }}</span
@@ -246,5 +249,18 @@ mark.current {
   top: 0;
   left: 0;
   z-index: 99999;
+}
+
+.fade-in-text {
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 </style>
