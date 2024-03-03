@@ -14,7 +14,7 @@
               ><v-col cols="11">
                 <v-form class="pl-2 mt-4" style="margin-top: -15px">
                   <v-text-field
-                    append-inner-icon="mdi-text-search"
+                    append-inner-icon="mdi-magnify"
                     id="textfield"
                     ref="textfield"
                     focused
@@ -76,7 +76,7 @@
         ><v-row
           ><v-col>
             <div style="margin-top: -25px">
-              <v-card class="px-5 py-5 mb-12">
+              <v-card class="px-8 py-5 mb-12">
                 <h1 class="mb-10">Frequently Asked Questions</h1>
                 <div class="context">
                   <div v-for="item in sortedFaqs" :key="item.title">
