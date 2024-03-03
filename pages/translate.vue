@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TheBreadcrumbBar></TheBreadcrumbBar>
     <v-container
       ><v-row
         ><v-col>

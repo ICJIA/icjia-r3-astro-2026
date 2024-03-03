@@ -14,10 +14,10 @@
         class="markdown-body"
         style="min-height: 80vh !important; background: #f2f2f2"
       >
-        <TheBreadcrumbBar
+        <!-- <TheBreadcrumbBar
           v-if="!hideBreadcrumbBar"
           :key="routePath"
-        ></TheBreadcrumbBar>
+        ></TheBreadcrumbBar> -->
 
         <NuxtPage></NuxtPage>
       </v-main>

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TheBreadcrumbBar></TheBreadcrumbBar>
     <v-container class="mb-12">
       <v-row justify="center" align="center" class="row">
         <v-col cols="12" md="12" class="text-left">

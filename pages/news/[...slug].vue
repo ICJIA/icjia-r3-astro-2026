@@ -29,6 +29,7 @@ onMounted(() => {
 
 <template>
   <div>
+    <TheBreadcrumbBar></TheBreadcrumbBar>
     <div v-if="data">
       <v-container class="mb-12 mt-6" fluid
         ><v-row

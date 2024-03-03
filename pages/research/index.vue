@@ -1,49 +1,51 @@
 <template>
-  <v-container fluid>
-    <v-snackbar
-      v-model="snackbar"
-      :timeout="timeout"
-      location="top"
-      elevation="6"
-      class="mt-3"
-    >
-      <div class="text-left" style="font-size: 12px">
-        <div class="mb-3">Selected filter:</div>
-        <div style="font-weight: 700; text-transform: uppercase; color: #fff">
-          {{ snackbarText }}
+  <div>
+    <TheBreadcrumbBar></TheBreadcrumbBar>
+    <v-container fluid>
+      <v-snackbar
+        v-model="snackbar"
+        :timeout="timeout"
+        location="top"
+        elevation="6"
+        class="mt-3"
+      >
+        <div class="text-left" style="font-size: 12px">
+          <div class="mb-3">Selected filter:</div>
+          <div style="font-weight: 700; text-transform: uppercase; color: #fff">
+            {{ snackbarText }}
+          </div>
         </div>
-      </div>
 
-      <template v-slot:actions>
-        <v-btn
-          color="blue"
-          variant="text"
-          @click="snackbar = false"
-          style="font-size: 12px"
-        >
-          Close
-        </v-btn>
-      </template>
-    </v-snackbar>
-
-    <v-row>
-      <v-col>
-        <h1>R3 Research</h1>
-
-        <p>
-          The
-          <a href="https://icjia.illinois.gov" target="_blank"
-            >Illinois Criminal Justice Information Authority (ICJIA)</a
+        <template v-slot:actions>
+          <v-btn
+            color="blue"
+            variant="text"
+            @click="snackbar = false"
+            style="font-size: 12px"
           >
-          is the state's lead agency on justice funding and research.
-          <a href="https://icjia.illinois.gov/researchhub" target="_blank"
-            >ICJIA's Research Hub</a
-          >
-          provides a host of resources (publications, continuums, dashboards,
-          datasets) to support data-driven decision-making for improved
-          outcomes.
-        </p>
-        <!-- <h2 class="text-center" style="border: none; font-size: 22px">
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
+
+      <v-row>
+        <v-col>
+          <h1>R3 Research</h1>
+
+          <p>
+            The
+            <a href="https://icjia.illinois.gov" target="_blank"
+              >Illinois Criminal Justice Information Authority (ICJIA)</a
+            >
+            is the state's lead agency on justice funding and research.
+            <a href="https://icjia.illinois.gov/researchhub" target="_blank"
+              >ICJIA's Research Hub</a
+            >
+            provides a host of resources (publications, continuums, dashboards,
+            datasets) to support data-driven decision-making for improved
+            outcomes.
+          </p>
+          <!-- <h2 class="text-center" style="border: none; font-size: 22px">
           Filter by tag:
         </h2>
         <v-chip-group
@@ -63,7 +65,7 @@
             {{ entityTags[index - 1] }}
           </v-chip>
         </v-chip-group> -->
-        <!-- 
+          <!-- 
         <div
           class="text-right mb-12 pr-10"
           style="font-size: 14px; margin-top: 0px"
@@ -83,94 +85,94 @@
           >
         </div> -->
 
-        <v-container fluid
-          ><v-row>
-            <v-col
-              v-for="article in filteredArticles"
-              :key="article._id"
-              class="mb-8"
-              cols="12"
-              md="6"
-              style="display: flex; flex-direction: column"
-            >
-              <v-card
-                height="100%"
-                style="position: relative"
-                class="px-5 py-5 elevation-5 hover info-card"
-                @click.prevent.stop="
-                  article.source === 'hub'
-                    ? gotoArticle(article.slug)
-                    : gotoPublication(article.fileURL)
-                "
+          <v-container fluid
+            ><v-row>
+              <v-col
+                v-for="article in filteredArticles"
+                :key="article._id"
+                class="mb-8"
+                cols="12"
+                md="6"
+                style="display: flex; flex-direction: column"
               >
-                <div>
-                  <span
-                    style="
-                      font-weight: 700;
-                      color: #000;
-                      text-transform: uppercase;
-                    "
-                  >
-                    {{ formatDate(article.date) }}</span
-                  >
-                  |
-                  <span
-                    style="
-                      font-weight: 400;
-                      color: #555;
-                      text-transform: uppercase;
-                    "
-                  >
-                    {{ getPublicationType(article.pubType) }}</span
-                  >
-                </div>
-                <div class="mt-6 mb-3 hover" style="font-weight: 900">
-                  {{ article.title }}
-                </div>
-
-                <v-img
-                  :src="`/hub-images/${article._id}-splash.jpeg`"
-                  :lazy-src="`/hub-images/${article._id}-thumbnail.jpeg`"
-                  cover
-                  height="200"
-                  class="mb-5"
-                  :ref="'img_' + article._id"
-                  style="border: 1px solid #fafafa"
-                  alt="InfoNet article splash image"
-                  v-if="article.source === 'hub'"
+                <v-card
+                  height="100%"
+                  style="position: relative"
+                  class="px-5 py-5 elevation-5 hover info-card"
+                  @click.prevent.stop="
+                    article.source === 'hub'
+                      ? gotoArticle(article.slug)
+                      : gotoPublication(article.fileURL)
+                  "
                 >
-                  <template #placeholder>
-                    <v-row
-                      class="fill-height ma-0"
-                      align="center"
-                      justify="center"
+                  <div>
+                    <span
+                      style="
+                        font-weight: 700;
+                        color: #000;
+                        text-transform: uppercase;
+                      "
                     >
-                      <v-progress-circular
-                        indeterminate
-                        color="blue darken-3"
-                        aria-label="progress"
-                      ></v-progress-circular>
-                    </v-row>
-                  </template>
-                  <template v-slot:error>
-                    <v-img
-                      v-if="article.source === 'hub'"
-                      :src="`/hub-images/${article._id}-splash.png`"
-                      :lazy-src="`/hub-images/${article._id}-thumbnail.png`"
-                      cover
-                      height="200"
-                      class="mb-5"
-                      :ref="'img_' + article._id"
-                      style="border: 1px solid #fafafa"
-                      alt="InfoNet article splash image"
-                    ></v-img>
-                  </template>
-                </v-img>
+                      {{ formatDate(article.date) }}</span
+                    >
+                    |
+                    <span
+                      style="
+                        font-weight: 400;
+                        color: #555;
+                        text-transform: uppercase;
+                      "
+                    >
+                      {{ getPublicationType(article.pubType) }}</span
+                    >
+                  </div>
+                  <div class="mt-6 mb-3 hover" style="font-weight: 900">
+                    {{ article.title }}
+                  </div>
 
-                <div>
-                  {{ truncateString(article.abstract, 850) }}
-                </div>
-                <!-- <div class="mt-5">
+                  <v-img
+                    :src="`/hub-images/${article._id}-splash.jpeg`"
+                    :lazy-src="`/hub-images/${article._id}-thumbnail.jpeg`"
+                    cover
+                    height="200"
+                    class="mb-5"
+                    :ref="'img_' + article._id"
+                    style="border: 1px solid #fafafa"
+                    alt="InfoNet article splash image"
+                    v-if="article.source === 'hub'"
+                  >
+                    <template #placeholder>
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
+                        justify="center"
+                      >
+                        <v-progress-circular
+                          indeterminate
+                          color="blue darken-3"
+                          aria-label="progress"
+                        ></v-progress-circular>
+                      </v-row>
+                    </template>
+                    <template v-slot:error>
+                      <v-img
+                        v-if="article.source === 'hub'"
+                        :src="`/hub-images/${article._id}-splash.png`"
+                        :lazy-src="`/hub-images/${article._id}-thumbnail.png`"
+                        cover
+                        height="200"
+                        class="mb-5"
+                        :ref="'img_' + article._id"
+                        style="border: 1px solid #fafafa"
+                        alt="InfoNet article splash image"
+                      ></v-img>
+                    </template>
+                  </v-img>
+
+                  <div>
+                    {{ truncateString(article.abstract, 850) }}
+                  </div>
+                  <!-- <div class="mt-5">
                   <span
                     v-for="tag in getInfoNetSpecificTags(article.tags)"
                     :key="article._id"
@@ -185,38 +187,39 @@
                     &nbsp;
                   </span>
                 </div> -->
-                <v-card-actions>
-                  <v-spacer></v-spacer>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
 
-                  <v-btn
-                    v-if="article.source === 'hub'"
-                    size="small"
-                    class="mt-5"
-                    variant="text"
-                    style="font-weight: 900; font-size: 11px"
-                  >
-                    Read Article (Web)&nbsp;&raquo;
-                  </v-btn>
+                    <v-btn
+                      v-if="article.source === 'hub'"
+                      size="small"
+                      class="mt-5"
+                      variant="text"
+                      style="font-weight: 900; font-size: 11px"
+                    >
+                      Read Article (Web)&nbsp;&raquo;
+                    </v-btn>
 
-                  <v-btn
-                    v-if="article.source === 'publist'"
-                    size="small"
-                    class="mt-5"
-                    variant="text"
-                    style="font-weight: 900; font-size: 11px"
-                  >
-                    Read {{ getPublicationType(article.pubType) }} ({{
-                      article.ext
-                    }})&nbsp;&raquo;
-                  </v-btn>
-                </v-card-actions>
-              </v-card></v-col
-            >
-          </v-row></v-container
-        >
-      </v-col>
-    </v-row>
-  </v-container>
+                    <v-btn
+                      v-if="article.source === 'publist'"
+                      size="small"
+                      class="mt-5"
+                      variant="text"
+                      style="font-weight: 900; font-size: 11px"
+                    >
+                      Read {{ getPublicationType(article.pubType) }} ({{
+                        article.ext
+                      }})&nbsp;&raquo;
+                    </v-btn>
+                  </v-card-actions>
+                </v-card></v-col
+              >
+            </v-row></v-container
+          >
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script setup>
