@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isMounted">
+    <div v-if="isMounted" class="mb-12">
       <div class="hidden-sm-and-down" style="margin-bottom: 80px">
         <v-app-bar
           app
@@ -205,14 +205,14 @@ const updateCountIndex = (strBtn) => {
 };
 
 const performMark = () => {
-  console.log("performMark");
+  // console.log("performMark");
   let markInstance = new Mark(document.querySelector(".context"));
   markInstance.unmark({
     done: function () {
       markInstance.mark(query.value, options);
       results.value = document.querySelectorAll("[data-markjs]");
       currentIndex.value = 0;
-      console.log("done:");
+      // console.log("done:");
     },
   });
 };
