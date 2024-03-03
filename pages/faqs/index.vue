@@ -29,7 +29,7 @@
                 </v-form> </v-col></v-row
           ></v-container>
 
-          <span class="text-right" style="width: 250px; margin-bottom: 2px">
+          <span class="text-right" style="width: 350px; margin-bottom: 2px">
             <v-btn size="x-small" variant="text">
               <!-- <span style="font-weight: 900">Showing:</span> -->
               <span style="font-weight: 900; color: #fff"
@@ -74,6 +74,7 @@
           ><v-col>
             <div style="margin-top: -25px">
               <v-card class="px-5 py-5 mb-12">
+                <h1 class="mb-10">Frequently Asked Questions</h1>
                 <div class="context">
                   <div v-for="item in sortedFaqs" :key="item.title">
                     <h2 class="mt-12">{{ item.title }}</h2>
