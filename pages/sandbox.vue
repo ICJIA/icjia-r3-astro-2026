@@ -99,6 +99,7 @@ const query = ref("");
 const results = ref([]);
 const currentIndex = ref(0);
 const isMounted = ref(false);
+const currentClass = ref("current");
 
 const options = {
   accuracy: "partially",
