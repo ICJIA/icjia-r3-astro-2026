@@ -10,30 +10,73 @@
     ></the-faq-bar>
 
     <div class="context mt-12">
-      Lorem markdownum dabitur bis in Iuppiter iamque sanguine non crura Themis.
-      Cutem avidissima et aurea, multi sic Caencu volucris naturae retinacula
-      pectus: ambit visa. Exitus in fatum nullaque; oris sacrum; est bracchia
-      breve. Ore dividite forma. Quod induruit postes et aestuat fossa ore
-      nostri agat: quae. Nec esse; polo sit, se et exanimi nutricisque parva
-      excusantia erant memorare. Caelum velocius paterna. Haec saucius
-      Inmunitamque aures quod casias illuc ille quid, tum ad easdem spumeus?
-      Tristis spreta herbae: seniles donec. Caeli in amore suae pressos, quoque
-      viro, non interque gurgite sacroque triceps ignifero Nepheleque clipeum
-      moveri. Et hanc lucida. Attollens dependebat Acmona malis victricemque
-      ponit defunctum require adspexit si trabes est torum dubiis hinc. Ulvae
-      numina ultoris: et Caenis cornua omnis animosus me ille et cum petunt
-      raptam. Haec quas ordine simul citharae falsam. Femina fronde Fecit
-      traduxit ulterius ululavit umeris occupat, gratantibus proximus infelix
-      devovitque deus. Videntur quo, magnum alios. Tenenti volvitur est abit
-      rostrum stridore. Leto plura. Quod duram; ut dixit feretrumque exhibuit,
-      manus rapto, Cererem. Peremptam porrexerat desint sepulcro Nioben ad
-      accedere quamque, corporis dextris fervebat metu, pervenit, luce. Pars
-      Titan ante suam; arator et in urbem: ossa ex tauri. Deos illa summa
-      conplexaque requie tamen. Verbere dum his latrantis comites moenia mea
-      nutricibus mihi Troiae. Donis Itys ubi adorat luna, proles, patuere;
-      plangoris orbe latius. Dixit mortis; nivea dei odere sorores caput
-      praerupit factum. Lustrabere opemque acuti Cepheaque; arserunt tum
-      voluntas timido mersisque mihi.
+      <p>
+        Lorem markdownum dabitur bis in Iuppiter iamque sanguine non crura
+        Themis. Cutem avidissima et aurea, multi sic Caencu volucris naturae
+        retinacula pectus: ambit visa. Exitus in fatum nullaque; oris sacrum;
+        est bracchia breve. Ore dividite forma. Quod induruit postes et aestuat
+        fossa ore nostri agat: quae. Nec esse; polo sit, se et exanimi
+        nutricisque parva excusantia erant memorare. Caelum velocius paterna.
+        Haec saucius Inmunitamque aures quod casias illuc ille quid, tum ad
+        easdem spumeus? Tristis spreta herbae: seniles donec. Caeli in amore
+        suae pressos, quoque viro, non interque gurgite sacroque triceps
+        ignifero Nepheleque clipeum moveri. Et hanc lucida. Attollens dependebat
+        Acmona malis victricemque ponit defunctum require adspexit si trabes est
+        torum dubiis hinc. Ulvae numina ultoris: et Caenis cornua omnis animosus
+        me ille et cum petunt raptam. Haec quas ordine simul citharae falsam.
+        Femina fronde Fecit traduxit ulterius ululavit umeris occupat,
+        gratantibus proximus infelix devovitque deus. Videntur quo, magnum
+        alios. Tenenti volvitur est abit rostrum stridore. Leto plura. Quod
+        duram; ut dixit feretrumque exhibuit, manus rapto, Cererem. Peremptam
+        porrexerat desint sepulcro Nioben ad accedere quamque, corporis dextris
+        fervebat metu, pervenit, luce. Pars Titan ante suam; arator et in urbem:
+        ossa ex tauri. Deos illa summa conplexaque requie tamen. Verbere dum his
+        latrantis comites moenia mea nutricibus mihi Troiae. Donis Itys ubi
+        adorat luna, proles, patuere; plangoris orbe latius. Dixit mortis; nivea
+        dei odere sorores caput praerupit factum. Lustrabere opemque acuti
+        Cepheaque; arserunt tum voluntas timido mersisque mihi.
+      </p>
+      <p>
+        Venenifero tamque Iunonis quorum murmure pendentemque comes Lorem
+        markdownum in populus quo vocibus ceu quia ima inquit protinus se
+        carpere recumbere furibundus movet, sub et Troius. Montibus artis, tunc
+        tene continuo denique nec enim tamen tam omnes dedisti erat maius
+        limina. Pedibus oborto Armeniae Latiis discordibus Aeneae, flebat
+        curasque ista, tibi. Cacumina finxit o Mater servare manusque veniam
+        nequiquam declinat sic; ore mirata, tuum prius longe decerptas. Agros
+        fulvis mirandum et novercae nimium reduxit Argolis, contra nisi ambobus
+        intentare in bisque arcisque vesti, levi. A ingrate, ante pennatis
+        harundinibus inania tumens patulis placere lilia: circumspice vates
+        siqua ait, pia iactu. Naturae o addit Pittheus, cum datura, falsi quae
+        sui victoria tali. Et per remis tempore ab altera permulcens ut arcus
+        humi sed inquit Cytherea servor quo natum ubi: Aiax mox. Sociamque
+        tegitur senes, haec data nimiique, nec polluit, aut levi illos
+        inpositum. Veros quaeritis violari deus parit rescierit, ferventisque
+        aliter contermina non. Acutae numero Mycenae servat, ita navit accersite
+        non subsedit conscia, lucemque.
+      </p>
+      <p>
+        Acies eligit bracchia semina, tecum altae Semina plusque regnaque
+        ferrum. Iamque fatendo dumque tempus, ut est dirae non vigil fatemur
+        cohaesit furcas! Ore ipsi locus mersura ab reticere, domum tabula
+        scindunt tota liquitur! Amantis rogabat os strepitum praesentit recenti
+        indoluisse postquam haberet: sim mora. Penates tot maturuit noster
+        rubigine esset gratissima victibus petunt, pro sinu in Sithon, ulnis?
+        Per Achilles sternit notatam in utuntur victa illam gaudenti comites
+        decursa? Notam honor quod dixi taedasque quamquam. Conplexibus pabula
+        renovatus graves afflatibus, nituntur terruerat mediis ait, parenti
+        ipsumque en tepebat lacesse Turno fuerat! Tantummodo ignis armiferae;
+        destinat adest praemia carmine nefandas: Rhanisque et inter argumenta
+        purpura morari fama vertuntur tenuerunt furens. Qua puerpera loci:
+        litora suos etiam; omnia eadem ocior inquit terga egreditur Ilios
+        maculatum. Tela at in urgues petatur tantaeque cognosse, addit est
+        damna. Capulo victa armis, aliudque ut erit dolebis; fulva quem homini
+        futuros Morphea. Mediumque damnatura membra sinumque, leve unda sparsum,
+        Dindymaque. Restat nempe solita, Amyntor respondit nervis aures. Ubi
+        alis videor? Parce est fixa, et cernitis atque et freta: trahit
+        Philoctete digitis tamen iam praeferri patrios. Patresque gratam molibus
+        repulsus iuveni confundant Britannos iuveni!
+      </p>
     </div>
   </div>
 </template>
@@ -74,16 +117,13 @@ useHead({
   ],
 });
 
-const clear = () => {
-  console.log("clear");
-};
 const prev = () => {
   console.log("prev");
 };
 const next = () => {
   console.log("next");
 };
-const performMark = (_query) => {
+const performMark = (_query = "") => {
   query.value = _query;
   let markInstance = new Mark(document.querySelector(".context"));
   markInstance.unmark({
@@ -95,8 +135,54 @@ const performMark = (_query) => {
   });
 };
 
+const clear = () => {
+  performMark();
+  query.value = "";
+  currentIndex.value = 0;
+  results.value = [];
+  const el = document.getElementById("textfield");
+  el.focus();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
 const updateCountIndex = (strBtn) => {
-  console.log("button click: ", strBtn);
+  if (currentIndex.value.length === 0 || query.value.length === 0) {
+    return;
+  }
+  if (results.value.length > 0 && query.value.length > 0) {
+    if (strBtn === "next") {
+      if (currentIndex.value <= results.value.length - 1) {
+        currentIndex.value++;
+      }
+    }
+
+    if (strBtn === "prev") {
+      if (currentIndex.value > 0) {
+        currentIndex.value--;
+      } else {
+        currentIndex.value = 0;
+      }
+    }
+  }
+  if (currentIndex.value > 0) {
+    results.value[currentIndex.value - 1].scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "center",
+    });
+    var elems = document.querySelectorAll(".current");
+    for (var i = 0; i < elems.length; i++) {
+      elems[i].classList.remove(currentClass.value);
+    }
+
+    results.value[currentIndex.value - 1].classList.add(currentClass.value);
+  } else {
+    var elems = document.querySelectorAll(".current");
+    for (var i = 0; i < elems.length; i++) {
+      elems[i].classList.remove(currentClass.value);
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 };
 onMounted(async () => {
   await nextTick();

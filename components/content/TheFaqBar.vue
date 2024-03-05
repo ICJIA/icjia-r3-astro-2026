@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isMounted">
+    <div>
       <v-container fluid
         ><v-row
           ><v-col cols="11">
@@ -46,11 +46,11 @@
         size="x-small"
         elevation="0"
         append-icon="mdi-close-circle"
-        @click="$emit('clear')"
+        @click="clear"
         >Clear</v-btn
       >
     </div>
-    <div v-else>Loading...</div>
+    <!-- <div v-else>Loading...</div> -->
   </div>
 </template>
 
@@ -59,6 +59,7 @@ const emits = defineEmits(["query", "prev", "next", "clear"]);
 defineProps({
   currentIndex: Number,
   results: Array,
+  clear: Boolean,
 });
 
 // console.log("faqbar component props: ", props);
@@ -71,6 +72,11 @@ onMounted(() => {
 });
 
 let _query = ref("");
+
+const clear = () => {
+  _query.value = "";
+  emits("clear");
+};
 
 const query = computed({
   // getter
