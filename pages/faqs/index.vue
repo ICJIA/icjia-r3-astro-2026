@@ -1,19 +1,85 @@
 <template>
   <div>
     <div v-if="isMounted">
-      <the-faq-bar
-        @prev="updateCountIndex('prev')"
-        @next="updateCountIndex('next')"
-        @query="performMark"
-        @clear="clear"
-        :currentIndex="currentIndex"
-        :results="results"
-      ></the-faq-bar>
+      <div class="hidden-sm-and-down" style="margin-bottom: 80px">
+        <v-app-bar
+          app
+          elevation="6"
+          class="header"
+          density="compact"
+          color="#0D4474"
+        >
+          <v-container fluid
+            ><v-row
+              ><v-col cols="11">
+                <v-form class="pl-2 mt-4" style="margin-top: -15px">
+                  <v-text-field
+                    append-inner-icon="mdi-magnify"
+                    id="textfield"
+                    ref="textfield"
+                    focused
+                    v-model="query"
+                    density="compact"
+                    label="Search R3 FAQs below"
+                    style="font-weight: 900; width: 100%"
+                    autocomplete="off"
+                    color="white"
+                    @keypress.enter.prevent
+                    @input="performMark"
+                  />
+                </v-form> </v-col></v-row
+          ></v-container>
+
+          <span
+            class="text-right fade-in-text"
+            style="width: 350px; margin-bottom: 2px"
+          >
+            <v-btn
+              size="x-small"
+              variant="text"
+              style="background: #fff; color: #000"
+            >
+              <span style="font-weight: 900"
+                >Showing {{ currentIndex }} of
+                {{ results ? results.length : 0 }}</span
+              ></v-btn
+            >&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
+          <v-btn
+            size="x-small"
+            append-icon="mdi-arrow-up"
+            elevation="2"
+            variant="tonal"
+            :disabled="isPrevDisabled"
+            @click="updateCountIndex('prev')"
+            dark
+            style="font-weight: 900"
+            >Previous</v-btn
+          >&nbsp;&nbsp;
+          <v-btn
+            size="x-small"
+            append-icon="mdi-arrow-down"
+            elevation="2"
+            variant="tonal"
+            :disabled="isNextDisabled"
+            style="font-weight: 900"
+            @click="updateCountIndex('next')"
+            >Next</v-btn
+          >&nbsp;&nbsp;
+          <v-btn
+            size="x-small"
+            elevation="0"
+            append-icon="mdi-close-circle"
+            @click="clear"
+            >Clear</v-btn
+          >
+        </v-app-bar>
+      </div>
 
       <v-container
         ><v-row
           ><v-col>
-            <div style="margin-top: 35px">
+            <div style="margin-top: -25px">
               <v-card class="px-8 py-5 mb-12">
                 <div class="context">
                   <h1 class="mb-10" style="border: none">
@@ -63,27 +129,42 @@ const renderer = new md({
   quotes: "“”‘’",
 }).use(attrs);
 import _ from "lodash";
-
+import moment from "moment";
 const query = ref("");
-const results = ref([]);
+const results = ref(null);
 const currentIndex = ref(0);
-const isMounted = ref(false);
 const currentClass = ref("current");
+const isNextDisabled = ref(false);
+const isPrevDisabled = ref(false);
+
+const isMounted = ref(false);
+// const markInstance = ref(null);
 const { path } = useRoute();
-// const router = useRouter();
-const route = useRoute();
-// const routePath = ref(route.path);
+const router = useRouter();
 const { data: faqs } = await useAsyncData(`faqs-${path}`, async () => {
   const post = await queryContent("/faqs").find();
   return post;
 });
 const sortedFaqs = _.orderBy(faqs.value, ["postDate"], ["desc"]);
 
+const route = useRoute();
+const routePath = ref(route.path);
+// console.log(routePath);
+
 const options = {
   accuracy: "partially",
   separateWordSearch: false,
   acrossElements: true,
 };
+
+watch(query, (newQ) => {
+  if (newQ.length < 1) {
+    clear();
+  } else {
+    isNextDisabled.value = false;
+    isPrevDisabled.value = false;
+  }
+});
 
 useHead({
   title: "Frequently Asked Questions",
@@ -96,29 +177,8 @@ useHead({
   ],
 });
 
-const performMark = (_query = "") => {
-  query.value = _query;
-  let markInstance = new Mark(document.querySelector(".context"));
-  markInstance.unmark({
-    done: function () {
-      markInstance.mark(query.value, options);
-      results.value = Array.from(document.querySelectorAll("[data-markjs]"));
-      currentIndex.value = 0;
-    },
-  });
-};
-
-const clear = () => {
-  performMark();
-  query.value = "";
-  currentIndex.value = 0;
-  results.value = [];
-  const el = document.getElementById("textfield");
-  el.focus();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
 const updateCountIndex = (strBtn) => {
+  //console.log("strBtn: ", strBtn);
   if (currentIndex.value.length === 0 || query.value.length === 0) {
     return;
   }
@@ -157,16 +217,38 @@ const updateCountIndex = (strBtn) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 };
+
+const performMark = () => {
+  let markInstance = new Mark(document.querySelector(".context"));
+  markInstance.unmark({
+    done: function () {
+      markInstance.mark(query.value, options);
+      results.value = document.querySelectorAll("[data-markjs]");
+      currentIndex.value = 0;
+    },
+  });
+};
+
+const clear = () => {
+  query.value = "";
+  performMark();
+
+  currentIndex.value = 0;
+  results.value = null;
+  // isNextDisabled.value = true;
+  // isPrevDisabled.value = true;
+  const el = document.getElementById("textfield");
+  el.focus();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
 onMounted(async () => {
-  await nextTick();
-  await nextTick();
   isMounted.value = true;
+  await nextTick();
+  await nextTick();
 
   const el = document.getElementById("textfield");
-  console.log("searchbar el: ", el);
-  if (el) {
-    el.focus();
-  }
+  el.focus();
 });
 </script>
 
