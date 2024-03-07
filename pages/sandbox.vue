@@ -130,13 +130,16 @@ const performMark = (_query = "") => {
   });
 };
 
-const clear = () => {
+const clear = (isMobile = false) => {
   performMark();
   query.value = "";
   currentIndex.value = 0;
   results.value = [];
-  const el = document.getElementById("textfield");
-  el.focus();
+  if (!isMobile) {
+    const el = document.getElementById("textfield");
+    el.focus();
+  }
+
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 

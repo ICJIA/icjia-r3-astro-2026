@@ -79,18 +79,18 @@ let isMounted = ref(false);
 onMounted(() => {
   isMounted.value = true;
   console.log("faqbar-mobile component mounted");
-  const el = document.getElementById("textfield");
-  console.log("searchbar el: ", el);
-  if (el) {
-    el.focus();
-  }
+  // const el = document.getElementById("textfield");
+  // console.log("searchbar el: ", el);
+  // if (el) {
+  //   el.focus();
+  // }
 });
 
 let _query = ref("");
 
 const clear = () => {
   _query.value = "";
-  emits("clear");
+  emits("clear", true);
 };
 
 const query = computed({
