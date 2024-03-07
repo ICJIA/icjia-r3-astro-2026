@@ -9,6 +9,7 @@
         :currentIndex="currentIndex"
         :results="results"
         v-if="display && !display.mobile"
+        :key="getUUID"
       ></the-faq-bar>
       <the-faq-bar-mobile
         @prev="updateCountIndex('prev')"
@@ -18,6 +19,7 @@
         :currentIndex="currentIndex"
         :results="results"
         v-if="display && display.mobile"
+        :key="getUUID"
       ></the-faq-bar-mobile>
 
       <v-container
@@ -25,7 +27,6 @@
           ><v-col>
             <div style="margin-top: 35px">
               <v-card class="px-8 py-5 mb-12">
-                Display: {{ display.mobile }}
                 <div class="context">
                   <h1 class="mb-10" style="border: none">
                     R3 Frequently Asked Questions
@@ -65,8 +66,11 @@
 import md from "markdown-it";
 import attrs from "markdown-it-attrs";
 import { useDisplay } from "vuetify";
+import { v4 as uuidv4 } from "uuid";
+// const uuid = uuidv4();
+// console.log(uuid);
 const display = ref(useDisplay());
-console.log(display);
+// console.log(display);
 const renderer = new md({
   html: true,
   xhtmlOut: false,
@@ -97,6 +101,10 @@ const options = {
   accuracy: "partially",
   separateWordSearch: false,
   acrossElements: true,
+};
+
+const getUUID = () => {
+  return uuidv4();
 };
 
 useHead({
@@ -175,12 +183,6 @@ onMounted(async () => {
   await nextTick();
   await nextTick();
   isMounted.value = true;
-
-  const el = document.getElementById("textfield");
-  console.log("searchbar el: ", el);
-  if (el) {
-    el.focus();
-  }
 });
 </script>
 

@@ -90,6 +90,11 @@ let isMounted = ref(false);
 onMounted(() => {
   isMounted.value = true;
   console.log("faqbar component mounted");
+  const el = document.getElementById("textfield");
+  console.log("searchbar el: ", el);
+  if (el) {
+    el.focus();
+  }
 });
 
 let _query = ref("");

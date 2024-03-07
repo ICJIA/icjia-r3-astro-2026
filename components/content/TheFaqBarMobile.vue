@@ -18,7 +18,7 @@
                   ref="textfield"
                   focused
                   density="compact"
-                  label="Search R3 FAQs"
+                  label="Search"
                   style="font-weight: 900; width: 100%"
                   autocomplete="off"
                   color="white"
@@ -55,9 +55,9 @@
           @click="$emit('next')"
           ><v-icon>mdi-arrow-down</v-icon></v-btn
         >&nbsp;
-        <!-- <v-btn size="x-small" elevation="0" @click="clear"
+        <v-btn size="x-small" elevation="0" @click="clear"
           ><v-icon>mdi-close-circle</v-icon></v-btn
-        > -->
+        >
       </v-app-bar>
     </div>
     <!-- <div v-else>Loading...</div> -->
@@ -78,7 +78,12 @@ let isMounted = ref(false);
 
 onMounted(() => {
   isMounted.value = true;
-  console.log("faqbar component mounted");
+  console.log("faqbar-mobile component mounted");
+  const el = document.getElementById("textfield");
+  console.log("searchbar el: ", el);
+  if (el) {
+    el.focus();
+  }
 });
 
 let _query = ref("");
