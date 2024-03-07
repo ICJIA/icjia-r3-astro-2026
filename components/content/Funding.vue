@@ -2,7 +2,7 @@
   <div>
     <v-container v-if="isMounted"
       ><v-row>
-        <v-col cols="12"> <h1>R3 Funding Opportunities</h1></v-col>
+        <v-col cols="12"> <h1>R3 Funding Opportunity</h1></v-col>
 
         <v-col
           v-for="(item, index) in splash"
