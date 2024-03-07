@@ -8,13 +8,24 @@
         @clear="clear"
         :currentIndex="currentIndex"
         :results="results"
+        v-if="display && !display.mobile"
       ></the-faq-bar>
+      <the-faq-bar-mobile
+        @prev="updateCountIndex('prev')"
+        @next="updateCountIndex('next')"
+        @query="performMark"
+        @clear="clear"
+        :currentIndex="currentIndex"
+        :results="results"
+        v-if="display && display.mobile"
+      ></the-faq-bar-mobile>
 
       <v-container
         ><v-row
           ><v-col>
             <div style="margin-top: 35px">
               <v-card class="px-8 py-5 mb-12">
+                Display: {{ display.mobile }}
                 <div class="context">
                   <h1 class="mb-10" style="border: none">
                     R3 Frequently Asked Questions
@@ -53,6 +64,9 @@
 <script setup>
 import md from "markdown-it";
 import attrs from "markdown-it-attrs";
+import { useDisplay } from "vuetify";
+const display = ref(useDisplay());
+console.log(display);
 const renderer = new md({
   html: true,
   xhtmlOut: false,
