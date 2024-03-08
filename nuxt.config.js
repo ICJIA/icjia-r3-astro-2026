@@ -88,6 +88,9 @@ export default defineNuxtConfig({
     // '/api/**': { cors: true },
     // Redirects legacy urls
     "/apply": { redirect: "/funding" },
+    "/faqs/2025-r3-nofo-applicant-questions": {
+      redirect: "/faqs/03-08-24-2025-r3-nofo-applicant-questions",
+    },
   },
 
   runtimeConfig: {
