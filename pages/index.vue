@@ -10,11 +10,7 @@
             cols="12"
             md="12"
           >
-            <v-card
-              class=""
-              style="min-height: 600px"
-              v-if="!underConstruction"
-            >
+            <v-card class="" style="min-height: 600px" v-if="!underConstruction">
               <v-img
                 cover
                 :src="item.src"
@@ -36,8 +32,7 @@
                     size="small"
                     class="mt-8 button-href hidden-sm-and-down"
                     :href="item.externalURL"
-                    >For More Information or to Apply Now&nbsp;&nbsp;<v-icon
-                      right
+                    >For More Information or to Apply Now&nbsp;&nbsp;<v-icon right
                       >mdi-open-in-new</v-icon
                     ></v-btn
                   >
@@ -47,9 +42,7 @@
                     size="small"
                     class="mt-8 button-href hidden-md-and-up"
                     :href="item.externalURL"
-                    >Apply Now&nbsp;&nbsp;<v-icon right
-                      >mdi-open-in-new</v-icon
-                    ></v-btn
+                    >Apply Now&nbsp;&nbsp;<v-icon right>mdi-open-in-new</v-icon></v-btn
                   >
                 </div>
                 <template #placeholder>
@@ -106,11 +99,7 @@
       <v-container>
         <v-row>
           <v-col cols="12">
-            <ContentDoc
-              :key="data?.title"
-              :value="data"
-              class="markdown-body mt-12"
-            >
+            <ContentDoc :key="data?.title" :value="data" class="markdown-body mt-12">
               <template #empty>Document not found</template>
               <template #not-found>Document not found</template>
             </ContentDoc>
@@ -120,11 +109,7 @@
 
       <div
         class="mt-10 pb-12"
-        style="
-          background: #fafafa;
-          border-top: 1px solid #aaa;
-          min-height: 30vh;
-        "
+        style="background: #fafafa; border-top: 1px solid #aaa; min-height: 30vh"
       >
         <div
           style="background: #ddd; border-bottom: 1px solid #aaa"
@@ -147,25 +132,22 @@
                       border-radius: 80%;
                     "
                   />
-                  Thank you for visiting the Restore, Reinvest, Review (R3)
-                  program website. We appreciate your interest in the R3 mission
-                  of investing in communities most affected by systemic racism
-                  and disinvestment.
+                  Thank you for visiting the Restore, Reinvest, Review (R3) program
+                  website. We appreciate your interest in the R3 mission of investing in
+                  communities most affected by systemic racism and disinvestment.
                 </p>
                 <p>
-                  In collaboration with Lt. Gov. Stratton and the Justice Equity
-                  and Opportunity Initiative, ICJIA has provided funding access
-                  and availability to over 400 new small, localized grassroots
-                  organizations that, without R3, may not have received state
-                  grants
+                  In collaboration with Lt. Gov. Stratton and the Justice Equity and
+                  Opportunity Initiative, ICJIA has provided funding access and
+                  availability to over 400 new small, localized grassroots organizations
+                  that, without R3, may not have received state grants
                 </p>
                 <p>
-                  As we initiate our third R3 Notice of Funding Opportunity, we
-                  remain committed to ensuring equity, fairness, and opportunity
-                  in communities across the state. We will continue to empower
-                  organizations to create innovative programs and strategies
-                  that address the diverse needs of their communities and,
-                  ultimately, build a safer Illinois.
+                  As we initiate our third R3 Notice of Funding Opportunity, we remain
+                  committed to ensuring equity, fairness, and opportunity in communities
+                  across the state. We will continue to empower organizations to create
+                  innovative programs and strategies that address the diverse needs of
+                  their communities and, ultimately, build a safer Illinois.
                 </p>
                 <div>
                   <strong>Delrice Adams</strong><br />
