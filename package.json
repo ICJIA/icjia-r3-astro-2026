@@ -24,7 +24,7 @@
     "create:manualPages": "node ./creators/createManualPages.js",
     "dev": "yarn clear:cache && yarn scripts && nuxt dev --port=8000 -o",
     "generate": "yarn clear:cache && yarn scripts && nuxi generate",
-    "generate:serve": "yarn scripts && nuxt generate && serve ./dist",
+    "generate:serve": "yarn scripts && nuxt generate && npx serve .output/public",
     "preview": "nuxt preview",
     "scripts": "yarn create:contentDirectory && yarn create:manualPages && yarn create:news && yarn create:faqs && yarn create:pages && yarn create:resources && yarn create:hub && yarn create:hubImages && yarn create:routes && yarn create:searchIndex && yarn create:sitemap",
     "postinstall": "nuxt prepare",
@@ -68,13 +68,13 @@
     "moment": "2.30.1",
     "prettier": "3.2.5",
     "request": "2.88.2",
-    "sass": "1.74.1",
+    "sass": "1.75.0",
     "sitemap": "7.1.1",
     "slugify": "1.6.6",
     "uuid": "9.0.1",
     "vite-plugin-vuetify": "2.0.3",
     "vue-chartjs": "5.3.1",
-    "vuetify": "3.5.14",
+    "vuetify": "3.5.15",
     "yaml": "2.4.1"
   }
 }
