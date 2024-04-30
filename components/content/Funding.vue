@@ -30,7 +30,6 @@
                   color="white"
                   size="small"
                   class="mt-8 button-href hidden-sm-and-down"
-                  :href="item.externalURL"
                   >Expired 04/30/24&nbsp;&nbsp;</v-btn
                 >
                 <v-btn
@@ -38,7 +37,6 @@
                   color="white"
                   size="small"
                   class="mt-8 button-href hidden-md-and-up"
-                  :href="item.externalURL"
                   >Expired 04/30/24&nbsp;&nbsp;</v-btn
                 >
               </div>
