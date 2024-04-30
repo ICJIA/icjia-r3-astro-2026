@@ -10,11 +10,7 @@
           cols="12"
           class="mt-10 mb-12"
         >
-          <v-card
-            class="info-card"
-            style="margin-top: -25px"
-            v-if="!underConstruction"
-          >
+          <v-card class="info-card" style="margin-top: -25px" v-if="!underConstruction">
             <v-img
               cover
               crossorigin
@@ -35,9 +31,7 @@
                   size="small"
                   class="mt-8 button-href hidden-sm-and-down"
                   :href="item.externalURL"
-                  >For More Information or to Apply Now&nbsp;&nbsp;<v-icon right
-                    >mdi-open-in-new</v-icon
-                  ></v-btn
+                  >Expired 04/30/24&nbsp;&nbsp;</v-btn
                 >
                 <v-btn
                   variant="outlined"
@@ -45,9 +39,7 @@
                   size="small"
                   class="mt-8 button-href hidden-md-and-up"
                   :href="item.externalURL"
-                  >Apply Now&nbsp;&nbsp;<v-icon right
-                    >mdi-open-in-new</v-icon
-                  ></v-btn
+                  >Expired 04/30/24&nbsp;&nbsp;</v-btn
                 >
               </div>
               <template #placeholder>
@@ -70,9 +62,7 @@
               height="750"
             >
               <div class="text-center px-12" style="margin-top: 100px">
-                <h1 class="nofo-title mt-3">
-                  2025 SERVICE DELIVERY GRANT OPPORTUNITIES
-                </h1>
+                <h1 class="nofo-title mt-3">2025 SERVICE DELIVERY GRANT OPPORTUNITIES</h1>
                 <div class="nofo-tagline">
                   {{ item.tagline }}
                 </div>

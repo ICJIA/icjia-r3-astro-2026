@@ -32,9 +32,7 @@
                     size="small"
                     class="mt-8 button-href hidden-sm-and-down"
                     :href="item.externalURL"
-                    >For More Information or to Apply Now&nbsp;&nbsp;<v-icon right
-                      >mdi-open-in-new</v-icon
-                    ></v-btn
+                    >Expired 04/30/24&nbsp;&nbsp;</v-btn
                   >
                   <v-btn
                     variant="outlined"
@@ -42,7 +40,7 @@
                     size="small"
                     class="mt-8 button-href hidden-md-and-up"
                     :href="item.externalURL"
-                    >Apply Now&nbsp;&nbsp;<v-icon right>mdi-open-in-new</v-icon></v-btn
+                    >Expired 04/30/24&nbsp;&nbsp;</v-btn
                   >
                 </div>
                 <template #placeholder>
