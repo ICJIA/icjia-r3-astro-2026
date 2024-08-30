@@ -85,6 +85,23 @@
                   <h1 class="mb-10" style="border: none">
                     R3 Frequently Asked Questions
                   </h1>
+                  <div class="pl-5">
+                    <h2 class="mt-12 title-link">
+                      08-29-2024: 2025 R3 Final FAQs&nbsp;
+                    </h2>
+                    <div>
+                      <ul>
+                        <li>
+                          <a
+                            href="https://r3.icjia-api.cloud/uploads/ICJIA_SFY_25_R3_AWARD_FAQS_FINAL_v2_9100380adb.pdf"
+                            >Final SFY25 R3 Frequently Asked Questions</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div></div>
+
                   <div
                     v-for="item in sortedFaqs"
                     :key="item.title"
