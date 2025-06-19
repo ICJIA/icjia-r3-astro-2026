@@ -1,4 +1,5 @@
 {
+  "name": "icjia-r3-v5-nuxt",
   "private": true,
   "version": "0.1.0",
   "license": "MIT",
@@ -22,11 +23,12 @@
     "create:hub": "node ./creators/createHubArticles.mjs",
     "create:hubImages": "node ./creators/createHubImages.mjs",
     "create:manualPages": "node ./creators/createManualPages.js",
+    "create:documentation": "node ./creators/createDocumentationHTML.js",
     "dev": "yarn clear:cache && yarn scripts && nuxt dev --port=8000 -o",
     "generate": "yarn clear:cache && yarn scripts && nuxi generate",
     "generate:serve": "yarn scripts && nuxt generate && npx serve .output/public",
     "preview": "nuxt preview",
-    "scripts": "yarn create:contentDirectory && yarn create:manualPages && yarn create:news && yarn create:faqs && yarn create:pages && yarn create:resources && yarn create:hub && yarn create:hubImages && yarn create:routes && yarn create:searchIndex && yarn create:sitemap",
+    "scripts": "yarn create:contentDirectory && yarn create:manualPages && yarn create:documentation && yarn create:news && yarn create:faqs && yarn create:pages && yarn create:resources && yarn create:hub && yarn create:hubImages && yarn create:routes && yarn create:searchIndex && yarn create:sitemap",
     "postinstall": "nuxt prepare",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore . --fix",
     "lint": "npm run lint:js"
@@ -63,6 +65,7 @@
     "kill-port": "2.0.1",
     "loading-attribute-polyfill": "2.1.1",
     "markdown-it": "14.1.0",
+    "markdown-it-anchor": "^9.2.0",
     "markdown-it-attrs": "4.2.0",
     "mitt": "3.0.1",
     "moment": "2.30.1",

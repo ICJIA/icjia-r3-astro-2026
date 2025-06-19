@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive project documentation for R3 (Restore, Reinvest, Renew) Program">
+    <meta name="robots" content="noindex, nofollow">
+    <title>R3 Documentation</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;0,900;1,100&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100&family=Raleway:ital,wght@0,100;0,400;0,900;1,100&display=swap" rel="stylesheet">
+
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+
+    <style>
+        /* CSS Variables for theme management */
+        :root {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --accent-primary: #1976d2;
+            --accent-secondary: #1565c0;
+            --code-bg: #2d3748;
+            --code-text: #e2e8f0;
+            --shadow: rgba(0,0,0,0.1);
+            --toggle-bg: #ccc;
+            --toggle-thumb: #fff;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --border-color: #404040;
+            --accent-primary: #64b5f6;
+            --accent-secondary: #42a5f5;
+            --code-bg: #1e1e1e;
+            --code-text: #f0f0f0;
+            --shadow: rgba(0,0,0,0.3);
+            --toggle-bg: #555;
+            --toggle-thumb: #fff;
+        }
+
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-primary);
+        }
+
+        .documentation-container {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px var(--shadow);
+            padding: 40px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            padding: 8px 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-primary);
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .theme-toggle:focus {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 2px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 40px;
+            height: 20px;
+            background: var(--toggle-bg);
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-thumb {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background: var(--toggle-thumb);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        [data-theme="dark"] .toggle-thumb {
+            transform: translateX(20px);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        h1 {
+            color: var(--accent-primary);
+            border-bottom: 3px solid var(--accent-primary);
+            padding-bottom: 10px;
+            font-size: 2.5em;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: var(--accent-secondary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            font-size: 2em;
+        }
+
+        h3 {
+            color: var(--accent-secondary);
+            font-size: 1.5em;
+        }
+
+        h4 {
+            color: var(--text-primary);
+            font-size: 1.25em;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--accent-secondary);
+        }
+
+        /* Code blocks */
+        code {
+            background-color: var(--border-color);
+            color: var(--text-primary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--bg-secondary);
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--border-color);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Lists */
+        ul, ol {
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-primary);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--border-color);
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        /* Horizontal rules */
+        hr {
+            border: none;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 2em 0;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .documentation-container { padding: 20px; }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .documentation-container {
+                box-shadow: none !important;
+                border: none !important;
+                background: white !important;
+            }
+            .theme-toggle {
+                display: none !important;
+            }
+            * {
+                background: white !important;
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <!-- Theme toggle button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode" tabindex="0">
+        <span class="toggle-switch">
+            <span class="toggle-thumb"></span>
+        </span>
+        <span class="toggle-label">Dark</span>
+    </button>
+
+    <div class="documentation-container">
+        <h1 id="icjia-r3-(restore%2C-reinvest%2C-renew)-program-website---project-documentation" tabindex="-1">ICJIA R3 (Restore, Reinvest, Renew) Program Website - Project Documentation</h1>
+<h2 id="project-overview" tabindex="-1">Project Overview</h2>
+<h3 id="repository-information" tabindex="-1">Repository Information</h3>
+<ul>
+<li><strong>Repository</strong>: <a href="https://github.com/ICJIA/icjia-r3-v5-nuxt">ICJIA/icjia-r3-v5-nuxt</a></li>
+<li><strong>License</strong>: MIT</li>
+<li><strong>Live Site</strong>: <a href="https://r3.illinois.gov">https://r3.illinois.gov</a></li>
+<li><strong>API Base</strong>: <a href="https://r3.icjia-api.cloud">https://r3.icjia-api.cloud</a></li>
+</ul>
+<h3 id="project-purpose-and-goals" tabindex="-1">Project Purpose and Goals</h3>
+<p>The R3 (Restore, Reinvest, Renew) Program website serves as the primary digital platform for Illinois’ criminal justice reform initiative. The site provides:</p>
+<ul>
+<li><strong>Grant Information</strong>: Comprehensive details about R3 funding opportunities and application processes</li>
+<li><strong>Resource Hub</strong>: Educational materials, FAQs, and guidance for potential applicants</li>
+<li><strong>Program Updates</strong>: News, meetings, and announcements related to the R3 program</li>
+<li><strong>Community Tools</strong>: Eligibility checkers, collaborative application guidance, and research resources</li>
+</ul>
+<h3 id="key-features-and-functionality" tabindex="-1">Key Features and Functionality</h3>
+<ul>
+<li><strong>Dynamic Content Management</strong>: Headless CMS integration with Strapi for content updates</li>
+<li><strong>Advanced Search</strong>: Full-text search with Fuse.js across all content types</li>
+<li><strong>Responsive Design</strong>: Mobile-first approach with Vuetify Material Design components</li>
+<li><strong>Accessibility</strong>: WCAG compliant with proper semantic markup and navigation</li>
+<li><strong>Performance Optimized</strong>: Static site generation with Nuxt 3 for fast loading times</li>
+<li><strong>Multi-language Support</strong>: Spanish language materials and translation capabilities</li>
+</ul>
+<h3 id="project-history-and-version-information" tabindex="-1">Project History and Version Information</h3>
+<ul>
+<li><strong>Current Version</strong>: v5 (Nuxt 3 implementation)</li>
+<li><strong>Previous Versions</strong>: Built on various frameworks, migrated to modern Nuxt 3 stack</li>
+<li><strong>Last Major Update</strong>: 2024 (based on package.json dependencies)</li>
+</ul>
+<h2 id="technology-stack" tabindex="-1">Technology Stack</h2>
+<h3 id="core-framework" tabindex="-1">Core Framework</h3>
+<ul>
+<li><strong>Nuxt 3</strong> (v3.13.2) - Vue.js meta-framework for universal applications</li>
+<li><strong>Vue 3</strong> - Progressive JavaScript framework for building user interfaces</li>
+<li><strong>Node.js</strong> - JavaScript runtime environment</li>
+</ul>
+<h3 id="ui-framework-%26-styling" tabindex="-1">UI Framework &amp; Styling</h3>
+<ul>
+<li><strong>Vuetify 3</strong> (v3.7.2) - Material Design component framework for Vue.js</li>
+<li><strong>Material Design Icons</strong> (@mdi/font v7.4.47) - Icon library</li>
+<li><strong>SASS</strong> (v1.79.4) - CSS preprocessor for advanced styling</li>
+<li><strong>CSS Variables</strong> - Custom properties for theming and responsive design</li>
+</ul>
+<h3 id="content-management" tabindex="-1">Content Management</h3>
+<ul>
+<li><strong>Nuxt Content</strong> (v2.13.2) - File-based CMS for Markdown content</li>
+<li><strong>Strapi CMS</strong> - Headless CMS for dynamic content (external API)</li>
+<li><strong>Markdown-it</strong> (v14.1.0) - Markdown parser with plugin support</li>
+<li><strong>YAML</strong> (v2.5.1) - Data serialization for frontmatter and configuration</li>
+</ul>
+<h3 id="build-tools-%26-development-environment" tabindex="-1">Build Tools &amp; Development Environment</h3>
+<ul>
+<li><strong>Vite</strong> - Fast build tool and development server</li>
+<li><strong>Yarn</strong> - Package manager (preferred over npm)</li>
+<li><strong>ESLint</strong> - Code linting and formatting</li>
+<li><strong>Prettier</strong> (v3.3.3) - Code formatting</li>
+<li><strong>TypeScript</strong> - Type checking support</li>
+</ul>
+<h3 id="search-%26-utility-libraries" tabindex="-1">Search &amp; Utility Libraries</h3>
+<ul>
+<li><strong>Fuse.js</strong> (v7.0.0) - Fuzzy search library for client-side search</li>
+<li><strong>Axios</strong> (v1.7.7) - HTTP client for API requests</li>
+<li><strong>Lodash</strong> - Utility library for data manipulation</li>
+<li><strong>Moment.js</strong> (v2.30.1) - Date manipulation library</li>
+<li><strong>DOMPurify</strong> (v3.1.7) - HTML sanitization library</li>
+</ul>
+<h3 id="analytics-%26-monitoring" tabindex="-1">Analytics &amp; Monitoring</h3>
+<ul>
+<li><strong>Google Analytics</strong> (nuxt-gtag v3.0.1) - Web analytics</li>
+<li><strong>Plausible Analytics</strong> (@nuxtjs/plausible v1.0.3) - Privacy-focused analytics</li>
+<li><strong>Custom Event Tracking</strong> - User interaction monitoring</li>
+</ul>
+<h3 id="deployment-%26-hosting" tabindex="-1">Deployment &amp; Hosting</h3>
+<ul>
+<li><strong>Netlify</strong> - Static site hosting and deployment</li>
+<li><strong>Automatic Deployment</strong> - Triggered by pushes to master branch</li>
+<li><strong>Environment Variables</strong> - Configuration management for different environments</li>
+</ul>
+<h2 id="architecture-overview" tabindex="-1">Architecture Overview</h2>
+<h3 id="high-level-architecture" tabindex="-1">High-Level Architecture</h3>
+<p>The R3 website follows a <strong>Jamstack architecture</strong> pattern:</p>
+<ol>
+<li><strong>Static Site Generation (SSG)</strong>: Nuxt 3 generates static HTML files at build time</li>
+<li><strong>Headless CMS Integration</strong>: Content fetched from Strapi API during build process</li>
+<li><strong>Client-Side Hydration</strong>: Vue.js takes over for dynamic interactions</li>
+<li><strong>CDN Distribution</strong>: Static files served globally via Netlify’s CDN</li>
+</ol>
+<h3 id="data-flow-patterns" tabindex="-1">Data Flow Patterns</h3>
+<pre><code>External APIs (Strapi CMS) → Build Process → Static Generation → CDN → User Browser
+                                    ↓
+Local Content (Markdown) → Content Processing → Search Index → Client Search
+</code></pre>
+<h3 id="key-design-patterns" tabindex="-1">Key Design Patterns</h3>
+<ul>
+<li><strong>Component-Based Architecture</strong>: Reusable Vue components with clear separation of concerns</li>
+<li><strong>State Management</strong>: Pinia stores for global state (search queries, navigation state)</li>
+<li><strong>Content-First Design</strong>: Markdown-driven content with frontmatter metadata</li>
+<li><strong>Progressive Enhancement</strong>: Core functionality works without JavaScript</li>
+</ul>
+<h3 id="integration-points-and-external-dependencies" tabindex="-1">Integration Points and External Dependencies</h3>
+<ul>
+<li><strong>Strapi CMS API</strong>: <code>https://r3.icjia-api.cloud</code> for dynamic content</li>
+<li><strong>Research Hub API</strong>: <code>https://researchhub.icjia-api.cloud</code> for research articles</li>
+<li><strong>Google Fonts</strong>: Typography and icon fonts</li>
+<li><strong><a href="http://DataTables.net">DataTables.net</a></strong>: Enhanced table functionality</li>
+<li><strong>Mark.js</strong>: Text highlighting for search results</li>
+</ul>
+<h2 id="directory-structure" tabindex="-1">Directory Structure</h2>
+<pre><code>icjia-r3-v5-nuxt/
+├── app/                          # Nuxt 3 app configuration
+│   └── router.options.ts         # Custom router configuration
+├── assets/                       # Static assets and build resources
+│   ├── css/                      # Global stylesheets and variables
+│   ├── img/                      # Images and graphics
+│   └── json/                     # Static JSON data files
+├── components/                   # Vue.js components
+│   └── content/                  # Content-specific components
+├── composables/                  # Vue composition functions
+├── content/                      # Markdown content files
+│   ├── faqs/                     # Frequently asked questions
+│   ├── news/                     # News articles and updates
+│   └── resources/                # Resource documents and guides
+├── creators/                     # Build scripts and content generators
+├── middleware/                   # Nuxt middleware functions
+├── pages/                        # File-based routing pages
+├── plugins/                      # Nuxt plugins (Vuetify, etc.)
+├── public/                       # Static files served directly
+├── server/                       # Server-side API routes
+├── src/                          # Source data files (JSON)
+├── stores/                       # Pinia state management stores
+├── app.config.js                 # Application configuration
+├── app.vue                       # Root Vue component
+├── nuxt.config.js                # Nuxt framework configuration
+└── package.json                  # Dependencies and scripts
+</code></pre>
+<h3 id="key-configuration-files" tabindex="-1">Key Configuration Files</h3>
+<ul>
+<li><strong><code>nuxt.config.js</code></strong>: Main Nuxt configuration with modules, build settings, and routing</li>
+<li><strong><code>app.config.js</code></strong>: Application-specific configuration (navigation, API endpoints)</li>
+<li><strong><code>.env.sample</code></strong>: Environment variable template</li>
+<li><strong><code>netlify.toml</code></strong>: Deployment configuration for Netlify</li>
+<li><strong><code>package.json</code></strong>: Dependencies, scripts, and project metadata</li>
+</ul>
+<h3 id="generated-vs.-source-files" tabindex="-1">Generated vs. Source Files</h3>
+<ul>
+<li><strong>Generated</strong>: <code>/public/*.json</code>, <code>/content/news/</code>, <code>/content/faqs/</code>, <code>/content/resources/</code></li>
+<li><strong>Source</strong>: <code>/src/*.json</code>, <code>/creators/*.js</code>, manual content files</li>
+<li><strong>Build Artifacts</strong>: <code>.nuxt/</code>, <code>.output/</code>, <code>node_modules/</code></li>
+</ul>
+<h2 id="key-components" tabindex="-1">Key Components</h2>
+<h3 id="layout-components" tabindex="-1">Layout Components</h3>
+<ul>
+<li><strong><code>TheNav.vue</code></strong>: Primary navigation with responsive menu system</li>
+<li><strong><code>TheSidebar.vue</code></strong>: Mobile navigation drawer</li>
+<li><strong><code>TheFooter.vue</code></strong>: Site footer with links and contact information</li>
+<li><strong><code>TheBreadcrumbBar.vue</code></strong>: Breadcrumb navigation for deep pages</li>
+</ul>
+<h3 id="content-components" tabindex="-1">Content Components</h3>
+<ul>
+<li><strong><code>TheSplash.vue</code></strong>: Homepage hero section with featured content</li>
+<li><strong><code>HomeBoxes.vue</code></strong>: Feature cards and quick access tools</li>
+<li><strong><code>TheTableOfContents.vue</code></strong>: Auto-generated page navigation</li>
+<li><strong><code>attachments.vue</code></strong>: File download components</li>
+</ul>
+<h3 id="page-components" tabindex="-1">Page Components</h3>
+<ul>
+<li><strong><code>index.vue</code></strong>: Homepage with news feed and program highlights</li>
+<li><strong><code>search.vue</code></strong>: Full-text search interface with Fuse.js</li>
+<li><strong><code>[...slug].vue</code></strong>: Dynamic content pages for CMS content</li>
+<li><strong><code>404.vue</code></strong>: Custom error page</li>
+</ul>
+<h3 id="utility-components" tabindex="-1">Utility Components</h3>
+<ul>
+<li><strong><code>TheLoader.vue</code></strong>: Loading states and progress indicators</li>
+<li><strong><code>TheExternalWarningModal.vue</code></strong>: External link warnings</li>
+<li><strong><code>Query.vue</code></strong>: Database query and data display components</li>
+</ul>
+<h3 id="state-management-components" tabindex="-1">State Management Components</h3>
+<ul>
+<li><strong><code>searchStore.js</code></strong>: Search query history and state</li>
+<li><strong><code>faqSearchStore.js</code></strong>: FAQ-specific search functionality</li>
+</ul>
+<h2 id="api-documentation" tabindex="-1">API Documentation</h2>
+<h3 id="external-api-integrations" tabindex="-1">External API Integrations</h3>
+<h4 id="strapi-cms-api" tabindex="-1">Strapi CMS API</h4>
+<ul>
+<li><strong>Base URL</strong>: <code>https://r3.icjia-api.cloud</code></li>
+<li><strong>Purpose</strong>: Dynamic content management for news, pages, FAQs, and resources</li>
+<li><strong>Authentication</strong>: Public read-only access</li>
+<li><strong>Content Types</strong>:
+<ul>
+<li><code>posts</code>: News articles and announcements</li>
+<li><code>pages</code>: Static page content</li>
+<li><code>weeklyFaqs</code>: FAQ collections organized by week</li>
+<li><code>resources</code>: Resource documents and guides</li>
+</ul>
+</li>
+</ul>
+<h4 id="research-hub-api" tabindex="-1">Research Hub API</h4>
+<ul>
+<li><strong>Base URL</strong>: <code>https://researchhub.icjia-api.cloud</code></li>
+<li><strong>Purpose</strong>: Research articles and publications</li>
+<li><strong>Query</strong>: GraphQL endpoint for filtered content</li>
+<li><strong>Integration</strong>: Automated content fetching during build process</li>
+</ul>
+<h3 id="endpoint-documentation" tabindex="-1">Endpoint Documentation</h3>
+<h4 id="graphql-queries" tabindex="-1">GraphQL Queries</h4>
+<pre><code class="language-graphql"># News Posts Query
+query {
+  posts {
+    data {
+      id
+      attributes {
+        title
+        slug
+        summary
+        body
+        publishedAt
+        searchMeta
+      }
+    }
+  }
+}
+
+# Pages Query
+query {
+  pages {
+    data {
+      id
+      attributes {
+        title
+        slug
+        summary
+        body
+        showTableOfContents
+        isFullPage
+      }
+    }
+  }
+}
+</code></pre>
+<h3 id="data-processing-workflows" tabindex="-1">Data Processing Workflows</h3>
+<ol>
+<li><strong>Content Fetching</strong>: Creator scripts pull data from APIs during build</li>
+<li><strong>Markdown Generation</strong>: API content converted to Markdown files with frontmatter</li>
+<li><strong>Search Index Creation</strong>: Full-text search index generated from all content</li>
+<li><strong>Route Generation</strong>: Dynamic routes created for all content pages</li>
+</ol>
+<h3 id="error-handling-strategies" tabindex="-1">Error Handling Strategies</h3>
+<ul>
+<li><strong>API Failures</strong>: Graceful degradation with cached content</li>
+<li><strong>Build Errors</strong>: Detailed logging in creator scripts</li>
+<li><strong>Runtime Errors</strong>: Custom error pages and user-friendly messages</li>
+<li><strong>Content Validation</strong>: Schema validation for API responses</li>
+</ul>
+<h2 id="database-schema" tabindex="-1">Database Schema</h2>
+<h3 id="content-structure-and-validation-rules" tabindex="-1">Content Structure and Validation Rules</h3>
+<p>The project uses a <strong>file-based content system</strong> with structured frontmatter:</p>
+<h4 id="news-articles" tabindex="-1">News Articles</h4>
+<pre><code class="language-yaml">---
+title: &quot;Article Title&quot;
+slug: &quot;article-slug&quot;
+summary: &quot;Brief description&quot;
+searchMeta: &quot;Additional search terms&quot;
+hideFromSearch: false
+hideFromSitemap: false
+showTableOfContents: true
+section: &quot;news&quot;
+createdAt: &quot;2024-01-01T00:00:00.000Z&quot;
+publishedAt: &quot;2024-01-01T00:00:00.000Z&quot;
+---
+</code></pre>
+<h4 id="page-content" tabindex="-1">Page Content</h4>
+<pre><code class="language-yaml">---
+title: &quot;Page Title&quot;
+slug: &quot;page-slug&quot;
+summary: &quot;Page description&quot;
+isFullPage: true
+showTableOfContents: false
+section: &quot;pages&quot;
+---
+</code></pre>
+<h3 id="migration-and-seeding-strategies" tabindex="-1">Migration and Seeding Strategies</h3>
+<ul>
+<li><strong>Content Migration</strong>: Creator scripts handle API-to-file conversion</li>
+<li><strong>Data Validation</strong>: YAML frontmatter validation during build</li>
+<li><strong>Content Updates</strong>: Automated regeneration on API changes</li>
+</ul>
+<h2 id="setup-instructions" tabindex="-1">Setup Instructions</h2>
+<h3 id="prerequisites-and-system-requirements" tabindex="-1">Prerequisites and System Requirements</h3>
+<p>⚠️ <strong>IMPORTANT PLATFORM COMPATIBILITY WARNING</strong> ⚠️</p>
+<p>This project is <strong>NOT compatible with vanilla Windows</strong> (native Windows without WSL2). Development requires one of these supported platforms:</p>
+<ol>
+<li><strong>Windows with WSL2</strong> (Windows Subsystem for Linux 2) - <strong>REQUIRED</strong> for Windows users</li>
+<li><strong>macOS</strong> (Apple Silicon M1/M2/M3/M4 preferred over Intel for better performance)</li>
+<li><strong>Linux</strong> (Debian/Ubuntu distributions recommended)</li>
+</ol>
+<p><strong>Technical Reasoning</strong>: Node.js development tools, file system operations, and build processes work more reliably on Unix-like systems. Many npm packages, build tools, and file watchers have compatibility issues with native Windows environments.</p>
+<h3 id="step-by-step-installation-process" tabindex="-1">Step-by-Step Installation Process</h3>
+<h4 id="for-windows-users-(wsl2-required)" tabindex="-1">For Windows Users (WSL2 Required)</h4>
+<pre><code class="language-bash"># Install WSL2 and Ubuntu (run in PowerShell as Administrator)
+wsl --install -d Ubuntu
+
+# Restart computer and open Ubuntu terminal
+# Install Node.js via Node Version Manager
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+source ~/.bashrc
+nvm install --lts
+nvm use --lts
+
+# Install Yarn
+npm install -g yarn
+
+# Clone and setup project
+git clone https://github.com/ICJIA/icjia-r3-v5-nuxt.git
+cd icjia-r3-v5-nuxt
+nvm use
+yarn install
+cp .env.sample .env
+</code></pre>
+<h4 id="for-macos-users" tabindex="-1">For macOS Users</h4>
+<pre><code class="language-bash"># Install Homebrew (if not already installed)
+/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+
+# Install Node.js and Yarn
+brew install node yarn
+
+# Clone and setup project
+git clone https://github.com/ICJIA/icjia-r3-v5-nuxt.git
+cd icjia-r3-v5-nuxt
+nvm use  # if using nvm
+yarn install
+cp .env.sample .env
+</code></pre>
+<h4 id="for-linux-users-(ubuntu%2Fdebian)" tabindex="-1">For Linux Users (Ubuntu/Debian)</h4>
+<pre><code class="language-bash"># Update package manager
+sudo apt update
+
+# Install Node.js via NodeSource repository
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Install Yarn
+npm install -g yarn
+
+# Clone and setup project
+git clone https://github.com/ICJIA/icjia-r3-v5-nuxt.git
+cd icjia-r3-v5-nuxt
+nvm use  # if using nvm
+yarn install
+cp .env.sample .env
+</code></pre>
+<h3 id="environment-configuration" tabindex="-1">Environment Configuration</h3>
+<p>Edit the <code>.env</code> file with appropriate values:</p>
+<pre><code class="language-bash">NUXT_PUBLIC_API_BASE_URL=https://r3.icjia-api.cloud
+NUXT_PUBLIC_BASE_URL=https://r3.illinois.gov
+NUXT_PUBLIC_PLAUSIBLE_DOMAIN=r3.illinois.gov
+</code></pre>
+<h3 id="verification-steps-and-troubleshooting" tabindex="-1">Verification Steps and Troubleshooting</h3>
+<pre><code class="language-bash"># Verify Node.js and Yarn installation
+node --version  # Should be v18+ or v20+
+yarn --version  # Should be v1.22+ or v3+
+
+# Test development server
+yarn dev
+
+# Verify build process
+yarn generate
+
+# Check for common issues
+yarn scripts  # Should complete without errors
+</code></pre>
+<h2 id="development-workflow" tabindex="-1">Development Workflow</h2>
+<h3 id="git-workflow-and-branching-strategy" tabindex="-1">Git Workflow and Branching Strategy</h3>
+<ul>
+<li><strong>Main Branch</strong>: <code>main</code> (production-ready code)</li>
+<li><strong>Feature Branches</strong>: <code>feature/description</code> for new features</li>
+<li><strong>Hotfix Branches</strong>: <code>hotfix/description</code> for urgent fixes</li>
+<li><strong>Pull Request Process</strong>: Required for all changes to main branch</li>
+</ul>
+<h3 id="code-standards-and-formatting-rules" tabindex="-1">Code Standards and Formatting Rules</h3>
+<ul>
+<li><strong>ESLint Configuration</strong>: Extends Vue.js recommended rules</li>
+<li><strong>Prettier Integration</strong>: Automatic code formatting on save</li>
+<li><strong>Vue Style Guide</strong>: Following Vue.js official style guide</li>
+<li><strong>Naming Conventions</strong>:
+<ul>
+<li>Components: PascalCase (e.g., <code>TheNavigation.vue</code>)</li>
+<li>Files: kebab-case for pages, camelCase for utilities</li>
+<li>Variables: camelCase for JavaScript, kebab-case for CSS</li>
+</ul>
+</li>
+</ul>
+<h3 id="testing-approach-and-procedures" tabindex="-1">Testing Approach and Procedures</h3>
+<ul>
+<li><strong>Manual Testing</strong>: Cross-browser testing on major browsers</li>
+<li><strong>Build Testing</strong>: Automated testing during CI/CD pipeline</li>
+<li><strong>Content Validation</strong>: Automated checks for content integrity</li>
+<li><strong>Performance Testing</strong>: Lighthouse audits for performance metrics</li>
+</ul>
+<h3 id="common-development-tasks-and-procedures" tabindex="-1">Common Development Tasks and Procedures</h3>
+<h4 id="starting-development" tabindex="-1">Starting Development</h4>
+<pre><code class="language-bash"># Clear cache and start development server
+yarn dev
+
+# Development server runs on http://localhost:8000
+# Hot reload enabled for instant feedback
+</code></pre>
+<h4 id="content-updates" tabindex="-1">Content Updates</h4>
+<pre><code class="language-bash"># Regenerate all content from APIs
+yarn scripts
+
+# Individual content type updates
+yarn create:news        # Update news articles
+yarn create:pages       # Update static pages
+yarn create:faqs        # Update FAQ content
+yarn create:resources   # Update resource documents
+</code></pre>
+<h4 id="build-and-deployment" tabindex="-1">Build and Deployment</h4>
+<pre><code class="language-bash"># Generate static site for production
+yarn generate
+
+# Preview production build locally
+yarn generate:serve
+
+# Clear build cache if needed
+yarn clear:cache
+</code></pre>
+<h2 id="build-and-deployment-1" tabindex="-1">Build and Deployment</h2>
+<h3 id="build-process-overview" tabindex="-1">Build Process Overview</h3>
+<p>The build process follows a <strong>multi-stage approach</strong>:</p>
+<ol>
+<li><strong>Content Generation</strong>: Creator scripts fetch and process external content</li>
+<li><strong>Static Site Generation</strong>: Nuxt 3 generates static HTML files</li>
+<li><strong>Asset Optimization</strong>: Images, CSS, and JavaScript are optimized</li>
+<li><strong>Route Generation</strong>: Dynamic routes created for all content pages</li>
+</ol>
+<h3 id="content-generation-workflows" tabindex="-1">Content Generation Workflows</h3>
+<pre><code class="language-bash"># Complete build script sequence
+yarn scripts
+
+# Individual creator scripts (run in order)
+yarn create:contentDirectory  # Initialize content structure
+yarn create:manualPages      # Process manual content
+yarn create:news             # Fetch and process news
+yarn create:faqs             # Fetch and process FAQs
+yarn create:pages            # Fetch and process pages
+yarn create:resources        # Fetch and process resources
+yarn create:hub              # Fetch research articles
+yarn create:hubImages        # Download research images
+yarn create:routes           # Generate route definitions
+yarn create:searchIndex      # Build search index
+yarn create:sitemap          # Generate XML sitemap
+</code></pre>
+<h3 id="deployment-configuration-and-process" tabindex="-1">Deployment Configuration and Process</h3>
+<h4 id="netlify-configuration-(netlify.toml)" tabindex="-1">Netlify Configuration (<code>netlify.toml</code>)</h4>
+<pre><code class="language-toml">[[headers]]
+  for = &quot;/*&quot;
+  [headers.values]
+    Access-Control-Allow-Origin = &quot;*&quot;
+    X-Greeting = &quot;Hello from Chicago!&quot;
+</code></pre>
+<h4 id="automatic-deployment" tabindex="-1">Automatic Deployment</h4>
+<ul>
+<li><strong>Trigger</strong>: Push to <code>main</code> branch</li>
+<li><strong>Build Command</strong>: <code>yarn generate</code></li>
+<li><strong>Publish Directory</strong>: <code>.output/public</code></li>
+<li><strong>Environment Variables</strong>: Configured in Netlify dashboard</li>
+</ul>
+<h3 id="environment-specific-considerations" tabindex="-1">Environment-Specific Considerations</h3>
+<h4 id="development-environment" tabindex="-1">Development Environment</h4>
+<ul>
+<li><strong>Hot Reload</strong>: Instant updates during development</li>
+<li><strong>Source Maps</strong>: Enabled for debugging</li>
+<li><strong>API Proxying</strong>: Development server proxies API requests</li>
+</ul>
+<h4 id="production-environment" tabindex="-1">Production Environment</h4>
+<ul>
+<li><strong>Static Generation</strong>: All pages pre-rendered at build time</li>
+<li><strong>Asset Optimization</strong>: Minified CSS, JavaScript, and images</li>
+<li><strong>CDN Distribution</strong>: Global content delivery via Netlify</li>
+</ul>
+<h2 id="configuration" tabindex="-1">Configuration</h2>
+<h3 id="environment-variables-and-their-purposes" tabindex="-1">Environment Variables and Their Purposes</h3>
+<pre><code class="language-bash"># API Configuration
+NUXT_PUBLIC_API_BASE_URL=https://r3.icjia-api.cloud
+NUXT_PUBLIC_BASE_URL=https://r3.illinois.gov
+
+# Analytics Configuration
+NUXT_PUBLIC_PLAUSIBLE_DOMAIN=r3.illinois.gov
+
+# Optional Development Variables
+NODE_ENV=development  # or production
+</code></pre>
+<h3 id="application-configuration-options" tabindex="-1">Application Configuration Options</h3>
+<h4 id="nuxt-configuration-(nuxt.config.js)" tabindex="-1">Nuxt Configuration (<code>nuxt.config.js</code>)</h4>
+<ul>
+<li><strong>Modules</strong>: Google Fonts, Plausible Analytics, Pinia, Nuxt Content</li>
+<li><strong>Build Settings</strong>: Transpilation, optimization, and bundling options</li>
+<li><strong>Routing</strong>: Custom routes and redirects</li>
+<li><strong>SEO</strong>: Meta tags, Open Graph, and structured data</li>
+</ul>
+<h4 id="app-configuration-(app.config.js)" tabindex="-1">App Configuration (<code>app.config.js</code>)</h4>
+<ul>
+<li><strong>Site Metadata</strong>: Title, description, and branding</li>
+<li><strong>Navigation Menus</strong>: Primary and footer navigation structures</li>
+<li><strong>Feature Flags</strong>: Toggle features like construction mode</li>
+<li><strong>External URLs</strong>: Links to related ICJIA resources</li>
+</ul>
+<h3 id="build-and-deployment-configurations" tabindex="-1">Build and Deployment Configurations</h3>
+<ul>
+<li><strong>Static Generation</strong>: Pre-rendering all routes at build time</li>
+<li><strong>Asset Optimization</strong>: Image compression and lazy loading</li>
+<li><strong>Performance</strong>: Code splitting and tree shaking</li>
+<li><strong>SEO</strong>: Automatic sitemap and robots.txt generation</li>
+</ul>
+<h3 id="seo-and-analytics-setup" tabindex="-1">SEO and Analytics Setup</h3>
+<h4 id="google-analytics-(gtag)" tabindex="-1">Google Analytics (gtag)</h4>
+<pre><code class="language-javascript">gtag: {
+  id: &quot;G-G7XDWC7WPG&quot;,
+}
+</code></pre>
+<h4 id="plausible-analytics" tabindex="-1">Plausible Analytics</h4>
+<pre><code class="language-javascript">plausible: {
+  apiHost: &quot;https://plausible.icjia.cloud&quot;,
+  ignoredHostnames: [&quot;localhost&quot;],
+  autoOutboundTracking: true,
+}
+</code></pre>
+<h4 id="seo-optimization" tabindex="-1">SEO Optimization</h4>
+<ul>
+<li><strong>Meta Tags</strong>: Dynamic title and description generation</li>
+<li><strong>Open Graph</strong>: Social media sharing optimization</li>
+<li><strong>Structured Data</strong>: JSON-LD for search engines</li>
+<li><strong>Sitemap</strong>: Automatic XML sitemap generation</li>
+</ul>
+<h2 id="troubleshooting" tabindex="-1">Troubleshooting</h2>
+<h3 id="common-issues-and-solutions" tabindex="-1">Common Issues and Solutions</h3>
+<h4 id="platform-specific-issues" tabindex="-1">Platform-Specific Issues</h4>
+<p><strong>Windows Users Attempting Native Development (Common Mistakes):</strong></p>
+<ul>
+<li><strong>Error</strong>: <code>ENOENT: no such file or directory, scandir</code> → <strong>Solution</strong>: Use WSL2, not native Windows</li>
+<li><strong>Error</strong>: <code>gyp ERR! stack Error: Can't find Python executable</code> → <strong>Solution</strong>: Use WSL2 with proper Linux environment</li>
+<li><strong>Error</strong>: File watchers not working or extremely slow → <strong>Solution</strong>: Use WSL2 file system, not Windows file system</li>
+<li><strong>Error</strong>: <code>EPERM: operation not permitted</code> on file operations → <strong>Solution</strong>: Use WSL2 with proper Unix permissions</li>
+<li><strong>Error</strong>: Build scripts failing with path resolution errors → <strong>Solution</strong>: Use WSL2 for proper Unix path handling</li>
+</ul>
+<p><strong>WSL2-Specific Issues:</strong></p>
+<ul>
+<li><strong>Performance</strong>: Store projects in WSL2 file system (<code>/home/username/</code>) not Windows file system (<code>/mnt/c/</code>)</li>
+<li><strong>VS Code Integration</strong>: Install “Remote - WSL” extension for proper development environment</li>
+<li><strong>Memory Issues</strong>: Configure WSL2 memory limits in <code>.wslconfig</code> file</li>
+<li><strong>Network Issues</strong>: Use WSL2 IP address for local development server access</li>
+</ul>
+<h4 id="build-failures" tabindex="-1">Build Failures</h4>
+<pre><code class="language-bash"># Clear all caches and rebuild
+yarn clear:cache
+rm -rf node_modules
+yarn install
+yarn scripts
+yarn generate
+
+# Check for API connectivity
+curl https://r3.icjia-api.cloud/graphql
+
+# Verify environment variables
+cat .env
+</code></pre>
+<h4 id="development-server-issues" tabindex="-1">Development Server Issues</h4>
+<pre><code class="language-bash"># Port conflicts
+yarn dev --port=8001  # Use alternative port
+
+# Hot reload problems
+yarn clear:cache
+yarn dev
+
+# Memory issues
+export NODE_OPTIONS=&quot;--max-old-space-size=4096&quot;
+yarn dev
+</code></pre>
+<h4 id="content-display-issues" tabindex="-1">Content Display Issues</h4>
+<ul>
+<li><strong>Missing Content</strong>: Run <code>yarn scripts</code> to regenerate content from APIs</li>
+<li><strong>Broken Images</strong>: Check image URLs in API responses</li>
+<li><strong>Search Problems</strong>: Regenerate search index with <code>yarn create:searchIndex</code></li>
+<li><strong>404 Errors</strong>: Verify routes are generated correctly in <code>public/appRoutes.json</code></li>
+</ul>
+<h3 id="debug-mode-and-logging-strategies" tabindex="-1">Debug Mode and Logging Strategies</h3>
+<pre><code class="language-bash"># Enable debug mode
+DEBUG=nuxt:* yarn dev
+
+# Check build logs
+yarn generate --verbose
+
+# Inspect generated routes
+cat public/appRoutes.json
+
+# Check search index
+cat assets/json/searchIndex.json
+</code></pre>
+<h3 id="performance-optimization-tips" tabindex="-1">Performance Optimization Tips</h3>
+<ul>
+<li><strong>Image Optimization</strong>: Use WebP format and lazy loading</li>
+<li><strong>Code Splitting</strong>: Leverage Nuxt 3’s automatic code splitting</li>
+<li><strong>Caching</strong>: Implement proper cache headers for static assets</li>
+<li><strong>Bundle Analysis</strong>: Use <code>yarn build --analyze</code> to inspect bundle size</li>
+</ul>
+<h3 id="maintenance-tasks-and-schedules" tabindex="-1">Maintenance Tasks and Schedules</h3>
+<ul>
+<li><strong>Weekly</strong>: Update content via <code>yarn scripts</code></li>
+<li><strong>Monthly</strong>: Update dependencies and security patches</li>
+<li><strong>Quarterly</strong>: Performance audits and optimization</li>
+<li><strong>Annually</strong>: Major framework updates and migrations</li>
+</ul>
+<h2 id="node.js-development-guide-for-new-developers" tabindex="-1">Node.js Development Guide for New Developers</h2>
+<h3 id="node.js-fundamentals-and-ecosystem-overview" tabindex="-1">Node.js Fundamentals and Ecosystem Overview</h3>
+<p>Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine that allows developers to run JavaScript on the server side. Key concepts:</p>
+<ul>
+<li><strong>Package Manager</strong>: Yarn (preferred) or npm for dependency management</li>
+<li><strong>Module System</strong>: ES6 modules and CommonJS for code organization</li>
+<li><strong>Async Programming</strong>: Promises, async/await for handling asynchronous operations</li>
+<li><strong>Build Tools</strong>: Vite for fast development and building</li>
+</ul>
+<h3 id="platform-specific-setup-instructions" tabindex="-1">Platform-Specific Setup Instructions</h3>
+<h4 id="windows-with-wsl2-(mandatory-for-windows-users)" tabindex="-1">Windows with WSL2 (MANDATORY for Windows Users)</h4>
+<p><strong>Why WSL2 is Required:</strong></p>
+<ul>
+<li>Native Windows lacks proper Unix-like file system operations</li>
+<li>Many Node.js packages have native dependencies that don’t compile on Windows</li>
+<li>File watchers and build tools perform poorly on Windows file systems</li>
+<li>Path resolution and symlink handling differ significantly from Unix systems</li>
+</ul>
+<p><strong>Complete WSL2 Setup Process:</strong></p>
+<pre><code class="language-bash"># 1. Install WSL2 (run in PowerShell as Administrator)
+wsl --install -d Ubuntu
+
+# 2. Restart computer and open Ubuntu terminal
+# 3. Install Node.js via Node Version Manager
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+source ~/.bashrc
+nvm install --lts
+nvm use --lts
+
+# 4. Install Yarn globally
+npm install -g yarn
+
+# 5. Configure Git (if not already done)
+git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;your.email@example.com&quot;
+</code></pre>
+<h4 id="macos-(fully-supported)" tabindex="-1">macOS (Fully Supported)</h4>
+<pre><code class="language-bash"># Install Homebrew package manager
+/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+
+# Install Node.js and Yarn
+brew install node yarn
+
+# Optional: Install nvm for Node version management
+brew install nvm
+</code></pre>
+<h4 id="linux-(fully-supported)" tabindex="-1">Linux (Fully Supported)</h4>
+<pre><code class="language-bash"># Ubuntu/Debian
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+npm install -g yarn
+
+# Fedora/CentOS
+sudo dnf install nodejs npm
+npm install -g yarn
+</code></pre>
+<h3 id="essential-command-line-skills" tabindex="-1">Essential Command Line Skills</h3>
+<pre><code class="language-bash"># Navigation
+cd /path/to/project    # Change directory
+ls -la                 # List files with details
+pwd                    # Print working directory
+
+# File operations
+cp file1 file2         # Copy files
+mv file1 file2         # Move/rename files
+rm file                # Remove files
+mkdir directory        # Create directory
+
+# Git operations
+git status             # Check repository status
+git add .              # Stage all changes
+git commit -m &quot;message&quot; # Commit changes
+git push               # Push to remote repository
+
+# Node.js/Yarn operations
+yarn install           # Install dependencies
+yarn dev               # Start development server
+yarn build             # Build for production
+yarn add package-name  # Add new dependency
+</code></pre>
+<h3 id="development-workflow-best-practices" tabindex="-1">Development Workflow Best Practices</h3>
+<ol>
+<li><strong>Version Control</strong>: Always use Git for version control</li>
+<li><strong>Branch Management</strong>: Create feature branches for new work</li>
+<li><strong>Code Quality</strong>: Use ESLint and Prettier for consistent code style</li>
+<li><strong>Testing</strong>: Test changes locally before committing</li>
+<li><strong>Documentation</strong>: Keep README and documentation updated</li>
+</ol>
+<h3 id="project-specific-quick-start-guide" tabindex="-1">Project-Specific Quick Start Guide</h3>
+<pre><code class="language-bash"># 1. Clone the repository
+git clone https://github.com/ICJIA/icjia-r3-v5-nuxt.git
+cd icjia-r3-v5-nuxt
+
+# 2. Setup environment
+cp .env.sample .env
+nvm use  # Use correct Node.js version
+
+# 3. Install dependencies
+yarn install
+
+# 4. Generate content and start development
+yarn dev
+
+# 5. Open browser to http://localhost:8000
+</code></pre>
+<h3 id="useful-tools-and-extensions" tabindex="-1">Useful Tools and Extensions</h3>
+<h4 id="vs-code-extensions" tabindex="-1">VS Code Extensions</h4>
+<ul>
+<li><strong>Vetur</strong> or <strong>Vue Language Features</strong>: Vue.js support</li>
+<li><strong>ESLint</strong>: Code linting</li>
+<li><strong>Prettier</strong>: Code formatting</li>
+<li><strong>Remote - WSL</strong>: WSL2 integration (Windows users)</li>
+<li><strong>GitLens</strong>: Enhanced Git capabilities</li>
+</ul>
+<h4 id="browser-tools" tabindex="-1">Browser Tools</h4>
+<ul>
+<li><strong>Vue DevTools</strong>: Browser extension for Vue.js debugging</li>
+<li><strong>Lighthouse</strong>: Performance and accessibility auditing</li>
+<li><strong>Network Tab</strong>: Monitor API requests and responses</li>
+</ul>
+<h4 id="command-line-tools" tabindex="-1">Command Line Tools</h4>
+<pre><code class="language-bash"># Global tools that are helpful
+npm install -g @vue/cli          # Vue CLI
+npm install -g @nuxt/cli         # Nuxt CLI
+npm install -g serve             # Static file server
+npm install -g lighthouse       # Performance auditing
+</code></pre>
+<p>This comprehensive documentation provides everything needed to understand, set up, develop, and maintain the ICJIA R3 website project. The platform-specific instructions ensure compatibility across Windows (with WSL2), macOS, and Linux environments, while the troubleshooting section addresses common development challenges.</p>
+
+    </div>
+
+    <!-- Syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <!-- Theme management and navigation functionality -->
+    <script>
+        // Theme management
+        function initializeTheme() {
+            // Check for saved theme preference or default to dark mode
+            const savedTheme = localStorage.getItem('documentation-theme') || 'dark';
+            const body = document.body;
+            const toggleLabel = document.querySelector('.toggle-label');
+
+            body.setAttribute('data-theme', savedTheme);
+            toggleLabel.textContent = savedTheme === 'dark' ? 'Dark' : 'Light';
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const toggleLabel = document.querySelector('.toggle-label');
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            body.setAttribute('data-theme', newTheme);
+            toggleLabel.textContent = newTheme === 'dark' ? 'Dark' : 'Light';
+
+            // Save theme preference
+            localStorage.setItem('documentation-theme', newTheme);
+        }
+
+        // Keyboard accessibility for theme toggle
+        document.addEventListener('keydown', function(e) {
+            if (e.target.classList.contains('theme-toggle') && (e.key === 'Enter' || e.key === ' ')) {
+                e.preventDefault();
+                toggleTheme();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme
+            initializeTheme();
+
+            // Generate IDs for all headings
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            headings.forEach(function(heading) {
+                if (!heading.id) {
+                    const text = heading.textContent || heading.innerText;
+                    const id = text.toLowerCase()
+                        .replace(/[^a-z0-9\s-]/g, '')
+                        .replace(/\s+/g, '-')
+                        .replace(/-+/g, '-')
+                        .replace(/^-|-$/g, '');
+                    heading.id = id;
+                }
+            });
+
+            // Add smooth scrolling to anchor links
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
