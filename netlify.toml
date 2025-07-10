@@ -1,10 +1,10 @@
 [build]
-# Use build script to configure mise and run generate
+# Use build script with mise configuration
 command = "./build.sh"
 publish = "dist"
 
 [build.environment]
-# Ensure mise is available in the build environment
+# Set Node version explicitly
 NODE_VERSION = "20.19.0"
 
 [[headers]]

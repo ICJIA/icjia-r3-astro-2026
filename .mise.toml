@@ -1,0 +1,7 @@
+[settings]
+# Explicitly enable idiomatic version files for node to suppress warnings
+idiomatic_version_file_enable_tools = ["node"]
+
+[tools]
+# Use Node.js version (matches .node-version file)
+node = "20.19.0"
