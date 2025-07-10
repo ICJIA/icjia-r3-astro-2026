@@ -26,6 +26,7 @@
     "create:documentation": "node ./creators/createDocumentationHTML.js",
     "dev": "yarn clear:cache && yarn scripts && nuxt dev --port=8000 -o",
     "generate": "yarn clear:cache && yarn scripts && nuxi generate",
+    "netlify:generate": "mise settings add idiomatic_version_file_enable_tools node && yarn generate",
     "generate:serve": "yarn scripts && nuxt generate && npx serve .output/public",
     "preview": "nuxt preview",
     "scripts": "yarn create:contentDirectory && yarn create:manualPages && yarn create:news && yarn create:faqs && yarn create:pages && yarn create:resources && yarn create:hub && yarn create:hubImages && yarn create:routes && yarn create:searchIndex && yarn create:sitemap",
