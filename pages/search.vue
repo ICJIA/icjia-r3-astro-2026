@@ -44,11 +44,11 @@
             <div
               class="text-left"
               style="margin-top: -20px; margin-left: 30px; font-size: 14px"
-              v-if="store.query.length && store.query.length > 0"
+              v-if="queries.length && queries.length > 0"
             >
               <span>Your recent queries:&nbsp;</span>
               <span
-                v-for="q in store.query"
+                v-for="q in queries"
                 :key="Math.random()"
                 @click="addQuery(q)"
                 class="hover"
@@ -105,8 +105,9 @@
 <script setup>
 import Fuse from "fuse.js";
 import searchIndex from "~/assets/json/searchIndex.json";
-import { useSearchStore } from "@/stores/searchStore";
-let store = useSearchStore();
+
+// Use Nuxt 3 native state management instead of Pinia
+const { queries, addNewQuery } = useSearchActions();
 
 useHead({
   title: "Search",
@@ -131,10 +132,10 @@ const query = ref("");
 const fuse = new Fuse(searchIndex, options);
 
 const result = ref(fuse.search(query.value.toLowerCase));
-// console.log("queries: ", store.query.length);
+// console.log("queries: ", queries.value.length);
 
-if (store.query.length) {
-  query.value = store.query[store.query.length - 1];
+if (queries.value.length) {
+  query.value = queries.value[queries.value.length - 1];
   result.value = fuse.search(query.value);
 }
 
@@ -160,8 +161,8 @@ watch(query, (val) => {
 
 const router = useRouter();
 const navigateTo = (item) => {
-  store.addNewQuery(query.value);
-  console.log("query added to store: ", query.value);
+  addNewQuery(query.value);
+  console.log("query added to state: ", query.value);
   console.log("navigateTo: ", item?.path);
   router.push({ path: item.path });
 };

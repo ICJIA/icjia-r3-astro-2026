@@ -113,7 +113,7 @@ export default defineNuxtConfig({
     "nuxt-gtag",
     "@nuxtjs/plausible",
     // "@nuxtjs/apollo",
-    "@pinia/nuxt",
+    // "@pinia/nuxt", // Removed - using Nuxt 3 native state management
     // "@nuxt/image-edge",
     "@vueuse/nuxt",
     "@nuxt/content",
@@ -126,9 +126,9 @@ export default defineNuxtConfig({
       });
     },
   ],
-  imports: {
-    dirs: ["stores"],
-  },
+  // imports: {
+  //   dirs: ["stores"], // Removed - no longer using Pinia stores
+  // },
   gtag: {
     id: "G-G7XDWC7WPG",
   },
@@ -138,10 +138,10 @@ export default defineNuxtConfig({
     ignoredHostnames: ["localhost"],
     autoOutboundTracking: true,
   },
-  pinia: {
-    autoImports: ["defineStore", "acceptHMRUpdate"],
-    storesDirs: ["./stores/**"],
-  },
+  // pinia: {
+  //   autoImports: ["defineStore", "acceptHMRUpdate"],
+  //   storesDirs: ["./stores/**"],
+  // }, // Removed - using Nuxt 3 native state management
   content: {
     documentDriven: false,
     markdown: {
