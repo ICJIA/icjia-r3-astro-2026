@@ -1,6 +1,6 @@
 [build]
-# Configure mise to recognize .nvmrc files before running the build
-command = "mise settings add idiomatic_version_file_enable_tools node && yarn generate"
+# Use build script to configure mise and run generate
+command = "./build.sh"
 publish = "dist"
 
 [build.environment]
