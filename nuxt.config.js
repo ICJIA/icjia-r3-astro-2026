@@ -203,6 +203,15 @@ export default defineNuxtConfig({
   //   },
   // },
 
+  // Force static site generation
+  ssr: true,
+  nitro: {
+    preset: "static",
+    prerender: {
+      routes: siteRoutes,
+    },
+  },
+
   generate: {
     routes: siteRoutes,
   },

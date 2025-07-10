@@ -1,7 +1,7 @@
 [build]
 # Use yarn generate directly - let Netlify handle Node version
 command = "yarn generate"
-publish = "dist"
+publish = ".output/public"
 
 [build.environment]
 # Set Node version explicitly for Netlify
