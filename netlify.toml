@@ -1,11 +1,13 @@
 [build]
-# Use build script with mise configuration
-command = "./build.sh"
+# Use yarn generate directly - let Netlify handle Node version
+command = "yarn generate"
 publish = "dist"
 
 [build.environment]
-# Set Node version explicitly
+# Set Node version explicitly for Netlify
 NODE_VERSION = "20.19.0"
+# Disable mise to prevent Python installation
+MISE_DISABLE = "1"
 
 [[headers]]
 for = "/*"
