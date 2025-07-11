@@ -27,6 +27,104 @@ const md = new MarkdownIt({
   });
 
 /**
+ * Extract headings from markdown content to generate table of contents
+ * @param {string} markdownContent - Raw markdown content
+ * @returns {Array<Object>} Array of heading objects with text, id, and level
+ */
+function extractHeadings(markdownContent) {
+  const headings = [];
+  const lines = markdownContent.split("\n");
+
+  for (const line of lines) {
+    const match = line.match(/^(#{2,6})\s+(.+)$/); // Match ## to ###### headings
+    if (match) {
+      const level = match[1].length;
+      const text = match[2].trim();
+      const id = text
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-")
+        .replace(/^-|-$/g, "");
+
+      headings.push({ level, text, id });
+    }
+  }
+
+  return headings;
+}
+
+/**
+ * Generate table of contents HTML from headings
+ * @param {Array<Object>} headings - Array of heading objects
+ * @returns {string} HTML string for table of contents
+ */
+function generateTableOfContents(headings) {
+  if (headings.length === 0) return "";
+
+  let tocHTML = `
+<div class="table-of-contents">
+  <h2 id="table-of-contents">Table of Contents</h2>
+  <nav>
+    <ol class="toc-list">`;
+
+  for (const heading of headings) {
+    // Only include level 2 headings (##) for main sections
+    if (heading.level === 2) {
+      tocHTML += `
+      <li><a href="#${heading.id}">${heading.text}</a></li>`;
+    }
+  }
+
+  tocHTML += `
+    </ol>
+  </nav>
+</div>`;
+
+  return tocHTML;
+}
+
+/**
+ * Insert table of contents into HTML content at the very top after the title
+ * @param {string} htmlContent - Rendered HTML content
+ * @param {string} tocHTML - Table of contents HTML
+ * @returns {string} HTML content with TOC inserted
+ */
+function insertTableOfContents(htmlContent, tocHTML) {
+  // Find the first h1 (title) and insert TOC right after it
+  const h1Regex = /<h1[^>]*>.*?<\/h1>/i;
+  const h1Match = htmlContent.match(h1Regex);
+
+  if (h1Match) {
+    const insertPosition = h1Match.index + h1Match[0].length;
+    return (
+      htmlContent.slice(0, insertPosition) +
+      "\n\n" +
+      tocHTML +
+      "\n\n" +
+      htmlContent.slice(insertPosition)
+    );
+  }
+
+  // Fallback: insert after the first h2 if no h1 found
+  const h2Regex = /<h2[^>]*>/i;
+  const h2Match = htmlContent.match(h2Regex);
+
+  if (h2Match) {
+    const insertPosition = h2Match.index;
+    return (
+      htmlContent.slice(0, insertPosition) +
+      tocHTML +
+      "\n\n" +
+      htmlContent.slice(insertPosition)
+    );
+  }
+
+  // Last fallback: insert at the beginning
+  return tocHTML + "\n\n" + htmlContent;
+}
+
+/**
  * Generate HTML template with proper structure and styling
  */
 function generateHTMLTemplate(content, projectName) {
@@ -280,6 +378,57 @@ function generateHTMLTemplate(content, projectName) {
             margin: 2em 0;
         }
 
+        /* Table of Contents */
+        .table-of-contents {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 2em 0;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .table-of-contents h2 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            font-size: 1.4em;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin: 8px 0;
+            padding-left: 0;
+        }
+
+        .toc-list a {
+            color: var(--link-color);
+            text-decoration: none;
+            display: block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .toc-list a:hover {
+            background-color: var(--bg-secondary);
+            color: var(--link-hover-color);
+            transform: translateX(4px);
+        }
+
+        .toc-list a:focus {
+            outline: 2px solid var(--link-color);
+            outline-offset: 2px;
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             body { padding: 10px; }
@@ -419,15 +568,33 @@ async function createDocumentationHTML() {
     const markdownContent = fs.readFileSync(markdownPath, "utf8");
     console.log("✅ Read PROJECT-DOCUMENTATION.md successfully");
 
+    // Extract headings for table of contents
+    const headings = extractHeadings(markdownContent);
+    console.log(
+      `✅ Extracted ${headings.length} headings for table of contents`
+    );
+
     // Convert markdown to HTML
-    const htmlContent = md.render(markdownContent);
+    let htmlContent = md.render(markdownContent);
     console.log("✅ Converted markdown to HTML");
+
+    // Generate and insert table of contents
+    if (headings.length > 0) {
+      const tocHTML = generateTableOfContents(headings);
+      htmlContent = insertTableOfContents(htmlContent, tocHTML);
+      console.log("✅ Table of contents generated and inserted");
+    }
 
     // Generate complete HTML document
     const fullHTML = generateHTMLTemplate(htmlContent, "R3 Documentation");
 
     // Ensure output directory exists
-    const outputDir = path.join(process.cwd(), "public", "documentation");
+    const outputDir = path.join(
+      process.cwd(),
+      "public",
+      "documentation",
+      "project"
+    );
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir, { recursive: true });
     }

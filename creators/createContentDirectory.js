@@ -62,7 +62,9 @@ const srcDir = path.join(__dirname, "../src");
  * These files are regenerated during the build process and should not persist
  * between builds to avoid stale data.
  *
- * @type {Array<string>} Array of filenames to remove
+ * Array of filenames to remove.
+ *
+ * @type {Array<string>}
  *
  * @example
  * ```javascript

@@ -1,0 +1,622 @@
+<!DOCTYPE html><html lang="en" style="font-size:16px"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Source: creators/createDocumentationHTML.js</title><!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--><script src="scripts/third-party/hljs.js" defer="defer"></script><script src="scripts/third-party/hljs-line-num.js" defer="defer"></script><script src="scripts/third-party/popper.js" defer="defer"></script><script src="scripts/third-party/tippy.js" defer="defer"></script><script src="scripts/third-party/tocbot.min.js"></script><script>var baseURL="/",locationPathname="";baseURL=(locationPathname=document.location.pathname).substr(0,locationPathname.lastIndexOf("/")+1)</script><link rel="stylesheet" href="styles/clean-jsdoc-theme.min.css"><svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none"><defs><symbol id="copy-icon" viewbox="0 0 488.3 488.3"><g><path d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124    C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124    c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z"/><path d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227    c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6    V38.6C439.65,17.3,422.35,0,401.05,0z"/></g></symbol><symbol id="search-icon" viewBox="0 0 512 512"><g><g><path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474    c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323    c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848    S326.847,409.323,225.474,409.323z"/></g></g><g><g><path d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328    c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z"/></g></g></symbol><symbol id="font-size-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.246 15H4.754l-2 5H.6L7 4h2l6.4 16h-2.154l-2-5zm-.8-2L8 6.885 5.554 13h4.892zM21 12.535V12h2v8h-2v-.535a4 4 0 1 1 0-6.93zM19 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol><symbol id="add-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></symbol><symbol id="minus-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M5 11h14v2H5z"/></symbol><symbol id="dark-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol><symbol id="light-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol><symbol id="reset-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795z"/></symbol><symbol id="down-icon" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></symbol><symbol id="codepen-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.5 13.202L13 15.535v3.596L19.197 15 16.5 13.202zM14.697 12L12 10.202 9.303 12 12 13.798 14.697 12zM20 10.869L18.303 12 20 13.131V10.87zM19.197 9L13 4.869v3.596l3.5 2.333L19.197 9zM7.5 10.798L11 8.465V4.869L4.803 9 7.5 10.798zM4.803 15L11 19.131v-3.596l-3.5-2.333L4.803 15zM4 13.131L5.697 12 4 10.869v2.262zM2 9a1 1 0 0 1 .445-.832l9-6a1 1 0 0 1 1.11 0l9 6A1 1 0 0 1 22 9v6a1 1 0 0 1-.445.832l-9 6a1 1 0 0 1-1.11 0l-9-6A1 1 0 0 1 2 15V9z"/></symbol><symbol id="close-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></symbol><symbol id="menu-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></symbol></defs></svg></head><body data-theme="dark"><div class="sidebar-container"><div class="sidebar" id="sidebar"><div class="sidebar-items-container"><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-global"><div>Global</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="global.html#AppConfig">AppConfig</a></div><div class="sidebar-section-children"><a href="global.html#GET">GET</a></div><div class="sidebar-section-children"><a href="global.html#PUBLIC_FILES_TO_REMOVE">PUBLIC_FILES_TO_REMOVE</a></div><div class="sidebar-section-children"><a href="global.html#Props">Props</a></div><div class="sidebar-section-children"><a href="global.html#Props">Props</a></div><div class="sidebar-section-children"><a href="global.html#api">api</a></div><div class="sidebar-section-children"><a href="global.html#appRoutes">appRoutes</a></div><div class="sidebar-section-children"><a href="global.html#assetsDir">assetsDir</a></div><div class="sidebar-section-children"><a href="global.html#click">click</a></div><div class="sidebar-section-children"><a href="global.html#colors">colors</a></div><div class="sidebar-section-children"><a href="global.html#contentDir">contentDir</a></div><div class="sidebar-section-children"><a href="global.html#description">description</a></div><div class="sidebar-section-children"><a href="global.html#extractHeadings">extractHeadings</a></div><div class="sidebar-section-children"><a href="global.html#faqRoutes">faqRoutes</a></div><div class="sidebar-section-children"><a href="global.html#fs">fs</a></div><div class="sidebar-section-children"><a href="global.html#generateHTMLTemplate">generateHTMLTemplate</a></div><div class="sidebar-section-children"><a href="global.html#generateTableOfContents">generateTableOfContents</a></div><div class="sidebar-section-children"><a href="global.html#goToSearch">goToSearch</a></div><div class="sidebar-section-children"><a href="global.html#icons">icons</a></div><div class="sidebar-section-children"><a href="global.html#insertTableOfContents">insertTableOfContents</a></div><div class="sidebar-section-children"><a href="global.html#myManualRoutes">myManualRoutes</a></div><div class="sidebar-section-children"><a href="global.html#navMenu">navMenu</a></div><div class="sidebar-section-children"><a href="global.html#newsRoutes">newsRoutes</a></div><div class="sidebar-section-children"><a href="global.html#openTranslationModal">openTranslationModal</a></div><div class="sidebar-section-children"><a href="global.html#pageRoutes">pageRoutes</a></div><div class="sidebar-section-children"><a href="global.html#protectDocumentationPortal">protectDocumentationPortal</a></div><div class="sidebar-section-children"><a href="global.html#publicDir">publicDir</a></div><div class="sidebar-section-children"><a href="global.html#resourceRoutes">resourceRoutes</a></div><div class="sidebar-section-children"><a href="global.html#root">root</a></div><div class="sidebar-section-children"><a href="global.html#routeTo">routeTo</a></div><div class="sidebar-section-children"><a href="global.html#routeToSite">routeToSite</a></div><div class="sidebar-section-children"><a href="global.html#scrollTop">scrollTop</a></div><div class="sidebar-section-children"><a href="global.html#splash">splash</a></div><div class="sidebar-section-children"><a href="global.html#srcDir">srcDir</a></div><div class="sidebar-section-children"><a href="global.html#title">title</a></div><div class="sidebar-section-children"><a href="global.html#toggleNav">toggleNav</a></div><div class="sidebar-section-children"><a href="global.html#tools">tools</a></div><div class="sidebar-section-children"><a href="global.html#translate">translate</a></div><div class="sidebar-section-children"><a href="global.html#translationToggle">translationToggle</a></div><div class="sidebar-section-children"><a href="global.html#underConstruction">underConstruction</a></div></div></div></div></div><div class="navbar-container" id="VuAckcnZhf"><nav class="navbar"><div class="navbar-left-items"></div><div class="navbar-right-items"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#light-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div><nav></nav></nav></div><div class="toc-container"><div class="toc-content"><span class="bold">On this page</span><div id="eed4d2a0bfd64539bb9df78095dec881"></div></div></div><div class="body-wrapper"><div class="main-content"><div class="main-wrapper"><section id="source-page" class="source-page"><header><h1 id="title" class="has-anchor">creators_createDocumentationHTML.js</h1></header><article><pre class="prettyprint source lang-js"><code>/**
+ * Documentation HTML Generator
+ * Converts PROJECT-DOCUMENTATION.md to professional HTML documentation
+ */
+
+require("dotenv").config();
+
+const fs = require("fs");
+const path = require("path");
+const MarkdownIt = require("markdown-it");
+const markdownItAttrs = require("markdown-it-attrs");
+const markdownItAnchor = require("markdown-it-anchor");
+
+// Initialize markdown parser with project configuration
+const md = new MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: true,
+  breaks: false,
+})
+  .use(markdownItAnchor, {
+    level: [1, 2, 3, 4, 5, 6],
+    permalink: false,
+  })
+  .use(markdownItAttrs, {
+    allowedAttributes: ["id", "class", "style", "target", "rel"],
+  });
+
+/**
+ * Extract headings from markdown content to generate table of contents
+ * @param {string} markdownContent - Raw markdown content
+ * @returns {Array&lt;Object>} Array of heading objects with text, id, and level
+ */
+function extractHeadings(markdownContent) {
+  const headings = [];
+  const lines = markdownContent.split("\n");
+
+  for (const line of lines) {
+    const match = line.match(/^(#{2,6})\s+(.+)$/); // Match ## to ###### headings
+    if (match) {
+      const level = match[1].length;
+      const text = match[2].trim();
+      const id = text
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-")
+        .replace(/^-|-$/g, "");
+
+      headings.push({ level, text, id });
+    }
+  }
+
+  return headings;
+}
+
+/**
+ * Generate table of contents HTML from headings
+ * @param {Array&lt;Object>} headings - Array of heading objects
+ * @returns {string} HTML string for table of contents
+ */
+function generateTableOfContents(headings) {
+  if (headings.length === 0) return "";
+
+  let tocHTML = `
+&lt;div class="table-of-contents">
+  &lt;h2 id="table-of-contents">Table of Contents&lt;/h2>
+  &lt;nav>
+    &lt;ol class="toc-list">`;
+
+  for (const heading of headings) {
+    // Only include level 2 headings (##) for main sections
+    if (heading.level === 2) {
+      tocHTML += `
+      &lt;li>&lt;a href="#${heading.id}">${heading.text}&lt;/a>&lt;/li>`;
+    }
+  }
+
+  tocHTML += `
+    &lt;/ol>
+  &lt;/nav>
+&lt;/div>`;
+
+  return tocHTML;
+}
+
+/**
+ * Insert table of contents into HTML content at the very top after the title
+ * @param {string} htmlContent - Rendered HTML content
+ * @param {string} tocHTML - Table of contents HTML
+ * @returns {string} HTML content with TOC inserted
+ */
+function insertTableOfContents(htmlContent, tocHTML) {
+  // Find the first h1 (title) and insert TOC right after it
+  const h1Regex = /&lt;h1[^>]*>.*?&lt;\/h1>/i;
+  const h1Match = htmlContent.match(h1Regex);
+
+  if (h1Match) {
+    const insertPosition = h1Match.index + h1Match[0].length;
+    return (
+      htmlContent.slice(0, insertPosition) +
+      "\n\n" +
+      tocHTML +
+      "\n\n" +
+      htmlContent.slice(insertPosition)
+    );
+  }
+
+  // Fallback: insert after the first h2 if no h1 found
+  const h2Regex = /&lt;h2[^>]*>/i;
+  const h2Match = htmlContent.match(h2Regex);
+
+  if (h2Match) {
+    const insertPosition = h2Match.index;
+    return (
+      htmlContent.slice(0, insertPosition) +
+      tocHTML +
+      "\n\n" +
+      htmlContent.slice(insertPosition)
+    );
+  }
+
+  // Last fallback: insert at the beginning
+  return tocHTML + "\n\n" + htmlContent;
+}
+
+/**
+ * Generate HTML template with proper structure and styling
+ */
+function generateHTMLTemplate(content, projectName) {
+  return `&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;meta name="description" content="Comprehensive project documentation for R3 (Restore, Reinvest, Renew) Program">
+    &lt;meta name="robots" content="noindex, nofollow">
+    &lt;title>R3 Documentation&lt;/title>
+
+    &lt;!-- Google Fonts -->
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com">
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    &lt;link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;0,900;1,100&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100&amp;family=Raleway:ital,wght@0,100;0,400;0,900;1,100&amp;display=swap" rel="stylesheet">
+
+    &lt;!-- Syntax highlighting -->
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+
+    &lt;style>
+        /* CSS Variables for theme management */
+        :root {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --accent-primary: #1976d2;
+            --accent-secondary: #1565c0;
+            --code-bg: #2d3748;
+            --code-text: #e2e8f0;
+            --shadow: rgba(0,0,0,0.1);
+            --toggle-bg: #ccc;
+            --toggle-thumb: #fff;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --border-color: #404040;
+            --accent-primary: #64b5f6;
+            --accent-secondary: #42a5f5;
+            --code-bg: #1e1e1e;
+            --code-text: #f0f0f0;
+            --shadow: rgba(0,0,0,0.3);
+            --toggle-bg: #555;
+            --toggle-thumb: #fff;
+        }
+
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-primary);
+        }
+
+        .documentation-container {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px var(--shadow);
+            padding: 40px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            padding: 8px 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-primary);
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .theme-toggle:focus {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 2px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 40px;
+            height: 20px;
+            background: var(--toggle-bg);
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-thumb {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background: var(--toggle-thumb);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        [data-theme="dark"] .toggle-thumb {
+            transform: translateX(20px);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        h1 {
+            color: var(--accent-primary);
+            border-bottom: 3px solid var(--accent-primary);
+            padding-bottom: 10px;
+            font-size: 2.5em;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: var(--accent-secondary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            font-size: 2em;
+        }
+
+        h3 {
+            color: var(--accent-secondary);
+            font-size: 1.5em;
+        }
+
+        h4 {
+            color: var(--text-primary);
+            font-size: 1.25em;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--accent-secondary);
+        }
+
+        /* Code blocks */
+        code {
+            background-color: var(--border-color);
+            color: var(--text-primary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--bg-secondary);
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--border-color);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Lists */
+        ul, ol {
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-primary);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--border-color);
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        /* Horizontal rules */
+        hr {
+            border: none;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 2em 0;
+        }
+
+        /* Table of Contents */
+        .table-of-contents {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 2em 0;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .table-of-contents h2 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            font-size: 1.4em;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin: 8px 0;
+            padding-left: 0;
+        }
+
+        .toc-list a {
+            color: var(--link-color);
+            text-decoration: none;
+            display: block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .toc-list a:hover {
+            background-color: var(--bg-secondary);
+            color: var(--link-hover-color);
+            transform: translateX(4px);
+        }
+
+        .toc-list a:focus {
+            outline: 2px solid var(--link-color);
+            outline-offset: 2px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .documentation-container { padding: 20px; }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .documentation-container {
+                box-shadow: none !important;
+                border: none !important;
+                background: white !important;
+            }
+            .theme-toggle {
+                display: none !important;
+            }
+            * {
+                background: white !important;
+                color: black !important;
+            }
+        }
+    &lt;/style>
+&lt;/head>
+&lt;body data-theme="dark">
+    &lt;!-- Theme toggle button -->
+    &lt;button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode" tabindex="0">
+        &lt;span class="toggle-switch">
+            &lt;span class="toggle-thumb">&lt;/span>
+        &lt;/span>
+        &lt;span class="toggle-label">Dark&lt;/span>
+    &lt;/button>
+
+    &lt;div class="documentation-container">
+        ${content}
+    &lt;/div>
+
+    &lt;!-- Syntax highlighting -->
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js">&lt;/script>
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js">&lt;/script>
+
+    &lt;!-- Theme management and navigation functionality -->
+    &lt;script>
+        // Theme management
+        function initializeTheme() {
+            // Check for saved theme preference or default to dark mode
+            const savedTheme = localStorage.getItem('documentation-theme') || 'dark';
+            const body = document.body;
+            const toggleLabel = document.querySelector('.toggle-label');
+
+            body.setAttribute('data-theme', savedTheme);
+            toggleLabel.textContent = savedTheme === 'dark' ? 'Dark' : 'Light';
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const toggleLabel = document.querySelector('.toggle-label');
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            body.setAttribute('data-theme', newTheme);
+            toggleLabel.textContent = newTheme === 'dark' ? 'Dark' : 'Light';
+
+            // Save theme preference
+            localStorage.setItem('documentation-theme', newTheme);
+        }
+
+        // Keyboard accessibility for theme toggle
+        document.addEventListener('keydown', function(e) {
+            if (e.target.classList.contains('theme-toggle') &amp;&amp; (e.key === 'Enter' || e.key === ' ')) {
+                e.preventDefault();
+                toggleTheme();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme
+            initializeTheme();
+
+            // Generate IDs for all headings
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            headings.forEach(function(heading) {
+                if (!heading.id) {
+                    const text = heading.textContent || heading.innerText;
+                    const id = text.toLowerCase()
+                        .replace(/[^a-z0-9\\s-]/g, '')
+                        .replace(/\\s+/g, '-')
+                        .replace(/-+/g, '-')
+                        .replace(/^-|-$/g, '');
+                    heading.id = id;
+                }
+            });
+
+            // Add smooth scrolling to anchor links
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    &lt;/script>
+&lt;/body>
+&lt;/html>`;
+}
+
+async function createDocumentationHTML() {
+  try {
+    console.log("📖 Creating documentation HTML...");
+
+    // Read the PROJECT-DOCUMENTATION.md file
+    const markdownPath = path.join(process.cwd(), "PROJECT-DOCUMENTATION.md");
+
+    if (!fs.existsSync(markdownPath)) {
+      throw new Error(`PROJECT-DOCUMENTATION.md not found at ${markdownPath}`);
+    }
+
+    const markdownContent = fs.readFileSync(markdownPath, "utf8");
+    console.log("✅ Read PROJECT-DOCUMENTATION.md successfully");
+
+    // Extract headings for table of contents
+    const headings = extractHeadings(markdownContent);
+    console.log(
+      `✅ Extracted ${headings.length} headings for table of contents`
+    );
+
+    // Convert markdown to HTML
+    let htmlContent = md.render(markdownContent);
+    console.log("✅ Converted markdown to HTML");
+
+    // Generate and insert table of contents
+    if (headings.length > 0) {
+      const tocHTML = generateTableOfContents(headings);
+      htmlContent = insertTableOfContents(htmlContent, tocHTML);
+      console.log("✅ Table of contents generated and inserted");
+    }
+
+    // Generate complete HTML document
+    const fullHTML = generateHTMLTemplate(htmlContent, "R3 Documentation");
+
+    // Ensure output directory exists
+    const outputDir = path.join(
+      process.cwd(),
+      "public",
+      "documentation",
+      "project"
+    );
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
+
+    // Write HTML file
+    const outputPath = path.join(outputDir, "index.html");
+    fs.writeFileSync(outputPath, fullHTML, "utf8");
+
+    // Get file size for reporting
+    const stats = fs.statSync(outputPath);
+    const fileSizeKB = Math.round(stats.size / 1024);
+
+    console.log(`✅ Documentation HTML created successfully at: ${outputPath}`);
+    console.log(`📄 File size: ${fileSizeKB} KB`);
+  } catch (error) {
+    console.error("❌ Error creating documentation HTML:", error.message);
+    process.exit(1);
+  }
+}
+
+// Run the script
+createDocumentationHTML();
+</code></pre></article></section></div></div></div><div class="search-container" id="PkfLWpAbet" style="display:none"><div class="wrapper" id="iCxFxjkHbP"><button class="icon-button search-close-button" id="VjLlGakifb" aria-label="close search"><svg><use xlink:href="#close-icon"></use></svg></button><div class="search-box-c"><svg><use xlink:href="#search-icon"></use></svg> <input type="text" id="vpcKVYIppa" class="search-input" placeholder="Search..." autofocus></div><div class="search-result-c" id="fWwVHRuDuN"><span class="search-result-c-text">Type anything to view search result</span></div></div></div><div class="mobile-menu-icon-container"><button class="icon-button" id="mobile-menu" data-isopen="false" aria-label="menu"><svg><use xlink:href="#menu-icon"></use></svg></button></div><div id="mobile-sidebar" class="mobile-sidebar-container"><div class="mobile-sidebar-wrapper"><div class="mobile-nav-links"></div><div class="mobile-sidebar-items-c"><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-global"><div>Global</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="global.html#AppConfig">AppConfig</a></div><div class="sidebar-section-children"><a href="global.html#GET">GET</a></div><div class="sidebar-section-children"><a href="global.html#PUBLIC_FILES_TO_REMOVE">PUBLIC_FILES_TO_REMOVE</a></div><div class="sidebar-section-children"><a href="global.html#Props">Props</a></div><div class="sidebar-section-children"><a href="global.html#Props">Props</a></div><div class="sidebar-section-children"><a href="global.html#api">api</a></div><div class="sidebar-section-children"><a href="global.html#appRoutes">appRoutes</a></div><div class="sidebar-section-children"><a href="global.html#assetsDir">assetsDir</a></div><div class="sidebar-section-children"><a href="global.html#click">click</a></div><div class="sidebar-section-children"><a href="global.html#colors">colors</a></div><div class="sidebar-section-children"><a href="global.html#contentDir">contentDir</a></div><div class="sidebar-section-children"><a href="global.html#description">description</a></div><div class="sidebar-section-children"><a href="global.html#extractHeadings">extractHeadings</a></div><div class="sidebar-section-children"><a href="global.html#faqRoutes">faqRoutes</a></div><div class="sidebar-section-children"><a href="global.html#fs">fs</a></div><div class="sidebar-section-children"><a href="global.html#generateHTMLTemplate">generateHTMLTemplate</a></div><div class="sidebar-section-children"><a href="global.html#generateTableOfContents">generateTableOfContents</a></div><div class="sidebar-section-children"><a href="global.html#goToSearch">goToSearch</a></div><div class="sidebar-section-children"><a href="global.html#icons">icons</a></div><div class="sidebar-section-children"><a href="global.html#insertTableOfContents">insertTableOfContents</a></div><div class="sidebar-section-children"><a href="global.html#myManualRoutes">myManualRoutes</a></div><div class="sidebar-section-children"><a href="global.html#navMenu">navMenu</a></div><div class="sidebar-section-children"><a href="global.html#newsRoutes">newsRoutes</a></div><div class="sidebar-section-children"><a href="global.html#openTranslationModal">openTranslationModal</a></div><div class="sidebar-section-children"><a href="global.html#pageRoutes">pageRoutes</a></div><div class="sidebar-section-children"><a href="global.html#protectDocumentationPortal">protectDocumentationPortal</a></div><div class="sidebar-section-children"><a href="global.html#publicDir">publicDir</a></div><div class="sidebar-section-children"><a href="global.html#resourceRoutes">resourceRoutes</a></div><div class="sidebar-section-children"><a href="global.html#root">root</a></div><div class="sidebar-section-children"><a href="global.html#routeTo">routeTo</a></div><div class="sidebar-section-children"><a href="global.html#routeToSite">routeToSite</a></div><div class="sidebar-section-children"><a href="global.html#scrollTop">scrollTop</a></div><div class="sidebar-section-children"><a href="global.html#splash">splash</a></div><div class="sidebar-section-children"><a href="global.html#srcDir">srcDir</a></div><div class="sidebar-section-children"><a href="global.html#title">title</a></div><div class="sidebar-section-children"><a href="global.html#toggleNav">toggleNav</a></div><div class="sidebar-section-children"><a href="global.html#tools">tools</a></div><div class="sidebar-section-children"><a href="global.html#translate">translate</a></div><div class="sidebar-section-children"><a href="global.html#translationToggle">translationToggle</a></div><div class="sidebar-section-children"><a href="global.html#underConstruction">underConstruction</a></div></div></div><div class="mobile-navbar-actions"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#light-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div></div></div><script type="text/javascript" src="scripts/core.min.js"></script><script src="scripts/search.min.js" defer="defer"></script><script src="scripts/third-party/fuse.js" defer="defer"></script><script type="text/javascript">var tocbotInstance=tocbot.init({tocSelector:"#eed4d2a0bfd64539bb9df78095dec881",contentSelector:".main-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0,scrollContainer:".main-content",headingsOffset:130,onClick:bringLinkToView})</script></body></html>

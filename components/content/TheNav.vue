@@ -246,8 +246,9 @@ const appConfig = useAppConfig();
 /**
  * Deep copy of the navigation menu configuration.
  * Creates an independent copy to prevent mutations of the original config.
+ * Array of navigation menu items.
  *
- * @type {Array<Object>} Array of navigation menu items
+ * @type {Array<Object>}
  */
 const navMenu = JSON.parse(JSON.stringify(appConfig.navMenu));
 
@@ -320,8 +321,9 @@ const openTranslationModal = () => {
 /**
  * Sample menu items for development/testing purposes.
  * Contains placeholder menu items that may be used for testing navigation components.
+ * Reactive array of menu items.
  *
- * @type {Ref<Array<Object>>} Reactive array of menu items
+ * @type {Ref<Array<Object>>}
  * @property {string} title - Display title for the menu item
  *
  * @todo Remove or replace with actual menu items if not needed

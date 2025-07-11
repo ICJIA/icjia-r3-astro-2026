@@ -19,8 +19,9 @@ const jsonfile = require("jsonfile");
 /**
  * Route definitions for static pages.
  * Contains routing information for all static content pages.
+ * Array of page route paths.
  *
- * @type {Array<string>} Array of page route paths
+ * @type {Array<string>}
  */
 const pageRoutes = require("../public/routesPages.json");
 
@@ -28,7 +29,9 @@ const pageRoutes = require("../public/routesPages.json");
  * Route definitions for news articles.
  * Contains routing information for all news content.
  *
- * @type {Array<string>} Array of news route paths
+ * Array of news route paths.
+ *
+ * @type {Array<string>}
  */
 const newsRoutes = require("../public/routesNews.json");
 
@@ -36,7 +39,9 @@ const newsRoutes = require("../public/routesNews.json");
  * Route definitions for FAQ pages.
  * Contains routing information for all FAQ content.
  *
- * @type {Array<string>} Array of FAQ route paths
+ * Array of FAQ route paths.
+ *
+ * @type {Array<string>}
  */
 const faqRoutes = require("../public/routesFaqs.json");
 
@@ -44,7 +49,9 @@ const faqRoutes = require("../public/routesFaqs.json");
  * Route definitions for resource pages.
  * Contains routing information for all resource content.
  *
- * @type {Array<string>} Array of resource route paths
+ * Array of resource route paths.
+ *
+ * @type {Array<string>}
  */
 const resourceRoutes = require("../public/routesResources.json");
 
@@ -52,7 +59,9 @@ const resourceRoutes = require("../public/routesResources.json");
  * Route definitions for manually created pages.
  * Contains routing information for all manual content.
  *
- * @type {Array<string>} Array of manual route paths
+ * Array of manual route paths.
+ *
+ * @type {Array<string>}
  */
 const myManualRoutes = require("../public/routesManual.json");
 
@@ -64,7 +73,9 @@ dotenv.config();
  * Combines all route types and removes duplicates using Set.
  * This creates a master list of all available routes in the application.
  *
- * @type {Array<string>} Deduplicated array of all application routes
+ * Deduplicated array of all application routes.
+ *
+ * @type {Array<string>}
  */
 const appRoutes = Array.from(
   new Set([

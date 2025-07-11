@@ -114,8 +114,9 @@ const appConfig = useAppConfig();
 /**
  * Deep copy of the navigation menu configuration.
  * Creates an independent copy to prevent mutations of the original config.
+ * Array of navigation menu items.
  *
- * @type {Array<Object>} Array of navigation menu items
+ * @type {Array<Object>}
  */
 const navMenu = JSON.parse(JSON.stringify(appConfig.navMenu));
 

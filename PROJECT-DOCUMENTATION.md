@@ -1,5 +1,58 @@
 # ICJIA R3 (Restore, Reinvest, Renew) Program Website - Project Documentation
 
+## Quick Start for Experienced Developers
+
+**For new developers or detailed setup instructions, see the [Setup Instructions](#setup-instructions) section below.**
+
+### Prerequisites
+
+- Node.js 20.19.0+ (use `nvm` or `mise` for version management)
+- Yarn package manager
+- Git
+
+### Rapid Setup
+
+```bash
+# Clone and setup
+git clone https://github.com/ICJIA/icjia-r3-v5-nuxt.git
+cd icjia-r3-v5-nuxt
+yarn install
+
+# Environment setup
+cp .env.sample .env
+# Edit .env with your API endpoints (see Configuration section for details)
+
+# Generate content and start development
+yarn scripts  # Generates all content from APIs
+yarn dev      # Starts dev server at http://localhost:8000
+```
+
+### Key Commands
+
+```bash
+yarn scripts        # Generate all content from APIs
+yarn dev           # Development server
+yarn generate      # Static site generation
+yarn docs:all      # Generate all documentation
+yarn clear:cache   # Clear Nuxt cache
+```
+
+### Architecture Overview
+
+- **Framework**: Nuxt 3 + Vue 3 + Vuetify 3
+- **Content**: Headless CMS (Strapi) + Static generation
+- **Deployment**: Netlify static hosting
+- **Documentation**: Standalone system at `/documentation/`
+
+### Essential Files
+
+- `nuxt.config.js` - Main configuration
+- `creators/` - Content generation scripts
+- `components/content/` - Vue components
+- `public/documentation/` - Standalone documentation system
+
+---
+
 ## Project Overview
 
 ### Repository Information
@@ -162,6 +215,43 @@ icjia-r3-v5-nuxt/
 - **Source**: `/src/*.json`, `/creators/*.js`, manual content files
 - **Build Artifacts**: `.nuxt/`, `.output/`, `node_modules/`
 
+### Content Directory Generation
+
+⚠️ **Critical Concept**: The `/content` directory is **completely generated at build time** from the Strapi backend.
+
+#### How Content Generation Works
+
+1. **Creator Scripts**: The `/creators` directory contains specialized scripts that fetch data from Strapi CMS
+2. **API Fetching**: Scripts pull content from `https://r3.icjia-api.cloud` during build process
+3. **Markdown Conversion**: API responses are converted to markdown files with frontmatter
+4. **File Generation**: Content is written to `/content/news/`, `/content/faqs/`, `/content/resources/`
+
+#### Creator Scripts Overview
+
+```bash
+yarn create:contentDirectory  # Clears and initializes content structure
+yarn create:news             # Fetches news from Strapi → /content/news/
+yarn create:faqs             # Fetches FAQs from Strapi → /content/faqs/
+yarn create:pages            # Fetches pages from Strapi → /content/
+yarn create:resources        # Fetches resources from Strapi → /content/resources/
+yarn create:hub              # Fetches research articles from Research Hub API
+```
+
+#### Important Guidelines
+
+- **Never Edit Manually**: Files in `/content/` are overwritten on every build
+- **Source of Truth**: Strapi CMS is the authoritative source for all content
+- **Build Dependency**: Content generation must run before Nuxt can build the site
+- **API Connectivity**: Build process requires access to Strapi APIs
+
+#### Content Flow
+
+```
+Strapi CMS → Creator Scripts → /content/*.md → Nuxt Pages → Static Site
+```
+
+This approach ensures content is always current with the CMS while maintaining the performance benefits of static site generation.
+
 ## Key Components
 
 ### Layout Components
@@ -271,6 +361,211 @@ query {
 - **Build Errors**: Detailed logging in creator scripts
 - **Runtime Errors**: Custom error pages and user-friendly messages
 - **Content Validation**: Schema validation for API responses
+
+## Documentation System
+
+### Overview
+
+The project includes a comprehensive, standalone documentation system that exists completely outside the Nuxt application filesystem. This ensures the documentation is accessible without interfering with the main application routing or functionality.
+
+### Documentation Architecture
+
+The documentation system consists of four main components:
+
+1. **Standalone Portal** (`/public/documentation/index.html`)
+2. **JSDoc API Documentation** (`/public/documentation/jsdoc/`)
+3. **Vue Components Documentation** (`/public/documentation/vue-components/`)
+4. **Project Documentation** (`/public/documentation/project/`)
+
+### Access Points
+
+- **Main Portal**: `http://localhost:8000/documentation/`
+- **Project Documentation**: `http://localhost:8000/documentation/project/`
+- **API Documentation**: `http://localhost:8000/documentation/jsdoc/`
+- **Vue Components**: `http://localhost:8000/documentation/vue-components/`
+
+### Documentation Portal Features
+
+#### Standalone Design
+
+- **Independent HTML**: No Nuxt components, routing, or dependencies
+- **Dark Theme by Default**: Professional dark mode interface with theme switcher
+- **Responsive Design**: Works on all screen sizes with modern CSS Grid
+- **Direct Navigation**: Links directly to all documentation sections
+
+#### Theme System
+
+- **Dark Mode Default**: Matches professional development tool aesthetics
+- **Light Mode Toggle**: Sun/moon icon toggle in top-right corner
+- **Persistent Preferences**: Theme choice saved in localStorage
+- **Smooth Transitions**: CSS transitions for theme switching
+
+### Documentation Generation
+
+#### Automated Build Integration
+
+```bash
+# Documentation is automatically generated during:
+yarn dev           # Development server startup
+yarn generate      # Static site generation
+yarn scripts       # Content generation process
+
+# Manual documentation generation:
+yarn docs:all      # Generate all documentation types
+yarn docs:jsdoc    # Generate JSDoc API docs only
+yarn docs:vue      # Generate Vue component docs only
+yarn create:documentation  # Generate project docs only
+```
+
+#### Generation Process
+
+1. **JSDoc API Documentation**: Extracts documentation from JavaScript/Vue files
+2. **Vue Components Documentation**: Specialized JSDoc extraction for Vue components
+3. **Project Documentation**: Converts `PROJECT-DOCUMENTATION.md` to styled HTML
+4. **Portal Protection**: Ensures standalone portal is never overwritten
+
+### JSDoc API Documentation
+
+#### Configuration
+
+- **Source Files**: Components, composables, plugins, middleware, server routes, creators
+- **Output**: `/public/documentation/jsdoc/`
+- **Theme**: Clean JSDoc theme with dark mode
+- **Features**: Search, navigation, cross-references
+
+#### Documentation Standards
+
+````javascript
+/**
+ * Function description with detailed explanation.
+ * Additional context about purpose and usage.
+ *
+ * @param {string} paramName - Parameter description
+ * @param {Object} options - Configuration object
+ * @param {boolean} options.flag - Option description
+ * @returns {Promise<Object>} Description of return value
+ * @throws {Error} When invalid parameters provided
+ * @example
+ * ```javascript
+ * const result = await myFunction('value', { flag: true });
+ * console.log(result);
+ * ```
+ * @since 1.0.0
+ */
+````
+
+#### Coverage
+
+- **Functions**: All utility functions and helpers
+- **Composables**: Vue 3 composition functions
+- **Components**: Vue component methods and computed properties
+- **Server Routes**: API endpoint documentation
+- **Creator Scripts**: Build process documentation
+
+### Vue Components Documentation
+
+#### Specialized Extraction
+
+- **Props**: Type definitions, default values, validation
+- **Events**: Emitted events with payload descriptions
+- **Slots**: Available slots with expected content
+- **Methods**: Public methods and their signatures
+- **Computed Properties**: Reactive computed values
+
+#### Component Documentation Example
+
+````vue
+<script setup>
+/**
+ * Navigation component with responsive menu system.
+ * Provides primary navigation for the application with mobile support.
+ *
+ * @component
+ * @example
+ * ```vue
+ * <TheNav />
+ * ```
+ */
+
+/**
+ * Navigation menu items from app configuration.
+ * Array of navigation menu items.
+ *
+ * @type {Array<Object>}
+ */
+const navMenu = JSON.parse(JSON.stringify(appConfig.navMenu));
+</script>
+````
+
+### Project Documentation
+
+#### Source and Generation
+
+- **Source**: `PROJECT-DOCUMENTATION.md` (this file)
+- **Output**: `/public/documentation/project/index.html`
+- **Processing**: Markdown to HTML with syntax highlighting
+- **Styling**: Professional documentation theme with dark mode
+
+#### Features
+
+- **Syntax Highlighting**: Code blocks with Prism.js
+- **Table of Contents**: Auto-generated navigation
+- **Anchor Links**: Clickable headings for deep linking
+- **Responsive Design**: Mobile-friendly layout
+- **Theme Toggle**: Dark/light mode switcher
+
+### Protection System
+
+#### Portal Protection
+
+The documentation system includes a protection mechanism to prevent the standalone portal from being overwritten:
+
+```javascript
+// creators/protectDocumentationPortal.js
+// Automatically runs after documentation generation
+// Restores portal from backup if overwritten
+```
+
+#### Build Integration
+
+```json
+{
+  "scripts": {
+    "docs:all": "yarn docs:jsdoc && yarn docs:vue && yarn create:documentation && yarn protect:portal"
+  }
+}
+```
+
+### Maintenance and Updates
+
+#### Automatic Updates
+
+- **Every Build**: Documentation regenerated with current code
+- **JSDoc Comments**: Automatically extracted and processed
+- **Component Changes**: Vue component docs updated automatically
+- **Project Documentation**: Regenerated from this markdown file
+
+#### Manual Updates
+
+- **Portal Design**: Edit `/public/documentation/portal.html` (backup)
+- **JSDoc Config**: Modify `jsdoc.config.json` or `jsdoc-vue.config.json`
+- **Project Docs**: Update this `PROJECT-DOCUMENTATION.md` file
+
+### Best Practices
+
+#### Documentation Writing
+
+1. **Comprehensive JSDoc**: Include @param, @returns, @example, @throws
+2. **Component Documentation**: Document all props, events, and slots
+3. **Usage Examples**: Provide practical code examples
+4. **Error Handling**: Document error conditions and exceptions
+
+#### Maintenance
+
+1. **Regular Updates**: Keep documentation current with code changes
+2. **Review Process**: Include documentation in code reviews
+3. **Testing**: Verify documentation generation in CI/CD
+4. **Accessibility**: Ensure documentation is accessible to all developers
 
 ## Database Schema
 

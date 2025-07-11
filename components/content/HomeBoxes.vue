@@ -161,15 +161,17 @@ export default {
       /**
        * Color palette for box styling.
        * Provides consistent theming across box elements.
+       * Array of hex color codes.
        *
-       * @type {Array<string>} Array of hex color codes
+       * @type {Array<string>}
        */
       colors: ["#333", "#555"],
       /**
        * Material Design icons for box decoration.
        * Provides visual indicators for different box types.
+       * Array of Material Design icon names.
        *
-       * @type {Array<string>} Array of Material Design icon names
+       * @type {Array<string>}
        */
       icons: ["fact_check", "leaderboard", "map", "contact_mail"],
     };

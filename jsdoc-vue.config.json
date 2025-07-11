@@ -1,0 +1,74 @@
+{
+  "source": {
+    "include": [
+      "./components/",
+      "./app.vue",
+      "./error.vue"
+    ],
+    "includePattern": "\\.vue$",
+    "exclude": [
+      "node_modules/",
+      ".nuxt/",
+      ".output/",
+      "dist/",
+      "./pages/"
+    ]
+  },
+  "opts": {
+    "destination": "./public/documentation/vue-components/",
+    "recurse": true,
+    "template": "node_modules/clean-jsdoc-theme"
+  },
+  "plugins": [
+    "plugins/markdown",
+    "./jsdoc-vue-plugin.js"
+  ],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "theme_opts": {
+      "default_theme": "dark",
+      "theme": "dark",
+      "homepageTitle": "Vue Components Documentation",
+      "title": "Illinois R3 - Vue Components Reference",
+      "favicon": "/favicon.ico",
+      "displayModuleHeader": true,
+      "includeFilesListInHomepage": true,
+      "meta": [
+        {
+          "name": "description",
+          "content": "Complete documentation for all Vue 3 components including props, events, slots, and usage examples extracted from component source code."
+        },
+        {
+          "name": "keywords",
+          "content": "Vue 3, Components, R3, Illinois, Violence Prevention, Documentation, Props, Events, Slots"
+        }
+      ],
+      "search": true,
+      "menu": [
+        {
+          "title": "API Documentation",
+          "link": "../jsdoc/",
+          "target": "_blank"
+        },
+        {
+          "title": "Project Documentation",
+          "link": "../project/",
+          "target": "_blank"
+        },
+        {
+          "title": "Main Portal",
+          "link": "/documents/",
+          "target": "_blank"
+        }
+      ],
+      "footer": "Illinois Criminal Justice Information Authority - Vue Components Documentation",
+      "include_css": [
+        "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      ]
+    }
+  },
+  "markdown": {
+    "parser": "gfm"
+  }
+}

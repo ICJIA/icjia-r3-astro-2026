@@ -1,0 +1,81 @@
+{
+  "source": {
+    "include": [
+      "./composables/",
+      "./components/",
+      "./plugins/",
+      "./middleware/",
+      "./server/",
+      "./creators/",
+      "./app.config.js",
+      "./nuxt.config.js"
+    ],
+    "includePattern": "\\.(js|vue)$",
+    "exclude": [
+      "node_modules/",
+      ".nuxt/",
+      ".output/",
+      "dist/",
+      "./composables/eventBus.ts",
+      "./composables/states.ts"
+    ]
+  },
+  "opts": {
+    "destination": "./public/documentation/jsdoc/",
+    "recurse": true,
+    "template": "node_modules/clean-jsdoc-theme",
+    "readme": "./README.md"
+  },
+  "plugins": [
+    "plugins/markdown",
+    "./jsdoc-vue-plugin.js"
+  ],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "theme_opts": {
+      "default_theme": "dark",
+      "theme": "dark",
+      "homepageTitle": "R3 API Documentation",
+      "title": "Illinois R3 Violence Prevention Plan - API Documentation",
+      "favicon": "/favicon.ico",
+      "displayModuleHeader": true,
+      "includeFilesListInHomepage": true,
+      "meta": [
+        {
+          "name": "description",
+          "content": "Comprehensive JSDoc API reference for all functions, composables, utilities, and scripts in the Illinois R3 Violence Prevention Plan codebase."
+        },
+        {
+          "name": "keywords",
+          "content": "R3, Illinois, Violence Prevention, API, Documentation, JSDoc, Nuxt 3, Vue 3"
+        }
+      ],
+      "search": true,
+      "menu": [
+        {
+          "title": "Project Documentation",
+          "link": "../project/",
+          "target": "_blank"
+        },
+        {
+          "title": "Vue Components",
+          "link": "../vue-components/",
+          "target": "_blank"
+        },
+        {
+          "title": "Main Portal",
+          "link": "/documents/",
+          "target": "_blank"
+        }
+      ],
+      "footer": "Illinois Criminal Justice Information Authority - R3 Violence Prevention Plan Documentation",
+      "include_css": [
+        "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      ]
+    }
+  },
+  "markdown": {
+    "parser": "gfm"
+  }
+}
