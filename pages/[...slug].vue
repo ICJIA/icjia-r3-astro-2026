@@ -1,23 +1,95 @@
 <script setup>
+/**
+ * @fileoverview Dynamic content page component for the ICJIA R3 Nuxt 3 application.
+ *
+ * This is a catch-all page component that handles all dynamic content routes.
+ * It fetches content based on the URL path and displays it with optional
+ * table of contents, breadcrumbs, and responsive layout.
+ *
+ * @page [...slug]
+ * @route /[...slug]
+ * @example
+ * ```
+ * // Matches routes like:
+ * // /about
+ * // /news/article-title
+ * // /resources/funding-guide
+ * // /faqs/eligibility
+ * ```
+ *
+ * @since 1.0.0
+ */
+
 import moment from "moment";
+
+/**
+ * Page metadata configuration.
+ * Applies middleware to validate content before rendering.
+ */
 definePageMeta({
   middleware: ["is-valid-content"],
 });
+
+/**
+ * Current route path for content fetching.
+ * Used to query the appropriate content from the CMS.
+ *
+ * @type {string}
+ */
 const { path } = useRoute();
+
+/**
+ * Vue Router instance for programmatic navigation.
+ * Used for redirecting to 404 page when content is not found.
+ *
+ * @type {import('vue-router').Router}
+ */
 const router = useRouter();
 
+/**
+ * Controls visibility of the table of contents component.
+ * Determined by content metadata and layout requirements.
+ *
+ * @type {Ref<boolean>}
+ */
 const showTOC = ref(false);
+
+/**
+ * Number of columns for the main content area.
+ * Adjusts based on whether table of contents is shown.
+ *
+ * @type {Ref<number>}
+ */
 const cols = ref(12);
 
 // const error = useError();
+
+/**
+ * Content data fetched from the CMS based on the current path.
+ * Contains all page content, metadata, and configuration options.
+ *
+ * @type {Object} Content object with title, body, and metadata
+ */
 const { data } = await useAsyncData(`content-${path}`, async () => {
   const post = await queryContent().where({ _path: path }).findOne();
   return post;
 });
+
+/**
+ * Redirects to the 404 error page.
+ * Used when content is not found or an error occurs.
+ *
+ * @function redirect
+ */
 const redirect = () => {
   router.push("/404");
 };
 
+/**
+ * Component lifecycle hook that runs after the component is mounted.
+ * Configures the layout based on content metadata, particularly
+ * whether to show the table of contents.
+ */
 onMounted(async () => {
   await nextTick();
   await nextTick();

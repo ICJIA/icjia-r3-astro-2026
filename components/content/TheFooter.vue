@@ -84,21 +84,72 @@
 </template>
 
 <script>
+/**
+ * @fileoverview Footer component for the ICJIA R3 Nuxt 3 application.
+ *
+ * This component provides the site footer with links, contact information,
+ * and utility functions like scroll-to-top and translation access.
+ * It includes branding and navigation to the main ICJIA website.
+ *
+ * @component TheFooter
+ * @example
+ * ```vue
+ * <template>
+ *   <TheFooter />
+ * </template>
+ * ```
+ *
+ * @since 1.0.0
+ */
 export default {
   setup() {
+    /**
+     * Scrolls the page to the top.
+     * Provides smooth navigation back to the top of the page.
+     *
+     * @function scrollTop
+     * @example
+     * ```javascript
+     * // Called when "Back to Top" is clicked
+     * scrollTop(); // Scrolls to top of page
+     * ```
+     */
     const scrollTop = () => {
       window.scrollTo(0, 0);
     };
 
+    /**
+     * Opens the translation modal.
+     * Activates the translation toggle state to show translation options.
+     *
+     * @function translate
+     * @example
+     * ```javascript
+     * // Called when translate link is clicked in footer
+     * translate(); // Shows translation modal
+     * ```
+     */
     const translate = () => {
       const toggleState = useTranslateToggle();
       toggleState.value = true;
     };
 
+    /**
+     * Navigates to the main ICJIA website.
+     * Opens the Illinois Criminal Justice Information Authority website in a new tab.
+     *
+     * @function routeToSite
+     * @example
+     * ```javascript
+     * // Called when ICJIA logo or link is clicked
+     * routeToSite(); // Opens https://icjia.illinois.gov in new tab
+     * ```
+     */
     const routeToSite = () => {
       // open new site in new tab
       window.open("https://icjia.illinois.gov", "_blank");
     };
+
     return { routeToSite, scrollTop, translate };
   },
 };

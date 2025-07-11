@@ -187,33 +187,145 @@
 </template>
 
 <script setup>
+/**
+ * @fileoverview Primary navigation component for the ICJIA R3 Nuxt 3 application.
+ *
+ * This component provides the main navigation bar with responsive design,
+ * including mobile hamburger menu, search functionality, and translation options.
+ * It features the R3 branding and handles navigation state management.
+ *
+ * @component TheNav
+ * @example
+ * ```vue
+ * <template>
+ *   <TheNav />
+ * </template>
+ * ```
+ *
+ * @since 1.0.0
+ */
+/**
+ * Reactive reference tracking component mount status.
+ * Used to prevent hydration issues and ensure proper client-side rendering.
+ *
+ * @type {Ref<boolean>}
+ */
 const isMounted = ref(false);
+
+/**
+ * Reactive navigation toggle state from the global state management.
+ * Controls the visibility of the mobile navigation menu.
+ *
+ * @type {Ref<boolean>}
+ */
 const nav = useNavToggle();
+
+/**
+ * Toggles the mobile navigation menu visibility.
+ * Inverts the current navigation state for responsive menu control.
+ *
+ * @function toggleNav
+ * @example
+ * ```javascript
+ * // Called when hamburger menu is clicked
+ * toggleNav(); // Opens/closes mobile menu
+ * ```
+ */
 const toggleNav = () => {
   nav.value = !nav.value;
 };
 
+/**
+ * Application configuration object containing navigation menu structure.
+ * Provides access to the navigation menu items and their properties.
+ *
+ * @type {Object}
+ */
 const appConfig = useAppConfig();
+
+/**
+ * Deep copy of the navigation menu configuration.
+ * Creates an independent copy to prevent mutations of the original config.
+ *
+ * @type {Array<Object>} Array of navigation menu items
+ */
 const navMenu = JSON.parse(JSON.stringify(appConfig.navMenu));
 
+/**
+ * Determines if a URL is external to the application.
+ * Currently returns true for all URLs - may need refinement for actual external link detection.
+ *
+ * @param {string} url - The URL to check
+ * @returns {boolean} Always returns true (placeholder implementation)
+ *
+ * @example
+ * ```javascript
+ * const external = isExternalUrl("https://example.com"); // true
+ * const internal = isExternalUrl("/about"); // true (should be false)
+ * ```
+ *
+ * @todo Implement proper external URL detection logic
+ */
 const isExternalUrl = (url) => {
   return true;
 };
 
+/**
+ * Component lifecycle hook that runs after the component is mounted.
+ * Sets the mounted state to true for proper client-side rendering.
+ */
 onMounted(() => {
   isMounted.value = true;
 });
 
+/**
+ * Vue Router instance for programmatic navigation.
+ * Used for navigating to different routes within the application.
+ *
+ * @type {Router}
+ */
 const router = useRouter();
+
+/**
+ * Navigates to the search page.
+ * Programmatically routes the user to the search functionality.
+ *
+ * @function goToSearch
+ * @example
+ * ```javascript
+ * // Called when search button is clicked
+ * goToSearch(); // Navigates to /search
+ * ```
+ */
 const goToSearch = () => {
   router.push({ path: "/search" });
 };
 
+/**
+ * Opens the translation modal dialog.
+ * Activates the translation toggle state to show the translation interface.
+ *
+ * @function openTranslationModal
+ * @example
+ * ```javascript
+ * // Called when translate button is clicked
+ * openTranslationModal(); // Shows translation modal
+ * ```
+ */
 const openTranslationModal = () => {
   const toggleState = useTranslateToggle();
   toggleState.value = true;
 };
 
+/**
+ * Sample menu items for development/testing purposes.
+ * Contains placeholder menu items that may be used for testing navigation components.
+ *
+ * @type {Ref<Array<Object>>} Reactive array of menu items
+ * @property {string} title - Display title for the menu item
+ *
+ * @todo Remove or replace with actual menu items if not needed
+ */
 const items = ref([
   { title: "Click Me" },
   { title: "Click Me" },

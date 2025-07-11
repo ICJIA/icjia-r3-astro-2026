@@ -103,16 +103,59 @@
 </template>
 
 <script setup>
+/**
+ * @fileoverview Search page component for the ICJIA R3 Nuxt 3 application.
+ *
+ * This page provides full-text search functionality across all site content
+ * using Fuse.js for fuzzy search capabilities. It includes search history,
+ * instant search results, and navigation to found content.
+ *
+ * @page search
+ * @route /search
+ * @example
+ * ```
+ * // Accessed via: https://r3.illinois.gov/search
+ * ```
+ *
+ * @since 1.0.0
+ */
+
 import Fuse from "fuse.js";
 import searchIndex from "~/assets/json/searchIndex.json";
 
-// Use Nuxt 3 native state management instead of Pinia
+/**
+ * Search state management using Nuxt 3 native state instead of Pinia.
+ * Provides access to search queries history and query management functions.
+ *
+ * @type {Object}
+ * @property {Ref<Array<string>>} queries - Reactive array of previous search queries
+ * @property {Function} addNewQuery - Function to add a new query to history
+ */
 const { queries, addNewQuery } = useSearchActions();
 
+/**
+ * Set the page title for SEO and browser tab display.
+ */
 useHead({
   title: "Search",
 });
 
+/**
+ * Fuse.js configuration options for search functionality.
+ * Configures fuzzy search behavior, scoring, and field targeting.
+ *
+ * @type {Object}
+ * @property {boolean} isCaseSensitive - Whether search is case sensitive
+ * @property {boolean} includeScore - Include relevance scores in results
+ * @property {boolean} shouldSort - Sort results by relevance
+ * @property {boolean} includeMatches - Include match information
+ * @property {boolean} findAllMatches - Find all matches in text
+ * @property {number} minMatchCharLength - Minimum character length for matches
+ * @property {number} location - Expected location of match
+ * @property {number} threshold - Fuzzy matching threshold (0.0 = exact, 1.0 = anything)
+ * @property {number} distance - Maximum distance for matches
+ * @property {Array<string>} keys - Fields to search within
+ */
 const options = {
   isCaseSensitive: false,
   includeScore: true,
@@ -128,38 +171,122 @@ const options = {
   ignoreFieldNorm: false,
   keys: ["title", "slug", "summary", "searchMeta", "rawText"],
 };
+
+/**
+ * Reactive search query string.
+ * Bound to the search input field for real-time search.
+ *
+ * @type {Ref<string>}
+ */
 const query = ref("");
+
+/**
+ * Fuse.js search instance configured with the search index and options.
+ * Provides the core search functionality for the application.
+ *
+ * @type {Fuse}
+ */
 const fuse = new Fuse(searchIndex, options);
 
+/**
+ * Reactive search results array.
+ * Contains the current search results from Fuse.js.
+ *
+ * @type {Ref<Array<Object>>}
+ */
 const result = ref(fuse.search(query.value.toLowerCase));
 // console.log("queries: ", queries.value.length);
 
+/**
+ * Initialize search with the most recent query from history.
+ * If there are previous queries, use the latest one to populate the search.
+ */
 if (queries.value.length) {
   query.value = queries.value[queries.value.length - 1];
   result.value = fuse.search(query.value);
 }
 
+/**
+ * Performs an instant search with the current query value.
+ * Updates the search results immediately when called.
+ *
+ * @function instantSearch
+ * @example
+ * ```javascript
+ * // Called on input events for real-time search
+ * instantSearch();
+ * ```
+ */
 const instantSearch = () => {
   result.value = fuse.search(query.value);
 };
 
+/**
+ * Controls visibility of the search index/debug information.
+ * Used for development and debugging purposes.
+ *
+ * @type {Ref<boolean>}
+ */
 const showIndex = ref(false);
+
+/**
+ * Toggles the visibility of the search index display.
+ * Switches between showing and hiding debug information.
+ *
+ * @function toggleIndex
+ */
 const toggleIndex = () => {
   showIndex.value = !showIndex.value;
 };
 
+/**
+ * Sets a new search query and performs the search.
+ * Used when selecting from search history or suggestions.
+ *
+ * @param {string} q - The query string to search for
+ *
+ * @example
+ * ```javascript
+ * addQuery("criminal justice reform");
+ * // Sets query and updates results
+ * ```
+ */
 const addQuery = (q) => {
   query.value = q;
   result.value = fuse.search(query.value);
 };
 
+/**
+ * Watcher for the search query reactive reference.
+ * Clears results when the query becomes empty.
+ */
 watch(query, (val) => {
   if (!val) {
     result.value = [];
   }
 });
 
+/**
+ * Vue Router instance for programmatic navigation.
+ * Used for navigating to search result pages.
+ *
+ * @type {import('vue-router').Router}
+ */
 const router = useRouter();
+
+/**
+ * Navigates to a search result item and saves the query to history.
+ * Adds the current query to search history before navigation.
+ *
+ * @param {Object} item - Search result item
+ * @param {string} item.path - The path to navigate to
+ *
+ * @example
+ * ```javascript
+ * navigateTo({ path: "/news/article-slug" });
+ * // Saves query to history and navigates to the article
+ * ```
+ */
 const navigateTo = (item) => {
   addNewQuery(query.value);
   console.log("query added to state: ", query.value);
@@ -167,6 +294,16 @@ const navigateTo = (item) => {
   router.push({ path: item.path });
 };
 
+/**
+ * Clears all search data and resets the interface.
+ * Resets query, results, and index visibility, then focuses the input.
+ *
+ * @function clearAll
+ * @example
+ * ```javascript
+ * clearAll(); // Resets search interface
+ * ```
+ */
 const clearAll = () => {
   query.value = "";
   result.value = [];
@@ -175,6 +312,10 @@ const clearAll = () => {
   el.focus();
 };
 
+/**
+ * Component lifecycle hook that runs after the component is mounted.
+ * Automatically focuses the search input field for better user experience.
+ */
 onMounted(() => {
   const el = document.getElementById("textfield");
   el.focus();

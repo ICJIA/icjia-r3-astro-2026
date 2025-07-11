@@ -88,20 +88,69 @@
 </template>
 
 <script>
+/**
+ * @fileoverview Home page feature boxes component for the ICJIA R3 Nuxt 3 application.
+ *
+ * This component displays a grid of feature boxes on the homepage, providing
+ * quick access to key sections and functionality. It supports configurable
+ * layouts, smooth scrolling navigation, and responsive design.
+ *
+ * @component HomeBoxes
+ * @example
+ * ```vue
+ * <template>
+ *   <HomeBoxes
+ *     :boxes="4"
+ *     :secondRow="true"
+ *     :showTeaser="true"
+ *   />
+ * </template>
+ * ```
+ *
+ * @since 1.0.0
+ */
 export default {
   props: {
+    /**
+     * Number of boxes to display in the grid.
+     * Determines the column layout and responsive behavior.
+     *
+     * @type {Number}
+     * @default 3
+     */
     boxes: {
       type: Number,
       default: 3,
     },
+    /**
+     * Whether to display a second row of boxes.
+     * Enables additional content sections below the main boxes.
+     *
+     * @type {Boolean}
+     * @default false
+     */
     secondRow: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Whether to apply gutter spacing between boxes.
+     * Controls the spacing and visual separation of box elements.
+     *
+     * @type {Boolean}
+     * @default true
+     */
     gutter: {
       type: Boolean,
       default: true,
     },
+    /**
+     * Whether to show teaser content in the boxes.
+     * Enables preview or summary content display.
+     *
+     * @type {Boolean}
+     * @default false
+     */
     showTeaser: {
       type: Boolean,
       default: false,
@@ -109,19 +158,66 @@ export default {
   },
   data() {
     return {
+      /**
+       * Color palette for box styling.
+       * Provides consistent theming across box elements.
+       *
+       * @type {Array<string>} Array of hex color codes
+       */
       colors: ["#333", "#555"],
+      /**
+       * Material Design icons for box decoration.
+       * Provides visual indicators for different box types.
+       *
+       * @type {Array<string>} Array of Material Design icon names
+       */
       icons: ["fact_check", "leaderboard", "map", "contact_mail"],
     };
   },
   computed: {
+    /**
+     * Calculates the number of columns each box should span.
+     * Based on the total number of boxes and 12-column grid system.
+     *
+     * @returns {number} Number of columns per box (12 divided by number of boxes)
+     *
+     * @example
+     * ```javascript
+     * // With 3 boxes: 12 / 3 = 4 columns each
+     * // With 4 boxes: 12 / 4 = 3 columns each
+     * ```
+     */
     boxColumns() {
       return 12 / this.boxes;
     },
   },
   methods: {
+    /**
+     * Gets the primary color for box styling.
+     * Returns the secondary color from the colors array.
+     *
+     * @returns {string} Hex color code for box styling
+     */
     getColor() {
       return this.colors[1];
     },
+    /**
+     * Handles smooth scrolling to target elements.
+     * Provides navigation to specific sections with offset compensation.
+     *
+     * @param {Object} params - Click parameters
+     * @param {string} params.id - Target element ID to scroll to
+     * @param {string} params.type - Scroll type ('scrollIntoView' or default)
+     *
+     * @example
+     * ```javascript
+     * // Scroll to element with offset
+     * click({ id: 'section1', type: 'scroll' });
+     *
+     * // Scroll into view
+     * click({ id: 'section2', type: 'scrollIntoView' });
+     * ```
+     */
     click({ id, type }) {
       const offset = 100;
       const el = document.getElementById(id);
