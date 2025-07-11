@@ -308,6 +308,18 @@ This approach ensures content is always current with the CMS while maintaining t
 - **Query**: GraphQL endpoint for filtered content
 - **Integration**: Automated content fetching during build process
 
+#### GraphQL Playground
+
+- **URL**: `https://r3.icjia-api.cloud/graphql`
+- **Purpose**: Interactive GraphQL query interface and documentation
+- **Features**:
+  - **Live Queries**: Execute read-only GraphQL queries in real-time
+  - **Schema Documentation**: Complete API documentation and type explorer
+  - **Full Schema Browser**: Browse all available types, queries, and fields
+  - **Query Builder**: Visual interface for constructing and testing GraphQL queries
+- **Access**: No authentication required for query exploration and documentation
+- **Limitations**: Read-only access (queries only, no mutations)
+
 ### Endpoint Documentation
 
 #### GraphQL Queries

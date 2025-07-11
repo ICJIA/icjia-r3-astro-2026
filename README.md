@@ -123,6 +123,19 @@ NUXT_PUBLIC_PLAUSIBLE_DOMAIN=your-domain
 - **Research Hub**: GraphQL API for research articles and publications
 - **Content Types**: Pages, news posts, FAQs, resources, meetings, biographies
 
+## External API Documentation
+
+### GraphQL Playground
+
+🔗 **GraphQL Playground**: [https://r3.icjia-api.cloud/graphql](https://r3.icjia-api.cloud/graphql)
+
+The GraphQL playground provides:
+
+- **Live Queries**: Interactive query execution (read-only, no mutations)
+- **Documentation**: Complete API documentation and schema explorer
+- **Full Schema**: Browse all available types, queries, and fields
+- **Query Builder**: Visual interface for constructing GraphQL queries
+
 ## Development Workflow
 
 ### Daily Development
