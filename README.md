@@ -5,11 +5,11 @@
 The official website for Illinois' R3 Violence Prevention Plan, built with Nuxt 3 and Vue 3. This platform provides comprehensive information about R3 funding opportunities, resources, and program updates.
 
 🌐 **Live Site**: [https://r3.illinois.gov](https://r3.illinois.gov)
-📚 **Documentation**: [https://vpp-2025.netlify.app/documentation/](https://vpp-2025.netlify.app/documentation/)
+📚 **Documentation**: [https://r3.illinois.gov/documentation/](https://r3.illinois.gov/documentation/)
 
 ## Quick Start
 
-**For detailed setup instructions and troubleshooting, see the [comprehensive documentation](https://vpp-2025.netlify.app/documentation/project/).**
+**For detailed setup instructions and troubleshooting, see the [comprehensive documentation](https://r3.illinois.gov/documentation/project/).**
 
 ### Prerequisites
 
@@ -76,7 +76,7 @@ yarn scripts
 
 This project includes a comprehensive, standalone documentation system accessible at `/documentation/` that exists completely outside the Nuxt application.
 
-### Documentation Portal: [/documentation/](https://vpp-2025.netlify.app/documentation/)
+### Documentation Portal: [/documentation/](https://r3.illinois.gov/documentation/)
 
 The documentation system includes four main components:
 
@@ -231,4 +231,4 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-**Need more details?** Visit the [comprehensive documentation](https://vpp-2025.netlify.app/documentation/project/) for complete development guides, API references, and troubleshooting information.
+**Need more details?** Visit the [comprehensive documentation](https://r3.illinois.gov/documentation/project/) for complete development guides, API references, and troubleshooting information.
