@@ -158,7 +158,7 @@ Local Content (Markdown) → Content Processing → Search Index → Client Sear
 ### Key Design Patterns
 
 - **Component-Based Architecture**: Reusable Vue components with clear separation of concerns
-- **State Management**: Pinia stores for global state (search queries, navigation state)
+- **State Management**: Nuxt 3 native state management using useState composables for global state (search queries, navigation state)
 - **Content-First Design**: Markdown-driven content with frontmatter metadata
 - **Progressive Enhancement**: Core functionality works without JavaScript
 
@@ -194,7 +194,7 @@ icjia-r3-v5-nuxt/
 ├── public/                       # Static files served directly
 ├── server/                       # Server-side API routes
 ├── src/                          # Source data files (JSON)
-├── stores/                       # Pinia state management stores
+├── composables/                  # Nuxt 3 composables for state management and utilities
 ├── app.config.js                 # Application configuration
 ├── app.vue                       # Root Vue component
 ├── nuxt.config.js                # Nuxt framework configuration
@@ -281,10 +281,150 @@ This approach ensures content is always current with the CMS while maintaining t
 - **`TheExternalWarningModal.vue`**: External link warnings
 - **`Query.vue`**: Database query and data display components
 
-### State Management Components
+### State Management Composables
 
-- **`searchStore.js`**: Search query history and state
-- **`faqSearchStore.js`**: FAQ-specific search functionality
+- **`composables/states.ts`**: Nuxt 3 native state management using useState composables
+- **`useSearchActions()`**: Search query history and state management
+- **`useFaqSearchActions()`**: FAQ-specific search functionality
+
+## State Management Architecture
+
+### Overview
+
+This project uses **Nuxt 3's native state management** instead of external libraries like Pinia. State is managed through Nuxt's built-in `useState` composable and custom composables that encapsulate state logic.
+
+### Core State Management Patterns
+
+#### 1. useState Composables
+
+The foundation of state management uses Nuxt's `useState` composable for reactive, SSR-safe state:
+
+```typescript
+// Basic state definition
+export const useCounter = () => useState<number>("counter", () => 0);
+
+// State with custom initial value
+export const useColor = () => useState<string>("color", () => "pink");
+
+// Search queries state
+export const useSearchQueries = () =>
+  useState<string[]>("searchQueries", () => []);
+```
+
+#### 2. Action-Based Composables
+
+Complex state logic is encapsulated in action-based composables that provide both state and methods:
+
+```typescript
+// Search actions composable
+export const useSearchActions = () => {
+  const queries = readonly(useSearchQueries());
+
+  const addNewQuery = (query: string) => {
+    const searchQueries = useSearchQueries();
+    if (!searchQueries.value.includes(query)) {
+      searchQueries.value.unshift(query);
+      if (searchQueries.value.length > 10) {
+        searchQueries.value = searchQueries.value.slice(0, 10);
+      }
+    }
+  };
+
+  const clearQueries = () => {
+    const searchQueries = useSearchQueries();
+    searchQueries.value = [];
+  };
+
+  return { queries, addNewQuery, clearQueries };
+};
+```
+
+### State Management Features
+
+#### Global State Persistence
+
+- **SSR-Safe**: All state is compatible with server-side rendering
+- **Reactive**: Automatic reactivity across components using the same state
+- **Persistent**: State persists across page navigation within the SPA
+
+#### Search State Management
+
+- **Query History**: Maintains history of recent search queries (max 10)
+- **Duplicate Prevention**: Automatically prevents duplicate queries
+- **FAQ Search**: Separate state management for FAQ-specific searches
+
+#### Application State
+
+- **Translation Toggle**: Global state for language switching functionality
+- **Navigation State**: Manages navigation-related state across components
+- **Theme State**: Color and theme management for UI consistency
+
+### Usage Examples
+
+#### Basic State Usage
+
+```vue
+<script setup>
+// Simple counter state
+const counter = useCounter();
+
+// Increment counter
+const increment = () => {
+  counter.value++;
+};
+</script>
+
+<template>
+  <div>
+    <p>Count: {{ counter }}</p>
+    <button @click="increment">Increment</button>
+  </div>
+</template>
+```
+
+#### Search State Usage
+
+```vue
+<script setup>
+// Search functionality with history
+const { queries, addNewQuery, clearQueries } = useSearchActions();
+
+const performSearch = (query: string) => {
+  addNewQuery(query);
+  // Perform search logic...
+};
+</script>
+
+<template>
+  <div>
+    <input @keyup.enter="performSearch($event.target.value)" />
+    <div v-if="queries.length">
+      <h3>Recent Searches:</h3>
+      <ul>
+        <li v-for="query in queries" :key="query">{{ query }}</li>
+      </ul>
+      <button @click="clearQueries">Clear History</button>
+    </div>
+  </div>
+</template>
+```
+
+### Migration from Pinia
+
+This project was migrated from Pinia to Nuxt 3 native state management. Key changes include:
+
+- **Stores → Composables**: Pinia stores replaced with useState-based composables
+- **defineStore → useState**: Store definitions replaced with composable functions
+- **useStore() → useComposable()**: Store usage replaced with direct composable calls
+- **Actions → Functions**: Store actions replaced with composable functions
+
+### Benefits of Native State Management
+
+1. **Reduced Bundle Size**: No external state management library
+2. **Better SSR Integration**: Native Nuxt 3 SSR support
+3. **Simpler Architecture**: Less boilerplate and configuration
+4. **Type Safety**: Full TypeScript support with minimal setup
+5. **Performance**: Optimized for Nuxt 3's reactivity system
 
 ## API Documentation
 
@@ -874,7 +1014,7 @@ NODE_ENV=development  # or production
 
 #### Nuxt Configuration (`nuxt.config.js`)
 
-- **Modules**: Google Fonts, Plausible Analytics, Pinia, Nuxt Content
+- **Modules**: Google Fonts, Plausible Analytics, VueUse, Nuxt Content
 - **Build Settings**: Transpilation, optimization, and bundling options
 - **Routing**: Custom routes and redirects
 - **SEO**: Meta tags, Open Graph, and structured data

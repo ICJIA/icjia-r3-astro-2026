@@ -357,6 +357,7 @@
       <li><a href="#architecture-overview">Architecture Overview</a></li>
       <li><a href="#directory-structure">Directory Structure</a></li>
       <li><a href="#key-components">Key Components</a></li>
+      <li><a href="#state-management-architecture">State Management Architecture</a></li>
       <li><a href="#api-documentation">API Documentation</a></li>
       <li><a href="#documentation-system">Documentation System</a></li>
       <li><a href="#database-schema">Database Schema</a></li>
@@ -512,7 +513,7 @@ Local Content (Markdown) → Content Processing → Search Index → Client Sear
 <h3 id="key-design-patterns" tabindex="-1">Key Design Patterns</h3>
 <ul>
 <li><strong>Component-Based Architecture</strong>: Reusable Vue components with clear separation of concerns</li>
-<li><strong>State Management</strong>: Pinia stores for global state (search queries, navigation state)</li>
+<li><strong>State Management</strong>: Nuxt 3 native state management using useState composables for global state (search queries, navigation state)</li>
 <li><strong>Content-First Design</strong>: Markdown-driven content with frontmatter metadata</li>
 <li><strong>Progressive Enhancement</strong>: Core functionality works without JavaScript</li>
 </ul>
@@ -546,7 +547,7 @@ Local Content (Markdown) → Content Processing → Search Index → Client Sear
 ├── public/                       # Static files served directly
 ├── server/                       # Server-side API routes
 ├── src/                          # Source data files (JSON)
-├── stores/                       # Pinia state management stores
+├── composables/                  # Nuxt 3 composables for state management and utilities
 ├── app.config.js                 # Application configuration
 ├── app.vue                       # Root Vue component
 ├── nuxt.config.js                # Nuxt framework configuration
@@ -622,11 +623,130 @@ yarn create:hub              # Fetches research articles from Research Hub API
 <li><strong><code>TheExternalWarningModal.vue</code></strong>: External link warnings</li>
 <li><strong><code>Query.vue</code></strong>: Database query and data display components</li>
 </ul>
-<h3 id="state-management-components" tabindex="-1">State Management Components</h3>
+<h3 id="state-management-composables" tabindex="-1">State Management Composables</h3>
 <ul>
-<li><strong><code>searchStore.js</code></strong>: Search query history and state</li>
-<li><strong><code>faqSearchStore.js</code></strong>: FAQ-specific search functionality</li>
+<li><strong><code>composables/states.ts</code></strong>: Nuxt 3 native state management using useState composables</li>
+<li><strong><code>useSearchActions()</code></strong>: Search query history and state management</li>
+<li><strong><code>useFaqSearchActions()</code></strong>: FAQ-specific search functionality</li>
 </ul>
+<h2 id="state-management-architecture" tabindex="-1">State Management Architecture</h2>
+<h3 id="overview" tabindex="-1">Overview</h3>
+<p>This project uses <strong>Nuxt 3’s native state management</strong> instead of external libraries like Pinia. State is managed through Nuxt’s built-in <code>useState</code> composable and custom composables that encapsulate state logic.</p>
+<h3 id="core-state-management-patterns" tabindex="-1">Core State Management Patterns</h3>
+<h4 id="1.-usestate-composables" tabindex="-1">1. useState Composables</h4>
+<p>The foundation of state management uses Nuxt’s <code>useState</code> composable for reactive, SSR-safe state:</p>
+<pre><code class="language-typescript">// Basic state definition
+export const useCounter = () =&gt; useState&lt;number&gt;(&quot;counter&quot;, () =&gt; 0);
+
+// State with custom initial value
+export const useColor = () =&gt; useState&lt;string&gt;(&quot;color&quot;, () =&gt; &quot;pink&quot;);
+
+// Search queries state
+export const useSearchQueries = () =&gt;
+  useState&lt;string[]&gt;(&quot;searchQueries&quot;, () =&gt; []);
+</code></pre>
+<h4 id="2.-action-based-composables" tabindex="-1">2. Action-Based Composables</h4>
+<p>Complex state logic is encapsulated in action-based composables that provide both state and methods:</p>
+<pre><code class="language-typescript">// Search actions composable
+export const useSearchActions = () =&gt; {
+  const queries = readonly(useSearchQueries());
+
+  const addNewQuery = (query: string) =&gt; {
+    const searchQueries = useSearchQueries();
+    if (!searchQueries.value.includes(query)) {
+      searchQueries.value.unshift(query);
+      if (searchQueries.value.length &gt; 10) {
+        searchQueries.value = searchQueries.value.slice(0, 10);
+      }
+    }
+  };
+
+  const clearQueries = () =&gt; {
+    const searchQueries = useSearchQueries();
+    searchQueries.value = [];
+  };
+
+  return { queries, addNewQuery, clearQueries };
+};
+</code></pre>
+<h3 id="state-management-features" tabindex="-1">State Management Features</h3>
+<h4 id="global-state-persistence" tabindex="-1">Global State Persistence</h4>
+<ul>
+<li><strong>SSR-Safe</strong>: All state is compatible with server-side rendering</li>
+<li><strong>Reactive</strong>: Automatic reactivity across components using the same state</li>
+<li><strong>Persistent</strong>: State persists across page navigation within the SPA</li>
+</ul>
+<h4 id="search-state-management" tabindex="-1">Search State Management</h4>
+<ul>
+<li><strong>Query History</strong>: Maintains history of recent search queries (max 10)</li>
+<li><strong>Duplicate Prevention</strong>: Automatically prevents duplicate queries</li>
+<li><strong>FAQ Search</strong>: Separate state management for FAQ-specific searches</li>
+</ul>
+<h4 id="application-state" tabindex="-1">Application State</h4>
+<ul>
+<li><strong>Translation Toggle</strong>: Global state for language switching functionality</li>
+<li><strong>Navigation State</strong>: Manages navigation-related state across components</li>
+<li><strong>Theme State</strong>: Color and theme management for UI consistency</li>
+</ul>
+<h3 id="usage-examples" tabindex="-1">Usage Examples</h3>
+<h4 id="basic-state-usage" tabindex="-1">Basic State Usage</h4>
+<pre><code class="language-vue">&lt;script setup&gt;
+// Simple counter state
+const counter = useCounter();
+
+// Increment counter
+const increment = () =&gt; {
+  counter.value++;
+};
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;Count: {{ counter }}&lt;/p&gt;
+    &lt;button @click=&quot;increment&quot;&gt;Increment&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="search-state-usage" tabindex="-1">Search State Usage</h4>
+<pre><code class="language-vue">&lt;script setup&gt;
+// Search functionality with history
+const { queries, addNewQuery, clearQueries } = useSearchActions();
+
+const performSearch = (query: string) =&gt; {
+  addNewQuery(query);
+  // Perform search logic...
+};
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;input @keyup.enter=&quot;performSearch($event.target.value)&quot; /&gt;
+    &lt;div v-if=&quot;queries.length&quot;&gt;
+      &lt;h3&gt;Recent Searches:&lt;/h3&gt;
+      &lt;ul&gt;
+        &lt;li v-for=&quot;query in queries&quot; :key=&quot;query&quot;&gt;{{ query }}&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;button @click=&quot;clearQueries&quot;&gt;Clear History&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="migration-from-pinia" tabindex="-1">Migration from Pinia</h3>
+<p>This project was migrated from Pinia to Nuxt 3 native state management. Key changes include:</p>
+<ul>
+<li><strong>Stores → Composables</strong>: Pinia stores replaced with useState-based composables</li>
+<li><strong>defineStore → useState</strong>: Store definitions replaced with composable functions</li>
+<li><strong>useStore() → useComposable()</strong>: Store usage replaced with direct composable calls</li>
+<li><strong>Actions → Functions</strong>: Store actions replaced with composable functions</li>
+</ul>
+<h3 id="benefits-of-native-state-management" tabindex="-1">Benefits of Native State Management</h3>
+<ol>
+<li><strong>Reduced Bundle Size</strong>: No external state management library</li>
+<li><strong>Better SSR Integration</strong>: Native Nuxt 3 SSR support</li>
+<li><strong>Simpler Architecture</strong>: Less boilerplate and configuration</li>
+<li><strong>Type Safety</strong>: Full TypeScript support with minimal setup</li>
+<li><strong>Performance</strong>: Optimized for Nuxt 3’s reactivity system</li>
+</ol>
 <h2 id="api-documentation" tabindex="-1">API Documentation</h2>
 <h3 id="external-api-integrations" tabindex="-1">External API Integrations</h3>
 <h4 id="strapi-cms-api" tabindex="-1">Strapi CMS API</h4>
@@ -716,7 +836,7 @@ query {
 <li><strong>Content Validation</strong>: Schema validation for API responses</li>
 </ul>
 <h2 id="documentation-system" tabindex="-1">Documentation System</h2>
-<h3 id="overview" tabindex="-1">Overview</h3>
+<h3 id="overview-1" tabindex="-1">Overview</h3>
 <p>The project includes a comprehensive, standalone documentation system that exists completely outside the Nuxt application filesystem. This ensures the documentation is accessible without interfering with the main application routing or functionality.</p>
 <h3 id="documentation-architecture" tabindex="-1">Documentation Architecture</h3>
 <p>The documentation system consists of four main components:</p>
@@ -1134,7 +1254,7 @@ NODE_ENV=development  # or production
 <h3 id="application-configuration-options" tabindex="-1">Application Configuration Options</h3>
 <h4 id="nuxt-configuration-(nuxt.config.js)" tabindex="-1">Nuxt Configuration (<code>nuxt.config.js</code>)</h4>
 <ul>
-<li><strong>Modules</strong>: Google Fonts, Plausible Analytics, Pinia, Nuxt Content</li>
+<li><strong>Modules</strong>: Google Fonts, Plausible Analytics, VueUse, Nuxt Content</li>
 <li><strong>Build Settings</strong>: Transpilation, optimization, and bundling options</li>
 <li><strong>Routing</strong>: Custom routes and redirects</li>
 <li><strong>SEO</strong>: Meta tags, Open Graph, and structured data</li>
