@@ -82,7 +82,7 @@ export default defineAppConfig({
         "https://r3.icjia-api.cloud/uploads/thumbnail_new_splash_03_9b9975cfc5.jpg",
       tagline:
         "Grants to provide services to repair the harm caused by economic disinvestment, violence, and the war on drugs. Organizations may apply for grant funds in R3 communities statewide.",
-      title: "2025 SERVICE DELIVERY GRANT OPPORTUNITY NOW AVAILABLE",
+      title: "2025 SERVICE DELIVERY GRANT OPPORTUNITY",
     },
     // {
     //   externalURL:
