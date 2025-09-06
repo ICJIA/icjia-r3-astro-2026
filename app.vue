@@ -39,6 +39,7 @@
             elevation="8"
             @click.stop.prevent="scrollToTop()"
             style="z-index: 0; font-size: 20px"
+            aria-label="Scroll to top of page"
           >
           </v-btn>
         </div>

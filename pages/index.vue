@@ -19,13 +19,28 @@
                 cover
                 :src="item.src"
                 :lazy-src="item.lazySrc"
+                :alt="
+                  item.alt ||
+                  'R3 Program hero image showcasing community investment and renewal'
+                "
                 aspect-ratio="1"
                 class="grey lighten-2"
                 height="650"
                 crossorigin
               >
-                <div class="text-center px-12" style="margin-top: 100px">
-                  <h1 class="nofo-title mt-3">{{ item.title }}</h1>
+                <div
+                  class="d-flex flex-column justify-center align-center h-100 px-12"
+                >
+                  <h2
+                    class="nofo-title mt-3"
+                    style="
+                      color: #fff !important;
+                      font-size: 2.5rem !important;
+                      text-align: center !important;
+                    "
+                  >
+                    {{ item.title }}
+                  </h2>
                   <div class="nofo-tagline">
                     {{ item.tagline }}
                   </div>
@@ -61,15 +76,28 @@
                 cover
                 :src="item.src"
                 :lazy-src="item.lazySrc"
+                :alt="
+                  item.alt ||
+                  'R3 Program hero image showcasing community investment and renewal'
+                "
                 aspect-ratio="1"
                 class="grey lighten-2"
                 height="650"
                 crossorigin
               >
-                <div class="text-center px-12" style="margin-top: 100px">
-                  <h1 class="nofo-title mt-3" style="font-size: 34px">
+                <div
+                  class="d-flex flex-column justify-center align-center h-100 px-12"
+                >
+                  <h2
+                    class="nofo-title mt-3"
+                    style="
+                      color: #fff !important;
+                      font-size: 2.5rem !important;
+                      text-align: center !important;
+                    "
+                  >
                     2025 SERVICE DELIVERY GRANT OPPORTUNITIES
-                  </h1>
+                  </h2>
                   <div class="nofo-tagline">
                     {{ item.tagline }}
                   </div>
@@ -456,9 +484,9 @@ a.home-link {
   color: #fff;
 }
 .nofo-title {
-  font-size: 3rem;
+  font-size: 5rem !important;
   font-weight: 900;
-  color: #fff;
+  color: #fff !important;
   text-shadow: 0 0 10px #000;
 }
 .full-width {

@@ -14,16 +14,30 @@
         v-if="!nav"
         class="hover hamburger text-center hidden-md-and-up"
         @click="toggleNav"
+        role="button"
+        tabindex="0"
+        aria-label="Open navigation menu"
+        @keydown.enter="toggleNav"
+        @keydown.space="toggleNav"
       >
-        <v-icon icon="mdi-menu" size="large"></v-icon>
+        <v-icon icon="mdi-menu" size="large" aria-hidden="true"></v-icon>
         <div style="font-size: 10px; font-weight: 900">MENU</div>
       </div>
       <div
         v-else
         class="hover hamburger text-center hidden-md-and-up"
         @click="toggleNav"
+        role="button"
+        tabindex="0"
+        aria-label="Close navigation menu"
+        @keydown.enter="toggleNav"
+        @keydown.space="toggleNav"
       >
-        <v-icon icon="mdi-window-close" size="large"></v-icon>
+        <v-icon
+          icon="mdi-window-close"
+          size="large"
+          aria-hidden="true"
+        ></v-icon>
         <div style="font-size: 10px; font-weight: 900">CLOSE</div>
       </div>
       <v-spacer class="hidden-md-and-up"></v-spacer>
@@ -95,7 +109,9 @@
                   style="font-family: Roboto, sans-serif !important"
                 >
                   {{ menu.main }}
-                  <v-icon right small>mdi-menu-down</v-icon></v-btn
+                  <v-icon right small aria-hidden="true"
+                    >mdi-menu-down</v-icon
+                  ></v-btn
                 >
               </template>
               <v-list nav elevation="2">
@@ -125,9 +141,14 @@
                     <v-list-item-title style="font-size: 12px !important"
                       >{{ child.title }}
                       <span v-if="child?.external">External</span>
-                      <v-icon v-if="child.icon" small right color="black">{{
-                        child.icon
-                      }}</v-icon></v-list-item-title
+                      <v-icon
+                        v-if="child.icon"
+                        small
+                        right
+                        color="black"
+                        aria-hidden="true"
+                        >{{ child.icon }}</v-icon
+                      ></v-list-item-title
                     >
                   </v-list-item>
                 </span>
@@ -145,9 +166,14 @@
               class="hidden-sm-and-down navItem"
               style="font-weight: 900 !important; font-size: 16px"
               >{{ menu.main }}&nbsp;
-              <v-icon v-if="menu.icon" right small color="black">{{
-                menu.icon
-              }}</v-icon>
+              <v-icon
+                v-if="menu.icon"
+                right
+                small
+                color="black"
+                aria-hidden="true"
+                >{{ menu.icon }}</v-icon
+              >
             </v-btn>
           </span>
         </span>
@@ -157,9 +183,10 @@
           class="hidden-md-and-down navItem"
           style="font-weight: 900 !important; font-size: 16px"
           @click="goToSearch"
+          aria-label="Search"
         >
           <v-tooltip activator="parent" location="bottom"> Search </v-tooltip>
-          <v-icon icon="mdi-magnify" size="large"></v-icon>
+          <v-icon icon="mdi-magnify" size="large" aria-hidden="true"></v-icon>
         </v-btn>
 
         <!-- <v-btn
@@ -175,8 +202,13 @@
         <span
           class="hover hamburger text-center hidden-md-and-up"
           @click="goToSearch"
+          role="button"
+          tabindex="0"
+          aria-label="Search"
+          @keydown.enter="goToSearch"
+          @keydown.space="goToSearch"
         >
-          <v-icon icon="mdi-magnify" size="large"></v-icon>
+          <v-icon icon="mdi-magnify" size="large" aria-hidden="true"></v-icon>
           <div style="font-size: 10px; font-weight: 900">SEARCH</div>
         </span>
       </span>

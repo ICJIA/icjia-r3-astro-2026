@@ -68,7 +68,12 @@
         <v-divider class="my-3"></v-divider>
 
         <v-list-item exact to="/search">
-          <v-icon left icon="mdi-magnify" size="x-small"></v-icon
+          <v-icon
+            left
+            icon="mdi-magnify"
+            size="x-small"
+            aria-hidden="true"
+          ></v-icon
           >&nbsp;&nbsp;&nbsp;Search</v-list-item
         >
         <!-- <v-list-item class="sidebar-item" to="/translate">
@@ -76,7 +81,12 @@
           >&nbsp;&nbsp;&nbsp;Translate</v-list-item
         > -->
         <v-list-item class="sidebar-item" to="/privacy">
-          <v-icon left icon="mdi-shield-lock-open" size="x-small"></v-icon
+          <v-icon
+            left
+            icon="mdi-shield-lock-open"
+            size="x-small"
+            aria-hidden="true"
+          ></v-icon
           >&nbsp;&nbsp;&nbsp;Privacy</v-list-item
         >
       </v-list>

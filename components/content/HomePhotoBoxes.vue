@@ -6,6 +6,7 @@
           <v-img
             :src="card.src"
             :lazy-src="card.lazySrc"
+            :alt="card.title + ' - ' + card.text"
             gradient="to bottom, rgba(0,0,0,.6), rgba(0,0,0,.1)"
             height="300px"
             cover
