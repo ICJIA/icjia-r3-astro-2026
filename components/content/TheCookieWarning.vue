@@ -1,17 +1,32 @@
 <template>
   <div v-if="showCookiePolicy">
-    <v-dialog v-model="cookie" scroll-strategy="none">
+    <v-dialog
+      v-model="cookie"
+      scroll-strategy="none"
+      role="dialog"
+      aria-labelledby="cookie-title"
+      aria-describedby="cookie-description"
+      aria-modal="true"
+    >
       <v-card
         class="px-12 pt-5 pb-10 text-left"
         style="font-weight: 900"
         color="blue-grey darken-3"
       >
-        <h2 style="color: #fff">We Use Cookies and Related Technology</h2>
-        <p style="font-size: 16px; color: #fff; font-weight: 300" class="mt-4">
+        <h2 id="cookie-title" style="color: #fff">
+          We Use Cookies and Related Technology
+        </h2>
+        <p
+          id="cookie-description"
+          style="font-size: 16px; color: #fff; font-weight: 300"
+          class="mt-4"
+        >
           The Illinois Criminal Justice Information Authority uses cookies and
           related technology to personalize content and perform site analytics.
           For more information, see our
-          <a href="#" style="color: #fff">privacy policy</a>.
+          <a href="#" style="color: #fff" aria-label="View privacy policy"
+            >privacy policy</a
+          >.
         </p>
         <v-card-actions>
           <v-btn
@@ -21,6 +36,7 @@
             class="mt-6"
             style="margin-left: -20px"
             @click="hideForGood"
+            aria-label="Accept cookies and close this dialog"
             >GOT IT</v-btn
           >
           <v-spacer></v-spacer>

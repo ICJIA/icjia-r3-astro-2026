@@ -1,5 +1,10 @@
 <template>
   <div>
+    <!-- Search Status Announcements for Screen Readers -->
+    <div aria-live="polite" aria-atomic="true" class="sr-only">
+      {{ searchStatusMessage }}
+    </div>
+
     <div>
       <v-app-bar
         app
@@ -25,6 +30,13 @@
                   v-model="_query"
                   @input="$emit('query', query)"
                   @keypress.enter.prevent
+                  role="searchbox"
+                  :aria-label="`Search R3 FAQs. ${searchResultsDescription}`"
+                  :aria-describedby="
+                    results && results.length > 0
+                      ? 'search-results-status-mobile'
+                      : undefined
+                  "
                 />
               </v-form> </v-col></v-row
         ></v-container>
@@ -66,7 +78,7 @@
 
 <script setup>
 const emits = defineEmits(["query", "prev", "next", "clear"]);
-defineProps({
+const props = defineProps({
   currentIndex: Number,
   results: Array,
   clear: Boolean,
@@ -103,6 +115,55 @@ const query = computed({
     $emit("query", newValue);
   },
 });
+
+/**
+ * Computed property for search status message for screen readers
+ * @returns {string} Status message describing current search state
+ */
+const searchStatusMessage = computed(() => {
+  if (!_query.value || _query.value.length === 0) {
+    return "";
+  }
+
+  if (!props.results || props.results.length === 0) {
+    return `No search results found for "${_query.value}".`;
+  }
+
+  if (props.results.length === 1) {
+    return `Found 1 result for "${_query.value}".`;
+  }
+
+  return `Found ${props.results.length} results for "${_query.value}". Currently showing result ${props.currentIndex} of ${props.results.length}.`;
+});
+
+/**
+ * Computed property for search results description for search input
+ * @returns {string} Description of current search results for aria-label
+ */
+const searchResultsDescription = computed(() => {
+  if (!_query.value || _query.value.length === 0) {
+    return "Enter search terms to find FAQs.";
+  }
+
+  if (!props.results || props.results.length === 0) {
+    return `No results found for "${_query.value}".`;
+  }
+
+  return `${props.results.length} result${props.results.length > 1 ? "s" : ""} found.`;
+});
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>

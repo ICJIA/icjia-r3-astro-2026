@@ -5,21 +5,28 @@
       v-model="drawer"
       temporary
       style="background: #fff"
+      role="navigation"
+      aria-label="Mobile navigation menu"
     >
-      <v-list v-model:opened="open" density="compact">
+      <v-list v-model:opened="open" density="compact" role="menu">
         <div
           v-for="(menu, index) in navMenu"
           :key="`sidebar-accordion-${index}`"
         >
           <div v-if="menu && menu.children">
             <v-list-group :value="menu.children.title">
-              <template #activator="{ props }">
+              <template #activator="{ props, isActive }">
                 <v-list-item
                   v-bind="props"
                   style="
                     font-weight: 900 !important;
                     font-family: Roboto, sans-serif !important;
                   "
+                  :aria-expanded="isActive ? 'true' : 'false'"
+                  :aria-label="`${menu.main} section. Press Enter to expand or collapse.`"
+                  role="menuitem"
+                  :aria-haspopup="true"
+                  tabindex="0"
                   >{{ menu.main }}</v-list-item
                 >
               </template>
@@ -33,6 +40,7 @@
                     color: #555;
                     font-family: Roboto, sans-serif !important;
                   "
+                  role="presentation"
                 >
                   {{ child.section }}
                 </v-list-item>
@@ -40,13 +48,19 @@
                   v-if="child.divider"
                   style="margin-top: 0px; font-weight: 900; color: #555"
                 >
-                  <v-divider></v-divider>
+                  <v-divider role="presentation"></v-divider>
                 </div>
                 <v-list-item
                   v-if="child.title"
                   exact
                   style="margin-top: 0px; font-weight: 400; color: #555"
                   :to="child.link"
+                  :aria-label="
+                    child.external
+                      ? `${child.title} (opens in new window)`
+                      : child.title
+                  "
+                  role="menuitem"
                 >
                   <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ child.title }}</span>
                 </v-list-item>
@@ -58,6 +72,7 @@
               style="font-weight: 900 !important"
               :to="menu.link"
               class="hover"
+              role="menuitem"
               >{{ menu.main }}</v-list-item
             >
           </div>
@@ -65,9 +80,9 @@
         <!-- <v-list-item exact to="/contact" style="font-weight: 900 !important">
           Contact</v-list-item
         > -->
-        <v-divider class="my-3"></v-divider>
+        <v-divider class="my-3" role="presentation"></v-divider>
 
-        <v-list-item exact to="/search">
+        <v-list-item exact to="/search" role="menuitem">
           <v-icon
             left
             icon="mdi-magnify"
@@ -80,7 +95,7 @@
           <v-icon left icon="mdi-web" size="x-small"></v-icon
           >&nbsp;&nbsp;&nbsp;Translate</v-list-item
         > -->
-        <v-list-item class="sidebar-item" to="/privacy">
+        <v-list-item class="sidebar-item" to="/privacy" role="menuitem">
           <v-icon
             left
             icon="mdi-shield-lock-open"

@@ -1,14 +1,22 @@
 <template>
   <div class="text-center">
-    <v-dialog v-model="dialog" scroll-strategy="none">
+    <v-dialog
+      v-model="dialog"
+      scroll-strategy="none"
+      role="dialog"
+      aria-labelledby="translation-title"
+      aria-describedby="translation-description"
+      aria-modal="true"
+    >
       <v-card>
         <v-card-title
+          id="translation-title"
           class="text-center py-3"
           style="background: #eee; font-size: 20px; font-weight: 900"
         >
           ICJIA Website Translation Options
         </v-card-title>
-        <v-card-text class="mt-3 mb-3">
+        <v-card-text id="translation-description" class="mt-3 mb-3">
           <v-container fluid>
             <v-row>
               <v-col cols="12" md="4">
@@ -17,6 +25,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('es')"
+                  aria-label="Translate page to Spanish"
                   >Spanish</v-btn
                 >
                 <br />
@@ -25,7 +34,8 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('pt')"
-                  >Portugese</v-btn
+                  aria-label="Translate page to Portuguese"
+                  >Portuguese</v-btn
                 >
                 <br />
                 <v-btn
@@ -33,6 +43,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('fr')"
+                  aria-label="Translate page to French"
                   >French</v-btn
                 >
                 <br />
@@ -41,6 +52,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('pl')"
+                  aria-label="Translate page to Polish"
                   >Polish</v-btn
                 >
                 <br />
@@ -49,6 +61,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('ru')"
+                  aria-label="Translate page to Russian"
                   >Russian</v-btn
                 >
                 <br />
@@ -57,6 +70,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('it')"
+                  aria-label="Translate page to Italian"
                   >Italian</v-btn
                 >
                 <br />
@@ -67,6 +81,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('ar')"
+                  aria-label="Translate page to Arabic"
                   >Arabic</v-btn
                 >
                 <br />
@@ -75,6 +90,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('hy')"
+                  aria-label="Translate page to Armenian"
                   >Armenian</v-btn
                 >
                 <br />
@@ -83,6 +99,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('de')"
+                  aria-label="Translate page to German"
                   >German</v-btn
                 >
                 <br />
@@ -92,6 +109,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('zh-TW')"
+                  aria-label="Translate page to Traditional Chinese"
                   >Chinese (Traditional)</v-btn
                 >
                 <br />
@@ -100,6 +118,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('zh-CN')"
+                  aria-label="Translate page to Simplified Chinese"
                   >Chinese (Simplified)</v-btn
                 >
                 <br />
@@ -109,6 +128,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('sr')"
+                  aria-label="Translate page to Serbian"
                   >Serbian</v-btn
                 >
                 <br />
@@ -119,6 +139,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('iw')"
+                  aria-label="Translate page to Hebrew"
                   >Hebrew</v-btn
                 >
                 <br />
@@ -127,6 +148,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('hu')"
+                  aria-label="Translate page to Hungarian"
                   >Hungarian</v-btn
                 >
                 <br />
@@ -135,6 +157,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('is')"
+                  aria-label="Translate page to Icelandic"
                   >Icelandic</v-btn
                 >
                 <br />
@@ -143,6 +166,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('lv')"
+                  aria-label="Translate page to Latvian"
                   >Latvian</v-btn
                 >
                 <br />
@@ -151,6 +175,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('fa')"
+                  aria-label="Translate page to Persian"
                   >Persian</v-btn
                 >
                 <br />
@@ -159,6 +184,7 @@
                   variant="text"
                   class="translate-button"
                   @click="googleTranslate('tr')"
+                  aria-label="Translate page to Turkish"
                   >Turkish</v-btn
                 >
                 <br />
@@ -215,21 +241,52 @@
 </template>
 
 <script setup>
+/**
+ * @fileoverview Translation modal component with enhanced accessibility features.
+ * Provides Google Translate integration with proper ARIA attributes and keyboard navigation.
+ */
+
 const dialog = ref(false);
 const show = ref(true);
 const toggleState = useTranslateToggle();
+
+/**
+ * Closes the translation dialog and resets toggle state.
+ * Includes focus management for accessibility.
+ */
 const closeDialog = () => {
   dialog.value = false;
   toggleState.value = false;
 };
 
-watch(dialog, () => {
-  toggleState.value = dialog.value;
+/**
+ * Watch for dialog state changes and sync with toggle state.
+ * Ensures proper focus management when modal opens/closes.
+ */
+watch(dialog, (newValue) => {
+  toggleState.value = newValue;
+
+  // Focus management for accessibility
+  if (newValue) {
+    // When dialog opens, focus will be managed by Vuetify
+    nextTick(() => {
+      // Ensure the dialog title is announced to screen readers
+      const titleElement = document.getElementById("translation-title");
+      if (titleElement) {
+        titleElement.focus();
+      }
+    });
+  }
 });
+
 watchEffect(() => {
   dialog.value = toggleState.value;
 });
 
+/**
+ * Opens Google Translate for the specified language.
+ * @param {string} lang - Language code for translation
+ */
 const googleTranslate = (lang) => {
   show.value = false;
   dialog.value = false;

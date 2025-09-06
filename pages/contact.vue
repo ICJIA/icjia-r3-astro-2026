@@ -45,47 +45,101 @@
             </v-card>
           </div>
 
+          <!-- Form Status Announcements for Screen Readers -->
+          <div aria-live="polite" aria-atomic="true" class="sr-only">
+            {{ formStatusMessage }}
+          </div>
+
           <v-form ref="form" class="mx-2" v-model="valid" lazy-validation>
             <v-row>
               <v-col cols="12">
-                <!-- <v-text-field
-                  v-model="subject"
-                  :rules="subjectRules"
-                  label="Subject"
-                  required
-                  :disabled="successfullySubmitted"
-                  style="font-weight: 700 !important"
-                ></v-text-field> -->
                 <v-select
                   :items="subjects"
-                  label="Select Type of Request"
+                  label="Select Type of Request (Required)"
                   dense
                   v-model="subject"
                   :rules="subjectRules"
                   class="heavy"
-                  aria-label="Select Type of Request"
+                  :aria-label="`Select Type of Request. Required field. ${subjectError ? 'Error: ' + subjectError : ''}`"
+                  :aria-describedby="subjectError ? 'subject-error' : undefined"
+                  :aria-invalid="subjectError ? 'true' : 'false'"
                   required
                   :disabled="successfullySubmitted"
                   style="font-weight: 700 !important"
+                  @blur="validateField('subject')"
                 ></v-select>
+                <div
+                  v-if="subjectError"
+                  id="subject-error"
+                  class="v-messages v-messages--active"
+                  role="alert"
+                  aria-live="polite"
+                >
+                  <div
+                    class="v-messages__message"
+                    style="color: rgb(176, 0, 32)"
+                  >
+                    {{ subjectError }}
+                  </div>
+                </div>
               </v-col>
               <v-col cols="12" md="6">
                 <v-text-field
                   v-model="firstname"
                   :rules="nameRules"
-                  label="First Name"
+                  label="First Name (Required)"
+                  :aria-label="`First Name. Required field. ${firstnameError ? 'Error: ' + firstnameError : ''}`"
+                  :aria-describedby="
+                    firstnameError ? 'firstname-error' : undefined
+                  "
+                  :aria-invalid="firstnameError ? 'true' : 'false'"
                   :disabled="successfullySubmitted"
                   required
+                  @blur="validateField('firstname')"
                 ></v-text-field>
+                <div
+                  v-if="firstnameError"
+                  id="firstname-error"
+                  class="v-messages v-messages--active"
+                  role="alert"
+                  aria-live="polite"
+                >
+                  <div
+                    class="v-messages__message"
+                    style="color: rgb(176, 0, 32)"
+                  >
+                    {{ firstnameError }}
+                  </div>
+                </div>
               </v-col>
               <v-col cols="12" md="6">
                 <v-text-field
                   v-model="lastname"
                   :rules="nameRules"
-                  label="Last Name"
+                  label="Last Name (Required)"
+                  :aria-label="`Last Name. Required field. ${lastnameError ? 'Error: ' + lastnameError : ''}`"
+                  :aria-describedby="
+                    lastnameError ? 'lastname-error' : undefined
+                  "
+                  :aria-invalid="lastnameError ? 'true' : 'false'"
                   :disabled="successfullySubmitted"
                   required
+                  @blur="validateField('lastname')"
                 ></v-text-field>
+                <div
+                  v-if="lastnameError"
+                  id="lastname-error"
+                  class="v-messages v-messages--active"
+                  role="alert"
+                  aria-live="polite"
+                >
+                  <div
+                    class="v-messages__message"
+                    style="color: rgb(176, 0, 32)"
+                  >
+                    {{ lastnameError }}
+                  </div>
+                </div>
               </v-col>
             </v-row>
             <v-row>
@@ -94,18 +148,58 @@
                   v-model="email"
                   :rules="emailRules"
                   :disabled="successfullySubmitted"
-                  label="Email"
+                  label="Email (Required)"
+                  type="email"
+                  autocomplete="email"
+                  :aria-label="`Email address. Required field. ${emailError ? 'Error: ' + emailError : ''}`"
+                  :aria-describedby="emailError ? 'email-error' : undefined"
+                  :aria-invalid="emailError ? 'true' : 'false'"
                   required
+                  @blur="validateField('email')"
                 ></v-text-field>
+                <div
+                  v-if="emailError"
+                  id="email-error"
+                  class="v-messages v-messages--active"
+                  role="alert"
+                  aria-live="polite"
+                >
+                  <div
+                    class="v-messages__message"
+                    style="color: rgb(176, 0, 32)"
+                  >
+                    {{ emailError }}
+                  </div>
+                </div>
               </v-col>
               <v-col cols="12" md="6">
                 <v-text-field
                   v-model="phone"
-                  label="Phone Number"
+                  label="Phone Number (Required)"
+                  type="tel"
+                  autocomplete="tel"
                   :disabled="successfullySubmitted"
                   :rules="phoneRules"
+                  :aria-label="`Phone number. Required field. ${phoneError ? 'Error: ' + phoneError : ''}`"
+                  :aria-describedby="phoneError ? 'phone-error' : undefined"
+                  :aria-invalid="phoneError ? 'true' : 'false'"
                   required
+                  @blur="validateField('phone')"
                 ></v-text-field>
+                <div
+                  v-if="phoneError"
+                  id="phone-error"
+                  class="v-messages v-messages--active"
+                  role="alert"
+                  aria-live="polite"
+                >
+                  <div
+                    class="v-messages__message"
+                    style="color: rgb(176, 0, 32)"
+                  >
+                    {{ phoneError }}
+                  </div>
+                </div>
               </v-col>
 
               <v-col cols="12">
@@ -113,19 +207,54 @@
                   v-model="message"
                   clearable
                   clear-icon="mdi-close-circle"
-                  label="Message"
+                  label="Message (Required)"
                   :disabled="successfullySubmitted"
                   :rules="messageRules"
                   auto-grow
+                  :aria-label="`Message. Required field. ${messageError ? 'Error: ' + messageError : ''}`"
+                  :aria-describedby="messageError ? 'message-error' : undefined"
+                  :aria-invalid="messageError ? 'true' : 'false'"
                   required
+                  @blur="validateField('message')"
                 ></v-textarea>
+                <div
+                  v-if="messageError"
+                  id="message-error"
+                  class="v-messages v-messages--active"
+                  role="alert"
+                  aria-live="polite"
+                >
+                  <div
+                    class="v-messages__message"
+                    style="color: rgb(176, 0, 32)"
+                  >
+                    {{ messageError }}
+                  </div>
+                </div>
               </v-col>
             </v-row>
 
             <div class="text-center mt-5" v-if="!successfullySubmitted">
-              <v-btn @click="submitForm"> Submit </v-btn>&nbsp;&nbsp;&nbsp;
+              <v-btn
+                @click="submitForm"
+                :disabled="!valid || isSubmitting"
+                :aria-label="
+                  isSubmitting
+                    ? 'Submitting form, please wait'
+                    : 'Submit contact form'
+                "
+              >
+                {{ isSubmitting ? "Submitting..." : "Submit" }} </v-btn
+              >&nbsp;&nbsp;&nbsp;
 
-              <v-btn @click="clearForm" variant="outlined"> Clear </v-btn>
+              <v-btn
+                @click="clearForm"
+                variant="outlined"
+                :disabled="isSubmitting"
+                aria-label="Clear all form fields"
+              >
+                Clear
+              </v-btn>
             </div>
             <div
               class="text-center mt-5"
@@ -155,6 +284,21 @@
     <div style="height: 75px" class="hidden-md-and-up"></div>
   </div>
 </template>
+
+<style scoped>
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>
 
 <script>
 import DOMPurify from "dompurify";
@@ -214,6 +358,7 @@ export default {
   data: () => ({
     valid: false,
     successfullySubmitted: false,
+    isSubmitting: false,
     firstname: "",
     lastname: "",
     subject: "",
@@ -221,6 +366,13 @@ export default {
     phone: "",
     message: "",
     myForm: {},
+    // Individual field error tracking for accessibility
+    subjectError: "",
+    firstnameError: "",
+    lastnameError: "",
+    emailError: "",
+    phoneError: "",
+    messageError: "",
     nameRules: [
       (v) => !!v || "Name is required",
       (v) => (v && v.length <= 100) || "Name must be less than 100 characters",
@@ -242,15 +394,123 @@ export default {
         ) || "E-mail must be valid",
     ],
   }),
+  computed: {
+    /**
+     * Form status message for screen readers
+     * @returns {string} Current form status for accessibility announcements
+     */
+    formStatusMessage() {
+      if (this.isSubmitting) {
+        return "Form is being submitted, please wait.";
+      }
+      if (this.successfullySubmitted) {
+        return "Form submitted successfully!";
+      }
+      const errorCount = [
+        this.subjectError,
+        this.firstnameError,
+        this.lastnameError,
+        this.emailError,
+        this.phoneError,
+        this.messageError,
+      ].filter((error) => error).length;
+      if (errorCount > 0) {
+        return `Form has ${errorCount} error${errorCount > 1 ? "s" : ""} that need to be corrected.`;
+      }
+      return "";
+    },
+  },
   methods: {
+    /**
+     * Validate individual form field and set error message
+     * @param {string} fieldName - Name of the field to validate
+     */
+    validateField(fieldName) {
+      switch (fieldName) {
+        case "subject":
+          this.subjectError =
+            this.subjectRules.find((rule) => rule(this.subject) !== true)?.(
+              this.subject
+            ) || "";
+          break;
+        case "firstname":
+          this.firstnameError =
+            this.nameRules.find((rule) => rule(this.firstname) !== true)?.(
+              this.firstname
+            ) || "";
+          break;
+        case "lastname":
+          this.lastnameError =
+            this.nameRules.find((rule) => rule(this.lastname) !== true)?.(
+              this.lastname
+            ) || "";
+          break;
+        case "email":
+          this.emailError =
+            this.emailRules.find((rule) => rule(this.email) !== true)?.(
+              this.email
+            ) || "";
+          break;
+        case "phone":
+          this.phoneError =
+            this.phoneRules.find((rule) => rule(this.phone) !== true)?.(
+              this.phone
+            ) || "";
+          break;
+        case "message":
+          this.messageError =
+            this.messageRules.find((rule) => rule(this.message) !== true)?.(
+              this.message
+            ) || "";
+          break;
+      }
+    },
+
+    /**
+     * Validate all form fields
+     */
+    validateAllFields() {
+      this.validateField("subject");
+      this.validateField("firstname");
+      this.validateField("lastname");
+      this.validateField("email");
+      this.validateField("phone");
+      this.validateField("message");
+    },
     /**
      * Submit the form asynchronously.
      *
      * @return {Promise<void>} A promise that resolves when the form is submitted.
      */
     async submitForm() {
+      this.isSubmitting = true;
+      this.validateAllFields();
       this.$refs.form.validate();
-      // this.subject = sanitizeString(this.subject);
+
+      // Check if there are any validation errors
+      const hasErrors = [
+        this.subjectError,
+        this.firstnameError,
+        this.lastnameError,
+        this.emailError,
+        this.phoneError,
+        this.messageError,
+      ].some((error) => error);
+
+      if (hasErrors) {
+        this.isSubmitting = false;
+        // Focus on first error field for accessibility
+        this.$nextTick(() => {
+          const firstErrorField = document.querySelector(
+            '[aria-invalid="true"]'
+          );
+          if (firstErrorField) {
+            firstErrorField.focus();
+          }
+        });
+        return;
+      }
+
       let myForm;
       if (this.valid) {
         myForm = {
@@ -344,8 +604,11 @@ export default {
         }
 
         this.successfullySubmitted = true;
+        this.isSubmitting = false;
 
         console.log("submitForm ", this.valid);
+      } else {
+        this.isSubmitting = false;
       }
     },
     /**
@@ -359,6 +622,15 @@ export default {
       this.$refs.form.reset();
       this.valid = false;
       this.successfullySubmitted = false;
+      this.isSubmitting = false;
+
+      // Clear all error messages
+      this.subjectError = "";
+      this.firstnameError = "";
+      this.lastnameError = "";
+      this.emailError = "";
+      this.phoneError = "";
+      this.messageError = "";
 
       console.log("form cleared");
     },

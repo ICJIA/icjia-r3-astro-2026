@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-app-bar
+      id="navigation"
       fixed
       app
       color="white"
@@ -99,14 +100,19 @@
           style="display: inline-block"
         >
           <span v-if="menu && menu?.children">
-            <v-menu>
-              <template #activator="{ props }">
+            <v-menu :close-on-content-click="true" @keydown.esc="closeMenu">
+              <template #activator="{ props, isActive }">
                 <v-btn
                   variant="text"
                   size="default"
                   class="hidden-sm-and-down navItem"
                   v-bind="props"
                   style="font-family: Roboto, sans-serif !important"
+                  :aria-expanded="isActive ? 'true' : 'false'"
+                  :aria-haspopup="true"
+                  :aria-label="`${menu.main} menu. Press Enter or Space to open submenu.`"
+                  @keydown.enter="$event.target.click()"
+                  @keydown.space.prevent="$event.target.click()"
                 >
                   {{ menu.main }}
                   <v-icon right small aria-hidden="true"
@@ -114,7 +120,12 @@
                   ></v-btn
                 >
               </template>
-              <v-list nav elevation="2">
+              <v-list
+                nav
+                elevation="2"
+                role="menu"
+                :aria-label="`${menu.main} submenu`"
+              >
                 <span
                   v-for="(child, index) in menu.children"
                   :key="`child-${index}`"
@@ -137,10 +148,21 @@
                     :to="child?.external ? null : child?.link"
                     :href="child?.external ? child?.link : null"
                     :target="child?.external ? '_blank' : null"
+                    role="menuitem"
+                    :aria-label="
+                      child?.external
+                        ? `${child.title} (opens in new window)`
+                        : child.title
+                    "
+                    tabindex="0"
+                    @keydown.enter="navigateToLink(child)"
+                    @keydown.space.prevent="navigateToLink(child)"
                   >
                     <v-list-item-title style="font-size: 12px !important"
                       >{{ child.title }}
-                      <span v-if="child?.external">External</span>
+                      <span v-if="child?.external" class="sr-only"
+                        >External</span
+                      >
                       <v-icon
                         v-if="child.icon"
                         small
@@ -185,7 +207,9 @@
           @click="goToSearch"
           aria-label="Search"
         >
-          <v-tooltip activator="parent" location="bottom"> Search </v-tooltip>
+          <v-tooltip activator="parent" location="bottom" aria-hidden="true">
+            Search
+          </v-tooltip>
           <v-icon icon="mdi-magnify" size="large" aria-hidden="true"></v-icon>
         </v-btn>
 
@@ -351,6 +375,37 @@ const openTranslationModal = () => {
 };
 
 /**
+ * Handles keyboard navigation for menu items.
+ * Navigates to internal or external links based on the menu item configuration.
+ *
+ * @function navigateToLink
+ * @param {Object} menuItem - The menu item object containing link information
+ * @example
+ * ```javascript
+ * // Called when Enter or Space is pressed on a menu item
+ * navigateToLink(menuItem); // Navigates to the menu item's link
+ * ```
+ */
+const navigateToLink = (menuItem) => {
+  if (menuItem.external) {
+    window.open(menuItem.link, "_blank");
+  } else {
+    router.push(menuItem.link);
+  }
+};
+
+/**
+ * Closes the currently open menu.
+ * Used for keyboard navigation when Escape key is pressed.
+ *
+ * @function closeMenu
+ */
+const closeMenu = () => {
+  // Vuetify menus will close automatically on Escape
+  // This function can be extended if additional cleanup is needed
+};
+
+/**
  * Sample menu items for development/testing purposes.
  * Contains placeholder menu items that may be used for testing navigation components.
  * Reactive array of menu items.
@@ -369,6 +424,29 @@ const items = ref([
 </script>
 
 <style lang="scss" scoped>
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus indicators for better keyboard navigation */
+.v-btn:focus-visible {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+.v-list-item:focus-visible {
+  outline: 2px solid #1976d2;
+  outline-offset: -2px;
+}
 .navItem {
   color: #333 !important;
   font-weight: 900;

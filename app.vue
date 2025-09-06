@@ -1,5 +1,11 @@
 <template>
   <div>
+    <!-- Skip Navigation Links for Accessibility -->
+    <div class="skip-links">
+      <a href="#main-content" class="skip-link">Skip to main content</a>
+      <a href="#navigation" class="skip-link">Skip to navigation</a>
+    </div>
+
     <v-app id="app-top">
       <TheNav></TheNav>
 
@@ -11,6 +17,8 @@
       <NuxtLoadingIndicator color="blue" />
 
       <v-main
+        id="main-content"
+        role="main"
         class="markdown-body"
         style="min-height: 80vh !important; background: #f2f2f2"
       >
@@ -125,6 +133,38 @@ import tagMeta from "~/src/tags.json";
 const tags = useState("tags", () => tagMeta);
 </script>
 <style>
+/* Skip Links for Accessibility */
+.skip-links {
+  position: relative;
+  z-index: 9999;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 10000;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 6px;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.skip-link:hover {
+  background: #333;
+  text-decoration: underline;
+}
+
 .page-enter-active,
 .page-leave-active {
   transition: all 0.01s;
