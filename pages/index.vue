@@ -25,6 +25,8 @@
                 "
                 aspect-ratio="1"
                 class="grey lighten-2"
+                role="presentation"
+                aria-hidden="true"
                 height="650"
                 crossorigin
               >
@@ -65,6 +67,7 @@
                     <v-progress-circular
                       indeterminate
                       color="grey-lighten-4"
+                      aria-label="Loading image"
                     ></v-progress-circular>
                   </div>
                 </template>
@@ -82,6 +85,8 @@
                 "
                 aspect-ratio="1"
                 class="grey lighten-2"
+                role="presentation"
+                aria-hidden="true"
                 height="650"
                 crossorigin
               >

@@ -1,0 +1,2413 @@
+{
+  "timestamp": "2025-09-08T12:41:17.886Z",
+  "summary": {
+    "totalPages": 35,
+    "totalViolations": 38,
+    "totalPasses": 1072,
+    "totalIncomplete": 13,
+    "totalInapplicable": 1919
+  },
+  "pages": [
+    {
+      "url": "https://r3.illinois.gov/board/",
+      "filename": "axe-board.json",
+      "violations": 0,
+      "passes": 44,
+      "incomplete": 0,
+      "inapplicable": 45,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/collaboratives/",
+      "filename": "axe-collaboratives.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/contact/",
+      "filename": "axe-contact.json",
+      "violations": 1,
+      "passes": 48,
+      "incomplete": 1,
+      "inapplicable": 41,
+      "violationRules": [
+        "color-contrast"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/404?referrer=%252Feligibility%252F&destination=%252Feligibility%252F",
+      "filename": "axe-eligibility.json",
+      "violations": 1,
+      "passes": 39,
+      "incomplete": 1,
+      "inapplicable": 49,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/faqs/03-08-24-2025-r3-nofo-applicant-questions/",
+      "filename": "axe-faqs-03-08-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 3,
+      "passes": 6,
+      "incomplete": 0,
+      "inapplicable": 80,
+      "violationRules": [
+        "html-has-lang",
+        "landmark-one-main",
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/faqs/03-15-24-2025-r3-nofo-applicant-questions/",
+      "filename": "axe-faqs-03-15-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 3,
+      "passes": 6,
+      "incomplete": 0,
+      "inapplicable": 80,
+      "violationRules": [
+        "html-has-lang",
+        "landmark-one-main",
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/faqs/03-22-24-2025-r3-nofo-applicant-questions/",
+      "filename": "axe-faqs-03-22-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 3,
+      "passes": 6,
+      "incomplete": 0,
+      "inapplicable": 80,
+      "violationRules": [
+        "html-has-lang",
+        "landmark-one-main",
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/faqs/03-29-24-2025-r3-nofo-applicant-questions/",
+      "filename": "axe-faqs-03-29-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 3,
+      "passes": 6,
+      "incomplete": 0,
+      "inapplicable": 80,
+      "violationRules": [
+        "html-has-lang",
+        "landmark-one-main",
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/faqs/04-05-24-2025-r3-nofo-applicant-questions/",
+      "filename": "axe-faqs-04-05-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 3,
+      "passes": 6,
+      "incomplete": 0,
+      "inapplicable": 80,
+      "violationRules": [
+        "html-has-lang",
+        "landmark-one-main",
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/faqs/04-12-24-2025-r3-nofo-applicant-questions/",
+      "filename": "axe-faqs-04-12-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 3,
+      "passes": 6,
+      "incomplete": 0,
+      "inapplicable": 80,
+      "violationRules": [
+        "html-has-lang",
+        "landmark-one-main",
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/faqs/04-19-24-2025-r3-nofo-applicant-questions/",
+      "filename": "axe-faqs-04-19-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 3,
+      "passes": 6,
+      "incomplete": 0,
+      "inapplicable": 80,
+      "violationRules": [
+        "html-has-lang",
+        "landmark-one-main",
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/faqs/04-26-24-2025-r3-nofo-applicant-questions/",
+      "filename": "axe-faqs-04-26-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 3,
+      "passes": 6,
+      "incomplete": 0,
+      "inapplicable": 80,
+      "violationRules": [
+        "html-has-lang",
+        "landmark-one-main",
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/faqs/2025-r3-frequently-asked-questions/",
+      "filename": "axe-faqs-2025-r3-frequently-asked-questions.json",
+      "violations": 3,
+      "passes": 6,
+      "incomplete": 0,
+      "inapplicable": 80,
+      "violationRules": [
+        "html-has-lang",
+        "landmark-one-main",
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/faqs/",
+      "filename": "axe-faqs.json",
+      "violations": 0,
+      "passes": 44,
+      "incomplete": 1,
+      "inapplicable": 45,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/funding/",
+      "filename": "axe-funding.json",
+      "violations": 1,
+      "passes": 35,
+      "incomplete": 0,
+      "inapplicable": 53,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/",
+      "filename": "axe-home.json",
+      "violations": 2,
+      "passes": 48,
+      "incomplete": 2,
+      "inapplicable": 40,
+      "violationRules": [
+        "aria-progressbar-name",
+        "nested-interactive"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/meetings/",
+      "filename": "axe-meetings.json",
+      "violations": 0,
+      "passes": 37,
+      "incomplete": 0,
+      "inapplicable": 52,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/news/2021-01-21-release/",
+      "filename": "axe-news-2021-01-21-release.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/news/2022-06-23-r3-grants-list/",
+      "filename": "axe-news-2022-06-23-r3-grants-list.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/news/2023-04-06-annual-report-2023/",
+      "filename": "axe-news-2023-04-06-annual-report-2023.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/404?referrer=%252Fnews%252Ficjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants%252F&destination=%252Fnews%252Ficjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants%252F",
+      "filename": "axe-news-icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants.json",
+      "violations": 1,
+      "passes": 39,
+      "incomplete": 1,
+      "inapplicable": 49,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/news/r3-2021-annual-report/",
+      "filename": "axe-news-r3-2021-annual-report.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/news/r3-2022-annual-report/",
+      "filename": "axe-news-r3-2022-annual-report.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/404?referrer=%252Fprivacy%252F&destination=%252Fprivacy%252F",
+      "filename": "axe-privacy.json",
+      "violations": 1,
+      "passes": 39,
+      "incomplete": 1,
+      "inapplicable": 49,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/resources/ampli-fund-portal-guide-and-tip-sheet/",
+      "filename": "axe-resources-ampli-fund-portal-guide-and-tip-sheet.json",
+      "violations": 0,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/404?referrer=%252Fresources%252Fnofo-informational-webinars%252F&destination=%252Fresources%252Fnofo-informational-webinars%252F",
+      "filename": "axe-resources-nofo-informational-webinars.json",
+      "violations": 1,
+      "passes": 39,
+      "incomplete": 1,
+      "inapplicable": 49,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/resources/prequalification-steps/",
+      "filename": "axe-resources-prequalification-steps.json",
+      "violations": 0,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/resources/r3-nofo-instructions-and-appendices/",
+      "filename": "axe-resources-r3-nofo-instructions-and-appendices.json",
+      "violations": 1,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
+      "violationRules": [
+        "heading-order"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/resources/single-page/",
+      "filename": "axe-resources-single-page.json",
+      "violations": 0,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 44,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/resources/spanish-language-materials/",
+      "filename": "axe-resources-spanish-language-materials.json",
+      "violations": 0,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/404?referrer=%252Fresources%252Fvideo-resources%252F&destination=%252Fresources%252Fvideo-resources%252F",
+      "filename": "axe-resources-video-resources.json",
+      "violations": 1,
+      "passes": 39,
+      "incomplete": 1,
+      "inapplicable": 49,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "https://r3.illinois.gov/resources/",
+      "filename": "axe-resources.json",
+      "violations": 0,
+      "passes": 46,
+      "incomplete": 1,
+      "inapplicable": 43,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/search/",
+      "filename": "axe-search.json",
+      "violations": 1,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 43,
+      "violationRules": [
+        "label-title-only"
+      ]
+    },
+    {
+      "url": "axe-summary",
+      "filename": "axe-summary.json",
+      "violations": 0,
+      "passes": 0,
+      "incomplete": 0,
+      "inapplicable": 0,
+      "violationRules": []
+    },
+    {
+      "url": "https://r3.illinois.gov/translate/",
+      "filename": "axe-translate.json",
+      "violations": 0,
+      "passes": 43,
+      "incomplete": 1,
+      "inapplicable": 46,
+      "violationRules": []
+    }
+  ],
+  "violationsByRule": {
+    "color-contrast": {
+      "id": "color-contrast",
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=webdriverjs",
+      "impact": "serious",
+      "tags": [
+        "cat.color",
+        "wcag2aa",
+        "wcag143",
+        "TTv5",
+        "TT13.c",
+        "EN-301-549",
+        "EN-9.1.4.3",
+        "ACT"
+      ],
+      "occurrences": 6,
+      "pages": [
+        {
+          "url": "https://r3.illinois.gov/contact/",
+          "nodeCount": 6,
+          "targets": [
+            ".v-field-label--floating[for=\"input-1\"]",
+            "label[for=\"input-4\"]:nth-child(2)",
+            "label[for=\"input-6\"]:nth-child(2)",
+            "label[for=\"input-8\"]:nth-child(2)",
+            "label[for=\"input-10\"]:nth-child(2)",
+            "label[for=\"input-12\"]:nth-child(2)"
+          ]
+        }
+      ]
+    },
+    "page-has-heading-one": {
+      "id": "page-has-heading-one",
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "occurrences": 15,
+      "pages": [
+        {
+          "url": "https://r3.illinois.gov/404?referrer=%252Feligibility%252F&destination=%252Feligibility%252F",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/03-08-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/03-15-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/03-22-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/03-29-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/04-05-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/04-12-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/04-19-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/04-26-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/2025-r3-frequently-asked-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/funding/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/404?referrer=%252Fnews%252Ficjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants%252F&destination=%252Fnews%252Ficjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants%252F",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/404?referrer=%252Fprivacy%252F&destination=%252Fprivacy%252F",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/404?referrer=%252Fresources%252Fnofo-informational-webinars%252F&destination=%252Fresources%252Fnofo-informational-webinars%252F",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/404?referrer=%252Fresources%252Fvideo-resources%252F&destination=%252Fresources%252Fvideo-resources%252F",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        }
+      ]
+    },
+    "html-has-lang": {
+      "id": "html-has-lang",
+      "description": "Ensure every HTML document has a lang attribute",
+      "help": "<html> element must have a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/html-has-lang?application=webdriverjs",
+      "impact": "serious",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT"
+      ],
+      "occurrences": 9,
+      "pages": [
+        {
+          "url": "https://r3.illinois.gov/faqs/03-08-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/03-15-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/03-22-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/03-29-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/04-05-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/04-12-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/04-19-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/04-26-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/2025-r3-frequently-asked-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        }
+      ]
+    },
+    "landmark-one-main": {
+      "id": "landmark-one-main",
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "occurrences": 9,
+      "pages": [
+        {
+          "url": "https://r3.illinois.gov/faqs/03-08-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/03-15-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/03-22-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/03-29-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/04-05-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/04-12-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/04-19-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/04-26-24-2025-r3-nofo-applicant-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/faqs/2025-r3-frequently-asked-questions/",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        }
+      ]
+    },
+    "aria-progressbar-name": {
+      "id": "aria-progressbar-name",
+      "description": "Ensure every ARIA progressbar node has an accessible name",
+      "help": "ARIA progressbar nodes must have an accessible name",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-progressbar-name?application=webdriverjs",
+      "impact": "serious",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag111",
+        "EN-301-549",
+        "EN-9.1.1.1"
+      ],
+      "occurrences": 1,
+      "pages": [
+        {
+          "url": "https://r3.illinois.gov/",
+          "nodeCount": 1,
+          "targets": [
+            ".v-progress-circular"
+          ]
+        }
+      ]
+    },
+    "nested-interactive": {
+      "id": "nested-interactive",
+      "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/nested-interactive?application=webdriverjs",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag412",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2"
+      ],
+      "occurrences": 1,
+      "pages": [
+        {
+          "url": "https://r3.illinois.gov/",
+          "nodeCount": 1,
+          "targets": [
+            ".grey"
+          ]
+        }
+      ]
+    },
+    "heading-order": {
+      "id": "heading-order",
+      "description": "Ensure the order of headings is semantically correct",
+      "help": "Heading levels should only increase by one",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "occurrences": 1,
+      "pages": [
+        {
+          "url": "https://r3.illinois.gov/resources/r3-nofo-instructions-and-appendices/",
+          "nodeCount": 1,
+          "targets": [
+            "#sfy2025-r3-nofo-instructions"
+          ]
+        }
+      ]
+    },
+    "label-title-only": {
+      "id": "label-title-only",
+      "description": "Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
+      "help": "Form elements should have a visible label",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/label-title-only?application=webdriverjs",
+      "impact": "serious",
+      "tags": [
+        "cat.forms",
+        "best-practice"
+      ],
+      "occurrences": 1,
+      "pages": [
+        {
+          "url": "https://r3.illinois.gov/search/",
+          "nodeCount": 1,
+          "targets": [
+            "#textfield"
+          ]
+        }
+      ]
+    }
+  },
+  "allViolations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "tags": [
+        "cat.color",
+        "wcag2aa",
+        "wcag143",
+        "TTv5",
+        "TT13.c",
+        "EN-301-549",
+        "EN-9.1.4.3",
+        "ACT"
+      ],
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#76797c",
+                "bgColor": "#eaeaea",
+                "contrastRatio": 3.63,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "bold",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div class=\"v-field__overlay\"></div>",
+                  "target": [
+                    ".v-field--active > .v-field__overlay"
+                  ]
+                },
+                {
+                  "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 88px; background: rgb(242, 242, 242); min-height: 80vh !important;\" id=\"main-content\" role=\"main\">",
+                  "target": [
+                    "#main-content"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<label class=\"v-label v-field-label v-field-label--floating\" style=\"\" aria-hidden=\"true\" for=\"input-1\"><!----><!--[-->Select Type of Request (Required)<!--]--></label>",
+          "target": [
+            ".v-field-label--floating[for=\"input-1\"]"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#76797c",
+                "bgColor": "#eaeaea",
+                "contrastRatio": 3.63,
+                "fontSize": "13.5pt (18px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div class=\"v-field__overlay\"></div>",
+                  "target": [
+                    ".v-row[data-v-f16cd06b=\"\"]:nth-child(1) > .v-col-md-6.v-col-12[data-v-f16cd06b=\"\"]:nth-child(2) > .v-input--center-affix.v-input.v-input--horizontal > .v-input__control > .v-field--center-affix.v-field.v-field--variant-filled > .v-field__overlay"
+                  ]
+                },
+                {
+                  "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 88px; background: rgb(242, 242, 242); min-height: 80vh !important;\" id=\"main-content\" role=\"main\">",
+                  "target": [
+                    "#main-content"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<label class=\"v-label v-field-label\" style=\"\" for=\"input-4\"><!----><!--[-->First Name (Required)<!--]--></label>",
+          "target": [
+            "label[for=\"input-4\"]:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#76797c",
+                "bgColor": "#eaeaea",
+                "contrastRatio": 3.63,
+                "fontSize": "13.5pt (18px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div class=\"v-field__overlay\"></div>",
+                  "target": [
+                    ".v-col-md-6.v-col-12[data-v-f16cd06b=\"\"]:nth-child(3) > .v-input--center-affix.v-input.v-input--horizontal > .v-input__control > .v-field--center-affix.v-field.v-field--variant-filled > .v-field__overlay"
+                  ]
+                },
+                {
+                  "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 88px; background: rgb(242, 242, 242); min-height: 80vh !important;\" id=\"main-content\" role=\"main\">",
+                  "target": [
+                    "#main-content"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<label class=\"v-label v-field-label\" style=\"\" for=\"input-6\"><!----><!--[-->Last Name (Required)<!--]--></label>",
+          "target": [
+            "label[for=\"input-6\"]:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#76797c",
+                "bgColor": "#eaeaea",
+                "contrastRatio": 3.63,
+                "fontSize": "13.5pt (18px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div class=\"v-field__overlay\"></div>",
+                  "target": [
+                    ".v-col-md-6.v-col-12[data-v-f16cd06b=\"\"]:nth-child(1) > .v-input--center-affix.v-input.v-input--horizontal > .v-input__control > .v-field--center-affix.v-field.v-field--variant-filled > .v-field__overlay"
+                  ]
+                },
+                {
+                  "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 88px; background: rgb(242, 242, 242); min-height: 80vh !important;\" id=\"main-content\" role=\"main\">",
+                  "target": [
+                    "#main-content"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<label class=\"v-label v-field-label\" style=\"\" for=\"input-8\"><!----><!--[-->Email (Required)<!--]--></label>",
+          "target": [
+            "label[for=\"input-8\"]:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#76797c",
+                "bgColor": "#eaeaea",
+                "contrastRatio": 3.63,
+                "fontSize": "13.5pt (18px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div class=\"v-field__overlay\"></div>",
+                  "target": [
+                    ".v-row[data-v-f16cd06b=\"\"]:nth-child(2) > .v-col-md-6.v-col-12[data-v-f16cd06b=\"\"]:nth-child(2) > .v-input--center-affix.v-input.v-input--horizontal > .v-input__control > .v-field--center-affix.v-field.v-field--variant-filled > .v-field__overlay"
+                  ]
+                },
+                {
+                  "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 88px; background: rgb(242, 242, 242); min-height: 80vh !important;\" id=\"main-content\" role=\"main\">",
+                  "target": [
+                    "#main-content"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<label class=\"v-label v-field-label\" style=\"\" for=\"input-10\"><!----><!--[-->Phone Number (Required)<!--]--></label>",
+          "target": [
+            "label[for=\"input-10\"]:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#76797c",
+                "bgColor": "#eaeaea",
+                "contrastRatio": 3.63,
+                "fontSize": "13.5pt (18px)",
+                "fontWeight": "normal",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div class=\"v-field__overlay\"></div>",
+                  "target": [
+                    ".v-textarea > .v-input__control > .v-field--appended.v-field.v-field--variant-filled > .v-field__overlay"
+                  ]
+                },
+                {
+                  "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 88px; background: rgb(242, 242, 242); min-height: 80vh !important;\" id=\"main-content\" role=\"main\">",
+                  "target": [
+                    "#main-content"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<label class=\"v-label v-field-label\" style=\"\" for=\"input-12\"><!----><!--[-->Message (Required)<!--]--></label>",
+          "target": [
+            "label[for=\"input-12\"]:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/contact/",
+      "pageFilename": "axe-contact.json"
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT"
+      ],
+      "description": "Ensure every HTML document has a lang attribute",
+      "help": "<html> element must have a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/html-has-lang?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "has-lang",
+              "data": {
+                "messageKey": "noLang"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "The <html> element does not have a lang attribute"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/03-08-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-03-08-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT"
+      ],
+      "description": "Ensure every HTML document has a lang attribute",
+      "help": "<html> element must have a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/html-has-lang?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "has-lang",
+              "data": {
+                "messageKey": "noLang"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "The <html> element does not have a lang attribute"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/03-15-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-03-15-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT"
+      ],
+      "description": "Ensure every HTML document has a lang attribute",
+      "help": "<html> element must have a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/html-has-lang?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "has-lang",
+              "data": {
+                "messageKey": "noLang"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "The <html> element does not have a lang attribute"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/03-22-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-03-22-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT"
+      ],
+      "description": "Ensure every HTML document has a lang attribute",
+      "help": "<html> element must have a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/html-has-lang?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "has-lang",
+              "data": {
+                "messageKey": "noLang"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "The <html> element does not have a lang attribute"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/03-29-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-03-29-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT"
+      ],
+      "description": "Ensure every HTML document has a lang attribute",
+      "help": "<html> element must have a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/html-has-lang?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "has-lang",
+              "data": {
+                "messageKey": "noLang"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "The <html> element does not have a lang attribute"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/04-05-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-04-05-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT"
+      ],
+      "description": "Ensure every HTML document has a lang attribute",
+      "help": "<html> element must have a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/html-has-lang?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "has-lang",
+              "data": {
+                "messageKey": "noLang"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "The <html> element does not have a lang attribute"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/04-12-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-04-12-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT"
+      ],
+      "description": "Ensure every HTML document has a lang attribute",
+      "help": "<html> element must have a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/html-has-lang?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "has-lang",
+              "data": {
+                "messageKey": "noLang"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "The <html> element does not have a lang attribute"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/04-19-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-04-19-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT"
+      ],
+      "description": "Ensure every HTML document has a lang attribute",
+      "help": "<html> element must have a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/html-has-lang?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "has-lang",
+              "data": {
+                "messageKey": "noLang"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "The <html> element does not have a lang attribute"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/04-26-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-04-26-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "html-has-lang",
+      "impact": "serious",
+      "tags": [
+        "cat.language",
+        "wcag2a",
+        "wcag311",
+        "TTv5",
+        "TT11.a",
+        "EN-301-549",
+        "EN-9.3.1.1",
+        "ACT"
+      ],
+      "description": "Ensure every HTML document has a lang attribute",
+      "help": "<html> element must have a lang attribute",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/html-has-lang?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "has-lang",
+              "data": {
+                "messageKey": "noLang"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "The <html> element does not have a lang attribute"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/2025-r3-frequently-asked-questions/",
+      "pageFilename": "axe-faqs-2025-r3-frequently-asked-questions.json"
+    },
+    {
+      "id": "aria-progressbar-name",
+      "impact": "serious",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag111",
+        "EN-301-549",
+        "EN-9.1.1.1"
+      ],
+      "description": "Ensure every ARIA progressbar node has an accessible name",
+      "help": "ARIA progressbar nodes must have an accessible name",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-progressbar-name?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "aria-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "id": "aria-labelledby",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+            },
+            {
+              "id": "non-empty-title",
+              "data": {
+                "messageKey": "noAttr"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has no title attribute"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
+          "target": [
+            ".v-progress-circular"
+          ],
+          "failureSummary": "Fix any of the following:\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/",
+      "pageFilename": "axe-home.json"
+    },
+    {
+      "id": "nested-interactive",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag412",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2"
+      ],
+      "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/nested-interactive?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "no-focusable-content",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined mt-8 button-href hidden-md-and-up\" style=\"\">",
+                  "target": [
+                    ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4)"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has focusable descendants"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
+          "target": [
+            ".grey"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/",
+      "pageFilename": "axe-home.json"
+    },
+    {
+      "id": "label-title-only",
+      "impact": "serious",
+      "tags": [
+        "cat.forms",
+        "best-practice"
+      ],
+      "description": "Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
+      "help": "Form elements should have a visible label",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/label-title-only?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "title-only",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Only title used to generate label for form element"
+            }
+          ],
+          "impact": "serious",
+          "html": "<input value=\"\" placeholder=\"Enter search term\" size=\"1\" type=\"text\" id=\"textfield\" aria-describedby=\"textfield-messages\" autocomplete=\"off\" class=\"v-field__input\">",
+          "target": [
+            "#textfield"
+          ],
+          "failureSummary": "Fix all of the following:\n  Only title used to generate label for form element"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/search/",
+      "pageFilename": "axe-search.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/404?referrer=%252Feligibility%252F&destination=%252Feligibility%252F",
+      "pageFilename": "axe-eligibility.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/03-08-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-03-08-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/03-08-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-03-08-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/03-15-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-03-15-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/03-15-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-03-15-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/03-22-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-03-22-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/03-22-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-03-22-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/03-29-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-03-29-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/03-29-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-03-29-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/04-05-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-04-05-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/04-05-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-04-05-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/04-12-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-04-12-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/04-12-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-04-12-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/04-19-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-04-19-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/04-19-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-04-19-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/04-26-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-04-26-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/04-26-24-2025-r3-nofo-applicant-questions/",
+      "pageFilename": "axe-faqs-04-26-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/2025-r3-frequently-asked-questions/",
+      "pageFilename": "axe-faqs-2025-r3-frequently-asked-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html>",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/faqs/2025-r3-frequently-asked-questions/",
+      "pageFilename": "axe-faqs-2025-r3-frequently-asked-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/funding/",
+      "pageFilename": "axe-funding.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/404?referrer=%252Fnews%252Ficjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants%252F&destination=%252Fnews%252Ficjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants%252F",
+      "pageFilename": "axe-news-icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/404?referrer=%252Fprivacy%252F&destination=%252Fprivacy%252F",
+      "pageFilename": "axe-privacy.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/404?referrer=%252Fresources%252Fnofo-informational-webinars%252F&destination=%252Fresources%252Fnofo-informational-webinars%252F",
+      "pageFilename": "axe-resources-nofo-informational-webinars.json"
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the order of headings is semantically correct",
+      "help": "Heading levels should only increase by one",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "heading-order",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Heading order invalid"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<h3 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h3>",
+          "target": [
+            "#sfy2025-r3-nofo-instructions"
+          ],
+          "failureSummary": "Fix any of the following:\n  Heading order invalid"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/resources/r3-nofo-instructions-and-appendices/",
+      "pageFilename": "axe-resources-r3-nofo-instructions-and-appendices.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "https://r3.illinois.gov/404?referrer=%252Fresources%252Fvideo-resources%252F&destination=%252Fresources%252Fvideo-resources%252F",
+      "pageFilename": "axe-resources-video-resources.json"
+    }
+  ]
+}

@@ -17,6 +17,7 @@
                 <v-progress-circular
                   color="grey-lighten-4"
                   indeterminate
+                  aria-label="Loading image"
                 ></v-progress-circular>
               </div>
             </template>

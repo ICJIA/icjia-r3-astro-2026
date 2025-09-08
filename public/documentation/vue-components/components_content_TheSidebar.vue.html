@@ -10,7 +10,7 @@
       role="navigation"
       aria-label="Mobile navigation menu"
     >
-      &lt;v-list v-model:opened="open" density="compact">
+      &lt;v-list v-model:opened="open" density="compact" role="menu">
         &lt;div
           v-for="(menu, index) in navMenu"
           :key="`sidebar-accordion-${index}`"
@@ -26,7 +26,8 @@
                   "
                   :aria-expanded="isActive ? 'true' : 'false'"
                   :aria-label="`${menu.main} section. Press Enter to expand or collapse.`"
-                  role="button"
+                  role="menuitem"
+                  :aria-haspopup="true"
                   tabindex="0"
                   >{{ menu.main }}&lt;/v-list-item
                 >
@@ -41,6 +42,7 @@
                     color: #555;
                     font-family: Roboto, sans-serif !important;
                   "
+                  role="presentation"
                 >
                   {{ child.section }}
                 &lt;/v-list-item>
@@ -48,7 +50,7 @@
                   v-if="child.divider"
                   style="margin-top: 0px; font-weight: 900; color: #555"
                 >
-                  &lt;v-divider>&lt;/v-divider>
+                  &lt;v-divider role="presentation">&lt;/v-divider>
                 &lt;/div>
                 &lt;v-list-item
                   v-if="child.title"
@@ -72,6 +74,7 @@
               style="font-weight: 900 !important"
               :to="menu.link"
               class="hover"
+              role="menuitem"
               >{{ menu.main }}&lt;/v-list-item
             >
           &lt;/div>
@@ -79,9 +82,9 @@
         &lt;!-- &lt;v-list-item exact to="/contact" style="font-weight: 900 !important">
           Contact&lt;/v-list-item
         > -->
-        &lt;v-divider class="my-3">&lt;/v-divider>
+        &lt;v-divider class="my-3" role="presentation">&lt;/v-divider>
 
-        &lt;v-list-item exact to="/search">
+        &lt;v-list-item exact to="/search" role="menuitem">
           &lt;v-icon
             left
             icon="mdi-magnify"
@@ -94,7 +97,7 @@
           &lt;v-icon left icon="mdi-web" size="x-small">&lt;/v-icon
           >&amp;nbsp;&amp;nbsp;&amp;nbsp;Translate&lt;/v-list-item
         > -->
-        &lt;v-list-item class="sidebar-item" to="/privacy">
+        &lt;v-list-item class="sidebar-item" to="/privacy" role="menuitem">
           &lt;v-icon
             left
             icon="mdi-shield-lock-open"

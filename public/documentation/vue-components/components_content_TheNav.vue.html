@@ -209,7 +209,9 @@
           @click="goToSearch"
           aria-label="Search"
         >
-          &lt;v-tooltip activator="parent" location="bottom"> Search &lt;/v-tooltip>
+          &lt;v-tooltip activator="parent" location="bottom" aria-hidden="true">
+            Search
+          &lt;/v-tooltip>
           &lt;v-icon icon="mdi-magnify" size="large" aria-hidden="true">&lt;/v-icon>
         &lt;/v-btn>
 
