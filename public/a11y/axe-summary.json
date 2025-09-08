@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-09-08T12:41:17.886Z",
+  "timestamp": "2025-09-08T13:02:56.171Z",
   "summary": {
-    "totalPages": 35,
-    "totalViolations": 38,
-    "totalPasses": 1072,
-    "totalIncomplete": 13,
-    "totalInapplicable": 1919
+    "totalPages": 69,
+    "totalViolations": 68,
+    "totalPasses": 2447,
+    "totalIncomplete": 29,
+    "totalInapplicable": 3564
   },
   "pages": [
     {
@@ -188,13 +188,370 @@
     {
       "url": "https://r3.illinois.gov/",
       "filename": "axe-home.json",
-      "violations": 2,
+      "violations": 0,
       "passes": 48,
       "incomplete": 2,
-      "inapplicable": 40,
+      "inapplicable": 41,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/board",
+      "filename": "axe-local-board.json",
+      "violations": 0,
+      "passes": 44,
+      "incomplete": 0,
+      "inapplicable": 45,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/collaboratives",
+      "filename": "axe-local-collaboratives.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/contact",
+      "filename": "axe-local-contact.json",
+      "violations": 3,
+      "passes": 14,
+      "incomplete": 1,
+      "inapplicable": 74,
       "violationRules": [
-        "aria-progressbar-name",
-        "nested-interactive"
+        "color-contrast",
+        "landmark-one-main",
+        "region"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/eligibility",
+      "filename": "axe-local-eligibility.json",
+      "violations": 7,
+      "passes": 58,
+      "incomplete": 2,
+      "inapplicable": 30,
+      "violationRules": [
+        "aria-hidden-focus",
+        "aria-prohibited-attr",
+        "label-title-only",
+        "nested-interactive",
+        "region",
+        "scrollable-region-focusable",
+        "tabindex"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/faqs/03-08-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-03-08-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 2,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 44,
+      "violationRules": [
+        "heading-order",
+        "region"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/faqs/03-15-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-03-15-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 2,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 44,
+      "violationRules": [
+        "heading-order",
+        "region"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/faqs/03-22-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-03-22-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 1,
+      "passes": 34,
+      "incomplete": 0,
+      "inapplicable": 54,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/faqs/03-29-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-03-29-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 1,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 44,
+      "violationRules": [
+        "heading-order"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/faqs/04-05-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-04-05-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 1,
+      "passes": 34,
+      "incomplete": 0,
+      "inapplicable": 54,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/faqs/04-12-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-04-12-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 2,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 44,
+      "violationRules": [
+        "heading-order",
+        "region"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/faqs/04-19-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-04-19-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 1,
+      "passes": 34,
+      "incomplete": 0,
+      "inapplicable": 54,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-04-26-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 1,
+      "passes": 34,
+      "incomplete": 0,
+      "inapplicable": 54,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/faqs/2025-r3-frequently-asked-questions",
+      "filename": "axe-local-faqs-2025-r3-frequently-asked-questions.json",
+      "violations": 1,
+      "passes": 34,
+      "incomplete": 0,
+      "inapplicable": 54,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/faqs",
+      "filename": "axe-local-faqs.json",
+      "violations": 2,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 44,
+      "violationRules": [
+        "link-name",
+        "region"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/funding",
+      "filename": "axe-local-funding.json",
+      "violations": 1,
+      "passes": 35,
+      "incomplete": 0,
+      "inapplicable": 53,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/",
+      "filename": "axe-local-home.json",
+      "violations": 1,
+      "passes": 48,
+      "incomplete": 2,
+      "inapplicable": 41,
+      "violationRules": [
+        "region"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/meetings",
+      "filename": "axe-local-meetings.json",
+      "violations": 0,
+      "passes": 37,
+      "incomplete": 0,
+      "inapplicable": 52,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/news/2021-01-21-release",
+      "filename": "axe-local-news-2021-01-21-release.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/news/2022-06-23-r3-grants-list",
+      "filename": "axe-local-news-2022-06-23-r3-grants-list.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/news/2023-04-06-annual-report-2023",
+      "filename": "axe-local-news-2023-04-06-annual-report-2023.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants",
+      "filename": "axe-local-news-icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants.json",
+      "violations": 1,
+      "passes": 47,
+      "incomplete": 1,
+      "inapplicable": 42,
+      "violationRules": [
+        "region"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/news/r3-2021-annual-report",
+      "filename": "axe-local-news-r3-2021-annual-report.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/news/r3-2022-annual-report",
+      "filename": "axe-local-news-r3-2022-annual-report.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/privacy",
+      "filename": "axe-local-privacy.json",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/resources/ampli-fund-portal-guide-and-tip-sheet",
+      "filename": "axe-local-resources-ampli-fund-portal-guide-and-tip-sheet.json",
+      "violations": 0,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/resources/nofo-informational-webinars",
+      "filename": "axe-local-resources-nofo-informational-webinars.json",
+      "violations": 1,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 44,
+      "violationRules": [
+        "region"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/resources/prequalification-steps",
+      "filename": "axe-local-resources-prequalification-steps.json",
+      "violations": 0,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
+      "filename": "axe-local-resources-r3-nofo-instructions-and-appendices.json",
+      "violations": 1,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
+      "violationRules": [
+        "heading-order"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/resources/single-page",
+      "filename": "axe-local-resources-single-page.json",
+      "violations": 1,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 44,
+      "violationRules": [
+        "region"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/resources/spanish-language-materials",
+      "filename": "axe-local-resources-spanish-language-materials.json",
+      "violations": 0,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/resources/video-resources",
+      "filename": "axe-local-resources-video-resources.json",
+      "violations": 1,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 44,
+      "violationRules": [
+        "region"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/resources",
+      "filename": "axe-local-resources.json",
+      "violations": 1,
+      "passes": 47,
+      "incomplete": 1,
+      "inapplicable": 42,
+      "violationRules": [
+        "region"
+      ]
+    },
+    {
+      "url": "http://localhost:8000/search",
+      "filename": "axe-local-search.json",
+      "violations": 0,
+      "passes": 46,
+      "incomplete": 2,
+      "inapplicable": 42,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/translate",
+      "filename": "axe-local-translate.json",
+      "violations": 1,
+      "passes": 43,
+      "incomplete": 1,
+      "inapplicable": 46,
+      "violationRules": [
+        "region"
       ]
     },
     {
@@ -234,15 +591,13 @@
       "violationRules": []
     },
     {
-      "url": "https://r3.illinois.gov/404?referrer=%252Fnews%252Ficjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants%252F&destination=%252Fnews%252Ficjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants%252F",
+      "url": "https://r3.illinois.gov/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants/",
       "filename": "axe-news-icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants.json",
-      "violations": 1,
-      "passes": 39,
-      "incomplete": 1,
+      "violations": 0,
+      "passes": 40,
+      "incomplete": 0,
       "inapplicable": 49,
-      "violationRules": [
-        "page-has-heading-one"
-      ]
+      "violationRules": []
     },
     {
       "url": "https://r3.illinois.gov/news/r3-2021-annual-report/",
@@ -263,15 +618,13 @@
       "violationRules": []
     },
     {
-      "url": "https://r3.illinois.gov/404?referrer=%252Fprivacy%252F&destination=%252Fprivacy%252F",
+      "url": "https://r3.illinois.gov/privacy/",
       "filename": "axe-privacy.json",
-      "violations": 1,
-      "passes": 39,
-      "incomplete": 1,
-      "inapplicable": 49,
-      "violationRules": [
-        "page-has-heading-one"
-      ]
+      "violations": 0,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
+      "violationRules": []
     },
     {
       "url": "https://r3.illinois.gov/resources/ampli-fund-portal-guide-and-tip-sheet/",
@@ -354,11 +707,12 @@
     {
       "url": "https://r3.illinois.gov/search/",
       "filename": "axe-search.json",
-      "violations": 1,
+      "violations": 2,
       "passes": 45,
       "incomplete": 1,
       "inapplicable": 43,
       "violationRules": [
+        "color-contrast",
         "label-title-only"
       ]
     },
@@ -398,7 +752,7 @@
         "EN-9.1.4.3",
         "ACT"
       ],
-      "occurrences": 6,
+      "occurrences": 8,
       "pages": [
         {
           "url": "https://r3.illinois.gov/contact/",
@@ -410,6 +764,20 @@
             "label[for=\"input-8\"]:nth-child(2)",
             "label[for=\"input-10\"]:nth-child(2)",
             "label[for=\"input-12\"]:nth-child(2)"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/contact",
+          "nodeCount": 1,
+          "targets": [
+            "h1"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/search/",
+          "nodeCount": 1,
+          "targets": [
+            "label:nth-child(2)"
           ]
         }
       ]
@@ -424,7 +792,7 @@
         "cat.semantics",
         "best-practice"
       ],
-      "occurrences": 15,
+      "occurrences": 19,
       "pages": [
         {
           "url": "https://r3.illinois.gov/404?referrer=%252Feligibility%252F&destination=%252Feligibility%252F",
@@ -504,14 +872,42 @@
           ]
         },
         {
-          "url": "https://r3.illinois.gov/404?referrer=%252Fnews%252Ficjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants%252F&destination=%252Fnews%252Ficjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants%252F",
+          "url": "http://localhost:8000/faqs/03-22-24-2025-r3-nofo-applicant-questions",
           "nodeCount": 1,
           "targets": [
             "html"
           ]
         },
         {
-          "url": "https://r3.illinois.gov/404?referrer=%252Fprivacy%252F&destination=%252Fprivacy%252F",
+          "url": "http://localhost:8000/faqs/04-05-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/faqs/04-19-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/faqs/2025-r3-frequently-asked-questions",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/funding",
           "nodeCount": 1,
           "targets": [
             "html"
@@ -626,7 +1022,7 @@
         "cat.semantics",
         "best-practice"
       ],
-      "occurrences": 9,
+      "occurrences": 10,
       "pages": [
         {
           "url": "https://r3.illinois.gov/faqs/03-08-24-2025-r3-nofo-applicant-questions/",
@@ -690,29 +1086,237 @@
           "targets": [
             "html"
           ]
+        },
+        {
+          "url": "http://localhost:8000/contact",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
         }
       ]
     },
-    "aria-progressbar-name": {
-      "id": "aria-progressbar-name",
-      "description": "Ensure every ARIA progressbar node has an accessible name",
-      "help": "ARIA progressbar nodes must have an accessible name",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-progressbar-name?application=webdriverjs",
+    "region": {
+      "id": "region",
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "occurrences": 14,
+      "pages": [
+        {
+          "url": "http://localhost:8000/contact",
+          "nodeCount": 2,
+          "targets": [
+            "h1",
+            "p"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/eligibility",
+          "nodeCount": 1,
+          "targets": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ]
+        },
+        {
+          "url": "http://localhost:8000/faqs/03-08-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ]
+        },
+        {
+          "url": "http://localhost:8000/faqs/03-15-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ]
+        },
+        {
+          "url": "http://localhost:8000/faqs/04-12-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ]
+        },
+        {
+          "url": "http://localhost:8000/faqs",
+          "nodeCount": 1,
+          "targets": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ]
+        },
+        {
+          "url": "http://localhost:8000/",
+          "nodeCount": 1,
+          "targets": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ]
+        },
+        {
+          "url": "http://localhost:8000/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants",
+          "nodeCount": 1,
+          "targets": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/nofo-informational-webinars",
+          "nodeCount": 1,
+          "targets": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/single-page",
+          "nodeCount": 1,
+          "targets": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/video-resources",
+          "nodeCount": 1,
+          "targets": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources",
+          "nodeCount": 1,
+          "targets": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ]
+        },
+        {
+          "url": "http://localhost:8000/translate",
+          "nodeCount": 1,
+          "targets": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ]
+        }
+      ]
+    },
+    "aria-hidden-focus": {
+      "id": "aria-hidden-focus",
+      "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+      "help": "ARIA hidden element must not be focusable or contain focusable elements",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-hidden-focus?application=webdriverjs",
       "impact": "serious",
       "tags": [
-        "cat.aria",
+        "cat.name-role-value",
         "wcag2a",
-        "wcag111",
+        "wcag412",
+        "TTv5",
+        "TT6.a",
         "EN-301-549",
-        "EN-9.1.1.1"
+        "EN-9.4.1.2"
       ],
       "occurrences": 1,
       "pages": [
         {
-          "url": "https://r3.illinois.gov/",
+          "url": "http://localhost:8000/eligibility",
           "nodeCount": 1,
           "targets": [
-            ".v-progress-circular"
+            "iframe",
+            "#skip_map"
+          ]
+        }
+      ]
+    },
+    "aria-prohibited-attr": {
+      "id": "aria-prohibited-attr",
+      "description": "Ensure ARIA attributes are not prohibited for an element's role",
+      "help": "Elements must only use permitted ARIA attributes",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=webdriverjs",
+      "impact": "serious",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2"
+      ],
+      "occurrences": 2,
+      "pages": [
+        {
+          "url": "http://localhost:8000/eligibility",
+          "nodeCount": 2,
+          "targets": [
+            "iframe",
+            "#skipContainer",
+            "iframe",
+            ".lastTrapLinkNode"
+          ]
+        }
+      ]
+    },
+    "label-title-only": {
+      "id": "label-title-only",
+      "description": "Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
+      "help": "Form elements should have a visible label",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/label-title-only?application=webdriverjs",
+      "impact": "serious",
+      "tags": [
+        "cat.forms",
+        "best-practice"
+      ],
+      "occurrences": 2,
+      "pages": [
+        {
+          "url": "http://localhost:8000/eligibility",
+          "nodeCount": 1,
+          "targets": [
+            "iframe",
+            "#esri_dijit_Search_0_input"
+          ]
+        },
+        {
+          "url": "https://r3.illinois.gov/search/",
+          "nodeCount": 1,
+          "targets": [
+            "#textfield"
           ]
         }
       ]
@@ -735,10 +1339,73 @@
       "occurrences": 1,
       "pages": [
         {
-          "url": "https://r3.illinois.gov/",
+          "url": "http://localhost:8000/eligibility",
           "nodeCount": 1,
           "targets": [
-            ".grey"
+            "iframe",
+            "#widgets_HomeButton_Widget_22"
+          ]
+        }
+      ]
+    },
+    "scrollable-region-focusable": {
+      "id": "scrollable-region-focusable",
+      "description": "Ensure elements that have scrollable content are accessible by keyboard",
+      "help": "Scrollable region must have keyboard access",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/scrollable-region-focusable?application=webdriverjs",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag211",
+        "wcag213",
+        "TTv5",
+        "TT4.a",
+        "EN-301-549",
+        "EN-9.2.1.1",
+        "EN-9.2.1.3"
+      ],
+      "occurrences": 1,
+      "pages": [
+        {
+          "url": "http://localhost:8000/eligibility",
+          "nodeCount": 1,
+          "targets": [
+            "div:nth-child(11) > div:nth-child(2)"
+          ]
+        }
+      ]
+    },
+    "tabindex": {
+      "id": "tabindex",
+      "description": "Ensure tabindex attribute values are not greater than 0",
+      "help": "Elements should not have tabindex greater than zero",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/tabindex?application=webdriverjs",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "occurrences": 7,
+      "pages": [
+        {
+          "url": "http://localhost:8000/eligibility",
+          "nodeCount": 7,
+          "targets": [
+            "iframe",
+            "#map",
+            "iframe",
+            "#dijit__WidgetBase_0",
+            "iframe",
+            "#widgets_Search_Widget_20",
+            "iframe",
+            "#widgets_ZoomSlider_Widget_21",
+            "iframe",
+            "#widgets_HomeButton_Widget_22",
+            "iframe",
+            "#widgets_Scalebar_Widget_24",
+            "iframe",
+            "#skipContainer"
           ]
         }
       ]
@@ -753,8 +1420,43 @@
         "cat.semantics",
         "best-practice"
       ],
-      "occurrences": 1,
+      "occurrences": 6,
       "pages": [
+        {
+          "url": "http://localhost:8000/faqs/03-08-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            "div[data-v-2a6831d8=\"\"] > h3"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/faqs/03-15-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            "div[data-v-2a6831d8=\"\"] > h3"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/faqs/03-29-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            "div[data-v-2a6831d8=\"\"] > h3"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/faqs/04-12-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            "div[data-v-2a6831d8=\"\"] > h3"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
+          "nodeCount": 1,
+          "targets": [
+            "#sfy2025-r3-nofo-instructions"
+          ]
+        },
         {
           "url": "https://r3.illinois.gov/resources/r3-nofo-instructions-and-appendices/",
           "nodeCount": 1,
@@ -764,29 +1466,194 @@
         }
       ]
     },
-    "label-title-only": {
-      "id": "label-title-only",
-      "description": "Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
-      "help": "Form elements should have a visible label",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/label-title-only?application=webdriverjs",
+    "link-name": {
+      "id": "link-name",
+      "description": "Ensure links have discernible text",
+      "help": "Links must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/link-name?application=webdriverjs",
       "impact": "serious",
       "tags": [
-        "cat.forms",
-        "best-practice"
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag244",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.2.4.4",
+        "EN-9.4.1.2",
+        "ACT"
       ],
       "occurrences": 1,
       "pages": [
         {
-          "url": "https://r3.illinois.gov/search/",
+          "url": "http://localhost:8000/faqs",
           "nodeCount": 1,
           "targets": [
-            "#textfield"
+            "p:nth-child(41) > a:nth-child(1)"
           ]
         }
       ]
     }
   },
   "allViolations": [
+    {
+      "id": "tabindex",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure tabindex attribute values are not greater than 0",
+      "help": "Elements should not have tabindex greater than zero",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/tabindex?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "tabindex",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has a tabindex greater than 0"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<div id=\"map\" class=\"map\" data-zoom=\"6\" data-scale=\"9244648.868618\" data-loaded=\"\" tabindex=\"201\" aria-label=\"Map Area\" style=\"position: absolute; background-color: rgb(238, 238, 238); overflow: hidden; min-width: 1px; min-height: 1px; inset: 0px; width: auto; height: auto; padding: 0px; margin: auto; z-index: auto;\">",
+          "target": [
+            "iframe",
+            "#map"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has a tabindex greater than 0"
+        },
+        {
+          "any": [
+            {
+              "id": "tabindex",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has a tabindex greater than 0"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<div id=\"dijit__WidgetBase_0\" class=\"jimu-widget-onscreen-icon jimu-state-selected\" widgetid=\"dijit__WidgetBase_0\" title=\"Legend\" data-widget-name=\"Legend\" tabindex=\"1801\" role=\"button\" aria-pressed=\"true\" style=\"inset: 53px auto auto 60px; width: 40px; height: 40px; padding: 0px; margin: auto; z-index: auto;\">",
+          "target": [
+            "iframe",
+            "#dijit__WidgetBase_0"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has a tabindex greater than 0"
+        },
+        {
+          "any": [
+            {
+              "id": "tabindex",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has a tabindex greater than 0"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<div class=\"jimu-widget-search jimu-widget use-absolute\" id=\"widgets_Search_Widget_20\" tabindex=\"1601\" widgetid=\"widgets_Search_Widget_20\" data-widget-name=\"Search\" aria-label=\"Search. Press Enter to focus inside this widget. When the focus is inside, press Esc to focus back on the widget.\" role=\"\" style=\"inset: 10px auto auto 60px; width: auto; height: auto; padding: 0px; margin: auto; z-index: auto; position: absolute;\">",
+          "target": [
+            "iframe",
+            "#widgets_Search_Widget_20"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has a tabindex greater than 0"
+        },
+        {
+          "any": [
+            {
+              "id": "tabindex",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has a tabindex greater than 0"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<div class=\"jimu-corner-all jimu-widget-zoomslider jimu-widget vertical\" id=\"widgets_ZoomSlider_Widget_21\" tabindex=\"1401\" widgetid=\"widgets_ZoomSlider_Widget_21\" data-widget-name=\"ZoomSlider\" aria-label=\"ZoomSlider. Press Enter to focus inside this widget. When the focus is inside, press Esc to focus back on the widget.\" role=\"\" style=\"inset: 10px auto auto 15px; width: auto; height: auto; padding: 0px; margin: auto; z-index: auto; position: absolute;\">",
+          "target": [
+            "iframe",
+            "#widgets_ZoomSlider_Widget_21"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has a tabindex greater than 0"
+        },
+        {
+          "any": [
+            {
+              "id": "tabindex",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has a tabindex greater than 0"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<div class=\"jimu-widget-homebutton jimu-widget\" id=\"widgets_HomeButton_Widget_22\" tabindex=\"2801\" widgetid=\"widgets_HomeButton_Widget_22\" aria-label=\"Default extent\" data-widget-name=\"HomeButton\" role=\"button\" style=\"inset: 80px auto auto 15px; width: auto; height: auto; padding: 0px; margin: auto; z-index: auto; position: absolute;\">",
+          "target": [
+            "iframe",
+            "#widgets_HomeButton_Widget_22"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has a tabindex greater than 0"
+        },
+        {
+          "any": [
+            {
+              "id": "tabindex",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has a tabindex greater than 0"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<div class=\"jimu-widget-scalebar jimu-widget\" id=\"widgets_Scalebar_Widget_24\" tabindex=\"3001\" widgetid=\"widgets_Scalebar_Widget_24\" data-widget-name=\"Scalebar\" aria-label=\"Scale 1:9244649\" role=\"\" style=\"inset: auto auto 25px 15px; width: auto; height: auto; padding: 0px; margin: auto; z-index: auto; position: absolute;\">",
+          "target": [
+            "iframe",
+            "#widgets_Scalebar_Widget_24"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has a tabindex greater than 0"
+        },
+        {
+          "any": [
+            {
+              "id": "tabindex",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has a tabindex greater than 0"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<div id=\"skipContainer\" tabindex=\"1\" aria-label=\"Skip Links\"><ul><li><a role=\"link\" id=\"skip_map\" aria-hidden=\"true\" tabindex=\"101\">Skip to Map</a></li></ul></div>",
+          "target": [
+            "iframe",
+            "#skipContainer"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has a tabindex greater than 0"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/eligibility",
+      "pageFilename": "axe-local-eligibility.json"
+    },
     {
       "id": "color-contrast",
       "impact": "serious",
@@ -1047,6 +1914,78 @@
       ],
       "pageUrl": "https://r3.illinois.gov/contact/",
       "pageFilename": "axe-contact.json"
+    },
+    {
+      "id": "aria-prohibited-attr",
+      "impact": "serious",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2"
+      ],
+      "description": "Ensure ARIA attributes are not prohibited for an element's role",
+      "help": "Elements must only use permitted ARIA attributes",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "aria-prohibited-attr",
+              "data": {
+                "role": null,
+                "nodeName": "div",
+                "messageKey": "noRoleSingular",
+                "prohibited": [
+                  "aria-label"
+                ]
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "aria-label attribute cannot be used on a div with no valid role attribute."
+            }
+          ],
+          "impact": "serious",
+          "html": "<div id=\"skipContainer\" tabindex=\"1\" aria-label=\"Skip Links\"><ul><li><a role=\"link\" id=\"skip_map\" aria-hidden=\"true\" tabindex=\"101\">Skip to Map</a></li></ul></div>",
+          "target": [
+            "iframe",
+            "#skipContainer"
+          ],
+          "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a div with no valid role attribute."
+        },
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "aria-prohibited-attr",
+              "data": {
+                "role": null,
+                "nodeName": "div",
+                "messageKey": "noRoleSingular",
+                "prohibited": [
+                  "aria-label"
+                ]
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "aria-label attribute cannot be used on a div with no valid role attribute."
+            }
+          ],
+          "impact": "serious",
+          "html": "<div class=\"trapLinkNode lastTrapLinkNode\" tabindex=\"0\" aria-label=\"Press Tab to continue and move out of the app, press Shift and Tab to go back to the Skip Links inside.\"></div>",
+          "target": [
+            "iframe",
+            ".lastTrapLinkNode"
+          ],
+          "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a div with no valid role attribute."
+        }
+      ],
+      "pageUrl": "http://localhost:8000/eligibility",
+      "pageFilename": "axe-local-eligibility.json"
     },
     {
       "id": "html-has-lang",
@@ -1427,21 +2366,269 @@
       "pageFilename": "axe-faqs-2025-r3-frequently-asked-questions.json"
     },
     {
-      "id": "aria-progressbar-name",
+      "id": "color-contrast",
       "impact": "serious",
       "tags": [
-        "cat.aria",
-        "wcag2a",
-        "wcag111",
+        "cat.color",
+        "wcag2aa",
+        "wcag143",
+        "TTv5",
+        "TT13.c",
         "EN-301-549",
-        "EN-9.1.1.1"
+        "EN-9.1.4.3",
+        "ACT"
       ],
-      "description": "Ensure every ARIA progressbar node has an accessible name",
-      "help": "ARIA progressbar nodes must have an accessible name",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-progressbar-name?application=webdriverjs",
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=webdriverjs",
       "nodes": [
         {
           "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#bbbbbb",
+                "bgColor": "#eaeaea",
+                "contrastRatio": 1.59,
+                "fontSize": "90.0pt (120px)",
+                "fontWeight": "bold",
+                "messageKey": null,
+                "expectedContrastRatio": "3:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr text-center\" style=\"background:#eaeaea;min-height:100vh;\" fill-height=\"\">",
+                  "target": [
+                    ".v-container"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has insufficient color contrast of 1.59 (foreground color: #bbbbbb, background color: #eaeaea, font size: 90.0pt (120px), font weight: bold). Expected contrast ratio of 3:1"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<h1 style=\"font-size:120px;color:#bbb;\">500</h1>",
+          "target": [
+            "h1"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.59 (foreground color: #bbbbbb, background color: #eaeaea, font size: 90.0pt (120px), font weight: bold). Expected contrast ratio of 3:1"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/contact",
+      "pageFilename": "axe-local-contact.json"
+    },
+    {
+      "id": "aria-hidden-focus",
+      "impact": "serious",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag412",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2"
+      ],
+      "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+      "help": "ARIA hidden element must not be focusable or contain focusable elements",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-hidden-focus?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "focusable-not-tabbable",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<a role=\"link\" id=\"skip_map\" aria-hidden=\"true\" tabindex=\"101\">Skip to Map</a>",
+                  "target": [
+                    "iframe",
+                    "#skip_map"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM"
+            }
+          ],
+          "none": [],
+          "impact": "serious",
+          "html": "<a role=\"link\" id=\"skip_map\" aria-hidden=\"true\" tabindex=\"101\">Skip to Map</a>",
+          "target": [
+            "iframe",
+            "#skip_map"
+          ],
+          "failureSummary": "Fix all of the following:\n  Focusable content should have tabindex=\"-1\" or be removed from the DOM"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/eligibility",
+      "pageFilename": "axe-local-eligibility.json"
+    },
+    {
+      "id": "label-title-only",
+      "impact": "serious",
+      "tags": [
+        "cat.forms",
+        "best-practice"
+      ],
+      "description": "Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
+      "help": "Form elements should have a visible label",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/label-title-only?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "title-only",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Only title used to generate label for form element"
+            }
+          ],
+          "impact": "serious",
+          "html": "<input maxlength=\"128\" autocomplete=\"off\" type=\"text\" tabindex=\"0\" class=\"searchInput\" value=\"\" aria-haspopup=\"true\" id=\"esri_dijit_Search_0_input\" data-dojo-attach-point=\"inputNode\" role=\"textbox\" placeholder=\"Find address or place\" title=\"Find address or place\" style=\"width: 170px;\">",
+          "target": [
+            "iframe",
+            "#esri_dijit_Search_0_input"
+          ],
+          "failureSummary": "Fix all of the following:\n  Only title used to generate label for form element"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/eligibility",
+      "pageFilename": "axe-local-eligibility.json"
+    },
+    {
+      "id": "nested-interactive",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag412",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2"
+      ],
+      "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/nested-interactive?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "no-focusable-content",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<div data-dojo-attach-point=\"_homeNode\" title=\"Default extent\" role=\"button\" class=\"home\" tabindex=\"0\"><span>Home</span></div>",
+                  "target": [
+                    "iframe",
+                    ".home"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has focusable descendants"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<div class=\"jimu-widget-homebutton jimu-widget\" id=\"widgets_HomeButton_Widget_22\" tabindex=\"2801\" widgetid=\"widgets_HomeButton_Widget_22\" aria-label=\"Default extent\" data-widget-name=\"HomeButton\" role=\"button\" style=\"inset: 80px auto auto 15px; width: auto; height: auto; padding: 0px; margin: auto; z-index: auto; position: absolute;\">",
+          "target": [
+            "iframe",
+            "#widgets_HomeButton_Widget_22"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/eligibility",
+      "pageFilename": "axe-local-eligibility.json"
+    },
+    {
+      "id": "scrollable-region-focusable",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag211",
+        "wcag213",
+        "TTv5",
+        "TT4.a",
+        "EN-301-549",
+        "EN-9.2.1.1",
+        "EN-9.2.1.3"
+      ],
+      "description": "Ensure elements that have scrollable content are accessible by keyboard",
+      "help": "Scrollable region must have keyboard access",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/scrollable-region-focusable?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "focusable-content",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element should have focusable content"
+            },
+            {
+              "id": "focusable-element",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element should be focusable"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<div style=\"overflow-x:auto;\">",
+          "target": [
+            "div:nth-child(11) > div:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/eligibility",
+      "pageFilename": "axe-local-eligibility.json"
+    },
+    {
+      "id": "link-name",
+      "impact": "serious",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag244",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.2.4.4",
+        "EN-9.4.1.2",
+        "ACT"
+      ],
+      "description": "Ensure links have discernible text",
+      "help": "Links must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/link-name?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element does not have text that is visible to screen readers"
+            },
             {
               "id": "aria-label",
               "data": null,
@@ -1467,63 +2654,86 @@
             }
           ],
           "all": [],
-          "none": [],
-          "impact": "serious",
-          "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-          "target": [
-            ".v-progress-circular"
+          "none": [
+            {
+              "id": "focusable-no-name",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element is in tab order and does not have accessible text"
+            }
           ],
-          "failureSummary": "Fix any of the following:\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+          "impact": "serious",
+          "html": "<a href=\"https://dceo.illinois.gov/cannabisequity/disproportionateimpactedareamap.html\"></a>",
+          "target": [
+            "p:nth-child(41) > a:nth-child(1)"
+          ],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
         }
       ],
-      "pageUrl": "https://r3.illinois.gov/",
-      "pageFilename": "axe-home.json"
+      "pageUrl": "http://localhost:8000/faqs",
+      "pageFilename": "axe-local-faqs.json"
     },
     {
-      "id": "nested-interactive",
+      "id": "color-contrast",
       "impact": "serious",
       "tags": [
-        "cat.keyboard",
-        "wcag2a",
-        "wcag412",
+        "cat.color",
+        "wcag2aa",
+        "wcag143",
         "TTv5",
-        "TT6.a",
+        "TT13.c",
         "EN-301-549",
-        "EN-9.4.1.2"
+        "EN-9.1.4.3",
+        "ACT"
       ],
-      "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
-      "help": "Interactive controls must not be nested",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/nested-interactive?application=webdriverjs",
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=webdriverjs",
       "nodes": [
         {
           "any": [
             {
-              "id": "no-focusable-content",
-              "data": null,
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#76797c",
+                "bgColor": "#eaeaea",
+                "contrastRatio": 3.63,
+                "fontSize": "13.5pt (18px)",
+                "fontWeight": "bold",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1"
+              },
               "relatedNodes": [
                 {
-                  "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined mt-8 button-href hidden-md-and-up\" style=\"\">",
+                  "html": "<div class=\"v-field__overlay\"></div>",
                   "target": [
-                    ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4)"
+                    ".v-field__overlay"
+                  ]
+                },
+                {
+                  "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 88px; background: rgb(242, 242, 242); min-height: 80vh !important;\" id=\"main-content\" role=\"main\">",
+                  "target": [
+                    "#main-content"
                   ]
                 }
               ],
               "impact": "serious",
-              "message": "Element has focusable descendants"
+              "message": "Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
             }
           ],
           "all": [],
           "none": [],
           "impact": "serious",
-          "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
+          "html": "<label class=\"v-label v-field-label\" style=\"visibility: visible;\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
           "target": [
-            ".grey"
+            "label:nth-child(2)"
           ],
-          "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+          "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
         }
       ],
-      "pageUrl": "https://r3.illinois.gov/",
-      "pageFilename": "axe-home.json"
+      "pageUrl": "https://r3.illinois.gov/search/",
+      "pageFilename": "axe-search.json"
     },
     {
       "id": "label-title-only",
@@ -1558,6 +2768,63 @@
       ],
       "pageUrl": "https://r3.illinois.gov/search/",
       "pageFilename": "axe-search.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<h1 style=\"font-size:120px;color:#bbb;\">500</h1>",
+          "target": [
+            "h1"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<p><strong>Server Error</strong></p>",
+          "target": [
+            "p"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/contact",
+      "pageFilename": "axe-local-contact.json"
     },
     {
       "id": "page-has-heading-one",
@@ -2240,25 +3507,25 @@
       "pageFilename": "axe-funding.json"
     },
     {
-      "id": "page-has-heading-one",
+      "id": "landmark-one-main",
       "impact": "moderate",
       "tags": [
         "cat.semantics",
         "best-practice"
       ],
-      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
-      "help": "Page should contain a level-one heading",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
       "nodes": [
         {
           "any": [],
           "all": [
             {
-              "id": "page-has-heading-one",
+              "id": "page-has-main",
               "data": null,
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Page must have a level-one heading"
+              "message": "Document does not have a main landmark"
             }
           ],
           "none": [],
@@ -2267,11 +3534,196 @@
           "target": [
             "html"
           ],
-          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
         }
       ],
-      "pageUrl": "https://r3.illinois.gov/404?referrer=%252Fnews%252Ficjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants%252F&destination=%252Fnews%252Ficjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants%252F",
-      "pageFilename": "axe-news-icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants.json"
+      "pageUrl": "http://localhost:8000/contact",
+      "pageFilename": "axe-local-contact.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">74</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+          "target": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/eligibility",
+      "pageFilename": "axe-local-eligibility.json"
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the order of headings is semantically correct",
+      "help": "Heading levels should only increase by one",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "heading-order",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Heading order invalid"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<h3 data-v-2a6831d8=\"\" class=\"pl-2\">Download</h3>",
+          "target": [
+            "div[data-v-2a6831d8=\"\"] > h3"
+          ],
+          "failureSummary": "Fix any of the following:\n  Heading order invalid"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/03-08-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-03-08-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">62</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+          "target": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/03-08-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-03-08-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the order of headings is semantically correct",
+      "help": "Heading levels should only increase by one",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "heading-order",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Heading order invalid"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<h3 data-v-2a6831d8=\"\" class=\"pl-2\">Download</h3>",
+          "target": [
+            "div[data-v-2a6831d8=\"\"] > h3"
+          ],
+          "failureSummary": "Fix any of the following:\n  Heading order invalid"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/03-15-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-03-15-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">59</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+          "target": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/03-15-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-03-15-24-2025-r3-nofo-applicant-questions.json"
     },
     {
       "id": "page-has-heading-one",
@@ -2304,8 +3756,631 @@
           "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
         }
       ],
-      "pageUrl": "https://r3.illinois.gov/404?referrer=%252Fprivacy%252F&destination=%252Fprivacy%252F",
-      "pageFilename": "axe-privacy.json"
+      "pageUrl": "http://localhost:8000/faqs/03-22-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-03-22-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the order of headings is semantically correct",
+      "help": "Heading levels should only increase by one",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "heading-order",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Heading order invalid"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<h3 data-v-2a6831d8=\"\" class=\"pl-2\">Download</h3>",
+          "target": [
+            "div[data-v-2a6831d8=\"\"] > h3"
+          ],
+          "failureSummary": "Fix any of the following:\n  Heading order invalid"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/03-29-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-03-29-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/04-05-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-04-05-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the order of headings is semantically correct",
+      "help": "Heading levels should only increase by one",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "heading-order",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Heading order invalid"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<h3 data-v-2a6831d8=\"\" class=\"pl-2\">Download</h3>",
+          "target": [
+            "div[data-v-2a6831d8=\"\"] > h3"
+          ],
+          "failureSummary": "Fix any of the following:\n  Heading order invalid"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/04-12-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-04-12-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">60</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+          "target": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/04-12-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-04-12-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/04-19-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-04-19-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-04-26-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/2025-r3-frequently-asked-questions",
+      "pageFilename": "axe-local-faqs-2025-r3-frequently-asked-questions.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">73</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+          "target": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs",
+      "pageFilename": "axe-local-faqs.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/funding",
+      "pageFilename": "axe-local-funding.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">61</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+          "target": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/",
+      "pageFilename": "axe-local-home.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">47</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+          "target": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants",
+      "pageFilename": "axe-local-news-icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">52</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+          "target": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/nofo-informational-webinars",
+      "pageFilename": "axe-local-resources-nofo-informational-webinars.json"
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the order of headings is semantically correct",
+      "help": "Heading levels should only increase by one",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "heading-order",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Heading order invalid"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<h3 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h3>",
+          "target": [
+            "#sfy2025-r3-nofo-instructions"
+          ],
+          "failureSummary": "Fix any of the following:\n  Heading order invalid"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
+      "pageFilename": "axe-local-resources-r3-nofo-instructions-and-appendices.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">52</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+          "target": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/single-page",
+      "pageFilename": "axe-local-resources-single-page.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">44</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+          "target": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/video-resources",
+      "pageFilename": "axe-local-resources-video-resources.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">47</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+          "target": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources",
+      "pageFilename": "axe-local-resources.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">42</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+          "target": [
+            [
+              "nuxt-devtools-frame",
+              ".nuxt-devtools-label"
+            ]
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/translate",
+      "pageFilename": "axe-local-translate.json"
     },
     {
       "id": "page-has-heading-one",

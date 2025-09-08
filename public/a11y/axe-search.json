@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-08T12:41:08.662Z",
+    "timestamp": "2025-09-08T12:49:47.339Z",
     "url": "https://r3.illinois.gov/search/",
     "toolOptions": {
       "reporter": "v1"
@@ -2373,7 +2373,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<label class=\"v-label v-field-label v-field-label--floating\" style=\"\" aria-hidden=\"true\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
+            "html": "<label class=\"v-label v-field-label v-field-label--floating\" style=\"visibility: hidden;\" aria-hidden=\"true\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
             "target": [
               ".v-field-label--floating"
             ]
@@ -4949,6 +4949,38 @@
             ],
             "none": [],
             "impact": null,
+            "html": "<label class=\"v-label v-field-label\" style=\"visibility: visible;\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
+            "target": [
+              "label:nth-child(2)"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "important-letter-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-word-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-line-height",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
+              }
+            ],
+            "none": [],
+            "impact": null,
             "html": "<div class=\"v-field__outline\" style=\"\"><!----><!----></div>",
             "target": [
               ".v-field__outline"
@@ -5581,24 +5613,19 @@
               {
                 "id": "color-contrast",
                 "data": {
-                  "fgColor": "#24292e",
-                  "bgColor": "#d1d2d3",
-                  "contrastRatio": 9.68,
-                  "fontSize": "9.0pt (12px)",
-                  "fontWeight": "bold",
-                  "expectedContrastRatio": "4.5:1"
+                  "messageKey": "hidden"
                 },
                 "relatedNodes": [],
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 9.68"
+                "message": "Element is hidden"
               }
             ],
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<label class=\"v-label v-field-label v-field-label--floating\" style=\"\" aria-hidden=\"true\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
+            "html": "<input value=\"\" placeholder=\"Enter search term\" size=\"1\" type=\"text\" id=\"textfield\" aria-describedby=\"textfield-messages\" autocomplete=\"off\" class=\"v-field__input\">",
             "target": [
-              ".v-field-label--floating"
+              "#textfield"
             ]
           },
           {
@@ -5959,9 +5986,9 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<label class=\"v-label v-field-label v-field-label--floating\" style=\"\" aria-hidden=\"true\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
+                    "html": "<label class=\"v-label v-field-label\" style=\"visibility: visible;\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
                     "target": [
-                      ".v-field-label--floating"
+                      "label:nth-child(2)"
                     ]
                   }
                 ],
@@ -6114,18 +6141,16 @@
             "any": [
               {
                 "id": "explicit-label",
-                "data": {
-                  "explicitLabel": ""
-                },
+                "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<label class=\"v-label v-field-label v-field-label--floating\" style=\"\" aria-hidden=\"true\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
+                    "html": "<label class=\"v-label v-field-label v-field-label--floating\" style=\"visibility: hidden;\" aria-hidden=\"true\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
                     "target": [
                       ".v-field-label--floating"
                     ]
                   },
                   {
-                    "html": "<label class=\"v-label v-field-label\" style=\"\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
+                    "html": "<label class=\"v-label v-field-label\" style=\"visibility: visible;\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
                     "target": [
                       "label:nth-child(2)"
                     ]
@@ -9013,6 +9038,26 @@
             "all": [],
             "none": [],
             "impact": null,
+            "html": "<label class=\"v-label v-field-label\" style=\"visibility: visible;\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
+            "target": [
+              "label:nth-child(2)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
             "html": "<input value=\"\" placeholder=\"Enter search term\" size=\"1\" type=\"text\" id=\"textfield\" aria-describedby=\"textfield-messages\" autocomplete=\"off\" class=\"v-field__input\">",
             "target": [
               "#textfield"
@@ -10227,31 +10272,6 @@
                 "id": "color-contrast",
                 "data": {
                   "contrastRatio": 0,
-                  "fontSize": "12.0pt (16px)",
-                  "fontWeight": "bold",
-                  "messageKey": "bgOverlap",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element's background color could not be determined because it is overlapped by another element"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "serious",
-            "html": "<input value=\"\" placeholder=\"Enter search term\" size=\"1\" type=\"text\" id=\"textfield\" aria-describedby=\"textfield-messages\" autocomplete=\"off\" class=\"v-field__input\">",
-            "target": [
-              "#textfield"
-            ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "contrastRatio": 0,
                   "fontSize": "11.8pt (15.75px)",
                   "fontWeight": "normal",
                   "messageKey": "bgOverlap",
@@ -10275,6 +10295,65 @@
       }
     ],
     "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#76797c",
+                  "bgColor": "#eaeaea",
+                  "contrastRatio": 3.63,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"v-field__overlay\"></div>",
+                    "target": [
+                      ".v-field__overlay"
+                    ]
+                  },
+                  {
+                    "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 88px; background: rgb(242, 242, 242); min-height: 80vh !important;\" id=\"main-content\" role=\"main\">",
+                    "target": [
+                      "#main-content"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<label class=\"v-label v-field-label\" style=\"visibility: visible;\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
+            "target": [
+              "label:nth-child(2)"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.63 (foreground color: #76797c, background color: #eaeaea, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
       {
         "id": "label-title-only",
         "impact": "serious",

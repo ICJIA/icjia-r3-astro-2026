@@ -11,6 +11,7 @@
               ><v-row
                 ><v-col cols="12" md="10" class="text-left">
                   <v-form class="pl-2 mt-4" style="margin-top: -15px">
+                    <label for="textfield" class="sr-only">Search R3</label>
                     <v-text-field
                       id="textfield"
                       ref="textfield"
@@ -321,5 +322,19 @@ onMounted(() => {
   el.focus();
 });
 </script>
+
+<style scoped>
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>
 
 <style lang="scss" scoped></style>

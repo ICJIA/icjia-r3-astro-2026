@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-08T12:40:08.463Z",
+    "timestamp": "2025-09-08T12:48:36.874Z",
     "url": "https://r3.illinois.gov/",
     "toolOptions": {
       "reporter": "v1"
@@ -112,6 +112,21 @@
         "description": "Ensure every ARIA meter node has an accessible name",
         "help": "ARIA meter nodes must have an accessible name",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-meter-name?application=webdriverjs",
+        "nodes": []
+      },
+      {
+        "id": "aria-progressbar-name",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag111",
+          "EN-301-549",
+          "EN-9.1.1.1"
+        ],
+        "description": "Ensure every ARIA progressbar node has an accessible name",
+        "help": "ARIA progressbar nodes must have an accessible name",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-progressbar-name?application=webdriverjs",
         "nodes": []
       },
       {
@@ -846,61 +861,9 @@
               }
             ],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
-            "target": [
-              ".grey"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "aria-allowed-attr",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "ARIA attributes are used correctly for the defined role"
-              }
-            ],
-            "none": [
-              {
-                "id": "aria-unsupported-attr",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "ARIA attribute is supported"
-              }
-            ],
-            "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-circular"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "aria-allowed-attr",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "ARIA attributes are used correctly for the defined role"
-              }
-            ],
-            "none": [
-              {
-                "id": "aria-unsupported-attr",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "ARIA attribute is supported"
-              }
-            ],
-            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -926,7 +889,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -952,7 +915,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -978,7 +941,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -1483,7 +1446,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"presentation\" aria-hidden=\"true\">",
             "target": [
               ".grey"
             ]
@@ -1501,7 +1464,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
+            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-label=\"Loading image\">",
             "target": [
               ".v-progress-circular"
             ]
@@ -1539,7 +1502,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -1575,7 +1538,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -1611,7 +1574,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -1647,7 +1610,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -1935,45 +1898,9 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
-            "target": [
-              ".grey"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "aria-conditional-attr",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "ARIA attribute is allowed"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-circular"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "aria-conditional-attr",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "ARIA attribute is allowed"
-              }
-            ],
-            "none": [],
-            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -1991,7 +1918,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -2009,7 +1936,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -2027,7 +1954,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -2293,45 +2220,9 @@
               }
             ],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
-            "target": [
-              ".grey"
-            ]
-          },
-          {
-            "any": [],
-            "all": [],
-            "none": [
-              {
-                "id": "deprecatedrole",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "minor",
-                "message": "ARIA role is not deprecated"
-              }
-            ],
-            "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-circular"
-            ]
-          },
-          {
-            "any": [],
-            "all": [],
-            "none": [
-              {
-                "id": "deprecatedrole",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "minor",
-                "message": "ARIA role is not deprecated"
-              }
-            ],
-            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -2349,7 +2240,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -2367,7 +2258,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -2385,7 +2276,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           }
         ]
@@ -2428,7 +2319,7 @@
       },
       {
         "id": "aria-hidden-focus",
-        "impact": null,
+        "impact": "serious",
         "tags": [
           "cat.name-role-value",
           "wcag2a",
@@ -3105,45 +2996,9 @@
               }
             ],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
-            "target": [
-              ".grey"
-            ]
-          },
-          {
-            "any": [],
-            "all": [],
-            "none": [
-              {
-                "id": "aria-prohibited-attr",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "ARIA attribute is allowed"
-              }
-            ],
-            "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-circular"
-            ]
-          },
-          {
-            "any": [],
-            "all": [],
-            "none": [
-              {
-                "id": "aria-prohibited-attr",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "ARIA attribute is allowed"
-              }
-            ],
-            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -3161,7 +3016,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -3179,7 +3034,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -3197,7 +3052,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -3463,45 +3318,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
-            "target": [
-              ".grey"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "aria-required-attr",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "All required ARIA attributes are present"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-circular"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "aria-required-attr",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "All required ARIA attributes are present"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -3519,7 +3338,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -3537,7 +3356,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -3555,7 +3374,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           }
         ]
@@ -4143,73 +3962,9 @@
               }
             ],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
-            "target": [
-              ".grey"
-            ]
-          },
-          {
-            "any": [],
-            "all": [],
-            "none": [
-              {
-                "id": "invalidrole",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "ARIA role is valid"
-              },
-              {
-                "id": "abstractrole",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Abstract roles are not used"
-              },
-              {
-                "id": "unsupportedrole",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "ARIA role is supported"
-              }
-            ],
-            "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-circular"
-            ]
-          },
-          {
-            "any": [],
-            "all": [],
-            "none": [
-              {
-                "id": "invalidrole",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "ARIA role is valid"
-              },
-              {
-                "id": "abstractrole",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Abstract roles are not used"
-              },
-              {
-                "id": "unsupportedrole",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "ARIA role is supported"
-              }
-            ],
-            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -4241,7 +3996,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -4273,7 +4028,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -4305,7 +4060,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           }
         ]
@@ -4511,73 +4266,9 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
-            "target": [
-              ".grey"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "aria-valid-attr-value",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "ARIA attribute values are valid"
-              },
-              {
-                "id": "aria-errormessage",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
-              },
-              {
-                "id": "aria-level",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "aria-level values are valid"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-circular"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "aria-valid-attr-value",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "ARIA attribute values are valid"
-              },
-              {
-                "id": "aria-errormessage",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
-              },
-              {
-                "id": "aria-level",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "aria-level values are valid"
-              }
-            ],
-            "none": [],
-            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -4609,7 +4300,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -4641,7 +4332,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -4673,7 +4364,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -4827,45 +4518,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
-            "target": [
-              ".grey"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "aria-valid-attr",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "ARIA attribute name is valid"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-circular"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "aria-valid-attr",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "ARIA attribute name is valid"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -4883,7 +4538,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -4901,7 +4556,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -4919,7 +4574,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -5528,198 +5183,6 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
-            "target": [
-              ".grey"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"v-responsive__sizer\" style=\"padding-bottom:100%;\"></div>",
-            "target": [
-              ".grey > .v-responsive__sizer"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-active fade-transition-leave-to\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_new_splash_03_9b9975cfc5.jpg\" alt=\"R3 Program hero image showcasing community investment and renewal\" crossorigin=\"\">",
-            "target": [
-              ".v-img__img--preload"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 45.714285714285715 45.714285714285715\" style=\"transform: rotate(calc(-90deg));\">",
-            "target": [
-              "svg"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<h2 class=\"nofo-title mt-3\" style=\"color:#fff !important;font-size:2.5rem !important;text-align:center !important;\">2025 SERVICE DELIVERY GRANT OPPORTUNITY AVAILABLE</h2>",
-            "target": [
-              ".nofo-title"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined mt-8 button-href hidden-md-and-up\" style=\"\">",
-            "target": [
-              ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4)"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
             "html": "<div class=\"v-container v-locale--is-ltr\" style=\"\">",
             "target": [
               "#main-content > div > div > .v-container.v-locale--is-ltr:nth-child(2)"
@@ -6234,7 +5697,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -6266,7 +5729,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__sizer"
             ]
           },
           {
@@ -6298,7 +5761,7 @@
             "impact": null,
             "html": "<div class=\"v-img__gradient\" style=\"background-image:linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.1));\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-img__gradient"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-img__gradient"
             ]
           },
           {
@@ -6330,7 +5793,7 @@
             "impact": null,
             "html": "<div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Eligibility</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
             ]
           },
           {
@@ -6362,7 +5825,7 @@
             "impact": null,
             "html": "<div class=\"v-card-text text-white mt-3\" style=\"\">Find out if you're eligible to apply for funding</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
             ]
           },
           {
@@ -6458,7 +5921,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -6490,7 +5953,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__sizer"
             ]
           },
           {
@@ -6522,7 +5985,7 @@
             "impact": null,
             "html": "<div class=\"v-img__gradient\" style=\"background-image:linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.1));\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-img__gradient"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-img__gradient"
             ]
           },
           {
@@ -6554,7 +6017,7 @@
             "impact": null,
             "html": "<div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Frequently Asked Questions (FAQs)</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
             ]
           },
           {
@@ -6586,7 +6049,7 @@
             "impact": null,
             "html": "<div class=\"v-card-text text-white mt-3\" style=\"\">Frequently Asked Questions about the R3 funding process</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
             ]
           },
           {
@@ -6682,7 +6145,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -6714,7 +6177,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__sizer"
             ]
           },
           {
@@ -6746,7 +6209,7 @@
             "impact": null,
             "html": "<div class=\"v-img__gradient\" style=\"background-image:linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.1));\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-img__gradient"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-img__gradient"
             ]
           },
           {
@@ -6778,7 +6241,7 @@
             "impact": null,
             "html": "<div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Collaboratives</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
             ]
           },
           {
@@ -6810,7 +6273,7 @@
             "impact": null,
             "html": "<div class=\"v-card-text text-white mt-3\" style=\"\">Groups of two or more organizations that apply for funding for a single program under one application</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
             ]
           },
           {
@@ -6906,7 +6369,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -6938,7 +6401,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__sizer"
             ]
           },
           {
@@ -6970,7 +6433,7 @@
             "impact": null,
             "html": "<div class=\"v-img__gradient\" style=\"background-image:linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.1));\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-img__gradient"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-img__gradient"
             ]
           },
           {
@@ -7002,7 +6465,7 @@
             "impact": null,
             "html": "<div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Resources</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
             ]
           },
           {
@@ -7034,7 +6497,7 @@
             "impact": null,
             "html": "<div class=\"v-card-text text-white mt-3\" style=\"\">R3 resources and analysis</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
             ]
           },
           {
@@ -7669,24 +7132,6 @@
           {
             "any": [
               {
-                "id": "button-has-visible-text",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has inner text that is visible to screen readers"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined mt-8 button-href hidden-md-and-up\" style=\"\">",
-            "target": [
-              ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4)"
-            ]
-          },
-          {
-            "any": [
-              {
                 "id": "aria-label",
                 "data": null,
                 "relatedNodes": [],
@@ -7735,12 +7180,6 @@
                 "id": "header-present",
                 "data": null,
                 "relatedNodes": [
-                  {
-                    "html": "<h2 class=\"nofo-title mt-3\" style=\"color:#fff !important;font-size:2.5rem !important;text-align:center !important;\">2025 SERVICE DELIVERY GRANT OPPORTUNITY AVAILABLE</h2>",
-                    "target": [
-                      ".nofo-title"
-                    ]
-                  },
                   {
                     "html": "<h1 id=\"r3-restore-reinvest-renew\"><!--[-->R3 RESTORE. REINVEST. RENEW.<!--]--></h1>",
                     "target": [
@@ -8788,24 +8227,6 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h2 class=\"nofo-title mt-3\" style=\"color:#fff !important;font-size:2.5rem !important;text-align:center !important;\">2025 SERVICE DELIVERY GRANT OPPORTUNITY AVAILABLE</h2>",
-            "target": [
-              ".nofo-title"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "has-visible-text",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "minor",
-                "message": "Element has text that is visible to screen readers"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
             "html": "<h1 id=\"r3-restore-reinvest-renew\"><!--[-->R3 RESTORE. REINVEST. RENEW.<!--]--></h1>",
             "target": [
               "#r3-restore-reinvest-renew"
@@ -8905,7 +8326,7 @@
       },
       {
         "id": "heading-order",
-        "impact": "moderate",
+        "impact": null,
         "tags": [
           "cat.semantics",
           "best-practice"
@@ -8918,7 +8339,46 @@
             "any": [
               {
                 "id": "heading-order",
-                "data": null,
+                "data": {
+                  "headingOrder": [
+                    {
+                      "ancestry": [
+                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(2) > div > div > div > h1:nth-child(1)"
+                      ],
+                      "level": 1
+                    },
+                    {
+                      "ancestry": [
+                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(3) > div:nth-child(1) > div > div > div > h2:nth-child(1)"
+                      ],
+                      "level": 2
+                    },
+                    {
+                      "ancestry": [
+                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(1) > h2:nth-child(1)"
+                      ],
+                      "level": 2
+                    },
+                    {
+                      "ancestry": [
+                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > h2:nth-child(1)"
+                      ],
+                      "level": 2
+                    },
+                    {
+                      "ancestry": [
+                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > h3:nth-child(3)"
+                      ],
+                      "level": 3
+                    },
+                    {
+                      "ancestry": [
+                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > h3:nth-child(3)"
+                      ],
+                      "level": 3
+                    }
+                  ]
+                },
                 "relatedNodes": [],
                 "impact": "moderate",
                 "message": "Heading order valid"
@@ -9139,58 +8599,6 @@
               }
             ],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--cover fade-transition-enter-active fade-transition-enter-to\" src=\"https://r3.icjia-api.cloud/uploads/large_new_splash_03_9b9975cfc5.jpg\" alt=\"R3 Program hero image showcasing community investment and renewal\" crossorigin=\"\" style=\"\">",
-            "target": [
-              ".fade-transition-enter-active"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "has-alt",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has an alt attribute"
-              }
-            ],
-            "all": [],
-            "none": [
-              {
-                "id": "alt-space-value",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a valid alt attribute value"
-              }
-            ],
-            "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-active fade-transition-leave-to\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_new_splash_03_9b9975cfc5.jpg\" alt=\"R3 Program hero image showcasing community investment and renewal\" crossorigin=\"\">",
-            "target": [
-              ".v-img__img--preload"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "has-alt",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has an alt attribute"
-              }
-            ],
-            "all": [],
-            "none": [
-              {
-                "id": "alt-space-value",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a valid alt attribute value"
-              }
-            ],
-            "impact": null,
             "html": "<img src=\"/DirectorAdamsResized.jpg\" width=\"140\" alt=\"ICJIA Executive Director, Delrice Adams\" class=\"elevation-12\" style=\"float:left;margin-right:15px;border:1px solid #888;border-radius:80%;\">",
             "target": [
               ".elevation-12"
@@ -9209,42 +8617,6 @@
         "help": "Alternative text of images should not be repeated as text",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/image-redundant-alt?application=webdriverjs",
         "nodes": [
-          {
-            "any": [],
-            "all": [],
-            "none": [
-              {
-                "id": "duplicate-img-label",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "minor",
-                "message": "Element does not duplicate existing text in <img> alt text"
-              }
-            ],
-            "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--cover fade-transition-enter-active fade-transition-enter-to\" src=\"https://r3.icjia-api.cloud/uploads/large_new_splash_03_9b9975cfc5.jpg\" alt=\"R3 Program hero image showcasing community investment and renewal\" crossorigin=\"\" style=\"\">",
-            "target": [
-              ".fade-transition-enter-active"
-            ]
-          },
-          {
-            "any": [],
-            "all": [],
-            "none": [
-              {
-                "id": "duplicate-img-label",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "minor",
-                "message": "Element does not duplicate existing text in <img> alt text"
-              }
-            ],
-            "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-active fade-transition-leave-to\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_new_splash_03_9b9975cfc5.jpg\" alt=\"R3 Program hero image showcasing community investment and renewal\" crossorigin=\"\">",
-            "target": [
-              ".v-img__img--preload"
-            ]
-          },
           {
             "any": [],
             "all": [],
@@ -9474,14 +8846,7 @@
               {
                 "id": "page-has-main",
                 "data": null,
-                "relatedNodes": [
-                  {
-                    "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 88px; background: rgb(242, 242, 242); min-height: 80vh !important;\" id=\"main-content\" role=\"main\">",
-                    "target": [
-                      "#main-content"
-                    ]
-                  }
-                ],
+                "relatedNodes": [],
                 "impact": "moderate",
                 "message": "Document has at least one main landmark"
               }
@@ -10281,7 +9646,7 @@
       },
       {
         "id": "nested-interactive",
-        "impact": "serious",
+        "impact": null,
         "tags": [
           "cat.keyboard",
           "wcag2a",
@@ -10344,78 +9709,6 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--cover fade-transition-enter-active fade-transition-enter-to\" src=\"https://r3.icjia-api.cloud/uploads/large_new_splash_03_9b9975cfc5.jpg\" alt=\"R3 Program hero image showcasing community investment and renewal\" crossorigin=\"\" style=\"\">",
-            "target": [
-              ".fade-transition-enter-active"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-active fade-transition-leave-to\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_new_splash_03_9b9975cfc5.jpg\" alt=\"R3 Program hero image showcasing community investment and renewal\" crossorigin=\"\">",
-            "target": [
-              ".v-img__img--preload"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-circular"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined mt-8 button-href hidden-md-and-up\" style=\"\">",
-            "target": [
-              ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4)"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
             "html": "<img src=\"/DirectorAdamsResized.jpg\" width=\"140\" alt=\"ICJIA Executive Director, Delrice Adams\" class=\"elevation-12\" style=\"float:left;margin-right:15px;border:1px solid #888;border-radius:80%;\">",
             "target": [
               ".elevation-12"
@@ -10436,7 +9729,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -10454,7 +9747,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -10472,7 +9765,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -10490,7 +9783,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -10530,14 +9823,7 @@
               {
                 "id": "page-has-heading-one",
                 "data": null,
-                "relatedNodes": [
-                  {
-                    "html": "<h1 id=\"r3-restore-reinvest-renew\"><!--[-->R3 RESTORE. REINVEST. RENEW.<!--]--></h1>",
-                    "target": [
-                      "#r3-restore-reinvest-renew"
-                    ]
-                  }
-                ],
+                "relatedNodes": [],
                 "impact": "moderate",
                 "message": "Page has at least one level-one heading"
               }
@@ -12156,366 +11442,6 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
-            "target": [
-              ".grey"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"v-responsive__sizer\" style=\"padding-bottom:100%;\"></div>",
-            "target": [
-              ".grey > .v-responsive__sizer"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--cover fade-transition-enter-active fade-transition-enter-to\" src=\"https://r3.icjia-api.cloud/uploads/large_new_splash_03_9b9975cfc5.jpg\" alt=\"R3 Program hero image showcasing community investment and renewal\" crossorigin=\"\" style=\"\">",
-            "target": [
-              ".fade-transition-enter-active"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-active fade-transition-leave-to\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_new_splash_03_9b9975cfc5.jpg\" alt=\"R3 Program hero image showcasing community investment and renewal\" crossorigin=\"\">",
-            "target": [
-              ".v-img__img--preload"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"v-img__placeholder fade-transition-leave-active fade-transition-leave-to\">",
-            "target": [
-              ":root"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"d-flex align-center justify-center fill-height\">",
-            "target": [
-              ".fill-height"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-circular"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 45.714285714285715 45.714285714285715\" style=\"transform: rotate(calc(-90deg));\">",
-            "target": [
-              "svg"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<circle class=\"v-progress-circular__underlay\" fill=\"transparent\" cx=\"50%\" cy=\"50%\" r=\"20\" stroke-width=\"5.714285714285714\" stroke-dasharray=\"125.66370614359172\" stroke-dashoffset=\"0\"></circle>",
-            "target": [
-              ".v-progress-circular__underlay"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<circle class=\"v-progress-circular__overlay\" fill=\"transparent\" cx=\"50%\" cy=\"50%\" r=\"20\" stroke-width=\"5.714285714285714\" stroke-dasharray=\"125.66370614359172\" stroke-dashoffset=\"125.66370614359172px\"></circle>",
-            "target": [
-              ".v-progress-circular__overlay"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"v-responsive__content\">",
-            "target": [
-              ".grey > .v-responsive__content"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\">",
-            "target": [
-              ".flex-column"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<h2 class=\"nofo-title mt-3\" style=\"color:#fff !important;font-size:2.5rem !important;text-align:center !important;\">2025 SERVICE DELIVERY GRANT OPPORTUNITY AVAILABLE</h2>",
-            "target": [
-              ".nofo-title"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nofo-tagline\">Grants to provide services to repair the harm caused by economic disinvestment, violence, and the war on drugs. Organizations may apply for grant funds in R3 communities statewide.</div>",
-            "target": [
-              ".nofo-tagline"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined mt-8 button-href hidden-md-and-up\" style=\"\">",
-            "target": [
-              ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4)"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<span class=\"v-btn__overlay\"></span>",
-            "target": [
-              ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4) > .v-btn__overlay"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<span class=\"v-btn__underlay\"></span>",
-            "target": [
-              ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4) > .v-btn__underlay"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<span class=\"v-btn__content\" data-no-activator=\"\"><!--[--><!--[-->Expired 04/30/24&nbsp;&nbsp;<!--]--><!--]--></span>",
-            "target": [
-              ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4) > .v-btn__content[data-no-activator=\"\"]"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
             "html": "<span class=\"v-card__underlay\"></span>",
             "target": [
               ".v-col-md-12.v-col-12 > .v-card.v-card--density-default.v-card--variant-elevated > .v-card__underlay"
@@ -13318,7 +12244,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -13338,7 +12264,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__sizer"
             ]
           },
           {
@@ -13358,7 +12284,7 @@
             "impact": null,
             "html": "<div class=\"v-img__gradient\" style=\"background-image:linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.1));\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-img__gradient"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-img__gradient"
             ]
           },
           {
@@ -13378,7 +12304,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__content\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content"
             ]
           },
           {
@@ -13398,7 +12324,7 @@
             "impact": null,
             "html": "<div class=\"px-3 py-5\"><div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Eligibility</div><div class=\"v-card-text text-white mt-3\" style=\"\">Find out if you're eligible to apply for funding</div></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3"
             ]
           },
           {
@@ -13418,7 +12344,7 @@
             "impact": null,
             "html": "<div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Eligibility</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
             ]
           },
           {
@@ -13438,7 +12364,7 @@
             "impact": null,
             "html": "<div class=\"v-card-text text-white mt-3\" style=\"\">Find out if you're eligible to apply for funding</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
             ]
           },
           {
@@ -13558,7 +12484,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -13578,7 +12504,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__sizer"
             ]
           },
           {
@@ -13598,7 +12524,7 @@
             "impact": null,
             "html": "<div class=\"v-img__gradient\" style=\"background-image:linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.1));\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-img__gradient"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-img__gradient"
             ]
           },
           {
@@ -13618,7 +12544,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__content\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content"
             ]
           },
           {
@@ -13638,7 +12564,7 @@
             "impact": null,
             "html": "<div class=\"px-3 py-5\"><div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Frequently Asked Questions (FAQs)</div><div class=\"v-card-text text-white mt-3\" style=\"\">Frequently Asked Questions about the R3 funding process</div></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3"
             ]
           },
           {
@@ -13658,7 +12584,7 @@
             "impact": null,
             "html": "<div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Frequently Asked Questions (FAQs)</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
             ]
           },
           {
@@ -13678,7 +12604,7 @@
             "impact": null,
             "html": "<div class=\"v-card-text text-white mt-3\" style=\"\">Frequently Asked Questions about the R3 funding process</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
             ]
           },
           {
@@ -13798,7 +12724,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -13818,7 +12744,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__sizer"
             ]
           },
           {
@@ -13838,7 +12764,7 @@
             "impact": null,
             "html": "<div class=\"v-img__gradient\" style=\"background-image:linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.1));\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-img__gradient"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-img__gradient"
             ]
           },
           {
@@ -13858,7 +12784,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__content\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content"
             ]
           },
           {
@@ -13878,7 +12804,7 @@
             "impact": null,
             "html": "<div class=\"px-3 py-5\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3"
             ]
           },
           {
@@ -13898,7 +12824,7 @@
             "impact": null,
             "html": "<div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Collaboratives</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
             ]
           },
           {
@@ -13918,7 +12844,7 @@
             "impact": null,
             "html": "<div class=\"v-card-text text-white mt-3\" style=\"\">Groups of two or more organizations that apply for funding for a single program under one application</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
             ]
           },
           {
@@ -14038,7 +12964,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -14058,7 +12984,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__sizer"
             ]
           },
           {
@@ -14078,7 +13004,7 @@
             "impact": null,
             "html": "<div class=\"v-img__gradient\" style=\"background-image:linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.1));\"></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-img__gradient"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-img__gradient"
             ]
           },
           {
@@ -14098,7 +13024,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__content\"><!--[--><div class=\"px-3 py-5\"><div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Resources</div><div class=\"v-card-text text-white mt-3\" style=\"\">R3 resources and analysis</div></div><!--]--></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content"
             ]
           },
           {
@@ -14118,7 +13044,7 @@
             "impact": null,
             "html": "<div class=\"px-3 py-5\"><div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Resources</div><div class=\"v-card-text text-white mt-3\" style=\"\">R3 resources and analysis</div></div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3"
             ]
           },
           {
@@ -14138,7 +13064,7 @@
             "impact": null,
             "html": "<div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Resources</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
             ]
           },
           {
@@ -14158,7 +13084,7 @@
             "impact": null,
             "html": "<div class=\"v-card-text text-white mt-3\" style=\"\">R3 resources and analysis</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
             ]
           },
           {
@@ -15115,27 +14041,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
-            "target": [
-              ".grey"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "aria-label",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "aria-label attribute exists and is not empty"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -15153,7 +14061,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Frequently Asked Questions (FAQs) - Frequently Asked Questions about the R3 funding process\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -15171,7 +14079,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Collaboratives - Groups of two or more organizations that apply for funding for a single program under one application\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           },
           {
@@ -15189,7 +14097,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Resources - R3 resources and analysis\" role=\"img\">",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
             ]
           }
         ]
@@ -15459,6 +14367,50 @@
     ],
     "incomplete": [
       {
+        "id": "aria-hidden-focus",
+        "impact": "serious",
+        "tags": [
+          "cat.name-role-value",
+          "wcag2a",
+          "wcag412",
+          "TTv5",
+          "TT6.a",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+        "help": "ARIA hidden element must not be focusable or contain focusable elements",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-hidden-focus?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "focusable-modal-open",
+                "data": null,
+                "relatedNodes": [
+                  {
+                    "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined mt-8 button-href hidden-md-and-up\" style=\"\">",
+                    "target": [
+                      ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Check that focusable elements are not tabbable in the current state"
+              }
+            ],
+            "none": [],
+            "impact": "serious",
+            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"presentation\" aria-hidden=\"true\">",
+            "target": [
+              ".grey"
+            ],
+            "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state"
+          }
+        ]
+      },
+      {
         "id": "color-contrast",
         "impact": "serious",
         "tags": [
@@ -15689,7 +14641,7 @@
             "impact": "serious",
             "html": "<div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Eligibility</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
             ],
             "failureSummary": "Fix any of the following:\n  Element has a 1:1 contrast ratio with the background"
           },
@@ -15723,7 +14675,7 @@
             "impact": "serious",
             "html": "<div class=\"v-card-text text-white mt-3\" style=\"\">Find out if you're eligible to apply for funding</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
+              ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
             ],
             "failureSummary": "Fix any of the following:\n  Element has a 1:1 contrast ratio with the background"
           },
@@ -15757,7 +14709,7 @@
             "impact": "serious",
             "html": "<div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Frequently Asked Questions (FAQs)</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
             ],
             "failureSummary": "Fix any of the following:\n  Element has a 1:1 contrast ratio with the background"
           },
@@ -15791,7 +14743,7 @@
             "impact": "serious",
             "html": "<div class=\"v-card-text text-white mt-3\" style=\"\">Frequently Asked Questions about the R3 funding process</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
+              ".v-col-md-6.v-col-12:nth-child(2) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
             ],
             "failureSummary": "Fix any of the following:\n  Element has a 1:1 contrast ratio with the background"
           },
@@ -15825,7 +14777,7 @@
             "impact": "serious",
             "html": "<div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Collaboratives</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
             ],
             "failureSummary": "Fix any of the following:\n  Element has a 1:1 contrast ratio with the background"
           },
@@ -15859,7 +14811,7 @@
             "impact": "serious",
             "html": "<div class=\"v-card-text text-white mt-3\" style=\"\">Groups of two or more organizations that apply for funding for a single program under one application</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
+              ".v-col-md-6.v-col-12:nth-child(3) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
             ],
             "failureSummary": "Fix any of the following:\n  Element has a 1:1 contrast ratio with the background"
           },
@@ -15893,7 +14845,7 @@
             "impact": "serious",
             "html": "<div class=\"v-card-title text-white\" style=\"border-bottom:1px solid #ddd;font-weight:700;font-size:26px;\">Resources</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-title.text-white"
             ],
             "failureSummary": "Fix any of the following:\n  Element has a 1:1 contrast ratio with the background"
           },
@@ -15927,186 +14879,13 @@
             "impact": "serious",
             "html": "<div class=\"v-card-text text-white mt-3\" style=\"\">R3 resources and analysis</div>",
             "target": [
-              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img.v-img--booting > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
+              ".v-col-md-6.v-col-12:nth-child(4) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"] > .v-responsive__content > .py-5.px-3 > .v-card-text.mt-3.text-white"
             ],
             "failureSummary": "Fix any of the following:\n  Element has a 1:1 contrast ratio with the background"
           }
         ]
-      },
-      {
-        "id": "heading-order",
-        "impact": "moderate",
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
-        "description": "Ensure the order of headings is semantically correct",
-        "help": "Heading levels should only increase by one",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [
-              {
-                "id": "heading-order",
-                "data": {
-                  "headingOrder": [
-                    {
-                      "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(1) > div > div > div > div:nth-child(2) > div:nth-child(5) > div > h2:nth-child(1)"
-                      ],
-                      "level": 2
-                    },
-                    {
-                      "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(2) > div > div > div > h1:nth-child(1)"
-                      ],
-                      "level": 1
-                    },
-                    {
-                      "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(3) > div:nth-child(1) > div > div > div > h2:nth-child(1)"
-                      ],
-                      "level": 2
-                    },
-                    {
-                      "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(1) > h2:nth-child(1)"
-                      ],
-                      "level": 2
-                    },
-                    {
-                      "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > h2:nth-child(1)"
-                      ],
-                      "level": 2
-                    },
-                    {
-                      "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > h3:nth-child(3)"
-                      ],
-                      "level": 3
-                    },
-                    {
-                      "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(3) > h3:nth-child(3)"
-                      ],
-                      "level": 3
-                    }
-                  ]
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "Unable to determine previous heading"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "moderate",
-            "html": "<h2 class=\"nofo-title mt-3\" style=\"color:#fff !important;font-size:2.5rem !important;text-align:center !important;\">2025 SERVICE DELIVERY GRANT OPPORTUNITY AVAILABLE</h2>",
-            "target": [
-              ".nofo-title"
-            ],
-            "failureSummary": "Fix any of the following:\n  Unable to determine previous heading"
-          }
-        ]
       }
     ],
-    "violations": [
-      {
-        "id": "aria-progressbar-name",
-        "impact": "serious",
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag111",
-          "EN-301-549",
-          "EN-9.1.1.1"
-        ],
-        "description": "Ensure every ARIA progressbar node has an accessible name",
-        "help": "ARIA progressbar nodes must have an accessible name",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-progressbar-name?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [
-              {
-                "id": "aria-label",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "aria-label attribute does not exist or is empty"
-              },
-              {
-                "id": "aria-labelledby",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
-              },
-              {
-                "id": "non-empty-title",
-                "data": {
-                  "messageKey": "noAttr"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element has no title attribute"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "serious",
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-circular"
-            ],
-            "failureSummary": "Fix any of the following:\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
-          }
-        ]
-      },
-      {
-        "id": "nested-interactive",
-        "impact": "serious",
-        "tags": [
-          "cat.keyboard",
-          "wcag2a",
-          "wcag412",
-          "TTv5",
-          "TT6.a",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
-        "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
-        "help": "Interactive controls must not be nested",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/nested-interactive?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [
-                  {
-                    "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined mt-8 button-href hidden-md-and-up\" style=\"\">",
-                    "target": [
-                      ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4)"
-                    ]
-                  }
-                ],
-                "impact": "serious",
-                "message": "Element has focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "serious",
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"img\">",
-            "target": [
-              ".grey"
-            ],
-            "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
-          }
-        ]
-      }
-    ]
+    "violations": []
   }
 ]

@@ -35,6 +35,7 @@
     "preview": "nuxt preview",
     "scripts": "yarn create:contentDirectory && yarn create:manualPages && yarn create:news && yarn create:faqs && yarn create:pages && yarn create:resources && yarn create:hub && yarn create:hubImages && yarn create:routes && yarn create:searchIndex && yarn create:sitemap && yarn docs:all",
     "a11y:audit": "node creators/runAxeAudit.js",
+    "a11y:audit:local": "node creators/runAxeAuditLocal.js",
     "a11y:aggregate": "node creators/aggregateAxeResults.js",
     "postinstall": "nuxt prepare",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore . --fix",

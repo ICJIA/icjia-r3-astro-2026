@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-08T12:41:12.925Z",
+    "timestamp": "2025-09-08T12:49:52.107Z",
     "url": "https://r3.illinois.gov/resources/",
     "toolOptions": {
       "reporter": "v1"
@@ -10271,6 +10271,56 @@
               {
                 "id": "color-contrast",
                 "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#0e4474",
+                  "contrastRatio": 10.01,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 10.01"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/\" class=\"breadcrumb-link\" style=\"color:white;\" data-v-010879f5=\"\">R3 HOME</a>",
+            "target": [
+              ".breadcrumb-link[href=\"/\"][data-v-010879f5=\"\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#0e4474",
+                  "contrastRatio": 10.01,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 10.01"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a data-v-010879f5=\"\" aria-current=\"page\" href=\"/resources\" class=\"router-link-active router-link-exact-active breadcrumb-link\" style=\"color: white;\">Resources</a>",
+            "target": [
+              "span[data-v-010879f5=\"\"]:nth-child(2) > .router-link-active.router-link-exact-active[aria-current=\"page\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
                   "fgColor": "#212121",
                   "bgColor": "#ffffff",
                   "contrastRatio": 16.1,
@@ -18921,56 +18971,6 @@
             "html": "<div data-v-44044767=\"\" style=\"font-size: 10px; font-weight: 900;\">SEARCH</div>",
             "target": [
               ".hamburger[role=\"button\"][aria-label=\"Search\"] > div[data-v-44044767=\"\"]"
-            ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "contrastRatio": 0,
-                  "fontSize": "9.0pt (12px)",
-                  "fontWeight": "bold",
-                  "messageKey": "bgOverlap",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element's background color could not be determined because it is overlapped by another element"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "serious",
-            "html": "<a href=\"/\" class=\"breadcrumb-link\" style=\"color:white;\" data-v-010879f5=\"\">R3 HOME</a>",
-            "target": [
-              ".breadcrumb-link[href=\"/\"][data-v-010879f5=\"\"]"
-            ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "contrastRatio": 0,
-                  "fontSize": "9.0pt (12px)",
-                  "fontWeight": "bold",
-                  "messageKey": "bgOverlap",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element's background color could not be determined because it is overlapped by another element"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "serious",
-            "html": "<a data-v-010879f5=\"\" aria-current=\"page\" href=\"/resources\" class=\"router-link-active router-link-exact-active breadcrumb-link\" style=\"color: white;\">Resources</a>",
-            "target": [
-              "span[data-v-010879f5=\"\"]:nth-child(2) > .router-link-active.router-link-exact-active[aria-current=\"page\"]"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
           },
