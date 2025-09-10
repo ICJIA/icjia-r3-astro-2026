@@ -14,7 +14,7 @@ The official website for Illinois' R3 Violence Prevention Plan, built with Nuxt 
 ### Prerequisites
 
 - Node.js 20.19.0+ (use `nvm` or `mise` for version management)
-- Yarn package manager
+- Yarn 1.22.22+ package manager
 - Git
 
 ### Rapid Setup
@@ -42,6 +42,7 @@ yarn dev           # Development server (http://localhost:8000)
 yarn generate      # Static site generation
 yarn docs:all      # Generate all documentation
 yarn clear:cache   # Clear Nuxt cache
+yarn a11y:audit:local  # Run accessibility audit locally
 ```
 
 ## Architecture Overview
@@ -112,7 +113,7 @@ yarn docs:all      # Generate documentation only
 NUXT_PUBLIC_API_URL=https://r3.icjia-api.cloud
 NUXT_PUBLIC_RESEARCH_HUB_URL=https://researchhub.icjia-api.cloud
 
-# Optional: Analytics and tracking
+# Analytics Configuration
 NUXT_PUBLIC_PLAUSIBLE_DOMAIN=your-domain
 ```
 
@@ -163,6 +164,9 @@ yarn generate
 
 # Preview production build
 yarn generate:serve  # Serves on port 3000
+
+# Run accessibility audit
+yarn a11y:audit:local  # Local accessibility testing
 ```
 
 ### Deployment
@@ -190,7 +194,7 @@ icjia-r3-v5-nuxt/
 
 ## Technology Stack
 
-- **Nuxt 3** (v3.13.2) - Vue.js meta-framework
+- **Nuxt 3** (v3.17.6) - Vue.js meta-framework
 - **Vue 3** - Progressive JavaScript framework
 - **Vuetify 3** (v3.7.2) - Material Design components
 - **Strapi CMS** - Headless content management
@@ -208,6 +212,8 @@ icjia-r3-v5-nuxt/
 
 **Cache issues**: Run `yarn clear:cache` then `yarn dev`
 
+**Accessibility issues**: Run `yarn a11y:audit:local` to check for WCAG compliance violations
+
 ### Getting Help
 
 1. **Documentation**: Check `/documentation/` for comprehensive guides
@@ -221,8 +227,9 @@ icjia-r3-v5-nuxt/
 2. Create a feature branch: `git checkout -b feature/description`
 3. Make changes and test locally
 4. Run `yarn scripts` to ensure content generation works
-5. Commit changes and push to your fork
-6. Create a pull request
+5. Run `yarn a11y:audit:local` to verify accessibility compliance
+6. Commit changes and push to your fork
+7. Create a pull request
 
 ## License
 

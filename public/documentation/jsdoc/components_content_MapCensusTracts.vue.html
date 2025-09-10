@@ -20,36 +20,42 @@
     &lt;/p>
     &lt;a class="skip-map-link" href="#after-map">Skip the interactive map&lt;/a>
 
-    &lt;section
-      role="region"
-      aria-labelledby="map-heading"
-      aria-describedby="map-desc"
+    &lt;div
+      class="map-scroll"
+      tabindex="0"
+      aria-label="Map container, scroll to view full map"
     >
-      &lt;iframe
-        style="width: 100%; height: 740px; border: none"
-        loading="lazy"
-        title="R3 Eligibility Map – Interactive"
-        src="https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79"
-      >&lt;/iframe>
-      &lt;p class="map-help mt-2">
-        Tip: You can pan the map with arrow keys and zoom with plus/minus keys.
-        If this map is difficult to use, open it in a new window:
-        &lt;a
-          href="https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79"
-          target="_blank"
-          rel="noopener"
-          >Open full‑screen map&lt;/a
-        >.
-      &lt;/p>
-      &lt;div style="font-size: 11px" class="text-left mt-1 hidden-sm-and-down">
-        Source:&amp;nbsp;
-        &lt;a
-          href="https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79"
-        >
-          https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79
-        &lt;/a>
-      &lt;/div>
-    &lt;/section>
+      &lt;section
+        role="region"
+        aria-labelledby="map-heading"
+        aria-describedby="map-desc"
+      >
+        &lt;iframe
+          style="width: 100%; height: 740px; border: none"
+          loading="lazy"
+          title="R3 Eligibility Map – Interactive"
+          src="https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79"
+        >&lt;/iframe>
+        &lt;p class="map-help mt-2">
+          Tip: You can pan the map with arrow keys and zoom with plus/minus
+          keys. If this map is difficult to use, open it in a new window:
+          &lt;a
+            href="https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79"
+            target="_blank"
+            rel="noopener"
+            >Open full‑screen map&lt;/a
+          >.
+        &lt;/p>
+        &lt;div style="font-size: 11px" class="text-left mt-1 hidden-sm-and-down">
+          Source:&amp;nbsp;
+          &lt;a
+            href="https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79"
+          >
+            https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79
+          &lt;/a>
+        &lt;/div>
+      &lt;/section>
+    &lt;/div>
 
     &lt;div id="after-map" tabindex="-1">&lt;/div>
 
