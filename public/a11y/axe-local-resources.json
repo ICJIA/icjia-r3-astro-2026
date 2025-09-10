@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-10T14:58:13.660Z",
+    "timestamp": "2025-09-10T15:44:28.093Z",
     "url": "http://localhost:8000/resources",
     "toolOptions": {
       "reporter": "v1"
@@ -7852,7 +7852,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive__sizer\" style=\"padding-bottom: 66.8%;\"></div>",
+            "html": "<div class=\"v-responsive__sizer\" style=\"padding-bottom: 66.6667%;\"></div>",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-responsive__sizer"
             ]
@@ -7884,73 +7884,9 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-active fade-transition-leave-to\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
+            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".fade-transition-leave-active.fade-transition-leave-to.v-img__img--preload"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light text-purple\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-label=\"Contact Us: Loading\" style=\"width: 70px; height: 70px;\">",
-            "target": [
-              ".v-progress-circular"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 44.44444444444444 44.44444444444444\" style=\"transform: rotate(calc(-90deg));\">",
-            "target": [
-              "svg"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-img__img--preload"
             ]
           },
           {
@@ -10278,31 +10214,6 @@
               {
                 "id": "color-contrast",
                 "data": {
-                  "fgColor": "#0366d6",
-                  "bgColor": "#f2f2f2",
-                  "contrastRatio": 4.84,
-                  "fontSize": "10.5pt (14px)",
-                  "fontWeight": "bold",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 4.84"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<a href=\"/resources/single-page\" class=\"\">Show all R3 resources on a single page (mobile-friendly)&nbsp;»</a>",
-            "target": [
-              "a[href$=\"single-page\"]"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
                   "fgColor": "#ffffff",
                   "bgColor": "#0e4474",
                   "contrastRatio": 10.01,
@@ -10750,35 +10661,9 @@
               }
             ],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--cover fade-transition-enter-active fade-transition-enter-to\" src=\"https://r3.icjia-api.cloud/uploads/small_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\" style=\"\">",
+            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".fade-transition-enter-active"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "has-alt",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has an alt attribute"
-              }
-            ],
-            "all": [],
-            "none": [
-              {
-                "id": "alt-space-value",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a valid alt attribute value"
-              }
-            ],
-            "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-active fade-transition-leave-to\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
-            "target": [
-              ".fade-transition-leave-active.fade-transition-leave-to.v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-img__img--preload"
             ]
           },
           {
@@ -10937,27 +10822,9 @@
               }
             ],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--cover fade-transition-enter-active fade-transition-enter-to\" src=\"https://r3.icjia-api.cloud/uploads/small_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\" style=\"\">",
+            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".fade-transition-enter-active"
-            ]
-          },
-          {
-            "any": [],
-            "all": [],
-            "none": [
-              {
-                "id": "duplicate-img-label",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "minor",
-                "message": "Element does not duplicate existing text in <img> alt text"
-              }
-            ],
-            "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-active fade-transition-leave-to\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
-            "target": [
-              ".fade-transition-leave-active.fade-transition-leave-to.v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-img__img--preload"
             ]
           },
           {
@@ -12236,27 +12103,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--cover fade-transition-enter-active fade-transition-enter-to\" src=\"https://r3.icjia-api.cloud/uploads/small_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\" style=\"\">",
+            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".fade-transition-enter-active"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-active fade-transition-leave-to\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
-            "target": [
-              ".fade-transition-leave-active.fade-transition-leave-to.v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-img__img--preload"
             ]
           },
           {
@@ -15633,7 +15482,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive__sizer\" style=\"padding-bottom: 66.8%;\"></div>",
+            "html": "<div class=\"v-responsive__sizer\" style=\"padding-bottom: 66.6667%;\"></div>",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-responsive__sizer"
             ]
@@ -15653,9 +15502,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--cover fade-transition-enter-active fade-transition-enter-to\" src=\"https://r3.icjia-api.cloud/uploads/small_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\" style=\"\">",
+            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".fade-transition-enter-active"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-img__img--preload"
             ]
           },
           {
@@ -15673,29 +15522,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-active fade-transition-leave-to\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
+            "html": "<div class=\"v-img__placeholder fade-transition-enter-active fade-transition-enter-to\">",
             "target": [
-              ".fade-transition-leave-active.fade-transition-leave-to.v-img__img--preload"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"v-img__placeholder fade-transition-leave-active fade-transition-leave-to\">",
-            "target": [
-              ":root"
+              ".v-img__placeholder"
             ]
           },
           {
@@ -17675,7 +17504,7 @@
             "impact": null,
             "html": "<div data-v-8ab7e4d4=\"\" class=\"v-row align-center justify-center\">",
             "target": [
-              ".align-center.v-row.justify-center"
+              ".mt-0 > .align-center.v-row.justify-center"
             ]
           },
           {
@@ -18924,6 +18753,31 @@
             "html": "<span class=\"v-btn__content\" data-no-activator=\"\"><!--[--><!--[-->Find out more&nbsp;»<!--]--><!--]--></span>",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-card-actions.justify-center > .v-btn--slim.text-blue.darken-4 > .v-btn__content[data-no-activator=\"\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "bold",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a href=\"/resources/single-page\" class=\"\">Show all R3 resources on a single page (mobile-friendly)&nbsp;»</a>",
+            "target": [
+              "a[href$=\"single-page\"]"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
           }

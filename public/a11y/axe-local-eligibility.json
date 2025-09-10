@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-10T14:57:02.587Z",
+    "timestamp": "2025-09-10T15:43:11.904Z",
     "url": "http://localhost:8000/eligibility",
     "toolOptions": {
       "reporter": "v1"
@@ -878,6 +878,84 @@
             "html": "<a data-v-c8aa5ae8=\"\" class=\"v-list-item v-list-item--link v-theme--light v-list-item--density-compact v-list-item--one-line rounded-0 v-list-item--variant-text\" tabindex=\"-2\" href=\"/resources\" aria-label=\"Resources\" role=\"menuitem\" style=\"margin-top: 0px; font-weight: 400; color: rgb(85, 85, 85);\">",
             "target": [
               "a[aria-label=\"Resources\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-allowed-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attributes are used correctly for the defined role"
+              }
+            ],
+            "none": [
+              {
+                "id": "aria-unsupported-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute is supported"
+              }
+            ],
+            "impact": null,
+            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility page content container\">",
+            "target": [
+              "div:nth-child(2) > .v-container--fluid.v-container.v-locale--is-ltr"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-allowed-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attributes are used correctly for the defined role"
+              }
+            ],
+            "none": [
+              {
+                "id": "aria-unsupported-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute is supported"
+              }
+            ],
+            "impact": null,
+            "html": "<div class=\"v-col-md-12 v-col-12\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility main column\">",
+            "target": [
+              "div[aria-label=\"Eligibility main column\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-allowed-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attributes are used correctly for the defined role"
+              }
+            ],
+            "none": [
+              {
+                "id": "aria-unsupported-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute is supported"
+              }
+            ],
+            "impact": null,
+            "html": "<div class=\"map-scroll\" tabindex=\"0\" aria-label=\"Map container, scroll to view full map\">",
+            "target": [
+              ".map-scroll"
             ]
           },
           {
@@ -2826,6 +2904,60 @@
             "html": "<a data-v-c8aa5ae8=\"\" class=\"v-list-item v-list-item--link v-theme--light v-list-item--density-compact v-list-item--one-line rounded-0 v-list-item--variant-text\" tabindex=\"-2\" href=\"/resources\" aria-label=\"Resources\" role=\"menuitem\" style=\"margin-top: 0px; font-weight: 400; color: rgb(85, 85, 85);\">",
             "target": [
               "a[aria-label=\"Resources\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-conditional-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility page content container\">",
+            "target": [
+              "div:nth-child(2) > .v-container--fluid.v-container.v-locale--is-ltr"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-conditional-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"v-col-md-12 v-col-12\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility main column\">",
+            "target": [
+              "div[aria-label=\"Eligibility main column\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-conditional-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"map-scroll\" tabindex=\"0\" aria-label=\"Map container, scroll to view full map\">",
+            "target": [
+              ".map-scroll"
             ]
           },
           {
@@ -7699,6 +7831,102 @@
             ],
             "none": [],
             "impact": null,
+            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility page content container\">",
+            "target": [
+              "div:nth-child(2) > .v-container--fluid.v-container.v-locale--is-ltr"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute values are valid"
+              },
+              {
+                "id": "aria-errormessage",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
+              },
+              {
+                "id": "aria-level",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-level values are valid"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"v-col-md-12 v-col-12\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility main column\">",
+            "target": [
+              "div[aria-label=\"Eligibility main column\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute values are valid"
+              },
+              {
+                "id": "aria-errormessage",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
+              },
+              {
+                "id": "aria-level",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-level values are valid"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"map-scroll\" tabindex=\"0\" aria-label=\"Map container, scroll to view full map\">",
+            "target": [
+              ".map-scroll"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute values are valid"
+              },
+              {
+                "id": "aria-errormessage",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
+              },
+              {
+                "id": "aria-level",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-level values are valid"
+              }
+            ],
+            "none": [],
+            "impact": null,
             "html": "<section role=\"region\" aria-labelledby=\"map-heading\" aria-describedby=\"map-desc\">",
             "target": [
               "section"
@@ -8413,6 +8641,60 @@
             "html": "<a data-v-c8aa5ae8=\"\" class=\"v-list-item v-list-item--link v-theme--light v-list-item--density-compact v-list-item--one-line rounded-0 v-list-item--variant-text\" tabindex=\"-2\" href=\"/resources\" aria-label=\"Resources\" role=\"menuitem\" style=\"margin-top: 0px; font-weight: 400; color: rgb(85, 85, 85);\">",
             "target": [
               "a[aria-label=\"Resources\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-valid-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute name is valid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility page content container\">",
+            "target": [
+              "div:nth-child(2) > .v-container--fluid.v-container.v-locale--is-ltr"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-valid-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute name is valid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"v-col-md-12 v-col-12\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility main column\">",
+            "target": [
+              "div[aria-label=\"Eligibility main column\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-valid-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute name is valid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"map-scroll\" tabindex=\"0\" aria-label=\"Map container, scroll to view full map\">",
+            "target": [
+              ".map-scroll"
             ]
           },
           {
@@ -9322,7 +9604,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr\" style=\"\">",
+            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility page content container\">",
             "target": [
               "div:nth-child(2) > .v-container--fluid.v-container.v-locale--is-ltr"
             ]
@@ -9386,9 +9668,9 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-col-md-12 v-col-12\" style=\"\">",
+            "html": "<div class=\"v-col-md-12 v-col-12\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility main column\">",
             "target": [
-              ".v-container--fluid.v-container.v-locale--is-ltr > .v-row > .v-col-md-12.v-col-12"
+              "div[aria-label=\"Eligibility main column\"]"
             ]
           },
           {
@@ -217553,7 +217835,7 @@
                     },
                     {
                       "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(9) > section:nth-child(5) > iframe:nth-child(1)"
+                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(9) > div:nth-child(5) > section > iframe:nth-child(1)"
                       ],
                       "level": -1
                     },
@@ -225401,7 +225683,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr\" style=\"\">",
+            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility page content container\">",
             "target": [
               "div:nth-child(2) > .v-container--fluid.v-container.v-locale--is-ltr"
             ]
@@ -225441,9 +225723,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-col-md-12 v-col-12\" style=\"\">",
+            "html": "<div class=\"v-col-md-12 v-col-12\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility main column\">",
             "target": [
-              ".v-container--fluid.v-container.v-locale--is-ltr > .v-row > .v-col-md-12.v-col-12"
+              "div[aria-label=\"Eligibility main column\"]"
             ]
           },
           {
@@ -225904,6 +226186,26 @@
             "html": "<a class=\"skip-map-link\" href=\"#after-map\">Skip the interactive map</a>",
             "target": [
               ".skip-map-link"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"map-scroll\" tabindex=\"0\" aria-label=\"Map container, scroll to view full map\">",
+            "target": [
+              ".map-scroll"
             ]
           },
           {
@@ -435472,6 +435774,60 @@
             "all": [],
             "none": [],
             "impact": null,
+            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility page content container\">",
+            "target": [
+              "div:nth-child(2) > .v-container--fluid.v-container.v-locale--is-ltr"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "tabindex",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have a tabindex greater than 0"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"v-col-md-12 v-col-12\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility main column\">",
+            "target": [
+              "div[aria-label=\"Eligibility main column\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "tabindex",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have a tabindex greater than 0"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"map-scroll\" tabindex=\"0\" aria-label=\"Map container, scroll to view full map\">",
+            "target": [
+              ".map-scroll"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "tabindex",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have a tabindex greater than 0"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
             "html": "<div class=\"trapLinkNode\" tabindex=\"0\"></div>",
             "target": [
               "iframe",
@@ -436571,6 +436927,84 @@
         "help": "Elements must only use permitted ARIA attributes",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=webdriverjs",
         "nodes": [
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": {
+                  "role": null,
+                  "nodeName": "div",
+                  "messageKey": "noRoleSingular",
+                  "prohibited": [
+                    "aria-label"
+                  ]
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute is not well supported on a div with no valid role attribute."
+              }
+            ],
+            "impact": "serious",
+            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility page content container\">",
+            "target": [
+              "div:nth-child(2) > .v-container--fluid.v-container.v-locale--is-ltr"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a div with no valid role attribute."
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": {
+                  "role": null,
+                  "nodeName": "div",
+                  "messageKey": "noRoleSingular",
+                  "prohibited": [
+                    "aria-label"
+                  ]
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute is not well supported on a div with no valid role attribute."
+              }
+            ],
+            "impact": "serious",
+            "html": "<div class=\"v-col-md-12 v-col-12\" style=\"\" tabindex=\"0\" aria-label=\"Eligibility main column\">",
+            "target": [
+              "div[aria-label=\"Eligibility main column\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a div with no valid role attribute."
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": {
+                  "role": null,
+                  "nodeName": "div",
+                  "messageKey": "noRoleSingular",
+                  "prohibited": [
+                    "aria-label"
+                  ]
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute is not well supported on a div with no valid role attribute."
+              }
+            ],
+            "impact": "serious",
+            "html": "<div class=\"map-scroll\" tabindex=\"0\" aria-label=\"Map container, scroll to view full map\">",
+            "target": [
+              ".map-scroll"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a div with no valid role attribute."
+          },
           {
             "any": [],
             "all": [],

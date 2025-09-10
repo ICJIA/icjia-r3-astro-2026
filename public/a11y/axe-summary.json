@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-09-10T14:58:18.590Z",
+  "timestamp": "2025-09-10T15:44:33.822Z",
   "summary": {
-    "totalPages": 33,
-    "totalViolations": 9,
-    "totalPasses": 1408,
-    "totalIncomplete": 27,
-    "totalInapplicable": 1525
+    "totalPages": 34,
+    "totalViolations": 10,
+    "totalPasses": 1469,
+    "totalIncomplete": 31,
+    "totalInapplicable": 1553
   },
   "pages": [
     {
@@ -55,9 +55,9 @@
       "url": "http://localhost:8000/faqs/03-08-24-2025-r3-nofo-applicant-questions",
       "filename": "axe-local-faqs-03-08-24-2025-r3-nofo-applicant-questions.json",
       "violations": 0,
-      "passes": 45,
+      "passes": 39,
       "incomplete": 1,
-      "inapplicable": 44,
+      "inapplicable": 49,
       "violationRules": []
     },
     {
@@ -127,9 +127,9 @@
       "url": "http://localhost:8000/faqs/2025-r3-frequently-asked-questions",
       "filename": "axe-local-faqs-2025-r3-frequently-asked-questions.json",
       "violations": 1,
-      "passes": 40,
-      "incomplete": 0,
-      "inapplicable": 49,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 44,
       "violationRules": [
         "link-name"
       ]
@@ -138,11 +138,11 @@
       "url": "http://localhost:8000/faqs",
       "filename": "axe-local-faqs.json",
       "violations": 1,
-      "passes": 34,
-      "incomplete": 0,
-      "inapplicable": 54,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 44,
       "violationRules": [
-        "page-has-heading-one"
+        "link-name"
       ]
     },
     {
@@ -169,9 +169,9 @@
       "url": "http://localhost:8000/meetings",
       "filename": "axe-local-meetings.json",
       "violations": 0,
-      "passes": 37,
-      "incomplete": 0,
-      "inapplicable": 52,
+      "passes": 43,
+      "incomplete": 1,
+      "inapplicable": 46,
       "violationRules": []
     },
     {
@@ -187,18 +187,18 @@
       "url": "http://localhost:8000/news/2022-06-23-r3-grants-list",
       "filename": "axe-local-news-2022-06-23-r3-grants-list.json",
       "violations": 0,
-      "passes": 43,
-      "incomplete": 1,
-      "inapplicable": 46,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
       "violationRules": []
     },
     {
       "url": "http://localhost:8000/news/2023-04-06-annual-report-2023",
       "filename": "axe-local-news-2023-04-06-annual-report-2023.json",
       "violations": 0,
-      "passes": 38,
-      "incomplete": 0,
-      "inapplicable": 51,
+      "passes": 43,
+      "incomplete": 1,
+      "inapplicable": 46,
       "violationRules": []
     },
     {
@@ -263,6 +263,17 @@
       "incomplete": 1,
       "inapplicable": 44,
       "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
+      "filename": "axe-local-resources-r3-nofo-instructions-and-appendices.json",
+      "violations": 1,
+      "passes": 45,
+      "incomplete": 1,
+      "inapplicable": 44,
+      "violationRules": [
+        "heading-order"
+      ]
     },
     {
       "url": "http://localhost:8000/resources/single-page",
@@ -505,10 +516,17 @@
         "EN-9.4.1.2",
         "ACT"
       ],
-      "occurrences": 1,
+      "occurrences": 2,
       "pages": [
         {
           "url": "http://localhost:8000/faqs/2025-r3-frequently-asked-questions",
+          "nodeCount": 1,
+          "targets": [
+            "p:nth-child(41) > a:nth-child(1)"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/faqs",
           "nodeCount": 1,
           "targets": [
             "p:nth-child(41) > a:nth-child(1)"
@@ -526,20 +544,34 @@
         "cat.semantics",
         "best-practice"
       ],
-      "occurrences": 2,
+      "occurrences": 1,
       "pages": [
-        {
-          "url": "http://localhost:8000/faqs",
-          "nodeCount": 1,
-          "targets": [
-            "html"
-          ]
-        },
         {
           "url": "http://localhost:8000/funding",
           "nodeCount": 1,
           "targets": [
             "html"
+          ]
+        }
+      ]
+    },
+    "heading-order": {
+      "id": "heading-order",
+      "description": "Ensure the order of headings is semantically correct",
+      "help": "Heading levels should only increase by one",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "occurrences": 1,
+      "pages": [
+        {
+          "url": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
+          "nodeCount": 1,
+          "targets": [
+            "#sfy2025-r3-nofo-instructions"
           ]
         }
       ]
@@ -1028,34 +1060,75 @@
       "pageFilename": "axe-local-faqs-2025-r3-frequently-asked-questions.json"
     },
     {
-      "id": "page-has-heading-one",
-      "impact": "moderate",
+      "id": "link-name",
+      "impact": "serious",
       "tags": [
-        "cat.semantics",
-        "best-practice"
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag244",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.2.4.4",
+        "EN-9.4.1.2",
+        "ACT"
       ],
-      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
-      "help": "Page should contain a level-one heading",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "description": "Ensure links have discernible text",
+      "help": "Links must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/link-name?application=webdriverjs",
       "nodes": [
         {
-          "any": [],
-          "all": [
+          "any": [
             {
-              "id": "page-has-heading-one",
+              "id": "has-visible-text",
               "data": null,
               "relatedNodes": [],
-              "impact": "moderate",
-              "message": "Page must have a level-one heading"
+              "impact": "serious",
+              "message": "Element does not have text that is visible to screen readers"
+            },
+            {
+              "id": "aria-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "id": "aria-labelledby",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+            },
+            {
+              "id": "non-empty-title",
+              "data": {
+                "messageKey": "noAttr"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has no title attribute"
             }
           ],
-          "none": [],
-          "impact": "moderate",
-          "html": "<html lang=\"en\">",
-          "target": [
-            "html"
+          "all": [],
+          "none": [
+            {
+              "id": "focusable-no-name",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element is in tab order and does not have accessible text"
+            }
           ],
-          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+          "impact": "serious",
+          "html": "<a href=\"https://dceo.illinois.gov/cannabisequity/disproportionateimpactedareamap.html\"></a>",
+          "target": [
+            "p:nth-child(41) > a:nth-child(1)"
+          ],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
         }
       ],
       "pageUrl": "http://localhost:8000/faqs",
@@ -1094,6 +1167,40 @@
       ],
       "pageUrl": "http://localhost:8000/funding",
       "pageFilename": "axe-local-funding.json"
+    },
+    {
+      "id": "heading-order",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the order of headings is semantically correct",
+      "help": "Heading levels should only increase by one",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "heading-order",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Heading order invalid"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<h3 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h3>",
+          "target": [
+            "#sfy2025-r3-nofo-instructions"
+          ],
+          "failureSummary": "Fix any of the following:\n  Heading order invalid"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
+      "pageFilename": "axe-local-resources-r3-nofo-instructions-and-appendices.json"
     }
   ]
 }

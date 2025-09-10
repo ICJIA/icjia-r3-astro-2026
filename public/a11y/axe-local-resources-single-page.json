@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-10T14:58:16.142Z",
+    "timestamp": "2025-09-10T15:44:30.695Z",
     "url": "http://localhost:8000/resources/single-page",
     "toolOptions": {
       "reporter": "v1"
@@ -5183,31 +5183,6 @@
         "help": "Elements must meet minimum color contrast ratio thresholds",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=webdriverjs",
         "nodes": [
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "fgColor": "#333333",
-                  "bgColor": "#ffffff",
-                  "contrastRatio": 12.63,
-                  "fontSize": "19.2pt (25.6px)",
-                  "fontWeight": "bold",
-                  "expectedContrastRatio": "3:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 12.63"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<h2>Prequalification Steps</h2>",
-            "target": [
-              "div:nth-child(2) > .my-5.px-8.py-4 > h2"
-            ]
-          },
           {
             "any": [
               {
@@ -16426,6 +16401,31 @@
             "html": "<h1 class=\"mx-auto text-left\" style=\"color:#000;\"> R3 Resources (Single Page) </h1>",
             "target": [
               "h1"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "19.2pt (25.6px)",
+                  "fontWeight": "bold",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h2>Prequalification Steps</h2>",
+            "target": [
+              "div:nth-child(2) > .my-5.px-8.py-4 > h2"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
           }
