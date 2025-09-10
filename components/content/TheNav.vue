@@ -59,7 +59,12 @@
             font-family: &quot;Roboto&quot;, sans-serif !important;
           "
           class="agency app-title"
+          tabindex="0"
+          role="button"
+          aria-label="Go to R3 home page"
           @click="$router.push('/')"
+          @keydown.enter="$router.push('/')"
+          @keydown.space="$router.push('/')"
           ><span>R3</span>&nbsp;&nbsp;RESTORE. REINVEST. RENEW.
         </span>
       </div>
@@ -73,7 +78,12 @@
             font-family: &quot;Roboto&quot;, sans-serif !important;
           "
           class="agency app-title"
+          tabindex="0"
+          role="button"
+          aria-label="Go to R3 home page"
           @click="$router.push('/')"
+          @keydown.enter="$router.push('/')"
+          @keydown.space="$router.push('/')"
           ><span>R3</span>&nbsp;&nbsp;RESTORE. REINVEST. RENEW.
         </span>
       </div>
