@@ -12,31 +12,35 @@
     &lt;/div>
 
     &lt;!-- &lt;ClientOnly fallback-tag="span" fallback="Loading R3 Map..."> -->
-    &lt;!-- &lt;div>
+
+    &lt;h2 id="map-heading" class="mt-4">Eligibility Map&lt;/h2>
+    &lt;p id="map-desc" class="sr-only">
+      Interactive map of R3‑eligible areas. Use arrow keys to pan and plus/minus
+      keys to zoom, or open the full‑screen map below.
+    &lt;/p>
+    &lt;a class="skip-map-link" href="#after-map">Skip the interactive map&lt;/a>
+
+    &lt;section
+      role="region"
+      aria-labelledby="map-heading"
+      aria-describedby="map-desc"
+    >
       &lt;iframe
         style="width: 100%; height: 740px; border: none"
-        title="R3 Eligible Service Areas"
-        src="https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068"
-      >&lt;/iframe>
-      &lt;div style="font-size: 11px" class="text-left mt-1 hidden-sm-and-down">
-        Source:&amp;nbsp;
-        &lt;a
-          href="https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068"
-        >
-          https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068
-        &lt;/a>
-      &lt;/div>
-    &lt;/div> -->
-    &lt;div>
-      &lt;iframe
-        style="width: 100%; height: 740px; border: none"
-        frameborder="0"
-        scrolling="no"
-        marginheight="0"
-        marginwidth="0"
-        title="R3 Areas Website Map"
+        loading="lazy"
+        title="R3 Eligibility Map – Interactive"
         src="https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79"
       >&lt;/iframe>
+      &lt;p class="map-help mt-2">
+        Tip: You can pan the map with arrow keys and zoom with plus/minus keys.
+        If this map is difficult to use, open it in a new window:
+        &lt;a
+          href="https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79"
+          target="_blank"
+          rel="noopener"
+          >Open full‑screen map&lt;/a
+        >.
+      &lt;/p>
       &lt;div style="font-size: 11px" class="text-left mt-1 hidden-sm-and-down">
         Source:&amp;nbsp;
         &lt;a
@@ -45,7 +49,9 @@
           https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79
         &lt;/a>
       &lt;/div>
-    &lt;/div>
+    &lt;/section>
+
+    &lt;div id="after-map" tabindex="-1">&lt;/div>
 
     &lt;!-- &lt;/ClientOnly> -->
   &lt;/div>
@@ -73,6 +79,19 @@ const { underConstruction } = useAppConfig();
 /* 4x3 Aspect Ratio */
 .iframe-container-4x3 {
   padding-top: 75%;
+}
+
+/* Accessibility helpers */
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+.skip-map-link:focus {
+  outline: 2px solid #000;
+}
+.map-help {
+  font-size: 0.9rem;
+  color: #333;
 }
 &lt;/style>
 </code></pre></article></section></div></div></div><div class="search-container" id="PkfLWpAbet" style="display:none"><div class="wrapper" id="iCxFxjkHbP"><button class="icon-button search-close-button" id="VjLlGakifb" aria-label="close search"><svg><use xlink:href="#close-icon"></use></svg></button><div class="search-box-c"><svg><use xlink:href="#search-icon"></use></svg> <input type="text" id="vpcKVYIppa" class="search-input" placeholder="Search..." autofocus></div><div class="search-result-c" id="fWwVHRuDuN"><span class="search-result-c-text">Type anything to view search result</span></div></div></div><div class="mobile-menu-icon-container"><button class="icon-button" id="mobile-menu" data-isopen="false" aria-label="menu"><svg><use xlink:href="#menu-icon"></use></svg></button></div><div id="mobile-sidebar" class="mobile-sidebar-container"><div class="mobile-sidebar-wrapper"><div class="mobile-nav-links"></div><div class="mobile-sidebar-items-c"><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-global"><div>Global</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="global.html#Props">Props</a></div><div class="sidebar-section-children"><a href="global.html#Props">Props</a></div><div class="sidebar-section-children"><a href="global.html#click">click</a></div><div class="sidebar-section-children"><a href="global.html#closeMenu">closeMenu</a></div><div class="sidebar-section-children"><a href="global.html#colors">colors</a></div><div class="sidebar-section-children"><a href="global.html#goToSearch">goToSearch</a></div><div class="sidebar-section-children"><a href="global.html#icons">icons</a></div><div class="sidebar-section-children"><a href="global.html#navigateToLink">navigateToLink</a></div><div class="sidebar-section-children"><a href="global.html#openTranslationModal">openTranslationModal</a></div><div class="sidebar-section-children"><a href="global.html#routeTo">routeTo</a></div><div class="sidebar-section-children"><a href="global.html#routeToSite">routeToSite</a></div><div class="sidebar-section-children"><a href="global.html#scrollTop">scrollTop</a></div><div class="sidebar-section-children"><a href="global.html#toggleNav">toggleNav</a></div><div class="sidebar-section-children"><a href="global.html#translate">translate</a></div><div class="sidebar-section-children"><a href="global.html#translationToggle">translationToggle</a></div></div></div><div class="mobile-navbar-actions"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#light-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div></div></div><script type="text/javascript" src="scripts/core.min.js"></script><script src="scripts/search.min.js" defer="defer"></script><script src="scripts/third-party/fuse.js" defer="defer"></script><script type="text/javascript">var tocbotInstance=tocbot.init({tocSelector:"#eed4d2a0bfd64539bb9df78095dec881",contentSelector:".main-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0,scrollContainer:".main-content",headingsOffset:130,onClick:bringLinkToView})</script></body></html>

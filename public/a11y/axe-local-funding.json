@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-09T15:46:13.676Z",
+    "timestamp": "2025-09-10T14:57:14.022Z",
     "url": "http://localhost:8000/funding",
     "toolOptions": {
       "reporter": "v1"
@@ -317,6 +317,18 @@
         "nodes": []
       },
       {
+        "id": "empty-heading",
+        "impact": null,
+        "tags": [
+          "cat.name-role-value",
+          "best-practice"
+        ],
+        "description": "Ensure headings have discernible text",
+        "help": "Headings should not be empty",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/empty-heading?application=webdriverjs",
+        "nodes": []
+      },
+      {
         "id": "empty-table-header",
         "impact": null,
         "tags": [
@@ -409,6 +421,18 @@
         "description": "Ensure <iframe> and <frame> elements have an accessible name",
         "help": "Frames must have an accessible name",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/frame-title?application=webdriverjs",
+        "nodes": []
+      },
+      {
+        "id": "heading-order",
+        "impact": null,
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure the order of headings is semantically correct",
+        "help": "Heading levels should only increase by one",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
         "nodes": []
       },
       {
@@ -2388,20 +2412,6 @@
                 "message": "Valid skip link found"
               },
               {
-                "id": "header-present",
-                "data": null,
-                "relatedNodes": [
-                  {
-                    "html": "<h1 id=\"funding-opportunity\"><!--[-->Funding Opportunity<!--]--></h1>",
-                    "target": [
-                      "#funding-opportunity"
-                    ]
-                  }
-                ],
-                "impact": "serious",
-                "message": "Page has a heading"
-              },
-              {
                 "id": "landmark",
                 "data": null,
                 "relatedNodes": [
@@ -2601,31 +2611,6 @@
                   "fgColor": "#24292e",
                   "bgColor": "#f2f2f2",
                   "contrastRatio": 13.1,
-                  "fontSize": "27.6pt (36.8px)",
-                  "fontWeight": "bold",
-                  "expectedContrastRatio": "3:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 13.1"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<h1 id=\"funding-opportunity\"><!--[-->Funding Opportunity<!--]--></h1>",
-            "target": [
-              "#funding-opportunity"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "fgColor": "#24292e",
-                  "bgColor": "#f2f2f2",
-                  "contrastRatio": 13.1,
                   "fontSize": "18.8pt (25px)",
                   "fontWeight": "bold",
                   "expectedContrastRatio": "3:1"
@@ -2678,77 +2663,6 @@
             "html": "<html lang=\"en\">",
             "target": [
               "html"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "empty-heading",
-        "impact": null,
-        "tags": [
-          "cat.name-role-value",
-          "best-practice"
-        ],
-        "description": "Ensure headings have discernible text",
-        "help": "Headings should not be empty",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/empty-heading?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [
-              {
-                "id": "has-visible-text",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "minor",
-                "message": "Element has text that is visible to screen readers"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<h1 id=\"funding-opportunity\"><!--[-->Funding Opportunity<!--]--></h1>",
-            "target": [
-              "#funding-opportunity"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "heading-order",
-        "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
-        "description": "Ensure the order of headings is semantically correct",
-        "help": "Heading levels should only increase by one",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [
-              {
-                "id": "heading-order",
-                "data": {
-                  "headingOrder": [
-                    {
-                      "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div:nth-child(2) > div > h1:nth-child(1)"
-                      ],
-                      "level": 1
-                    }
-                  ]
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "Heading order valid"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<h1 id=\"funding-opportunity\"><!--[-->Funding Opportunity<!--]--></h1>",
-            "target": [
-              "#funding-opportunity"
             ]
           }
         ]
@@ -3468,44 +3382,6 @@
         ]
       },
       {
-        "id": "page-has-heading-one",
-        "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
-        "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
-        "help": "Page should contain a level-one heading",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "page-has-heading-one",
-                "data": null,
-                "relatedNodes": [
-                  {
-                    "html": "<h1 id=\"funding-opportunity\"><!--[-->Funding Opportunity<!--]--></h1>",
-                    "target": [
-                      "#funding-opportunity"
-                    ]
-                  }
-                ],
-                "impact": "moderate",
-                "message": "Page has at least one level-one heading"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<html lang=\"en\">",
-            "target": [
-              "html"
-            ]
-          }
-        ]
-      },
-      {
         "id": "region",
         "impact": null,
         "tags": [
@@ -4191,26 +4067,6 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h1 id=\"funding-opportunity\"><!--[-->Funding Opportunity<!--]--></h1>",
-            "target": [
-              "#funding-opportunity"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
             "html": "<div>",
             "target": [
               "div[data-content-id=\"content:funding.md\"] > div"
@@ -4518,6 +4374,39 @@
       }
     ],
     "incomplete": [],
-    "violations": []
+    "violations": [
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+        "help": "Page should contain a level-one heading",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "page-has-heading-one",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "Page must have a level-one heading"
+              }
+            ],
+            "none": [],
+            "impact": "moderate",
+            "html": "<html lang=\"en\">",
+            "target": [
+              "html"
+            ],
+            "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+          }
+        ]
+      }
+    ]
   }
 ]

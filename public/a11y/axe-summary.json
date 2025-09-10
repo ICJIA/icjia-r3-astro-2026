@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-09-09T15:47:21.012Z",
+  "timestamp": "2025-09-10T14:58:18.590Z",
   "summary": {
-    "totalPages": 34,
-    "totalViolations": 6,
-    "totalPasses": 1477,
-    "totalIncomplete": 29,
-    "totalInapplicable": 1547
+    "totalPages": 33,
+    "totalViolations": 9,
+    "totalPasses": 1408,
+    "totalIncomplete": 27,
+    "totalInapplicable": 1525
   },
   "pages": [
     {
@@ -126,64 +126,70 @@
     {
       "url": "http://localhost:8000/faqs/2025-r3-frequently-asked-questions",
       "filename": "axe-local-faqs-2025-r3-frequently-asked-questions.json",
-      "violations": 0,
-      "passes": 45,
-      "incomplete": 1,
-      "inapplicable": 44,
-      "violationRules": []
+      "violations": 1,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
+      "violationRules": [
+        "link-name"
+      ]
     },
     {
       "url": "http://localhost:8000/faqs",
       "filename": "axe-local-faqs.json",
-      "violations": 0,
-      "passes": 45,
-      "incomplete": 1,
-      "inapplicable": 44,
-      "violationRules": []
+      "violations": 1,
+      "passes": 34,
+      "incomplete": 0,
+      "inapplicable": 54,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
     },
     {
       "url": "http://localhost:8000/funding",
       "filename": "axe-local-funding.json",
-      "violations": 0,
-      "passes": 38,
+      "violations": 1,
+      "passes": 35,
       "incomplete": 0,
-      "inapplicable": 51,
-      "violationRules": []
+      "inapplicable": 53,
+      "violationRules": [
+        "page-has-heading-one"
+      ]
     },
     {
       "url": "http://localhost:8000/",
       "filename": "axe-local-home.json",
       "violations": 0,
-      "passes": 48,
+      "passes": 41,
       "incomplete": 2,
-      "inapplicable": 41,
+      "inapplicable": 48,
       "violationRules": []
     },
     {
       "url": "http://localhost:8000/meetings",
       "filename": "axe-local-meetings.json",
       "violations": 0,
-      "passes": 43,
-      "incomplete": 1,
-      "inapplicable": 46,
+      "passes": 37,
+      "incomplete": 0,
+      "inapplicable": 52,
       "violationRules": []
     },
     {
       "url": "http://localhost:8000/news/2021-01-21-release",
       "filename": "axe-local-news-2021-01-21-release.json",
       "violations": 0,
-      "passes": 43,
-      "incomplete": 1,
-      "inapplicable": 46,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
       "violationRules": []
     },
     {
       "url": "http://localhost:8000/news/2022-06-23-r3-grants-list",
       "filename": "axe-local-news-2022-06-23-r3-grants-list.json",
       "violations": 0,
-      "passes": 38,
-      "incomplete": 0,
-      "inapplicable": 51,
+      "passes": 43,
+      "incomplete": 1,
+      "inapplicable": 46,
       "violationRules": []
     },
     {
@@ -199,18 +205,18 @@
       "url": "http://localhost:8000/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants",
       "filename": "axe-local-news-icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants.json",
       "violations": 0,
-      "passes": 47,
-      "incomplete": 1,
-      "inapplicable": 42,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
       "violationRules": []
     },
     {
       "url": "http://localhost:8000/news/r3-2021-annual-report",
       "filename": "axe-local-news-r3-2021-annual-report.json",
       "violations": 0,
-      "passes": 38,
-      "incomplete": 0,
-      "inapplicable": 51,
+      "passes": 43,
+      "incomplete": 1,
+      "inapplicable": 46,
       "violationRules": []
     },
     {
@@ -226,9 +232,9 @@
       "url": "http://localhost:8000/privacy",
       "filename": "axe-local-privacy.json",
       "violations": 0,
-      "passes": 38,
-      "incomplete": 0,
-      "inapplicable": 51,
+      "passes": 43,
+      "incomplete": 1,
+      "inapplicable": 46,
       "violationRules": []
     },
     {
@@ -256,15 +262,6 @@
       "passes": 45,
       "incomplete": 1,
       "inapplicable": 44,
-      "violationRules": []
-    },
-    {
-      "url": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
-      "filename": "axe-local-resources-r3-nofo-instructions-and-appendices.json",
-      "violations": 0,
-      "passes": 40,
-      "incomplete": 0,
-      "inapplicable": 49,
       "violationRules": []
     },
     {
@@ -484,6 +481,65 @@
             "#widgets_Scalebar_Widget_24",
             "iframe",
             "#skipContainer"
+          ]
+        }
+      ]
+    },
+    "link-name": {
+      "id": "link-name",
+      "description": "Ensure links have discernible text",
+      "help": "Links must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/link-name?application=webdriverjs",
+      "impact": "serious",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag244",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.2.4.4",
+        "EN-9.4.1.2",
+        "ACT"
+      ],
+      "occurrences": 1,
+      "pages": [
+        {
+          "url": "http://localhost:8000/faqs/2025-r3-frequently-asked-questions",
+          "nodeCount": 1,
+          "targets": [
+            "p:nth-child(41) > a:nth-child(1)"
+          ]
+        }
+      ]
+    },
+    "page-has-heading-one": {
+      "id": "page-has-heading-one",
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "occurrences": 2,
+      "pages": [
+        {
+          "url": "http://localhost:8000/faqs",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/funding",
+          "nodeCount": 1,
+          "targets": [
+            "html"
           ]
         }
       ]
@@ -895,6 +951,149 @@
       ],
       "pageUrl": "http://localhost:8000/eligibility",
       "pageFilename": "axe-local-eligibility.json"
+    },
+    {
+      "id": "link-name",
+      "impact": "serious",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag244",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.2.4.4",
+        "EN-9.4.1.2",
+        "ACT"
+      ],
+      "description": "Ensure links have discernible text",
+      "help": "Links must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/link-name?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element does not have text that is visible to screen readers"
+            },
+            {
+              "id": "aria-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "id": "aria-labelledby",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+            },
+            {
+              "id": "non-empty-title",
+              "data": {
+                "messageKey": "noAttr"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element has no title attribute"
+            }
+          ],
+          "all": [],
+          "none": [
+            {
+              "id": "focusable-no-name",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element is in tab order and does not have accessible text"
+            }
+          ],
+          "impact": "serious",
+          "html": "<a href=\"https://dceo.illinois.gov/cannabisequity/disproportionateimpactedareamap.html\"></a>",
+          "target": [
+            "p:nth-child(41) > a:nth-child(1)"
+          ],
+          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/2025-r3-frequently-asked-questions",
+      "pageFilename": "axe-local-faqs-2025-r3-frequently-asked-questions.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs",
+      "pageFilename": "axe-local-faqs.json"
+    },
+    {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-heading-one",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/funding",
+      "pageFilename": "axe-local-funding.json"
     }
   ]
 }

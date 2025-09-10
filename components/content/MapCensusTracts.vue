@@ -10,31 +10,35 @@
     </div>
 
     <!-- <ClientOnly fallback-tag="span" fallback="Loading R3 Map..."> -->
-    <!-- <div>
+
+    <h2 id="map-heading" class="mt-4">Eligibility Map</h2>
+    <p id="map-desc" class="sr-only">
+      Interactive map of R3‑eligible areas. Use arrow keys to pan and plus/minus
+      keys to zoom, or open the full‑screen map below.
+    </p>
+    <a class="skip-map-link" href="#after-map">Skip the interactive map</a>
+
+    <section
+      role="region"
+      aria-labelledby="map-heading"
+      aria-describedby="map-desc"
+    >
       <iframe
         style="width: 100%; height: 740px; border: none"
-        title="R3 Eligible Service Areas"
-        src="https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068"
-      ></iframe>
-      <div style="font-size: 11px" class="text-left mt-1 hidden-sm-and-down">
-        Source:&nbsp;
-        <a
-          href="https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068"
-        >
-          https://illinois.maps.arcgis.com/apps/webappviewer/index.html?id=137fa70c604e49ad976a6e3248d80068
-        </a>
-      </div>
-    </div> -->
-    <div>
-      <iframe
-        style="width: 100%; height: 740px; border: none"
-        frameborder="0"
-        scrolling="no"
-        marginheight="0"
-        marginwidth="0"
-        title="R3 Areas Website Map"
+        loading="lazy"
+        title="R3 Eligibility Map – Interactive"
         src="https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79"
       ></iframe>
+      <p class="map-help mt-2">
+        Tip: You can pan the map with arrow keys and zoom with plus/minus keys.
+        If this map is difficult to use, open it in a new window:
+        <a
+          href="https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79"
+          target="_blank"
+          rel="noopener"
+          >Open full‑screen map</a
+        >.
+      </p>
       <div style="font-size: 11px" class="text-left mt-1 hidden-sm-and-down">
         Source:&nbsp;
         <a
@@ -43,7 +47,9 @@
           https://arcgis.com/apps/webappviewer/index.html?id=c01e33ed59c441f79b6e054c3b77cf79
         </a>
       </div>
-    </div>
+    </section>
+
+    <div id="after-map" tabindex="-1"></div>
 
     <!-- </ClientOnly> -->
   </div>
@@ -71,5 +77,18 @@ const { underConstruction } = useAppConfig();
 /* 4x3 Aspect Ratio */
 .iframe-container-4x3 {
   padding-top: 75%;
+}
+
+/* Accessibility helpers */
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+.skip-map-link:focus {
+  outline: 2px solid #000;
+}
+.map-help {
+  font-size: 0.9rem;
+  color: #333;
 }
 </style>

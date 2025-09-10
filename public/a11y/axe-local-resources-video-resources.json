@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-09T15:46:58.479Z",
+    "timestamp": "2025-09-10T14:57:58.996Z",
     "url": "http://localhost:8000/resources/video-resources",
     "toolOptions": {
       "reporter": "v1"
@@ -8343,7 +8343,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"nuxt-loading-indicator\" style=\"position: fixed; top: 0px; right: 0px; left: 0px; pointer-events: none; width: auto; height: 3px; opacity: 0; background: blue; transform: scaleX(0); transform-origin: left center; transition: transform 0.1s, height 0.4s, opacity 0.4s; z-index: 999999;\">",
+            "html": "<div class=\"nuxt-loading-indicator\" style=\"position: fixed; top: 0px; right: 0px; left: 0px; pointer-events: none; width: auto; height: 3px; opacity: 0; background:  0% 0% / 100% blue; transform: scaleX(1); transform-origin: left center; transition: transform 0.1s, height 0.4s, opacity 0.4s; z-index: 999999;\">",
             "target": [
               ".nuxt-loading-indicator"
             ]

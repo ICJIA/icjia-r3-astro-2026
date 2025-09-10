@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-09T15:47:10.201Z",
+    "timestamp": "2025-09-10T14:58:09.135Z",
     "url": "http://localhost:8000/search",
     "toolOptions": {
       "reporter": "v1"
@@ -5445,26 +5445,6 @@
               {
                 "id": "color-contrast",
                 "data": {
-                  "messageKey": "hidden"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element is hidden"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<input value=\"\" placeholder=\"Enter search term\" size=\"1\" type=\"text\" id=\"textfield\" aria-describedby=\"textfield-messages\" autocomplete=\"off\" class=\"v-field__input\">",
-            "target": [
-              "#textfield"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
                   "fgColor": "#ffffff",
                   "bgColor": "#0e4474",
                   "contrastRatio": 10.01,
@@ -10066,6 +10046,31 @@
             "html": "<div class=\"text-right\" data-v-254a34d2=\"\">Found: 0</div>",
             "target": [
               ".text-right"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "bold",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<input value=\"\" placeholder=\"Enter search term\" size=\"1\" type=\"text\" id=\"textfield\" aria-describedby=\"textfield-messages\" autocomplete=\"off\" class=\"v-field__input\">",
+            "target": [
+              "#textfield"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
           },

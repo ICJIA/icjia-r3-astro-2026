@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-09T15:47:12.927Z",
+    "timestamp": "2025-09-10T14:58:11.463Z",
     "url": "http://localhost:8000/translate",
     "toolOptions": {
       "reporter": "v1"
@@ -6035,81 +6035,6 @@
             "html": "<span style=\"color:#fff;\" data-v-5de21cf4=\"\">Translate</span>",
             "target": [
               "span[data-v-5de21cf4=\"\"] > span[data-v-5de21cf4=\"\"]:nth-child(2)"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "fgColor": "#24292e",
-                  "bgColor": "#f2f2f2",
-                  "contrastRatio": 13.1,
-                  "fontSize": "12.0pt (16px)",
-                  "fontWeight": "bold",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 13.1"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"text-center mt-3\" style=\"font-weight:700;font-size:16px;\"> If you need additional language assistance services for this website, please email: <a href=\"mailto:LAPRequests@illinois.gov\">LAPRequests@illinois.gov</a></div>",
-            "target": [
-              ".mt-3.text-center"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "fgColor": "#0366d6",
-                  "bgColor": "#f2f2f2",
-                  "contrastRatio": 4.84,
-                  "fontSize": "12.0pt (16px)",
-                  "fontWeight": "bold",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 4.84"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<a href=\"mailto:LAPRequests@illinois.gov\">LAPRequests@illinois.gov</a>",
-            "target": [
-              ".mt-3.text-center > a"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "fgColor": "#ffffff",
-                  "bgColor": "#0e4474",
-                  "contrastRatio": 10.01,
-                  "fontSize": "9.0pt (12px)",
-                  "fontWeight": "normal",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 10.01"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div data-v-8ab7e4d4=\"\" style=\"font-size: 12px; font-weight: 400;\">",
-            "target": [
-              ".v-col-md-12 > div[data-v-8ab7e4d4=\"\"]"
             ]
           },
           {
@@ -12924,6 +12849,81 @@
               ".mt-3:nth-child(4) > div"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "bold",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<div class=\"text-center mt-3\" style=\"font-weight:700;font-size:16px;\"> If you need additional language assistance services for this website, please email: <a href=\"mailto:LAPRequests@illinois.gov\">LAPRequests@illinois.gov</a></div>",
+            "target": [
+              ".mt-3.text-center"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "bold",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a href=\"mailto:LAPRequests@illinois.gov\">LAPRequests@illinois.gov</a>",
+            "target": [
+              ".mt-3.text-center > a"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "elmPartiallyObscuring",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it partially overlaps other elements"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<div data-v-8ab7e4d4=\"\" style=\"font-size: 12px; font-weight: 400;\">",
+            "target": [
+              ".v-col-md-12 > div[data-v-8ab7e4d4=\"\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
           }
         ]
       }
