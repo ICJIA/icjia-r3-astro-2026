@@ -113,7 +113,6 @@ NUXT_PUBLIC_API_URL=https://r3.icjia-api.cloud
 NUXT_PUBLIC_RESEARCH_HUB_URL=https://researchhub.icjia-api.cloud
 
 # Optional: Analytics and tracking
-NUXT_PUBLIC_GOOGLE_ANALYTICS_ID=your-ga-id
 NUXT_PUBLIC_PLAUSIBLE_DOMAIN=your-domain
 ```
 

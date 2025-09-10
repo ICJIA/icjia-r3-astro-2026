@@ -29,38 +29,43 @@
                 aria-hidden="true"
                 height="650"
                 crossorigin
+                gradient="to bottom, rgba(0,0,0,.25), rgba(0,0,0,.25)"
               >
                 <div
                   class="d-flex flex-column justify-center align-center h-100 px-12"
                 >
-                  <h2
-                    class="nofo-title mt-3"
-                    style="
-                      color: #fff !important;
-                      font-size: 2.5rem !important;
-                      text-align: center !important;
-                    "
-                  >
-                    {{ item.title }}
-                  </h2>
-                  <div class="nofo-tagline">
-                    {{ item.tagline }}
-                  </div>
+                  <div class="nofo-band py-4 px-6 text-center">
+                    <h2
+                      class="nofo-title mt-1 mb-2"
+                      style="
+                        color: #fff !important;
+                        font-size: 2.5rem !important;
+                        text-align: center !important;
+                      "
+                    >
+                      {{ item.title }}
+                    </h2>
+                    <div class="nofo-tagline">
+                      {{ item.tagline }}
+                    </div>
 
-                  <v-btn
-                    variant="outlined"
-                    color="white"
-                    size="small"
-                    class="mt-8 button-href hidden-sm-and-down"
-                    >Expired 04/30/24&nbsp;&nbsp;</v-btn
-                  >
-                  <v-btn
-                    variant="outlined"
-                    color="white"
-                    size="small"
-                    class="mt-8 button-href hidden-md-and-up"
-                    >Expired 04/30/24&nbsp;&nbsp;</v-btn
-                  >
+                    <div class="mt-6">
+                      <v-btn
+                        variant="outlined"
+                        color="white"
+                        size="small"
+                        class="button-href hidden-sm-and-down"
+                        >Expired 04/30/24&nbsp;&nbsp;</v-btn
+                      >
+                      <v-btn
+                        variant="outlined"
+                        color="white"
+                        size="small"
+                        class="button-href hidden-md-and-up ml-3"
+                        >Expired 04/30/24&nbsp;&nbsp;</v-btn
+                      >
+                    </div>
+                  </div>
                 </div>
                 <template #placeholder>
                   <div class="d-flex align-center justify-center fill-height">
@@ -89,31 +94,36 @@
                 aria-hidden="true"
                 height="650"
                 crossorigin
+                gradient="to bottom, rgba(0,0,0,.25), rgba(0,0,0,.25)"
               >
                 <div
                   class="d-flex flex-column justify-center align-center h-100 px-12"
                 >
-                  <h2
-                    class="nofo-title mt-3"
-                    style="
-                      color: #fff !important;
-                      font-size: 2.5rem !important;
-                      text-align: center !important;
-                    "
-                  >
-                    2025 SERVICE DELIVERY GRANT OPPORTUNITIES
-                  </h2>
-                  <div class="nofo-tagline">
-                    {{ item.tagline }}
-                  </div>
+                  <div class="nofo-band py-4 px-6 text-center">
+                    <h2
+                      class="nofo-title mt-1 mb-2"
+                      style="
+                        color: #fff !important;
+                        font-size: 2.5rem !important;
+                        text-align: center !important;
+                      "
+                    >
+                      2025 SERVICE DELIVERY GRANT OPPORTUNITIES
+                    </h2>
+                    <div class="nofo-tagline">
+                      {{ item.tagline }}
+                    </div>
 
-                  <v-btn
-                    variant="outlined"
-                    color="white"
-                    size="small"
-                    class="mt-8 button-href hidden-sm-and-down"
-                    >Coming Soon!</v-btn
-                  >
+                    <div class="mt-6">
+                      <v-btn
+                        variant="outlined"
+                        color="white"
+                        size="small"
+                        class="button-href hidden-sm-and-down"
+                        >Coming Soon!</v-btn
+                      >
+                    </div>
+                  </div>
                 </div>
                 <template #placeholder>
                   <div class="d-flex align-center justify-center fill-height">
@@ -483,6 +493,24 @@ onMounted(() => {
 
 a.home-link {
   color: #333;
+}
+
+/* Semi-transparent band to ensure contrast for text and buttons */
+.nofo-band {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  backdrop-filter: saturate(110%) brightness(115%);
+}
+
+/* Tweak tagline readability */
+.nofo-tagline {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* Ensure outlined white button has strong visible border on band */
+.button-href.v-btn--variant-outlined {
+  border-color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .nofo-tagline {

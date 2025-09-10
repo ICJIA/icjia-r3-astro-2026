@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-08T13:02:50.863Z",
+    "timestamp": "2025-09-09T15:47:15.178Z",
     "url": "http://localhost:8000/resources",
     "toolOptions": {
       "reporter": "v1"
@@ -1084,7 +1084,7 @@
               }
             ],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -1138,7 +1138,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -1164,7 +1164,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -1190,7 +1190,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -1216,7 +1216,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -1242,7 +1242,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -1747,7 +1747,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -1803,7 +1803,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -1839,7 +1839,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -1875,7 +1875,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -1911,7 +1911,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -1947,7 +1947,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -2343,7 +2343,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -2381,7 +2381,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -2399,7 +2399,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -2417,7 +2417,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -2435,7 +2435,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -2453,7 +2453,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -2935,7 +2935,7 @@
               }
             ],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -2973,7 +2973,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -2991,7 +2991,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -3009,7 +3009,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -3027,7 +3027,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -3045,7 +3045,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           }
         ]
@@ -3911,7 +3911,7 @@
               }
             ],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -3949,7 +3949,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -3967,7 +3967,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -3985,7 +3985,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -4003,7 +4003,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -4021,7 +4021,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -4503,7 +4503,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -4541,7 +4541,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -4559,7 +4559,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -4577,7 +4577,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -4595,7 +4595,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -4613,7 +4613,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           }
         ]
@@ -5729,7 +5729,7 @@
               }
             ],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -5795,7 +5795,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -5827,7 +5827,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -5859,7 +5859,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -5891,7 +5891,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -5923,7 +5923,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           }
         ]
@@ -6385,7 +6385,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -6451,7 +6451,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -6483,7 +6483,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -6515,7 +6515,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -6547,7 +6547,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -6579,7 +6579,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -6877,7 +6877,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -6915,7 +6915,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -6933,7 +6933,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -6951,7 +6951,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -6969,7 +6969,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -6987,7 +6987,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -7025,38 +7025,6 @@
         "help": "Inline text spacing must be adjustable with custom stylesheets",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/avoid-inline-spacing?application=webdriverjs",
         "nodes": [
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
-            "target": [
-              "html"
-            ]
-          },
           {
             "any": [],
             "all": [
@@ -7852,7 +7820,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -8142,7 +8110,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -8174,7 +8142,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_cover_milles_studio_a_F7gvupe_N4_unsplash_26d890a968.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -8398,7 +8366,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -8430,7 +8398,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_christina_wocintechchat_com_OW_5_KP_Pj85_Q_unsplash_bda0f23033.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -8654,7 +8622,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -8686,7 +8654,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_cover_glenn_carstens_peters_npx_X_Wg_Q33_ZQ_unsplash_5026a638f9.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -8910,7 +8878,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -8942,7 +8910,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_photo_1557426272_fc759fdf7a8d_f11c5284a1.jpeg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -9166,7 +9134,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -9198,7 +9166,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_video_resources_c9a933fe27.png\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -9808,213 +9776,6 @@
             "target": [
               ".v-btn--elevated"
             ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<nuxt-devtools-inspect-panel style=\"z-index: 999999; position: fixed;\"></nuxt-devtools-inspect-panel>",
-            "target": [
-              "nuxt-devtools-inspect-panel"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<div id=\"nuxt-devtools-anchor\" class=\"\" style=\"left: 378px; top: 340px; pointer-events: auto; --nuxt-devtools-widget-bg: #111; --nuxt-devtools-widget-fg: #F5F5F5; --nuxt-devtools-widget-border: #3336; --nuxt-devtools-widget-shadow: rgba(0,0,0,0.3);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "#nuxt-devtools-anchor"
-              ]
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nuxt-devtools-panel\" style=\"transform: translate(-50%, -50%);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-panel"
-              ]
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-nuxt-button\" title=\"Toggle Nuxt DevTools\" style=\"filter: saturate(0);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-nuxt-button"
-              ]
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<svg viewBox=\"0 0 324 324\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" style=\"margin-top: -1px; height: 1.2em; width: 1.2em;\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "svg[viewBox=\"0 0 324 324\"]"
-              ]
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<div style=\"position: fixed; z-index: -1; pointer-events: none; width: min(80vw, -48px + 100vw); height: min(60vh, -48px + 100vh); left: -302.398px; transform: translate(0px, 0px); bottom: 0px;\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "#nuxt-devtools-anchor > div:nth-child(3)"
-              ]
-            ]
           }
         ]
       },
@@ -10162,111 +9923,6 @@
             "target": [
               ".v-btn--elevated"
             ]
-          },
-          {
-            "any": [
-              {
-                "id": "non-empty-title",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a title attribute"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Go to parent\" class=\"flex items-center text-sm font-mono op50 disabled:pointer-events-none hover:text-green6 hover:op100 disabled:op10!\" disabled=\"\"><div class=\"i-ph-arrow-bend-left-up-duotone text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".disabled\\:pointer-events-none"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "non-empty-title",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a title attribute"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Open in editor\" class=\"flex items-center text-sm font-mono op50 hover:text-green6 hover:op100\"><!--v-if--><div class=\"i-ph-arrow-up-right-light mt--2 text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                "button[title=\"Open in editor\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "non-empty-title",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a title attribute"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Close\" class=\"flex-none op50 hover:op100\"><div class=\"i-ph-x text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".flex-none"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "non-empty-title",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a title attribute"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-nuxt-button\" title=\"Toggle Nuxt DevTools\" style=\"filter: saturate(0);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-nuxt-button"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "non-empty-title",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a title attribute"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-panel-content\" title=\"Toggle Component Inspector\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "button[title=\"Toggle Component Inspector\"]"
-              ]
-            ]
           }
         ]
       },
@@ -10329,7 +9985,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -10558,31 +10214,6 @@
               {
                 "id": "color-contrast",
                 "data": {
-                  "fgColor": "#0366d6",
-                  "bgColor": "#f2f2f2",
-                  "contrastRatio": 4.84,
-                  "fontSize": "10.5pt (14px)",
-                  "fontWeight": "bold",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 4.84"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<a href=\"/resources/single-page\" class=\"\">Show all R3 resources on a single page (mobile-friendly)&nbsp;»</a>",
-            "target": [
-              "a[href$=\"single-page\"]"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
                   "fgColor": "#ffffff",
                   "bgColor": "#0e4474",
                   "contrastRatio": 10.01,
@@ -10785,7 +10416,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -10945,7 +10576,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -10982,7 +10613,7 @@
               }
             ],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -11058,7 +10689,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_cover_milles_studio_a_F7gvupe_N4_unsplash_26d890a968.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -11084,7 +10715,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_christina_wocintechchat_com_OW_5_KP_Pj85_Q_unsplash_bda0f23033.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -11110,7 +10741,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_cover_glenn_carstens_peters_npx_X_Wg_Q33_ZQ_unsplash_5026a638f9.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -11136,7 +10767,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_photo_1557426272_fc759fdf7a8d_f11c5284a1.jpeg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -11162,7 +10793,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_video_resources_c9a933fe27.png\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           }
         ]
@@ -11211,7 +10842,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_cover_milles_studio_a_F7gvupe_N4_unsplash_26d890a968.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -11229,7 +10860,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_christina_wocintechchat_com_OW_5_KP_Pj85_Q_unsplash_bda0f23033.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -11247,7 +10878,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_cover_glenn_carstens_peters_npx_X_Wg_Q33_ZQ_unsplash_5026a638f9.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -11265,7 +10896,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_photo_1557426272_fc759fdf7a8d_f11c5284a1.jpeg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -11283,7 +10914,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_video_resources_c9a933fe27.png\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           }
         ]
@@ -11511,7 +11142,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -12454,7 +12085,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -12528,7 +12159,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -12546,7 +12177,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_cover_milles_studio_a_F7gvupe_N4_unsplash_26d890a968.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -12582,7 +12213,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -12600,7 +12231,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_christina_wocintechchat_com_OW_5_KP_Pj85_Q_unsplash_bda0f23033.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -12636,7 +12267,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -12654,7 +12285,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_cover_glenn_carstens_peters_npx_X_Wg_Q33_ZQ_unsplash_5026a638f9.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -12690,7 +12321,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -12708,7 +12339,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_photo_1557426272_fc759fdf7a8d_f11c5284a1.jpeg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -12744,7 +12375,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -12762,7 +12393,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_video_resources_c9a933fe27.png\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -12800,111 +12431,6 @@
             "target": [
               ".v-btn--elevated"
             ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Go to parent\" class=\"flex items-center text-sm font-mono op50 disabled:pointer-events-none hover:text-green6 hover:op100 disabled:op10!\" disabled=\"\"><div class=\"i-ph-arrow-bend-left-up-duotone text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".disabled\\:pointer-events-none"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Open in editor\" class=\"flex items-center text-sm font-mono op50 hover:text-green6 hover:op100\"><!--v-if--><div class=\"i-ph-arrow-up-right-light mt--2 text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                "button[title=\"Open in editor\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Close\" class=\"flex-none op50 hover:op100\"><div class=\"i-ph-x text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".flex-none"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-nuxt-button\" title=\"Toggle Nuxt DevTools\" style=\"filter: saturate(0);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-nuxt-button"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-panel-content\" title=\"Toggle Component Inspector\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "button[title=\"Toggle Component Inspector\"]"
-              ]
-            ]
           }
         ]
       },
@@ -12939,7 +12465,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -13012,7 +12538,7 @@
       },
       {
         "id": "region",
-        "impact": "moderate",
+        "impact": null,
         "tags": [
           "cat.keyboard",
           "best-practice"
@@ -15936,7 +15462,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -15996,7 +15522,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-img__placeholder fade-transition-enter-active fade-transition-enter-to\">",
+            "html": "<div class=\"v-img__placeholder fade-transition-enter-from fade-transition-enter-active\">",
             "target": [
               ".v-img__placeholder"
             ]
@@ -16058,7 +15584,7 @@
             "impact": null,
             "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 44.44444444444444 44.44444444444444\" style=\"transform: rotate(calc(-90deg));\">",
             "target": [
-              ".v-progress-circular > svg"
+              "svg"
             ]
           },
           {
@@ -16358,7 +15884,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -16378,7 +15904,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-responsive__sizer"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
             ]
           },
           {
@@ -16398,7 +15924,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_cover_milles_studio_a_F7gvupe_N4_unsplash_26d890a968.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -16658,7 +16184,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -16678,7 +16204,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-responsive__sizer"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
             ]
           },
           {
@@ -16698,7 +16224,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_christina_wocintechchat_com_OW_5_KP_Pj85_Q_unsplash_bda0f23033.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -16958,7 +16484,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -16978,7 +16504,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-responsive__sizer"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
             ]
           },
           {
@@ -16998,7 +16524,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_cover_glenn_carstens_peters_npx_X_Wg_Q33_ZQ_unsplash_5026a638f9.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -17258,7 +16784,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -17278,7 +16804,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-responsive__sizer"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
             ]
           },
           {
@@ -17298,7 +16824,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_photo_1557426272_fc759fdf7a8d_f11c5284a1.jpeg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -17558,7 +17084,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -17578,7 +17104,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive__sizer\" style=\"\"></div>",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-responsive__sizer"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-responsive__sizer"
             ]
           },
           {
@@ -17598,7 +17124,7 @@
             "impact": null,
             "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_video_resources_c9a933fe27.png\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img > .v-img__img--preload"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting > .v-img__img--preload"
             ]
           },
           {
@@ -18380,761 +17906,6 @@
             "target": [
               ".v-overlay-container"
             ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div id=\"vue-tracer-overlay\" style=\"position: fixed; inset: 0px; z-index: 999999; pointer-events: none; opacity: 0; transition: 0.15s;\">",
-            "target": [
-              "#vue-tracer-overlay"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<svg width=\"100%\" height=\"100%\" style=\"position: fixed; inset: 0px; pointer-events: none;\"><rect fill=\"#1972\" stroke=\"#197\" rx=\"4\" ry=\"4\" style=\"transition: 0.15s; opacity: 0;\"></rect></svg>",
-            "target": [
-              "svg[width=\"100%\"]"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<rect fill=\"#1972\" stroke=\"#197\" rx=\"4\" ry=\"4\" style=\"transition: 0.15s; opacity: 0;\"></rect>",
-            "target": [
-              "rect"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div style=\"position: fixed; top: 0px; left: 0px; transition: 0.15s; background-color: rgb(17, 153, 119); color: rgb(255, 255, 255); border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; padding: 1px 4px; pointer-events: none; font-size: 10px; font-family: monospace; display: flex; gap: 0.25rem; box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px; opacity: 0;\">",
-            "target": [
-              "#vue-tracer-overlay > div"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div></div>",
-            "target": [
-              "#vue-tracer-overlay > div > div:nth-child(1)"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div style=\"opacity: 0.75; font-size: 9px;\"></div>",
-            "target": [
-              "#vue-tracer-overlay > div > div:nth-child(2)"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<nuxt-devtools-inspect-panel style=\"z-index: 999999; position: fixed;\"></nuxt-devtools-inspect-panel>",
-            "target": [
-              "nuxt-devtools-inspect-panel"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"bg-glass ring-base color-base fixed relative z-9999999 w-400px flex flex-col of-hidden rounded-lg text-sm shadow-lg ring-1 backdrop-blur duration-200 transition-opacity op0 pointer-events-none\" style=\"left: 0px; top: 0px; z-index: 999999; position: fixed;\">",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".bg-glass"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"flex items-center gap-2 p2\">",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".gap-2"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Go to parent\" class=\"flex items-center text-sm font-mono op50 disabled:pointer-events-none hover:text-green6 hover:op100 disabled:op10!\" disabled=\"\"><div class=\"i-ph-arrow-bend-left-up-duotone text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".disabled\\:pointer-events-none"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"i-ph-arrow-bend-left-up-duotone text-lg\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".i-ph-arrow-bend-left-up-duotone"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Open in editor\" class=\"flex items-center text-sm font-mono op50 hover:text-green6 hover:op100\"><!--v-if--><div class=\"i-ph-arrow-up-right-light mt--2 text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                "button[title=\"Open in editor\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"i-ph-arrow-up-right-light mt--2 text-lg\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".i-ph-arrow-up-right-light"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"flex-auto\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".flex-auto"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Close\" class=\"flex-none op50 hover:op100\"><div class=\"i-ph-x text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".flex-none"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"i-ph-x text-lg\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".i-ph-x"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div id=\"nuxt-devtools-container\" data-v-inspector-ignore=\"true\"><nuxt-devtools-frame></nuxt-devtools-frame></div>",
-            "target": [
-              "#nuxt-devtools-container"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<nuxt-devtools-frame></nuxt-devtools-frame>",
-            "target": [
-              "nuxt-devtools-frame"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div id=\"nuxt-devtools-anchor\" class=\"\" style=\"left: 378px; top: 340px; pointer-events: auto; --nuxt-devtools-widget-bg: #111; --nuxt-devtools-widget-fg: #F5F5F5; --nuxt-devtools-widget-border: #3336; --nuxt-devtools-widget-shadow: rgba(0,0,0,0.3);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "#nuxt-devtools-anchor"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nuxt-devtools-glowing\" style=\"\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-glowing"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nuxt-devtools-panel\" style=\"transform: translate(-50%, -50%);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-panel"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-nuxt-button\" title=\"Toggle Nuxt DevTools\" style=\"filter: saturate(0);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-nuxt-button"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<svg viewBox=\"0 0 324 324\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" style=\"margin-top: -1px; height: 1.2em; width: 1.2em;\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "svg[viewBox=\"0 0 324 324\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<path d=\"M181.767 270H302.211C306.037 270 309.795 269.003 313.108 267.107C316.421 265.211 319.172 262.484 321.084 259.2C322.996 255.915 324.002 252.19 324 248.399C323.998 244.607 322.989 240.883 321.074 237.601L240.187 98.7439C238.275 95.4607 235.525 92.7342 232.213 90.8385C228.901 88.9429 225.143 87.9449 221.318 87.9449C217.494 87.9449 213.736 88.9429 210.424 90.8385C207.112 92.7342 204.361 95.4607 202.449 98.7439L181.767 134.272L141.329 64.7975C139.416 61.5145 136.664 58.7884 133.351 56.8931C130.038 54.9978 126.28 54 122.454 54C118.629 54 114.871 54.9978 111.558 56.8931C108.245 58.7884 105.493 61.5145 103.58 64.7975L2.92554 237.601C1.01067 240.883 0.00166657 244.607 2.06272e-06 248.399C-0.00166244 252.19 1.00407 255.915 2.91605 259.2C4.82803 262.484 7.57884 265.211 10.8918 267.107C14.2047 269.003 17.963 270 21.7886 270H97.3936C127.349 270 149.44 256.959 164.641 231.517L201.546 168.172L221.313 134.272L280.637 236.1H201.546L181.767 270ZM96.1611 236.065L43.3984 236.054L122.49 100.291L161.953 168.172L135.531 213.543C125.436 230.051 113.968 236.065 96.1611 236.065Z\" fill=\"#00DC82\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "path[fill=\"#00DC82\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nuxt-devtools-panel-content\" style=\"border-left: 1px solid rgba(136, 136, 136, 0.2); width: 1px; height: 10px;\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-panel-content:nth-child(2)"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nuxt-devtools-label-main\">47</div>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-label-main"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<span class=\"nuxt-devtools-label-secondary\">ms</span>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-label-secondary"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nuxt-devtools-panel-content\" style=\"border-left: 1px solid rgba(136, 136, 136, 0.2); width: 1px; height: 10px;\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-panel-content:nth-child(4)"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-panel-content\" title=\"Toggle Component Inspector\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "button[title=\"Toggle Component Inspector\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" style=\"height: 1.2em; width: 1.2em; opacity: 0.5;\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "svg[viewBox=\"0 0 24 24\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\".5\" fill=\"currentColor\"></circle><path d=\"M5 12a7 7 0 1 0 14 0a7 7 0 1 0-14 0m7-9v2m-9 7h2m7 7v2m7-9h2\"></path></g>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "g"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<circle cx=\"12\" cy=\"12\" r=\".5\" fill=\"currentColor\"></circle>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "circle[cx=\"12\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<path d=\"M5 12a7 7 0 1 0 14 0a7 7 0 1 0-14 0m7-9v2m-9 7h2m7 7v2m7-9h2\"></path>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "g > path"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div style=\"position: fixed; z-index: -1; pointer-events: none; width: min(80vw, -48px + 100vw); height: min(60vh, -48px + 100vh); left: -302.398px; transform: translate(0px, 0px); bottom: 0px;\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "#nuxt-devtools-anchor > div:nth-child(3)"
-              ]
-            ]
           }
         ]
       },
@@ -19170,7 +17941,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end"
             ]
@@ -19190,7 +17961,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(2) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -19208,7 +17979,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(3) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -19226,7 +17997,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(4) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -19244,7 +18015,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(5) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           },
           {
@@ -19262,7 +18033,7 @@
             "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting align-end text-white rounded-xl\" style=\"max-height:300px;min-height:300px;\" aria-label=\"R3 Resources Image\" role=\"img\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-img--booting.v-responsive.v-img"
+              ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.v-img--booting"
             ]
           }
         ]
@@ -19298,7 +18069,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -19984,48 +18755,35 @@
               ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-card-actions.justify-center > .v-btn--slim.text-blue.darken-4 > .v-btn__content[data-no-activator=\"\"]"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
-          }
-        ]
-      }
-    ],
-    "violations": [
-      {
-        "id": "region",
-        "impact": "moderate",
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ],
-        "description": "Ensure all page content is contained by landmarks",
-        "help": "All page content should be contained by landmarks",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
-        "nodes": [
+          },
           {
             "any": [
               {
-                "id": "region",
+                "id": "color-contrast",
                 "data": {
-                  "isIframe": false
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "bold",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
                 },
                 "relatedNodes": [],
-                "impact": "moderate",
-                "message": "Some page content is not contained by landmarks"
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
               }
             ],
             "all": [],
             "none": [],
-            "impact": "moderate",
-            "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">47</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
+            "impact": "serious",
+            "html": "<a href=\"/resources/single-page\" class=\"\">Show all R3 resources on a single page (mobile-friendly)&nbsp;»</a>",
             "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-label"
-              ]
+              "a[href$=\"single-page\"]"
             ],
-            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
           }
         ]
       }
-    ]
+    ],
+    "violations": []
   }
 ]

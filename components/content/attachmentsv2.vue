@@ -6,7 +6,7 @@
     <div>{{ props.links }}</div> -->
 
     <div v-if="props.showTableDisplay">
-      <h3 class="mt-10">{{ props.attachmentHeading }}</h3>
+      <h2 class="mt-10">{{ props.attachmentHeading }}</h2>
       <v-table
         class="markdown-body dataTable mt-3"
         density="compact"
@@ -57,7 +57,7 @@
     </div>
     <div v-else>
       <div v-if="props.attachments && props.attachments.length > 0">
-        <h3 v-if="attachmentHeading" class="pl-2">{{ attachmentHeading }}</h3>
+        <h2 v-if="attachmentHeading" class="pl-2">{{ attachmentHeading }}</h2>
         <ul class="mt-2">
           <li
             v-for="(attachment, index) in props.attachments"

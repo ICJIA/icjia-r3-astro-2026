@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-08T13:01:49.418Z",
+    "timestamp": "2025-09-09T15:46:06.587Z",
     "url": "http://localhost:8000/contact",
     "toolOptions": {
       "reporter": "v1"
@@ -55,33 +55,6 @@
         "nodes": []
       },
       {
-        "id": "aria-allowed-attr",
-        "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
-        "description": "Ensure an element's role supports its ARIA attributes",
-        "help": "Elements must only use supported ARIA attributes",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-allowed-attr?application=webdriverjs",
-        "nodes": []
-      },
-      {
-        "id": "aria-allowed-role",
-        "impact": null,
-        "tags": [
-          "cat.aria",
-          "best-practice"
-        ],
-        "description": "Ensure role attribute has an appropriate value for the element",
-        "help": "ARIA role should be appropriate for the element",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-allowed-role?application=webdriverjs",
-        "nodes": []
-      },
-      {
         "id": "aria-braille-equivalent",
         "impact": null,
         "tags": [
@@ -112,36 +85,6 @@
         "description": "Ensure every ARIA button, link and menuitem has an accessible name",
         "help": "ARIA commands must have an accessible name",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-command-name?application=webdriverjs",
-        "nodes": []
-      },
-      {
-        "id": "aria-conditional-attr",
-        "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
-        "description": "Ensure ARIA attributes are used as described in the specification of the element's role",
-        "help": "ARIA attributes must be used as specified for the element's role",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-conditional-attr?application=webdriverjs",
-        "nodes": []
-      },
-      {
-        "id": "aria-deprecated-role",
-        "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
-        "description": "Ensure elements do not use deprecated roles",
-        "help": "Deprecated ARIA roles must not be used",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-deprecated-role?application=webdriverjs",
         "nodes": []
       },
       {
@@ -222,36 +165,6 @@
         "nodes": []
       },
       {
-        "id": "aria-prohibited-attr",
-        "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
-        "description": "Ensure ARIA attributes are not prohibited for an element's role",
-        "help": "Elements must only use permitted ARIA attributes",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=webdriverjs",
-        "nodes": []
-      },
-      {
-        "id": "aria-required-attr",
-        "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
-        "description": "Ensure elements with ARIA roles have all required ARIA attributes",
-        "help": "Required ARIA attributes must be provided",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-required-attr?application=webdriverjs",
-        "nodes": []
-      },
-      {
         "id": "aria-required-children",
         "impact": null,
         "tags": [
@@ -279,21 +192,6 @@
         "description": "Ensure elements with an ARIA role that require parent roles are contained by them",
         "help": "Certain ARIA roles must be contained by particular parents",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-required-parent?application=webdriverjs",
-        "nodes": []
-      },
-      {
-        "id": "aria-roles",
-        "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
-        "description": "Ensure all elements with a role attribute use a valid value",
-        "help": "ARIA roles used must conform to valid values",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-roles?application=webdriverjs",
         "nodes": []
       },
       {
@@ -351,36 +249,6 @@
         "description": "Ensure every ARIA treeitem node has an accessible name",
         "help": "ARIA treeitem nodes should have an accessible name",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-treeitem-name?application=webdriverjs",
-        "nodes": []
-      },
-      {
-        "id": "aria-valid-attr-value",
-        "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
-        "description": "Ensure all ARIA attributes have valid values",
-        "help": "ARIA attributes must conform to valid values",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-valid-attr-value?application=webdriverjs",
-        "nodes": []
-      },
-      {
-        "id": "aria-valid-attr",
-        "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
-        "description": "Ensure attributes that begin with aria- are valid ARIA attributes",
-        "help": "ARIA attributes must conform to valid names",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-valid-attr?application=webdriverjs",
         "nodes": []
       },
       {
@@ -465,21 +333,6 @@
         "description": "Ensure <dt> and <dd> elements are contained by a <dl>",
         "help": "<dt> and <dd> elements must be contained by a <dl>",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/dlitem?application=webdriverjs",
-        "nodes": []
-      },
-      {
-        "id": "duplicate-id-aria",
-        "impact": null,
-        "tags": [
-          "cat.parsing",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
-        "description": "Ensure every id attribute value used in ARIA and in labels is unique",
-        "help": "IDs used in ARIA and labels must be unique",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/duplicate-id-aria?application=webdriverjs",
         "nodes": []
       },
       {
@@ -737,18 +590,6 @@
         "nodes": []
       },
       {
-        "id": "landmark-main-is-top-level",
-        "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
-        "description": "Ensure the main landmark is at top level",
-        "help": "Main landmark should not be contained in another landmark",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-main-is-top-level?application=webdriverjs",
-        "nodes": []
-      },
-      {
         "id": "landmark-no-duplicate-banner",
         "impact": null,
         "tags": [
@@ -770,30 +611,6 @@
         "description": "Ensure the document has at most one contentinfo landmark",
         "help": "Document should not have more than one contentinfo landmark",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-no-duplicate-contentinfo?application=webdriverjs",
-        "nodes": []
-      },
-      {
-        "id": "landmark-no-duplicate-main",
-        "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
-        "description": "Ensure the document has at most one main landmark",
-        "help": "Document should not have more than one main landmark",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-no-duplicate-main?application=webdriverjs",
-        "nodes": []
-      },
-      {
-        "id": "landmark-unique",
-        "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
-        "description": "Ensure landmarks are unique",
-        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-unique?application=webdriverjs",
         "nodes": []
       },
       {
@@ -1190,6 +1007,147 @@
     ],
     "passes": [
       {
+        "id": "aria-allowed-attr",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensure an element's role supports its ARIA attributes",
+        "help": "Elements must only use supported ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-allowed-attr?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-allowed-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attributes are used correctly for the defined role"
+              }
+            ],
+            "none": [
+              {
+                "id": "aria-unsupported-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute is supported"
+              }
+            ],
+            "impact": null,
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aria-allowed-role",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "best-practice"
+        ],
+        "description": "Ensure role attribute has an appropriate value for the element",
+        "help": "ARIA role should be appropriate for the element",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-allowed-role?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "aria-allowed-role",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "ARIA role is allowed for given element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aria-conditional-attr",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensure ARIA attributes are used as described in the specification of the element's role",
+        "help": "ARIA attributes must be used as specified for the element's role",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-conditional-attr?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-conditional-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aria-deprecated-role",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensure elements do not use deprecated roles",
+        "help": "Deprecated ARIA roles must not be used",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-deprecated-role?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "deprecatedrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "ARIA role is not deprecated"
+              }
+            ],
+            "impact": null,
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
+            ]
+          }
+        ]
+      },
+      {
         "id": "aria-hidden-body",
         "impact": null,
         "tags": [
@@ -1221,6 +1179,204 @@
             "html": "<body>",
             "target": [
               "body"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aria-prohibited-attr",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensure ARIA attributes are not prohibited for an element's role",
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "impact": null,
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aria-required-attr",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensure elements with ARIA roles have all required ARIA attributes",
+        "help": "Required ARIA attributes must be provided",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-required-attr?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "aria-required-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "All required ARIA attributes are present"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aria-roles",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensure all elements with a role attribute use a valid value",
+        "help": "ARIA roles used must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-roles?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "invalidrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA role is valid"
+              },
+              {
+                "id": "abstractrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Abstract roles are not used"
+              },
+              {
+                "id": "unsupportedrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA role is supported"
+              }
+            ],
+            "impact": null,
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensure all ARIA attributes have valid values",
+        "help": "ARIA attributes must conform to valid values",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-valid-attr-value?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute values are valid"
+              },
+              {
+                "id": "aria-errormessage",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
+              },
+              {
+                "id": "aria-level",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-level values are valid"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aria-valid-attr",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensure attributes that begin with aria- are valid ARIA attributes",
+        "help": "ARIA attributes must conform to valid names",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-valid-attr?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "aria-valid-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute name is valid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
             ]
           }
         ]
@@ -1267,7 +1423,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr text-center\" style=\"background:#eaeaea;min-height:100vh;\" fill-height=\"\">",
+            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr text-center\" style=\"background:#eaeaea;min-height:100vh;\" fill-height=\"\" data-v-f249f6ff=\"\">",
             "target": [
               ".v-container"
             ]
@@ -1299,7 +1455,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-row align-center justify-center\" style=\"\">",
+            "html": "<div class=\"v-row align-center justify-center\" style=\"\" data-v-f249f6ff=\"\">",
             "target": [
               ".v-row"
             ]
@@ -1331,7 +1487,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-col mt-12\" style=\"\">",
+            "html": "<div class=\"v-col mt-12\" style=\"\" data-v-f249f6ff=\"\">",
             "target": [
               ".v-col"
             ]
@@ -1363,9 +1519,9 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<h1 style=\"font-size:120px;color:#bbb;\">500</h1>",
+            "html": "<div style=\"font-size:120px;color:#444;font-weight:700;\" data-v-f249f6ff=\"\">500</div>",
             "target": [
-              "h1"
+              ".v-col > div"
             ]
           },
           {
@@ -1395,7 +1551,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<button type=\"button\" class=\"v-btn v-btn--elevated v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-elevated mt-8\" style=\"\">",
+            "html": "<button type=\"button\" class=\"v-btn v-btn--elevated v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-elevated mt-8\" style=\"\" data-v-f249f6ff=\"\">",
             "target": [
               "button"
             ]
@@ -1434,7 +1590,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<button type=\"button\" class=\"v-btn v-btn--elevated v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-elevated mt-8\" style=\"\">",
+            "html": "<button type=\"button\" class=\"v-btn v-btn--elevated v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-elevated mt-8\" style=\"\" data-v-f249f6ff=\"\">",
             "target": [
               "button"
             ]
@@ -1463,6 +1619,31 @@
               {
                 "id": "color-contrast",
                 "data": {
+                  "fgColor": "#444444",
+                  "bgColor": "#eaeaea",
+                  "contrastRatio": 8.09,
+                  "fontSize": "90.0pt (120px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 8.09"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div style=\"font-size:120px;color:#444;font-weight:700;\" data-v-f249f6ff=\"\">500</div>",
+            "target": [
+              ".v-col > div"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
                   "fgColor": "#000000",
                   "bgColor": "#eaeaea",
                   "contrastRatio": 17.45,
@@ -1478,7 +1659,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<strong>Server Error</strong>",
+            "html": "<strong data-v-f249f6ff=\"\">Server Error</strong>",
             "target": [
               "strong"
             ]
@@ -1523,6 +1704,40 @@
         ]
       },
       {
+        "id": "duplicate-id-aria",
+        "impact": null,
+        "tags": [
+          "cat.parsing",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2"
+        ],
+        "description": "Ensure every id attribute value used in ARIA and in labels is unique",
+        "help": "IDs used in ARIA and labels must be unique",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/duplicate-id-aria?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "duplicate-id-aria",
+                "data": "error-heading",
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Document has no elements referenced with ARIA or labels that share the same id attribute"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h1 id=\"error-heading\" class=\"sr-only\" data-v-f249f6ff=\"\">An error occurred</h1>",
+            "target": [
+              "#error-heading"
+            ]
+          }
+        ]
+      },
+      {
         "id": "empty-heading",
         "impact": null,
         "tags": [
@@ -1546,9 +1761,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h1 style=\"font-size:120px;color:#bbb;\">500</h1>",
+            "html": "<h1 id=\"error-heading\" class=\"sr-only\" data-v-f249f6ff=\"\">An error occurred</h1>",
             "target": [
-              "h1"
+              "#error-heading"
             ]
           }
         ]
@@ -1572,7 +1787,7 @@
                   "headingOrder": [
                     {
                       "ancestry": [
-                        "html > body > div:nth-child(1) > div > div > div > div > h1:nth-child(1)"
+                        "html > body > div:nth-child(1) > div > main > div > div > div > h1:nth-child(1)"
                       ],
                       "level": 1
                     }
@@ -1586,9 +1801,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h1 style=\"font-size:120px;color:#bbb;\">500</h1>",
+            "html": "<h1 id=\"error-heading\" class=\"sr-only\" data-v-f249f6ff=\"\">An error occurred</h1>",
             "target": [
-              "h1"
+              "#error-heading"
             ]
           }
         ]
@@ -1663,6 +1878,142 @@
             "html": "<html lang=\"en\">",
             "target": [
               "html"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "landmark-main-is-top-level",
+        "impact": null,
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure the main landmark is at top level",
+        "help": "Main landmark should not be contained in another landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-main-is-top-level?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "landmark-is-top-level",
+                "data": {
+                  "role": "main"
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "The main landmark is at the top level."
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "landmark-no-duplicate-main",
+        "impact": null,
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure the document has at most one main landmark",
+        "help": "Document should not have more than one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-no-duplicate-main?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "page-no-duplicate-main",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "Document does not have more than one main landmark"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "landmark-one-main",
+        "impact": null,
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure the document has a main landmark",
+        "help": "Document should have one main landmark",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "page-has-main",
+                "data": null,
+                "relatedNodes": [
+                  {
+                    "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+                    "target": [
+                      "#main-content"
+                    ]
+                  }
+                ],
+                "impact": "moderate",
+                "message": "Document has at least one main landmark"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<html lang=\"en\">",
+            "target": [
+              "html"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "landmark-unique",
+        "impact": null,
+        "tags": [
+          "cat.semantics",
+          "best-practice"
+        ],
+        "description": "Ensure landmarks are unique",
+        "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-unique?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "landmark-is-unique",
+                "data": {
+                  "role": "main",
+                  "accessibleText": "an error occurred"
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "Landmarks must have a unique role or role/label/title (i.e. accessible name) combination"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
             ]
           }
         ]
@@ -1762,7 +2113,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<button type=\"button\" class=\"v-btn v-btn--elevated v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-elevated mt-8\" style=\"\">",
+            "html": "<button type=\"button\" class=\"v-btn v-btn--elevated v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-elevated mt-8\" style=\"\" data-v-f249f6ff=\"\">",
             "target": [
               "button"
             ]
@@ -1788,9 +2139,9 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<h1 style=\"font-size:120px;color:#bbb;\">500</h1>",
+                    "html": "<h1 id=\"error-heading\" class=\"sr-only\" data-v-f249f6ff=\"\">An error occurred</h1>",
                     "target": [
-                      "h1"
+                      "#error-heading"
                     ]
                   }
                 ],
@@ -1809,7 +2160,7 @@
       },
       {
         "id": "region",
-        "impact": "moderate",
+        "impact": null,
         "tags": [
           "cat.keyboard",
           "best-practice"
@@ -1853,7 +2204,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div>",
+            "html": "<div data-v-f249f6ff=\"\">",
             "target": [
               "#__nuxt > div"
             ]
@@ -1873,7 +2224,27 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr text-center\" style=\"background:#eaeaea;min-height:100vh;\" fill-height=\"\">",
+            "html": "<main id=\"main-content\" role=\"main\" aria-labelledby=\"error-heading\" data-v-f249f6ff=\"\">",
+            "target": [
+              "#main-content"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr text-center\" style=\"background:#eaeaea;min-height:100vh;\" fill-height=\"\" data-v-f249f6ff=\"\">",
             "target": [
               ".v-container"
             ]
@@ -1893,7 +2264,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-row align-center justify-center\" style=\"\">",
+            "html": "<div class=\"v-row align-center justify-center\" style=\"\" data-v-f249f6ff=\"\">",
             "target": [
               ".v-row"
             ]
@@ -1913,7 +2284,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-col mt-12\" style=\"\">",
+            "html": "<div class=\"v-col mt-12\" style=\"\" data-v-f249f6ff=\"\">",
             "target": [
               ".v-col"
             ]
@@ -1933,7 +2304,67 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<strong>Server Error</strong>",
+            "html": "<h1 id=\"error-heading\" class=\"sr-only\" data-v-f249f6ff=\"\">An error occurred</h1>",
+            "target": [
+              "#error-heading"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div style=\"font-size:120px;color:#444;font-weight:700;\" data-v-f249f6ff=\"\">500</div>",
+            "target": [
+              ".v-col > div"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p data-v-f249f6ff=\"\"><strong data-v-f249f6ff=\"\">Server Error</strong></p>",
+            "target": [
+              "p"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<strong data-v-f249f6ff=\"\">Server Error</strong>",
             "target": [
               "strong"
             ]
@@ -1953,7 +2384,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<button type=\"button\" class=\"v-btn v-btn--elevated v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-elevated mt-8\" style=\"\">",
+            "html": "<button type=\"button\" class=\"v-btn v-btn--elevated v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-elevated mt-8\" style=\"\" data-v-f249f6ff=\"\">",
             "target": [
               "button"
             ]
@@ -2087,147 +2518,6 @@
         ]
       }
     ],
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "tags": [
-          "cat.color",
-          "wcag2aa",
-          "wcag143",
-          "TTv5",
-          "TT13.c",
-          "EN-301-549",
-          "EN-9.1.4.3",
-          "ACT"
-        ],
-        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "fgColor": "#bbbbbb",
-                  "bgColor": "#eaeaea",
-                  "contrastRatio": 1.59,
-                  "fontSize": "90.0pt (120px)",
-                  "fontWeight": "bold",
-                  "messageKey": null,
-                  "expectedContrastRatio": "3:1"
-                },
-                "relatedNodes": [
-                  {
-                    "html": "<div class=\"v-container v-container--fluid v-locale--is-ltr text-center\" style=\"background:#eaeaea;min-height:100vh;\" fill-height=\"\">",
-                    "target": [
-                      ".v-container"
-                    ]
-                  }
-                ],
-                "impact": "serious",
-                "message": "Element has insufficient color contrast of 1.59 (foreground color: #bbbbbb, background color: #eaeaea, font size: 90.0pt (120px), font weight: bold). Expected contrast ratio of 3:1"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "serious",
-            "html": "<h1 style=\"font-size:120px;color:#bbb;\">500</h1>",
-            "target": [
-              "h1"
-            ],
-            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.59 (foreground color: #bbbbbb, background color: #eaeaea, font size: 90.0pt (120px), font weight: bold). Expected contrast ratio of 3:1"
-          }
-        ]
-      },
-      {
-        "id": "landmark-one-main",
-        "impact": "moderate",
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
-        "description": "Ensure the document has a main landmark",
-        "help": "Document should have one main landmark",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "page-has-main",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "Document does not have a main landmark"
-              }
-            ],
-            "none": [],
-            "impact": "moderate",
-            "html": "<html lang=\"en\">",
-            "target": [
-              "html"
-            ],
-            "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
-          }
-        ]
-      },
-      {
-        "id": "region",
-        "impact": "moderate",
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ],
-        "description": "Ensure all page content is contained by landmarks",
-        "help": "All page content should be contained by landmarks",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "Some page content is not contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "moderate",
-            "html": "<h1 style=\"font-size:120px;color:#bbb;\">500</h1>",
-            "target": [
-              "h1"
-            ],
-            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "Some page content is not contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "moderate",
-            "html": "<p><strong>Server Error</strong></p>",
-            "target": [
-              "p"
-            ],
-            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-          }
-        ]
-      }
-    ]
+    "violations": []
   }
 ]

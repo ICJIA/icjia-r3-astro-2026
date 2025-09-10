@@ -9,6 +9,19 @@ if (!fs.existsSync(path.join(__dirname, "..", outDir))) {
   fs.mkdirSync(path.join(__dirname, "..", outDir), { recursive: true });
 }
 
+// Clean out previous axe reports so the local summary only reflects this run
+const outAbs = path.join(__dirname, "..", outDir);
+const existingReports = fs
+  .readdirSync(outAbs)
+  .filter((f) => /^axe-.*\.json$/i.test(f));
+for (const f of existingReports) {
+  try {
+    fs.unlinkSync(path.join(outAbs, f));
+  } catch (e) {
+    console.warn(`⚠️  Could not delete prior report ${f}: ${e.message}`);
+  }
+}
+
 const routes = JSON.parse(fs.readFileSync(routesFile, "utf8"));
 
 console.log(`Running local axe on ${routes.length} routes...`);
@@ -28,4 +41,3 @@ for (const route of routes) {
 console.log("Axe local audits complete. Aggregating...");
 execSync("node creators/aggregateAxeResults.js", { stdio: "inherit" });
 console.log("Done. Summary at public/a11y/axe-summary.json");
-

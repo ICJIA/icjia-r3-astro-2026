@@ -1,7 +1,11 @@
 <template>
   <div>
-    <div v-if="isMounted" class="mb-12">
-      <div class="hidden-sm-and-down" style="margin-bottom: 80px">
+    <div class="mb-12">
+      <div
+        v-if="isMounted"
+        class="hidden-sm-and-down"
+        style="margin-bottom: 80px"
+      >
         <v-app-bar
           app
           elevation="6"
@@ -95,9 +99,6 @@
               </v-card>
             </div> </v-col></v-row
       ></v-container>
-    </div>
-    <div v-else>
-      <the-page-loader></the-page-loader>
     </div>
   </div>
 </template>

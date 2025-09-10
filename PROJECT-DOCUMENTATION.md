@@ -126,8 +126,7 @@ The R3 (Restore, Reinvest, Renew) Program website serves as the primary digital 
 
 ### Analytics & Monitoring
 
-- **Google Analytics** (nuxt-gtag v3.0.1) - Web analytics
-- **Plausible Analytics** (@nuxtjs/plausible v1.0.3) - Privacy-focused analytics
+- **Plausible Analytics** (@nuxtjs/plausible v1.2.0) - Privacy-focused analytics
 - **Custom Event Tracking** - User interaction monitoring
 
 ### Deployment & Hosting
@@ -1034,14 +1033,6 @@ NODE_ENV=development  # or production
 - **SEO**: Automatic sitemap and robots.txt generation
 
 ### SEO and Analytics Setup
-
-#### Google Analytics (gtag)
-
-```javascript
-gtag: {
-  id: "G-G7XDWC7WPG",
-}
-```
 
 #### Plausible Analytics
 

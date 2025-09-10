@@ -1,287 +1,310 @@
 <template>
   <div>
     <TheBreadcrumbBar></TheBreadcrumbBar>
-    <v-container class="mb-12">
-      <v-row justify="center" align="center" class="row">
-        <v-col cols="12" md="12" class="text-left">
-          <h1>Contact R3</h1>
-          <div class="px-16">
-            <v-card
-              class="px-10 pt-7 pb-10"
-              elevation="10"
-              style="
-                background: #093356;
-                margin-bottom: 105px;
-                margin-top: 35px;
-                color: #fff;
-              "
+    <!-- main landmark is provided globally by app.vue v-main -->
+
+    <section role="region" aria-labelledby="contact-heading">
+      <v-container class="mb-12">
+        <v-row justify="center" align="center" class="row">
+          <v-col cols="12" md="12" class="text-left">
+            <h1
+              id="contact-heading"
+              class="contact-heading"
+              style="color: #0a0a0a"
             >
-              <h2 style="color: #fff">Have R3 questions or need assistance?</h2>
-
-              <div class="pl-3">
-                <p>
-                  Please fill out the form below, and we'll get back to you as
-                  soon as possible.
-                </p>
-              </div>
-              <h2 style="color: #fff">R3 Email:</h2>
-
-              <ul>
-                <!-- <li>
-                  <span>General R3-related questions: </span>
-                  <a href="mailto: CJA.r3mbr@illinois.gov" class="white-text"
-                    >CJA.r3mbr@illinois.gov</a
-                  >
-                </li> -->
-                <li>
-                  <!-- <span>Questions about the R3 NOFO: </span> -->
-                  <a
-                    href="mailto: CJA.R3Questions@illinois.gov"
-                    class="white-text"
-                    >CJA.R3Questions@illinois.gov</a
-                  >
-                </li>
-              </ul>
-            </v-card>
-          </div>
-
-          <!-- Form Status Announcements for Screen Readers -->
-          <div aria-live="polite" aria-atomic="true" class="sr-only">
-            {{ formStatusMessage }}
-          </div>
-
-          <v-form ref="form" class="mx-2" v-model="valid" lazy-validation>
-            <v-row>
-              <v-col cols="12">
-                <v-select
-                  :items="subjects"
-                  label="Select Type of Request (Required)"
-                  dense
-                  v-model="subject"
-                  :rules="subjectRules"
-                  class="heavy"
-                  :aria-label="`Select Type of Request. Required field. ${subjectError ? 'Error: ' + subjectError : ''}`"
-                  :aria-describedby="subjectError ? 'subject-error' : undefined"
-                  :aria-invalid="subjectError ? 'true' : 'false'"
-                  required
-                  :disabled="successfullySubmitted"
-                  style="font-weight: 700 !important"
-                  @blur="validateField('subject')"
-                ></v-select>
-                <div
-                  v-if="subjectError"
-                  id="subject-error"
-                  class="v-messages v-messages--active"
-                  role="alert"
-                  aria-live="polite"
-                >
-                  <div
-                    class="v-messages__message"
-                    style="color: rgb(176, 0, 32)"
-                  >
-                    {{ subjectError }}
-                  </div>
-                </div>
-              </v-col>
-              <v-col cols="12" md="6">
-                <v-text-field
-                  v-model="firstname"
-                  :rules="nameRules"
-                  label="First Name (Required)"
-                  :aria-label="`First Name. Required field. ${firstnameError ? 'Error: ' + firstnameError : ''}`"
-                  :aria-describedby="
-                    firstnameError ? 'firstname-error' : undefined
-                  "
-                  :aria-invalid="firstnameError ? 'true' : 'false'"
-                  :disabled="successfullySubmitted"
-                  required
-                  @blur="validateField('firstname')"
-                ></v-text-field>
-                <div
-                  v-if="firstnameError"
-                  id="firstname-error"
-                  class="v-messages v-messages--active"
-                  role="alert"
-                  aria-live="polite"
-                >
-                  <div
-                    class="v-messages__message"
-                    style="color: rgb(176, 0, 32)"
-                  >
-                    {{ firstnameError }}
-                  </div>
-                </div>
-              </v-col>
-              <v-col cols="12" md="6">
-                <v-text-field
-                  v-model="lastname"
-                  :rules="nameRules"
-                  label="Last Name (Required)"
-                  :aria-label="`Last Name. Required field. ${lastnameError ? 'Error: ' + lastnameError : ''}`"
-                  :aria-describedby="
-                    lastnameError ? 'lastname-error' : undefined
-                  "
-                  :aria-invalid="lastnameError ? 'true' : 'false'"
-                  :disabled="successfullySubmitted"
-                  required
-                  @blur="validateField('lastname')"
-                ></v-text-field>
-                <div
-                  v-if="lastnameError"
-                  id="lastname-error"
-                  class="v-messages v-messages--active"
-                  role="alert"
-                  aria-live="polite"
-                >
-                  <div
-                    class="v-messages__message"
-                    style="color: rgb(176, 0, 32)"
-                  >
-                    {{ lastnameError }}
-                  </div>
-                </div>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="12" md="6">
-                <v-text-field
-                  v-model="email"
-                  :rules="emailRules"
-                  :disabled="successfullySubmitted"
-                  label="Email (Required)"
-                  type="email"
-                  autocomplete="email"
-                  :aria-label="`Email address. Required field. ${emailError ? 'Error: ' + emailError : ''}`"
-                  :aria-describedby="emailError ? 'email-error' : undefined"
-                  :aria-invalid="emailError ? 'true' : 'false'"
-                  required
-                  @blur="validateField('email')"
-                ></v-text-field>
-                <div
-                  v-if="emailError"
-                  id="email-error"
-                  class="v-messages v-messages--active"
-                  role="alert"
-                  aria-live="polite"
-                >
-                  <div
-                    class="v-messages__message"
-                    style="color: rgb(176, 0, 32)"
-                  >
-                    {{ emailError }}
-                  </div>
-                </div>
-              </v-col>
-              <v-col cols="12" md="6">
-                <v-text-field
-                  v-model="phone"
-                  label="Phone Number (Required)"
-                  type="tel"
-                  autocomplete="tel"
-                  :disabled="successfullySubmitted"
-                  :rules="phoneRules"
-                  :aria-label="`Phone number. Required field. ${phoneError ? 'Error: ' + phoneError : ''}`"
-                  :aria-describedby="phoneError ? 'phone-error' : undefined"
-                  :aria-invalid="phoneError ? 'true' : 'false'"
-                  required
-                  @blur="validateField('phone')"
-                ></v-text-field>
-                <div
-                  v-if="phoneError"
-                  id="phone-error"
-                  class="v-messages v-messages--active"
-                  role="alert"
-                  aria-live="polite"
-                >
-                  <div
-                    class="v-messages__message"
-                    style="color: rgb(176, 0, 32)"
-                  >
-                    {{ phoneError }}
-                  </div>
-                </div>
-              </v-col>
-
-              <v-col cols="12">
-                <v-textarea
-                  v-model="message"
-                  clearable
-                  clear-icon="mdi-close-circle"
-                  label="Message (Required)"
-                  :disabled="successfullySubmitted"
-                  :rules="messageRules"
-                  auto-grow
-                  :aria-label="`Message. Required field. ${messageError ? 'Error: ' + messageError : ''}`"
-                  :aria-describedby="messageError ? 'message-error' : undefined"
-                  :aria-invalid="messageError ? 'true' : 'false'"
-                  required
-                  @blur="validateField('message')"
-                ></v-textarea>
-                <div
-                  v-if="messageError"
-                  id="message-error"
-                  class="v-messages v-messages--active"
-                  role="alert"
-                  aria-live="polite"
-                >
-                  <div
-                    class="v-messages__message"
-                    style="color: rgb(176, 0, 32)"
-                  >
-                    {{ messageError }}
-                  </div>
-                </div>
-              </v-col>
-            </v-row>
-
-            <div class="text-center mt-5" v-if="!successfullySubmitted">
-              <v-btn
-                @click="submitForm"
-                :disabled="!valid || isSubmitting"
-                :aria-label="
-                  isSubmitting
-                    ? 'Submitting form, please wait'
-                    : 'Submit contact form'
+              Contact R3
+            </h1>
+            <div class="px-16">
+              <v-card
+                class="px-10 pt-7 pb-10"
+                elevation="10"
+                style="
+                  background: #093356;
+                  margin-bottom: 105px;
+                  margin-top: 35px;
+                  color: #fff;
                 "
               >
-                {{ isSubmitting ? "Submitting..." : "Submit" }} </v-btn
-              >&nbsp;&nbsp;&nbsp;
+                <h2 style="color: #fff">
+                  Have R3 questions or need assistance?
+                </h2>
 
-              <v-btn
-                @click="clearForm"
-                variant="outlined"
-                :disabled="isSubmitting"
-                aria-label="Clear all form fields"
-              >
-                Clear
-              </v-btn>
+                <div class="pl-3">
+                  <p>
+                    Please fill out the form below, and we'll get back to you as
+                    soon as possible.
+                  </p>
+                </div>
+                <h2 style="color: #fff">R3 Email:</h2>
+
+                <ul>
+                  <!-- <li>
+                    <span>General R3-related questions: </span>
+                    <a href="mailto: CJA.r3mbr@illinois.gov" class="white-text"
+                      >CJA.r3mbr@illinois.gov</a
+                    >
+                  </li> -->
+                  <li>
+                    <!-- <span>Questions about the R3 NOFO: </span> -->
+                    <a
+                      href="mailto: CJA.R3Questions@illinois.gov"
+                      class="white-text"
+                      >CJA.R3Questions@illinois.gov</a
+                    >
+                  </li>
+                </ul>
+              </v-card>
             </div>
-            <div
-              class="text-center mt-5"
-              style="color: green; font-weight: 900"
-              v-else
+
+            <!-- Form Status Announcements for Screen Readers -->
+            <div aria-live="polite" aria-atomic="true" class="sr-only">
+              {{ formStatusMessage }}
+            </div>
+
+            <v-form
+              ref="form"
+              class="mx-2 contact-form"
+              v-model="valid"
+              lazy-validation
             >
-              Your form was successfully submitted!
-              <div style="color: #111; font-weight: 400" class="mt-2">
-                &laquo;&nbsp;<nuxt-link
-                  to="/"
-                  style="color: #111; font-weight: 400"
-                  >Back to home</nuxt-link
+              <v-row>
+                <v-col cols="12">
+                  <v-select
+                    :items="subjects"
+                    label="Select Type of Request (Required)"
+                    dense
+                    v-model="subject"
+                    :rules="subjectRules"
+                    class="heavy"
+                    :aria-label="`Select Type of Request. Required field. ${subjectError ? 'Error: ' + subjectError : ''}`"
+                    :aria-describedby="
+                      subjectError ? 'subject-error' : undefined
+                    "
+                    :aria-invalid="subjectError ? 'true' : 'false'"
+                    required
+                    :disabled="successfullySubmitted"
+                    style="font-weight: 700 !important"
+                    @blur="validateField('subject')"
+                  ></v-select>
+                  <div
+                    v-if="subjectError"
+                    id="subject-error"
+                    class="v-messages v-messages--active"
+                    role="alert"
+                    aria-live="polite"
+                  >
+                    <div
+                      class="v-messages__message"
+                      style="color: rgb(176, 0, 32)"
+                    >
+                      {{ subjectError }}
+                    </div>
+                  </div>
+                </v-col>
+                <v-col cols="12" md="6">
+                  <v-text-field
+                    v-model="firstname"
+                    :rules="nameRules"
+                    label="First Name (Required)"
+                    :aria-label="`First Name. Required field. ${firstnameError ? 'Error: ' + firstnameError : ''}`"
+                    :aria-describedby="
+                      firstnameError ? 'firstname-error' : undefined
+                    "
+                    :aria-invalid="firstnameError ? 'true' : 'false'"
+                    :disabled="successfullySubmitted"
+                    required
+                    @blur="validateField('firstname')"
+                  ></v-text-field>
+                  <div
+                    v-if="firstnameError"
+                    id="firstname-error"
+                    class="v-messages v-messages--active"
+                    role="alert"
+                    aria-live="polite"
+                  >
+                    <div
+                      class="v-messages__message"
+                      style="color: rgb(176, 0, 32)"
+                    >
+                      {{ firstnameError }}
+                    </div>
+                  </div>
+                </v-col>
+                <v-col cols="12" md="6">
+                  <v-text-field
+                    v-model="lastname"
+                    :rules="nameRules"
+                    label="Last Name (Required)"
+                    :aria-label="`Last Name. Required field. ${lastnameError ? 'Error: ' + lastnameError : ''}`"
+                    :aria-describedby="
+                      lastnameError ? 'lastname-error' : undefined
+                    "
+                    :aria-invalid="lastnameError ? 'true' : 'false'"
+                    :disabled="successfullySubmitted"
+                    required
+                    @blur="validateField('lastname')"
+                  ></v-text-field>
+                  <div
+                    v-if="lastnameError"
+                    id="lastname-error"
+                    class="v-messages v-messages--active"
+                    role="alert"
+                    aria-live="polite"
+                  >
+                    <div
+                      class="v-messages__message"
+                      style="color: rgb(176, 0, 32)"
+                    >
+                      {{ lastnameError }}
+                    </div>
+                  </div>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="12" md="6">
+                  <v-text-field
+                    v-model="email"
+                    :rules="emailRules"
+                    :disabled="successfullySubmitted"
+                    label="Email (Required)"
+                    type="email"
+                    autocomplete="email"
+                    :aria-label="`Email address. Required field. ${emailError ? 'Error: ' + emailError : ''}`"
+                    :aria-describedby="emailError ? 'email-error' : undefined"
+                    :aria-invalid="emailError ? 'true' : 'false'"
+                    required
+                    @blur="validateField('email')"
+                  ></v-text-field>
+                  <div
+                    v-if="emailError"
+                    id="email-error"
+                    class="v-messages v-messages--active"
+                    role="alert"
+                    aria-live="polite"
+                  >
+                    <div
+                      class="v-messages__message"
+                      style="color: rgb(176, 0, 32)"
+                    >
+                      {{ emailError }}
+                    </div>
+                  </div>
+                </v-col>
+                <v-col cols="12" md="6">
+                  <v-text-field
+                    v-model="phone"
+                    label="Phone Number (Required)"
+                    type="tel"
+                    autocomplete="tel"
+                    :disabled="successfullySubmitted"
+                    :rules="phoneRules"
+                    :aria-label="`Phone number. Required field. ${phoneError ? 'Error: ' + phoneError : ''}`"
+                    :aria-describedby="phoneError ? 'phone-error' : undefined"
+                    :aria-invalid="phoneError ? 'true' : 'false'"
+                    required
+                    @blur="validateField('phone')"
+                  ></v-text-field>
+                  <div
+                    v-if="phoneError"
+                    id="phone-error"
+                    class="v-messages v-messages--active"
+                    role="alert"
+                    aria-live="polite"
+                  >
+                    <div
+                      class="v-messages__message"
+                      style="color: rgb(176, 0, 32)"
+                    >
+                      {{ phoneError }}
+                    </div>
+                  </div>
+                </v-col>
+
+                <v-col cols="12">
+                  <v-textarea
+                    v-model="message"
+                    clearable
+                    clear-icon="mdi-close-circle"
+                    label="Message (Required)"
+                    :disabled="successfullySubmitted"
+                    :rules="messageRules"
+                    auto-grow
+                    :aria-label="`Message. Required field. ${messageError ? 'Error: ' + messageError : ''}`"
+                    :aria-describedby="
+                      messageError ? 'message-error' : undefined
+                    "
+                    :aria-invalid="messageError ? 'true' : 'false'"
+                    required
+                    @blur="validateField('message')"
+                  ></v-textarea>
+                  <div
+                    v-if="messageError"
+                    id="message-error"
+                    class="v-messages v-messages--active"
+                    role="alert"
+                    aria-live="polite"
+                  >
+                    <div
+                      class="v-messages__message"
+                      style="color: rgb(176, 0, 32)"
+                    >
+                      {{ messageError }}
+                    </div>
+                  </div>
+                </v-col>
+              </v-row>
+
+              <div class="text-center mt-5" v-if="!successfullySubmitted">
+                <v-btn
+                  @click="submitForm"
+                  :disabled="!valid || isSubmitting"
+                  :aria-label="
+                    isSubmitting
+                      ? 'Submitting form, please wait'
+                      : 'Submit contact form'
+                  "
                 >
+                  {{ isSubmitting ? "Submitting..." : "Submit" }} </v-btn
+                >&nbsp;&nbsp;&nbsp;
+
+                <v-btn
+                  @click="clearForm"
+                  variant="outlined"
+                  :disabled="isSubmitting"
+                  aria-label="Clear all form fields"
+                >
+                  Clear
+                </v-btn>
               </div>
-            </div>
-          </v-form>
-        </v-col>
-      </v-row>
-      <v-row>
-        <!-- <v-col
-          ><div class="text-center mt-5">
-            <a href="mailto:r3@illinois.gov">cja.r3@illinois.gov</a>
-          </div></v-col
-        > -->
-      </v-row>
-    </v-container>
+              <div
+                class="text-center mt-5"
+                style="color: green; font-weight: 900"
+                v-else
+              >
+                Your form was successfully submitted!
+                <div style="color: #111; font-weight: 400" class="mt-2">
+                  &laquo;&nbsp;<nuxt-link
+                    to="/"
+                    style="color: #111; font-weight: 400"
+                    >Back to home</nuxt-link
+                  >
+                </div>
+              </div>
+            </v-form>
+          </v-col>
+        </v-row>
+        <v-row>
+          <!-- <v-col
+            ><div class="text-center mt-5">
+              <a href="mailto:r3@illinois.gov">cja.r3@illinois.gov</a>
+            </div></v-col
+          > -->
+        </v-row>
+      </v-container>
+    </section>
+
     <div style="height: 75px" class="hidden-md-and-up"></div>
+    <!-- end page content -->
   </div>
 </template>
 
@@ -297,6 +320,10 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+.contact-form :deep(.v-label),
+.contact-form :deep(.v-field-label--floating) {
+  color: #333 !important;
 }
 </style>
 
@@ -660,5 +687,10 @@ export default {
 
 .white-text {
   color: #fff;
+}
+
+/* Strengthen heading contrast on Contact page */
+.contact-heading {
+  color: #0c0c0c !important;
 }
 </style>

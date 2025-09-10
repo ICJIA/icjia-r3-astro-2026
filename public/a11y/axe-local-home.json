@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-08T13:01:35.553Z",
+    "timestamp": "2025-09-09T15:45:51.690Z",
     "url": "http://localhost:8000/",
     "toolOptions": {
       "reporter": "v1"
@@ -1464,7 +1464,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-label=\"Loading image\">",
+            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-label=\"Loading image\">",
             "target": [
               ".v-progress-circular"
             ]
@@ -4639,38 +4639,6 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
-            "target": [
-              "html"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
             "html": "<div class=\"v-application v-theme--light v-layout v-layout--full-height v-locale--is-ltr\" style=\"\" id=\"app-top\">",
             "target": [
               "#app-top"
@@ -7139,213 +7107,6 @@
             "target": [
               ".v-btn--elevated"
             ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<nuxt-devtools-inspect-panel style=\"z-index: 999999; position: fixed;\"></nuxt-devtools-inspect-panel>",
-            "target": [
-              "nuxt-devtools-inspect-panel"
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<div id=\"nuxt-devtools-anchor\" class=\"\" style=\"left: 378px; top: 340px; pointer-events: auto; --nuxt-devtools-widget-bg: #111; --nuxt-devtools-widget-fg: #F5F5F5; --nuxt-devtools-widget-border: #3336; --nuxt-devtools-widget-shadow: rgba(0,0,0,0.3);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "#nuxt-devtools-anchor"
-              ]
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nuxt-devtools-panel\" style=\"transform: translate(-50%, -50%);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-panel"
-              ]
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-nuxt-button\" title=\"Toggle Nuxt DevTools\" style=\"filter: saturate(0);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-nuxt-button"
-              ]
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<svg viewBox=\"0 0 324 324\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" style=\"margin-top: -1px; height: 1.2em; width: 1.2em;\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "svg[viewBox=\"0 0 324 324\"]"
-              ]
-            ]
-          },
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "important-letter-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-word-spacing",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
-              },
-              {
-                "id": "important-line-height",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
-              }
-            ],
-            "none": [],
-            "impact": null,
-            "html": "<div style=\"position: fixed; z-index: -1; pointer-events: none; width: min(80vw, -48px + 100vw); height: min(60vh, -48px + 100vh); left: -302.398px; transform: translate(0px, 0px); bottom: 0px;\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "#nuxt-devtools-anchor > div:nth-child(3)"
-              ]
-            ]
           }
         ]
       },
@@ -7384,111 +7145,6 @@
             "html": "<button type=\"button\" class=\"v-btn v-btn--elevated v-btn--icon v-theme--light bg-primary v-btn--density-default elevation-8 v-btn--size-large v-btn--variant-elevated\" aria-label=\"Scroll to top of page\" style=\"z-index: 0; font-size: 20px;\">",
             "target": [
               ".v-btn--elevated"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "non-empty-title",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a title attribute"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Go to parent\" class=\"flex items-center text-sm font-mono op50 disabled:pointer-events-none hover:text-green6 hover:op100 disabled:op10!\" disabled=\"\"><div class=\"i-ph-arrow-bend-left-up-duotone text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".disabled\\:pointer-events-none"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "non-empty-title",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a title attribute"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Open in editor\" class=\"flex items-center text-sm font-mono op50 hover:text-green6 hover:op100\"><!--v-if--><div class=\"i-ph-arrow-up-right-light mt--2 text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                "button[title=\"Open in editor\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "non-empty-title",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a title attribute"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Close\" class=\"flex-none op50 hover:op100\"><div class=\"i-ph-x text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".flex-none"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "non-empty-title",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a title attribute"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-nuxt-button\" title=\"Toggle Nuxt DevTools\" style=\"filter: saturate(0);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-nuxt-button"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "non-empty-title",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "critical",
-                "message": "Element has a title attribute"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-panel-content\" title=\"Toggle Component Inspector\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "button[title=\"Toggle Component Inspector\"]"
-              ]
             ]
           }
         ]
@@ -7582,7 +7238,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -7606,6 +7262,32 @@
         "help": "Elements must meet minimum color contrast ratio thresholds",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=webdriverjs",
         "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#666666",
+                  "contrastRatio": 6.95,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1",
+                  "shadowColor": "#595959"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.95"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"nofo-tagline\">Grants to provide services to repair the harm caused by economic disinvestment, violence, and the war on drugs. Organizations may apply for grant funds in R3 communities statewide.</div>",
+            "target": [
+              ".nofo-tagline"
+            ]
+          },
           {
             "any": [
               {
@@ -8463,7 +8145,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -8833,7 +8515,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -8870,7 +8552,7 @@
               }
             ],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -9172,7 +8854,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -10122,111 +9804,6 @@
             "target": [
               ".v-btn--elevated"
             ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Go to parent\" class=\"flex items-center text-sm font-mono op50 disabled:pointer-events-none hover:text-green6 hover:op100 disabled:op10!\" disabled=\"\"><div class=\"i-ph-arrow-bend-left-up-duotone text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".disabled\\:pointer-events-none"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Open in editor\" class=\"flex items-center text-sm font-mono op50 hover:text-green6 hover:op100\"><!--v-if--><div class=\"i-ph-arrow-up-right-light mt--2 text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                "button[title=\"Open in editor\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Close\" class=\"flex-none op50 hover:op100\"><div class=\"i-ph-x text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".flex-none"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-nuxt-button\" title=\"Toggle Nuxt DevTools\" style=\"filter: saturate(0);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-nuxt-button"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "no-focusable-content",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element does not have focusable descendants"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-panel-content\" title=\"Toggle Component Inspector\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "button[title=\"Toggle Component Inspector\"]"
-              ]
-            ]
           }
         ]
       },
@@ -10254,7 +9831,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -10302,7 +9879,7 @@
       },
       {
         "id": "region",
-        "impact": "moderate",
+        "impact": null,
         "tags": [
           "cat.keyboard",
           "best-practice"
@@ -14430,761 +14007,6 @@
             "target": [
               ".v-overlay-container"
             ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div id=\"vue-tracer-overlay\" style=\"position: fixed; inset: 0px; z-index: 999999; pointer-events: none; opacity: 0; transition: 0.15s;\">",
-            "target": [
-              "#vue-tracer-overlay"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<svg width=\"100%\" height=\"100%\" style=\"position: fixed; inset: 0px; pointer-events: none;\"><rect fill=\"#1972\" stroke=\"#197\" rx=\"4\" ry=\"4\" style=\"transition: 0.15s; opacity: 0;\"></rect></svg>",
-            "target": [
-              "svg[width=\"100%\"]"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<rect fill=\"#1972\" stroke=\"#197\" rx=\"4\" ry=\"4\" style=\"transition: 0.15s; opacity: 0;\"></rect>",
-            "target": [
-              "rect"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div style=\"position: fixed; top: 0px; left: 0px; transition: 0.15s; background-color: rgb(17, 153, 119); color: rgb(255, 255, 255); border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; padding: 1px 4px; pointer-events: none; font-size: 10px; font-family: monospace; display: flex; gap: 0.25rem; box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px; opacity: 0;\">",
-            "target": [
-              "#vue-tracer-overlay > div"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div></div>",
-            "target": [
-              "#vue-tracer-overlay > div > div:nth-child(1)"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div style=\"opacity: 0.75; font-size: 9px;\"></div>",
-            "target": [
-              "#vue-tracer-overlay > div > div:nth-child(2)"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<nuxt-devtools-inspect-panel style=\"z-index: 999999; position: fixed;\"></nuxt-devtools-inspect-panel>",
-            "target": [
-              "nuxt-devtools-inspect-panel"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"bg-glass ring-base color-base fixed relative z-9999999 w-400px flex flex-col of-hidden rounded-lg text-sm shadow-lg ring-1 backdrop-blur duration-200 transition-opacity op0 pointer-events-none\" style=\"left: 0px; top: 0px; z-index: 999999; position: fixed;\">",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".bg-glass"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"flex items-center gap-2 p2\">",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".gap-2"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Go to parent\" class=\"flex items-center text-sm font-mono op50 disabled:pointer-events-none hover:text-green6 hover:op100 disabled:op10!\" disabled=\"\"><div class=\"i-ph-arrow-bend-left-up-duotone text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".disabled\\:pointer-events-none"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"i-ph-arrow-bend-left-up-duotone text-lg\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".i-ph-arrow-bend-left-up-duotone"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Open in editor\" class=\"flex items-center text-sm font-mono op50 hover:text-green6 hover:op100\"><!--v-if--><div class=\"i-ph-arrow-up-right-light mt--2 text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                "button[title=\"Open in editor\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"i-ph-arrow-up-right-light mt--2 text-lg\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".i-ph-arrow-up-right-light"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"flex-auto\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".flex-auto"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button title=\"Close\" class=\"flex-none op50 hover:op100\"><div class=\"i-ph-x text-lg\"></div></button>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".flex-none"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"i-ph-x text-lg\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-inspect-panel",
-                ".i-ph-x"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div id=\"nuxt-devtools-container\" data-v-inspector-ignore=\"true\"><nuxt-devtools-frame></nuxt-devtools-frame></div>",
-            "target": [
-              "#nuxt-devtools-container"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<nuxt-devtools-frame></nuxt-devtools-frame>",
-            "target": [
-              "nuxt-devtools-frame"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div id=\"nuxt-devtools-anchor\" class=\"\" style=\"left: 378px; top: 340px; pointer-events: auto; --nuxt-devtools-widget-bg: #111; --nuxt-devtools-widget-fg: #F5F5F5; --nuxt-devtools-widget-border: #3336; --nuxt-devtools-widget-shadow: rgba(0,0,0,0.3);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "#nuxt-devtools-anchor"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nuxt-devtools-glowing\" style=\"\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-glowing"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nuxt-devtools-panel\" style=\"transform: translate(-50%, -50%);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-panel"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-nuxt-button\" title=\"Toggle Nuxt DevTools\" style=\"filter: saturate(0);\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-nuxt-button"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<svg viewBox=\"0 0 324 324\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" style=\"margin-top: -1px; height: 1.2em; width: 1.2em;\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "svg[viewBox=\"0 0 324 324\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<path d=\"M181.767 270H302.211C306.037 270 309.795 269.003 313.108 267.107C316.421 265.211 319.172 262.484 321.084 259.2C322.996 255.915 324.002 252.19 324 248.399C323.998 244.607 322.989 240.883 321.074 237.601L240.187 98.7439C238.275 95.4607 235.525 92.7342 232.213 90.8385C228.901 88.9429 225.143 87.9449 221.318 87.9449C217.494 87.9449 213.736 88.9429 210.424 90.8385C207.112 92.7342 204.361 95.4607 202.449 98.7439L181.767 134.272L141.329 64.7975C139.416 61.5145 136.664 58.7884 133.351 56.8931C130.038 54.9978 126.28 54 122.454 54C118.629 54 114.871 54.9978 111.558 56.8931C108.245 58.7884 105.493 61.5145 103.58 64.7975L2.92554 237.601C1.01067 240.883 0.00166657 244.607 2.06272e-06 248.399C-0.00166244 252.19 1.00407 255.915 2.91605 259.2C4.82803 262.484 7.57884 265.211 10.8918 267.107C14.2047 269.003 17.963 270 21.7886 270H97.3936C127.349 270 149.44 256.959 164.641 231.517L201.546 168.172L221.313 134.272L280.637 236.1H201.546L181.767 270ZM96.1611 236.065L43.3984 236.054L122.49 100.291L161.953 168.172L135.531 213.543C125.436 230.051 113.968 236.065 96.1611 236.065Z\" fill=\"#00DC82\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "path[fill=\"#00DC82\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nuxt-devtools-panel-content\" style=\"border-left: 1px solid rgba(136, 136, 136, 0.2); width: 1px; height: 10px;\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-panel-content:nth-child(2)"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nuxt-devtools-label-main\">61</div>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-label-main"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<span class=\"nuxt-devtools-label-secondary\">ms</span>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-label-secondary"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div class=\"nuxt-devtools-panel-content\" style=\"border-left: 1px solid rgba(136, 136, 136, 0.2); width: 1px; height: 10px;\"></div>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-panel-content:nth-child(4)"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<button class=\"nuxt-devtools-icon-button nuxt-devtools-panel-content\" title=\"Toggle Component Inspector\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "button[title=\"Toggle Component Inspector\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" style=\"height: 1.2em; width: 1.2em; opacity: 0.5;\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "svg[viewBox=\"0 0 24 24\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\".5\" fill=\"currentColor\"></circle><path d=\"M5 12a7 7 0 1 0 14 0a7 7 0 1 0-14 0m7-9v2m-9 7h2m7 7v2m7-9h2\"></path></g>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "g"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<circle cx=\"12\" cy=\"12\" r=\".5\" fill=\"currentColor\"></circle>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "circle[cx=\"12\"]"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<path d=\"M5 12a7 7 0 1 0 14 0a7 7 0 1 0-14 0m7-9v2m-9 7h2m7 7v2m7-9h2\"></path>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "g > path"
-              ]
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<div style=\"position: fixed; z-index: -1; pointer-events: none; width: min(80vw, -48px + 100vw); height: min(60vh, -48px + 100vh); left: -302.398px; transform: translate(0px, 0px); bottom: 0px;\">",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                "#nuxt-devtools-anchor > div:nth-child(3)"
-              ]
-            ]
           }
         ]
       },
@@ -15312,7 +14134,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<html lang=\"en\" style=\"--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(safe-area-inset-right, 0px); --vueuse-safe-area-bottom: env(safe-area-inset-bottom, 0px); --vueuse-safe-area-left: env(safe-area-inset-left, 0px);\">",
+            "html": "<html lang=\"en\">",
             "target": [
               "html"
             ]
@@ -15569,9 +14391,9 @@
                 "data": null,
                 "relatedNodes": [
                   {
-                    "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined mt-8 button-href hidden-md-and-up\" style=\"\">",
+                    "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined button-href hidden-md-and-up ml-3\" style=\"\">",
                     "target": [
-                      ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4)"
+                      ".ml-3"
                     ]
                   }
                 ],
@@ -15725,45 +14547,11 @@
             "all": [],
             "none": [],
             "impact": "serious",
-            "html": "<h2 class=\"nofo-title mt-3\" style=\"color:#fff !important;font-size:2.5rem !important;text-align:center !important;\">2025 SERVICE DELIVERY GRANT OPPORTUNITY AVAILABLE</h2>",
+            "html": "<h2 class=\"nofo-title mt-1 mb-2\" style=\"color:#fff !important;font-size:2.5rem !important;text-align:center !important;\">2025 SERVICE DELIVERY GRANT OPPORTUNITY AVAILABLE</h2>",
             "target": [
               ".nofo-title"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "fgColor": "#ffffff",
-                  "bgColor": "#ffffff",
-                  "contrastRatio": 1,
-                  "fontSize": "12.0pt (16px)",
-                  "fontWeight": "normal",
-                  "messageKey": "equalRatio",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [
-                  {
-                    "html": "<div class=\"v-card v-theme--light v-card--density-default v-card--variant-elevated\" style=\"min-height:600px;\">",
-                    "target": [
-                      ".v-col-md-12.v-col-12 > .v-card.v-card--density-default.v-card--variant-elevated"
-                    ]
-                  }
-                ],
-                "impact": "serious",
-                "message": "Element has a 1:1 contrast ratio with the background"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "serious",
-            "html": "<div class=\"nofo-tagline\">Grants to provide services to repair the harm caused by economic disinvestment, violence, and the war on drugs. Organizations may apply for grant funds in R3 communities statewide.</div>",
-            "target": [
-              ".nofo-tagline"
-            ],
-            "failureSummary": "Fix any of the following:\n  Element has a 1:1 contrast ratio with the background"
           },
           {
             "any": [
@@ -15786,7 +14574,7 @@
             "impact": "serious",
             "html": "<span class=\"v-btn__content\" data-no-activator=\"\"><!--[--><!--[-->Expired 04/30/24&nbsp;&nbsp;<!--]--><!--]--></span>",
             "target": [
-              ".v-btn--size-small.v-btn--variant-outlined.button-href:nth-child(4) > .v-btn__content[data-no-activator=\"\"]"
+              ".ml-3 > .v-btn__content[data-no-activator=\"\"]"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
           },
@@ -16090,44 +14878,6 @@
         ]
       }
     ],
-    "violations": [
-      {
-        "id": "region",
-        "impact": "moderate",
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ],
-        "description": "Ensure all page content is contained by landmarks",
-        "help": "All page content should be contained by landmarks",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "Some page content is not contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "moderate",
-            "html": "<div class=\"nuxt-devtools-panel-content nuxt-devtools-label\" title=\"Page load time\"><div class=\"nuxt-devtools-label-main\">61</div><span class=\"nuxt-devtools-label-secondary\">ms</span></div>",
-            "target": [
-              [
-                "nuxt-devtools-frame",
-                ".nuxt-devtools-label"
-              ]
-            ],
-            "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
-          }
-        ]
-      }
-    ]
+    "violations": []
   }
 ]

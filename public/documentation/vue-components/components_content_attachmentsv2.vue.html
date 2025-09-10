@@ -8,7 +8,7 @@
     &lt;div>{{ props.links }}&lt;/div> -->
 
     &lt;div v-if="props.showTableDisplay">
-      &lt;h3 class="mt-10">{{ props.attachmentHeading }}&lt;/h3>
+      &lt;h2 class="mt-10">{{ props.attachmentHeading }}&lt;/h2>
       &lt;v-table
         class="markdown-body dataTable mt-3"
         density="compact"
@@ -59,7 +59,7 @@
     &lt;/div>
     &lt;div v-else>
       &lt;div v-if="props.attachments &amp;&amp; props.attachments.length > 0">
-        &lt;h3 v-if="attachmentHeading" class="pl-2">{{ attachmentHeading }}&lt;/h3>
+        &lt;h2 v-if="attachmentHeading" class="pl-2">{{ attachmentHeading }}&lt;/h2>
         &lt;ul class="mt-2">
           &lt;li
             v-for="(attachment, index) in props.attachments"

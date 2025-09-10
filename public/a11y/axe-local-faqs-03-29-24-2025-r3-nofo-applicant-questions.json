@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-08T13:02:22.525Z",
+    "timestamp": "2025-09-09T15:46:43.163Z",
     "url": "http://localhost:8000/faqs/03-29-24-2025-r3-nofo-applicant-questions",
     "toolOptions": {
       "reporter": "v1"
@@ -1387,7 +1387,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-progress-linear v-theme--light v-locale--is-ltr\" role=\"progressbar\" aria-hidden=\"true\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"top: 0px; height: 0px; --v-progress-linear-height: 2px;\">",
+            "html": "<div class=\"v-progress-linear v-theme--light v-locale--is-ltr\" style=\"top:0;height:0;--v-progress-linear-height:2px;\" role=\"progressbar\" aria-hidden=\"true\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
             "target": [
               ".px-10 > .v-card__loader > .v-progress-linear[role=\"progressbar\"][aria-valuemin=\"0\"]"
             ]
@@ -2357,7 +2357,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-progress-linear v-theme--light v-locale--is-ltr\" role=\"progressbar\" aria-hidden=\"true\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"top: 0px; height: 0px; --v-progress-linear-height: 2px;\">",
+            "html": "<div class=\"v-progress-linear v-theme--light v-locale--is-ltr\" style=\"top:0;height:0;--v-progress-linear-height:2px;\" role=\"progressbar\" aria-hidden=\"true\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
             "target": [
               ".px-10 > .v-card__loader > .v-progress-linear[role=\"progressbar\"][aria-valuemin=\"0\"]"
             ]
@@ -4096,7 +4096,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-container v-locale--is-ltr\" style=\"margin-top: -45px;\">",
+            "html": "<div class=\"v-container v-locale--is-ltr\" style=\"margin-top:-45px;\">",
             "target": [
               ".mb-12 > .v-container.v-locale--is-ltr"
             ]
@@ -4128,9 +4128,105 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"mb-4\" style=\"font-size: 13px;\"><a href=\"/faqs\" class=\"\"> &nbsp;«&nbsp;Back to all FAQs</a></div>",
+            "html": "<div class=\"v-row\" style=\"\">",
+            "target": [
+              ".mb-12 > .v-container.v-locale--is-ltr > .v-row"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "important-letter-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-word-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-line-height",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"v-col\" style=\"\">",
+            "target": [
+              ".mb-12 > .v-container.v-locale--is-ltr > .v-row > .v-col"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "important-letter-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-word-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-line-height",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"mb-4\" style=\"font-size:13px;\"><a href=\"/faqs\" class=\"\"> &nbsp;«&nbsp;Back to all FAQs</a></div>",
             "target": [
               ".mb-4"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "important-letter-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-word-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-line-height",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"v-card v-theme--light v-card--density-default v-card--variant-elevated px-10 py-5\" style=\"\">",
+            "target": [
+              ".px-10"
             ]
           },
           {
@@ -4596,15 +4692,15 @@
                     ]
                   },
                   {
-                    "html": "<h3 data-v-2a6831d8=\"\" class=\"pl-2\">Download</h3>",
+                    "html": "<h2 class=\"pl-2\" data-v-2a6831d8=\"\">Download</h2>",
                     "target": [
-                      "div[data-v-2a6831d8=\"\"] > h3"
+                      "h2"
                     ]
                   },
                   {
                     "html": "<h3>Posted: March 29, 2024</h3>",
                     "target": [
-                      ".pl-3 > h3"
+                      "h3"
                     ]
                   }
                 ],
@@ -4678,24 +4774,24 @@
               {
                 "id": "color-contrast",
                 "data": {
-                  "fgColor": "#212121",
+                  "fgColor": "#333333",
                   "bgColor": "#ffffff",
-                  "contrastRatio": 16.1,
-                  "fontSize": "15.0pt (20px)",
-                  "fontWeight": "normal",
-                  "expectedContrastRatio": "4.5:1"
+                  "contrastRatio": 12.63,
+                  "fontSize": "19.2pt (25.6px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
                 },
                 "relatedNodes": [],
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 16.1"
+                "message": "Element has sufficient color contrast of 12.63"
               }
             ],
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h3 data-v-2a6831d8=\"\" class=\"pl-2\">Download</h3>",
+            "html": "<h2 class=\"pl-2\" data-v-2a6831d8=\"\">Download</h2>",
             "target": [
-              "div[data-v-2a6831d8=\"\"] > h3"
+              "h2"
             ]
           },
           {
@@ -4718,7 +4814,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<a data-v-2a6831d8=\"\" href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">2378-030124QAResponse.pdf</a>",
+            "html": "<a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a>",
             "target": [
               "a[rel=\"noopener noreferrer\"]"
             ]
@@ -4745,7 +4841,7 @@
             "impact": null,
             "html": "<h3>Posted: March 29, 2024</h3>",
             "target": [
-              ".pl-3 > h3"
+              "h3"
             ]
           },
           {
@@ -6017,9 +6113,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h3 data-v-2a6831d8=\"\" class=\"pl-2\">Download</h3>",
+            "html": "<h2 class=\"pl-2\" data-v-2a6831d8=\"\">Download</h2>",
             "target": [
-              "div[data-v-2a6831d8=\"\"] > h3"
+              "h2"
             ]
           },
           {
@@ -6037,14 +6133,14 @@
             "impact": null,
             "html": "<h3>Posted: March 29, 2024</h3>",
             "target": [
-              ".pl-3 > h3"
+              "h3"
             ]
           }
         ]
       },
       {
         "id": "heading-order",
-        "impact": "moderate",
+        "impact": null,
         "tags": [
           "cat.semantics",
           "best-practice"
@@ -6067,9 +6163,9 @@
                     },
                     {
                       "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(3) > div > div > h3:nth-child(1)"
+                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(3) > div > div > h2:nth-child(1)"
                       ],
-                      "level": 3
+                      "level": 2
                     },
                     {
                       "ancestry": [
@@ -6105,9 +6201,27 @@
             "all": [],
             "none": [],
             "impact": null,
+            "html": "<h2 class=\"pl-2\" data-v-2a6831d8=\"\">Download</h2>",
+            "target": [
+              "h2"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "heading-order",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "Heading order valid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
             "html": "<h3>Posted: March 29, 2024</h3>",
             "target": [
-              ".pl-3 > h3"
+              "h3"
             ]
           }
         ]
@@ -6856,7 +6970,7 @@
               }
             ],
             "impact": null,
-            "html": "<a data-v-2a6831d8=\"\" href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">2378-030124QAResponse.pdf</a>",
+            "html": "<a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a>",
             "target": [
               "a[rel=\"noopener noreferrer\"]"
             ]
@@ -7098,7 +7212,7 @@
               }
             ],
             "impact": null,
-            "html": "<ul data-v-2a6831d8=\"\" class=\"mt-2\"><li data-v-2a6831d8=\"\"><a data-v-2a6831d8=\"\" href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">2378-030124QAResponse.pdf</a></li></ul>",
+            "html": "<ul class=\"mt-2\" data-v-2a6831d8=\"\"><!--[--><li data-v-2a6831d8=\"\"><a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a></li><!--]--></ul>",
             "target": [
               "ul"
             ]
@@ -7132,7 +7246,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<li data-v-2a6831d8=\"\"><a data-v-2a6831d8=\"\" href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">2378-030124QAResponse.pdf</a></li>",
+            "html": "<li data-v-2a6831d8=\"\"><a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a></li>",
             "target": [
               "li"
             ]
@@ -8820,7 +8934,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-container v-locale--is-ltr\" style=\"margin-top: -45px;\">",
+            "html": "<div class=\"v-container v-locale--is-ltr\" style=\"margin-top:-45px;\">",
             "target": [
               ".mb-12 > .v-container.v-locale--is-ltr"
             ]
@@ -8840,7 +8954,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-row\">",
+            "html": "<div class=\"v-row\" style=\"\">",
             "target": [
               ".mb-12 > .v-container.v-locale--is-ltr > .v-row"
             ]
@@ -8860,7 +8974,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-col\">",
+            "html": "<div class=\"v-col\" style=\"\">",
             "target": [
               ".mb-12 > .v-container.v-locale--is-ltr > .v-row > .v-col"
             ]
@@ -8880,7 +8994,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"mb-4\" style=\"font-size: 13px;\"><a href=\"/faqs\" class=\"\"> &nbsp;«&nbsp;Back to all FAQs</a></div>",
+            "html": "<div class=\"mb-4\" style=\"font-size:13px;\"><a href=\"/faqs\" class=\"\"> &nbsp;«&nbsp;Back to all FAQs</a></div>",
             "target": [
               ".mb-4"
             ]
@@ -8940,7 +9054,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-card v-theme--light v-card--density-default v-card--variant-elevated px-10 py-5\">",
+            "html": "<div class=\"v-card v-theme--light v-card--density-default v-card--variant-elevated px-10 py-5\" style=\"\">",
             "target": [
               ".px-10"
             ]
@@ -9000,7 +9114,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div data-v-2a6831d8=\"\" class=\"pl-2 mt-6\">",
+            "html": "<div class=\"pl-2 mt-6\" data-v-2a6831d8=\"\">",
             "target": [
               ".mt-6"
             ]
@@ -9060,9 +9174,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h3 data-v-2a6831d8=\"\" class=\"pl-2\">Download</h3>",
+            "html": "<h2 class=\"pl-2\" data-v-2a6831d8=\"\">Download</h2>",
             "target": [
-              "div[data-v-2a6831d8=\"\"] > h3"
+              "h2"
             ]
           },
           {
@@ -9080,7 +9194,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<ul data-v-2a6831d8=\"\" class=\"mt-2\"><li data-v-2a6831d8=\"\"><a data-v-2a6831d8=\"\" href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">2378-030124QAResponse.pdf</a></li></ul>",
+            "html": "<ul class=\"mt-2\" data-v-2a6831d8=\"\"><!--[--><li data-v-2a6831d8=\"\"><a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a></li><!--]--></ul>",
             "target": [
               "ul"
             ]
@@ -9100,7 +9214,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<li data-v-2a6831d8=\"\"><a data-v-2a6831d8=\"\" href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">2378-030124QAResponse.pdf</a></li>",
+            "html": "<li data-v-2a6831d8=\"\"><a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a></li>",
             "target": [
               "li"
             ]
@@ -9120,7 +9234,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<a data-v-2a6831d8=\"\" href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">2378-030124QAResponse.pdf</a>",
+            "html": "<a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a>",
             "target": [
               "a[rel=\"noopener noreferrer\"]"
             ]
@@ -9162,7 +9276,7 @@
             "impact": null,
             "html": "<h3>Posted: March 29, 2024</h3>",
             "target": [
-              ".pl-3 > h3"
+              "h3"
             ]
           },
           {
@@ -11241,39 +11355,6 @@
         ]
       }
     ],
-    "violations": [
-      {
-        "id": "heading-order",
-        "impact": "moderate",
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
-        "description": "Ensure the order of headings is semantically correct",
-        "help": "Heading levels should only increase by one",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [
-              {
-                "id": "heading-order",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "Heading order invalid"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "moderate",
-            "html": "<h3 data-v-2a6831d8=\"\" class=\"pl-2\">Download</h3>",
-            "target": [
-              "div[data-v-2a6831d8=\"\"] > h3"
-            ],
-            "failureSummary": "Fix any of the following:\n  Heading order invalid"
-          }
-        ]
-      }
-    ]
+    "violations": []
   }
 ]

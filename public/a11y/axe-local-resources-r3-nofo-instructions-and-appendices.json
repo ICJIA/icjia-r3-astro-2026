@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-08T13:02:44.563Z",
+    "timestamp": "2025-09-09T15:47:07.937Z",
     "url": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
     "toolOptions": {
       "reporter": "v1"
@@ -2316,13 +2316,13 @@
                     ]
                   },
                   {
-                    "html": "<h3 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h3>",
+                    "html": "<h2 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h2>",
                     "target": [
                       "#sfy2025-r3-nofo-instructions"
                     ]
                   },
                   {
-                    "html": "<h3 id=\"r3-nofo-technical-assistance\"><!--[-->R3 NOFO Technical Assistance<!--]--></h3>",
+                    "html": "<h2 id=\"r3-nofo-technical-assistance\"><!--[-->R3 NOFO Technical Assistance<!--]--></h2>",
                     "target": [
                       "#r3-nofo-technical-assistance"
                     ]
@@ -2346,7 +2346,7 @@
                     ]
                   },
                   {
-                    "html": "<h4 id=\"or-use-the-following-email\"><!--[-->Or, use the following email:<!--]--></h4>",
+                    "html": "<h3 id=\"or-use-the-following-email\"><!--[-->Or, use the following email:<!--]--></h3>",
                     "target": [
                       "#or-use-the-following-email"
                     ]
@@ -2602,22 +2602,22 @@
               {
                 "id": "color-contrast",
                 "data": {
-                  "fgColor": "#24292e",
+                  "fgColor": "#333333",
                   "bgColor": "#ffffff",
-                  "contrastRatio": 14.66,
-                  "fontSize": "15.0pt (20px)",
-                  "fontWeight": "normal",
-                  "expectedContrastRatio": "4.5:1"
+                  "contrastRatio": 12.63,
+                  "fontSize": "19.2pt (25.6px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
                 },
                 "relatedNodes": [],
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 14.66"
+                "message": "Element has sufficient color contrast of 12.63"
               }
             ],
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h3 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h3>",
+            "html": "<h2 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h2>",
             "target": [
               "#sfy2025-r3-nofo-instructions"
             ]
@@ -2727,22 +2727,22 @@
               {
                 "id": "color-contrast",
                 "data": {
-                  "fgColor": "#24292e",
+                  "fgColor": "#333333",
                   "bgColor": "#ffffff",
-                  "contrastRatio": 14.66,
-                  "fontSize": "15.0pt (20px)",
-                  "fontWeight": "normal",
-                  "expectedContrastRatio": "4.5:1"
+                  "contrastRatio": 12.63,
+                  "fontSize": "19.2pt (25.6px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
                 },
                 "relatedNodes": [],
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 14.66"
+                "message": "Element has sufficient color contrast of 12.63"
               }
             ],
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h3 id=\"r3-nofo-technical-assistance\"><!--[-->R3 NOFO Technical Assistance<!--]--></h3>",
+            "html": "<h2 id=\"r3-nofo-technical-assistance\"><!--[-->R3 NOFO Technical Assistance<!--]--></h2>",
             "target": [
               "#r3-nofo-technical-assistance"
             ]
@@ -2867,9 +2867,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a>",
+            "html": "<a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"\\_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a>",
             "target": [
-              "a[target=\"_blank\"]"
+              "a[target=\"\\\\_blank\"]"
             ]
           },
           {
@@ -3005,7 +3005,7 @@
                   "fgColor": "#24292e",
                   "bgColor": "#ffffff",
                   "contrastRatio": 14.66,
-                  "fontSize": "12.0pt (16px)",
+                  "fontSize": "15.0pt (20px)",
                   "fontWeight": "normal",
                   "expectedContrastRatio": "4.5:1"
                 },
@@ -3017,7 +3017,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h4 id=\"or-use-the-following-email\"><!--[-->Or, use the following email:<!--]--></h4>",
+            "html": "<h3 id=\"or-use-the-following-email\"><!--[-->Or, use the following email:<!--]--></h3>",
             "target": [
               "#or-use-the-following-email"
             ]
@@ -3178,7 +3178,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h3 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h3>",
+            "html": "<h2 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h2>",
             "target": [
               "#sfy2025-r3-nofo-instructions"
             ]
@@ -3196,7 +3196,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h3 id=\"r3-nofo-technical-assistance\"><!--[-->R3 NOFO Technical Assistance<!--]--></h3>",
+            "html": "<h2 id=\"r3-nofo-technical-assistance\"><!--[-->R3 NOFO Technical Assistance<!--]--></h2>",
             "target": [
               "#r3-nofo-technical-assistance"
             ]
@@ -3268,7 +3268,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h4 id=\"or-use-the-following-email\"><!--[-->Or, use the following email:<!--]--></h4>",
+            "html": "<h3 id=\"or-use-the-following-email\"><!--[-->Or, use the following email:<!--]--></h3>",
             "target": [
               "#or-use-the-following-email"
             ]
@@ -3277,7 +3277,7 @@
       },
       {
         "id": "heading-order",
-        "impact": "moderate",
+        "impact": null,
         "tags": [
           "cat.semantics",
           "best-practice"
@@ -3300,15 +3300,15 @@
                     },
                     {
                       "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div:nth-child(2) > div > div > div > div > div:nth-child(3) > h3:nth-child(1)"
+                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div:nth-child(2) > div > div > div > div > div:nth-child(3) > h2:nth-child(1)"
                       ],
-                      "level": 3
+                      "level": 2
                     },
                     {
                       "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div:nth-child(2) > div > div > div > div > div:nth-child(3) > h3:nth-child(3)"
+                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div:nth-child(2) > div > div > div > div > div:nth-child(3) > h2:nth-child(3)"
                       ],
-                      "level": 3
+                      "level": 2
                     },
                     {
                       "ancestry": [
@@ -3330,9 +3330,9 @@
                     },
                     {
                       "ancestry": [
-                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div:nth-child(2) > div > div > div > div > div:nth-child(3) > div:nth-child(12) > h4:nth-child(1)"
+                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div:nth-child(2) > div > div > div > div > div:nth-child(3) > div:nth-child(12) > h3:nth-child(1)"
                       ],
-                      "level": 4
+                      "level": 3
                     }
                   ]
                 },
@@ -3362,7 +3362,25 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h3 id=\"r3-nofo-technical-assistance\"><!--[-->R3 NOFO Technical Assistance<!--]--></h3>",
+            "html": "<h2 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h2>",
+            "target": [
+              "#sfy2025-r3-nofo-instructions"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "heading-order",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "Heading order valid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 id=\"r3-nofo-technical-assistance\"><!--[-->R3 NOFO Technical Assistance<!--]--></h2>",
             "target": [
               "#r3-nofo-technical-assistance"
             ]
@@ -3434,7 +3452,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h4 id=\"or-use-the-following-email\"><!--[-->Or, use the following email:<!--]--></h4>",
+            "html": "<h3 id=\"or-use-the-following-email\"><!--[-->Or, use the following email:<!--]--></h3>",
             "target": [
               "#or-use-the-following-email"
             ]
@@ -4238,9 +4256,9 @@
               }
             ],
             "impact": null,
-            "html": "<a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a>",
+            "html": "<a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"\\_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a>",
             "target": [
-              "a[target=\"_blank\"]"
+              "a[target=\"\\\\_blank\"]"
             ]
           },
           {
@@ -4412,7 +4430,7 @@
               }
             ],
             "impact": null,
-            "html": "<ul><!--[--><li><!--[--><a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a><!--]--></li><!--]--></ul>",
+            "html": "<ul><!--[--><li><!--[--><a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"\\_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a><!--]--></li><!--]--></ul>",
             "target": [
               "ul:nth-child(7)"
             ]
@@ -4608,7 +4626,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<li><!--[--><a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a><!--]--></li>",
+            "html": "<li><!--[--><a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"\\_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a><!--]--></li>",
             "target": [
               "ul:nth-child(7) > li"
             ]
@@ -5693,7 +5711,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h3 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h3>",
+            "html": "<h2 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h2>",
             "target": [
               "#sfy2025-r3-nofo-instructions"
             ]
@@ -5893,7 +5911,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h3 id=\"r3-nofo-technical-assistance\"><!--[-->R3 NOFO Technical Assistance<!--]--></h3>",
+            "html": "<h2 id=\"r3-nofo-technical-assistance\"><!--[-->R3 NOFO Technical Assistance<!--]--></h2>",
             "target": [
               "#r3-nofo-technical-assistance"
             ]
@@ -6053,7 +6071,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<ul><!--[--><li><!--[--><a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a><!--]--></li><!--]--></ul>",
+            "html": "<ul><!--[--><li><!--[--><a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"\\_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a><!--]--></li><!--]--></ul>",
             "target": [
               "ul:nth-child(7)"
             ]
@@ -6073,7 +6091,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<li><!--[--><a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a><!--]--></li>",
+            "html": "<li><!--[--><a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"\\_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a><!--]--></li>",
             "target": [
               "ul:nth-child(7) > li"
             ]
@@ -6093,9 +6111,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a>",
+            "html": "<a href=\"https://r3.icjia-api.cloud/uploads/R3_Legislative_Language_7a7d20d896.pdf\" rel=\"nofollow\" target=\"\\_blank\"><!--[-->R3 Legislative Language (PDF)<!--]--></a>",
             "target": [
-              "a[target=\"_blank\"]"
+              "a[target=\"\\\\_blank\"]"
             ]
           },
           {
@@ -6293,7 +6311,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<h4 id=\"or-use-the-following-email\"><!--[-->Or, use the following email:<!--]--></h4>",
+            "html": "<h3 id=\"or-use-the-following-email\"><!--[-->Or, use the following email:<!--]--></h3>",
             "target": [
               "#or-use-the-following-email"
             ]
@@ -6580,39 +6598,6 @@
       }
     ],
     "incomplete": [],
-    "violations": [
-      {
-        "id": "heading-order",
-        "impact": "moderate",
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
-        "description": "Ensure the order of headings is semantically correct",
-        "help": "Heading levels should only increase by one",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [
-              {
-                "id": "heading-order",
-                "data": null,
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "Heading order invalid"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "moderate",
-            "html": "<h3 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h3>",
-            "target": [
-              "#sfy2025-r3-nofo-instructions"
-            ],
-            "failureSummary": "Fix any of the following:\n  Heading order invalid"
-          }
-        ]
-      }
-    ]
+    "violations": []
   }
 ]

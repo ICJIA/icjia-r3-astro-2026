@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-08T13:02:46.664Z",
+    "timestamp": "2025-09-09T15:47:10.201Z",
     "url": "http://localhost:8000/search",
     "toolOptions": {
       "reporter": "v1"
@@ -5421,15 +5421,15 @@
                 "id": "color-contrast",
                 "data": {
                   "fgColor": "#111111",
-                  "bgColor": "#e9eaea",
-                  "contrastRatio": 15.66,
+                  "bgColor": "#eaeaea",
+                  "contrastRatio": 15.69,
                   "fontSize": "13.5pt (18px)",
                   "fontWeight": "bold",
                   "expectedContrastRatio": "4.5:1"
                 },
                 "relatedNodes": [],
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 15.66"
+                "message": "Element has sufficient color contrast of 15.69"
               }
             ],
             "all": [],
@@ -5438,6 +5438,26 @@
             "html": "<label class=\"v-label v-field-label\" style=\"visibility: visible;\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
             "target": [
               ".v-label.v-field-label:nth-child(2)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "messageKey": "hidden"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element is hidden"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<input value=\"\" placeholder=\"Enter search term\" size=\"1\" type=\"text\" id=\"textfield\" aria-describedby=\"textfield-messages\" autocomplete=\"off\" class=\"v-field__input\">",
+            "target": [
+              "#textfield"
             ]
           },
           {
@@ -10046,31 +10066,6 @@
             "html": "<div class=\"text-right\" data-v-254a34d2=\"\">Found: 0</div>",
             "target": [
               ".text-right"
-            ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "contrastRatio": 0,
-                  "fontSize": "12.0pt (16px)",
-                  "fontWeight": "bold",
-                  "messageKey": "bgOverlap",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element's background color could not be determined because it is overlapped by another element"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "serious",
-            "html": "<input value=\"\" placeholder=\"Enter search term\" size=\"1\" type=\"text\" id=\"textfield\" aria-describedby=\"textfield-messages\" autocomplete=\"off\" class=\"v-field__input\">",
-            "target": [
-              "#textfield"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
           },

@@ -103,3 +103,6 @@ label {
   color: #111 !important;
   opacity: 1 !important;
 }
+
+/* Improve NOFO title contrast on homepage */
+/* Removed global override to avoid conflicting with index.vue specific background treatment */

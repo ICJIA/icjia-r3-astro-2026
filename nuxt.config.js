@@ -111,7 +111,6 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxtjs/google-fonts",
-    "nuxt-gtag",
     "@nuxtjs/plausible",
     // "@nuxtjs/apollo",
     // "@pinia/nuxt", // Removed - using Nuxt 3 native state management
@@ -130,9 +129,7 @@ export default defineNuxtConfig({
   // imports: {
   //   dirs: ["stores"], // Removed - no longer using Pinia stores
   // },
-  gtag: {
-    id: "G-G7XDWC7WPG",
-  },
+
   plausible: {
     apiHost: "https://plausible.icjia.cloud",
     // Prevent tracking on localhost
@@ -217,10 +214,10 @@ export default defineNuxtConfig({
     routes: siteRoutes,
   },
   devtools: {
-    enabled: true,
+    enabled: false,
 
     timeline: {
-      enabled: true,
+      enabled: false,
     },
   },
 });
