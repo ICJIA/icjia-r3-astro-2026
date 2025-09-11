@@ -67,7 +67,7 @@
           @click="$router.push('/')"
           @keydown.enter="$router.push('/')"
           @keydown.space="$router.push('/')"
-          >&lt;span>R3&lt;/span>&amp;nbsp;&amp;nbsp;RESTORE. REINVEST. RENEW.
+          >R3&amp;nbsp;&amp;nbsp;RESTORE. REINVEST. RENEW.
         &lt;/span>
       &lt;/div>
 
@@ -86,7 +86,7 @@
           @click="$router.push('/')"
           @keydown.enter="$router.push('/')"
           @keydown.space="$router.push('/')"
-          >&lt;span>R3&lt;/span>&amp;nbsp;&amp;nbsp;RESTORE. REINVEST. RENEW.
+          >R3&amp;nbsp;&amp;nbsp;RESTORE. REINVEST. RENEW.
         &lt;/span>
       &lt;/div>
 
@@ -99,8 +99,13 @@
             font-family: &amp;quot;Roboto&amp;quot;, sans-serif !important;
           "
           class="agency app-title"
+          tabindex="0"
+          role="button"
+          aria-label="Go to R3 home page"
           @click="$router.push('/')"
-          >&lt;span>R3&lt;/span>
+          @keydown.enter="$router.push('/')"
+          @keydown.space="$router.push('/')"
+          >R3
         &lt;/span>
       &lt;/div>
 

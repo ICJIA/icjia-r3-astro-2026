@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-10T16:32:23.134Z",
+    "timestamp": "2025-09-11T13:31:01.207Z",
     "url": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
     "toolOptions": {
       "reporter": "v1"
@@ -853,6 +853,32 @@
               }
             ],
             "impact": null,
+            "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
+            "target": [
+              "nav"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-allowed-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attributes are used correctly for the defined role"
+              }
+            ],
+            "none": [
+              {
+                "id": "aria-unsupported-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute is supported"
+              }
+            ],
+            "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
             "target": [
               ".hamburger"
@@ -879,9 +905,9 @@
               }
             ],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -954,9 +980,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:22px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:22px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-sm-and-down > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-sm-and-down > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -972,9 +998,27 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-allowed-role",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "ARIA role is allowed for given element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:30px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 - Go to home page\" data-v-c47643d2=\"\">R3 </span>",
+            "target": [
+              "span[aria-label=\"R3 - Go to home page\"]"
             ]
           },
           {
@@ -1095,9 +1139,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           }
         ]
@@ -1129,6 +1173,24 @@
             ],
             "none": [],
             "impact": null,
+            "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
+            "target": [
+              "nav"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-conditional-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "none": [],
+            "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
             "target": [
               ".hamburger"
@@ -1147,9 +1209,9 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -1217,9 +1279,9 @@
               }
             ],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -1405,6 +1467,24 @@
               }
             ],
             "impact": null,
+            "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
+            "target": [
+              "nav"
+            ]
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
             "target": [
               ".hamburger"
@@ -1423,9 +1503,9 @@
               }
             ],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -1493,9 +1573,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -1609,9 +1689,9 @@
               }
             ],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -1721,6 +1801,38 @@
             ],
             "none": [],
             "impact": null,
+            "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
+            "target": [
+              "nav"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute values are valid"
+              },
+              {
+                "id": "aria-errormessage",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
+              },
+              {
+                "id": "aria-level",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-level values are valid"
+              }
+            ],
+            "none": [],
+            "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
             "target": [
               ".hamburger"
@@ -1753,9 +1865,9 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -1819,6 +1931,24 @@
             "all": [],
             "none": [],
             "impact": null,
+            "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
+            "target": [
+              "nav"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-valid-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute name is valid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
             "target": [
               ".hamburger"
@@ -1837,9 +1967,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -2064,9 +2194,9 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -2683,34 +2813,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "fgColor": "#000000",
-                  "bgColor": "#ffffff",
-                  "contrastRatio": 21,
-                  "fontSize": "10.5pt (14px)",
-                  "fontWeight": "bold",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 21"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<span data-v-c47643d2=\"\">R3</span>",
-            "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"] > span"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -4017,6 +4122,27 @@
               {
                 "id": "landmark-is-unique",
                 "data": {
+                  "role": "navigation",
+                  "accessibleText": "skip navigation"
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "Landmarks must have a unique role or role/label/title (i.e. accessible name) combination"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
+            "target": [
+              "nav"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "landmark-is-unique",
+                "data": {
                   "role": "banner",
                   "accessibleText": null
                 },
@@ -5023,9 +5149,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -5152,9 +5278,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></div>",
+            "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
             "target": [
-              ".skip-links"
+              "nav"
             ]
           },
           {
@@ -5392,29 +5518,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "region",
-                "data": {
-                  "isIframe": false
-                },
-                "relatedNodes": [],
-                "impact": "moderate",
-                "message": "All page content is contained by landmarks"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<span data-v-c47643d2=\"\">R3</span>",
-            "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"] > span"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           },
           {
@@ -6848,9 +6954,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+              ".hidden-xs > .agency.app-title[role=\"button\"]"
             ]
           }
         ]
