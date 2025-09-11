@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-11T13:29:42.795Z",
+    "timestamp": "2025-09-11T14:39:01.038Z",
     "url": "http://localhost:8000/",
     "toolOptions": {
       "reporter": "v1"
@@ -913,6 +913,32 @@
               }
             ],
             "impact": null,
+            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\" style=\"position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;\" role=\"region\" aria-label=\"R3 Program funding opportunity information\">",
+            "target": [
+              ".flex-column"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-allowed-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attributes are used correctly for the defined role"
+              }
+            ],
+            "none": [
+              {
+                "id": "aria-unsupported-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute is supported"
+              }
+            ],
+            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
               ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
@@ -1552,7 +1578,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"presentation\" aria-hidden=\"true\">",
+            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"\" role=\"presentation\" aria-hidden=\"true\">",
             "target": [
               ".grey"
             ]
@@ -1570,9 +1596,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light v-progress-circular--size-default text-grey-lighten-4\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-label=\"Loading image\">",
+            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\" style=\"position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;\" role=\"region\" aria-label=\"R3 Program funding opportunity information\">",
             "target": [
-              ".v-progress-circular"
+              ".flex-column"
             ]
           },
           {
@@ -2065,6 +2091,24 @@
             ],
             "none": [],
             "impact": null,
+            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\" style=\"position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;\" role=\"region\" aria-label=\"R3 Program funding opportunity information\">",
+            "target": [
+              ".flex-column"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-conditional-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "none": [],
+            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
               ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
@@ -2405,6 +2449,24 @@
               }
             ],
             "impact": null,
+            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\" style=\"position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;\" role=\"region\" aria-label=\"R3 Program funding opportunity information\">",
+            "target": [
+              ".flex-column"
+            ]
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "deprecatedrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "ARIA role is not deprecated"
+              }
+            ],
+            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
               ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
@@ -2504,7 +2566,7 @@
       },
       {
         "id": "aria-hidden-focus",
-        "impact": "serious",
+        "impact": null,
         "tags": [
           "cat.name-role-value",
           "wcag2a",
@@ -2772,6 +2834,38 @@
             "html": "<div class=\"v-progress-linear v-theme--light v-locale--is-ltr\" style=\"top:0;height:0;--v-progress-linear-height:2px;\" role=\"progressbar\" aria-hidden=\"true\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
             "target": [
               ".v-col-md-12.v-col-12 > .v-card.v-card--density-default.v-card--variant-elevated > .v-card__loader > .v-progress-linear[role=\"progressbar\"][aria-valuemin=\"0\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "focusable-modal-open",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "No focusable elements while a modal is open"
+              },
+              {
+                "id": "focusable-disabled",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "No focusable elements contained within element"
+              },
+              {
+                "id": "focusable-not-tabbable",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "No focusable elements contained within element"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"\" role=\"presentation\" aria-hidden=\"true\">",
+            "target": [
+              ".grey"
             ]
           },
           {
@@ -3217,6 +3311,24 @@
               }
             ],
             "impact": null,
+            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\" style=\"position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;\" role=\"region\" aria-label=\"R3 Program funding opportunity information\">",
+            "target": [
+              ".flex-column"
+            ]
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
               ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
@@ -3542,6 +3654,24 @@
             "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 88px; background: rgb(242, 242, 242); min-height: 80vh !important;\" id=\"main-content\" role=\"main\">",
             "target": [
               "#main-content"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-required-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "All required ARIA attributes are present"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\" style=\"position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;\" role=\"region\" aria-label=\"R3 Program funding opportunity information\">",
+            "target": [
+              ".flex-column"
             ]
           },
           {
@@ -4233,6 +4363,38 @@
               }
             ],
             "impact": null,
+            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\" style=\"position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;\" role=\"region\" aria-label=\"R3 Program funding opportunity information\">",
+            "target": [
+              ".flex-column"
+            ]
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "invalidrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA role is valid"
+              },
+              {
+                "id": "abstractrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Abstract roles are not used"
+              },
+              {
+                "id": "unsupportedrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA role is supported"
+              }
+            ],
+            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
               ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
@@ -4601,6 +4763,38 @@
             ],
             "none": [],
             "impact": null,
+            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\" style=\"position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;\" role=\"region\" aria-label=\"R3 Program funding opportunity information\">",
+            "target": [
+              ".flex-column"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute values are valid"
+              },
+              {
+                "id": "aria-errormessage",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
+              },
+              {
+                "id": "aria-level",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-level values are valid"
+              }
+            ],
+            "none": [],
+            "impact": null,
             "html": "<div class=\"v-responsive v-img v-img--booting\" style=\"height:300px;\" aria-label=\"Eligibility - Find out if you're eligible to apply for funding\" role=\"img\">",
             "target": [
               ".v-col-md-6.v-col-12:nth-child(1) > .elevation-5.v-card--link.info-card > .v-responsive.v-img[role=\"img\"]"
@@ -4874,6 +5068,24 @@
             "html": "<div data-v-c8aa5ae8=\"\" class=\"v-list-item v-list-item--link v-theme--light v-list-item--density-compact v-list-item--one-line rounded-0 v-list-item--variant-text v-list-group__header\" tabindex=\"0\" id=\"v-list-group--id-Symbol(14)\" aria-expanded=\"false\" aria-label=\"About section. Press Enter to expand or collapse.\" role=\"menuitem\" aria-haspopup=\"true\" style=\"font-weight: 900 !important; font-family: Roboto, sans-serif !important;\">",
             "target": [
               "#v-list-group--id-Symbol\\(14\\)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-valid-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute name is valid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\" style=\"position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;\" role=\"region\" aria-label=\"R3 Program funding opportunity information\">",
+            "target": [
+              ".flex-column"
             ]
           },
           {
@@ -5525,6 +5737,134 @@
             "html": "<div class=\"v-card v-theme--light v-card--density-default v-card--variant-elevated\" style=\"min-height:600px;\">",
             "target": [
               ".v-col-md-12.v-col-12 > .v-card.v-card--density-default.v-card--variant-elevated"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "important-letter-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-word-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-line-height",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<div style=\"position:relative;\">",
+            "target": [
+              ".v-col-md-12.v-col-12 > .v-card.v-card--density-default.v-card--variant-elevated > div:nth-child(2)"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "important-letter-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-word-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-line-height",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\" style=\"position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;\" role=\"region\" aria-label=\"R3 Program funding opportunity information\">",
+            "target": [
+              ".flex-column"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "important-letter-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-word-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-line-height",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"nofo-title mt-1 mb-2\" style=\"color:#fff !important;font-size:2.5rem !important;text-align:center !important;\">2025 SERVICE DELIVERY GRANT OPPORTUNITY AVAILABLE</h2>",
+            "target": [
+              ".nofo-title"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "important-letter-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-word-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-line-height",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined button-href hidden-md-and-up ml-3\" style=\"\">",
+            "target": [
+              ".ml-3"
             ]
           },
           {
@@ -7503,6 +7843,24 @@
           {
             "any": [
               {
+                "id": "button-has-visible-text",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Element has inner text that is visible to screen readers"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined button-href hidden-md-and-up ml-3\" style=\"\">",
+            "target": [
+              ".ml-3"
+            ]
+          },
+          {
+            "any": [
+              {
                 "id": "aria-label",
                 "data": null,
                 "relatedNodes": [],
@@ -7551,6 +7909,12 @@
                 "id": "header-present",
                 "data": null,
                 "relatedNodes": [
+                  {
+                    "html": "<h2 class=\"nofo-title mt-1 mb-2\" style=\"color:#fff !important;font-size:2.5rem !important;text-align:center !important;\">2025 SERVICE DELIVERY GRANT OPPORTUNITY AVAILABLE</h2>",
+                    "target": [
+                      ".nofo-title"
+                    ]
+                  },
                   {
                     "html": "<h1 id=\"r3-restore-reinvest-renew\"><!--[-->R3 RESTORE. REINVEST. RENEW.<!--]--></h1>",
                     "target": [
@@ -7889,16 +8253,16 @@
               {
                 "id": "color-contrast",
                 "data": {
-                  "fgColor": "#0366d6",
+                  "fgColor": "#0056b3",
                   "bgColor": "#f2f2f2",
-                  "contrastRatio": 4.84,
+                  "contrastRatio": 6.29,
                   "fontSize": "12.0pt (16px)",
                   "fontWeight": "bold",
                   "expectedContrastRatio": "4.5:1"
                 },
                 "relatedNodes": [],
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 4.84"
+                "message": "Element has sufficient color contrast of 6.29"
               }
             ],
             "all": [],
@@ -7939,16 +8303,16 @@
               {
                 "id": "color-contrast",
                 "data": {
-                  "fgColor": "#0366d6",
+                  "fgColor": "#0056b3",
                   "bgColor": "#f2f2f2",
-                  "contrastRatio": 4.84,
+                  "contrastRatio": 6.29,
                   "fontSize": "12.0pt (16px)",
                   "fontWeight": "bold",
                   "expectedContrastRatio": "4.5:1"
                 },
                 "relatedNodes": [],
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 4.84"
+                "message": "Element has sufficient color contrast of 6.29"
               }
             ],
             "all": [],
@@ -8599,6 +8963,24 @@
             "all": [],
             "none": [],
             "impact": null,
+            "html": "<h2 class=\"nofo-title mt-1 mb-2\" style=\"color:#fff !important;font-size:2.5rem !important;text-align:center !important;\">2025 SERVICE DELIVERY GRANT OPPORTUNITY AVAILABLE</h2>",
+            "target": [
+              ".nofo-title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "has-visible-text",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "Element has text that is visible to screen readers"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
             "html": "<h1 id=\"r3-restore-reinvest-renew\"><!--[-->R3 RESTORE. REINVEST. RENEW.<!--]--></h1>",
             "target": [
               "#r3-restore-reinvest-renew"
@@ -8715,6 +9097,12 @@
                   "headingOrder": [
                     {
                       "ancestry": [
+                        "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(1) > div > div > div > div:nth-child(2) > div:nth-child(2) > div > h2:nth-child(1)"
+                      ],
+                      "level": 2
+                    },
+                    {
+                      "ancestry": [
                         "html > body > div:nth-child(1) > div > div:nth-child(2) > div > main:nth-child(4) > div > div > div:nth-child(2) > div > div > div > h1:nth-child(1)"
                       ],
                       "level": 1
@@ -8751,6 +9139,24 @@
                     }
                   ]
                 },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "Heading order valid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"nofo-title mt-1 mb-2\" style=\"color:#fff !important;font-size:2.5rem !important;text-align:center !important;\">2025 SERVICE DELIVERY GRANT OPPORTUNITY AVAILABLE</h2>",
+            "target": [
+              ".nofo-title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "heading-order",
+                "data": null,
                 "relatedNodes": [],
                 "impact": "moderate",
                 "message": "Heading order valid"
@@ -9325,6 +9731,27 @@
             "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left: 0px; --v-layout-right: 0px; --v-layout-top: 64px; --v-layout-bottom: 88px; background: rgb(242, 242, 242); min-height: 80vh !important;\" id=\"main-content\" role=\"main\">",
             "target": [
               "#main-content"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "landmark-is-unique",
+                "data": {
+                  "role": "region",
+                  "accessibleText": "r3 program funding opportunity information"
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "Landmarks must have a unique role or role/label/title (i.e. accessible name) combination"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\" style=\"position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;\" role=\"region\" aria-label=\"R3 Program funding opportunity information\">",
+            "target": [
+              ".flex-column"
             ]
           },
           {
@@ -10105,6 +10532,24 @@
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
               ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "no-focusable-content",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have focusable descendants"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined button-href hidden-md-and-up ml-3\" style=\"\">",
+            "target": [
+              ".ml-3"
             ]
           },
           {
@@ -11816,6 +12261,206 @@
             "html": "<div class=\"v-card__loader\">",
             "target": [
               ".v-col-md-12.v-col-12 > .v-card.v-card--density-default.v-card--variant-elevated > .v-card__loader"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div style=\"position:relative;\">",
+            "target": [
+              ".v-col-md-12.v-col-12 > .v-card.v-card--density-default.v-card--variant-elevated > div:nth-child(2)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"d-flex flex-column justify-center align-center h-100 px-12\" style=\"position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;\" role=\"region\" aria-label=\"R3 Program funding opportunity information\">",
+            "target": [
+              ".flex-column"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"nofo-band py-4 px-6 text-center\">",
+            "target": [
+              ".nofo-band"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"nofo-title mt-1 mb-2\" style=\"color:#fff !important;font-size:2.5rem !important;text-align:center !important;\">2025 SERVICE DELIVERY GRANT OPPORTUNITY AVAILABLE</h2>",
+            "target": [
+              ".nofo-title"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"nofo-tagline\">Grants to provide services to repair the harm caused by economic disinvestment, violence, and the war on drugs. Organizations may apply for grant funds in R3 communities statewide.</div>",
+            "target": [
+              ".nofo-tagline"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"mt-6\">",
+            "target": [
+              ".mt-6"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined button-href hidden-md-and-up ml-3\" style=\"\">",
+            "target": [
+              ".ml-3"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"v-btn__overlay\"></span>",
+            "target": [
+              ".ml-3 > .v-btn__overlay"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"v-btn__underlay\"></span>",
+            "target": [
+              ".ml-3 > .v-btn__underlay"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"v-btn__content\" data-no-activator=\"\"><!--[--><!--[-->Expired 04/30/24&nbsp;&nbsp;<!--]--><!--]--></span>",
+            "target": [
+              ".ml-3 > .v-btn__content[data-no-activator=\"\"]"
             ]
           },
           {
@@ -14775,50 +15420,6 @@
       }
     ],
     "incomplete": [
-      {
-        "id": "aria-hidden-focus",
-        "impact": "serious",
-        "tags": [
-          "cat.name-role-value",
-          "wcag2a",
-          "wcag412",
-          "TTv5",
-          "TT6.a",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
-        "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
-        "help": "ARIA hidden element must not be focusable or contain focusable elements",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-hidden-focus?application=webdriverjs",
-        "nodes": [
-          {
-            "any": [],
-            "all": [
-              {
-                "id": "focusable-modal-open",
-                "data": null,
-                "relatedNodes": [
-                  {
-                    "html": "<button type=\"button\" class=\"v-btn v-theme--light text-white v-btn--density-default v-btn--size-small v-btn--variant-outlined button-href hidden-md-and-up ml-3\" style=\"\">",
-                    "target": [
-                      ".ml-3"
-                    ]
-                  }
-                ],
-                "impact": "serious",
-                "message": "Check that focusable elements are not tabbable in the current state"
-              }
-            ],
-            "none": [],
-            "impact": "serious",
-            "html": "<div class=\"v-responsive v-img v-img--booting grey lighten-2\" style=\"height:650px;\" aria-label=\"R3 Program hero image showcasing community investment and renewal\" role=\"presentation\" aria-hidden=\"true\">",
-            "target": [
-              ".grey"
-            ],
-            "failureSummary": "Fix all of the following:\n  Check that focusable elements are not tabbable in the current state"
-          }
-        ]
-      },
       {
         "id": "color-contrast",
         "impact": "serious",

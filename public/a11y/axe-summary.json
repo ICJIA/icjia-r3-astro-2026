@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-09-11T13:31:13.639Z",
+  "timestamp": "2025-09-11T14:40:40.609Z",
   "summary": {
     "totalPages": 34,
-    "totalViolations": 10,
-    "totalPasses": 1439,
-    "totalIncomplete": 23,
-    "totalInapplicable": 1584
+    "totalViolations": 35,
+    "totalPasses": 1299,
+    "totalIncomplete": 18,
+    "totalInapplicable": 1718
   },
   "pages": [
     {
@@ -39,9 +39,9 @@
       "url": "http://localhost:8000/eligibility",
       "filename": "axe-local-eligibility.json",
       "violations": 6,
-      "passes": 58,
-      "incomplete": 2,
-      "inapplicable": 30,
+      "passes": 53,
+      "incomplete": 1,
+      "inapplicable": 35,
       "violationRules": [
         "aria-hidden-focus",
         "aria-prohibited-attr",
@@ -64,41 +64,14 @@
       "url": "http://localhost:8000/faqs/03-15-24-2025-r3-nofo-applicant-questions",
       "filename": "axe-local-faqs-03-15-24-2025-r3-nofo-applicant-questions.json",
       "violations": 0,
-      "passes": 45,
-      "incomplete": 1,
-      "inapplicable": 44,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
       "violationRules": []
     },
     {
       "url": "http://localhost:8000/faqs/03-22-24-2025-r3-nofo-applicant-questions",
       "filename": "axe-local-faqs-03-22-24-2025-r3-nofo-applicant-questions.json",
-      "violations": 0,
-      "passes": 45,
-      "incomplete": 1,
-      "inapplicable": 44,
-      "violationRules": []
-    },
-    {
-      "url": "http://localhost:8000/faqs/03-29-24-2025-r3-nofo-applicant-questions",
-      "filename": "axe-local-faqs-03-29-24-2025-r3-nofo-applicant-questions.json",
-      "violations": 0,
-      "passes": 45,
-      "incomplete": 1,
-      "inapplicable": 44,
-      "violationRules": []
-    },
-    {
-      "url": "http://localhost:8000/faqs/04-05-24-2025-r3-nofo-applicant-questions",
-      "filename": "axe-local-faqs-04-05-24-2025-r3-nofo-applicant-questions.json",
-      "violations": 0,
-      "passes": 45,
-      "incomplete": 1,
-      "inapplicable": 44,
-      "violationRules": []
-    },
-    {
-      "url": "http://localhost:8000/faqs/04-12-24-2025-r3-nofo-applicant-questions",
-      "filename": "axe-local-faqs-04-12-24-2025-r3-nofo-applicant-questions.json",
       "violations": 0,
       "passes": 40,
       "incomplete": 0,
@@ -106,22 +79,54 @@
       "violationRules": []
     },
     {
-      "url": "http://localhost:8000/faqs/04-19-24-2025-r3-nofo-applicant-questions",
-      "filename": "axe-local-faqs-04-19-24-2025-r3-nofo-applicant-questions.json",
+      "url": "http://localhost:8000/faqs/03-29-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-03-29-24-2025-r3-nofo-applicant-questions.json",
       "violations": 0,
-      "passes": 39,
+      "passes": 40,
       "incomplete": 0,
-      "inapplicable": 50,
+      "inapplicable": 49,
       "violationRules": []
     },
     {
-      "url": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
-      "filename": "axe-local-faqs-04-26-24-2025-r3-nofo-applicant-questions.json",
+      "url": "http://localhost:8000/faqs/04-05-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-04-05-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 0,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/faqs/04-12-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-04-12-24-2025-r3-nofo-applicant-questions.json",
       "violations": 0,
       "passes": 45,
       "incomplete": 1,
       "inapplicable": 44,
       "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/faqs/04-19-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-04-19-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 0,
+      "passes": 44,
+      "incomplete": 1,
+      "inapplicable": 45,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
+      "filename": "axe-local-faqs-04-26-24-2025-r3-nofo-applicant-questions.json",
+      "violations": 4,
+      "passes": 29,
+      "incomplete": 1,
+      "inapplicable": 59,
+      "violationRules": [
+        "button-name",
+        "landmark-one-main",
+        "nested-interactive",
+        "region"
+      ]
     },
     {
       "url": "http://localhost:8000/faqs/2025-r3-frequently-asked-questions",
@@ -148,20 +153,18 @@
     {
       "url": "http://localhost:8000/funding",
       "filename": "axe-local-funding.json",
-      "violations": 1,
-      "passes": 35,
+      "violations": 0,
+      "passes": 38,
       "incomplete": 0,
-      "inapplicable": 53,
-      "violationRules": [
-        "page-has-heading-one"
-      ]
+      "inapplicable": 51,
+      "violationRules": []
     },
     {
       "url": "http://localhost:8000/",
       "filename": "axe-local-home.json",
       "violations": 0,
       "passes": 48,
-      "incomplete": 2,
+      "incomplete": 1,
       "inapplicable": 41,
       "violationRules": []
     },
@@ -169,9 +172,9 @@
       "url": "http://localhost:8000/meetings",
       "filename": "axe-local-meetings.json",
       "violations": 0,
-      "passes": 43,
-      "incomplete": 1,
-      "inapplicable": 46,
+      "passes": 37,
+      "incomplete": 0,
+      "inapplicable": 52,
       "violationRules": []
     },
     {
@@ -196,9 +199,9 @@
       "url": "http://localhost:8000/news/2023-04-06-annual-report-2023",
       "filename": "axe-local-news-2023-04-06-annual-report-2023.json",
       "violations": 0,
-      "passes": 43,
-      "incomplete": 1,
-      "inapplicable": 46,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
       "violationRules": []
     },
     {
@@ -232,47 +235,63 @@
       "url": "http://localhost:8000/privacy",
       "filename": "axe-local-privacy.json",
       "violations": 0,
-      "passes": 43,
-      "incomplete": 1,
-      "inapplicable": 46,
+      "passes": 38,
+      "incomplete": 0,
+      "inapplicable": 51,
       "violationRules": []
     },
     {
       "url": "http://localhost:8000/resources/ampli-fund-portal-guide-and-tip-sheet",
       "filename": "axe-local-resources-ampli-fund-portal-guide-and-tip-sheet.json",
-      "violations": 0,
-      "passes": 45,
+      "violations": 4,
+      "passes": 29,
       "incomplete": 1,
-      "inapplicable": 44,
-      "violationRules": []
+      "inapplicable": 59,
+      "violationRules": [
+        "button-name",
+        "landmark-one-main",
+        "nested-interactive",
+        "region"
+      ]
     },
     {
       "url": "http://localhost:8000/resources/nofo-informational-webinars",
       "filename": "axe-local-resources-nofo-informational-webinars.json",
-      "violations": 0,
-      "passes": 45,
+      "violations": 4,
+      "passes": 29,
       "incomplete": 1,
-      "inapplicable": 44,
-      "violationRules": []
+      "inapplicable": 59,
+      "violationRules": [
+        "button-name",
+        "landmark-one-main",
+        "nested-interactive",
+        "region"
+      ]
     },
     {
       "url": "http://localhost:8000/resources/prequalification-steps",
       "filename": "axe-local-resources-prequalification-steps.json",
-      "violations": 0,
-      "passes": 40,
-      "incomplete": 0,
-      "inapplicable": 49,
-      "violationRules": []
+      "violations": 4,
+      "passes": 29,
+      "incomplete": 1,
+      "inapplicable": 59,
+      "violationRules": [
+        "button-name",
+        "landmark-one-main",
+        "nested-interactive",
+        "region"
+      ]
     },
     {
       "url": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
       "filename": "axe-local-resources-r3-nofo-instructions-and-appendices.json",
-      "violations": 1,
-      "passes": 40,
+      "violations": 2,
+      "passes": 11,
       "incomplete": 0,
-      "inapplicable": 49,
+      "inapplicable": 77,
       "violationRules": [
-        "heading-order"
+        "landmark-one-main",
+        "region"
       ]
     },
     {
@@ -287,20 +306,30 @@
     {
       "url": "http://localhost:8000/resources/spanish-language-materials",
       "filename": "axe-local-resources-spanish-language-materials.json",
-      "violations": 0,
-      "passes": 40,
-      "incomplete": 0,
-      "inapplicable": 49,
-      "violationRules": []
+      "violations": 4,
+      "passes": 29,
+      "incomplete": 1,
+      "inapplicable": 59,
+      "violationRules": [
+        "button-name",
+        "landmark-one-main",
+        "nested-interactive",
+        "region"
+      ]
     },
     {
       "url": "http://localhost:8000/resources/video-resources",
       "filename": "axe-local-resources-video-resources.json",
-      "violations": 0,
-      "passes": 45,
+      "violations": 4,
+      "passes": 29,
       "incomplete": 1,
-      "inapplicable": 44,
-      "violationRules": []
+      "inapplicable": 59,
+      "violationRules": [
+        "button-name",
+        "landmark-one-main",
+        "nested-interactive",
+        "region"
+      ]
     },
     {
       "url": "http://localhost:8000/resources",
@@ -314,11 +343,13 @@
     {
       "url": "http://localhost:8000/search",
       "filename": "axe-local-search.json",
-      "violations": 0,
-      "passes": 43,
+      "violations": 1,
+      "passes": 46,
       "incomplete": 2,
-      "inapplicable": 45,
-      "violationRules": []
+      "inapplicable": 42,
+      "violationRules": [
+        "color-contrast"
+      ]
     },
     {
       "url": "http://localhost:8000/translate",
@@ -422,7 +453,7 @@
         "EN-301-549",
         "EN-9.4.1.2"
       ],
-      "occurrences": 1,
+      "occurrences": 7,
       "pages": [
         {
           "url": "http://localhost:8000/eligibility",
@@ -430,6 +461,48 @@
           "targets": [
             "iframe",
             "#widgets_HomeButton_Widget_22"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/ampli-fund-portal-guide-and-tip-sheet",
+          "nodeCount": 1,
+          "targets": [
+            ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/nofo-informational-webinars",
+          "nodeCount": 1,
+          "targets": [
+            ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/prequalification-steps",
+          "nodeCount": 1,
+          "targets": [
+            ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/spanish-language-materials",
+          "nodeCount": 1,
+          "targets": [
+            ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/video-resources",
+          "nodeCount": 1,
+          "targets": [
+            ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location"
           ]
         }
       ]
@@ -496,6 +569,252 @@
         }
       ]
     },
+    "button-name": {
+      "id": "button-name",
+      "description": "Ensure buttons have discernible text",
+      "help": "Buttons must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/button-name?application=webdriverjs",
+      "impact": "critical",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "ACT"
+      ],
+      "occurrences": 6,
+      "pages": [
+        {
+          "url": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            ".stack-frame-toggle-indicator"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/ampli-fund-portal-guide-and-tip-sheet",
+          "nodeCount": 1,
+          "targets": [
+            ".stack-frame-toggle-indicator"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/nofo-informational-webinars",
+          "nodeCount": 1,
+          "targets": [
+            ".stack-frame-toggle-indicator"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/prequalification-steps",
+          "nodeCount": 1,
+          "targets": [
+            ".stack-frame-toggle-indicator"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/spanish-language-materials",
+          "nodeCount": 1,
+          "targets": [
+            ".stack-frame-toggle-indicator"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/video-resources",
+          "nodeCount": 1,
+          "targets": [
+            ".stack-frame-toggle-indicator"
+          ]
+        }
+      ]
+    },
+    "landmark-one-main": {
+      "id": "landmark-one-main",
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "occurrences": 7,
+      "pages": [
+        {
+          "url": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/ampli-fund-portal-guide-and-tip-sheet",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/nofo-informational-webinars",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/prequalification-steps",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/spanish-language-materials",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/video-resources",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        }
+      ]
+    },
+    "region": {
+      "id": "region",
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "occurrences": 63,
+      "pages": [
+        {
+          "url": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
+          "nodeCount": 10,
+          "targets": [
+            "section:nth-child(2)",
+            "#error-message > span:nth-child(2)",
+            "section:nth-child(4) > .card > .card-heading",
+            "#all-frames-toggle-wrapper",
+            ".expanded",
+            "section:nth-child(5) > .card > .card-heading",
+            "#dump-5O3-FIFAlpVZ9OW > pre > code > .dumper-object-group.dumper-group > span:nth-child(1)",
+            "#dump-5O3-FIFAlpVZ9OW > pre > code > .dumper-object-group.dumper-group > span:nth-child(2)",
+            "#dump-5O3-FIFAlpVZ9OW > pre > code > .dumper-object-group.dumper-group > span:nth-child(5)",
+            "section:nth-child(6)"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/ampli-fund-portal-guide-and-tip-sheet",
+          "nodeCount": 10,
+          "targets": [
+            "section:nth-child(2)",
+            "#error-message > span:nth-child(2)",
+            "section:nth-child(4) > .card > .card-heading",
+            "#all-frames-toggle-wrapper",
+            ".expanded",
+            "section:nth-child(5) > .card > .card-heading",
+            "#dump-eZJ920zynsaOZEv > pre > code > .dumper-object-group.dumper-group > span:nth-child(1)",
+            "#dump-eZJ920zynsaOZEv > pre > code > .dumper-object-group.dumper-group > span:nth-child(2)",
+            "#dump-eZJ920zynsaOZEv > pre > code > .dumper-object-group.dumper-group > span:nth-child(5)",
+            "section:nth-child(6)"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/nofo-informational-webinars",
+          "nodeCount": 10,
+          "targets": [
+            "section:nth-child(2)",
+            "#error-message > span:nth-child(2)",
+            "section:nth-child(4) > .card > .card-heading",
+            "#all-frames-toggle-wrapper",
+            ".expanded",
+            "section:nth-child(5) > .card > .card-heading",
+            "#dump-rg7m8NhQC1E7tGb > pre > code > .dumper-object-group.dumper-group > span:nth-child(1)",
+            "#dump-rg7m8NhQC1E7tGb > pre > code > .dumper-object-group.dumper-group > span:nth-child(2)",
+            "#dump-rg7m8NhQC1E7tGb > pre > code > .dumper-object-group.dumper-group > span:nth-child(5)",
+            "section:nth-child(6)"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/prequalification-steps",
+          "nodeCount": 10,
+          "targets": [
+            "section:nth-child(2)",
+            "#error-message > span:nth-child(2)",
+            "section:nth-child(4) > .card > .card-heading",
+            "#all-frames-toggle-wrapper",
+            ".expanded",
+            "section:nth-child(5) > .card > .card-heading",
+            "#dump-URQ4yDi5fRgenGk > pre > code > .dumper-object-group.dumper-group > span:nth-child(1)",
+            "#dump-URQ4yDi5fRgenGk > pre > code > .dumper-object-group.dumper-group > span:nth-child(2)",
+            "#dump-URQ4yDi5fRgenGk > pre > code > .dumper-object-group.dumper-group > span:nth-child(5)",
+            "section:nth-child(6)"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
+          "nodeCount": 3,
+          "targets": [
+            "h1",
+            "p",
+            ".bg-black\\/5"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/spanish-language-materials",
+          "nodeCount": 10,
+          "targets": [
+            "section:nth-child(2)",
+            "#error-message > span:nth-child(2)",
+            "section:nth-child(4) > .card > .card-heading",
+            "#all-frames-toggle-wrapper",
+            ".expanded",
+            "section:nth-child(5) > .card > .card-heading",
+            "#dump-DoYLL5Bcmb5PlQe > pre > code > .dumper-object-group.dumper-group > span:nth-child(1)",
+            "#dump-DoYLL5Bcmb5PlQe > pre > code > .dumper-object-group.dumper-group > span:nth-child(2)",
+            "#dump-DoYLL5Bcmb5PlQe > pre > code > .dumper-object-group.dumper-group > span:nth-child(5)",
+            "section:nth-child(6)"
+          ]
+        },
+        {
+          "url": "http://localhost:8000/resources/video-resources",
+          "nodeCount": 10,
+          "targets": [
+            "section:nth-child(2)",
+            "#error-message > span:nth-child(2)",
+            "section:nth-child(4) > .card > .card-heading",
+            "#all-frames-toggle-wrapper",
+            ".expanded",
+            "section:nth-child(5) > .card > .card-heading",
+            "#dump-zLq6PlOrqxiXWxR > pre > code > .dumper-object-group.dumper-group > span:nth-child(1)",
+            "#dump-zLq6PlOrqxiXWxR > pre > code > .dumper-object-group.dumper-group > span:nth-child(2)",
+            "#dump-zLq6PlOrqxiXWxR > pre > code > .dumper-object-group.dumper-group > span:nth-child(5)",
+            "section:nth-child(6)"
+          ]
+        }
+      ]
+    },
     "link-name": {
       "id": "link-name",
       "description": "Ensure links have discernible text",
@@ -534,50 +853,551 @@
         }
       ]
     },
-    "page-has-heading-one": {
-      "id": "page-has-heading-one",
-      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
-      "help": "Page should contain a level-one heading",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
-      "impact": "moderate",
+    "color-contrast": {
+      "id": "color-contrast",
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=webdriverjs",
+      "impact": "serious",
       "tags": [
-        "cat.semantics",
-        "best-practice"
+        "cat.color",
+        "wcag2aa",
+        "wcag143",
+        "TTv5",
+        "TT13.c",
+        "EN-301-549",
+        "EN-9.1.4.3",
+        "ACT"
       ],
       "occurrences": 1,
       "pages": [
         {
-          "url": "http://localhost:8000/funding",
+          "url": "http://localhost:8000/search",
           "nodeCount": 1,
           "targets": [
-            "html"
-          ]
-        }
-      ]
-    },
-    "heading-order": {
-      "id": "heading-order",
-      "description": "Ensure the order of headings is semantically correct",
-      "help": "Heading levels should only increase by one",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
-      "impact": "moderate",
-      "tags": [
-        "cat.semantics",
-        "best-practice"
-      ],
-      "occurrences": 1,
-      "pages": [
-        {
-          "url": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
-          "nodeCount": 1,
-          "targets": [
-            "#sfy2025-r3-nofo-instructions"
+            ".v-field-label--floating"
           ]
         }
       ]
     }
   },
   "allViolations": [
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "ACT"
+      ],
+      "description": "Ensure buttons have discernible text",
+      "help": "Buttons must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/button-name?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "button-has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "id": "aria-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "id": "aria-labelledby",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+            },
+            {
+              "id": "non-empty-title",
+              "data": {
+                "messageKey": "noAttr"
+              },
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element has no title attribute"
+            },
+            {
+              "id": "implicit-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have an implicit (wrapped) <label>"
+            },
+            {
+              "id": "explicit-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have an explicit <label>"
+            },
+            {
+              "id": "presentational-role",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "critical",
+          "html": "<button class=\"stack-frame-toggle-indicator\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"24\" height=\"24\" stroke-width=\"2\">\n  <path d=\"M6 9l6 6l6 -6\"></path>\n</svg></button>",
+          "target": [
+            ".stack-frame-toggle-indicator"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-04-26-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "ACT"
+      ],
+      "description": "Ensure buttons have discernible text",
+      "help": "Buttons must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/button-name?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "button-has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "id": "aria-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "id": "aria-labelledby",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+            },
+            {
+              "id": "non-empty-title",
+              "data": {
+                "messageKey": "noAttr"
+              },
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element has no title attribute"
+            },
+            {
+              "id": "implicit-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have an implicit (wrapped) <label>"
+            },
+            {
+              "id": "explicit-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have an explicit <label>"
+            },
+            {
+              "id": "presentational-role",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "critical",
+          "html": "<button class=\"stack-frame-toggle-indicator\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"24\" height=\"24\" stroke-width=\"2\">\n  <path d=\"M6 9l6 6l6 -6\"></path>\n</svg></button>",
+          "target": [
+            ".stack-frame-toggle-indicator"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/ampli-fund-portal-guide-and-tip-sheet",
+      "pageFilename": "axe-local-resources-ampli-fund-portal-guide-and-tip-sheet.json"
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "ACT"
+      ],
+      "description": "Ensure buttons have discernible text",
+      "help": "Buttons must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/button-name?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "button-has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "id": "aria-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "id": "aria-labelledby",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+            },
+            {
+              "id": "non-empty-title",
+              "data": {
+                "messageKey": "noAttr"
+              },
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element has no title attribute"
+            },
+            {
+              "id": "implicit-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have an implicit (wrapped) <label>"
+            },
+            {
+              "id": "explicit-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have an explicit <label>"
+            },
+            {
+              "id": "presentational-role",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "critical",
+          "html": "<button class=\"stack-frame-toggle-indicator\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"24\" height=\"24\" stroke-width=\"2\">\n  <path d=\"M6 9l6 6l6 -6\"></path>\n</svg></button>",
+          "target": [
+            ".stack-frame-toggle-indicator"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/nofo-informational-webinars",
+      "pageFilename": "axe-local-resources-nofo-informational-webinars.json"
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "ACT"
+      ],
+      "description": "Ensure buttons have discernible text",
+      "help": "Buttons must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/button-name?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "button-has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "id": "aria-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "id": "aria-labelledby",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+            },
+            {
+              "id": "non-empty-title",
+              "data": {
+                "messageKey": "noAttr"
+              },
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element has no title attribute"
+            },
+            {
+              "id": "implicit-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have an implicit (wrapped) <label>"
+            },
+            {
+              "id": "explicit-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have an explicit <label>"
+            },
+            {
+              "id": "presentational-role",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "critical",
+          "html": "<button class=\"stack-frame-toggle-indicator\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"24\" height=\"24\" stroke-width=\"2\">\n  <path d=\"M6 9l6 6l6 -6\"></path>\n</svg></button>",
+          "target": [
+            ".stack-frame-toggle-indicator"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/prequalification-steps",
+      "pageFilename": "axe-local-resources-prequalification-steps.json"
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "ACT"
+      ],
+      "description": "Ensure buttons have discernible text",
+      "help": "Buttons must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/button-name?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "button-has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "id": "aria-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "id": "aria-labelledby",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+            },
+            {
+              "id": "non-empty-title",
+              "data": {
+                "messageKey": "noAttr"
+              },
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element has no title attribute"
+            },
+            {
+              "id": "implicit-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have an implicit (wrapped) <label>"
+            },
+            {
+              "id": "explicit-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have an explicit <label>"
+            },
+            {
+              "id": "presentational-role",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "critical",
+          "html": "<button class=\"stack-frame-toggle-indicator\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"24\" height=\"24\" stroke-width=\"2\">\n  <path d=\"M6 9l6 6l6 -6\"></path>\n</svg></button>",
+          "target": [
+            ".stack-frame-toggle-indicator"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/spanish-language-materials",
+      "pageFilename": "axe-local-resources-spanish-language-materials.json"
+    },
+    {
+      "id": "button-name",
+      "impact": "critical",
+      "tags": [
+        "cat.name-role-value",
+        "wcag2a",
+        "wcag412",
+        "section508",
+        "section508.22.a",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "ACT"
+      ],
+      "description": "Ensure buttons have discernible text",
+      "help": "Buttons must have discernible text",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/button-name?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "button-has-visible-text",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have inner text that is visible to screen readers"
+            },
+            {
+              "id": "aria-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-label attribute does not exist or is empty"
+            },
+            {
+              "id": "aria-labelledby",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+            },
+            {
+              "id": "non-empty-title",
+              "data": {
+                "messageKey": "noAttr"
+              },
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element has no title attribute"
+            },
+            {
+              "id": "implicit-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have an implicit (wrapped) <label>"
+            },
+            {
+              "id": "explicit-label",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element does not have an explicit <label>"
+            },
+            {
+              "id": "presentational-role",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "critical",
+              "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "critical",
+          "html": "<button class=\"stack-frame-toggle-indicator\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"24\" height=\"24\" stroke-width=\"2\">\n  <path d=\"M6 9l6 6l6 -6\"></path>\n</svg></button>",
+          "target": [
+            ".stack-frame-toggle-indicator"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/video-resources",
+      "pageFilename": "axe-local-resources-video-resources.json"
+    },
     {
       "id": "tabindex",
       "impact": "serious",
@@ -985,6 +1805,52 @@
       "pageFilename": "axe-local-eligibility.json"
     },
     {
+      "id": "nested-interactive",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag412",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2"
+      ],
+      "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/nested-interactive?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "no-focusable-content",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<a href=\"vscode://file//Users/cschweda/webdev/icjia-r3-v5-nuxt/node_modules/rollup/dist/es/shared/node-entry.js:22386\" class=\"stack-frame-filepath\" title=\"node_modules/rollup/dist/es/shared/node-entry.js\">\n      node_modules/rollup/dist/es/shared/node-entry.js\n    </a>",
+                  "target": [
+                    ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location > a"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has focusable descendants"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<button class=\"stack-frame-location\">",
+          "target": [
+            ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-04-26-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
       "id": "link-name",
       "impact": "serious",
       "tags": [
@@ -1135,25 +2001,1874 @@
       "pageFilename": "axe-local-faqs.json"
     },
     {
-      "id": "page-has-heading-one",
+      "id": "nested-interactive",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag412",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2"
+      ],
+      "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/nested-interactive?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "no-focusable-content",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<a href=\"vscode://file//Users/cschweda/webdev/icjia-r3-v5-nuxt/node_modules/rollup/dist/es/shared/node-entry.js:22386\" class=\"stack-frame-filepath\" title=\"node_modules/rollup/dist/es/shared/node-entry.js\">\n      node_modules/rollup/dist/es/shared/node-entry.js\n    </a>",
+                  "target": [
+                    ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location > a"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has focusable descendants"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<button class=\"stack-frame-location\">",
+          "target": [
+            ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/ampli-fund-portal-guide-and-tip-sheet",
+      "pageFilename": "axe-local-resources-ampli-fund-portal-guide-and-tip-sheet.json"
+    },
+    {
+      "id": "nested-interactive",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag412",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2"
+      ],
+      "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/nested-interactive?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "no-focusable-content",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<a href=\"vscode://file//Users/cschweda/webdev/icjia-r3-v5-nuxt/node_modules/rollup/dist/es/shared/node-entry.js:22386\" class=\"stack-frame-filepath\" title=\"node_modules/rollup/dist/es/shared/node-entry.js\">\n      node_modules/rollup/dist/es/shared/node-entry.js\n    </a>",
+                  "target": [
+                    ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location > a"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has focusable descendants"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<button class=\"stack-frame-location\">",
+          "target": [
+            ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/nofo-informational-webinars",
+      "pageFilename": "axe-local-resources-nofo-informational-webinars.json"
+    },
+    {
+      "id": "nested-interactive",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag412",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2"
+      ],
+      "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/nested-interactive?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "no-focusable-content",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<a href=\"vscode://file//Users/cschweda/webdev/icjia-r3-v5-nuxt/node_modules/rollup/dist/es/shared/node-entry.js:22386\" class=\"stack-frame-filepath\" title=\"node_modules/rollup/dist/es/shared/node-entry.js\">\n      node_modules/rollup/dist/es/shared/node-entry.js\n    </a>",
+                  "target": [
+                    ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location > a"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has focusable descendants"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<button class=\"stack-frame-location\">",
+          "target": [
+            ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/prequalification-steps",
+      "pageFilename": "axe-local-resources-prequalification-steps.json"
+    },
+    {
+      "id": "nested-interactive",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag412",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2"
+      ],
+      "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/nested-interactive?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "no-focusable-content",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<a href=\"vscode://file//Users/cschweda/webdev/icjia-r3-v5-nuxt/node_modules/rollup/dist/es/shared/node-entry.js:22386\" class=\"stack-frame-filepath\" title=\"node_modules/rollup/dist/es/shared/node-entry.js\">\n      node_modules/rollup/dist/es/shared/node-entry.js\n    </a>",
+                  "target": [
+                    ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location > a"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has focusable descendants"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<button class=\"stack-frame-location\">",
+          "target": [
+            ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/spanish-language-materials",
+      "pageFilename": "axe-local-resources-spanish-language-materials.json"
+    },
+    {
+      "id": "nested-interactive",
+      "impact": "serious",
+      "tags": [
+        "cat.keyboard",
+        "wcag2a",
+        "wcag412",
+        "TTv5",
+        "TT6.a",
+        "EN-301-549",
+        "EN-9.4.1.2"
+      ],
+      "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/nested-interactive?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "no-focusable-content",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<a href=\"vscode://file//Users/cschweda/webdev/icjia-r3-v5-nuxt/node_modules/rollup/dist/es/shared/node-entry.js:22386\" class=\"stack-frame-filepath\" title=\"node_modules/rollup/dist/es/shared/node-entry.js\">\n      node_modules/rollup/dist/es/shared/node-entry.js\n    </a>",
+                  "target": [
+                    ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location > a"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has focusable descendants"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<button class=\"stack-frame-location\">",
+          "target": [
+            ".stack-frame-module:nth-child(4) > .stack-frame-contents > .stack-frame-location"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/video-resources",
+      "pageFilename": "axe-local-resources-video-resources.json"
+    },
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "tags": [
+        "cat.color",
+        "wcag2aa",
+        "wcag143",
+        "TTv5",
+        "TT13.c",
+        "EN-301-549",
+        "EN-9.1.4.3",
+        "ACT"
+      ],
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#111111",
+                "bgColor": "#24292e",
+                "contrastRatio": 1.28,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "bold",
+                "messageKey": null,
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div class=\"v-field__overlay\"></div>",
+                  "target": [
+                    ".v-field__overlay"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has insufficient color contrast of 1.28 (foreground color: #111111, background color: #24292e, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<label class=\"v-label v-field-label v-field-label--floating\" style=\"\" aria-hidden=\"true\" for=\"textfield\"><!----><!--[-->Search R3<!--]--></label>",
+          "target": [
+            ".v-field-label--floating"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.28 (foreground color: #111111, background color: #24292e, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/search",
+      "pageFilename": "axe-local-search.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<section>\n      <h4 id=\"error-name\">Error</h4>\n      <h1 id=\"error-title\">An error has occurred</h1>\n    </section>",
+          "target": [
+            "section:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span>Could not load /Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/mdc-imports.mjs: ENOENT: no such file or directory, open '/Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/mdc-imports.mjs'</span>",
+          "target": [
+            "#error-message > span:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"card-heading\">\n          <div>\n            <h3 class=\"card-title\">\n              Stack Trace\n            </h3>\n          </div>\n        </div>",
+          "target": [
+            "section:nth-child(4) > .card > .card-heading"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div id=\"all-frames-toggle-wrapper\">\n                <label id=\"all-frames-toggle\">\n                  <input type=\"checkbox\">\n                  <span> View All Frames </span>\n                </label>\n              </div>",
+          "target": [
+            "#all-frames-toggle-wrapper"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<li class=\"stack-frame stack-frame-module expanded\">",
+          "target": [
+            ".expanded"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"card-heading\">\n          <div>\n            <h3 class=\"card-title\">\n              Error Cause\n            </h3>\n          </div>\n        </div>",
+          "target": [
+            "section:nth-child(5) > .card > .card-heading"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--object-label-fg-color);\">Error </span>",
+          "target": [
+            "#dump-5O3-FIFAlpVZ9OW > pre > code > .dumper-object-group.dumper-group > span:nth-child(1)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--braces-fg-color);\">{</span>",
+          "target": [
+            "#dump-5O3-FIFAlpVZ9OW > pre > code > .dumper-object-group.dumper-group > span:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--braces-fg-color);\">}</span>",
+          "target": [
+            "#dump-5O3-FIFAlpVZ9OW > pre > code > .dumper-object-group.dumper-group > span:nth-child(5)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<section>",
+          "target": [
+            "section:nth-child(6)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-04-26-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<section>\n      <h4 id=\"error-name\">Error</h4>\n      <h1 id=\"error-title\">An error has occurred</h1>\n    </section>",
+          "target": [
+            "section:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span>Could not load /Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/mdc-imports.mjs: ENOENT: no such file or directory, open '/Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/mdc-imports.mjs'</span>",
+          "target": [
+            "#error-message > span:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"card-heading\">\n          <div>\n            <h3 class=\"card-title\">\n              Stack Trace\n            </h3>\n          </div>\n        </div>",
+          "target": [
+            "section:nth-child(4) > .card > .card-heading"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div id=\"all-frames-toggle-wrapper\">\n                <label id=\"all-frames-toggle\">\n                  <input type=\"checkbox\">\n                  <span> View All Frames </span>\n                </label>\n              </div>",
+          "target": [
+            "#all-frames-toggle-wrapper"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<li class=\"stack-frame stack-frame-module expanded\">",
+          "target": [
+            ".expanded"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"card-heading\">\n          <div>\n            <h3 class=\"card-title\">\n              Error Cause\n            </h3>\n          </div>\n        </div>",
+          "target": [
+            "section:nth-child(5) > .card > .card-heading"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--object-label-fg-color);\">Error </span>",
+          "target": [
+            "#dump-eZJ920zynsaOZEv > pre > code > .dumper-object-group.dumper-group > span:nth-child(1)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--braces-fg-color);\">{</span>",
+          "target": [
+            "#dump-eZJ920zynsaOZEv > pre > code > .dumper-object-group.dumper-group > span:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--braces-fg-color);\">}</span>",
+          "target": [
+            "#dump-eZJ920zynsaOZEv > pre > code > .dumper-object-group.dumper-group > span:nth-child(5)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<section>",
+          "target": [
+            "section:nth-child(6)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/ampli-fund-portal-guide-and-tip-sheet",
+      "pageFilename": "axe-local-resources-ampli-fund-portal-guide-and-tip-sheet.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<section>\n      <h4 id=\"error-name\">Error</h4>\n      <h1 id=\"error-title\">An error has occurred</h1>\n    </section>",
+          "target": [
+            "section:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span>Could not load /Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/mdc-imports.mjs: ENOENT: no such file or directory, open '/Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/mdc-imports.mjs'</span>",
+          "target": [
+            "#error-message > span:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"card-heading\">\n          <div>\n            <h3 class=\"card-title\">\n              Stack Trace\n            </h3>\n          </div>\n        </div>",
+          "target": [
+            "section:nth-child(4) > .card > .card-heading"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div id=\"all-frames-toggle-wrapper\">\n                <label id=\"all-frames-toggle\">\n                  <input type=\"checkbox\">\n                  <span> View All Frames </span>\n                </label>\n              </div>",
+          "target": [
+            "#all-frames-toggle-wrapper"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<li class=\"stack-frame stack-frame-module expanded\">",
+          "target": [
+            ".expanded"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"card-heading\">\n          <div>\n            <h3 class=\"card-title\">\n              Error Cause\n            </h3>\n          </div>\n        </div>",
+          "target": [
+            "section:nth-child(5) > .card > .card-heading"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--object-label-fg-color);\">Error </span>",
+          "target": [
+            "#dump-rg7m8NhQC1E7tGb > pre > code > .dumper-object-group.dumper-group > span:nth-child(1)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--braces-fg-color);\">{</span>",
+          "target": [
+            "#dump-rg7m8NhQC1E7tGb > pre > code > .dumper-object-group.dumper-group > span:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--braces-fg-color);\">}</span>",
+          "target": [
+            "#dump-rg7m8NhQC1E7tGb > pre > code > .dumper-object-group.dumper-group > span:nth-child(5)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<section>",
+          "target": [
+            "section:nth-child(6)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/nofo-informational-webinars",
+      "pageFilename": "axe-local-resources-nofo-informational-webinars.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<section>\n      <h4 id=\"error-name\">Error</h4>\n      <h1 id=\"error-title\">An error has occurred</h1>\n    </section>",
+          "target": [
+            "section:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span>Could not load /Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/mdc-imports.mjs: ENOENT: no such file or directory, open '/Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/mdc-imports.mjs'</span>",
+          "target": [
+            "#error-message > span:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"card-heading\">\n          <div>\n            <h3 class=\"card-title\">\n              Stack Trace\n            </h3>\n          </div>\n        </div>",
+          "target": [
+            "section:nth-child(4) > .card > .card-heading"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div id=\"all-frames-toggle-wrapper\">\n                <label id=\"all-frames-toggle\">\n                  <input type=\"checkbox\">\n                  <span> View All Frames </span>\n                </label>\n              </div>",
+          "target": [
+            "#all-frames-toggle-wrapper"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<li class=\"stack-frame stack-frame-module expanded\">",
+          "target": [
+            ".expanded"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"card-heading\">\n          <div>\n            <h3 class=\"card-title\">\n              Error Cause\n            </h3>\n          </div>\n        </div>",
+          "target": [
+            "section:nth-child(5) > .card > .card-heading"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--object-label-fg-color);\">Error </span>",
+          "target": [
+            "#dump-URQ4yDi5fRgenGk > pre > code > .dumper-object-group.dumper-group > span:nth-child(1)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--braces-fg-color);\">{</span>",
+          "target": [
+            "#dump-URQ4yDi5fRgenGk > pre > code > .dumper-object-group.dumper-group > span:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--braces-fg-color);\">}</span>",
+          "target": [
+            "#dump-URQ4yDi5fRgenGk > pre > code > .dumper-object-group.dumper-group > span:nth-child(5)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<section>",
+          "target": [
+            "section:nth-child(6)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/prequalification-steps",
+      "pageFilename": "axe-local-resources-prequalification-steps.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<section>\n      <h4 id=\"error-name\">Error</h4>\n      <h1 id=\"error-title\">An error has occurred</h1>\n    </section>",
+          "target": [
+            "section:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span>Could not load /Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/mdc-imports.mjs: ENOENT: no such file or directory, open '/Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/mdc-imports.mjs'</span>",
+          "target": [
+            "#error-message > span:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"card-heading\">\n          <div>\n            <h3 class=\"card-title\">\n              Stack Trace\n            </h3>\n          </div>\n        </div>",
+          "target": [
+            "section:nth-child(4) > .card > .card-heading"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div id=\"all-frames-toggle-wrapper\">\n                <label id=\"all-frames-toggle\">\n                  <input type=\"checkbox\">\n                  <span> View All Frames </span>\n                </label>\n              </div>",
+          "target": [
+            "#all-frames-toggle-wrapper"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<li class=\"stack-frame stack-frame-module expanded\">",
+          "target": [
+            ".expanded"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"card-heading\">\n          <div>\n            <h3 class=\"card-title\">\n              Error Cause\n            </h3>\n          </div>\n        </div>",
+          "target": [
+            "section:nth-child(5) > .card > .card-heading"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--object-label-fg-color);\">Error </span>",
+          "target": [
+            "#dump-DoYLL5Bcmb5PlQe > pre > code > .dumper-object-group.dumper-group > span:nth-child(1)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--braces-fg-color);\">{</span>",
+          "target": [
+            "#dump-DoYLL5Bcmb5PlQe > pre > code > .dumper-object-group.dumper-group > span:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--braces-fg-color);\">}</span>",
+          "target": [
+            "#dump-DoYLL5Bcmb5PlQe > pre > code > .dumper-object-group.dumper-group > span:nth-child(5)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<section>",
+          "target": [
+            "section:nth-child(6)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/spanish-language-materials",
+      "pageFilename": "axe-local-resources-spanish-language-materials.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<section>\n      <h4 id=\"error-name\">Error</h4>\n      <h1 id=\"error-title\">An error has occurred</h1>\n    </section>",
+          "target": [
+            "section:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span>Could not load /Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/mdc-imports.mjs: ENOENT: no such file or directory, open '/Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/mdc-imports.mjs'</span>",
+          "target": [
+            "#error-message > span:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"card-heading\">\n          <div>\n            <h3 class=\"card-title\">\n              Stack Trace\n            </h3>\n          </div>\n        </div>",
+          "target": [
+            "section:nth-child(4) > .card > .card-heading"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div id=\"all-frames-toggle-wrapper\">\n                <label id=\"all-frames-toggle\">\n                  <input type=\"checkbox\">\n                  <span> View All Frames </span>\n                </label>\n              </div>",
+          "target": [
+            "#all-frames-toggle-wrapper"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<li class=\"stack-frame stack-frame-module expanded\">",
+          "target": [
+            ".expanded"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"card-heading\">\n          <div>\n            <h3 class=\"card-title\">\n              Error Cause\n            </h3>\n          </div>\n        </div>",
+          "target": [
+            "section:nth-child(5) > .card > .card-heading"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--object-label-fg-color);\">Error </span>",
+          "target": [
+            "#dump-zLq6PlOrqxiXWxR > pre > code > .dumper-object-group.dumper-group > span:nth-child(1)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--braces-fg-color);\">{</span>",
+          "target": [
+            "#dump-zLq6PlOrqxiXWxR > pre > code > .dumper-object-group.dumper-group > span:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<span style=\"color: var(--braces-fg-color);\">}</span>",
+          "target": [
+            "#dump-zLq6PlOrqxiXWxR > pre > code > .dumper-object-group.dumper-group > span:nth-child(5)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<section>",
+          "target": [
+            "section:nth-child(6)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/video-resources",
+      "pageFilename": "axe-local-resources-video-resources.json"
+    },
+    {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+        "cat.keyboard",
+        "best-practice"
+      ],
+      "description": "Ensure all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<h1 class=\"font-medium mb-6 sm:text-8xl text-6xl\">500</h1>",
+          "target": [
+            "h1"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<p class=\"font-light leading-tight mb-8 sm:text-2xl text-xl\">Cannot find module '/Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/dist/server/server.mjs' imported from /Users/cschweda/webdev/icjia-r3-v5-nuxt/.nuxt/dev/index.mjs</p>",
+          "target": [
+            "p"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "any": [
+            {
+              "id": "region",
+              "data": {
+                "isIframe": false
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Some page content is not contained by landmarks"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<div class=\"bg-black/5 bg-white dark:bg-white/10 flex-1 h-auto overflow-y-auto rounded-t-md\">",
+          "target": [
+            ".bg-black\\/5"
+          ],
+          "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
+      "pageFilename": "axe-local-resources-r3-nofo-instructions-and-appendices.json"
+    },
+    {
+      "id": "landmark-one-main",
       "impact": "moderate",
       "tags": [
         "cat.semantics",
         "best-practice"
       ],
-      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
-      "help": "Page should contain a level-one heading",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
       "nodes": [
         {
           "any": [],
           "all": [
             {
-              "id": "page-has-heading-one",
+              "id": "page-has-main",
               "data": null,
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Page must have a level-one heading"
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\" class=\"dark\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/faqs/04-26-24-2025-r3-nofo-applicant-questions",
+      "pageFilename": "axe-local-faqs-04-26-24-2025-r3-nofo-applicant-questions.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\" class=\"dark\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/ampli-fund-portal-guide-and-tip-sheet",
+      "pageFilename": "axe-local-resources-ampli-fund-portal-guide-and-tip-sheet.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\" class=\"dark\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/nofo-informational-webinars",
+      "pageFilename": "axe-local-resources-nofo-informational-webinars.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\" class=\"dark\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/prequalification-steps",
+      "pageFilename": "axe-local-resources-prequalification-steps.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
             }
           ],
           "none": [],
@@ -1162,45 +3877,79 @@
           "target": [
             "html"
           ],
-          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
         }
       ],
-      "pageUrl": "http://localhost:8000/funding",
-      "pageFilename": "axe-local-funding.json"
+      "pageUrl": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
+      "pageFilename": "axe-local-resources-r3-nofo-instructions-and-appendices.json"
     },
     {
-      "id": "heading-order",
+      "id": "landmark-one-main",
       "impact": "moderate",
       "tags": [
         "cat.semantics",
         "best-practice"
       ],
-      "description": "Ensure the order of headings is semantically correct",
-      "help": "Heading levels should only increase by one",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
       "nodes": [
         {
-          "any": [
+          "any": [],
+          "all": [
             {
-              "id": "heading-order",
+              "id": "page-has-main",
               "data": null,
               "relatedNodes": [],
               "impact": "moderate",
-              "message": "Heading order invalid"
+              "message": "Document does not have a main landmark"
             }
           ],
-          "all": [],
           "none": [],
           "impact": "moderate",
-          "html": "<h3 id=\"sfy2025-r3-nofo-instructions\"><!--[-->SFY2025 R3 NOFO instructions<!--]--></h3>",
+          "html": "<html lang=\"en\" class=\"dark\">",
           "target": [
-            "#sfy2025-r3-nofo-instructions"
+            "html"
           ],
-          "failureSummary": "Fix any of the following:\n  Heading order invalid"
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
         }
       ],
-      "pageUrl": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
-      "pageFilename": "axe-local-resources-r3-nofo-instructions-and-appendices.json"
+      "pageUrl": "http://localhost:8000/resources/spanish-language-materials",
+      "pageFilename": "axe-local-resources-spanish-language-materials.json"
+    },
+    {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+        "cat.semantics",
+        "best-practice"
+      ],
+      "description": "Ensure the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
+      "nodes": [
+        {
+          "any": [],
+          "all": [
+            {
+              "id": "page-has-main",
+              "data": null,
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "Document does not have a main landmark"
+            }
+          ],
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\" class=\"dark\">",
+          "target": [
+            "html"
+          ],
+          "failureSummary": "Fix all of the following:\n  Document does not have a main landmark"
+        }
+      ],
+      "pageUrl": "http://localhost:8000/resources/video-resources",
+      "pageFilename": "axe-local-resources-video-resources.json"
     }
   ]
 }

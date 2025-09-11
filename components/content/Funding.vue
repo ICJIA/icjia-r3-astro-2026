@@ -1,16 +1,27 @@
 <template>
   <div>
+    <!-- Always render H1 for accessibility -->
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <h1>R3 Funding Opportunity</h1>
+        </v-col>
+      </v-row>
+    </v-container>
+
     <v-container v-if="isMounted"
       ><v-row>
-        <v-col cols="12"> <h1>R3 Funding Opportunity</h1></v-col>
-
         <v-col
           v-for="(item, index) in splash"
           :key="`funding-photo-${index}`"
           cols="12"
           class="mt-10 mb-12"
         >
-          <v-card class="info-card" style="margin-top: -25px" v-if="!underConstruction">
+          <v-card
+            class="info-card"
+            style="margin-top: -25px"
+            v-if="!underConstruction"
+          >
             <v-img
               cover
               crossorigin
@@ -60,7 +71,9 @@
               height="750"
             >
               <div class="text-center px-12" style="margin-top: 100px">
-                <h1 class="nofo-title mt-3">2025 SERVICE DELIVERY GRANT OPPORTUNITIES</h1>
+                <h1 class="nofo-title mt-3">
+                  2025 SERVICE DELIVERY GRANT OPPORTUNITIES
+                </h1>
                 <div class="nofo-tagline">
                   {{ item.tagline }}
                 </div>

@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-11T13:31:05.677Z",
+    "timestamp": "2025-09-11T14:40:31.515Z",
     "url": "http://localhost:8000/translate",
     "toolOptions": {
       "reporter": "v1"
@@ -6363,56 +6363,6 @@
               {
                 "id": "color-contrast",
                 "data": {
-                  "fgColor": "#ffffff",
-                  "bgColor": "#0e4474",
-                  "contrastRatio": 10.01,
-                  "fontSize": "9.0pt (12px)",
-                  "fontWeight": "bold",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 10.01"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<a href=\"/\" class=\"breadcrumb-link\" style=\"color:white;\" data-v-5de21cf4=\"\">R3 HOME</a>",
-            "target": [
-              ".breadcrumb-link[href=\"/\"][data-v-5de21cf4=\"\"]"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "fgColor": "#ffffff",
-                  "bgColor": "#0e4474",
-                  "contrastRatio": 10.01,
-                  "fontSize": "9.8pt (13px)",
-                  "fontWeight": "normal",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 10.01"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<span style=\"color:#fff;\" data-v-5de21cf4=\"\">Translate</span>",
-            "target": [
-              "span[data-v-5de21cf4=\"\"] > span[data-v-5de21cf4=\"\"]:nth-child(2)"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
                   "fgColor": "#24292e",
                   "bgColor": "#f2f2f2",
                   "contrastRatio": 13.1,
@@ -6463,16 +6413,16 @@
               {
                 "id": "color-contrast",
                 "data": {
-                  "fgColor": "#0366d6",
+                  "fgColor": "#0056b3",
                   "bgColor": "#f2f2f2",
-                  "contrastRatio": 4.84,
+                  "contrastRatio": 6.29,
                   "fontSize": "12.0pt (16px)",
                   "fontWeight": "bold",
                   "expectedContrastRatio": "4.5:1"
                 },
                 "relatedNodes": [],
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 4.84"
+                "message": "Element has sufficient color contrast of 6.29"
               }
             ],
             "all": [],
@@ -7260,20 +7210,6 @@
         "nodes": [
           {
             "any": [
-              {
-                "id": "link-in-text-block",
-                "data": null,
-                "relatedNodes": [
-                  {
-                    "html": "<div style=\"background:#0e4474;border-bottom:1px solid #aaa;font-size:13px;z-index:99999 !important;\" class=\"text-left pr-5 pl-5 py-1 elevation-0\" data-v-5de21cf4=\"\">",
-                    "target": [
-                      ".text-left"
-                    ]
-                  }
-                ],
-                "impact": "serious",
-                "message": "Links can be distinguished from surrounding text in some way other than by color"
-              },
               {
                 "id": "link-in-text-block-style",
                 "data": null,
@@ -12830,6 +12766,56 @@
             "html": "<div data-v-c47643d2=\"\" style=\"font-size: 10px; font-weight: 900;\">SEARCH</div>",
             "target": [
               ".hamburger.hidden-md-and-up[aria-label=\"Search\"] > div[data-v-c47643d2=\"\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "bold",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a href=\"/\" class=\"breadcrumb-link\" style=\"color:white;\" data-v-5de21cf4=\"\">R3 HOME</a>",
+            "target": [
+              ".breadcrumb-link[href=\"/\"][data-v-5de21cf4=\"\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span style=\"color:#fff;\" data-v-5de21cf4=\"\">Translate</span>",
+            "target": [
+              "span[data-v-5de21cf4=\"\"] > span[data-v-5de21cf4=\"\"]:nth-child(2)"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
           },

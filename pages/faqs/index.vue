@@ -1,5 +1,16 @@
 <template>
   <div>
+    <!-- Always render H1 for accessibility -->
+    <v-container>
+      <v-row>
+        <v-col>
+          <h1 class="mb-10" style="border: none">
+            R3 Frequently Asked Questions
+          </h1>
+        </v-col>
+      </v-row>
+    </v-container>
+
     <div v-if="isMounted">
       <div class="hidden-sm-and-down" style="margin-bottom: 80px">
         <v-app-bar
@@ -82,9 +93,6 @@
             <div style="margin-top: -25px">
               <v-card class="px-8 py-5 mb-12">
                 <div class="context">
-                  <h1 class="mb-10" style="border: none">
-                    R3 Frequently Asked Questions
-                  </h1>
                   <div class="pl-5">
                     <h2 class="mt-12 title-link">
                       08-29-2024: 2025 R3 Final FAQs&nbsp;

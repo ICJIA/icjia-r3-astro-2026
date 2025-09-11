@@ -15,24 +15,36 @@
               style="min-height: 600px"
               v-if="!underConstruction"
             >
-              <v-img
-                cover
-                :src="item.src"
-                :lazy-src="item.lazySrc"
-                :alt="
-                  item.alt ||
-                  'R3 Program hero image showcasing community investment and renewal'
-                "
-                aspect-ratio="1"
-                class="grey lighten-2"
-                role="presentation"
-                aria-hidden="true"
-                height="650"
-                crossorigin
-                gradient="to bottom, rgba(0,0,0,.25), rgba(0,0,0,.25)"
-              >
+              <div style="position: relative">
+                <!-- Background image (presentational only) -->
+                <v-img
+                  cover
+                  :src="item.src"
+                  :lazy-src="item.lazySrc"
+                  alt=""
+                  aspect-ratio="1"
+                  class="grey lighten-2"
+                  height="650"
+                  crossorigin
+                  gradient="to bottom, rgba(0,0,0,.25), rgba(0,0,0,.25)"
+                  role="presentation"
+                  aria-hidden="true"
+                >
+                </v-img>
+
+                <!-- Interactive content overlay -->
                 <div
                   class="d-flex flex-column justify-center align-center h-100 px-12"
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 1;
+                  "
+                  role="region"
+                  aria-label="R3 Program funding opportunity information"
                 >
                   <div class="nofo-band py-4 px-6 text-center">
                     <h2
@@ -67,37 +79,40 @@
                     </div>
                   </div>
                 </div>
-                <template #placeholder>
-                  <div class="d-flex align-center justify-center fill-height">
-                    <v-progress-circular
-                      indeterminate
-                      color="grey-lighten-4"
-                      aria-label="Loading image"
-                    ></v-progress-circular>
-                  </div>
-                </template>
-              </v-img>
+              </div>
             </v-card>
 
             <v-card class="" style="min-height: 600px" v-else>
-              <v-img
-                cover
-                :src="item.src"
-                :lazy-src="item.lazySrc"
-                :alt="
-                  item.alt ||
-                  'R3 Program hero image showcasing community investment and renewal'
-                "
-                aspect-ratio="1"
-                class="grey lighten-2"
-                role="presentation"
-                aria-hidden="true"
-                height="650"
-                crossorigin
-                gradient="to bottom, rgba(0,0,0,.25), rgba(0,0,0,.25)"
-              >
+              <div style="position: relative">
+                <!-- Background image (presentational only) -->
+                <v-img
+                  cover
+                  :src="item.src"
+                  :lazy-src="item.lazySrc"
+                  alt=""
+                  aspect-ratio="1"
+                  class="grey lighten-2"
+                  height="650"
+                  crossorigin
+                  gradient="to bottom, rgba(0,0,0,.25), rgba(0,0,0,.25)"
+                  role="presentation"
+                  aria-hidden="true"
+                >
+                </v-img>
+
+                <!-- Interactive content overlay -->
                 <div
                   class="d-flex flex-column justify-center align-center h-100 px-12"
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 1;
+                  "
+                  role="region"
+                  aria-label="R3 Program funding opportunity information"
                 >
                   <div class="nofo-band py-4 px-6 text-center">
                     <h2
@@ -125,15 +140,7 @@
                     </div>
                   </div>
                 </div>
-                <template #placeholder>
-                  <div class="d-flex align-center justify-center fill-height">
-                    <v-progress-circular
-                      indeterminate
-                      color="grey-lighten-4"
-                    ></v-progress-circular>
-                  </div>
-                </template>
-              </v-img>
+              </div>
             </v-card>
           </v-col>
         </v-row>

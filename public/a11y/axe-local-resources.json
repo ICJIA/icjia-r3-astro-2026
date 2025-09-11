@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-11T13:31:07.986Z",
+    "timestamp": "2025-09-11T14:40:34.404Z",
     "url": "http://localhost:8000/resources",
     "toolOptions": {
       "reporter": "v1"
@@ -8223,7 +8223,7 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive__sizer\" style=\"padding-bottom: 66.6667%;\"></div>",
+            "html": "<div class=\"v-responsive__sizer\" style=\"padding-bottom: 66.8%;\"></div>",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-responsive__sizer"
             ]
@@ -8255,9 +8255,73 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
+            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-from fade-transition-leave-active\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-img__img--preload"
+              ".fade-transition-leave-active.v-img__img--preload"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "important-letter-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-word-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-line-height",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"v-progress-circular v-progress-circular--indeterminate v-progress-circular--visible v-theme--light text-purple\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-label=\"Contact Us: Loading\" style=\"width: 70px; height: 70px;\">",
+            "target": [
+              ".v-progress-circular"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "important-letter-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Letter-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-word-spacing",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "word-spacing in the style attribute is not set to !important, or meets the minimum"
+              },
+              {
+                "id": "important-line-height",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "line-height in the style attribute is not set to !important, or meets the minimum"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 44.44444444444444 44.44444444444444\" style=\"transform: rotate(calc(-90deg));\">",
+            "target": [
+              "svg"
             ]
           },
           {
@@ -10388,31 +10452,6 @@
                   "fgColor": "#ffffff",
                   "bgColor": "#0e4474",
                   "contrastRatio": 10.01,
-                  "fontSize": "9.0pt (12px)",
-                  "fontWeight": "bold",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 10.01"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": null,
-            "html": "<a href=\"/\" class=\"breadcrumb-link\" style=\"color:white;\" data-v-5de21cf4=\"\">R3 HOME</a>",
-            "target": [
-              ".breadcrumb-link[href=\"/\"][data-v-5de21cf4=\"\"]"
-            ]
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "fgColor": "#ffffff",
-                  "bgColor": "#0e4474",
-                  "contrastRatio": 10.01,
                   "fontSize": "9.8pt (13px)",
                   "fontWeight": "normal",
                   "expectedContrastRatio": "4.5:1"
@@ -10578,6 +10617,31 @@
             "html": "<div class=\"v-card-title text-center mt-3\" style=\"font-weight:900;\">Video Resources</div>",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-card-title.mt-3.text-center"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#0056b3",
+                  "bgColor": "#f2f2f2",
+                  "contrastRatio": 6.29,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.29"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/resources/single-page\" class=\"\">Show all R3 resources on a single page (mobile-friendly)&nbsp;»</a>",
+            "target": [
+              "a[href$=\"single-page\"]"
             ]
           },
           {
@@ -11032,9 +11096,35 @@
               }
             ],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
+            "html": "<img class=\"v-img__img v-img__img--cover fade-transition-enter-active fade-transition-enter-to fade-transition-enter-from\" src=\"https://r3.icjia-api.cloud/uploads/small_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\" style=\"\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-img__img--preload"
+              ".fade-transition-enter-active"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "has-alt",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Element has an alt attribute"
+              }
+            ],
+            "all": [],
+            "none": [
+              {
+                "id": "alt-space-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Element has a valid alt attribute value"
+              }
+            ],
+            "impact": null,
+            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-from fade-transition-leave-active\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
+            "target": [
+              ".fade-transition-leave-active.v-img__img--preload"
             ]
           },
           {
@@ -11193,9 +11283,27 @@
               }
             ],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
+            "html": "<img class=\"v-img__img v-img__img--cover fade-transition-enter-active fade-transition-enter-to fade-transition-enter-from\" src=\"https://r3.icjia-api.cloud/uploads/small_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\" style=\"\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-img__img--preload"
+              ".fade-transition-enter-active"
+            ]
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "duplicate-img-label",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "Element does not duplicate existing text in <img> alt text"
+              }
+            ],
+            "impact": null,
+            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-from fade-transition-leave-active\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
+            "target": [
+              ".fade-transition-leave-active.v-img__img--preload"
             ]
           },
           {
@@ -11656,20 +11764,6 @@
         "nodes": [
           {
             "any": [
-              {
-                "id": "link-in-text-block",
-                "data": null,
-                "relatedNodes": [
-                  {
-                    "html": "<div style=\"background:#0e4474;border-bottom:1px solid #aaa;font-size:13px;z-index:99999 !important;\" class=\"text-left pr-5 pl-5 py-1 elevation-0\" data-v-5de21cf4=\"\">",
-                    "target": [
-                      ".text-left"
-                    ]
-                  }
-                ],
-                "impact": "serious",
-                "message": "Links can be distinguished from surrounding text in some way other than by color"
-              },
               {
                 "id": "link-in-text-block-style",
                 "data": null,
@@ -12513,9 +12607,27 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
+            "html": "<img class=\"v-img__img v-img__img--cover fade-transition-enter-active fade-transition-enter-to fade-transition-enter-from\" src=\"https://r3.icjia-api.cloud/uploads/small_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\" style=\"\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-img__img--preload"
+              ".fade-transition-enter-active"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "no-focusable-content",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have focusable descendants"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-from fade-transition-leave-active\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
+            "target": [
+              ".fade-transition-leave-active.v-img__img--preload"
             ]
           },
           {
@@ -15872,7 +15984,7 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-responsive__sizer\" style=\"padding-bottom: 66.6667%;\"></div>",
+            "html": "<div class=\"v-responsive__sizer\" style=\"padding-bottom: 66.8%;\"></div>",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-responsive__sizer"
             ]
@@ -15892,9 +16004,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
+            "html": "<img class=\"v-img__img v-img__img--cover fade-transition-enter-active fade-transition-enter-to fade-transition-enter-from\" src=\"https://r3.icjia-api.cloud/uploads/small_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\" style=\"\">",
             "target": [
-              ".v-col-md-4.v-col-12.d-flex:nth-child(1) > .v-card--link.mx-auto.elevation-10 > .v-responsive.v-img.align-end > .v-img__img--preload"
+              ".fade-transition-enter-active"
             ]
           },
           {
@@ -15912,7 +16024,27 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<div class=\"v-img__placeholder fade-transition-enter-active fade-transition-enter-to\">",
+            "html": "<img class=\"v-img__img v-img__img--preload v-img__img--cover fade-transition-leave-from fade-transition-leave-active\" style=\"\" src=\"https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg\" alt=\"R3 Resources Image\">",
+            "target": [
+              ".fade-transition-leave-active.v-img__img--preload"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "region",
+                "data": {
+                  "isIframe": false
+                },
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "All page content is contained by landmarks"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"v-img__placeholder fade-transition-leave-from fade-transition-leave-active\">",
             "target": [
               ".v-img__placeholder"
             ]
@@ -18970,6 +19102,31 @@
                 "id": "color-contrast",
                 "data": {
                   "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "bold",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a href=\"/\" class=\"breadcrumb-link\" style=\"color:white;\" data-v-5de21cf4=\"\">R3 HOME</a>",
+            "target": [
+              ".breadcrumb-link[href=\"/\"][data-v-5de21cf4=\"\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
                   "fontSize": "27.6pt (36.8px)",
                   "fontWeight": "bold",
                   "messageKey": "bgOverlap",
@@ -19136,31 +19293,6 @@
             "html": "<span class=\"v-btn__content\" data-no-activator=\"\"><!--[--><!--[-->Find out more&nbsp;»<!--]--><!--]--></span>",
             "target": [
               ".v-col-md-4.v-col-12.d-flex:nth-child(6) > .v-card--link.mx-auto.elevation-10 > .v-card-actions.justify-center > .v-btn--slim.text-blue.darken-4 > .v-btn__content[data-no-activator=\"\"]"
-            ],
-            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
-          },
-          {
-            "any": [
-              {
-                "id": "color-contrast",
-                "data": {
-                  "contrastRatio": 0,
-                  "fontSize": "10.5pt (14px)",
-                  "fontWeight": "bold",
-                  "messageKey": "bgOverlap",
-                  "expectedContrastRatio": "4.5:1"
-                },
-                "relatedNodes": [],
-                "impact": "serious",
-                "message": "Element's background color could not be determined because it is overlapped by another element"
-              }
-            ],
-            "all": [],
-            "none": [],
-            "impact": "serious",
-            "html": "<a href=\"/resources/single-page\" class=\"\">Show all R3 resources on a single page (mobile-friendly)&nbsp;»</a>",
-            "target": [
-              "a[href$=\"single-page\"]"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
           }
