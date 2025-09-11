@@ -90,6 +90,23 @@ label {
   color: #222 !important;
 }
 
+/* Fix text clipping accessibility issue (WCAG 1.4.4 Resize Text) */
+/* Ensure v-card components don't clip content when text is scaled to 200% */
+.v-card {
+  overflow: visible !important;
+}
+
+/* Specifically target news cards to prevent text clipping */
+.info-card.v-card {
+  overflow: visible !important;
+  min-height: auto !important;
+}
+
+/* Ensure card actions (Read more buttons) remain visible at all zoom levels */
+.v-card-actions {
+  overflow: visible !important;
+}
+
 /* When labels float (Vuetify v-text-field focus/has-value), ensure adequate contrast */
 .v-field-label--floating {
   color: #111 !important;

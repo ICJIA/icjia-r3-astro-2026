@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-09-10T15:44:33.822Z",
+  "timestamp": "2025-09-10T16:32:35.192Z",
   "summary": {
     "totalPages": 34,
     "totalViolations": 10,
-    "totalPasses": 1469,
+    "totalPasses": 1477,
     "totalIncomplete": 31,
-    "totalInapplicable": 1553
+    "totalInapplicable": 1545
   },
   "pages": [
     {
@@ -55,9 +55,9 @@
       "url": "http://localhost:8000/faqs/03-08-24-2025-r3-nofo-applicant-questions",
       "filename": "axe-local-faqs-03-08-24-2025-r3-nofo-applicant-questions.json",
       "violations": 0,
-      "passes": 39,
+      "passes": 45,
       "incomplete": 1,
-      "inapplicable": 49,
+      "inapplicable": 44,
       "violationRules": []
     },
     {
@@ -138,11 +138,11 @@
       "url": "http://localhost:8000/faqs",
       "filename": "axe-local-faqs.json",
       "violations": 1,
-      "passes": 45,
-      "incomplete": 1,
-      "inapplicable": 44,
+      "passes": 34,
+      "incomplete": 0,
+      "inapplicable": 54,
       "violationRules": [
-        "link-name"
+        "page-has-heading-one"
       ]
     },
     {
@@ -160,14 +160,23 @@
       "url": "http://localhost:8000/",
       "filename": "axe-local-home.json",
       "violations": 0,
-      "passes": 41,
+      "passes": 48,
       "incomplete": 2,
-      "inapplicable": 48,
+      "inapplicable": 41,
       "violationRules": []
     },
     {
       "url": "http://localhost:8000/meetings",
       "filename": "axe-local-meetings.json",
+      "violations": 0,
+      "passes": 37,
+      "incomplete": 0,
+      "inapplicable": 52,
+      "violationRules": []
+    },
+    {
+      "url": "http://localhost:8000/news/2021-01-21-release",
+      "filename": "axe-local-news-2021-01-21-release.json",
       "violations": 0,
       "passes": 43,
       "incomplete": 1,
@@ -175,21 +184,12 @@
       "violationRules": []
     },
     {
-      "url": "http://localhost:8000/news/2021-01-21-release",
-      "filename": "axe-local-news-2021-01-21-release.json",
-      "violations": 0,
-      "passes": 38,
-      "incomplete": 0,
-      "inapplicable": 51,
-      "violationRules": []
-    },
-    {
       "url": "http://localhost:8000/news/2022-06-23-r3-grants-list",
       "filename": "axe-local-news-2022-06-23-r3-grants-list.json",
       "violations": 0,
-      "passes": 38,
-      "incomplete": 0,
-      "inapplicable": 51,
+      "passes": 43,
+      "incomplete": 1,
+      "inapplicable": 46,
       "violationRules": []
     },
     {
@@ -205,9 +205,9 @@
       "url": "http://localhost:8000/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants",
       "filename": "axe-local-news-icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants.json",
       "violations": 0,
-      "passes": 40,
-      "incomplete": 0,
-      "inapplicable": 49,
+      "passes": 47,
+      "incomplete": 1,
+      "inapplicable": 42,
       "violationRules": []
     },
     {
@@ -223,9 +223,9 @@
       "url": "http://localhost:8000/news/r3-2022-annual-report",
       "filename": "axe-local-news-r3-2022-annual-report.json",
       "violations": 0,
-      "passes": 38,
-      "incomplete": 0,
-      "inapplicable": 51,
+      "passes": 43,
+      "incomplete": 1,
+      "inapplicable": 46,
       "violationRules": []
     },
     {
@@ -241,9 +241,9 @@
       "url": "http://localhost:8000/resources/ampli-fund-portal-guide-and-tip-sheet",
       "filename": "axe-local-resources-ampli-fund-portal-guide-and-tip-sheet.json",
       "violations": 0,
-      "passes": 45,
-      "incomplete": 1,
-      "inapplicable": 44,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
       "violationRules": []
     },
     {
@@ -268,9 +268,9 @@
       "url": "http://localhost:8000/resources/r3-nofo-instructions-and-appendices",
       "filename": "axe-local-resources-r3-nofo-instructions-and-appendices.json",
       "violations": 1,
-      "passes": 45,
-      "incomplete": 1,
-      "inapplicable": 44,
+      "passes": 40,
+      "incomplete": 0,
+      "inapplicable": 49,
       "violationRules": [
         "heading-order"
       ]
@@ -516,17 +516,10 @@
         "EN-9.4.1.2",
         "ACT"
       ],
-      "occurrences": 2,
+      "occurrences": 1,
       "pages": [
         {
           "url": "http://localhost:8000/faqs/2025-r3-frequently-asked-questions",
-          "nodeCount": 1,
-          "targets": [
-            "p:nth-child(41) > a:nth-child(1)"
-          ]
-        },
-        {
-          "url": "http://localhost:8000/faqs",
           "nodeCount": 1,
           "targets": [
             "p:nth-child(41) > a:nth-child(1)"
@@ -544,8 +537,15 @@
         "cat.semantics",
         "best-practice"
       ],
-      "occurrences": 1,
+      "occurrences": 2,
       "pages": [
+        {
+          "url": "http://localhost:8000/faqs",
+          "nodeCount": 1,
+          "targets": [
+            "html"
+          ]
+        },
         {
           "url": "http://localhost:8000/funding",
           "nodeCount": 1,
@@ -1060,75 +1060,34 @@
       "pageFilename": "axe-local-faqs-2025-r3-frequently-asked-questions.json"
     },
     {
-      "id": "link-name",
-      "impact": "serious",
+      "id": "page-has-heading-one",
+      "impact": "moderate",
       "tags": [
-        "cat.name-role-value",
-        "wcag2a",
-        "wcag244",
-        "wcag412",
-        "section508",
-        "section508.22.a",
-        "TTv5",
-        "TT6.a",
-        "EN-301-549",
-        "EN-9.2.4.4",
-        "EN-9.4.1.2",
-        "ACT"
+        "cat.semantics",
+        "best-practice"
       ],
-      "description": "Ensure links have discernible text",
-      "help": "Links must have discernible text",
-      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/link-name?application=webdriverjs",
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
       "nodes": [
         {
-          "any": [
+          "any": [],
+          "all": [
             {
-              "id": "has-visible-text",
+              "id": "page-has-heading-one",
               "data": null,
               "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element does not have text that is visible to screen readers"
-            },
-            {
-              "id": "aria-label",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "aria-label attribute does not exist or is empty"
-            },
-            {
-              "id": "aria-labelledby",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
-            },
-            {
-              "id": "non-empty-title",
-              "data": {
-                "messageKey": "noAttr"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has no title attribute"
+              "impact": "moderate",
+              "message": "Page must have a level-one heading"
             }
           ],
-          "all": [],
-          "none": [
-            {
-              "id": "focusable-no-name",
-              "data": null,
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element is in tab order and does not have accessible text"
-            }
-          ],
-          "impact": "serious",
-          "html": "<a href=\"https://dceo.illinois.gov/cannabisequity/disproportionateimpactedareamap.html\"></a>",
+          "none": [],
+          "impact": "moderate",
+          "html": "<html lang=\"en\">",
           "target": [
-            "p:nth-child(41) > a:nth-child(1)"
+            "html"
           ],
-          "failureSummary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+          "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
         }
       ],
       "pageUrl": "http://localhost:8000/faqs",

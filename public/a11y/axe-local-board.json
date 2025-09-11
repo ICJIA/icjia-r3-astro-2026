@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-10T15:43:21.440Z",
+    "timestamp": "2025-09-10T16:31:29.672Z",
     "url": "http://localhost:8000/board",
     "toolOptions": {
       "reporter": "v1"
@@ -817,6 +817,32 @@
               }
             ],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-allowed-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attributes are used correctly for the defined role"
+              }
+            ],
+            "none": [
+              {
+                "id": "aria-unsupported-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute is supported"
+              }
+            ],
+            "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
             "target": [
               "div[role=\"status\"]"
@@ -851,6 +877,42 @@
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
             "target": [
               ".hamburger"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-allowed-role",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "ARIA role is allowed for given element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:22px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-sm-and-down.hover[data-v-c47643d2=\"\"] > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-allowed-role",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "ARIA role is allowed for given element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ]
           },
           {
@@ -932,6 +994,31 @@
             "target": [
               ".hamburger"
             ]
+          },
+          {
+            "any": [
+              {
+                "id": "has-visible-text",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has text that is visible to screen readers"
+              },
+              {
+                "id": "aria-label",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute exists and is not empty"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
           }
         ]
       },
@@ -965,6 +1052,24 @@
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
             "target": [
               ".hamburger"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-conditional-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ]
           },
           {
@@ -1017,6 +1122,24 @@
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
             "target": [
               ".hamburger"
+            ]
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "deprecatedrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "ARIA role is not deprecated"
+              }
+            ],
+            "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ]
           },
           {
@@ -1188,6 +1311,24 @@
               }
             ],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
             "target": [
               "div[role=\"status\"]"
@@ -1225,6 +1366,24 @@
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
             "target": [
               ".hamburger"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-required-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "All required ARIA attributes are present"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ]
           },
           {
@@ -1309,6 +1468,38 @@
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
             "target": [
               ".hamburger"
+            ]
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "invalidrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA role is valid"
+              },
+              {
+                "id": "abstractrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Abstract roles are not used"
+              },
+              {
+                "id": "unsupportedrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA role is supported"
+              }
+            ],
+            "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ]
           },
           {
@@ -1450,6 +1641,38 @@
             ],
             "none": [],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute values are valid"
+              },
+              {
+                "id": "aria-errormessage",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
+              },
+              {
+                "id": "aria-level",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-level values are valid"
+              }
+            ],
+            "none": [],
+            "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
             "target": [
               "div[role=\"status\"]"
@@ -1487,6 +1710,24 @@
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
             "target": [
               ".hamburger"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-valid-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute name is valid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ]
           },
           {
@@ -1711,9 +1952,9 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" data-v-c47643d2=\"\"><span data-v-c47643d2=\"\">R3</span>&nbsp;&nbsp;RESTORE. REINVEST. RENEW. </span>",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title"
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ]
           },
           {
@@ -2166,9 +2407,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" data-v-c47643d2=\"\"><span data-v-c47643d2=\"\">R3</span>&nbsp;&nbsp;RESTORE. REINVEST. RENEW. </span>",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title"
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ]
           },
           {
@@ -2193,7 +2434,7 @@
             "impact": null,
             "html": "<span data-v-c47643d2=\"\">R3</span>",
             "target": [
-              ".hidden-xs > .agency.app-title > span"
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"] > span"
             ]
           },
           {
@@ -7725,6 +7966,24 @@
             "all": [],
             "none": [],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "no-focusable-content",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have focusable descendants"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
             "html": "<img src=\"/loading.gif\" alt=\"Loading content, please wait...\" data-v-10e9bd57=\"\">",
             "target": [
               "img"
@@ -8076,9 +8335,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" data-v-c47643d2=\"\"><span data-v-c47643d2=\"\">R3</span>&nbsp;&nbsp;RESTORE. REINVEST. RENEW. </span>",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title"
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ]
           },
           {
@@ -8098,7 +8357,7 @@
             "impact": null,
             "html": "<span data-v-c47643d2=\"\">R3</span>",
             "target": [
-              ".hidden-xs > .agency.app-title > span"
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"] > span"
             ]
           },
           {
@@ -13197,6 +13456,24 @@
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
             "target": [
               ".hamburger"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "tabindex",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have a tabindex greater than 0"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ]
           }
         ]

@@ -1,10 +1,10 @@
 <template>
   <div>
     <!-- Skip Navigation Links for Accessibility -->
-    <div class="skip-links">
+    <nav aria-label="Skip navigation" class="skip-links">
       <a href="#main-content" class="skip-link">Skip to main content</a>
       <a href="#navigation" class="skip-link">Skip to navigation</a>
-    </div>
+    </nav>
 
     <v-app id="app-top">
       <TheNav></TheNav>

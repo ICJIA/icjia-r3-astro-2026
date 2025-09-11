@@ -14,7 +14,7 @@
       "orientationAngle": 0,
       "orientationType": "landscape-primary"
     },
-    "timestamp": "2025-09-10T15:44:28.093Z",
+    "timestamp": "2025-09-10T16:32:29.857Z",
     "url": "http://localhost:8000/resources",
     "toolOptions": {
       "reporter": "v1"
@@ -772,9 +772,35 @@
               }
             ],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-allowed-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attributes are used correctly for the defined role"
+              }
+            ],
+            "none": [
+              {
+                "id": "aria-unsupported-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute is supported"
+              }
+            ],
+            "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -1315,9 +1341,45 @@
             "all": [],
             "none": [],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:22px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-sm-and-down.hover[data-v-c47643d2=\"\"] > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-allowed-role",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "ARIA role is allowed for given element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-allowed-role",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "ARIA role is allowed for given element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -2050,9 +2112,34 @@
             "all": [],
             "none": [],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "has-visible-text",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has text that is visible to screen readers"
+              },
+              {
+                "id": "aria-label",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute exists and is not empty"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -2127,9 +2214,27 @@
             ],
             "none": [],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-conditional-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "none": [],
+            "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -2521,9 +2626,27 @@
               }
             ],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "deprecatedrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "minor",
+                "message": "ARIA role is not deprecated"
+              }
+            ],
+            "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -3227,7 +3350,7 @@
             "impact": null,
             "html": "<i data-v-c47643d2=\"\" class=\"mdi-magnify mdi v-icon notranslate v-theme--light v-icon--size-large\" aria-hidden=\"true\"></i>",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"] > .mdi-magnify.v-icon--size-large"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"] > .mdi-magnify.v-icon--size-large"
             ]
           },
           {
@@ -3695,9 +3818,27 @@
               }
             ],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "ARIA attribute is allowed"
+              }
+            ],
+            "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -4089,9 +4230,27 @@
             "all": [],
             "none": [],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-required-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "All required ARIA attributes are present"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -4993,9 +5152,41 @@
               }
             ],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "invalidrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA role is valid"
+              },
+              {
+                "id": "abstractrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "Abstract roles are not used"
+              },
+              {
+                "id": "unsupportedrole",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA role is supported"
+              }
+            ],
+            "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -6001,9 +6192,41 @@
             ],
             "none": [],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "aria-valid-attr-value",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute values are valid"
+              },
+              {
+                "id": "aria-errormessage",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-errormessage exists and references elements visible to screen readers that use a supported aria-errormessage technique"
+              },
+              {
+                "id": "aria-level",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "aria-level values are valid"
+              }
+            ],
+            "none": [],
+            "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -6661,9 +6884,27 @@
             "all": [],
             "none": [],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "aria-valid-attr",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "critical",
+                "message": "ARIA attribute name is valid"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -7212,9 +7453,9 @@
             ],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" data-v-c47643d2=\"\"><span data-v-c47643d2=\"\">R3</span>&nbsp;&nbsp;RESTORE. REINVEST. RENEW. </span>",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[data-v-c47643d2=\"\"]"
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ]
           },
           {
@@ -7406,7 +7647,7 @@
             "impact": null,
             "html": "<div data-v-c47643d2=\"\" style=\"font-size: 10px; font-weight: 900;\">SEARCH</div>",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"] > div[data-v-c47643d2=\"\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"] > div[data-v-c47643d2=\"\"]"
             ]
           },
           {
@@ -12067,9 +12308,27 @@
             "all": [],
             "none": [],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "no-focusable-content",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have focusable descendants"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -12842,9 +13101,9 @@
             "all": [],
             "none": [],
             "impact": null,
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" data-v-c47643d2=\"\"><span data-v-c47643d2=\"\">R3</span>&nbsp;&nbsp;RESTORE. REINVEST. RENEW. </span>",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[data-v-c47643d2=\"\"]"
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ]
           },
           {
@@ -12864,7 +13123,7 @@
             "impact": null,
             "html": "<span data-v-c47643d2=\"\">R3</span>",
             "target": [
-              ".hidden-xs > .agency.app-title[data-v-c47643d2=\"\"] > span[data-v-c47643d2=\"\"]"
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"] > span[data-v-c47643d2=\"\"]"
             ]
           },
           {
@@ -13084,7 +13343,7 @@
             "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -13104,7 +13363,7 @@
             "impact": null,
             "html": "<div data-v-c47643d2=\"\" style=\"font-size: 10px; font-weight: 900;\">SEARCH</div>",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"] > div[data-v-c47643d2=\"\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"] > div[data-v-c47643d2=\"\"]"
             ]
           },
           {
@@ -18185,9 +18444,27 @@
             "all": [],
             "none": [],
             "impact": null,
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
+            "target": [
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "tabindex",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element does not have a tabindex greater than 0"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
             "html": "<span data-v-c47643d2=\"\" class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Search\">",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"]"
             ]
           },
           {
@@ -18525,9 +18802,9 @@
             "all": [],
             "none": [],
             "impact": "serious",
-            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" data-v-c47643d2=\"\"><span data-v-c47643d2=\"\">R3</span>&nbsp;&nbsp;RESTORE. REINVEST. RENEW. </span>",
+            "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"Go to R3 home page\" data-v-c47643d2=\"\">",
             "target": [
-              ".hidden-xs > .agency.app-title[data-v-c47643d2=\"\"]"
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"]"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
           },
@@ -18552,7 +18829,7 @@
             "impact": "serious",
             "html": "<span data-v-c47643d2=\"\">R3</span>",
             "target": [
-              ".hidden-xs > .agency.app-title[data-v-c47643d2=\"\"] > span[data-v-c47643d2=\"\"]"
+              ".hidden-xs > .agency.app-title[aria-label=\"Go to R3 home page\"] > span[data-v-c47643d2=\"\"]"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
           },
@@ -18577,7 +18854,7 @@
             "impact": "serious",
             "html": "<div data-v-c47643d2=\"\" style=\"font-size: 10px; font-weight: 900;\">SEARCH</div>",
             "target": [
-              ".hamburger[role=\"button\"][aria-label=\"Search\"] > div[data-v-c47643d2=\"\"]"
+              ".hamburger.hidden-md-and-up[aria-label=\"Search\"] > div[data-v-c47643d2=\"\"]"
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
           },
