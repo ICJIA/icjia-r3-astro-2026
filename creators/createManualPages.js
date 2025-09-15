@@ -148,6 +148,30 @@ const manualPages = [
       type: "page",
     },
   },
+  {
+    id: uuidv4(),
+    attributes: {
+      id: uuidv4(),
+      postDate: moment().format(),
+      title: "Accessibility Audit Log",
+      slug: "accessibility/audit-log",
+      dateOverride: "",
+      hideFromSearch: false,
+      hideFromSitemap: false,
+      showTableOfContents: true,
+      summary:
+        "Comprehensive accessibility audit results and compliance documentation for the R3 website, demonstrating our commitment to web accessibility standards.",
+      body: "",
+      createdAt: moment().format(),
+      updatedAt: moment().format(),
+      publishedAt: moment().format(),
+      searchMeta:
+        "accessibility audit WCAG compliance axe lighthouse testing results violations passes",
+      path: "/accessibility/audit-log",
+      url: `${SITE_URL}/accessibility/audit-log`,
+      type: "page",
+    },
+  },
   // {
   //   id: uuidv4(),
   //   attributes: {

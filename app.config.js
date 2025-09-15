@@ -257,5 +257,9 @@ export default defineAppConfig({
       main: "Search",
       link: "/search",
     },
+    {
+      main: "Accessibility",
+      link: "/accessibility/audit-log",
+    },
   ],
 });

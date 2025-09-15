@@ -19,7 +19,7 @@
             >
               <div style="font-size: 12px; font-weight: 400">
                 <strong
-                  >&#169; 2024
+                  >&#169; 2025
                   <a
                     href="https://www.illinois.gov"
                     target="_blank"
@@ -49,6 +49,12 @@
                 <strong>
                   <nuxt-link to="/privacy" style="color: #fff"
                     >Privacy
+                  </nuxt-link>
+                </strong>
+                &nbsp;|&nbsp;
+                <strong>
+                  <nuxt-link to="/accessibility/audit-log" style="color: #fff"
+                    >Accessibility
                   </nuxt-link>
                 </strong>
                 &nbsp;|&nbsp;
