@@ -1,6 +1,11 @@
 <template>
   <div>
     <div v-if="data">
+      <!-- Main page heading for accessibility -->
+      <h1 class="sr-only">
+        R3 Restore, Reinvest, Renew - Illinois Criminal Justice Information
+        Authority
+      </h1>
       <v-container fluid class="full-width">
         <v-row no-gutters>
           <v-col
@@ -538,5 +543,18 @@ a.home-link {
 }
 .dark-rule {
   border-bottom: 1px solid #000 !important;
+}
+
+/* Screen reader only content for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 </style>
