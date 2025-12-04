@@ -59,12 +59,16 @@
 const route = useRoute();
 
 /**
- * Current route path string.
+ * Current route path string (normalized to remove trailing slash).
  * Used to generate breadcrumb navigation sections.
+ * Trailing slashes are removed to ensure consistent breadcrumb generation
+ * regardless of how the URL was accessed.
  *
  * @type {string}
  */
-const path = route.path;
+const rawPath = route.path;
+const path =
+  rawPath.endsWith("/") && rawPath !== "/" ? rawPath.slice(0, -1) : rawPath;
 
 /**
  * Vue Router instance for programmatic navigation.

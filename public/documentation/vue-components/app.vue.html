@@ -63,14 +63,20 @@
 const isHome = ref(true);
 const hideBreadcrumbBar = ref(false);
 const route = useRoute();
-const routePath = ref(route.path);
+
+// Normalize path by removing trailing slash for consistent comparisons
+const normalizePath = (p) =>
+  p.endsWith("/") &amp;&amp; p !== "/" ? p.slice(0, -1) : p;
+
+const routePath = ref(normalizePath(route.path));
 watchEffect(() => {
-  routePath.value = route.path;
+  const normalizedPath = normalizePath(route.path);
+  routePath.value = normalizedPath;
 
   if (
-    route.path === "/" ||
-    route.path === "/sandbox" ||
-    route.path === "/faqs"
+    normalizedPath === "/" ||
+    normalizedPath === "/sandbox" ||
+    normalizedPath === "/faqs"
   ) {
     hideBreadcrumbBar.value = true;
   } else {
