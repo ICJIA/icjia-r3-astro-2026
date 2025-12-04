@@ -44,10 +44,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
     to.path.endsWith("/") && to.path !== "/" ? to.path.slice(0, -1) : to.path;
 
   if (appRoutes.indexOf(normalizedPath) > -1) {
-    console.log("Route: good: ", to.path);
+    // Route is valid, continue
   } else {
-    console.log("Route: bad: ", to.path);
-
     /**
      * URI-encoded source path for debugging purposes.
      * Preserves the original path in the query string.

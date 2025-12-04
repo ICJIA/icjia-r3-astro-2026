@@ -231,11 +231,6 @@
     "@babel/helper-string-parser" "^7.27.1"
     "@babel/helper-validator-identifier" "^7.27.1"
 
-"@barbapapazes/plausible-tracker@^0.5.6":
-  version "0.5.6"
-  resolved "https://registry.yarnpkg.com/@barbapapazes/plausible-tracker/-/plausible-tracker-0.5.6.tgz#36c2cf3354326282b9a3315538dbec2744acb997"
-  integrity sha512-GRZxn3ZngYQ1+QbdP8d66D/lQg+T2oEevG8kBGfNwVbt9VZB67sgMx/gkRo/Ww2lH7QelgjUNzvOeG+DsJX2HQ==
-
 "@cloudflare/kv-asset-handler@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@cloudflare/kv-asset-handler/-/kv-asset-handler-0.4.0.tgz#a8588c6a2e89bb3e87fb449295a901c9f6d3e1bf"
@@ -1080,16 +1075,6 @@
     unist-util-visit "^5.0.0"
     unwasm "^0.3.9"
     vfile "^6.0.3"
-
-"@nuxtjs/plausible@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/plausible/-/plausible-1.2.0.tgz#0b7fc89308619ea1b520d5f40ed426ff2303153e"
-  integrity sha512-pjfps32fFN77BhjqHmq2Jx4XCNso9TcYnB+S4IR2qH/c26WDfYB5mQxN5pOEiWRlMkiKq+Y45mBBFtSOVKClCA==
-  dependencies:
-    "@barbapapazes/plausible-tracker" "^0.5.6"
-    "@nuxt/kit" "^3.14.1592"
-    defu "^6.1.4"
-    ufo "^1.5.4"
 
 "@oxc-parser/binding-android-arm64@0.75.1":
   version "0.75.1"

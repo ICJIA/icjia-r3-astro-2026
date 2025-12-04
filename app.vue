@@ -64,7 +64,6 @@ const route = useRoute();
 const routePath = ref(route.path);
 watchEffect(() => {
   routePath.value = route.path;
-  console.log("route.path from app.vue: ", routePath.value);
 
   if (
     route.path === "/" ||
@@ -125,7 +124,6 @@ const scrollToTop = () => {
 
 onMounted(() => {
   isMounted.value = true;
-  console.log("isMounted: ", isMounted);
 });
 
 // Load Hub tags into global state

@@ -57,13 +57,6 @@ const destination = ref(
   query.destination ? decodeURIComponent(query.destination) : null
 );
 
-console.log(
-  "404 -- referrer: ",
-  referrer.value,
-  " destination: ",
-  destination.value
-);
-
 const goHome = () => router.push("/");
 
 useHead({
@@ -74,15 +67,5 @@ useHead({
       content: "404 - Page not found",
     },
   ],
-});
-
-onMounted(() => {
-  useTrackEvent("404-error", {
-    props: {
-      path: document.location.pathname,
-      referrer: referrer.value,
-      destination: destination.value,
-    },
-  });
 });
 </script>

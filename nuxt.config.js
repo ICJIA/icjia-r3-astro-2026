@@ -43,14 +43,6 @@ export default defineNuxtConfig({
           src: "https://cdn.jsdelivr.net/mark.js/8.6.0/mark.min.js",
           type: "text/javascript",
         },
-        // {
-        //   src: "https://plausible.icjia.cloud/js/script.tagged-events.outbound-links.js",
-        //   "data-domain": "r3.illinois.gov",
-        //   defer: true,
-        // },
-        // {
-        //   src: "plausibleEvents.js",
-        // },
       ],
     },
   },
@@ -119,7 +111,6 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxtjs/google-fonts",
-    "@nuxtjs/plausible",
     // "@nuxtjs/apollo",
     // "@pinia/nuxt", // Removed - using Nuxt 3 native state management
     // "@nuxt/image-edge",
@@ -138,12 +129,6 @@ export default defineNuxtConfig({
   //   dirs: ["stores"], // Removed - no longer using Pinia stores
   // },
 
-  plausible: {
-    apiHost: "https://plausible.icjia.cloud",
-    // Prevent tracking on localhost
-    ignoredHostnames: ["localhost"],
-    autoOutboundTracking: true,
-  },
   // pinia: {
   //   autoImports: ["defineStore", "acceptHMRUpdate"],
   //   storesDirs: ["./stores/**"],
