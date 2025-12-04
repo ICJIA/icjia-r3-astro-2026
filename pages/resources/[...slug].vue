@@ -4,8 +4,12 @@ definePageMeta({
   middleware: ["is-valid-content"],
 });
 
-const { path } = useRoute();
+const { path: rawPath } = useRoute();
 const router = useRouter();
+
+// Normalize path by removing trailing slash
+const path =
+  rawPath.endsWith("/") && rawPath !== "/" ? rawPath.slice(0, -1) : rawPath;
 
 // const error = useError();
 const showTOC = ref(false);

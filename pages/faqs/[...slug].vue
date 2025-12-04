@@ -126,8 +126,12 @@ const isPrevDisabled = ref(false);
 
 const isMounted = ref(false);
 // const markInstance = ref(null);
-const { path } = useRoute();
+const { path: rawPath } = useRoute();
 const router = useRouter();
+// Normalize path by removing trailing slash
+const path =
+  rawPath.endsWith("/") && rawPath !== "/" ? rawPath.slice(0, -1) : rawPath;
+
 const { data: faqs } = await useAsyncData(`faqs-${path}`, async () => {
   const post = await queryContent("/faqs").where({ _path: path }).findOne();
   return post;

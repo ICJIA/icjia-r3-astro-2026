@@ -36,7 +36,16 @@ definePageMeta({
  *
  * @type {string}
  */
-const { path } = useRoute();
+const { path: rawPath } = useRoute();
+
+/**
+ * Normalized path with trailing slash removed.
+ * Ensures consistent content queries regardless of URL format.
+ *
+ * @type {string}
+ */
+const path =
+  rawPath.endsWith("/") && rawPath !== "/" ? rawPath.slice(0, -1) : rawPath;
 
 /**
  * Vue Router instance for programmatic navigation.
