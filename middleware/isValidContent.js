@@ -38,7 +38,12 @@ import appRoutes from "assets/json/appRoutes.json";
 export default defineNuxtRouteMiddleware((to, from) => {
   const router = useRouter();
 
-  if (appRoutes.indexOf(to.path) > -1) {
+  // Normalize path by removing trailing slash for comparison
+  // This ensures /news/article and /news/article/ both match
+  const normalizedPath =
+    to.path.endsWith("/") && to.path !== "/" ? to.path.slice(0, -1) : to.path;
+
+  if (appRoutes.indexOf(normalizedPath) > -1) {
     console.log("Route: good: ", to.path);
   } else {
     console.log("Route: bad: ", to.path);
