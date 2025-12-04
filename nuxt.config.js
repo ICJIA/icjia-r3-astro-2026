@@ -65,6 +65,14 @@ export default defineNuxtConfig({
     transpile: ["vuetify"],
   },
 
+  // Enforce consistent trailing slash behavior (no trailing slashes)
+  // This prevents 404s when URLs are pasted with/without trailing slashes
+  router: {
+    options: {
+      strict: false, // Allows matching routes regardless of trailing slash
+    },
+  },
+
   vite: {
     // See: https://github.com/nuxt/nuxt/issues/24196
     optimizeDeps: {
@@ -203,10 +211,19 @@ export default defineNuxtConfig({
 
   // Force static site generation
   ssr: true,
+
+  // Experimental features for better static generation
+  experimental: {
+    // Ensure payload data is properly extracted and embedded in static pages
+    payloadExtraction: true,
+  },
+
   nitro: {
     preset: "static",
     prerender: {
       routes: siteRoutes,
+      // Crawl links to ensure all content API routes are pre-rendered
+      crawlLinks: true,
     },
   },
 

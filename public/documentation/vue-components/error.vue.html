@@ -15,10 +15,10 @@
             &lt;h1 id="error-heading" class="sr-only">An error occurred&lt;/h1>
             &lt;!-- Visual status code (large text with sufficient contrast) -->
             &lt;div style="font-size: 120px; color: #444; font-weight: 700">
-              {{ errorObj.error.statusCode }}
+              {{ statusCode }}
             &lt;/div>
             &lt;p>
-              &lt;strong>{{ errorObj.error.statusMessage.split(":")[0] }}&lt;/strong>
+              &lt;strong>{{ statusMessage }}&lt;/strong>
             &lt;/p>
 
             &lt;v-btn class="mt-8" @click="handleError">Go Home&lt;/v-btn>
@@ -33,9 +33,17 @@
 const props = defineProps({
   error: Object,
 });
-console.log("Error: ", props.error.statusCode);
-console.log("Error URL: ", props.error.url);
-const errorObj = ref(props);
+
+// Safely extract error properties with fallbacks
+const statusCode = computed(() => props.error?.statusCode || 500);
+const statusMessage = computed(() => {
+  const msg = props.error?.statusMessage || "An error occurred";
+  return msg.includes(":") ? msg.split(":")[0] : msg;
+});
+
+console.log("isMounted: ");
+console.log("Error: ", props.error?.statusCode);
+console.log("Error URL: ", props.error?.url);
 
 const handleError = () => clearError({ redirect: "/" });
 &lt;/script>
