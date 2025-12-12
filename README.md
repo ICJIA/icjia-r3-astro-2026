@@ -2,7 +2,7 @@
 
 # ICJIA R3 (Restore, Reinvest, Renew) Program Website
 
-The official website for Illinois' R3 Violence Prevention Plan, built with Nuxt 3 and Vue 3. This platform provides comprehensive information about R3 funding opportunities, resources, and program updates.
+The official website for Illinois' R3 Violence Prevention Plan, built with Nuxt 4 and Vue 3. This platform provides comprehensive information about R3 funding opportunities, resources, and program updates.
 
 🌐 **Live Site**: [https://r3.illinois.gov](https://r3.illinois.gov)
 📚 **Documentation**: [https://r3.illinois.gov/documentation/](https://r3.illinois.gov/documentation/)
@@ -47,7 +47,7 @@ yarn a11y:audit:local  # Run accessibility audit locally
 
 ## Architecture Overview
 
-- **Framework**: Nuxt 3 + Vue 3 + Vuetify 3 (Material Design)
+- **Framework**: Nuxt 4 + Vue 3 + Vuetify 3 (Material Design)
 - **Content Management**: Headless CMS (Strapi) with dynamic content generation
 - **Deployment**: Netlify static hosting with automatic builds
 - **Documentation**: Standalone system with JSDoc API reference
@@ -194,9 +194,11 @@ icjia-r3-v5-nuxt/
 
 ## Technology Stack
 
-- **Nuxt 3** (v3.17.6) - Vue.js meta-framework
-- **Vue 3** - Progressive JavaScript framework
-- **Vuetify 3** (v3.7.2) - Material Design components
+- **Nuxt 4** (v4.2.2) - Vue.js meta-framework
+- **Vue 3** (v3.5.25) - Progressive JavaScript framework
+- **Vuetify 3** (v3.11.3) - Material Design components
+- **Vite** (v7.2.7) - Next-generation build tool
+- **Nitro** (v2.12.9) - Server engine for Nuxt
 - **Strapi CMS** - Headless content management
 - **Netlify** - Static site hosting and deployment
 
@@ -237,7 +239,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Accessibility Audit History
 
-This section documents accessibility improvements and audit results for the ICJIA R3 Nuxt 3 application, maintaining WCAG 2.1 AA compliance standards.
+This section documents accessibility improvements and audit results for the ICJIA R3 Nuxt 4 application, maintaining WCAG 2.1 AA compliance standards.
 
 ### 2025-09-10: Comprehensive Accessibility Audit and Mitigations
 
