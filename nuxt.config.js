@@ -125,13 +125,11 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    "@nuxtjs/google-fonts",
-    // "@nuxtjs/apollo",
+    "@nuxtjs/google-fonts", // "@nuxtjs/apollo",
     // "@pinia/nuxt", // Removed - using Nuxt 3 native state management
     // "@nuxt/image-edge",
     "@vueuse/nuxt",
-    "@nuxt/content",
-    // "nuxt-security",
+    "@nuxt/content", // "nuxt-security",
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async (options, nuxt) => {
       await nuxt.hooks.hook("vite:extendConfig", (config) => {
@@ -139,6 +137,7 @@ export default defineNuxtConfig({
         config?.plugins?.push(vuetify());
       });
     },
+    "@nuxtjs/plausible",
   ],
   // imports: {
   //   dirs: ["stores"], // Removed - no longer using Pinia stores
@@ -194,6 +193,15 @@ export default defineNuxtConfig({
         ital: [100, 400],
       },
     },
+  },
+
+  plausible: {
+    apiHost: "https://plausible.icjia.cloud",
+    domain: "r3.illinois.gov",
+    ignoredHostnames: ["localhost"],
+    autoOutboundTracking: true, // Enable automatic outbound link tracking
+    // File downloads are automatically tracked for common file types
+    // (pdf, xlsx, docx, txt, rtf, csv, exe, zip, mp4, mp3, etc.)
   },
 
   // image: {
