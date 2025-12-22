@@ -6,6 +6,21 @@ import siteRoutes from "./public/appRoutes.json";
 // console.log("Generated routes:", siteRoutes);
 
 export default defineNuxtConfig({
+  // Nuxt 4 Directory Structure Configuration
+  // Explicitly configure directory locations for clarity
+  // Note: Using root-level directories for backward compatibility
+  // while following Nuxt 4 conventions
+  dir: {
+    pages: "pages",
+    components: "components",
+    composables: "composables",
+    middleware: "middleware",
+    plugins: "plugins",
+    assets: "assets",
+    public: "public",
+    server: "server",
+  },
+
   app: {
     // pageTransition: { name: "page", mode: "out-in" },
     head: {

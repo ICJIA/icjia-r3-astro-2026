@@ -197,11 +197,6 @@ export default defineAppConfig({
     },
 
     {
-      main: "Funding",
-      link: "/funding",
-      nudgeLeft: "78px",
-    },
-    {
       main: "Contact",
       link: "/contact",
       nudgeLeft: "78px",
@@ -242,10 +237,6 @@ export default defineAppConfig({
       link: "/collaboratives",
     },
     {
-      main: "Funding",
-      link: "/funding",
-    },
-    {
       main: "Research",
       link: "/research",
     },
@@ -259,7 +250,8 @@ export default defineAppConfig({
     },
     {
       main: "Accessibility",
-      link: "/accessibility/audit-log",
+      link: "/documentation/accessibility/index.html",
+      isExternal: true,
     },
   ],
 });

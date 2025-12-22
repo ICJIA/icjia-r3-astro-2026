@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <v-app-bar
-      id="navigation"
-      fixed
-      app
-      color="white"
-      density="default"
-      style="z-index: 50; width: 100%"
-      size="90"
-      elevation="3"
-      class="pl-5 pr-5"
-    >
+  <v-app-bar
+    id="navigation"
+    fixed
+    app
+    color="white"
+    density="default"
+    style="z-index: 50; width: 100%"
+    size="90"
+    elevation="3"
+    class="pl-5 pr-5"
+    aria-label="Site header"
+  >
       <div
         v-if="!nav"
         class="hover hamburger text-center hidden-md-and-up"
@@ -254,7 +254,6 @@
 
       <span v-else class="text center ml-12"><TheLoader></TheLoader></span>
     </v-app-bar>
-  </div>
 </template>
 
 <script setup>

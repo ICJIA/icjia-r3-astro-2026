@@ -41,14 +41,24 @@
                   color="white"
                   size="small"
                   class="mt-8 button-href hidden-sm-and-down"
-                  >Expired 04/30/24&nbsp;&nbsp;</v-btn
+                  style="
+                    white-space: nowrap;
+                    min-width: fit-content;
+                    overflow: visible;
+                  "
+                  >Expired 04/30/24</v-btn
                 >
                 <v-btn
                   variant="outlined"
                   color="white"
                   size="small"
                   class="mt-8 button-href hidden-md-and-up"
-                  >Expired 04/30/24&nbsp;&nbsp;</v-btn
+                  style="
+                    white-space: nowrap;
+                    min-width: fit-content;
+                    overflow: visible;
+                  "
+                  >Expired 04/30/24</v-btn
                 >
               </div>
               <template #placeholder>

@@ -1,59 +1,57 @@
 <template>
-  <div>
-    <!-- Skip Navigation Links for Accessibility -->
-    <nav aria-label="Skip navigation" class="skip-links">
-      <a href="#main-content" class="skip-link">Skip to main content</a>
-      <a href="#navigation" class="skip-link">Skip to navigation</a>
-    </nav>
+  <!-- Skip Navigation Links for Accessibility -->
+  <nav aria-label="Skip navigation" class="skip-links">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#navigation" class="skip-link">Skip to navigation</a>
+  </nav>
 
-    <v-app id="app-top">
-      <TheNav></TheNav>
+  <v-app id="app-top">
+    <TheNav></TheNav>
 
-      <!-- <TheNavHome v-if="isHome"></TheNavHome> -->
+    <!-- <TheNavHome v-if="isHome"></TheNavHome> -->
 
-      <TheSidebar></TheSidebar>
-      <!-- <TheTranslationModal v-if="isTranslationEnabled"></TheTranslationModal> -->
+    <TheSidebar></TheSidebar>
+    <!-- <TheTranslationModal v-if="isTranslationEnabled"></TheTranslationModal> -->
 
-      <NuxtLoadingIndicator color="blue" />
+    <NuxtLoadingIndicator color="blue" />
 
-      <v-main
-        id="main-content"
-        role="main"
-        class="markdown-body"
-        style="min-height: 80vh !important; background: #f2f2f2"
-      >
-        <!-- <TheBreadcrumbBar
-          v-if="!hideBreadcrumbBar"
-          :key="routePath"
-        ></TheBreadcrumbBar> -->
+    <v-main
+      id="main-content"
+      role="main"
+      class="markdown-body"
+      style="min-height: 100vh"
+    >
+      <!-- <TheBreadcrumbBar
+        v-if="!hideBreadcrumbBar"
+        :key="routePath"
+      ></TheBreadcrumbBar> -->
 
-        <NuxtPage></NuxtPage>
-      </v-main>
+      <NuxtPage></NuxtPage>
+    </v-main>
 
-      <TheFooter v-if="isMounted" style="margin-top: -88px"></TheFooter>
+    <TheFooter v-if="isMounted"></TheFooter>
 
-      <v-layout-item
-        model-value
-        position="bottom"
-        class="text-end"
-        size="88"
-        v-if="isMounted"
-      >
-        <div class="ma-4">
-          <v-btn
-            icon="mdi-menu-up"
-            size="large"
-            color="primary"
-            elevation="8"
-            @click.stop.prevent="scrollToTop()"
-            style="z-index: 0; font-size: 20px"
-            aria-label="Scroll to top of page"
-          >
-          </v-btn>
-        </div>
-      </v-layout-item>
-    </v-app>
-  </div>
+    <v-layout-item
+      model-value
+      position="bottom"
+      class="text-end"
+      size="88"
+      v-if="isMounted"
+    >
+      <div class="ma-4">
+        <v-btn
+          icon="mdi-menu-up"
+          size="large"
+          color="primary"
+          elevation="8"
+          @click.stop.prevent="scrollToTop()"
+          style="z-index: 0; font-size: 20px"
+          aria-label="Scroll to top of page"
+        >
+        </v-btn>
+      </div>
+    </v-layout-item>
+  </v-app>
 </template>
 
 <script setup>
@@ -137,6 +135,11 @@ import tagMeta from "~/src/tags.json";
 const tags = useState("tags", () => tagMeta);
 </script>
 <style>
+/* Main content background */
+.v-main {
+  background: #f2f2f2;
+}
+
 /* Skip Links for Accessibility */
 .skip-links {
   position: relative;

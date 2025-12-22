@@ -48,8 +48,6 @@
                     bottom: 0;
                     z-index: 1;
                   "
-                  role="region"
-                  aria-label="R3 Program funding opportunity information"
                 >
                   <div class="nofo-band py-4 px-6 text-center">
                     <h2
@@ -72,14 +70,24 @@
                         color="white"
                         size="small"
                         class="button-href hidden-sm-and-down"
-                        >Expired 04/30/24&nbsp;&nbsp;</v-btn
+                        style="
+                          white-space: nowrap;
+                          min-width: fit-content;
+                          overflow: visible;
+                        "
+                        >Expired 04/30/24</v-btn
                       >
                       <v-btn
                         variant="outlined"
                         color="white"
                         size="small"
                         class="button-href hidden-md-and-up ml-3"
-                        >Expired 04/30/24&nbsp;&nbsp;</v-btn
+                        style="
+                          white-space: nowrap;
+                          min-width: fit-content;
+                          overflow: visible;
+                        "
+                        >Expired 04/30/24</v-btn
                       >
                     </div>
                   </div>
@@ -116,8 +124,6 @@
                     bottom: 0;
                     z-index: 1;
                   "
-                  role="region"
-                  aria-label="R3 Program funding opportunity information"
                 >
                   <div class="nofo-band py-4 px-6 text-center">
                     <h2
@@ -497,10 +503,23 @@ onMounted(() => {
 .button-href .v-btn__content {
   font-weight: 700 !important;
   text-decoration: none !important;
+  overflow: visible !important;
+  white-space: nowrap !important;
 }
 
 .button-href:hover .v-btn__content {
   text-decoration: none !important;
+}
+
+/* Prevent text clipping when resized/zoomed - WCAG 2.1 1.4.4 Resize text */
+.button-href {
+  overflow: visible !important;
+  min-width: fit-content !important;
+}
+
+.button-href .v-btn__content {
+  overflow: visible !important;
+  text-overflow: clip !important;
 }
 
 a.home-link {
@@ -532,7 +551,11 @@ a.home-link {
   font-size: 5rem !important;
   font-weight: 900;
   color: #fff !important;
-  text-shadow: 0 0 10px #000;
+  /* Enhanced text shadow for WCAG AA color contrast compliance */
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(0, 0, 0, 0.6);
 }
 .full-width {
   margin: 0;

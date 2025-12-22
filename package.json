@@ -36,6 +36,7 @@
     "scripts": "yarn create:contentDirectory && yarn create:manualPages && yarn create:news && yarn create:faqs && yarn create:pages && yarn create:resources && yarn create:hub && yarn create:hubImages && yarn create:routes && yarn create:searchIndex && yarn create:sitemap && yarn docs:all",
     "a11y:audit": "node creators/runAxeAudit.js",
     "a11y:audit:local": "node creators/runAxeAuditLocal.js",
+    "a11y:audit:full": "node creators/full-accessibility-audit.mjs",
     "a11y:aggregate": "node creators/aggregateAxeResults.js",
     "postinstall": "nuxt prepare",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore . --fix",
@@ -50,12 +51,15 @@
     "@nuxtjs/google-fonts": "3.2.0",
     "@vue/compiler-sfc": "^3.5.17",
     "@vueuse/nuxt": "^14.1.0",
+    "axe-core": "^4.11.0",
     "clean-jsdoc-theme": "^4.3.0",
     "consola": "3.4.2",
     "font-awesome": "4.7.0",
     "jsdoc": "^4.0.4",
     "material-design-icons-iconfont": "6.7.0",
-    "nuxt": "^4.0.0"
+    "nuxt": "^4.0.0",
+    "puppeteer": "^24.34.0",
+    "xml2js": "^0.6.2"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "6.6.0",

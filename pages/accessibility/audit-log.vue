@@ -25,10 +25,10 @@
                 margin-top: 20px;
               "
             >
-              <h2 style="color: #155724; margin-bottom: 16px">
+              <h2 style="color: #0a3d0a; margin-bottom: 16px">
                 Quick Start for Accessibility Professionals
               </h2>
-              <div style="color: #155724">
+              <div style="color: #0a3d0a">
                 <p><strong>Latest Audit Date</strong>: September 15, 2025</p>
                 <p>
                   <strong>Overall Status</strong>: ✅
@@ -98,25 +98,37 @@
             <h4>Summary</h4>
             <v-row class="mb-4">
               <v-col cols="12" md="3">
-                <v-card class="pa-4 text-center" color="success" dark>
+                <v-card
+                  class="pa-4 text-center"
+                  style="background: #2d5016; color: #fff"
+                >
                   <h3>0</h3>
                   <p>Violations ✅</p>
                 </v-card>
               </v-col>
               <v-col cols="12" md="3">
-                <v-card class="pa-4 text-center" color="success" dark>
+                <v-card
+                  class="pa-4 text-center"
+                  style="background: #2d5016; color: #fff"
+                >
                   <h3>67</h3>
                   <p>Tests Passed ✅</p>
                 </v-card>
               </v-col>
               <v-col cols="12" md="3">
-                <v-card class="pa-4 text-center" color="warning" dark>
+                <v-card
+                  class="pa-4 text-center"
+                  style="background: #8a5d00; color: #fff"
+                >
                   <h3>1</h3>
                   <p>Incomplete ⚠️</p>
                 </v-card>
               </v-col>
               <v-col cols="12" md="3">
-                <v-card class="pa-4 text-center" color="info" dark>
+                <v-card
+                  class="pa-4 text-center"
+                  style="background: #0066cc; color: #fff"
+                >
                   <h3>54</h3>
                   <p>Inapplicable ℹ️</p>
                 </v-card>
@@ -229,47 +241,47 @@
                 <tbody>
                   <tr>
                     <td><strong>H1 Present</strong></td>
-                    <td><span style="color: #28a745">✅ Pass</span></td>
+                    <td><span style="color: #1a7a30">✅ Pass</span></td>
                     <td>Page contains proper H1 heading</td>
                   </tr>
                   <tr>
                     <td><strong>Language Attribute</strong></td>
-                    <td><span style="color: #28a745">✅ Pass</span></td>
+                    <td><span style="color: #1a7a30">✅ Pass</span></td>
                     <td>HTML lang attribute properly set</td>
                   </tr>
                   <tr>
                     <td><strong>Page Title</strong></td>
-                    <td><span style="color: #28a745">✅ Pass</span></td>
+                    <td><span style="color: #1a7a30">✅ Pass</span></td>
                     <td>Descriptive page title present</td>
                   </tr>
                   <tr>
                     <td><strong>Meta Description</strong></td>
-                    <td><span style="color: #28a745">✅ Pass</span></td>
+                    <td><span style="color: #1a7a30">✅ Pass</span></td>
                     <td>Meta description tag present</td>
                   </tr>
                   <tr>
                     <td><strong>Skip Links</strong></td>
-                    <td><span style="color: #28a745">✅ Pass</span></td>
+                    <td><span style="color: #1a7a30">✅ Pass</span></td>
                     <td>Skip navigation links implemented</td>
                   </tr>
                   <tr>
                     <td><strong>Heading Order</strong></td>
-                    <td><span style="color: #28a745">✅ Pass</span></td>
+                    <td><span style="color: #1a7a30">✅ Pass</span></td>
                     <td>Proper heading hierarchy (H1→H2→H3)</td>
                   </tr>
                   <tr>
                     <td><strong>Image Alt Text</strong></td>
-                    <td><span style="color: #28a745">✅ Pass</span></td>
+                    <td><span style="color: #1a7a30">✅ Pass</span></td>
                     <td>All images have alt attributes</td>
                   </tr>
                   <tr>
                     <td><strong>Link Names</strong></td>
-                    <td><span style="color: #28a745">✅ Pass</span></td>
+                    <td><span style="color: #1a7a30">✅ Pass</span></td>
                     <td>All links have accessible names</td>
                   </tr>
                   <tr>
                     <td><strong>Button Names</strong></td>
-                    <td><span style="color: #28a745">✅ Pass</span></td>
+                    <td><span style="color: #1a7a30">✅ Pass</span></td>
                     <td>All buttons have accessible names</td>
                   </tr>
                 </tbody>
@@ -288,19 +300,19 @@
             <h4>SiteImprove Audit Summary</h4>
             <v-row class="mb-4">
               <v-col cols="12" md="4">
-                <v-card class="pa-4 text-center" color="success" dark>
+                <v-card class="pa-4 text-center" style="background: #2d5016; color: #fff">
                   <h3>✅</h3>
                   <p>Issues Resolved</p>
                 </v-card>
               </v-col>
               <v-col cols="12" md="4">
-                <v-card class="pa-4 text-center" color="success" dark>
+                <v-card class="pa-4 text-center" style="background: #2d5016; color: #fff">
                   <h3>0</h3>
                   <p>Current Violations</p>
                 </v-card>
               </v-col>
               <v-col cols="12" md="4">
-                <v-card class="pa-4 text-center" color="info" dark>
+                <v-card class="pa-4 text-center" style="background: #0055a5; color: #fff">
                   <h3>WCAG AA</h3>
                   <p>Compliance Level</p>
                 </v-card>
@@ -434,7 +446,7 @@
 
             <v-row class="mb-4">
               <v-col cols="12" md="6">
-                <v-card class="pa-4" color="success" dark>
+                <v-card class="pa-4" style="background: #2d5016; color: #fff">
                   <h4>Principle 1: Perceivable</h4>
                   <ul>
                     <li>✅ Text alternatives for images</li>
@@ -445,7 +457,7 @@
                 </v-card>
               </v-col>
               <v-col cols="12" md="6">
-                <v-card class="pa-4" color="success" dark>
+                <v-card class="pa-4" style="background: #2d5016; color: #fff">
                   <h4>Principle 2: Operable</h4>
                   <ul>
                     <li>✅ Keyboard accessible</li>
@@ -459,7 +471,7 @@
 
             <v-row class="mb-4">
               <v-col cols="12" md="6">
-                <v-card class="pa-4" color="success" dark>
+                <v-card class="pa-4" style="background: #2d5016; color: #fff">
                   <h4>Principle 3: Understandable</h4>
                   <ul>
                     <li>✅ Text is readable and understandable</li>
@@ -469,7 +481,7 @@
                 </v-card>
               </v-col>
               <v-col cols="12" md="6">
-                <v-card class="pa-4" color="success" dark>
+                <v-card class="pa-4" style="background: #2d5016; color: #fff">
                   <h4>Principle 4: Robust</h4>
                   <ul>
                     <li>✅ Compatible with assistive technologies</li>
@@ -525,7 +537,7 @@
             </p>
 
             <hr class="mt-6 mb-4" />
-            <p style="font-style: italic; color: #6c757d">
+            <p style="font-style: italic; color: #333333">
               This audit log is updated regularly to reflect our ongoing
               commitment to web accessibility. For questions about accessibility
               or to report issues, please use our

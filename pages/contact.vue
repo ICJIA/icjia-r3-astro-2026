@@ -48,7 +48,7 @@
                     <!-- <span>Questions about the R3 NOFO: </span> -->
                     <a
                       href="mailto: CJA.R3Questions@illinois.gov"
-                      class="white-text"
+                      class="white-text contact-email-link"
                       >CJA.R3Questions@illinois.gov</a
                     >
                   </li>
@@ -81,6 +81,8 @@
                       subjectError ? 'subject-error' : undefined
                     "
                     :aria-invalid="subjectError ? 'true' : 'false'"
+                    :aria-expanded="false"
+                    aria-controls="subject-menu"
                     required
                     :disabled="successfullySubmitted"
                     style="font-weight: 700 !important"
@@ -687,6 +689,16 @@ export default {
 
 .white-text {
   color: #fff;
+}
+
+/* Email link with proper contrast against dark background */
+.contact-email-link {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+.contact-email-link:visited {
+  color: #e6e6e6 !important;
 }
 
 /* Strengthen heading contrast on Contact page */

@@ -9,7 +9,7 @@
  * @since 1.0.0
  */
 
-import appRoutes from "assets/json/appRoutes.json";
+import appRoutes from "~/assets/json/appRoutes.json";
 
 /**
  * Route validation middleware function.

@@ -31,7 +31,7 @@
     </v-container>
 
     <!-- <div id="doublescroll" style="overflow-x: auto"> -->
-    <div style="overflow-x: auto">
+    <div style="overflow-x: auto" tabindex="0" role="region" aria-label="R3 Eligible Area Census Tracts data table">
       <table id="example" class="display" style="font-size: 12px; width: 100%">
         <thead>
           <tr>

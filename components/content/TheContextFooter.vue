@@ -6,12 +6,25 @@
       style="justify-content: space-around"
     >
       <span v-for="(item, index) in navMenu" :key="index">
+        <!-- Use anchor tag for external/static links, NuxtLink for internal routes -->
+        <a
+          v-if="item.isExternal"
+          :href="item.link"
+          class="context-link px-2"
+          style="
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif !important;
+            font-weight: 900;
+          "
+          >&nbsp;{{ item.main }}&nbsp;</a
+        >
         <NuxtLink
+          v-else
           :to="item.link"
           class="context-link px-2"
           style="
             font-size: 14px;
-            font-family: &quot;Roboto&quot;, sans-serif !important;
+            font-family: 'Roboto', sans-serif !important;
             font-weight: 900;
           "
           >&nbsp;{{ item.main }}&nbsp;</NuxtLink
