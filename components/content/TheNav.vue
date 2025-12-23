@@ -1,6 +1,8 @@
 <template>
   <v-app-bar
     id="navigation"
+    role="navigation"
+    tabindex="-1"
     fixed
     app
     color="white"
@@ -9,40 +11,36 @@
     size="90"
     elevation="3"
     class="pl-5 pr-5"
-    aria-label="Site header"
+    aria-label="Site navigation"
   >
-      <div
-        v-if="!nav"
-        class="hover hamburger text-center hidden-md-and-up"
-        @click="toggleNav"
-        role="button"
-        tabindex="0"
-        aria-label="Open navigation menu"
-        @keydown.enter="toggleNav"
-        @keydown.space="toggleNav"
-      >
-        <v-icon icon="mdi-menu" size="large" aria-hidden="true"></v-icon>
-        <div style="font-size: 10px; font-weight: 900">MENU</div>
-      </div>
-      <div
-        v-else
-        class="hover hamburger text-center hidden-md-and-up"
-        @click="toggleNav"
-        role="button"
-        tabindex="0"
-        aria-label="Close navigation menu"
-        @keydown.enter="toggleNav"
-        @keydown.space="toggleNav"
-      >
-        <v-icon
-          icon="mdi-window-close"
-          size="large"
-          aria-hidden="true"
-        ></v-icon>
-        <div style="font-size: 10px; font-weight: 900">CLOSE</div>
-      </div>
-      <v-spacer class="hidden-md-and-up"></v-spacer>
-      <!-- <img
+    <div
+      v-if="!nav"
+      class="hover hamburger text-center hidden-md-and-up"
+      @click="toggleNav"
+      role="button"
+      tabindex="0"
+      aria-label="Open navigation menu"
+      @keydown.enter="toggleNav"
+      @keydown.space="toggleNav"
+    >
+      <v-icon icon="mdi-menu" size="large" aria-hidden="true"></v-icon>
+      <div style="font-size: 10px; font-weight: 900">MENU</div>
+    </div>
+    <div
+      v-else
+      class="hover hamburger text-center hidden-md-and-up"
+      @click="toggleNav"
+      role="button"
+      tabindex="0"
+      aria-label="Close navigation menu"
+      @keydown.enter="toggleNav"
+      @keydown.space="toggleNav"
+    >
+      <v-icon icon="mdi-window-close" size="large" aria-hidden="true"></v-icon>
+      <div style="font-size: 10px; font-weight: 900">CLOSE</div>
+    </div>
+    <v-spacer class="hidden-md-and-up"></v-spacer>
+    <!-- <img
         alt="ICJIA Logo"
         class="hover ml-4 mr-4"
         src="/i2iSmall.png"
@@ -50,185 +48,183 @@
         height="55"
         @click="$router.push('/')"
       /> -->
-      <div class="hover hidden-sm-and-down">
-        <span
-          style="
-            font-weight: 900 !important;
-            font-size: 22px;
-            letter-spacing: 0.004em;
-            font-family: &quot;Roboto&quot;, sans-serif !important;
-          "
-          class="agency app-title"
-          tabindex="0"
-          role="button"
-          aria-label="R3 RESTORE. REINVEST. RENEW. - Go to home page"
-          @click="$router.push('/')"
-          @keydown.enter="$router.push('/')"
-          @keydown.space="$router.push('/')"
-          >R3&nbsp;&nbsp;RESTORE. REINVEST. RENEW.
-        </span>
-      </div>
+    <div class="hover hidden-sm-and-down">
+      <span
+        style="
+          font-weight: 900 !important;
+          font-size: 22px;
+          letter-spacing: 0.004em;
+          font-family: &quot;Roboto&quot;, sans-serif !important;
+        "
+        class="agency app-title"
+        tabindex="0"
+        role="button"
+        aria-label="R3 RESTORE. REINVEST. RENEW. - Go to home page"
+        @click="$router.push('/')"
+        @keydown.enter="$router.push('/')"
+        @keydown.space="$router.push('/')"
+        >R3&nbsp;&nbsp;RESTORE. REINVEST. RENEW.
+      </span>
+    </div>
 
-      <div class="hover hidden-md-and-up hidden-xs">
-        <span
-          style="
-            font-weight: 900 !important;
-            font-size: 14px;
-            letter-spacing: 0.004em;
-            font-family: &quot;Roboto&quot;, sans-serif !important;
-          "
-          class="agency app-title"
-          tabindex="0"
-          role="button"
-          aria-label="R3 RESTORE. REINVEST. RENEW. - Go to home page"
-          @click="$router.push('/')"
-          @keydown.enter="$router.push('/')"
-          @keydown.space="$router.push('/')"
-          >R3&nbsp;&nbsp;RESTORE. REINVEST. RENEW.
-        </span>
-      </div>
+    <div class="hover hidden-md-and-up hidden-xs">
+      <span
+        style="
+          font-weight: 900 !important;
+          font-size: 14px;
+          letter-spacing: 0.004em;
+          font-family: &quot;Roboto&quot;, sans-serif !important;
+        "
+        class="agency app-title"
+        tabindex="0"
+        role="button"
+        aria-label="R3 RESTORE. REINVEST. RENEW. - Go to home page"
+        @click="$router.push('/')"
+        @keydown.enter="$router.push('/')"
+        @keydown.space="$router.push('/')"
+        >R3&nbsp;&nbsp;RESTORE. REINVEST. RENEW.
+      </span>
+    </div>
 
-      <div class="hover hidden-sm-and-up">
-        <span
-          style="
-            font-weight: 900 !important;
-            font-size: 30px;
-            letter-spacing: 0.004em;
-            font-family: &quot;Roboto&quot;, sans-serif !important;
-          "
-          class="agency app-title"
-          tabindex="0"
-          role="button"
-          aria-label="R3 - Go to home page"
-          @click="$router.push('/')"
-          @keydown.enter="$router.push('/')"
-          @keydown.space="$router.push('/')"
-          >R3
-        </span>
-      </div>
+    <div class="hover hidden-sm-and-up">
+      <span
+        style="
+          font-weight: 900 !important;
+          font-size: 30px;
+          letter-spacing: 0.004em;
+          font-family: &quot;Roboto&quot;, sans-serif !important;
+        "
+        class="agency app-title"
+        tabindex="0"
+        role="button"
+        aria-label="R3 - Go to home page"
+        @click="$router.push('/')"
+        @keydown.enter="$router.push('/')"
+        @keydown.space="$router.push('/')"
+        >R3
+      </span>
+    </div>
 
-      <v-spacer></v-spacer>
-      <span v-if="isMounted">
-        <span
-          v-for="(menu, index) in navMenu"
-          :key="`main-${index}`"
-          style="display: inline-block"
-        >
-          <span v-if="menu && menu?.children">
-            <v-menu :close-on-content-click="true" @keydown.esc="closeMenu">
-              <template #activator="{ props, isActive }">
-                <v-btn
-                  variant="text"
-                  size="default"
-                  class="hidden-sm-and-down navItem"
-                  v-bind="props"
-                  style="font-family: Roboto, sans-serif !important"
-                  :aria-expanded="isActive ? 'true' : 'false'"
-                  :aria-haspopup="true"
-                  :aria-label="`${menu.main} menu. Press Enter or Space to open submenu.`"
-                  @keydown.enter="$event.target.click()"
-                  @keydown.space.prevent="$event.target.click()"
-                >
-                  {{ menu.main }}
-                  <v-icon right small aria-hidden="true"
-                    >mdi-menu-down</v-icon
-                  ></v-btn
-                >
-              </template>
-              <v-list
-                nav
-                elevation="2"
-                role="menu"
-                :aria-label="`${menu.main} submenu`"
+    <v-spacer></v-spacer>
+    <span v-if="isMounted">
+      <span
+        v-for="(menu, index) in navMenu"
+        :key="`main-${index}`"
+        style="display: inline-block"
+      >
+        <span v-if="menu && menu?.children">
+          <v-menu :close-on-content-click="true" @keydown.esc="closeMenu">
+            <template #activator="{ props, isActive }">
+              <v-btn
+                variant="text"
+                size="default"
+                class="hidden-sm-and-down navItem"
+                v-bind="props"
+                style="font-family: Roboto, sans-serif !important"
+                :aria-expanded="isActive ? 'true' : 'false'"
+                :aria-haspopup="true"
+                :aria-label="`${menu.main} menu. Press Enter or Space to open submenu.`"
+                @keydown.enter="$event.target.click()"
+                @keydown.space.prevent="$event.target.click()"
               >
-                <span
-                  v-for="(child, index) in menu.children"
-                  :key="`child-${index}`"
-                >
-                  <v-divider v-if="child.divider"></v-divider>
-                  <v-list-item-title
-                    v-if="child.section"
-                    style="
-                      margin-top: 10px;
-                      font-weight: 900;
-                      color: #555;
-                      font-family: Roboto, sans-serif !important;
-                    "
-                    class="pr-5"
-                    >{{ child.section }}</v-list-item-title
-                  >
-                  <v-list-item
-                    v-if="child?.link"
-                    class="appNav hover"
-                    :to="child?.external ? null : child?.link"
-                    :href="child?.external ? child?.link : null"
-                    :target="child?.external ? '_blank' : null"
-                    role="menuitem"
-                    :aria-label="
-                      child?.external
-                        ? `${child.title} (opens in new window)`
-                        : child.title
-                    "
-                    tabindex="0"
-                    @keydown.enter="navigateToLink(child)"
-                    @keydown.space.prevent="navigateToLink(child)"
-                  >
-                    <v-list-item-title style="font-size: 12px !important"
-                      >{{ child.title }}
-                      <span v-if="child?.external" class="sr-only"
-                        >External</span
-                      >
-                      <v-icon
-                        v-if="child.icon"
-                        small
-                        right
-                        color="black"
-                        aria-hidden="true"
-                        >{{ child.icon }}</v-icon
-                      ></v-list-item-title
-                    >
-                  </v-list-item>
-                </span>
-              </v-list>
-            </v-menu>
-          </span>
-          <span v-else class="d-flex">
-            <v-btn
-              :to="menu?.external ? null : menu?.link"
-              :href="menu?.external ? menu.link : null"
-              :target="menu?.external ? '_blank' : null"
-              :aria-label="menu.main"
-              variant="text"
-              size="default"
-              class="hidden-sm-and-down navItem"
-              style="font-weight: 900 !important; font-size: 16px"
-              >{{ menu.main }}&nbsp;
-              <v-icon
-                v-if="menu.icon"
-                right
-                small
-                color="black"
-                aria-hidden="true"
-                >{{ menu.icon }}</v-icon
+                {{ menu.main }}
+                <v-icon right small aria-hidden="true"
+                  >mdi-menu-down</v-icon
+                ></v-btn
               >
-            </v-btn>
-          </span>
+            </template>
+            <v-list
+              nav
+              elevation="2"
+              role="menu"
+              :aria-label="`${menu.main} submenu`"
+            >
+              <span
+                v-for="(child, index) in menu.children"
+                :key="`child-${index}`"
+              >
+                <v-divider v-if="child.divider"></v-divider>
+                <v-list-item-title
+                  v-if="child.section"
+                  style="
+                    margin-top: 10px;
+                    font-weight: 900;
+                    color: #555;
+                    font-family: Roboto, sans-serif !important;
+                  "
+                  class="pr-5"
+                  >{{ child.section }}</v-list-item-title
+                >
+                <v-list-item
+                  v-if="child?.link"
+                  class="appNav hover"
+                  :to="child?.external ? null : child?.link"
+                  :href="child?.external ? child?.link : null"
+                  :target="child?.external ? '_blank' : null"
+                  role="menuitem"
+                  :aria-label="
+                    child?.external
+                      ? `${child.title} (opens in new window)`
+                      : child.title
+                  "
+                  tabindex="0"
+                  @keydown.enter="navigateToLink(child)"
+                  @keydown.space.prevent="navigateToLink(child)"
+                >
+                  <v-list-item-title style="font-size: 12px !important"
+                    >{{ child.title }}
+                    <span v-if="child?.external" class="sr-only">External</span>
+                    <v-icon
+                      v-if="child.icon"
+                      small
+                      right
+                      color="black"
+                      aria-hidden="true"
+                      >{{ child.icon }}</v-icon
+                    ></v-list-item-title
+                  >
+                </v-list-item>
+              </span>
+            </v-list>
+          </v-menu>
         </span>
-        <v-btn
-          variant="text"
-          size="default"
-          class="hidden-md-and-down navItem"
-          style="font-weight: 900 !important; font-size: 16px"
-          @click="goToSearch"
-          aria-label="Search"
-        >
-          <v-tooltip activator="parent" location="bottom" aria-hidden="true">
-            Search
-          </v-tooltip>
-          <v-icon icon="mdi-magnify" size="large" aria-hidden="true"></v-icon>
-        </v-btn>
+        <span v-else class="d-flex">
+          <v-btn
+            :to="menu?.external ? null : menu?.link"
+            :href="menu?.external ? menu.link : null"
+            :target="menu?.external ? '_blank' : null"
+            :aria-label="menu.main"
+            variant="text"
+            size="default"
+            class="hidden-sm-and-down navItem"
+            style="font-weight: 900 !important; font-size: 16px"
+            >{{ menu.main }}&nbsp;
+            <v-icon
+              v-if="menu.icon"
+              right
+              small
+              color="black"
+              aria-hidden="true"
+              >{{ menu.icon }}</v-icon
+            >
+          </v-btn>
+        </span>
+      </span>
+      <v-btn
+        variant="text"
+        size="default"
+        class="hidden-md-and-down navItem"
+        style="font-weight: 900 !important; font-size: 16px"
+        @click="goToSearch"
+        aria-label="Search"
+      >
+        <v-tooltip activator="parent" location="bottom" aria-hidden="true">
+          Search
+        </v-tooltip>
+        <v-icon icon="mdi-magnify" size="large" aria-hidden="true"></v-icon>
+      </v-btn>
 
-        <!-- <v-btn
+      <!-- <v-btn
           size="default"
           class="hidden-md-and-down navItem"
           style="font-weight: 900 !important; font-size: 16px"
@@ -238,22 +234,22 @@
           ><v-icon icon="mdi-web" size="large"></v-icon
         ></v-btn> -->
 
-        <span
-          class="hover hamburger text-center hidden-md-and-up"
-          @click="goToSearch"
-          role="button"
-          tabindex="0"
-          aria-label="Search"
-          @keydown.enter="goToSearch"
-          @keydown.space="goToSearch"
-        >
-          <v-icon icon="mdi-magnify" size="large" aria-hidden="true"></v-icon>
-          <div style="font-size: 10px; font-weight: 900">SEARCH</div>
-        </span>
+      <span
+        class="hover hamburger text-center hidden-md-and-up"
+        @click="goToSearch"
+        role="button"
+        tabindex="0"
+        aria-label="Search"
+        @keydown.enter="goToSearch"
+        @keydown.space="goToSearch"
+      >
+        <v-icon icon="mdi-magnify" size="large" aria-hidden="true"></v-icon>
+        <div style="font-size: 10px; font-weight: 900">SEARCH</div>
       </span>
+    </span>
 
-      <span v-else class="text center ml-12"><TheLoader></TheLoader></span>
-    </v-app-bar>
+    <span v-else class="text center ml-12"><TheLoader></TheLoader></span>
+  </v-app-bar>
 </template>
 
 <script setup>

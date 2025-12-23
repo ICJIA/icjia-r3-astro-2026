@@ -18,6 +18,7 @@
     <v-main
       id="main-content"
       role="main"
+      tabindex="-1"
       class="markdown-body"
       style="min-height: 100vh"
     >
@@ -148,28 +149,63 @@ const tags = useState("tags", () => tagMeta);
 
 .skip-link {
   position: absolute;
-  top: -40px;
-  left: 6px;
-  background: #000;
-  color: #fff;
-  padding: 8px 12px;
-  text-decoration: none;
+  top: -100px;
+  left: 0;
+  background: #000000 !important; /* Black background for maximum contrast with white text */
+  color: #ffffff !important; /* White text for WCAG AAA compliance (21:1 contrast ratio) */
+  padding: 12px 16px;
+  text-decoration: none !important;
   border-radius: 0 0 4px 4px;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 16px;
   z-index: 10000;
   transition: top 0.2s ease;
+  /* Hide skip links by default - only show when keyboard focused */
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  width: auto;
+  white-space: nowrap;
 }
 
-.skip-link:focus {
-  top: 6px;
-  outline: 2px solid #fff;
+/* Show skip link when focused via keyboard */
+.skip-link:focus-visible {
+  top: 0;
+  clip: auto;
+  clip-path: none;
+  outline: 3px solid #ffffff;
   outline-offset: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  background: #000000 !important; /* Black background for maximum contrast */
+  color: #ffffff !important; /* White text */
+}
+
+/* Fallback for browsers that don't support :focus-visible */
+.skip-link:focus {
+  top: 0;
+  clip: auto;
+  clip-path: none;
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  background: #000000 !important; /* Black background for maximum contrast */
+  color: #ffffff !important; /* White text */
+}
+
+/* Hide when focused but not via keyboard (mouse clicks) */
+.skip-link:focus:not(:focus-visible) {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  top: -100px;
 }
 
 .skip-link:hover {
-  background: #333;
-  text-decoration: underline;
+  background: #333333 !important; /* Slightly lighter on hover, still high contrast */
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+.skip-link:visited {
+  color: #ffffff !important; /* Keep white even when visited */
 }
 
 .page-enter-active,
