@@ -59,6 +59,12 @@
                     <div class="nofo-tagline">
                       {{ item.tagline }}
                     </div>
+                    <div class="application-date mt-4">
+                      Applications open Tuesday, January 6, 2026 at 12:00pm
+                      (CST)
+                    </div>
+                    <!-- Commented out for future use - button will be restored when links are ready -->
+                    <!--
                     <div class="mt-6">
                       <v-btn
                         variant="outlined"
@@ -69,6 +75,7 @@
                         Coming Soon!
                       </v-btn>
                     </div>
+                    -->
                   </div>
                 </div>
               </div>
@@ -292,6 +299,21 @@ const routeToNews = (item) => {
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
   line-height: 1.5;
+}
+
+.application-date {
+  color: #fff;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  line-height: 1.4;
+}
+
+@media (max-width: 959px) {
+  .application-date {
+    font-size: 1rem;
+  }
 }
 
 /* Truncate tagline on small screens */
