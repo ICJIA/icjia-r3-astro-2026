@@ -24,7 +24,7 @@
     "destination": "./public/documentation/jsdoc/",
     "recurse": true,
     "template": "node_modules/clean-jsdoc-theme",
-    "readme": "./README.md"
+    "readme": "./markdown-documentation/README.md"
   },
   "plugins": [
     "plugins/markdown",

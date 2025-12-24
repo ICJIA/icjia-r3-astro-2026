@@ -6,22 +6,19 @@
         R3 Restore, Reinvest, Renew - Illinois Criminal Justice Information
         Authority
       </h1>
+
+      <!-- Splash Images Section -->
       <v-container fluid class="full-width">
         <v-row no-gutters>
           <v-col
             v-for="(item, index) in splash"
             :key="`splash-photo-${index}`"
-            style="background: #ccc"
             cols="12"
-            md="12"
+            md="6"
           >
-            <v-card
-              class=""
-              style="min-height: 600px"
-              v-if="!underConstruction"
-            >
+            <v-card style="min-height: 600px">
               <div style="position: relative">
-                <!-- Background image (presentational only) -->
+                <!-- Background image -->
                 <v-img
                   cover
                   :src="item.src"
@@ -34,120 +31,43 @@
                   gradient="to bottom, rgba(0,0,0,.25), rgba(0,0,0,.25)"
                   role="presentation"
                   aria-hidden="true"
-                >
-                </v-img>
+                />
 
-                <!-- Interactive content overlay -->
+                <!-- Color wash overlay -->
                 <div
-                  class="d-flex flex-column justify-center align-center h-100 px-12"
-                  style="
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    z-index: 1;
-                  "
-                >
+                  :style="{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor:
+                      index === 0
+                        ? 'rgba(200, 120, 120, 0.15)'
+                        : 'rgba(120, 140, 200, 0.15)',
+                    zIndex: 0.5,
+                    pointerEvents: 'none',
+                  }"
+                />
+
+                <!-- Content overlay -->
+                <div class="splash-content-overlay">
                   <div class="nofo-band py-4 px-6 text-center">
-                    <h2
-                      class="nofo-title mt-1 mb-2"
-                      style="
-                        color: #fff !important;
-                        font-size: 2.5rem !important;
-                        text-align: center !important;
-                      "
-                    >
+                    <h2 class="nofo-title mt-1 mb-2">
                       {{ item.title }}
                     </h2>
                     <div class="nofo-tagline">
                       {{ item.tagline }}
                     </div>
-
                     <div class="mt-6">
                       <v-btn
                         variant="outlined"
                         color="white"
                         size="small"
-                        class="button-href hidden-sm-and-down"
-                        style="
-                          white-space: nowrap;
-                          min-width: fit-content;
-                          overflow: visible;
-                        "
-                        >Expired 04/30/24</v-btn
+                        class="button-href"
                       >
-                      <v-btn
-                        variant="outlined"
-                        color="white"
-                        size="small"
-                        class="button-href hidden-md-and-up ml-3"
-                        style="
-                          white-space: nowrap;
-                          min-width: fit-content;
-                          overflow: visible;
-                        "
-                        >Expired 04/30/24</v-btn
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </v-card>
-
-            <v-card class="" style="min-height: 600px" v-else>
-              <div style="position: relative">
-                <!-- Background image (presentational only) -->
-                <v-img
-                  cover
-                  :src="item.src"
-                  :lazy-src="item.lazySrc"
-                  alt=""
-                  aspect-ratio="1"
-                  class="grey lighten-2"
-                  height="650"
-                  crossorigin
-                  gradient="to bottom, rgba(0,0,0,.25), rgba(0,0,0,.25)"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                </v-img>
-
-                <!-- Interactive content overlay -->
-                <div
-                  class="d-flex flex-column justify-center align-center h-100 px-12"
-                  style="
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    z-index: 1;
-                  "
-                >
-                  <div class="nofo-band py-4 px-6 text-center">
-                    <h2
-                      class="nofo-title mt-1 mb-2"
-                      style="
-                        color: #fff !important;
-                        font-size: 2.5rem !important;
-                        text-align: center !important;
-                      "
-                    >
-                      2025 SERVICE DELIVERY GRANT OPPORTUNITIES
-                    </h2>
-                    <div class="nofo-tagline">
-                      {{ item.tagline }}
-                    </div>
-
-                    <div class="mt-6">
-                      <v-btn
-                        variant="outlined"
-                        color="white"
-                        size="small"
-                        class="button-href hidden-sm-and-down"
-                        >Coming Soon!</v-btn
-                      >
+                        Coming Soon!
+                      </v-btn>
                     </div>
                   </div>
                 </div>
@@ -157,6 +77,7 @@
         </v-row>
       </v-container>
 
+      <!-- Main Content Section -->
       <v-container>
         <v-row>
           <v-col cols="12">
@@ -168,38 +89,24 @@
               <template #empty>Document not found</template>
               <template #not-found>Document not found</template>
             </ContentDoc>
-          </v-col></v-row
-        ></v-container
-      >
+          </v-col>
+        </v-row>
+      </v-container>
 
-      <div
-        class="mt-10 pb-12"
-        style="
-          background: #fafafa;
-          border-top: 1px solid #aaa;
-          min-height: 30vh;
-        "
-      >
-        <div
-          style="background: #ddd; border-bottom: 1px solid #aaa"
-          class="px-3 pt-0 pb-3"
-        >
-          <v-container
-            ><v-row
-              ><v-col>
+      <!-- Footer Section: Director Letter, Tools, and News -->
+      <div class="footer-section">
+        <!-- Director Letter -->
+        <div class="director-letter-section">
+          <v-container>
+            <v-row>
+              <v-col>
                 <h2>Letter From the Director</h2>
                 <p>
                   <img
                     src="/DirectorAdamsResized.jpg"
                     width="140"
                     alt="ICJIA Executive Director, Delrice Adams"
-                    class="elevation-12"
-                    style="
-                      float: left;
-                      margin-right: 15px;
-                      border: 1px solid #888;
-                      border-radius: 80%;
-                    "
+                    class="elevation-12 director-photo"
                   />
                   Thank you for visiting the Restore, Reinvest, Review (R3)
                   program website. We appreciate your interest in the R3 mission
@@ -225,21 +132,23 @@
                   <strong>Delrice Adams</strong><br />
                   ICJIA Executive Director
                 </div>
-              </v-col></v-row
-            ></v-container
-          >
+              </v-col>
+            </v-row>
+          </v-container>
         </div>
+
+        <!-- Tools and News -->
         <v-container fluid>
           <v-row>
-            <v-col cols="12" md="7"
-              ><h2>Applicant Tools</h2>
-
+            <!-- Applicant Tools -->
+            <v-col cols="12" md="7">
+              <h2>Applicant Tools</h2>
               <HomePhotoBoxes />
             </v-col>
+
+            <!-- News & Updates -->
             <v-col cols="12" md="5">
               <h2>News & Updates</h2>
-              <!-- <div v-if="test">{{ test[0].title }}</div> -->
-
               <v-card
                 v-for="item in sortedNews"
                 :key="item.id"
@@ -248,41 +157,26 @@
                 height="275px"
                 @click="routeToNews(item)"
               >
-                <div style="font-size: 12px; font-weight: 700">
+                <div class="news-date">
                   {{ moment(item.postDate).utc().format("MMM DD, YYYY") }}
                 </div>
-                <h3
-                  style="
-                    border-bottom: 1px solid #ddd;
-                    padding-bottom: 8px;
-                    margin-bottom: 20px;
-                  "
-                >
+                <h3 class="news-title">
                   {{ item.title }}
                 </h3>
                 <p>{{ item.summary }}</p>
-                <!-- <v-card-actions>
-                  <v-spacer></v-spacer>
-
-                  <v-btn
-                    size="x-small"
-                    variant="text"
-                    :to="item.path"
-                    style="font-weight: 900"
-                    >Read more&nbsp;&raquo;</v-btn
-                  >
-                </v-card-actions> -->
               </v-card>
               <div class="text-center mt-10">
-                <nuxt-link to="/news" class="home-link"
-                  >News archive&nbsp;&raquo;</nuxt-link
-                >
+                <nuxt-link to="/news" class="home-link">
+                  News archive&nbsp;&raquo;
+                </nuxt-link>
               </div>
-            </v-col></v-row
-          ></v-container
-        >
+            </v-col>
+          </v-row>
+        </v-container>
       </div>
     </div>
+
+    <!-- Loading State -->
     <div v-else>
       <v-container class="text-center" style="margin-top: 200px">
         <v-row>
@@ -290,86 +184,30 @@
             <h1 id="loading" style="border-bottom: 0px; margin-bottom: 50px">
               R3 RESTORE. REINVEST. RENEW.
             </h1>
-            <TheAltLoader></TheAltLoader></v-col></v-row
-      ></v-container>
+            <TheAltLoader />
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
   </div>
 </template>
 
 <script setup>
-/**
- * @fileoverview Homepage component for the ICJIA R3 Nuxt 3 application.
- *
- * This is the main landing page that displays the R3 program overview,
- * recent news articles, featured tools, and key navigation elements.
- * It serves as the primary entry point for users visiting the site.
- *
- * @page index
- * @route /
- * @example
- * ```
- * // Accessed via: https://r3.illinois.gov/
- * ```
- *
- * @since 1.0.0
- */
-
 import _ from "lodash";
 import moment from "moment";
 
 /**
- * Application configuration with construction status.
- * Used to determine if the site is under construction.
- *
- * @type {boolean}
+ * Application configuration containing splash data.
  */
-const { underConstruction } = useAppConfig();
-
-// definePageMeta({
-//   middleware: ["is-valid-content"],
-// });
-
-/**
- * Application configuration containing splash and tools data.
- * Provides content for the homepage hero section and tool links.
- *
- * @type {Object}
- * @property {Object} splash - Splash section configuration
- * @property {Array} tools - Array of tool objects for homepage display
- */
-const { splash, tools } = useAppConfig();
-
-/**
- * Current route information.
- * Used for data fetching and navigation context.
- *
- * @type {string}
- */
-const { path } = useRoute();
+const { splash } = useAppConfig();
 
 /**
  * Vue Router instance for programmatic navigation.
- * Used for routing to different pages from homepage interactions.
- *
- * @type {Router}
  */
 const router = useRouter();
 
 /**
- * Reactive reference tracking component mount status.
- * Used to prevent hydration issues and ensure proper client-side rendering.
- *
- * @type {Ref<boolean>}
- */
-const isMounted = ref(false);
-
-// const error = useError();
-
-/**
  * Homepage content data fetched from the CMS.
- * Contains the main content for the homepage including text and metadata.
- *
- * @type {Object} Homepage content object
  */
 const { data } = await useAsyncData(`content-home`, async () => {
   const post = await queryContent().where({ _path: "/" }).findOne();
@@ -378,128 +216,46 @@ const { data } = await useAsyncData(`content-home`, async () => {
 
 /**
  * News articles data fetched from the CMS.
- * Contains all news articles for display on the homepage.
- *
- * @type {Array<Object>} Array of news article objects
  */
-const { data: news } = await useAsyncData(`news-${path}`, async () => {
+const { data: news } = await useAsyncData(`news-home`, async () => {
   const post = await queryContent("/news").find();
-
   return post;
 });
 
 /**
- * Redirects to the 404 error page.
- * Used when content is not found or an error occurs.
- *
- * @function redirect
- */
-const redirect = () => {
-  router.push("/404");
-};
-
-/**
  * Sorted and limited news articles for homepage display.
  * Shows the 2 most recent news articles ordered by post date.
- *
- * @type {Array<Object>} Array of the 2 most recent news articles
  */
-let sortedNews = _.orderBy(news.value, ["postDate"], ["desc"]);
-sortedNews = sortedNews.slice(0, 2);
+const sortedNews = computed(() => {
+  const sorted = _.orderBy(news.value, ["postDate"], ["desc"]);
+  return sorted.slice(0, 2);
+});
 
 /**
  * Navigates to a specific news article page.
- * Routes to the detailed view of a news article using its slug.
- *
- * @param {Object} item - News article object
- * @param {string} item.slug - URL slug for the news article
- *
- * @example
- * ```javascript
- * routeToNews({ slug: "latest-funding-announcement" });
- * // Navigates to: /news/latest-funding-announcement
- * ```
  */
 const routeToNews = (item) => {
   router.push(`/news/${item.slug}`);
 };
-
-/**
- * Navigates to funding information (placeholder implementation).
- * Currently shows an alert but should route to funding details.
- *
- * @param {Object} item - Funding item object
- *
- * @todo Implement proper routing to funding information page
- * @example
- * ```javascript
- * routeToFunding({ id: "grant-123" });
- * // Should navigate to funding details
- * ```
- */
-const routeToFunding = (item) => {
-  alert("Route to funding info here");
-};
-
-/**
- * Navigates to a specific tool or utility page.
- * Routes to external or internal tools from the homepage.
- *
- * @param {string} item - URL or path to the tool
- *
- * @example
- * ```javascript
- * routeToTool("/search"); // Navigate to search page
- * routeToTool("https://external-tool.com"); // Navigate to external tool
- * ```
- */
-const routeToTool = (item) => {
-  router.push(`${item}`);
-};
-
-/**
- * Formats a date string into a human-readable format.
- * Uses US locale formatting for consistent date display.
- *
- * @param {string|Date} date - Date to format (ISO string or Date object)
- * @returns {string} Formatted date string (e.g., "January 15, 2024")
- *
- * @example
- * ```javascript
- * formatDate("2024-01-15"); // "January 15, 2024"
- * formatDate(new Date()); // Current date in formatted string
- * ```
- */
-const formatDate = (date) => {
-  const options = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  return new Date(date).toLocaleDateString("en-US", options);
-};
-
-/**
- * Opens a URL in a new browser tab (commented out).
- * Alternative implementation for external link navigation.
- *
- * @param {string} url - URL to open in new tab
- * @deprecated Currently not in use
- */
-// const gotoURL = (url) => {
-//   window.open(url, "_blank");
-// };
-
-/**
- * Component lifecycle hook that runs after the component is mounted.
- * Sets the mounted state to true for proper client-side rendering.
- */
-onMounted(() => {
-  isMounted.value = true;
-});
 </script>
 
-<style>
+<style scoped>
+/* Splash Content Overlay */
+.splash-content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 80px 48px 48px;
+}
+
+/* Button Styles */
 .button-href .v-btn__content {
   font-weight: 700 !important;
   text-decoration: none !important;
@@ -511,7 +267,6 @@ onMounted(() => {
   text-decoration: none !important;
 }
 
-/* Prevent text clipping when resized/zoomed - WCAG 2.1 1.4.4 Resize text */
 .button-href {
   overflow: visible !important;
   min-width: fit-content !important;
@@ -522,50 +277,97 @@ onMounted(() => {
   text-overflow: clip !important;
 }
 
-a.home-link {
-  color: #333;
+.button-href.v-btn--variant-outlined {
+  border-color: rgba(255, 255, 255, 0.9) !important;
 }
 
-/* Semi-transparent band to ensure contrast for text and buttons */
+/* Splash Band and Text */
 .nofo-band {
   background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   backdrop-filter: saturate(110%) brightness(115%);
 }
 
-/* Tweak tagline readability */
 .nofo-tagline {
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  line-height: 1.5;
 }
 
-/* Ensure outlined white button has strong visible border on band */
-.button-href.v-btn--variant-outlined {
-  border-color: rgba(255, 255, 255, 0.9) !important;
+/* Truncate tagline on small screens */
+@media (max-width: 959px) {
+  .nofo-tagline {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 9em;
+    word-wrap: break-word;
+  }
 }
 
-.nofo-tagline {
-  color: #fff;
-}
 .nofo-title {
-  font-size: 5rem !important;
+  font-size: 2.25rem !important;
   font-weight: 900;
   color: #fff !important;
-  /* Enhanced text shadow for WCAG AA color contrast compliance */
+  text-align: center !important;
   text-shadow:
     0 2px 4px rgba(0, 0, 0, 0.9),
     0 0 20px rgba(0, 0, 0, 0.8),
     0 0 40px rgba(0, 0, 0, 0.6);
 }
+
+@media (max-width: 959px) {
+  .nofo-title {
+    font-size: 1.75rem !important;
+  }
+}
+
+/* Container Styles */
 .full-width {
   margin: 0;
   padding: 0;
 }
-.white-heading {
-  color: #fff !important;
+
+/* Footer Section */
+.footer-section {
+  margin-top: 40px;
+  padding-bottom: 48px;
+  background: #fafafa;
+  border-top: 1px solid #aaa;
+  min-height: 30vh;
 }
-.dark-rule {
-  border-bottom: 1px solid #000 !important;
+
+.director-letter-section {
+  background: #ddd;
+  border-bottom: 1px solid #aaa;
+  padding: 0 12px 12px;
+}
+
+.director-photo {
+  float: left;
+  margin-right: 15px;
+  border: 1px solid #888;
+  border-radius: 80%;
+}
+
+/* News Styles */
+.news-date {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.news-title {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+/* Links */
+a.home-link {
+  color: #333;
 }
 
 /* Screen reader only content for accessibility */

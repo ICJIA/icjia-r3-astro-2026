@@ -559,7 +559,7 @@ async function createDocumentationHTML() {
     console.log("📖 Creating documentation HTML...");
 
     // Read the PROJECT-DOCUMENTATION.md file
-    const markdownPath = path.join(process.cwd(), "PROJECT-DOCUMENTATION.md");
+    const markdownPath = path.join(process.cwd(), "markdown-documentation", "PROJECT-DOCUMENTATION.md");
 
     if (!fs.existsSync(markdownPath)) {
       throw new Error(`PROJECT-DOCUMENTATION.md not found at ${markdownPath}`);
