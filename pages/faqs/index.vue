@@ -11,6 +11,23 @@
       </v-row>
     </v-container>
 
+    <!-- Coming Soon Message -->
+    <v-container>
+      <v-row>
+        <v-col cols="12" class="text-center">
+          <div class="coming-soon-container">
+            <h2 class="coming-soon-text">Coming Soon!</h2>
+            <p class="contact-message">
+              For more information, please
+              <nuxt-link to="/contact" class="contact-link">contact us</nuxt-link>.
+            </p>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <!-- Commented out for future use - FAQs will be restored in a few weeks -->
+    <!--
     <div v-if="isMounted">
       <div class="hidden-sm-and-down" style="margin-bottom: 80px">
         <v-app-bar
@@ -138,10 +155,13 @@
     <div v-else>
       <the-page-loader></the-page-loader>
     </div>
+    -->
   </div>
 </template>
 
 <script setup>
+// Commented out for future use - will be restored when FAQs are added back
+/*
 import md from "markdown-it";
 import attrs from "markdown-it-attrs";
 const renderer = new md({
@@ -151,7 +171,7 @@ const renderer = new md({
   langPrefix: "language-",
   linkify: true,
   typographer: true,
-  quotes: "“”‘’",
+  quotes: ""''",
 }).use(attrs);
 import _ from "lodash";
 import moment from "moment";
@@ -190,6 +210,7 @@ watch(query, (newQ) => {
     isPrevDisabled.value = false;
   }
 });
+*/
 
 useHead({
   title: "Frequently Asked Questions",
@@ -202,6 +223,8 @@ useHead({
   ],
 });
 
+// Commented out for future use
+/*
 const updateCountIndex = (strBtn) => {
   //console.log("strBtn: ", strBtn);
   if (currentIndex.value.length === 0 || query.value.length === 0) {
@@ -275,9 +298,55 @@ onMounted(async () => {
   const el = document.getElementById("textfield");
   el.focus();
 });
+*/
 </script>
 
 <style lang="scss">
+/* Coming Soon Styles */
+.coming-soon-container {
+  padding: 80px 20px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.coming-soon-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.contact-message {
+  font-size: 1.25rem;
+  color: #555;
+  margin-top: 16px;
+}
+
+.contact-link {
+  color: #0D4474;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.contact-link:hover {
+  color: #0a3558;
+  text-decoration: none;
+}
+
+@media (max-width: 959px) {
+  .coming-soon-text {
+    font-size: 2rem;
+  }
+  .contact-message {
+    font-size: 1.1rem;
+  }
+}
+
+/* Commented out styles for future use */
+/*
 .title-link:hover {
   color: #888 !important;
   text-decoration: none !important;
@@ -308,4 +377,5 @@ mark.current {
     opacity: 1;
   }
 }
+*/
 </style>
