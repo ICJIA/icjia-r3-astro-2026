@@ -257,9 +257,9 @@ const routeToNews = (item) => {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  padding: 80px 48px 48px;
+  padding: 0 48px;
 }
 
 /* Button Styles */

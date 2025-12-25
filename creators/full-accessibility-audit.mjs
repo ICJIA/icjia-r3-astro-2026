@@ -6,7 +6,7 @@
  * This script performs a comprehensive accessibility audit using axe-core:
  * - Checks if dev server is running on localhost:8000
  * - Reads all URLs from sitemap.xml
- * - Tests each URL in both desktop and mobile viewports
+ * - Tests each URL in desktop, tablet, and mobile viewports
  * - Generates an HTML report in /public/documentation/accessibility/index.html
  * 
  * Usage: yarn a11y:audit:full
@@ -30,6 +30,7 @@ const REPORT_FILE = path.join(OUTPUT_DIR, 'index.html');
 
 const VIEWPORTS = [
   { width: 1920, height: 1080, name: 'desktop' },
+  { width: 768, height: 1024, name: 'tablet' },
   { width: 375, height: 812, name: 'mobile' }
 ];
 
@@ -404,7 +405,7 @@ function generateHTMLReport(results) {
       <p><strong>Audit Date:</strong> ${new Date(timestamp).toLocaleString()}</p>
       <p><strong>Testing Tool:</strong> axe-core ${axeCore.version}</p>
       <p><strong>Compliance Standard:</strong> WCAG 2.1 Level AA</p>
-      <p><strong>Viewports Tested:</strong> Desktop (1920x1080), Mobile (375x812)</p>
+      <p><strong>Viewports Tested:</strong> Desktop (1920x1080), Tablet (768x1024), Mobile (375x812)</p>
     </div>
     
     <h2>🏆 About This Accessibility Report</h2>
@@ -654,6 +655,19 @@ async function runAudit() {
   }
   
   await browser.close();
+  
+  // Extract and save violations to JSON file
+  const violationsOnly = results
+    .filter(r => (r.violations?.length || 0) > 0)
+    .map(r => ({
+      url: r.url,
+      viewport: r.viewport,
+      violations: r.violations || []
+    }));
+  
+  const violationsJsonPath = path.join(OUTPUT_DIR, 'violations.json');
+  fs.writeFileSync(violationsJsonPath, JSON.stringify(violationsOnly, null, 2));
+  console.log(`\n📄 Violations JSON saved to: ${violationsJsonPath}`);
   
   // Generate HTML report
   console.log('\n📝 Generating HTML report...');
