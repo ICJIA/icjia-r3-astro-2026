@@ -76,7 +76,7 @@ export default defineAppConfig({
   splash: [
     {
       externalURL:
-        "hhttps://il.amplifund.com/Public/Opportunities/Details/025c7e5e-0584-4bab-b2ce-c6528f5c132e",
+        "https://il.amplifund.com/Public/Opportunities/Details/025c7e5e-0584-4bab-b2ce-c6528f5c132e",
       src: "https://r3.icjia-api.cloud/uploads/large_new_splash_03_9b9975cfc5.jpg",
       lazySrc:
         "https://r3.icjia-api.cloud/uploads/thumbnail_new_splash_03_9b9975cfc5.jpg",

@@ -16,7 +16,14 @@
             cols="12"
             md="6"
           >
-            <v-card style="min-height: 600px">
+            <v-card
+              style="min-height: 600px"
+              class="splash-card"
+              :elevation="hoveredCard === index ? 8 : 2"
+              @click="handleSplashClick(item.externalURL)"
+              @mouseenter="hoveredCard = index"
+              @mouseleave="hoveredCard = null"
+            >
               <div style="position: relative">
                 <!-- Background image -->
                 <v-img
@@ -244,9 +251,35 @@ const sortedNews = computed(() => {
 const routeToNews = (item) => {
   router.push(`/news/${item.slug}`);
 };
+
+/**
+ * Tracks which splash card is currently being hovered.
+ * Used for elevation effect on hover.
+ */
+const hoveredCard = ref(null);
+
+/**
+ * Handles click on splash card to navigate to external URL.
+ * Opens the URL in a new tab for external links.
+ */
+const handleSplashClick = (externalURL) => {
+  if (externalURL) {
+    window.open(externalURL, "_blank", "noopener,noreferrer");
+  }
+};
 </script>
 
 <style scoped>
+/* Splash Card Styles */
+.splash-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.splash-card:hover {
+  transform: translateY(-4px);
+}
+
 /* Splash Content Overlay */
 .splash-content-overlay {
   position: absolute;
