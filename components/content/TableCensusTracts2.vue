@@ -24,14 +24,19 @@
             class="text-right"
             style="font-size: 11px; color: #222; font-weight: 900"
           >
-            Last updated: 02/27/2024
+            Last updated: 12/28/2025
           </div>
         </v-col>
       </v-row>
     </v-container>
 
     <!-- <div id="doublescroll" style="overflow-x: auto"> -->
-    <div style="overflow-x: auto" tabindex="0" role="region" aria-label="R3 Eligible Area Census Tracts data table">
+    <div
+      style="overflow-x: auto"
+      tabindex="0"
+      role="region"
+      aria-label="R3 Eligible Area Census Tracts data table"
+    >
       <table id="example" class="display" style="font-size: 12px; width: 100%">
         <thead>
           <tr>

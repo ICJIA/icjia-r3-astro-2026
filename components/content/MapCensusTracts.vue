@@ -5,7 +5,7 @@
       <!-- <span>* indicates high need R3 area</span> -->
       <v-spacer></v-spacer>
       <span class="mb-3 text-right" style="font-size: 11px; color: #333">
-        Last updated: 02/28/2024
+        Last updated: 12/28/2025
       </span>
     </div>
 
