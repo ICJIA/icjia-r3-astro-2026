@@ -81,7 +81,7 @@ export default defineAppConfig({
       lazySrc: "https://r3.icjia-api.cloud/uploads/r32025_1_08392baf96.jpg",
       tagline:
         "$35M in funding available for service delivery projects proposed to address one or more of the R3 priorities of reentry, economic development,  and civil legal aid.  ",
-      title: "Service Delivery Reentry",
+      title: "Notice of Funding Opportunity",
     },
     {
       externalURL:
@@ -89,7 +89,7 @@ export default defineAppConfig({
       src: "https://r3.icjia-api.cloud/uploads/large_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg",
       lazySrc:
         "https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg",
-      title: "Service Delivery Youth Development",
+      title: "Notice of Funding Opportunity",
       tagline:
         "$15M in funding available for service delivery projects proposed to address one or more of the R3 priorities of youth development and violence prevention.",
     },
