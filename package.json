@@ -8,6 +8,7 @@
     "email": "cja.info@illinois.gov"
   },
   "scripts": {
+    "preflight": "node ./creators/checkNodeVersion.js",
     "build": "yarn scripts && nuxt build",
     "build:serve": "npm run scripts && nuxt build && node .output/server/index.mjs ",
     "clear:cache": "rm -rf .nuxt .output",
@@ -28,12 +29,12 @@
     "docs:jsdoc": "jsdoc -c jsdoc.config.json -t node_modules/clean-jsdoc-theme",
     "docs:vue": "jsdoc -c jsdoc-vue.config.json -t node_modules/clean-jsdoc-theme",
     "docs:all": "yarn docs:jsdoc && yarn docs:vue && yarn create:documentation && yarn protect:portal",
-    "dev": "yarn clear:cache && yarn scripts && nuxt dev --port=8000 -o",
+    "dev": "yarn preflight && yarn clear:cache && yarn scripts && nuxt dev --port=8000 -o",
     "generate": "yarn clear:cache && yarn scripts && nuxi generate",
     "netlify:generate": "mise settings add idiomatic_version_file_enable_tools node && yarn generate",
     "generate:serve": "yarn scripts && nuxt generate && npx serve .output/public",
     "preview": "nuxt preview",
-    "scripts": "yarn create:contentDirectory && yarn create:manualPages && yarn create:news && yarn create:faqs && yarn create:pages && yarn create:resources && yarn create:hub && yarn create:hubImages && yarn create:routes && yarn create:searchIndex && yarn create:sitemap && yarn docs:all",
+    "scripts": "yarn preflight && yarn create:contentDirectory && yarn create:manualPages && yarn create:news && yarn create:faqs && yarn create:pages && yarn create:resources && yarn create:hub && yarn create:hubImages && yarn create:routes && yarn create:searchIndex && yarn create:sitemap && yarn docs:all",
     "a11y:audit": "node creators/runAxeAudit.js",
     "a11y:audit:local": "node creators/runAxeAuditLocal.js",
     "a11y:audit:full": "node creators/full-accessibility-audit.mjs",
@@ -93,6 +94,9 @@
     "vue-chartjs": "5.3.1",
     "vuetify": "^3.11.3",
     "yaml": "2.5.1"
+  },
+  "engines": {
+    "node": ">=20.19.0"
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
