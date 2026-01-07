@@ -1,3 +1,26 @@
+/**
+ * @fileoverview FAQ content generator script for the ICJIA R3 Nuxt 3 application.
+ * This script fetches frequently asked questions from the Strapi CMS GraphQL API
+ * and converts them to markdown files for use with Nuxt Content.
+ *
+ * The script performs the following operations:
+ * 1. Fetches all published FAQs from the CMS via GraphQL
+ * 2. Processes FAQ data including attachments and styling
+ * 3. Generates markdown files in the content/faqs directory
+ * 4. Creates faqs.json and routesFaqs.json files for application use
+ *
+ * @requires module:dotenv - For environment variable management
+ * @requires module:fs - For file system operations
+ * @requires module:path - For path manipulation
+ * @requires module:axios - For HTTP requests to the GraphQL API
+ * @requires module:jsonfile - For JSON file operations
+ * @requires module:lodash - For data manipulation utilities
+ * @requires module:moment - For date formatting and manipulation
+ * @requires module:yaml - For YAML frontmatter generation
+ *
+ * @since 1.0.0
+ */
+
 /* eslint-disable @typescript-eslint/no-var-requires */
 require("dotenv").config();
 

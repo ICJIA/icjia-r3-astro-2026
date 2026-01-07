@@ -1,3 +1,25 @@
+/**
+ * @fileoverview Manual pages generator script for the ICJIA R3 Nuxt 3 application.
+ * This script creates static manual pages (like search, translate, etc.) that are
+ * not managed through the CMS but are required for application functionality.
+ *
+ * The script performs the following operations:
+ * 1. Defines manual page configurations with metadata
+ * 2. Generates pages.json entries for manual pages
+ * 3. Creates routes for manual pages in routesPages.json
+ *
+ * @requires module:dotenv - For environment variable management
+ * @requires module:fs - For file system operations
+ * @requires module:path - For path manipulation
+ * @requires module:axios - For HTTP requests (if needed)
+ * @requires module:moment - For date formatting
+ * @requires module:jsonfile - For JSON file operations
+ * @requires module:lodash - For data manipulation utilities
+ * @requires module:uuid - For generating unique identifiers
+ *
+ * @since 1.0.0
+ */
+
 /* eslint-disable @typescript-eslint/no-var-requires */
 require("dotenv").config();
 

@@ -1,3 +1,21 @@
+/**
+ * @fileoverview Research hub articles fetcher script for the ICJIA R3 Nuxt 3 application.
+ * This script fetches research articles from the ICJIA Research Hub GraphQL API
+ * and processes them for display in the application.
+ *
+ * The script performs the following operations:
+ * 1. Queries the Research Hub API for published articles matching specific tags
+ * 2. Processes article data (normalizes tags, adds metadata)
+ * 3. Saves processed articles to hub.json for application use
+ *
+ * @requires module:module - For createRequire functionality in ES modules
+ * @requires module:jsonfile - For JSON file operations
+ * @requires module:fs - For file system operations
+ * @requires module:axios - For HTTP requests to the Research Hub API
+ *
+ * @since 1.0.0
+ */
+
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const jsonfile = require("jsonfile");

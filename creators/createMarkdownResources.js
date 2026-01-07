@@ -1,3 +1,25 @@
+/**
+ * @fileoverview Resources content generator script for the ICJIA R3 Nuxt 3 application.
+ * This script fetches resource pages from the Strapi CMS GraphQL API and converts them
+ * to markdown files for use with Nuxt Content.
+ *
+ * The script performs the following operations:
+ * 1. Fetches all published resources from the CMS via GraphQL
+ * 2. Processes resource data including cover images and file attachments
+ * 3. Generates markdown files in the content/resources directory
+ * 4. Creates resources.json and routesResources.json files for application use
+ *
+ * @requires module:dotenv - For environment variable management
+ * @requires module:fs - For file system operations
+ * @requires module:path - For path manipulation
+ * @requires module:axios - For HTTP requests to the GraphQL API
+ * @requires module:jsonfile - For JSON file operations
+ * @requires module:lodash - For data manipulation utilities
+ * @requires module:yaml - For YAML frontmatter generation
+ *
+ * @since 1.0.0
+ */
+
 const fs = require("fs");
 const path = require("path");
 const axios = require("axios");

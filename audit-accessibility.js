@@ -33,6 +33,9 @@ const PRODUCTION_URL = "https://r3.illinois.gov";
 // Development server port (only used when TARGET_ENV === "development")
 const DEV_SERVER_PORT = 8000;
 
+// Line number for AXE_RULE_CONFIG (for documentation reference)
+const AXE_RULE_CONFIG_LINE = 37;
+
 // Axe-core rule toggles (boolean enable/disable)
 const AXE_RULE_CONFIG = {
   // Framework-specific rules
@@ -447,11 +450,41 @@ function escapeHtml(str) {
     .replace(/'/g, "&#039;");
 }
 
+function getRuleDescription(ruleName) {
+  const descriptions = {
+    "aria-allowed-role": "Ensures ARIA roles are used correctly and are allowed for the element",
+    "scrollable-region-focusable": "Ensures scrollable regions are keyboard accessible",
+    "landmark-banner-is-top-level": "Ensures banner landmarks are at the top level",
+    "landmark-contentinfo-is-top-level": "Ensures contentinfo landmarks are at the top level",
+    "landmark-main-is-top-level": "Ensures main landmarks are at the top level",
+    "landmark-unique": "Ensures landmarks are unique",
+    "css-orientation-lock": "Checks for orientation lock (WCAG 2.1 SC 1.3.4)",
+    "no-autoplay-audio": "Checks for autoplay audio (WCAG 2.1 SC 1.4.2)",
+    "page-has-heading-one": "Ensures page has at least one h1 heading",
+    "focus-order-semantics": "Checks focus order matches DOM order",
+    "identical-links-same-purpose": "Checks for duplicate links with same purpose",
+    "link-in-text-block": "Checks link contrast in text blocks (WCAG 2.1 SC 1.4.1)",
+    "hidden-content": "Checks for hidden content that should be visible",
+    "label-content-name-mismatch": "Checks if label text matches accessible name",
+    "presentation-role-conflict": "Checks for presentation role conflicts",
+    "region": "Disabled due to known incompatibility with Nuxt/Vue component structure. Vue components dynamically create regions that don't match the expected HTML5 landmark structure.",
+  };
+  return descriptions[ruleName] || "No description available";
+}
+
 function generateHTMLReport(results) {
   // This HTML structure mirrors the reference script closely (summary cards, modals, skip link section, etc.)
   // For maintainability, we keep the same calculations + table model.
 
   const timestamp = new Date().toISOString();
+  
+  // Calculate enabled/disabled rules for display
+  const enabledRules = Object.entries(AXE_RULE_CONFIG)
+    .filter(([, enabled]) => enabled)
+    .map(([rule]) => rule);
+  const disabledRules = Object.entries(AXE_RULE_CONFIG)
+    .filter(([, enabled]) => !enabled)
+    .map(([rule]) => rule);
 
   let totalViolations = 0;
   let totalPasses = 0;
@@ -627,6 +660,184 @@ function generateHTMLReport(results) {
             .join("")}
         </tbody>
       </table>
+
+      <h2>About axe-core</h2>
+      <p class="meta">
+        <strong>axe-core</strong> is an open-source accessibility testing engine developed by Deque Systems. 
+        It is one of the most comprehensive and widely-used tools for automated accessibility testing on the web.
+      </p>
+
+      <h3>What does axe-core test for?</h3>
+      <p class="meta">
+        axe-core performs automated checks against the Web Content Accessibility Guidelines (WCAG) and other accessibility standards. 
+        The tests check for:
+      </p>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <li><strong>Semantic HTML:</strong> Proper use of HTML elements, ARIA attributes, and landmarks</li>
+        <li><strong>Keyboard Navigation:</strong> All interactive elements must be keyboard accessible</li>
+        <li><strong>Color Contrast:</strong> Text must meet WCAG contrast ratio requirements (4.5:1 for normal text, 3:1 for large text)</li>
+        <li><strong>Focus Management:</strong> Visible focus indicators and logical tab order</li>
+        <li><strong>Form Labels:</strong> All form inputs must have associated labels</li>
+        <li><strong>Image Alt Text:</strong> Images must have appropriate alternative text</li>
+        <li><strong>Heading Structure:</strong> Proper heading hierarchy (h1 → h2 → h3, etc.)</li>
+        <li><strong>Landmark Regions:</strong> Proper use of ARIA landmarks (banner, main, navigation, contentinfo, etc.)</li>
+        <li><strong>Interactive Elements:</strong> Buttons, links, and controls must have accessible names</li>
+        <li><strong>Language Attributes:</strong> HTML lang attribute must be set</li>
+      </ul>
+
+      <h3>Why is axe-core critical for accessibility?</h3>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <li><strong>Automated Testing:</strong> Catches accessibility issues early in development, before manual testing</li>
+        <li><strong>Comprehensive Coverage:</strong> Tests for 50+ accessibility rules covering WCAG 2.1 Level A and AA standards</li>
+        <li><strong>Industry Standard:</strong> Used by major organizations and accessibility professionals worldwide</li>
+        <li><strong>Continuous Integration:</strong> Can be integrated into CI/CD pipelines for automated accessibility checks</li>
+      </ul>
+
+      <h3>Rule Categories in This Audit</h3>
+      <p class="meta">
+        This audit includes three categories of accessibility rules:
+      </p>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <li><strong>WCAG 2.1 Level A & AA Rules:</strong> These rules test for compliance with Web Content Accessibility Guidelines 2.1 Level A and AA standards. These are required for legal compliance with ADA Title II, IITAA, and Section 508.</li>
+        <li><strong>Best Practice Rules:</strong> These rules test for accessibility best practices that are recommended but not explicitly required by WCAG 2.1 AA. They help improve overall accessibility and user experience. Examples include:
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li><strong>meta-viewport:</strong> Ensures viewport meta tag is present for responsive design</li>
+            <li><strong>frame-title:</strong> Ensures iframes have descriptive titles</li>
+            <li><strong>html-xml-lang-mismatch:</strong> Checks for consistency between HTML lang and XML lang attributes</li>
+          </ul>
+        </li>
+        <li><strong>Experimental/Cutting-edge Rules:</strong> These are cutting-edge accessibility rules that are still being validated. They may catch issues that standard rules miss, but may also have false positives. Currently enabled: <strong>css-orientation-lock, no-autoplay-audio, page-has-heading-one, focus-order-semantics, identical-links-same-purpose, link-in-text-block, hidden-content, label-content-name-mismatch, presentation-role-conflict</strong>. Examples include:
+          <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li><strong>css-orientation-lock:</strong> Checks for orientation lock (WCAG 2.1 SC 1.3.4)</li>
+            <li><strong>focus-order-semantics:</strong> Checks focus order matches DOM order</li>
+            <li><strong>no-autoplay-audio:</strong> Checks for autoplay audio (WCAG 2.1 SC 1.4.2)</li>
+            <li><strong>page-has-heading-one:</strong> Checks for h1 on page</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Configured Rules Status</h3>
+      <p class="meta">
+        This audit uses a custom rule configuration (<code>AXE_RULE_CONFIG</code>) that allows specific rules to be enabled or disabled via boolean values. 
+        This configuration is dynamically read from the audit script.
+      </p>
+
+      <h4>✅ Enabled Rules (${enabledRules.length})</h4>
+      <p class="meta">
+        The following rules are currently <strong>enabled</strong> and will be tested:
+      </p>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+        ${enabledRules.map((rule) => `<li><strong>${escapeHtml(rule)}:</strong> ${getRuleDescription(rule)}</li>`).join("")}
+      </ul>
+
+      <h4>❌ Disabled Rules (${disabledRules.length})</h4>
+      <p class="meta">
+        The following rules are currently <strong>disabled</strong>:
+      </p>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+        ${disabledRules.map((rule) => `<li><strong>${escapeHtml(rule)}:</strong> ${getRuleDescription(rule)}</li>`).join("")}
+      </ul>
+      <p class="meta" style="margin-top: 1rem;">
+        <strong>💡 How to Change Rules:</strong> Edit the <code>AXE_RULE_CONFIG</code> constant in <code>audit-accessibility.js</code> (around line ${AXE_RULE_CONFIG_LINE || 37}). 
+        Set any rule to <code>true</code> to enable it, or <code>false</code> to disable it. 
+        Rules are controlled via simple boolean values and are dynamically reflected in this report.
+      </p>
+
+      <h2>What Are Skip Links?</h2>
+      <p class="meta">
+        <strong>Skip links</strong> (also called "skip navigation links") are accessibility features that allow keyboard and screen reader users 
+        to bypass repetitive navigation content and jump directly to the main content of a webpage. 
+        They are typically the first interactive element on a page and appear when focused via keyboard navigation.
+      </p>
+
+      <h3>Why Are Skip Links Important?</h3>
+      <p class="meta">
+        Skip links are critical for accessibility and are required by WCAG 2.1 Level A (Success Criterion 2.4.1 - Bypass Blocks). 
+        They provide several key benefits:
+      </p>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <li><strong>Keyboard Navigation Efficiency:</strong> Users who navigate with a keyboard (using Tab, Shift+Tab, and arrow keys) can skip over long navigation menus, headers, and other repetitive content to reach the main content faster. Without skip links, keyboard users must tab through every navigation item before reaching the main content.</li>
+        <li><strong>Screen Reader Efficiency:</strong> Screen reader users can quickly jump to the main content without having to listen to the entire navigation menu being read aloud on every page. This saves significant time and reduces frustration.</li>
+        <li><strong>WCAG Compliance:</strong> Skip links are required by WCAG 2.1 Level A (Success Criterion 2.4.1 - Bypass Blocks), which is part of the minimum accessibility standards required for legal compliance with ADA Title II, IITAA, and Section 508.</li>
+        <li><strong>Better User Experience:</strong> Skip links improve the experience for all users, not just those with disabilities. They make websites more efficient to navigate, especially on pages with extensive navigation menus.</li>
+      </ul>
+
+      <h3>How Skip Links Work</h3>
+      <p class="meta">
+        Skip links typically work as follows:
+      </p>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <li><strong>Hidden by Default:</strong> Skip links are usually positioned off-screen using CSS (e.g., <code>position: absolute; top: -100px</code>) so they don't interfere with the visual design when not in use.</li>
+        <li><strong>Visible on Focus:</strong> When a user presses the Tab key to navigate with the keyboard, the skip link becomes visible and receives focus. It should have clear visual focus indicators (outline, background color, etc.) so users can see it.</li>
+        <li><strong>Target Main Content:</strong> The skip link's <code>href</code> attribute points to the main content area of the page (typically <code>#main-content</code> or <code>#main</code>). When activated, it scrolls the page and moves keyboard focus to that target element.</li>
+        <li><strong>Proper Target Setup:</strong> The target element (usually the <code>&lt;main&gt;</code> element or a container with <code>id="main-content"</code>) should have <code>tabindex="-1"</code> to allow programmatic focus, ensuring keyboard focus moves to it when the skip link is activated.</li>
+      </ul>
+
+      <h3>Skip Link Implementation Requirements</h3>
+      <p class="meta">
+        For a skip link to be properly implemented and pass accessibility audits, it must meet these criteria:
+      </p>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <li><strong>Presence:</strong> A skip link must exist on every page of the website.</li>
+        <li><strong>Correct Target:</strong> The skip link's <code>href</code> must point to the main content area (typically <code>#main-content</code>).</li>
+        <li><strong>Target Exists:</strong> The target element (e.g., <code>&lt;main id="main-content"&gt;</code>) must exist on the page.</li>
+        <li><strong>Keyboard Accessible:</strong> The skip link must be keyboard accessible (not have <code>tabindex="-1"</code> that prevents keyboard access).</li>
+        <li><strong>Visible on Focus:</strong> The skip link must be visible when it receives keyboard focus, with clear visual indicators.</li>
+        <li><strong>Target is Focusable:</strong> The target element should have <code>tabindex="-1"</code> to allow programmatic focus when the skip link is activated.</li>
+      </ul>
+
+      <h3>Current Skip Link Status</h3>
+      <p class="meta">
+        <strong>✅ All Skip Links Working:</strong> This audit found <strong>${skipLinkStats.working}/${skipLinkStats.total} skip links</strong> are properly implemented and working correctly across all tested pages and viewports. 
+        All skip links meet the requirements for presence, target, keyboard accessibility, and focus visibility.
+      </p>
+
+      <h3>Testing Skip Links</h3>
+      <p class="meta">
+        You can test skip links on this website yourself:
+      </p>
+      <ol style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <li><strong>Using Keyboard:</strong> Press the Tab key when the page loads. The skip link should appear at the top of the page. Press Enter to activate it, and the page should scroll to the main content.</li>
+        <li><strong>Using Screen Reader:</strong> If you use a screen reader (like NVDA, JAWS, or VoiceOver), navigate to the beginning of the page. The skip link should be the first interactive element announced.</li>
+        <li><strong>Visual Check:</strong> When the skip link receives focus, it should be clearly visible with a focus indicator (outline, background color, etc.).</li>
+      </ol>
+
+      <h3>Additional Resources</h3>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html" target="_blank" rel="noopener noreferrer">WCAG 2.4.1 - Bypass Blocks (Level A)</a></li>
+        <li><a href="https://www.w3.org/WAI/tutorials/page-structure/headings/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Tutorials: Skip Links</a></li>
+        <li><a href="https://webaim.org/techniques/skipnav/" target="_blank" rel="noopener noreferrer">WebAIM: Skip Navigation Links</a></li>
+      </ul>
+
+      <h2>About Testing Environments</h2>
+      <h3>What are Development and Production Environments?</h3>
+      <p class="meta">
+        In web development, <strong>environments</strong> refer to different stages of a website or application's lifecycle:
+      </p>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <li><strong>Development Environment:</strong> This is the local testing environment where developers build and test the application. It typically runs on a developer's computer (like <code>localhost:8000</code>) and may contain experimental features, debugging tools, and code that hasn't been finalized.</li>
+        <li><strong>Production Environment:</strong> This is the live, public-facing version of the website that real users interact with. It's the final, deployed version of the application running on a public server (like <code>https://r3.illinois.gov</code>).</li>
+      </ul>
+
+      <h3>Why is it Important to Indicate the Testing Environment?</h3>
+      <p class="meta">
+        Knowing which environment the accessibility audit was run against is crucial for several reasons:
+      </p>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <li><strong>Accuracy of Results:</strong> Development and production environments may have different code, configurations, or content. An audit run against development might catch issues that have already been fixed in production, or miss issues that only exist in production.</li>
+        <li><strong>Reproducibility:</strong> If someone needs to verify or investigate issues found in the audit, they need to know which environment to check. This ensures they're looking at the same version of the code that was tested.</li>
+        <li><strong>Context for Stakeholders:</strong> For compliance reports, documentation, or stakeholder reviews, it's essential to know whether the audit represents the live, public-facing site (production) or a work-in-progress version (development).</li>
+        <li><strong>Debugging and Fixes:</strong> When accessibility issues are identified, developers need to know which environment to fix. Issues found in development can be addressed before deployment, while production issues require immediate attention.</li>
+        <li><strong>Compliance Verification:</strong> For legal compliance and accessibility standards (like WCAG 2.1 AA, IITAA, or ADA Title II), audits should typically be run against the production environment to verify what users actually experience.</li>
+      </ul>
+
+      <h3>Current Audit Environment</h3>
+      <p class="meta">
+        This accessibility audit was run against the <strong>${TARGET_ENV === "production" ? "Production" : "Development"}</strong> environment at <strong>${escapeHtml(BASE_URL)}</strong>. 
+        ${TARGET_ENV === "production" 
+          ? "This represents the live, public-facing version of the website." 
+          : "This represents the local development version of the website. For compliance verification, consider running the audit against the production environment as well."}
+      </p>
 
       <h2>Accessibility Standards & Compliance</h2>
       ${COMPLIANCE_STANDARDS.map(

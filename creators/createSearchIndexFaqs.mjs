@@ -1,3 +1,25 @@
+/**
+ * @fileoverview FAQ search index generator script for the ICJIA R3 Nuxt 3 application.
+ * This script creates a searchable index specifically for FAQ content, converting
+ * markdown to HTML and generating search metadata.
+ *
+ * The script performs the following operations:
+ * 1. Reads FAQ data from assets/json/faqs.json
+ * 2. Converts markdown content to HTML using markdown-it
+ * 3. Generates searchIndexFaqs.json with searchable content
+ * 4. Generates siteMetaFaqs.json with all FAQ metadata
+ *
+ * @requires module:module - For createRequire functionality in ES modules
+ * @requires module:dotenv - For environment variable management
+ * @requires module:uuid - For generating unique identifiers
+ * @requires module:jsonfile - For JSON file operations
+ * @requires module:markdown-it - For markdown to HTML conversion
+ * @requires module:markdown-it-attrs - For markdown attribute support
+ * @requires module:yaml - For YAML parsing
+ *
+ * @since 1.0.0
+ */
+
 const require = createRequire(import.meta.url);
 import { createRequire } from "module";
 require("dotenv").config();

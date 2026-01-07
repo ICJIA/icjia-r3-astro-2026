@@ -1,6 +1,17 @@
 /**
- * Documentation Portal Protection Script
- * Ensures the standalone documentation portal is not overwritten by other processes
+ * @fileoverview Documentation portal protection script for the ICJIA R3 Nuxt 3 application.
+ * This script ensures the standalone documentation portal HTML file is not overwritten
+ * by other build processes or content generation scripts.
+ *
+ * The script performs the following operations:
+ * 1. Checks if the documentation portal index.html exists and is intact
+ * 2. Verifies the portal contains expected content (title, theme toggle, cards grid)
+ * 3. Restores the portal from backup if it has been overwritten
+ *
+ * @requires module:fs - For file system operations
+ * @requires module:path - For path manipulation
+ *
+ * @since 1.0.0
  */
 
 const fs = require("fs");

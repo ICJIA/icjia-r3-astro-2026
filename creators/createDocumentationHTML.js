@@ -1,6 +1,22 @@
 /**
- * Documentation HTML Generator
- * Converts PROJECT-DOCUMENTATION.md to professional HTML documentation
+ * @fileoverview Documentation HTML generator script for the ICJIA R3 Nuxt 3 application.
+ * This script converts markdown documentation files to professional HTML documentation
+ * with table of contents, syntax highlighting, and responsive design.
+ *
+ * The script performs the following operations:
+ * 1. Reads markdown documentation files
+ * 2. Extracts headings to generate table of contents
+ * 3. Converts markdown to HTML with proper formatting
+ * 4. Generates styled HTML documentation pages
+ *
+ * @requires module:dotenv - For environment variable management
+ * @requires module:fs - For file system operations
+ * @requires module:path - For path manipulation
+ * @requires module:markdown-it - For markdown to HTML conversion
+ * @requires module:markdown-it-attrs - For markdown attribute support
+ * @requires module:markdown-it-anchor - For heading anchor generation
+ *
+ * @since 1.0.0
  */
 
 require("dotenv").config();

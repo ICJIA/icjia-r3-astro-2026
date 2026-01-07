@@ -1,7 +1,7 @@
 # Documentation Portal Creation Prompt (Nuxt 4 + Vuetify 3)
 
-**Version**: 1.0.2  
-**Last Updated**: January 7, 2026  
+**Version**: 1.0.3  
+**Last Updated**: January 8, 2026  
 **Purpose**: Comprehensive prompt for LLMs to create a documentation portal with testing, accessibility auditing, and JSDoc generation for any Nuxt 4 + Vuetify 3 application.
 
 ---
@@ -965,6 +965,36 @@ runAccessibilityAudit().catch(console.error);
 
 **Reference**: ICJIA Accessibility Portal audit script ([raw file](https://raw.githubusercontent.com/ICJIA/icjia-accessibility-portal/refs/heads/main/audit-accessibility.js))
 
+### Accessibility Report Content Requirements
+
+> ⚠️ **CRITICAL: Comprehensive Information Required**  
+> The accessibility report HTML (`public/docs/accessibility/index.html`) **MUST include comprehensive information about axe-core and testing** at the bottom of the report. This information helps users understand:
+>
+> - What axe-core is and why it's used
+> - What accessibility standards are tested
+> - How the testing process works
+> - Rule categories and configurations
+> - Skip link implementation and testing
+> - Testing environment information
+> - Compliance standards (ADA, IITAA, Section 508)
+>
+> The reference implementation includes the following sections that MUST be present in all accessibility reports:
+>
+> 1. **About axe-core** - Overview of the testing engine
+> 2. **What does axe-core test for?** - Detailed list of accessibility checks
+> 3. **Why is axe-core critical for accessibility?** - Benefits and importance
+> 4. **Rule Categories in This Audit** - WCAG 2.1 Level A & AA, Best Practice, and Experimental rules
+> 5. **Configured Rules Status** - Enabled and disabled rules with descriptions
+> 6. **What Are Skip Links?** - Explanation and importance
+> 7. **Skip Link Implementation Requirements** - Technical requirements
+> 8. **Current Skip Link Status** - Results from the audit
+> 9. **Testing Skip Links** - How to manually test skip links
+> 10. **About Testing Environments** - Development vs. Production context
+> 11. **Accessibility Standards & Compliance** - Legal compliance information
+> 12. **Framework Notes** - Framework-specific accessibility considerations
+>
+> See the [ICJIA Accessibility Portal reference report](https://accessibility.icjia.app/docs/accessibility/) for the complete structure and content that should be included.
+
 ---
 
 ## JSDoc Generation
@@ -1128,7 +1158,7 @@ Create the main documentation portal landing page at `public/docs/index.html`:
 
       <div class="doc-grid">
         <div class="doc-card">
-          <h3>🧪 Test Results</h3>
+          <h3>🧪 E2E and Unit Tests Report</h3>
           <p>
             Unit and integration test results with detailed descriptions and
             pass/fail status.
@@ -1829,10 +1859,12 @@ Or use a separate CI step:
 
 ## Version History
 
-| Version | Date            | Changes                                                                                        |
-| ------- | --------------- | ---------------------------------------------------------------------------------------------- |
-| 1.0.1   | January 7, 2026 | Standardized audit script to ICJIA reference, added docs dry-run, and updated TypeDoc guidance |
-| 1.0.0   | January 6, 2026 | Initial comprehensive prompt combining architecture guide and accessibility audit prompt       |
+| Version | Date            | Changes                                                                                                                                              |
+| ------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.0.3   | January 8, 2026 | Updated test card name to "E2E and Unit Tests Report", added requirement for comprehensive axe-core and testing information in accessibility reports |
+| 1.0.2   | January 7, 2026 | Standardized audit script to ICJIA reference, added docs dry-run, and updated TypeDoc guidance                                                       |
+| 1.0.1   | January 7, 2026 | Standardized audit script to ICJIA reference, added docs dry-run, and updated TypeDoc guidance                                                       |
+| 1.0.0   | January 6, 2026 | Initial comprehensive prompt combining architecture guide and accessibility audit prompt                                                             |
 
 ---
 

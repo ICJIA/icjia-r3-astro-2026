@@ -1,3 +1,13 @@
+/**
+ * @fileoverview Nuxt configuration file for the ICJIA R3 Nuxt 3 application.
+ * This file contains the main Nuxt 4 configuration including directory structure,
+ * modules, plugins, build settings, and route rules.
+ *
+ * @config nuxt.config.js
+ * @requires vite-plugin-vuetify - Vuetify plugin for Vite
+ * @since 1.0.0
+ */
+
 import vuetify from "vite-plugin-vuetify";
 import siteRoutes from "./public/appRoutes.json";
 
@@ -5,6 +15,12 @@ import siteRoutes from "./public/appRoutes.json";
 
 // console.log("Generated routes:", siteRoutes);
 
+/**
+ * Nuxt configuration object.
+ * Defines all application settings, modules, plugins, and build configuration.
+ *
+ * @type {NuxtConfig}
+ */
 export default defineNuxtConfig({
   // Nuxt 4 Directory Structure Configuration
   // Explicitly configure directory locations for clarity

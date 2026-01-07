@@ -1,7 +1,13 @@
 {
   "$schema": "https://typedoc.org/schema.json",
   "tsconfig": "./typedoc.tsconfig.json",
-  "entryPoints": ["composables/**/*.ts"],
+  "entryPoints": [
+    "composables/**/*.{ts,js}",
+    "plugins/**/*.{ts,js}",
+    "middleware/**/*.{ts,js}",
+    "server/**/*.{ts,js}",
+    "creators/**/*.{ts,js,mjs}"
+  ],
   "entryPointStrategy": "expand",
   "out": "public/docs/jsdoc",
   "name": "R3 Restore, Reinvest, Renew - API Documentation",
@@ -11,7 +17,7 @@
   "excludeProtected": true,
   "excludeInternal": true,
   "excludeNotDocumented": false,
-  "exclude": ["**/*.vue", "**/*.test.*", "**/*.spec.*"],
+  "exclude": ["**/*.vue", "**/*.test.*", "**/*.spec.*", "**/sandbox.js"],
   "navigationLinks": {
     "Main Site": "/index.html",
     "Documentation Portal": "/docs/index.html"

@@ -1,13 +1,21 @@
-/* eslint-disable no-console */
 /**
- * Preflight: ensure the current Node.js runtime is compatible with this repo.
+ * @fileoverview Node.js version checker script for the ICJIA R3 Nuxt 3 application.
+ * This preflight script ensures the current Node.js runtime version is compatible
+ * with the project requirements before running build or development commands.
  *
  * Why: Several dependencies (e.g. `uuid@11`) ship modern JS syntax that will
  * throw parse errors on older Node versions (e.g. `??=`).
  *
  * This script intentionally uses very conservative JS syntax so it can run on
  * older Node versions and provide a helpful error message.
+ *
+ * @requires module:fs - For reading .node-version file
+ * @requires module:path - For path manipulation
+ *
+ * @since 1.0.0
  */
+
+/* eslint-disable no-console */
 
 var fs = require("fs");
 var path = require("path");
