@@ -5,7 +5,8 @@
 User-agent: *
 Allow: /
 
-# Disallow documentation directory (internal use only)
+# Disallow documentation portal (internal use only)
+Disallow: /docs/
 Disallow: /documentation/
 
 # Sitemap location

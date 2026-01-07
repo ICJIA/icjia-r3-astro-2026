@@ -58,6 +58,7 @@
           width="100%"
           height="1500px"
           frameborder="0"
+          title="R3 Eligibility Map (StoryMap)"
           allowfullscreen
           allow="geolocation"
           sandbox="allow-downloads"

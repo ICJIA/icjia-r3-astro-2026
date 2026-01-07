@@ -5,7 +5,7 @@ publish = ".output/public"
 
 [build.environment]
 # Set Node version explicitly for Netlify
-NODE_VERSION = "20.19.0"
+NODE_VERSION = "22.14.0"
 # Disable mise to prevent Python installation
 MISE_DISABLE = "1"
 

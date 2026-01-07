@@ -6,6 +6,9 @@
  * @since 1.0.0
  */
 
+import { useState } from "#imports";
+import { readonly } from "vue";
+
 /**
  * Provides a reactive counter state for general counting operations.
  *

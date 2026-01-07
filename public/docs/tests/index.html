@@ -1,0 +1,1192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Results - R3 Restore, Reinvest, Renew</title>
+    <style>
+      :root { --primary:#0e4474; --info:#17a2b8; --success:#28a745; --danger:#dc3545; --muted:#6b7280; }
+      body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding:20px; background:#f5f5f5; }
+      .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+      h1 { color: var(--primary); border-bottom: 3px solid var(--info); padding-bottom: 10px; margin-bottom: 16px; }
+      .meta { color: var(--muted); margin-bottom: 16px; }
+      .grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0; }
+      .stat { background:#f8f9fa; padding:16px; border-radius: 10px; text-align:center; border:1px solid #e5e7eb; }
+      .stat .num { font-size: 2em; font-weight: 800; }
+      .ok { color: var(--success); }
+      .bad { color: var(--danger); }
+      .banner { padding: 16px; border-radius: 10px; margin: 12px 0 22px; border-left: 4px solid; }
+      .banner.ok { background:#d4edda; color:#155724; border-left-color: var(--success); }
+      .banner.bad { background:#f8d7da; color:#721c24; border-left-color: var(--danger); }
+      .file { background:#f8f9fa; padding: 18px; margin: 18px 0; border-radius: 10px; border-left: 4px solid var(--info); }
+      .file h3 { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace; font-size: .95rem; margin-bottom: 10px; color:#111827; }
+      .test { background:white; border:1px solid #e5e7eb; border-left:4px solid var(--success); padding: 12px; border-radius: 10px; margin: 10px 0; }
+      .test.failed { border-left-color: var(--danger); }
+      .test small { color: var(--muted); }
+      details summary { color: var(--info); cursor:pointer; font-weight:700; margin-top:8px; }
+      .desc { margin-top: 10px; padding: 12px; background:#e7f3ff; border-left:3px solid var(--info); border-radius: 8px; color:#0b3b59; }
+      pre { background:#111827; color:#e5e7eb; padding: 12px; border-radius: 10px; overflow-x:auto; }
+      footer { margin-top: 26px; padding-top: 16px; border-top: 1px solid #e5e7eb; color: var(--muted); }
+      a { color: var(--info); text-decoration:none; font-weight:800; }
+      a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🧪 Test Results</h1>
+      <div class="meta"><strong>Generated:</strong> January 7, 2026 at 08:44:47 AM CST</div>
+
+      <div class="grid">
+        <div class="stat"><div class="num">153</div><div>Total Tests</div></div>
+        <div class="stat"><div class="num ok">153</div><div>Passed</div></div>
+        <div class="stat"><div class="num ok">0</div><div>Failed</div></div>
+        <div class="stat"><div class="num">0</div><div>Skipped</div></div>
+      </div>
+
+      <div class="banner ok">✅ All tests passed.</div>
+
+      <div class="meta">
+        <strong>Repo access:</strong> This repository is private. For source-level details, contact the ICJIA web development team.
+      </div>
+
+      <h2 style="color: var(--primary); margin-top: 22px;">Detailed Results</h2>
+
+      
+        <div class="file">
+          <h3>/test/unit/accessibility.test.ts</h3>
+          
+                <div class="test ">
+                  <div><strong>✅ should have skip to main content link</strong></div>
+                  <small>Duration: 0.5830420000000345ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies accessibility skip link for main content.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have skip to navigation link</strong></div>
+                  <small>Duration: 0.08629200000001447ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests skip link for navigation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should be keyboard accessible</strong></div>
+                  <small>Duration: 0.06574999999997999ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies keyboard accessibility of skip links.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have aria-label on scroll to top button</strong></div>
+                  <small>Duration: 0.0664160000000038ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests ARIA labeling for accessibility.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have role=&#039;main&#039; on main content area</strong></div>
+                  <small>Duration: 0.09416699999997036ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies semantic HTML roles.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should use semantic navigation elements</strong></div>
+                  <small>Duration: 0.06545799999997826ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests semantic HTML usage.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should use proper heading hierarchy</strong></div>
+                  <small>Duration: 0.0519170000000031ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies heading hierarchy for accessibility.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have alt text on images</strong></div>
+                  <small>Duration: 0.04512499999998454ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests image alt text for screen readers.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should use empty alt for decorative images</strong></div>
+                  <small>Duration: 0.112041999999974ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies decorative image handling.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have screen reader only content</strong></div>
+                  <small>Duration: 0.052957999999989624ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests screen reader content structure.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should hide decorative content from screen readers</strong></div>
+                  <small>Duration: 0.304540999999972ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies ARIA hidden attributes.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should support keyboard navigation</strong></div>
+                  <small>Duration: 0.16891600000002427ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests keyboard navigation support.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have focus indicators</strong></div>
+                  <small>Duration: 0.13066600000001927ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies focus indicator visibility.</div></details>
+                  
+                </div>
+              
+        </div>
+      
+        <div class="file">
+          <h3>/test/unit/eventBus.test.ts</h3>
+          
+                <div class="test ">
+                  <div><strong>✅ emits events without throwing errors</strong></div>
+                  <small>Duration: 1.220957999999996ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies event emission doesn&#039;t cause errors.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ emits events with null payload</strong></div>
+                  <small>Duration: 1.3223749999999654ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests event emission with null payload values.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ registers event listeners</strong></div>
+                  <small>Duration: 0.2490420000000313ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies event listener registration functionality.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ calls multiple listeners for the same event</strong></div>
+                  <small>Duration: 0.18308400000000802ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests that multiple listeners can subscribe to the same event.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ calls listeners multiple times for multiple emissions</strong></div>
+                  <small>Duration: 0.15316699999993943ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies listeners are called for each event emission.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ does not call listeners for unregistered events</strong></div>
+                  <small>Duration: 0.11504200000001674ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures listeners only respond to subscribed events.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ supports event-driven communication pattern</strong></div>
+                  <small>Duration: 0.09645799999998417ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests the overall event bus communication pattern.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ handles rapid event emissions</strong></div>
+                  <small>Duration: 0.25158299999998235ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies the event bus handles high-frequency events correctly.</div></details>
+                  
+                </div>
+              
+        </div>
+      
+        <div class="file">
+          <h3>/test/unit/states.test.ts</h3>
+          
+                <div class="test ">
+                  <div><strong>✅ initializes with default value of 0</strong></div>
+                  <small>Duration: 0.7955419999999549ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies counter state initializes with the correct default value.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ allows incrementing the counter</strong></div>
+                  <small>Duration: 0.18124999999997726ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests that counter state can be incremented correctly.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ allows decrementing the counter</strong></div>
+                  <small>Duration: 0.07054100000004837ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests that counter state can be decremented correctly.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ maintains state across multiple calls</strong></div>
+                  <small>Duration: 0.08070899999995618ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures state persistence when the composable is called multiple times.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ initializes with default value of &#039;pink&#039;</strong></div>
+                  <small>Duration: 0.50750000000005ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies color state initializes with the correct default value.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ allows changing the color</strong></div>
+                  <small>Duration: 0.21500000000003183ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests that color state can be modified.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ maintains state across multiple calls</strong></div>
+                  <small>Duration: 0.07666600000004564ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures state persistence when the composable is called multiple times.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ initializes with default value of false</strong></div>
+                  <small>Duration: 0.06462499999997817ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies boolean states initialize with false by default.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ allows toggling navigation state</strong></div>
+                  <small>Duration: 0.21216600000002472ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests navigation toggle functionality.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ maintains state across multiple calls</strong></div>
+                  <small>Duration: 0.31929200000001856ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures state persistence when the composable is called multiple times.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ initializes with provided value</strong></div>
+                  <small>Duration: 0.21391700000003766ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies composables with parameters initialize correctly.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ allows modifying the counter value</strong></div>
+                  <small>Duration: 0.13454200000001038ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests state modification functionality.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ handles negative initial values</strong></div>
+                  <small>Duration: 0.10804099999995742ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures composables handle edge cases like negative numbers.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ handles zero initial value</strong></div>
+                  <small>Duration: 0.0952909999999747ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests composable behavior with zero values.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ initializes with default value of false</strong></div>
+                  <small>Duration: 0.11891700000001038ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies boolean states initialize with false by default.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ allows enabling translation mode</strong></div>
+                  <small>Duration: 0.10191600000007384ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies translation toggle functionality.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ maintains state across multiple calls</strong></div>
+                  <small>Duration: 0.10316699999998491ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures state persistence when the composable is called multiple times.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ initializes with empty array</strong></div>
+                  <small>Duration: 0.88474999999994ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures array-based states initialize as empty arrays.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ allows adding queries</strong></div>
+                  <small>Duration: 1.3490410000000566ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests adding items to array-based state.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ maintains state across multiple calls</strong></div>
+                  <small>Duration: 0.17533300000002328ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures state persistence when the composable is called multiple times.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ initializes with empty array</strong></div>
+                  <small>Duration: 0.09391700000003311ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures array-based states initialize as empty arrays.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ allows adding FAQ queries</strong></div>
+                  <small>Duration: 0.0857499999999618ms</small>
+                  
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ maintains state across multiple calls</strong></div>
+                  <small>Duration: 0.07266699999991033ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures state persistence when the composable is called multiple times.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ returns readonly queries reference</strong></div>
+                  <small>Duration: 0.08887499999991633ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies that search actions return read-only state references.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ adds new query with addNewQuery</strong></div>
+                  <small>Duration: 0.18537500000002183ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests the addNewQuery function for search actions.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ trims whitespace when adding queries</strong></div>
+                  <small>Duration: 0.12312499999995907ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures search queries are properly sanitized before storage.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ removes duplicates when adding queries</strong></div>
+                  <small>Duration: 0.1122499999999036ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies duplicate query prevention in search history.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ does not add empty queries</strong></div>
+                  <small>Duration: 0.04795899999999165ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests that empty or whitespace-only queries are rejected.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ clears all queries with clearQueries</strong></div>
+                  <small>Duration: 0.11645799999996598ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies the clearQueries function works correctly.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ maintains state across multiple instances</strong></div>
+                  <small>Duration: 0.06304199999999582ms</small>
+                  
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ returns readonly faqQueries reference</strong></div>
+                  <small>Duration: 0.11495800000000145ms</small>
+                  
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ adds new FAQ query with addNewFaqQuery</strong></div>
+                  <small>Duration: 0.432042000000024ms</small>
+                  
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ trims whitespace when adding FAQ queries</strong></div>
+                  <small>Duration: 0.2636250000000473ms</small>
+                  
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ removes duplicates when adding FAQ queries</strong></div>
+                  <small>Duration: 0.10708399999998619ms</small>
+                  
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ does not add empty FAQ queries</strong></div>
+                  <small>Duration: 0.05508300000008148ms</small>
+                  
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ clears all FAQ queries with clearFaqQueries</strong></div>
+                  <small>Duration: 0.07425000000000637ms</small>
+                  
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ maintains separate state from regular search queries</strong></div>
+                  <small>Duration: 0.1542499999999336ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures FAQ search queries are independent from regular search queries.</div></details>
+                  
+                </div>
+              
+        </div>
+      
+        <div class="file">
+          <h3>/test/unit/useCurrentPage.test.ts</h3>
+          
+                <div class="test ">
+                  <div><strong>✅ returns slug and a friendly message</strong></div>
+                  <small>Duration: 1.7247080000000778ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies the composable returns the provided slug and a stable message used by consuming components.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ returns correct slug for different page slugs</strong></div>
+                  <small>Duration: 0.5190420000000131ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures the composable correctly handles and returns various page slug values.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ always returns the same message regardless of slug</strong></div>
+                  <small>Duration: 0.37741699999992306ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies that the message property remains consistent across different slug values.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ handles empty slug</strong></div>
+                  <small>Duration: 0.386792000000014ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests that the composable gracefully handles empty string slugs.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ handles slug with special characters</strong></div>
+                  <small>Duration: 0.13429200000007313ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies the composable correctly processes slugs containing special characters.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ logs to console when called</strong></div>
+                  <small>Duration: 0.6456249999999955ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Ensures the composable logs its execution for debugging purposes.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ returns an object with expected structure</strong></div>
+                  <small>Duration: 0.2627499999999827ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies the composable returns an object with the correct properties and types.</div></details>
+                  
+                </div>
+              
+        </div>
+      
+        <div class="file">
+          <h3>/test/e2e/content.test.ts</h3>
+          
+                <div class="test ">
+                  <div><strong>✅ should load splash images</strong></div>
+                  <small>Duration: 0.8887919999999667ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests homepage splash image loading.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should display news articles</strong></div>
+                  <small>Duration: 0.09583300000008421ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies news article display on homepage.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should display director letter</strong></div>
+                  <small>Duration: 0.07220799999993233ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests director letter section display.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should display applicant tools section</strong></div>
+                  <small>Duration: 0.04833299999995688ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies applicant tools section rendering.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should load news articles list</strong></div>
+                  <small>Duration: 0.13312500000006366ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests news list page content loading.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should display news article dates</strong></div>
+                  <small>Duration: 0.09550000000001546ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies news article date formatting.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should navigate to news article detail page</strong></div>
+                  <small>Duration: 0.05566699999997127ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests navigation to news detail pages.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should load FAQ list</strong></div>
+                  <small>Duration: 0.048458999999979824ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies FAQ list loading.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should support FAQ search</strong></div>
+                  <small>Duration: 0.15674999999998818ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests FAQ search functionality.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should load resources list</strong></div>
+                  <small>Duration: 0.05229199999996581ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests resources list loading.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should support resource filtering</strong></div>
+                  <small>Duration: 0.046542000000044936ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies resource filtering functionality.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should show loading state while content loads</strong></div>
+                  <small>Duration: 0.04595799999992778ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests loading state display.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should hide loading state when content is loaded</strong></div>
+                  <small>Duration: 0.048957999999970525ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies loading state removal.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should handle missing content gracefully</strong></div>
+                  <small>Duration: 0.11549999999999727ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests error handling for missing content.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should display error message for failed content loads</strong></div>
+                  <small>Duration: 0.04508299999997689ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies error message display.</div></details>
+                  
+                </div>
+              
+        </div>
+      
+        <div class="file">
+          <h3>/test/e2e/navigation.test.ts</h3>
+          
+                <div class="test ">
+                  <div><strong>✅ should have skip to main content link</strong></div>
+                  <small>Duration: 0.5401249999999891ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies accessibility skip link for main content.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have skip to navigation link</strong></div>
+                  <small>Duration: 0.07533399999999801ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests skip link for navigation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should toggle mobile navigation</strong></div>
+                  <small>Duration: 0.05225000000007185ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests mobile navigation toggle functionality.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should close mobile navigation when link is clicked</strong></div>
+                  <small>Duration: 0.050082999999972344ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies mobile navigation closes on link click.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should hide breadcrumb on homepage</strong></div>
+                  <small>Duration: 0.09675000000004275ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests breadcrumb visibility logic for homepage.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should hide breadcrumb on sandbox page</strong></div>
+                  <small>Duration: 0.05466599999999744ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests breadcrumb visibility for sandbox page.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should hide breadcrumb on FAQs index</strong></div>
+                  <small>Duration: 0.041624999999953616ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests breadcrumb visibility for FAQs index.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should show breadcrumb on other pages</strong></div>
+                  <small>Duration: 0.03750000000002274ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies breadcrumb displays on content pages.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have scroll to top button</strong></div>
+                  <small>Duration: 0.1157500000000482ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests scroll to top button presence.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should scroll to top when button is clicked</strong></div>
+                  <small>Duration: 0.05375000000003638ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies scroll to top functionality.</div></details>
+                  
+                </div>
+              
+        </div>
+      
+        <div class="file">
+          <h3>/test/e2e/pages.test.ts</h3>
+          
+                <div class="test ">
+                  <div><strong>✅ should have a homepage route</strong></div>
+                  <small>Duration: 0.5822080000000369ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies homepage route exists and is accessible.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should load homepage content</strong></div>
+                  <small>Duration: 0.10587499999996908ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests homepage content loading and structure.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have FAQ index route</strong></div>
+                  <small>Duration: 0.05679099999997561ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies FAQ index page route exists.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should support dynamic FAQ slug routes</strong></div>
+                  <small>Duration: 0.0935420000000704ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests dynamic FAQ route generation and handling.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have news index route</strong></div>
+                  <small>Duration: 0.10187499999994998ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies news index page route exists.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should support dynamic news slug routes</strong></div>
+                  <small>Duration: 0.0695419999999558ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests dynamic news route generation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have resources index route</strong></div>
+                  <small>Duration: 0.045040999999969245ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies resources index page route exists.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have single page resource route</strong></div>
+                  <small>Duration: 0.04399999999998272ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests single page resource route.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should support dynamic resource slug routes</strong></div>
+                  <small>Duration: 0.12591599999996106ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests dynamic resource route generation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have funding page route</strong></div>
+                  <small>Duration: 0.08058300000004692ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies funding page route exists.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have contact page route</strong></div>
+                  <small>Duration: 0.0404999999999518ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies contact page route exists.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have search page route</strong></div>
+                  <small>Duration: 0.03637500000002092ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies search page route exists.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have translate page route</strong></div>
+                  <small>Duration: 0.0338329999999587ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies translate page route exists.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have research index route</strong></div>
+                  <small>Duration: 0.03308399999991707ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies research index route exists.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have preview index route</strong></div>
+                  <small>Duration: 0.033208999999942534ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies preview index route exists.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have sandbox route</strong></div>
+                  <small>Duration: 0.06370900000001711ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies sandbox route exists.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should handle dynamic slug routes</strong></div>
+                  <small>Duration: 0.04241700000000037ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests catch-all dynamic route handling.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should handle nested dynamic routes</strong></div>
+                  <small>Duration: 0.05179099999998016ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests nested dynamic route handling.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have 404 error page route</strong></div>
+                  <small>Duration: 0.2509579999999687ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies 404 error page exists.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should redirect /apply to /funding</strong></div>
+                  <small>Duration: 0.6435000000000173ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests route redirect functionality.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should redirect /downloads/* to homepage</strong></div>
+                  <small>Duration: 0.08816600000000108ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests wildcard redirect functionality.</div></details>
+                  
+                </div>
+              
+        </div>
+      
+        <div class="file">
+          <h3>/test/e2e/search.test.ts</h3>
+          
+                <div class="test ">
+                  <div><strong>✅ should have search page route</strong></div>
+                  <small>Duration: 0.5326670000000036ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies search page route exists.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should display search input field</strong></div>
+                  <small>Duration: 0.09837500000003274ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests search input field rendering.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should accept search queries</strong></div>
+                  <small>Duration: 0.050707999999985987ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests search query input handling.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should trim whitespace from queries</strong></div>
+                  <small>Duration: 0.09166699999991579ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies query sanitization.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should handle empty queries</strong></div>
+                  <small>Duration: 0.05016599999999016ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests empty query handling.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should store search query history</strong></div>
+                  <small>Duration: 0.3202079999999796ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies search history storage.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should remove duplicate queries from history</strong></div>
+                  <small>Duration: 0.049415999999951055ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests duplicate query prevention.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should display search results</strong></div>
+                  <small>Duration: 0.0637499999999136ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies search results display.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should display no results message when no matches</strong></div>
+                  <small>Duration: 0.15049999999996544ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests empty results handling.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should highlight search terms in results</strong></div>
+                  <small>Duration: 0.04937500000005457ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies search term highlighting.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should support FAQ-specific search</strong></div>
+                  <small>Duration: 0.046625000000062755ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests FAQ search functionality.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should filter FAQs by search query</strong></div>
+                  <small>Duration: 0.04800000000000182ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies FAQ filtering by query.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should handle rapid search queries</strong></div>
+                  <small>Duration: 0.04804100000001199ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests performance with multiple queries.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should debounce search input</strong></div>
+                  <small>Duration: 0.033332999999970525ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies search input debouncing.</div></details>
+                  
+                </div>
+              
+        </div>
+      
+        <div class="file">
+          <h3>/test/integration/api.test.ts</h3>
+          
+                <div class="test ">
+                  <div><strong>✅ should have API directory structure</strong></div>
+                  <small>Duration: 0.4889999999999759ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies API directory structure.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have API base URL configured</strong></div>
+                  <small>Duration: 0.07737499999996089ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests API configuration.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have site base URL configured</strong></div>
+                  <small>Duration: 0.05312500000002274ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies site base URL configuration.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should fetch content from CMS</strong></div>
+                  <small>Duration: 0.09862499999996999ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests CMS content fetching.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should handle API errors gracefully</strong></div>
+                  <small>Duration: 0.050791000000003805ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies API error handling.</div></details>
+                  
+                </div>
+              
+        </div>
+      
+        <div class="file">
+          <h3>/test/integration/content-generation.test.ts</h3>
+          
+                <div class="test ">
+                  <div><strong>✅ should generate appRoutes.json</strong></div>
+                  <small>Duration: 0.7665409999999611ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests route file generation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should generate sitemap.xml</strong></div>
+                  <small>Duration: 0.2572089999999889ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies sitemap generation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should generate searchIndex.json</strong></div>
+                  <small>Duration: 0.1089999999999236ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests search index generation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should generate pages.json</strong></div>
+                  <small>Duration: 0.059750000000008185ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies pages JSON generation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should generate faqs.json</strong></div>
+                  <small>Duration: 0.10733299999992596ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests FAQ JSON generation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should generate resources.json</strong></div>
+                  <small>Duration: 0.060207999999988715ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies resources JSON generation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should generate posts.json</strong></div>
+                  <small>Duration: 0.047207999999955064ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests posts JSON generation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have content directory</strong></div>
+                  <small>Duration: 0.04454099999998107ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies content directory structure.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have news subdirectory</strong></div>
+                  <small>Duration: 0.14154200000007222ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests news directory existence.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should have resources subdirectory</strong></div>
+                  <small>Duration: 0.09029199999997672ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies resources directory existence.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should generate routes for all pages</strong></div>
+                  <small>Duration: 0.07662500000003547ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests route generation for all content.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should include homepage route</strong></div>
+                  <small>Duration: 0.2630410000000438ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies homepage route in generated routes.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should include FAQ routes</strong></div>
+                  <small>Duration: 0.7815839999999525ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests FAQ route generation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should include news routes</strong></div>
+                  <small>Duration: 0.29579200000000583ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies news route generation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should index all content pages</strong></div>
+                  <small>Duration: 0.34987499999999727ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests search index generation.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should include page titles in index</strong></div>
+                  <small>Duration: 0.24149999999997362ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies title indexing.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ should include page slugs in index</strong></div>
+                  <small>Duration: 0.2013329999999769ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests slug indexing.</div></details>
+                  
+                </div>
+              
+        </div>
+      
+        <div class="file">
+          <h3>/test/unit/components/Query.test.ts</h3>
+          
+                <div class="test ">
+                  <div><strong>✅ defines a GraphQL query structure</strong></div>
+                  <small>Duration: 0.5487919999999917ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies GraphQL query component structure.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ expects query to return pages data structure</strong></div>
+                  <small>Duration: 0.19162500000004457ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests expected GraphQL response structure.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ handles async query execution</strong></div>
+                  <small>Duration: 0.10124999999999318ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies async query handling in components.</div></details>
+                  
+                </div>
+              
+        </div>
+      
+        <div class="file">
+          <h3>/test/unit/components/TheNav.test.ts</h3>
+          
+                <div class="test ">
+                  <div><strong>✅ uses navigation toggle state</strong></div>
+                  <small>Duration: 0.6002500000000168ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Verifies components use navigation state correctly.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ can toggle navigation state</strong></div>
+                  <small>Duration: 0.22654199999999491ms</small>
+                  <details><summary>What does this test verify?</summary><div class="desc">Tests component navigation toggle functionality.</div></details>
+                  
+                </div>
+              
+                <div class="test ">
+                  <div><strong>✅ maintains navigation state</strong></div>
+                  <small>Duration: 0.06016599999998107ms</small>
+                  
+                  
+                </div>
+              
+        </div>
+      
+
+      <footer>
+        <a href="/docs/index.html">← Back to Documentation Portal</a>
+      </footer>
+    </div>
+  </body>
+</html>

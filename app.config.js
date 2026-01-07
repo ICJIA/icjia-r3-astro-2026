@@ -249,7 +249,7 @@ export default defineAppConfig({
     },
     {
       main: "Accessibility",
-      link: "/documentation/accessibility/index.html",
+      link: "/docs/accessibility/index.html",
       isExternal: true,
     },
   ],

@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Audit Report - 1/7/2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #333; background: #fff; padding: 20px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { font-size: 2rem; margin-bottom: 1rem; }
+    h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
+    .meta { color: #666; font-size: 0.9em; margin-bottom: 1rem; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .stat-card { padding: 1.25rem; border-radius: 8px; text-align: center; background: #f8f9fa; border: 1px solid #dee2e6; }
+    .stat-card.success { background: #d1e7dd; border-color: #badbcc; color: #0f5132; }
+    .stat-card.error { background: #f8d7da; border-color: #f5c2c7; color: #842029; }
+    .stat-card.warning { background: #fff3cd; border-color: #ffecb5; color: #856404; }
+    .stat-card .number { font-size: 2.2rem; font-weight: bold; margin: 0.25rem 0; }
+    .stat-card .label { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: white; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden; }
+    thead { background: #f8f9fa; }
+    th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #dee2e6; }
+    th { font-weight: 600; color: #495057; }
+    tr:last-child td { border-bottom: none; }
+    .status-pass { color: #198754; font-weight: 600; }
+    .status-fail { color: #dc3545; font-weight: 600; }
+    .status-warning { color: #856404; font-weight: 600; }
+    footer { margin-top: 2rem; padding-top: 1.25rem; border-top: 2px solid #dee2e6; text-align: center; color: #6c757d; font-size: 0.875rem; }
+    .skip-link { position: absolute; top: -100px; left: 0; background: #0d6efd; color: #fff; padding: 12px 24px; text-decoration: none; z-index: 10000; border-radius: 0 0 4px 0; font-weight: 600; font-size: 1rem; transition: top 0.2s ease-in-out; }
+    .skip-link:focus, .skip-link:focus-visible { top: 0; outline: 3px solid #0d6efd; outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link" id="skip-link">Skip to main content</a>
+  <div class="container">
+    <main id="main-content" tabindex="-1">
+      <h1>🔍 R3 Restore, Reinvest, Renew - Accessibility Audit Report</h1>
+      <p class="meta">Accessibility audit report for the R3 (Restore, Reinvest, Renew) program website.</p>
+
+      <div class="meta">
+        <p><strong>Generated:</strong> 1/7/2026, 8:54:52 AM</p>
+        <p><strong>Environment:</strong> Development (http://localhost:8000)</p>
+        <p><strong>axe-core version:</strong> 4.11.0</p>
+        <p><strong>Pages tested:</strong> 24</p>
+        <p><strong>Viewports tested:</strong> desktop, tablet, mobile</p>
+        <p><strong>Themes tested:</strong> default</p>
+        <p><strong>Repo access:</strong> This repository is private. For source-level details, contact the ICJIA web development team.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card success">
+          <div class="label">Total Violations</div>
+          <div class="number">0</div>
+        </div>
+        <div class="stat-card success">
+          <div class="label">Total Passes</div>
+          <div class="number">1050</div>
+        </div>
+        <div class="stat-card success">
+          <div class="label">Pages Passing</div>
+          <div class="number">24</div>
+        </div>
+        <div class="stat-card success">
+          <div class="label">Skip Links</div>
+          <div class="number">75/75</div>
+        </div>
+      </div>
+
+      <h2>📋 All Tested Pages</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>URL</th>
+            <th>Viewport</th>
+            <th>Theme</th>
+            <th>Violations</th>
+            <th>Passes</th>
+            <th>Incomplete</th>
+            <th>Total Tests</th>
+            <th>Status</th>
+            <th>Skip Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>/</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/eligibility</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/eligibility</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/eligibility</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/contact</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/contact</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/contact</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/collaboratives</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/collaboratives</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/collaboratives</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/board</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/board</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/board</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/funding</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/funding</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/funding</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/meetings</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/meetings</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/meetings</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/privacy</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/privacy</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/privacy</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/r3-2022-annual-report</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/r3-2022-annual-report</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/r3-2022-annual-report</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/2023-04-06-annual-report-2023</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/2023-04-06-annual-report-2023</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/2023-04-06-annual-report-2023</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/r3-2021-annual-report</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/r3-2021-annual-report</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/r3-2021-annual-report</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/2021-01-21-release</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/2021-01-21-release</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/2021-01-21-release</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/2022-06-23-r3-grants-list</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/2022-06-23-r3-grants-list</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/2022-06-23-r3-grants-list</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/lend-us-your-expertise-become-a-grant-application-reviewer</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/lend-us-your-expertise-become-a-grant-application-reviewer</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/news/lend-us-your-expertise-become-a-grant-application-reviewer</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/spanish-language-materials</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/spanish-language-materials</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/spanish-language-materials</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/video-resources</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/video-resources</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/video-resources</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/ampli-fund-portal-guide-and-tip-sheet</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/ampli-fund-portal-guide-and-tip-sheet</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/ampli-fund-portal-guide-and-tip-sheet</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/prequalification-steps</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/prequalification-steps</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/prequalification-steps</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/search</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/search</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/search</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/translate</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/translate</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/translate</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/contact</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/contact</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/contact</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/single-page</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/single-page</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/resources/single-page</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/faqs</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/faqs</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/faqs</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+        </tbody>
+      </table>
+
+      <h2>Accessibility Standards & Compliance</h2>
+      
+        <h3 style="margin-top:1rem;">IITAA Accessibility Standards for Illinois</h3>
+        <p class="meta">Illinois Information Technology Accessibility (IITAA) standards align with WCAG 2.1 Level AA and Section 508, ensuring Illinois state websites are usable by all residents, including those using assistive technologies.</p>
+        <ul style="margin-left:1.25rem;"><li><a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Standards Documentation</a></li></ul>
+      
+        <h3 style="margin-top:1rem;">WCAG 2.1 Level AA Guidelines</h3>
+        <p class="meta">The Web Content Accessibility Guidelines (WCAG) 2.1 Level AA are internationally recognized standards for web accessibility.</p>
+        <ul style="margin-left:1.25rem;"><li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a></li></ul>
+      
+        <h3 style="margin-top:1rem;">ADA Title II Requirements</h3>
+        <p class="meta">ADA Title II requires state and local governments to ensure services, programs, and activities (including websites) are accessible to people with disabilities.</p>
+        <ul style="margin-left:1.25rem;"><li><a href="https://www.ada.gov/topics/ada-state-and-local-governments/" target="_blank" rel="noopener noreferrer">ADA Title II Overview</a></li></ul>
+      
+
+      <h2>Framework Notes</h2>
+      <p class="meta">This site is built using Nuxt 4 and Vuetify 3.</p>
+
+      <footer>
+        <p>Generated by <strong>axe-core</strong> 4.11.0 on 1/7/2026, 8:54:52 AM</p>
+        <p><a href="/docs/index.html">Back to Documentation Portal</a></p>
+      </footer>
+    </main>
+  </div>
+  <script>
+    (function() {
+      const skipLink = document.getElementById('skip-link');
+      if (!skipLink) return;
+      const handle = function(e) {
+        e.preventDefault();
+        const target = document.getElementById('main-content');
+        if (!target) return;
+        target.focus();
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+      };
+      skipLink.addEventListener('click', handle);
+      skipLink.addEventListener('keydown', function(e) { if (e.key === 'Enter') handle(e); });
+    })();
+  </script>
+</body>
+</html>

@@ -232,6 +232,9 @@ export default defineNuxtConfig({
       routes: siteRoutes,
       // Crawl links to ensure all content API routes are pre-rendered
       crawlLinks: true,
+      // Documentation portal lives in /public/docs as static HTML files.
+      // Ensure Nitro doesn't attempt to crawl/prerender them.
+      ignore: ["/docs", "/docs/**"],
     },
   },
 

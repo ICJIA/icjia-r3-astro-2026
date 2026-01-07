@@ -58,7 +58,15 @@
               &nbsp;|&nbsp;
               <strong>
                 <a
-                  href="/documentation/accessibility/index.html"
+                  href="/docs/index.html"
+                  style="color: #fff"
+                  >Documentation
+                </a>
+              </strong>
+              &nbsp;|&nbsp;
+              <strong>
+                <a
+                  href="/docs/accessibility/index.html"
                   style="color: #fff"
                   >Accessibility
                 </a>

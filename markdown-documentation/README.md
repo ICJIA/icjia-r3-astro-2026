@@ -5,15 +5,15 @@
 The official website for Illinois' R3 Violence Prevention Plan, built with Nuxt 4 and Vue 3. This platform provides comprehensive information about R3 funding opportunities, resources, and program updates.
 
 🌐 **Live Site**: [https://r3.illinois.gov](https://r3.illinois.gov)
-📚 **Documentation**: [https://r3.illinois.gov/documentation/](https://r3.illinois.gov/documentation/)
+📚 **Documentation**: [https://r3.illinois.gov/docs/](https://r3.illinois.gov/docs/)
 
 ## Quick Start
 
-**For detailed setup instructions and troubleshooting, see the [comprehensive documentation](https://r3.illinois.gov/documentation/project/).**
+**For internal setup instructions and troubleshooting, contact the ICJIA web development team (repository is private).**
 
 ### Prerequisites
 
-- Node.js 20.19.0+ (use `nvm` or `mise` for version management)
+- Node.js 22.14.0+ (use `nvm` for version management)
 - Yarn 1.22.22+ package manager
 - Git
 
@@ -40,9 +40,9 @@ yarn dev      # Starts dev server at http://localhost:8000
 yarn scripts        # Generate all content from APIs
 yarn dev           # Development server (http://localhost:8000)
 yarn generate      # Static site generation
-yarn docs:all      # Generate all documentation
+yarn docs:all      # Generate docs portal reports (tests + a11y + typedoc)
 yarn clear:cache   # Clear Nuxt cache
-yarn a11y:audit:local  # Run accessibility audit locally
+yarn audit:a11y    # Run accessibility audit (ICJIA standard, sitemap-driven)
 ```
 
 ## Architecture Overview
@@ -50,7 +50,7 @@ yarn a11y:audit:local  # Run accessibility audit locally
 - **Framework**: Nuxt 4 + Vue 3 + Vuetify 3 (Material Design)
 - **Content Management**: Headless CMS (Strapi) with dynamic content generation
 - **Deployment**: Netlify static hosting with automatic builds
-- **Documentation**: Standalone system with JSDoc API reference
+- **Documentation**: Standalone `/docs/` portal (tests, accessibility, TypeDoc)
 
 ## Critical Concept: Dynamic Content Generation
 
@@ -73,28 +73,34 @@ yarn a11y:audit:local  # Run accessibility audit locally
 yarn scripts
 ```
 
-## Documentation System
+## Documentation Portal
 
-This project includes a comprehensive, standalone documentation system accessible at `/documentation/` that exists completely outside the Nuxt application.
+This project includes a standalone documentation portal accessible at `/docs/` that exists outside Nuxt routing and is served from `/public/docs`.
 
-### Documentation Portal: [/documentation/](https://r3.illinois.gov/documentation/)
+### Documentation Portal: [/docs/](https://r3.illinois.gov/docs/)
 
-The documentation system includes four main components:
+The portal includes:
 
-1. **📋 Documentation Portal** - Main navigation hub with dark theme
-2. **📖 Project Documentation** - Complete setup and development guide
-3. **🔧 JSDoc API Documentation** - All functions, composables, and utilities
-4. **🧩 Vue Components Documentation** - Component props, events, and usage
+1. **🧪 Test Results** (`/docs/tests/index.html`)
+2. **♿ Accessibility Audit** (`/docs/accessibility/index.html`)
+3. **📖 API Documentation (TypeDoc)** (`/docs/jsdoc/index.html`)
 
 ### Auto-Generation
 
-Documentation automatically regenerates during every build:
+Documentation placeholders are ensured during dev/build/generate. Full reports are generated on demand:
 
 ```bash
-yarn dev           # Includes documentation generation
-yarn generate      # Includes documentation generation
-yarn docs:all      # Generate documentation only
+yarn dev           # Ensures docs placeholders exist at /public/docs/*
+yarn docs:all      # Generates: tests report + a11y report + TypeDoc
 ```
+
+### Accessibility Audit Outputs
+
+When you run `yarn audit:a11y`, the following files are written to `public/docs/accessibility/`:
+- `index.html`
+- `results.json`
+- `violations.json`
+- `errors.json`
 
 ### Features
 

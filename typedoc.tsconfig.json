@@ -1,0 +1,7 @@
+{
+  "extends": "./.nuxt/tsconfig.json",
+  "include": ["composables/**/*"],
+  "exclude": ["node_modules", ".output", "dist", "public", "test"]
+}
+
+
