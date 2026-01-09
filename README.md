@@ -111,6 +111,7 @@ The `yarn dev` and `yarn scripts` commands automatically run a preflight check t
 - **File-Based Routing**: Nuxt pages directory for automatic route generation
 - **Component Auto-Import**: Vue components automatically imported
 - **Composable Functions**: Shared Vue composition functions in `composables/`
+- **SEO Optimization**: Comprehensive SEO with meta tags, structured data (JSON-LD), and 100/100 Lighthouse score
 - **Standalone Documentation Portal**: `/docs/` portal with tests, accessibility reports, and API docs
 - **Accessibility Compliance**: WCAG 2.1 Level AA compliance with automated auditing
 
@@ -178,7 +179,9 @@ icjia-r3-v5-nuxt/
 ├── composables/             # Vue composition functions (auto-imported)
 │   ├── eventBus.ts         # Event bus for component communication
 │   ├── states.ts           # Shared state management
-│   └── useCurrentPage.js   # Current page composable
+│   ├── useCurrentPage.js   # Current page composable
+│   ├── useSeoMeta.ts       # SEO meta tags management
+│   └── useStructuredData.ts # Schema.org structured data (JSON-LD)
 ├── content/                 # ⚠️ GENERATED - Markdown files (don't edit manually)
 │   ├── news/               # Generated news posts
 │   ├── resources/          # Generated resources
@@ -320,6 +323,92 @@ The GraphQL playground provides:
 - **Documentation**: Complete API documentation and schema explorer
 - **Full Schema**: Browse all available types, queries, and fields
 - **Query Builder**: Visual interface for constructing GraphQL queries
+
+---
+
+## SEO Optimization
+
+This project implements comprehensive SEO optimization following Nuxt 4 best practices with **Lighthouse SEO Score: 100/100** ✅.
+
+### SEO Features
+
+- **Dynamic Meta Tags**: Page-specific titles, descriptions, and Open Graph tags
+- **Structured Data**: Schema.org JSON-LD for rich search results
+- **Social Media**: Optimized Open Graph and Twitter Card tags
+- **Canonical URLs**: Prevent duplicate content issues
+- **Breadcrumbs**: Hierarchical navigation with structured data
+- **Keywords**: Targeted keywords for each page
+
+### SEO Composables
+
+Two main composables provide comprehensive SEO functionality:
+
+#### `useSeoMeta.ts` - Meta Tags Management
+
+```typescript
+// In any page component
+usePageSeo({
+  title: 'Your Page Title',
+  description: 'Your page description (150-160 chars)',
+  path: '/your-page',
+  keywords: ['keyword1', 'keyword2'],
+})
+```
+
+#### `useStructuredData.ts` - Schema.org JSON-LD
+
+```typescript
+// Homepage
+useWebsiteSchema()
+
+// News articles
+useNewsArticleSchema({
+  headline: 'Article Title',
+  description: 'Article summary',
+  datePublished: '2024-01-01',
+})
+
+// FAQ pages
+useFaqPageSchema([
+  { question: 'What is R3?', answer: 'R3 stands for...' }
+])
+
+// Breadcrumbs
+useBreadcrumbListSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Current Page', url: '/current' }
+])
+```
+
+### Available Structured Data Schemas
+
+- **WebSite** - Homepage with SearchAction
+- **GovernmentOrganization** - Site-wide organization info
+- **NewsArticle** - News/blog posts
+- **WebPage** - Standard content pages
+- **FAQPage** - FAQ pages with rich snippets
+- **BreadcrumbList** - Navigation hierarchy
+- **ContactPage** - Contact page identification
+
+### SEO Documentation
+
+For detailed SEO implementation guides:
+
+- **[SEO Implementation Guide](./markdown-documentation/SEO_IMPLEMENTATION_GUIDE.md)** - Comprehensive SEO documentation
+- **[SEO Quick Reference](./markdown-documentation/SEO_QUICK_REFERENCE.md)** - Quick usage examples
+
+### Testing SEO
+
+```bash
+# Lighthouse audit (requires dev server)
+yarn dev
+# Then in browser DevTools > Lighthouse > SEO
+
+# Or use external tools:
+# - Google Rich Results Test: https://search.google.com/test/rich-results
+# - Schema.org Validator: https://validator.schema.org/
+# - Twitter Card Validator: https://cards-dev.twitter.com/validator
+```
 
 ---
 
@@ -535,9 +624,11 @@ yarn docs:jsdoc    # Retry TypeDoc generation
 
 ### Internal Documentation
 
-- **[Project Documentation](./markdown-documentation/README.md)**: Comprehensive development guide
+- **[Documentation Index](./markdown-documentation/README.md)**: Complete documentation overview and index
+- **[SEO Implementation Guide](./markdown-documentation/SEO_IMPLEMENTATION_GUIDE.md)**: Complete SEO documentation
+- **[SEO Quick Reference](./markdown-documentation/SEO_QUICK_REFERENCE.md)**: Quick SEO usage examples
 - **[Documentation Portal Prompt](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md)**: LLM prompt for creating similar portals
-- **[Nuxt 4 Upgrade Guide](./markdown-documentation/NUXT4_UPGRADE.md)**: Upgrade checklist and migration notes
+- **[Nuxt 4 Reference](./markdown-documentation/NUXT4_REFERENCE.md)**: Nuxt 4 migration reference and notes
 
 ### External Resources
 

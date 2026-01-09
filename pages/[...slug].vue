@@ -94,6 +94,65 @@ const redirect = () => {
   router.push("/404");
 };
 
+// SEO Configuration - Dynamic based on content
+if (data.value) {
+  usePageSeo({
+    title: data.value.title || 'Page',
+    description: data.value.description || data.value.summary || 'Learn more about the R3 program.',
+    path: path,
+    type: path.startsWith('/news/') ? 'article' : 'website',
+    article: path.startsWith('/news/') && data.value.postDate ? {
+      publishedTime: data.value.postDate,
+      modifiedTime: data.value.updatedAt,
+      section: 'News',
+    } : undefined,
+  })
+  
+  // Add WebPage structured data for standard content pages
+  if (!path.startsWith('/news/')) {
+    useWebPageSchema({
+      name: data.value.title || 'Page',
+      description: data.value.description || data.value.summary || 'R3 program information',
+      datePublished: data.value.createdAt,
+      dateModified: data.value.updatedAt,
+    })
+  }
+  
+  // Add NewsArticle schema for news posts
+  if (path.startsWith('/news/') && data.value.postDate) {
+    useNewsArticleSchema({
+      headline: data.value.title,
+      description: data.value.summary || data.value.description || '',
+      datePublished: data.value.postDate,
+      dateModified: data.value.updatedAt,
+      section: 'News',
+    })
+  }
+  
+  // Add breadcrumb schema
+  const breadcrumbs = []
+  breadcrumbs.push({ name: 'Home', url: '/' })
+  
+  const pathSegments = path.split('/').filter(Boolean)
+  if (pathSegments.length > 0) {
+    if (pathSegments[0] === 'news') {
+      breadcrumbs.push({ name: 'News', url: '/news' })
+      if (pathSegments.length > 1) {
+        breadcrumbs.push({ name: data.value.title, url: path })
+      }
+    } else if (pathSegments[0] === 'resources') {
+      breadcrumbs.push({ name: 'Resources', url: '/resources' })
+      if (pathSegments.length > 1) {
+        breadcrumbs.push({ name: data.value.title, url: path })
+      }
+    } else {
+      breadcrumbs.push({ name: data.value.title, url: path })
+    }
+  }
+  
+  useBreadcrumbListSchema(breadcrumbs)
+}
+
 /**
  * Component lifecycle hook that runs after the component is mounted.
  * Configures the layout based on content metadata, particularly

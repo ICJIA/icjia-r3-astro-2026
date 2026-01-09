@@ -1,288 +1,129 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Markdown Documentation Index
 
-# ICJIA R3 (Restore, Reinvest, Renew) Program Website
+This directory contains comprehensive documentation for the ICJIA R3 Nuxt application.
 
-The official website for Illinois' R3 Violence Prevention Plan, built with Nuxt 4 and Vue 3. This platform provides comprehensive information about R3 funding opportunities, resources, and program updates.
+## 📚 Documentation Files
 
-🌐 **Live Site**: [https://r3.illinois.gov](https://r3.illinois.gov)
-📚 **Documentation**: [https://r3.illinois.gov/docs/](https://r3.illinois.gov/docs/)
+### 🎯 Active Documentation (Current)
 
-## Quick Start
+1. **[DOCUMENTATION_PORTAL_PROMPT.md](./DOCUMENTATION_PORTAL_PROMPT.md)**
+   - **Purpose:** LLM prompt for creating documentation portals
+   - **Status:** ✅ Active - Version 1.0.4
+   - **Audience:** Developers, AI assistants
+   - **Content:** Complete guide for setting up docs portal with testing, accessibility audits, and TypeDoc
 
-**For internal setup instructions and troubleshooting, contact the ICJIA web development team (repository is private).**
+2. **[SEO_IMPLEMENTATION_GUIDE.md](./SEO_IMPLEMENTATION_GUIDE.md)**
+   - **Purpose:** Comprehensive SEO implementation documentation
+   - **Status:** ✅ Active - Current
+   - **Audience:** Developers
+   - **Content:** Complete SEO system with composables, structured data, meta tags, and best practices
 
-### Prerequisites
+3. **[SEO_QUICK_REFERENCE.md](./SEO_QUICK_REFERENCE.md)**
+   - **Purpose:** Quick reference for using SEO composables
+   - **Status:** ✅ Active - Current
+   - **Audience:** Developers
+   - **Content:** Quick usage examples and common patterns
 
-- Node.js 22.14.0+ (use `nvm` for version management)
-- Yarn 1.22.22+ package manager
-- Git
+4. **[NUXT4_REFERENCE.md](./NUXT4_REFERENCE.md)** *(consolidated)*
+   - **Purpose:** Nuxt 4 migration reference and notes
+   - **Status:** ✅ Active - Historical reference
+   - **Audience:** Developers, future maintainers
+   - **Content:** Consolidated Nuxt 4 upgrade information (directory structure, checklist, migration notes)
 
-### Rapid Setup
+### 📦 Archive (Historical)
 
-```bash
-# Clone and setup
-git clone https://github.com/ICJIA/icjia-r3-v5-nuxt.git
-cd icjia-r3-v5-nuxt
-yarn install
+These files have been consolidated into `NUXT4_REFERENCE.md`:
+- ~~NUXT4_DIRECTORY_STRUCTURE_CHANGES.md~~
+- ~~NUXT4_DIRECTORY_STRUCTURE_MIGRATION.md~~
+- ~~NUXT4_MIGRATION_SUMMARY.md~~
+- ~~NUXT4_UPGRADE.md~~
 
-# Environment setup
-cp .env.sample .env
-# Edit .env with your API endpoints (see Configuration section below)
-
-# Generate content and start development
-yarn scripts  # Generates all content from APIs
-yarn dev      # Starts dev server at http://localhost:8000
-```
-
-### Key Commands
-
-```bash
-yarn scripts        # Generate all content from APIs
-yarn dev           # Development server (http://localhost:8000)
-yarn generate      # Static site generation
-yarn docs:all      # Generate docs portal reports (tests + a11y + typedoc)
-yarn clear:cache   # Clear Nuxt cache
-yarn audit:a11y    # Run accessibility audit (ICJIA standard, sitemap-driven)
-```
-
-## Architecture Overview
-
-- **Framework**: Nuxt 4 + Vue 3 + Vuetify 3 (Material Design)
-- **Content Management**: Headless CMS (Strapi) with dynamic content generation
-- **Deployment**: Netlify static hosting with automatic builds
-- **Documentation**: Standalone `/docs/` portal (tests, accessibility, TypeDoc)
-
-## Critical Concept: Dynamic Content Generation
-
-⚠️ **Important**: This project uses **dynamic content generation**, not static files.
-
-- **Content Source**: All content (news, FAQs, resources, pages) is pulled from Strapi CMS APIs
-- **Build Process**: Content is fetched and converted to markdown files during build time
-- **Generated Files**: `/content/`, `/public/*.json`, and route definitions are auto-generated
-- **Never Edit**: Don't manually edit files in `/content/` or generated JSON files - they'll be overwritten
-
-### Content Generation Process
-
-1. **API Fetching**: Creator scripts pull data from Strapi CMS
-2. **Markdown Generation**: API content converted to markdown with frontmatter
-3. **Route Creation**: Dynamic routes generated for all content pages
-4. **Search Index**: Full-text search index built from all content
-
-```bash
-# Regenerate all content (run this when APIs are updated)
-yarn scripts
-```
-
-## Documentation Portal
-
-This project includes a standalone documentation portal accessible at `/docs/` that exists outside Nuxt routing and is served from `/public/docs`.
-
-### Documentation Portal: [/docs/](https://r3.illinois.gov/docs/)
-
-The portal includes:
-
-1. **🧪 Test Results** (`/docs/tests/index.html`)
-2. **♿ Accessibility Audit** (`/docs/accessibility/index.html`)
-3. **📖 API Documentation (TypeDoc)** (`/docs/jsdoc/index.html`)
-
-### Auto-Generation
-
-Documentation placeholders are ensured during dev/build/generate. Full reports are generated on demand:
-
-```bash
-yarn dev           # Ensures docs placeholders exist at /public/docs/*
-yarn docs:all      # Generates: tests report + a11y report + TypeDoc
-```
-
-### Accessibility Audit Outputs
-
-When you run `yarn audit:a11y`, the following files are written to `public/docs/accessibility/`:
-- `index.html`
-- `results.json`
-- `violations.json`
-- `errors.json`
-
-### Features
-
-- **Standalone Design**: No Nuxt dependencies, works independently
-- **Dark Theme**: Professional development-focused interface
-- **Search Functionality**: Find functions and components quickly
-- **Mobile Responsive**: Works on all screen sizes
-- **Always Current**: Regenerates with every build
-
-## Environment Configuration
-
-### Required Environment Variables
-
-```bash
-# API Configuration
-NUXT_PUBLIC_API_URL=https://r3.icjia-api.cloud
-NUXT_PUBLIC_RESEARCH_HUB_URL=https://researchhub.icjia-api.cloud
-
-# Analytics Configuration
-NUXT_PUBLIC_PLAUSIBLE_DOMAIN=your-domain
-```
-
-### API Endpoints
-
-- **Main API**: Strapi CMS for pages, news, FAQs, resources
-- **Research Hub**: GraphQL API for research articles and publications
-- **Content Types**: Pages, news posts, FAQs, resources, meetings, biographies
-
-## External API Documentation
-
-### GraphQL Playground
-
-🔗 **GraphQL Playground**: [https://r3.icjia-api.cloud/graphql](https://r3.icjia-api.cloud/graphql)
-
-The GraphQL playground provides:
-
-- **Live Queries**: Interactive query execution (read-only, no mutations)
-- **Documentation**: Complete API documentation and schema explorer
-- **Full Schema**: Browse all available types, queries, and fields
-- **Query Builder**: Visual interface for constructing GraphQL queries
-
-## Development Workflow
-
-### Daily Development
-
-```bash
-# Start development (includes content generation)
-yarn dev
-
-# If content seems outdated, regenerate
-yarn scripts
-yarn dev
-```
-
-### Content Updates
-
-```bash
-# When CMS content is updated
-yarn scripts  # Fetch latest content from APIs
-```
-
-### Build and Deploy
-
-```bash
-# Local production build
-yarn generate
-
-# Preview production build
-yarn generate:serve  # Serves on port 3000
-
-# Run accessibility audit
-yarn a11y:audit:local  # Local accessibility testing
-```
-
-### Deployment
-
-- **Automatic**: Pushes to `main` branch trigger Netlify deployment
-- **Build Command**: `yarn generate` (includes content generation)
-- **Publish Directory**: `.output/public`
-
-## Project Structure
+## 🗂️ Directory Organization
 
 ```
-icjia-r3-v5-nuxt/
-├── components/content/       # Vue components
-├── composables/             # Vue composition functions
-├── content/                 # Generated markdown files (don't edit)
-├── creators/                # Content generation scripts
-├── middleware/              # Nuxt middleware
-├── pages/                   # File-based routing
-├── plugins/                 # Nuxt plugins
-├── public/                  # Static files + generated JSON
-├── server/                  # API routes
-├── public/documentation/    # Standalone documentation system
-└── PROJECT-DOCUMENTATION.md # Comprehensive project guide
+markdown-documentation/
+├── README.md                              # This file - documentation index
+├── DOCUMENTATION_PORTAL_PROMPT.md         # Docs portal creation guide
+├── SEO_IMPLEMENTATION_GUIDE.md            # Comprehensive SEO documentation
+├── SEO_QUICK_REFERENCE.md                 # SEO quick reference
+└── NUXT4_REFERENCE.md                     # Consolidated Nuxt 4 reference
 ```
 
-## Technology Stack
+## 📖 Documentation Overview
 
-- **Nuxt 4** (v4.2.2) - Vue.js meta-framework
-- **Vue 3** (v3.5.25) - Progressive JavaScript framework
-- **Vuetify 3** (v3.11.3) - Material Design components
-- **Vite** (v7.2.7) - Next-generation build tool
-- **Nitro** (v2.12.9) - Server engine for Nuxt
-- **Strapi CMS** - Headless content management
-- **Netlify** - Static site hosting and deployment
+### For New Developers
 
-## Troubleshooting
+Start with:
+1. Main project [README.md](../README.md) - Project overview and setup
+2. [SEO_QUICK_REFERENCE.md](./SEO_QUICK_REFERENCE.md) - Quick SEO usage
+3. [DOCUMENTATION_PORTAL_PROMPT.md](./DOCUMENTATION_PORTAL_PROMPT.md) - Understanding the docs system
 
-### Common Issues
+### For SEO Work
 
-**Content not displaying**: Run `yarn scripts` to regenerate content from APIs
+1. [SEO_QUICK_REFERENCE.md](./SEO_QUICK_REFERENCE.md) - Start here for quick implementation
+2. [SEO_IMPLEMENTATION_GUIDE.md](./SEO_IMPLEMENTATION_GUIDE.md) - Deep dive into SEO system
 
-**Build errors**: Check API connectivity and environment variables
+### For Documentation Portal Work
 
-**Port conflicts**: Use `yarn dev --port=8001` for alternative port
+1. [DOCUMENTATION_PORTAL_PROMPT.md](./DOCUMENTATION_PORTAL_PROMPT.md) - Complete portal implementation guide
 
-**Cache issues**: Run `yarn clear:cache` then `yarn dev`
+### For Historical Context
 
-**Accessibility issues**: Run `yarn a11y:audit:local` to check for WCAG compliance violations
+1. [NUXT4_REFERENCE.md](./NUXT4_REFERENCE.md) - Nuxt 4 upgrade history and notes
 
-### Getting Help
+## 🔧 Maintenance
 
-1. **Documentation**: Check `/documentation/` for comprehensive guides
-2. **Project Docs**: See `PROJECT-DOCUMENTATION.md` for detailed information
-3. **API Issues**: Verify environment variables and API connectivity
-4. **Build Problems**: Check creator script logs for specific errors
+### When to Update This Documentation
 
-## Contributing
+**DOCUMENTATION_PORTAL_PROMPT.md:**
+- Any changes to test suite structure
+- Any changes to accessibility audit script
+- Any changes to TypeDoc configuration
+- Changes to documentation portal structure
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/description`
-3. Make changes and test locally
-4. Run `yarn scripts` to ensure content generation works
-5. Run `yarn a11y:audit:local` to verify accessibility compliance
-6. Commit changes and push to your fork
-7. Create a pull request
+**SEO_IMPLEMENTATION_GUIDE.md:**
+- New SEO composables added
+- Changes to SEO strategy
+- New structured data schemas
+- Updates to meta tag structure
 
-## License
+**SEO_QUICK_REFERENCE.md:**
+- New common usage patterns discovered
+- Simplified or improved examples
+- New quick tips
 
-MIT License - see [LICENSE](LICENSE) file for details.
+**NUXT4_REFERENCE.md:**
+- Major Nuxt version updates
+- Significant directory structure changes
+- Breaking changes in Nuxt ecosystem
 
-## Accessibility Audit History
+## 📊 Documentation Status
 
-This section documents accessibility improvements and audit results for the ICJIA R3 Nuxt 4 application, maintaining WCAG 2.1 AA compliance standards.
+| Document | Status | Last Updated | Version |
+|----------|--------|--------------|---------|
+| DOCUMENTATION_PORTAL_PROMPT.md | ✅ Active | Jan 9, 2026 | 1.0.4 |
+| SEO_IMPLEMENTATION_GUIDE.md | ✅ Active | Jan 9, 2026 | 1.0.0 |
+| SEO_QUICK_REFERENCE.md | ✅ Active | Jan 9, 2026 | 1.0.0 |
+| NUXT4_REFERENCE.md | ✅ Active | Jan 9, 2026 | 1.0.0 |
 
-### 2025-09-10: Comprehensive Accessibility Audit and Mitigations
+## 🔗 Related Documentation
 
-**Audit Methodology**: Local accessibility testing using axe-core 4.10.3 across 34 application routes with Nuxt DevTools disabled to avoid overlay interference.
+- [Main README.md](../README.md) - Project overview
+- [/public/docs/](../public/docs/) - Generated documentation portal
+- [/composables/](../composables/) - Source code with JSDoc comments
+- [/test/](../test/) - Test suite documentation
 
-**Critical Fixes Implemented**:
+## 💡 Documentation Philosophy
 
-- **Privacy Compliance**: Removed all Google Analytics/gtag references from the application, maintaining only Plausible Analytics for privacy-focused tracking
-- **HTML Language Attributes**: Fixed missing `lang="en"` attributes across all pages through global configuration in `nuxt.config.js` and `app.vue`
-- **Hero Section Contrast**: Enhanced WCAG AA compliance (4.5:1 contrast ratio) by adding a semi-transparent dark band behind hero text and lightening the background image overlay
-- **Content Structure Fixes**:
-  - Added proper H1 headings to funding page (`content/funding.md`)
-  - Fixed empty link text issues in FAQ master page (`content/faqs/2025-r3-frequently-asked-questions.md`)
-  - Normalized heading hierarchy in NOFO instructions resource (`content/resources/r3-nofo-instructions-and-appendices.md`)
-- **Eligibility Map Accessibility Mitigations** (`components/content/MapCensusTracts.vue`):
-  - Added semantic heading structure with "Eligibility Map" H2
-  - Implemented ARIA landmark region with `aria-labelledby` and `aria-describedby`
-  - Created visible "Skip the interactive map" link with anchor destination
-  - Added keyboard navigation instructions and alternative access via "Open full-screen map" link
-  - Enhanced iframe with descriptive title and lazy loading
-  - Implemented focusable, labeled wrapper containers for keyboard accessibility
+This documentation follows these principles:
 
-**Accessibility Status**:
-
-- **Initial Violations**: 58+ violations across multiple pages
-- **Final Violations**: 10 total violations across 34 tested pages
-- **Remaining Issues**: 6 violations confined to third-party ArcGIS iframe (not fixable from application side)
-- **Local Application**: 4 minor violations in content areas (funding H1, FAQ links, heading order)
-
-**Technical Notes**:
-
-- Third-party iframe violations (aria-hidden-focus, aria-prohibited-attr, label-title-only, nested-interactive, tabindex) originate from embedded ArcGIS web application and cannot be resolved without vendor updates
-- All application-controlled accessibility barriers have been addressed while preserving full functionality
-- Map accessibility improvements provide comprehensive bypass mechanisms and alternative access methods for users who cannot interact with the embedded map interface
-
-**Audit Tools**: axe-core 4.10.3, local testing environment, automated violation detection with manual verification
+1. **Accuracy** - All documentation reflects current implementation
+2. **Completeness** - Comprehensive coverage of all major features
+3. **Maintainability** - Easy to update and keep current
+4. **Clarity** - Written for developers of all experience levels
+5. **Consolidation** - Related topics grouped together, no duplication
 
 ---
 
-**Need more details?** Visit the [comprehensive documentation](https://r3.illinois.gov/documentation/project/) for complete development guides, API references, and troubleshooting information.
+**Last Updated:** January 9, 2026  
+**Maintained by:** ICJIA Development Team

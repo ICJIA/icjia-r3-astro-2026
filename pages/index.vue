@@ -236,6 +236,22 @@ const { data: news } = await useAsyncData(`news-home`, async () => {
   return post;
 });
 
+// SEO Configuration for Homepage
+usePageSeo({
+  title: 'Restore. Reinvest. Renew.',
+  description: 'The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through economic development, violence prevention, reentry, and civil legal aid services.',
+  path: '/',
+  keywords: ['R3', 'Restore Reinvest Renew', 'Illinois grants', 'community investment', 'criminal justice reform', 'reentry programs', 'violence prevention', 'economic development'],
+})
+
+// Add Website structured data with search functionality
+useWebsiteSchema()
+
+// Add breadcrumb for homepage
+useBreadcrumbListSchema([
+  { name: 'Home', url: '/' }
+])
+
 /**
  * Sorted and limited news articles for homepage display.
  * Shows the 2 most recent news articles ordered by post date.

@@ -81,36 +81,11 @@ watchEffect(() => {
   }
 });
 
-useHead({
-  link: [
-    {
-      rel: "icon",
-      type: "image/png",
-      href: "/favicon.ico",
-    },
-  ],
-  meta: [
-    // { name: "og:url", content: fullPath.value },
-    {
-      hid: "og-image",
-      property: "og:image",
-      content: "https://r3.illinois.gov/icjia-logo.png",
-    },
-    {
-      hid: "og-image-width",
-      property: "og:image:width",
-      content: "1200",
-    },
-    {
-      hid: "og-image-height",
-      property: "og:image:height",
-      content: "630",
-    },
-  ],
-  htmlAttrs: {
-    lang: "en",
-  },
-});
+// Apply site-wide SEO configuration
+useSiteSeo();
+
+// Add organization structured data for the site
+useGovernmentOrganizationSchema();
 
 // const page = useCurrentPage({ slug: "slug-here" });
 // console.log(page);

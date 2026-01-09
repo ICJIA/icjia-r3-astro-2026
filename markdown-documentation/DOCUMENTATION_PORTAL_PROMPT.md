@@ -1,8 +1,8 @@
 # Documentation Portal Creation Prompt (Nuxt 4 + Vuetify 3)
 
-**Version**: 1.0.3  
-**Last Updated**: January 8, 2026  
-**Purpose**: Comprehensive prompt for LLMs to create a documentation portal with testing, accessibility auditing, and JSDoc generation for any Nuxt 4 + Vuetify 3 application.
+**Version**: 1.0.4  
+**Last Updated**: January 9, 2026  
+**Purpose**: Comprehensive prompt for LLMs to create a documentation portal with testing, accessibility auditing, JSDoc generation, and SEO optimization for any Nuxt 4 + Vuetify 3 application.
 
 ---
 

@@ -39,14 +39,23 @@ const { data } = await useAsyncData(`content-${path}`, async () => {
   return page;
 });
 
-useHead({
-  title: data.value?.title || "Frequently Asked Questions",
-  meta: [
-    {
-      hid: "description",
-      name: "description",
-      content: data.value?.summary || "R3 Frequently Asked Questions",
-    },
-  ],
-});
+// SEO Configuration for FAQs page
+usePageSeo({
+  title: data.value?.title || 'Frequently Asked Questions',
+  description: data.value?.summary || 'Find answers to frequently asked questions about the R3 (Restore, Reinvest, Renew) program, including eligibility, funding, application process, and more.',
+  path: '/faqs',
+  keywords: ['R3 FAQs', 'frequently asked questions', 'R3 eligibility', 'grant questions', 'application help'],
+})
+
+// Add WebPage structured data
+useWebPageSchema({
+  name: data.value?.title || 'R3 Frequently Asked Questions',
+  description: data.value?.summary || 'Find answers to common questions about the R3 program',
+})
+
+// Add breadcrumb schema
+useBreadcrumbListSchema([
+  { name: 'Home', url: '/' },
+  { name: 'FAQs', url: '/faqs' }
+])
 </script>
