@@ -40,9 +40,7 @@
     "docs:jsdoc": "nuxt prepare && typedoc",
     "docs:all": "yarn test && yarn audit:a11y && yarn docs:jsdoc",
     "docs:dry-run": "yarn preflight && yarn ensure:docs && node --check ./audit-accessibility.js && node --check ./scripts/ensure-accessibility-report.js && node --check ./test/run-all-tests.mjs && yarn test && yarn docs:jsdoc",
-    "postinstall": "nuxt prepare",
-    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore . --fix",
-    "lint": "npm run lint:js"
+    "postinstall": "nuxt prepare"
   },
   "resolutions": {
     "string-width": "4.2.3"
