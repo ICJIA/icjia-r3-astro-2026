@@ -1,381 +1,52 @@
 <template>
   <div>
-    <!-- Always render H1 for accessibility -->
+    <TheBreadcrumbBar></TheBreadcrumbBar>
     <v-container>
       <v-row>
-        <v-col>
-          <h1 class="mb-10" style="border: none">
-            R3 Frequently Asked Questions
-          </h1>
-        </v-col>
-      </v-row>
-    </v-container>
-
-    <!-- Coming Soon Message -->
-    <v-container>
-      <v-row>
-        <v-col cols="12" class="text-center">
-          <div class="coming-soon-container">
-            <h2 class="coming-soon-text">Coming Soon!</h2>
-            <p class="contact-message">
-              For more information, please
-              <nuxt-link to="/contact" class="contact-link">contact us</nuxt-link>.
-            </p>
+        <v-col cols="12">
+          <div v-if="data" class="mt-6">
+            <h1>{{ data.title }}</h1>
+            <ContentDoc
+              :key="data?.title"
+              :value="data"
+              class="markdown-body"
+            >
+              <template #empty>Document not found</template>
+              <template #not-found>Document not found</template>
+            </ContentDoc>
+          </div>
+          <div v-else>
+            <the-page-loader></the-page-loader>
           </div>
         </v-col>
       </v-row>
     </v-container>
-
-    <!-- Commented out for future use - FAQs will be restored in a few weeks -->
-    <!--
-    <div v-if="isMounted">
-      <div class="hidden-sm-and-down" style="margin-bottom: 80px">
-        <v-app-bar
-          app
-          elevation="6"
-          class="header"
-          density="compact"
-          color="#0D4474"
-        >
-          <v-container fluid
-            ><v-row
-              ><v-col cols="11">
-                <v-form class="pl-2 mt-4" style="margin-top: -15px">
-                  <v-text-field
-                    append-inner-icon="mdi-magnify"
-                    id="textfield"
-                    ref="textfield"
-                    focused
-                    v-model="query"
-                    density="compact"
-                    label="Search R3 FAQs below"
-                    style="font-weight: 900; width: 100%"
-                    autocomplete="off"
-                    color="white"
-                    @keypress.enter.prevent
-                    @input="performMark"
-                  />
-                </v-form> </v-col></v-row
-          ></v-container>
-
-          <span
-            class="text-right fade-in-text"
-            style="width: 350px; margin-bottom: 2px"
-          >
-            <v-btn
-              size="x-small"
-              variant="text"
-              style="background: #fff; color: #000"
-            >
-              <span style="font-weight: 900"
-                >Showing {{ currentIndex }} of
-                {{ results ? results.length : 0 }}</span
-              ></v-btn
-            >&nbsp;&nbsp;&nbsp;&nbsp;
-          </span>
-          <v-btn
-            size="x-small"
-            append-icon="mdi-arrow-up"
-            elevation="2"
-            variant="tonal"
-            :disabled="isPrevDisabled"
-            @click="updateCountIndex('prev')"
-            dark
-            style="font-weight: 900"
-            >Previous</v-btn
-          >&nbsp;&nbsp;
-          <v-btn
-            size="x-small"
-            append-icon="mdi-arrow-down"
-            elevation="2"
-            variant="tonal"
-            :disabled="isNextDisabled"
-            style="font-weight: 900"
-            @click="updateCountIndex('next')"
-            >Next</v-btn
-          >&nbsp;&nbsp;
-          <v-btn
-            size="x-small"
-            elevation="0"
-            append-icon="mdi-close-circle"
-            @click="clear"
-            >Clear</v-btn
-          >
-        </v-app-bar>
-      </div>
-
-      <v-container
-        ><v-row
-          ><v-col>
-            <div style="margin-top: -25px">
-              <v-card class="px-8 py-5 mb-12">
-                <div class="context">
-                  <div class="pl-5">
-                    <h2 class="mt-12 title-link">
-                      08-29-2024: 2025 R3 Final FAQs&nbsp;
-                    </h2>
-                    <div>
-                      <ul>
-                        <li>
-                          <a
-                            href="https://r3.icjia-api.cloud/uploads/ICJIA_SFY_25_R3_AWARD_FAQS_FINAL_v2_9100380adb.pdf"
-                            >Final SFY25 R3 Frequently Asked Questions</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div></div>
-
-                  <div
-                    v-for="item in sortedFaqs"
-                    :key="item.title"
-                    class="pl-5"
-                  >
-                    <nuxt-link
-                      :to="item.path"
-                      style="text-decoration: none !important"
-                    >
-                      <h2 class="mt-12 title-link">{{ item.title }}&nbsp;</h2>
-                    </nuxt-link>
-                    <attachmentsv2
-                      :attachments="item.attachment.data"
-                      :attachmentHeading="item.attachmentHeading"
-                      class="mt-6"
-                    />
-
-                    <div class="px-5 mt-4">
-                      <span v-html="renderer.render(item.markdown)"></span>
-                    </div>
-                  </div></div
-              ></v-card>
-            </div> </v-col></v-row
-      ></v-container>
-    </div>
-    <div v-else>
-      <the-page-loader></the-page-loader>
-    </div>
-    -->
   </div>
 </template>
 
 <script setup>
-// Commented out for future use - will be restored when FAQs are added back
-/*
-import md from "markdown-it";
-import attrs from "markdown-it-attrs";
-const renderer = new md({
-  html: true,
-  xhtmlOut: false,
-  breaks: false,
-  langPrefix: "language-",
-  linkify: true,
-  typographer: true,
-  quotes: ""''",
-}).use(attrs);
-import _ from "lodash";
-import moment from "moment";
-const query = ref("");
-const results = ref(null);
-const currentIndex = ref(0);
-const currentClass = ref("current");
-const isNextDisabled = ref(false);
-const isPrevDisabled = ref(false);
+/**
+ * FAQs index page component
+ * Displays the FAQ content from /content/faqs.md which is generated
+ * from Strapi via the createMarkdownPages.js creator script.
+ */
 
-const isMounted = ref(false);
-// const markInstance = ref(null);
-const { path } = useRoute();
-const router = useRouter();
-const { data: faqs } = await useAsyncData(`faqs-${path}`, async () => {
-  const post = await queryContent("/faqs").find();
-  return post;
+const path = '/faqs';
+
+// Fetch the FAQs page content
+const { data } = await useAsyncData(`content-${path}`, async () => {
+  const page = await queryContent().where({ _path: path }).findOne();
+  return page;
 });
-const sortedFaqs = _.orderBy(faqs.value, ["postDate"], ["desc"]);
-
-const route = useRoute();
-const routePath = ref(route.path);
-// console.log(routePath);
-
-const options = {
-  accuracy: "partially",
-  separateWordSearch: false,
-  acrossElements: true,
-};
-
-watch(query, (newQ) => {
-  if (newQ.length < 1) {
-    clear();
-  } else {
-    isNextDisabled.value = false;
-    isPrevDisabled.value = false;
-  }
-});
-*/
 
 useHead({
-  title: "Frequently Asked Questions",
+  title: data.value?.title || "Frequently Asked Questions",
   meta: [
     {
       hid: "description",
       name: "description",
-      content: "R3 Frequently Asked Questions",
+      content: data.value?.summary || "R3 Frequently Asked Questions",
     },
   ],
 });
-
-// Commented out for future use
-/*
-const updateCountIndex = (strBtn) => {
-  //console.log("strBtn: ", strBtn);
-  if (currentIndex.value.length === 0 || query.value.length === 0) {
-    return;
-  }
-  if (results.value.length > 0 && query.value.length > 0) {
-    if (strBtn === "next") {
-      if (currentIndex.value <= results.value.length - 1) {
-        currentIndex.value++;
-      }
-    }
-
-    if (strBtn === "prev") {
-      if (currentIndex.value > 0) {
-        currentIndex.value--;
-      } else {
-        currentIndex.value = 0;
-      }
-    }
-  }
-  if (currentIndex.value > 0) {
-    results.value[currentIndex.value - 1].scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "center",
-    });
-    var elems = document.querySelectorAll(".current");
-    for (var i = 0; i < elems.length; i++) {
-      elems[i].classList.remove(currentClass.value);
-    }
-
-    results.value[currentIndex.value - 1].classList.add(currentClass.value);
-  } else {
-    var elems = document.querySelectorAll(".current");
-    for (var i = 0; i < elems.length; i++) {
-      elems[i].classList.remove(currentClass.value);
-    }
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-};
-
-const performMark = () => {
-  let markInstance = new Mark(document.querySelector(".context"));
-  markInstance.unmark({
-    done: function () {
-      markInstance.mark(query.value, options);
-      results.value = document.querySelectorAll("[data-markjs]");
-      currentIndex.value = 0;
-    },
-  });
-};
-
-const clear = () => {
-  query.value = "";
-  performMark();
-
-  currentIndex.value = 0;
-  results.value = null;
-  // isNextDisabled.value = true;
-  // isPrevDisabled.value = true;
-  const el = document.getElementById("textfield");
-  el.focus();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
-onMounted(async () => {
-  isMounted.value = true;
-  await nextTick();
-  await nextTick();
-
-  const el = document.getElementById("textfield");
-  el.focus();
-});
-*/
 </script>
-
-<style lang="scss">
-/* Coming Soon Styles */
-.coming-soon-container {
-  padding: 80px 20px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.coming-soon-text {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #333;
-}
-
-.contact-message {
-  font-size: 1.25rem;
-  color: #555;
-  margin-top: 16px;
-}
-
-.contact-link {
-  color: #0D4474;
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-.contact-link:hover {
-  color: #0a3558;
-  text-decoration: none;
-}
-
-@media (max-width: 959px) {
-  .coming-soon-text {
-    font-size: 2rem;
-  }
-  .contact-message {
-    font-size: 1.1rem;
-  }
-}
-
-/* Commented out styles for future use */
-/*
-.title-link:hover {
-  color: #888 !important;
-  text-decoration: none !important;
-}
-
-mark.current {
-  background: orange !important;
-}
-.header {
-  padding: 10px;
-  width: 100%;
-  background: #ddd;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99999;
-}
-
-.fade-in-text {
-  animation: fadeIn 2s;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-*/
-</style>
