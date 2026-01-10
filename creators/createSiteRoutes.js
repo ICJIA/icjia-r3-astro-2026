@@ -8,15 +8,19 @@
  *
  * @requires module:uuid - For generating unique identifiers
  * @requires module:jsonfile - For JSON file operations
- * @requires module:dotenv - For environment variable management
  *
  * @since 1.0.0
  */
 
-const { v4: uuidv4 } = require("uuid");
-const jsonfile = require("jsonfile");
-const fs = require("fs");
-const path = require("path");
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import { v4 as uuidv4 } from "uuid";
+import jsonfile from "jsonfile";
+import fs from "fs";
+import path from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /**
  * Safely require a JSON file, returning empty array if file doesn't exist
@@ -27,7 +31,8 @@ function safeRequireRoutes(filePath) {
   const fullPath = path.join(__dirname, "..", filePath);
   try {
     if (fs.existsSync(fullPath)) {
-      return require(fullPath);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      return JSON.parse(fileContents);
     } else {
       console.warn(`⚠️  Warning: ${filePath} not found, using empty array`);
       return [];
@@ -86,9 +91,6 @@ const resourceRoutes = safeRequireRoutes("public/routesResources.json");
  * @type {Array<string>}
  */
 const myManualRoutes = safeRequireRoutes("public/routesManual.json");
-
-const dotenv = require("dotenv");
-dotenv.config();
 
 /**
  * Consolidated application routes array.

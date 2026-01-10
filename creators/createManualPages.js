@@ -8,7 +8,6 @@
  * 2. Generates pages.json entries for manual pages
  * 3. Creates routes for manual pages in routesPages.json
  *
- * @requires module:dotenv - For environment variable management
  * @requires module:fs - For file system operations
  * @requires module:path - For path manipulation
  * @requires module:axios - For HTTP requests (if needed)
@@ -20,20 +19,21 @@
  * @since 1.0.0
  */
 
-/* eslint-disable @typescript-eslint/no-var-requires */
-require("dotenv").config();
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import axios from "axios";
+import moment from "moment";
+import jsonfile from "jsonfile";
+import _ from "lodash";
+import { v4 as uuidv4 } from "uuid";
+import { config } from "../config.js";
 
-const fs = require("fs");
-const path = require("path");
-const axios = require("axios");
-const moment = require("moment");
-const jsonfile = require("jsonfile");
-const _ = require("lodash");
-const { v4: uuidv4 } = require("uuid");
-// const yaml = require("yaml");
-// const contentDir = path.join(__dirname, "../content");
-const SITE_URL = process.env.NUXT_PUBLIC_BASE_URL;
-// const API = process.env.NUXT_PUBLIC_API_BASE_URL;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const SITE_URL = config.site.url;
 
 const manualPages = [
   {

@@ -9,7 +9,6 @@
  * 3. Converts markdown to HTML with proper formatting
  * 4. Generates styled HTML documentation pages
  *
- * @requires module:dotenv - For environment variable management
  * @requires module:fs - For file system operations
  * @requires module:path - For path manipulation
  * @requires module:markdown-it - For markdown to HTML conversion
@@ -19,13 +18,16 @@
  * @since 1.0.0
  */
 
-require("dotenv").config();
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import MarkdownIt from "markdown-it";
+import markdownItAttrs from "markdown-it-attrs";
+import markdownItAnchor from "markdown-it-anchor";
 
-const fs = require("fs");
-const path = require("path");
-const MarkdownIt = require("markdown-it");
-const markdownItAttrs = require("markdown-it-attrs");
-const markdownItAnchor = require("markdown-it-anchor");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Initialize markdown parser with project configuration
 const md = new MarkdownIt({

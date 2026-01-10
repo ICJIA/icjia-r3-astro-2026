@@ -3,15 +3,15 @@
  * Processes Vue Single File Components for JSDoc documentation
  */
 
-const { compileScript, parse } = require('@vue/compiler-sfc');
-const fs = require('fs');
-const path = require('path');
+import { compileScript, parse } from '@vue/compiler-sfc';
+import fs from 'fs';
+import path from 'path';
 
 /**
  * JSDoc plugin to handle Vue Single File Components
  * @param {Object} dictionary - JSDoc dictionary
  */
-exports.handlers = {
+export const handlers = {
   /**
    * Process files before parsing
    * @param {Object} e - Event object
@@ -73,7 +73,7 @@ exports.handlers = {
 /**
  * Define tags for Vue-specific documentation
  */
-exports.defineTags = function(dictionary) {
+export function defineTags(dictionary) {
   dictionary.defineTag('component', {
     mustHaveValue: false,
     onTagged: function(doclet, tag) {

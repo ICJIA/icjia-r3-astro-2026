@@ -11,8 +11,13 @@
  * - API docs:     `yarn docs:jsdoc`
  */
 
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const projectRoot = path.resolve(__dirname, "..");
 

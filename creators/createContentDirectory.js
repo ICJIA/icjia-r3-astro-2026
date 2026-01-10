@@ -15,11 +15,14 @@
  * @since 1.0.0
  */
 
-/* eslint-disable @typescript-eslint/no-var-requires */
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import fsExtra from "fs-extra";
 
-const fs = require("fs");
-const path = require("path");
-const fsExtra = require("fs-extra");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /**
  * Path to the content directory that will be cleared.

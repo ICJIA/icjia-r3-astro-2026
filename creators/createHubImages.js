@@ -17,6 +17,7 @@
  */
 
 import { createRequire } from "module";
+import { config } from "../config.js";
 const require = createRequire(import.meta.url);
 const jsonfile = require("jsonfile");
 const fs = require("fs");
@@ -88,7 +89,7 @@ const query = `query {
  * @throws {Error} If the API request fails or returns invalid data
  */
 axios
-  .create({ baseURL: "https://researchhub.icjia-api.cloud" })
+  .create({ baseURL: config.api.researchHub })
   .post("/graphql", { query, validateStatus: (status) => status === 200 })
   .then((res) => {
     const articles = res.data.data.articles;

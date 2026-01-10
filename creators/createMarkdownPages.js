@@ -9,7 +9,6 @@
  * 3. Generates markdown files in the content directory
  * 4. Creates pages.json and routesPages.json files for application use
  *
- * @requires module:dotenv - For environment variable management
  * @requires module:fs - For file system operations
  * @requires module:path - For path manipulation
  * @requires module:axios - For HTTP requests to the GraphQL API
@@ -20,16 +19,15 @@
  * @since 1.0.0
  */
 
-/* eslint-disable @typescript-eslint/no-var-requires */
-require("dotenv").config();
-
-const fs = require("fs");
-const path = require("path");
-const axios = require("axios");
-const jsonfile = require("jsonfile");
-const _ = require("lodash");
-const yaml = require("yaml");
-const {
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import axios from "axios";
+import jsonfile from "jsonfile";
+import _ from "lodash";
+import yaml from "yaml";
+import {
   validateEnvironment,
   withRetry,
   safeWriteFile,
@@ -37,15 +35,16 @@ const {
   ensureDirectory,
   validateApiResponse,
   runScript,
-} = require("./utils/errorHandler");
+} from "./utils/errorHandler.js";
+import { config } from "../config.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const contentDir = path.join(__dirname, "../content");
 
-// Validate required environment variables
-validateEnvironment(["NUXT_PUBLIC_BASE_URL", "NUXT_PUBLIC_API_BASE_URL"]);
-
-const SITE_URL = process.env.NUXT_PUBLIC_BASE_URL;
-const API = process.env.NUXT_PUBLIC_API_BASE_URL;
+const SITE_URL = config.site.url;
+const API = config.api.base;
 
 const query = `query {
     pages {

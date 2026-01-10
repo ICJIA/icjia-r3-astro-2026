@@ -14,8 +14,8 @@
  * @since 1.0.0
  */
 
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
 
 const PORTAL_PATH = path.join(process.cwd(), "public", "documentation", "index.html");
 const BACKUP_PATH = path.join(process.cwd(), "public", "documentation", "portal.html");

@@ -16,7 +16,6 @@
       a(b).after(k).remove();
       g[h - 1] = k;
     }
-    console.log("a11y: " + this.length + " non-passing aria tags replaced.");
     return a(g);
   };
 
@@ -26,19 +25,10 @@
     el.innerHTML = replacementText;
     el.classList.add("aria-hidden");
     $(this).append(el);
-    console.log(
-      "a11y: " + $(this).length + " empty elements replaced: " + replacementText
-    );
   };
 
   a.fn.removeRedundantAttributes = function (attr) {
     $(this).removeAttr(attr);
-    console.log(
-      "a11y: " +
-        $(this).length +
-        " incorrect or redundant attributes removed: " +
-        attr
-    );
   };
 
   a.fn.addAriaLabel = function (text) {
@@ -46,7 +36,6 @@
       "aria-label",
       "Click this to toggle between showing and hiding news article"
     );
-    console.log("a11y: " + $(this).length + " aria labels added: " + text);
   };
 })(window.jQuery);
 
@@ -58,12 +47,9 @@
   var sz = document.createElement("script");
   sz.type = "text/javascript";
   sz.async = true;
-
   sz.src = "//siteimproveanalytics.com/js/siteanalyze_6123065.js";
-
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(sz, s);
-  console.log("a11y: DoIT snippet loaded");
 })();
 
 /*]]>*/

@@ -172,14 +172,19 @@ const AXE_VERSION_DEFAULT = "4.11.0";
  * ============================================================================
  */
 
-const puppeteer = require("puppeteer");
-const axeCore = require("axe-core");
-const { parseStringPromise } = require("xml2js");
-const fs = require("fs");
-const path = require("path");
-const http = require("http");
-const https = require("https");
-const { spawn } = require("child_process");
+import puppeteer from "puppeteer";
+import axeCore from "axe-core";
+import { parseStringPromise } from "xml2js";
+import fs from "fs";
+import path from "path";
+import http from "http";
+import https from "https";
+import { spawn } from "child_process";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const SITEMAP_PATH = path.join(__dirname, ...SITEMAP_PATH_CONFIG.split("/"));
 const OUTPUT_DIR = path.join(__dirname, ...OUTPUT_DIR_CONFIG.split("/"));

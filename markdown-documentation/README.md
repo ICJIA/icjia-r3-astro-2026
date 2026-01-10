@@ -6,25 +6,55 @@ This directory contains comprehensive documentation for the ICJIA R3 Nuxt applic
 
 ### 🎯 Active Documentation (Current)
 
-1. **[DOCUMENTATION_PORTAL_PROMPT.md](./DOCUMENTATION_PORTAL_PROMPT.md)**
+1. **[PROJECT_REVIEW.md](./PROJECT_REVIEW.md)**
+   - **Purpose:** Comprehensive project strengths and weaknesses analysis
+   - **Status:** ✅ Active - January 10, 2026
+   - **Audience:** Developers, project managers, stakeholders
+   - **Content:** Complete project review covering architecture, code quality, strengths, weaknesses, and recommendations
+
+2. **[CONFIG_SYSTEM.md](./CONFIG_SYSTEM.md)**
+   - **Purpose:** Centralized configuration system guide (replaces environment variables)
+   - **Status:** ✅ Active - January 10, 2026
+   - **Audience:** Developers
+   - **Content:** Complete guide for using the centralized config.js system, migration from environment variables
+
+3. **[IMPROVEMENT_REVIEW.md](./IMPROVEMENT_REVIEW.md)**
+   - **Purpose:** Error handling and testing improvements documentation
+   - **Status:** ✅ Active - January 10, 2026
+   - **Audience:** Developers
+   - **Content:** Detailed review of error handling improvements, test coverage expansion, and code quality enhancements
+
+4. **[DOCUMENTATION_PORTAL_PROMPT.md](./DOCUMENTATION_PORTAL_PROMPT.md)**
    - **Purpose:** LLM prompt for creating documentation portals
    - **Status:** ✅ Active - Version 1.0.4
    - **Audience:** Developers, AI assistants
    - **Content:** Complete guide for setting up docs portal with testing, accessibility audits, and TypeDoc
 
-2. **[SEO_IMPLEMENTATION_GUIDE.md](./SEO_IMPLEMENTATION_GUIDE.md)**
+5. **[SEO_IMPLEMENTATION_GUIDE.md](./SEO_IMPLEMENTATION_GUIDE.md)**
    - **Purpose:** Comprehensive SEO implementation documentation
    - **Status:** ✅ Active - Current
    - **Audience:** Developers
    - **Content:** Complete SEO system with composables, structured data, meta tags, and best practices
 
-3. **[SEO_QUICK_REFERENCE.md](./SEO_QUICK_REFERENCE.md)**
+6. **[SEO_QUICK_REFERENCE.md](./SEO_QUICK_REFERENCE.md)**
    - **Purpose:** Quick reference for using SEO composables
    - **Status:** ✅ Active - Current
    - **Audience:** Developers
    - **Content:** Quick usage examples and common patterns
 
-4. **[NUXT4_REFERENCE.md](./NUXT4_REFERENCE.md)** *(consolidated)*
+7. **[ACCESSIBILITY_FIXES.md](./ACCESSIBILITY_FIXES.md)**
+   - **Purpose:** Documentation portal accessibility improvements
+   - **Status:** ✅ Active - Historical reference
+   - **Audience:** Developers
+   - **Content:** Accessibility fixes and 100/100 Lighthouse scores
+
+8. **[ESM_MIGRATION.md](./ESM_MIGRATION.md)**
+   - **Purpose:** ECMAScript Modules (ESM) migration documentation
+   - **Status:** ✅ Active - January 10, 2026
+   - **Audience:** Developers
+   - **Content:** Complete ESM migration guide - challenges, solutions, and best practices
+
+9. **[NUXT4_REFERENCE.md](./NUXT4_REFERENCE.md)** *(consolidated)*
    - **Purpose:** Nuxt 4 migration reference and notes
    - **Status:** ✅ Active - Historical reference
    - **Audience:** Developers, future maintainers
@@ -43,9 +73,14 @@ These files have been consolidated into `NUXT4_REFERENCE.md`:
 ```
 markdown-documentation/
 ├── README.md                              # This file - documentation index
+├── PROJECT_REVIEW.md                      # Comprehensive project review
+├── CONFIG_SYSTEM.md                       # Centralized configuration guide
+├── IMPROVEMENT_REVIEW.md                  # Error handling improvements review
 ├── DOCUMENTATION_PORTAL_PROMPT.md         # Docs portal creation guide
 ├── SEO_IMPLEMENTATION_GUIDE.md            # Comprehensive SEO documentation
 ├── SEO_QUICK_REFERENCE.md                 # SEO quick reference
+├── ACCESSIBILITY_FIXES.md                 # Accessibility improvements
+├── ESM_MIGRATION.md                       # ESM migration guide
 └── NUXT4_REFERENCE.md                     # Consolidated Nuxt 4 reference
 ```
 
@@ -55,8 +90,10 @@ markdown-documentation/
 
 Start with:
 1. Main project [README.md](../README.md) - Project overview and setup
-2. [SEO_QUICK_REFERENCE.md](./SEO_QUICK_REFERENCE.md) - Quick SEO usage
-3. [DOCUMENTATION_PORTAL_PROMPT.md](./DOCUMENTATION_PORTAL_PROMPT.md) - Understanding the docs system
+2. [PROJECT_REVIEW.md](./PROJECT_REVIEW.md) - Understand project strengths and areas for improvement
+3. [CONFIG_SYSTEM.md](./CONFIG_SYSTEM.md) - Learn the configuration system
+4. [SEO_QUICK_REFERENCE.md](./SEO_QUICK_REFERENCE.md) - Quick SEO usage
+5. [DOCUMENTATION_PORTAL_PROMPT.md](./DOCUMENTATION_PORTAL_PROMPT.md) - Understanding the docs system
 
 ### For SEO Work
 
@@ -101,9 +138,14 @@ Start with:
 
 | Document | Status | Last Updated | Version |
 |----------|--------|--------------|---------|
+| PROJECT_REVIEW.md | ✅ Active | Jan 10, 2026 | 1.0.0 |
+| CONFIG_SYSTEM.md | ✅ Active | Jan 10, 2026 | 1.0.0 |
+| IMPROVEMENT_REVIEW.md | ✅ Active | Jan 10, 2026 | 1.0.0 |
 | DOCUMENTATION_PORTAL_PROMPT.md | ✅ Active | Jan 9, 2026 | 1.0.4 |
 | SEO_IMPLEMENTATION_GUIDE.md | ✅ Active | Jan 9, 2026 | 1.0.0 |
 | SEO_QUICK_REFERENCE.md | ✅ Active | Jan 9, 2026 | 1.0.0 |
+| ACCESSIBILITY_FIXES.md | ✅ Active | Jan 9, 2026 | 1.0.0 |
+| ESM_MIGRATION.md | ✅ Active | Jan 10, 2026 | 1.0.0 |
 | NUXT4_REFERENCE.md | ✅ Active | Jan 9, 2026 | 1.0.0 |
 
 ## 🔗 Related Documentation
@@ -125,5 +167,5 @@ This documentation follows these principles:
 
 ---
 
-**Last Updated:** January 9, 2026  
+**Last Updated:** January 10, 2026  
 **Maintained by:** ICJIA Development Team

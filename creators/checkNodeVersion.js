@@ -6,8 +6,7 @@
  * Why: Several dependencies (e.g. `uuid@11`) ship modern JS syntax that will
  * throw parse errors on older Node versions (e.g. `??=`).
  *
- * This script intentionally uses very conservative JS syntax so it can run on
- * older Node versions and provide a helpful error message.
+ * This script uses ESM syntax and requires Node 22+
  *
  * @requires module:fs - For reading .node-version file
  * @requires module:path - For path manipulation
@@ -17,8 +16,13 @@
 
 /* eslint-disable no-console */
 
-var fs = require("fs");
-var path = require("path");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 function readFileTrim(filePath) {
   try {
@@ -30,8 +34,8 @@ function readFileTrim(filePath) {
 
 function parseMajor(version) {
   // Accepts "v20.19.0" or "20.19.0"
-  var v = String(version || "").replace(/^v/, "");
-  var major = parseInt(v.split(".")[0], 10);
+  const v = String(version || "").replace(/^v/, "");
+  const major = parseInt(v.split(".")[0], 10);
   return isFinite(major) ? major : 0;
 }
 
@@ -40,12 +44,12 @@ function formatVersion(version) {
   return String(version).replace(/^v/, "");
 }
 
-var repoRoot = path.resolve(__dirname, "..");
-var desiredNode = readFileTrim(path.join(repoRoot, ".node-version")); // e.g. "20.19.0"
-var currentNode = process && process.versions ? process.versions.node : "";
+const repoRoot = path.resolve(__dirname, "..");
+const desiredNode = readFileTrim(path.join(repoRoot, ".node-version")); // e.g. "20.19.0"
+const currentNode = process && process.versions ? process.versions.node : "";
 
-var desiredMajor = parseMajor(desiredNode) || 20;
-var currentMajor = parseMajor(currentNode);
+const desiredMajor = parseMajor(desiredNode) || 20;
+const currentMajor = parseMajor(currentNode);
 
 if (currentMajor && currentMajor < desiredMajor) {
   console.error("");

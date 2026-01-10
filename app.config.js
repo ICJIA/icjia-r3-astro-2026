@@ -1,13 +1,50 @@
 /**
- * @fileoverview Application configuration for the ICJIA R3 Nuxt 3 application.
+ * @fileoverview Nuxt App Config - Runtime Reactive Configuration
  *
- * This file contains the main application configuration including site metadata,
- * API endpoints, navigation structure, splash content, and tool definitions.
- * It serves as the central configuration hub for the R3 application.
+ * PURPOSE: This file exposes REACTIVE configuration to the application at runtime.
+ * These values can be accessed in components, pages, and composables using useAppConfig().
  *
+ * USE THIS FILE FOR:
+ * - Navigation menus (nav structure that might be updated)
+ * - UI configuration (themes, layout settings)
+ * - Content configuration (splash screens, homepage tools)
+ * - Runtime-updatable settings
+ * - Client-side accessible configuration
+ *
+ * ACCESS: Via Nuxt composable
+ * Example: const appConfig = useAppConfig()
+ * Then access: appConfig.navMenu, appConfig.splash, etc.
+ *
+ * FEATURES:
+ * - ✅ Reactive - changes propagate to components
+ * - ✅ Hot Module Replacement (HMR) support in development
+ * - ✅ Can be updated at runtime via updateAppConfig()
+ * - ✅ Accessible on both server and client side
+ *
+ * ⚠️ IMPORTANT DISTINCTION:
+ * This file is DIFFERENT from config.js:
+ * - app.config.js: REACTIVE, runtime values (navigation, UI) - accessed via useAppConfig()
+ * - config.js: STATIC values (API URLs, endpoints) - used at build time by creator scripts
+ *
+ * NOTE: This file cannot import from config.js because Nuxt transforms imports during build.
+ * Values are duplicated here for runtime use. Keep config.js and app.config.js in sync!
+ *
+ * @see https://nuxt.com/docs/api/composables/use-app-config
  * @config app.config.js
  * @since 1.0.0
  */
+
+/**
+ * Static configuration values (duplicated from config.js for Nuxt runtime)
+ * Keep these in sync with config.js!
+ */
+const SITE_NAME = "R3 - Restore, Reinvest, Renew";
+const SITE_DESCRIPTION = "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment.";
+const SITE_URL = "https://r3.illinois.gov";
+const API_BASE = "https://r3.icjia-api.cloud";
+const UNDER_CONSTRUCTION = false;
+const AMPLIFUND_OPPORTUNITY_1 = "https://il.amplifund.com/Public/Opportunities/Details/025c7e5e-0584-4bab-b2ce-c6528f5c132e";
+const AMPLIFUND_OPPORTUNITY_2 = "https://il.amplifund.com/Public/Opportunities/Details/41c400bd-795c-444a-a8db-9bad138127be";
 
 /**
  * Main application configuration object.
@@ -24,59 +61,15 @@
  * @property {Array<Object>} navMenu - Main navigation menu structure
  */
 export default defineAppConfig({
-  /**
-   * Application title used for SEO and browser display.
-   *
-   * @type {string}
-   */
-  title: "R3 (R3)",
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  api: API_BASE,
+  root: SITE_URL,
+  underConstruction: UNDER_CONSTRUCTION,
 
-  /**
-   * Application description for SEO meta tags.
-   *
-   * @type {string}
-   */
-  description: "R3 description.",
-
-  /**
-   * Base URL for the R3 API endpoints.
-   * Used for fetching content and data from the backend.
-   *
-   * @type {string}
-   */
-  api: "https://r3.icjia-api.cloud",
-
-  /**
-   * Root URL for the application.
-   * Used for generating absolute URLs and canonical links.
-   *
-   * @type {string}
-   */
-  root: "https://r3.illinois.gov",
-
-  /**
-   * Construction status flag.
-   * When true, displays construction notices or restricts access.
-   *
-   * @type {boolean}
-   */
-  underConstruction: false,
-
-  /**
-   * Homepage splash/hero content configuration.
-   * Contains featured content, grant opportunities, and call-to-action items.
-   *
-   * @type {Array<Object>}
-   * @property {string} externalURL - External link for the splash item
-   * @property {string} src - Main image URL for the splash
-   * @property {string} lazySrc - Thumbnail image URL for lazy loading
-   * @property {string} tagline - Descriptive text for the splash item
-   * @property {string} title - Main title for the splash item
-   */
   splash: [
     {
-      externalURL:
-        "https://il.amplifund.com/Public/Opportunities/Details/025c7e5e-0584-4bab-b2ce-c6528f5c132e",
+      externalURL: AMPLIFUND_OPPORTUNITY_1,
       src: "https://r3.icjia-api.cloud/uploads/r32025_1_08392baf96.jpg",
       lazySrc: "https://r3.icjia-api.cloud/uploads/r32025_1_08392baf96.jpg",
       tagline:
@@ -84,8 +77,7 @@ export default defineAppConfig({
       title: "Notice of Funding Opportunity",
     },
     {
-      externalURL:
-        "https://il.amplifund.com/Public/Opportunities/Details/41c400bd-795c-444a-a8db-9bad138127be",
+      externalURL: AMPLIFUND_OPPORTUNITY_2,
       src: "https://r3.icjia-api.cloud/uploads/large_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg",
       lazySrc:
         "https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg",
@@ -94,15 +86,7 @@ export default defineAppConfig({
         "$15M in funding available for service delivery projects proposed to address one or more of the R3 priorities of youth development and violence prevention.",
     },
   ],
-  /**
-   * Quick access tools displayed on the homepage.
-   * Provides easy navigation to key application features and resources.
-   *
-   * @type {Array<Object>}
-   * @property {string} title - Display title for the tool
-   * @property {string} tagline - Descriptive text explaining the tool's purpose
-   * @property {string} link - Internal link path for the tool
-   */
+
   tools: [
     {
       title: "Eligibility",
@@ -126,20 +110,7 @@ export default defineAppConfig({
       link: "/resources",
     },
   ],
-  /**
-   * Main navigation menu structure for the application.
-   * Defines the hierarchical navigation with main items and sub-menus.
-   *
-   * @type {Array<Object>}
-   * @property {string} main - Main navigation item title
-   * @property {string} link - Direct link for main navigation items
-   * @property {string} nudgeLeft - CSS positioning for dropdown alignment
-   * @property {Array<Object>} children - Sub-menu items for dropdown navigation
-   * @property {string} children.section - Section header for grouping menu items
-   * @property {string} children.title - Sub-menu item title
-   * @property {string} children.link - Sub-menu item link
-   * @property {boolean} children.divider - Whether to show a visual divider
-   */
+
   navMenu: [
     {
       main: "Home",

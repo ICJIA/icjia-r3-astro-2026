@@ -25,6 +25,7 @@ Official website for Illinois' R3 Violence Prevention Plan, built with **Nuxt 4*
 - [Critical Concept: Dynamic Content Generation](#critical-concept-dynamic-content-generation)
 - [Project Structure](#project-structure)
 - [Development Workflow](#development-workflow)
+- [Configuration Architecture](#configuration-architecture)
 - [Environment Configuration](#environment-configuration)
 - [Testing & Documentation](#testing--documentation)
 - [Deployment](#deployment)
@@ -96,6 +97,7 @@ The `yarn dev` and `yarn scripts` commands automatically run a preflight check t
 ### Technology Stack
 
 - **Framework**: Nuxt 4.0+ (Vue.js meta-framework)
+- **Module System**: ESM (ECMAScript Modules) - `"type": "module"` in package.json
 - **UI Library**: Vuetify 3.11.3 (Material Design components)
 - **Content Management**: Strapi CMS (headless) + Nuxt Content 2.13.4
 - **Build Tool**: Vite 7.2+ (via Nuxt)
@@ -313,25 +315,126 @@ yarn build
 
 ---
 
-## Environment Configuration
+## Configuration Architecture
 
-### Required Environment Variables
+This project uses **two separate configuration files** that serve different purposes:
 
-Create a `.env` file in the project root:
+### 📁 `config.js` - Static Build-Time Configuration
 
-```bash
-# API Configuration
-NUXT_PUBLIC_API_URL=https://r3.icjia-api.cloud
-NUXT_PUBLIC_RESEARCH_HUB_URL=https://researchhub.icjia-api.cloud
+**Purpose**: Contains static configuration values used at build-time and by server-side scripts.
 
-# Analytics Configuration
-NUXT_PUBLIC_PLAUSIBLE_DOMAIN=r3.illinois.gov
+**Used For**:
+
+- API endpoints and URLs
+- External service URLs (CDN, third-party APIs)
+- Email service endpoints
+- Analytics configuration
+- Build-time settings
+- Values needed by creator scripts
+
+**Access Method**:
+
+```javascript
+import { config } from "./config.js";
+const apiUrl = config.api.base;
 ```
 
-### API Endpoints
+**Characteristics**:
 
-- **Main API**: `NUXT_PUBLIC_API_URL` - Strapi CMS for pages, news, FAQs, resources
-- **Research Hub**: `NUXT_PUBLIC_RESEARCH_HUB_URL` - GraphQL API for research articles
+- ✅ Static values (don't change at runtime)
+- ✅ Used by server-side scripts (`creators/`)
+- ✅ Used in `nuxt.config.js` for build configuration
+- ✅ Version controlled
+- ⚠️ Not reactive
+
+### 📁 `app.config.js` - Runtime Reactive Configuration
+
+**Purpose**: Exposes reactive configuration to the application accessible via `useAppConfig()` composable.
+
+**Used For**:
+
+- Navigation menu structure
+- UI configuration (themes, layouts)
+- Homepage content (splash screens, tools)
+- Runtime-updatable settings
+- Client-side accessible configuration
+
+**Access Method**:
+
+```vue
+<script setup>
+const appConfig = useAppConfig();
+const menu = appConfig.navMenu;
+</script>
+```
+
+**Characteristics**:
+
+- ✅ Reactive (changes propagate to components)
+- ✅ Hot Module Replacement (HMR) in development
+- ✅ Can be updated at runtime with `updateAppConfig()`
+- ✅ Accessible on both server and client
+- ✅ Nuxt-specific feature
+
+### 🔗 How They Work Together
+
+**Important:** Due to Nuxt's build process, `nuxt.config.js` and `app.config.js` **cannot import** from custom modules like `config.js`. Values are therefore **duplicated** in three places:
+
+1. **`config.js`** - Used by creator scripts (build time)
+2. **`nuxt.config.js`** - Inline `CONFIG` object for Nuxt build
+3. **`app.config.js`** - Inline constants for runtime
+
+⚠️ **Keep all three files in sync when updating configuration values!**
+
+```javascript
+// config.js - for creator scripts
+export const config = {
+  site: { url: "https://r3.illinois.gov" },
+  api: { base: "https://r3.icjia-api.cloud" },
+  // ...
+};
+
+// nuxt.config.js - inline values (cannot import config.js)
+const CONFIG = {
+  site: { url: "https://r3.illinois.gov" },
+  api: { base: "https://r3.icjia-api.cloud" },
+  // ...
+};
+
+// app.config.js - inline values (cannot import config.js)
+const SITE_URL = "https://r3.illinois.gov";
+const API_BASE = "https://r3.icjia-api.cloud";
+```
+
+### ✅ Why Both Are Needed
+
+| Feature             | `config.js`           | `app.config.js`                  |
+| ------------------- | --------------------- | -------------------------------- |
+| **Purpose**         | Static configuration  | Runtime UI config                |
+| **Access**          | Direct import         | `useAppConfig()`                 |
+| **Reactivity**      | ❌ No                 | ✅ Yes                           |
+| **HMR Support**     | ❌ No                 | ✅ Yes                           |
+| **Runtime Updates** | ❌ No                 | ✅ Yes (via `updateAppConfig()`) |
+| **Used By**         | Build scripts, server | Components, pages, composables   |
+| **Best For**        | API URLs, endpoints   | Navigation, UI, content          |
+
+**Both files are essential** and serve complementary purposes. Don't remove either one!
+
+📖 **Learn More**: See [Nuxt App Config Documentation](https://nuxt.com/docs/api/composables/use-app-config)
+
+---
+
+## Environment Configuration
+
+### ⚠️ Important: No `.env` File Required
+
+This project uses a **centralized configuration system** via `config.js` and `app.config.js`.
+
+**Environment variables are NOT required** for standard deployment. All configuration is version-controlled and deployed automatically.
+
+See the [Configuration Architecture](#configuration-architecture) section above for details on how configuration works in this project.
+
+### Configuration Files
 
 ### GraphQL Playground
 

@@ -14,7 +14,7 @@
  * @param {Error|any} error - Error object or additional context
  * @param {string} context - Additional context about where the error occurred
  */
-function logError(message, error = null, context = null) {
+export function logError(message, error = null, context = null) {
   console.error("\n" + "=".repeat(80));
   console.error("❌ ERROR:", message);
   if (context) {
@@ -49,7 +49,7 @@ function logError(message, error = null, context = null) {
  * @param {string} message - Warning message
  * @param {any} details - Additional details
  */
-function logWarning(message, details = null) {
+export function logWarning(message, details = null) {
   console.warn("\n⚠️  WARNING:", message);
   if (details) {
     console.warn("   Details:", details);
@@ -62,7 +62,7 @@ function logWarning(message, details = null) {
  * @param {Array<string>} requiredVars - Array of required environment variable names
  * @throws {Error} If any required environment variable is missing
  */
-function validateEnvironment(requiredVars) {
+export function validateEnvironment(requiredVars) {
   const missing = requiredVars.filter((varName) => !process.env[varName]);
   if (missing.length > 0) {
     const errorMessage = `Missing required environment variables: ${missing.join(", ")}`;
@@ -114,7 +114,7 @@ function sleep(ms) {
  * @param {RetryConfig} config - Retry configuration
  * @returns {Promise<any>} Result of the function
  */
-async function withRetry(fn, config = {}) {
+export async function withRetry(fn, config = {}) {
   const retryConfig = { ...defaultRetryConfig, ...config };
   let lastError;
 
@@ -168,7 +168,7 @@ async function withRetry(fn, config = {}) {
  * @param {Function} jsonfile - jsonfile module instance
  * @returns {Promise<void>}
  */
-async function safeWriteFile(filePath, data, jsonfile) {
+export async function safeWriteFile(filePath, data, jsonfile) {
   return new Promise((resolve, reject) => {
     jsonfile.writeFile(filePath, data, { spaces: 2 }, (err) => {
       if (err) {
@@ -192,7 +192,7 @@ async function safeWriteFile(filePath, data, jsonfile) {
  * @param {Object} fs - fs module instance
  * @returns {void}
  */
-function ensureDirectory(dirPath, fs) {
+export function ensureDirectory(dirPath, fs) {
   try {
     if (!fs.existsSync(dirPath)) {
       fs.mkdirSync(dirPath, { recursive: true });
@@ -215,7 +215,7 @@ function ensureDirectory(dirPath, fs) {
  * @param {Object} fs - fs module instance
  * @returns {void}
  */
-function safeWriteFileSync(filePath, content, fs) {
+export function safeWriteFileSync(filePath, content, fs) {
   try {
     fs.writeFileSync(filePath, content, "utf8");
     console.log(`✓ Successfully wrote: ${filePath}`);
@@ -236,7 +236,7 @@ function safeWriteFileSync(filePath, content, fs) {
  * @returns {any} Validated data
  * @throws {Error} If response structure is invalid
  */
-function validateApiResponse(response, expectedPath) {
+export function validateApiResponse(response, expectedPath) {
   if (!response || !response.data) {
     const error = new Error("Invalid API response: missing data property");
     logError(
@@ -288,7 +288,7 @@ function validateApiResponse(response, expectedPath) {
  * @param {Function} mainFunction - Main async function to execute
  * @param {string} scriptName - Name of the script for error reporting
  */
-async function runScript(mainFunction, scriptName) {
+export async function runScript(mainFunction, scriptName) {
   const startTime = Date.now();
   console.log(`\n🚀 Starting ${scriptName}...\n`);
 
@@ -312,15 +312,3 @@ async function runScript(mainFunction, scriptName) {
     process.exit(1);
   }
 }
-
-module.exports = {
-  validateEnvironment,
-  withRetry,
-  safeWriteFile,
-  safeWriteFileSync,
-  ensureDirectory,
-  validateApiResponse,
-  runScript,
-  logError,
-  logWarning,
-};
