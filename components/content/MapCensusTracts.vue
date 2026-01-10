@@ -61,7 +61,7 @@
           title="R3 Eligibility Map (StoryMap)"
           allowfullscreen
           allow="geolocation"
-          sandbox="allow-downloads"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads"
         ></iframe>
       </section>
     </div>

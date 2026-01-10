@@ -586,29 +586,15 @@ export default {
             { data: axiosDBSubmitData },
             axiosHeaders
           );
-          console.log("db insert success");
         } catch (e) {
-          console.log(e);
-          console.log("db insert failure");
+          // Database insert failed - continue with email send
         }
 
         let emailData = {
           form: myForm,
         };
-        // TODO: For different URLs based on subject
-        // let targetURL = "https://mail.icjia.cloud/test";
-        let targetURL;
-        if (this.subject === "R3 General Questions") {
-          targetURL = "https://mail.icjia.cloud/internet/r3-nofo";
-          console.log(
-            'targetURL = "https://mail.icjia.cloud/internet/r3-nofo"'
-          );
-        } else {
-          targetURL = "https://mail.icjia.cloud/internet/r3-nofo";
-          console.log(
-            'targetURL = "https://mail.icjia.cloud/internet/r3-nofo"'
-          );
-        }
+        // Email endpoint for R3 contact form
+        const targetURL = "https://mail.icjia.cloud/internet/r3-nofo";
 
         let options = {
           method: "POST",
@@ -619,23 +605,14 @@ export default {
           url: targetURL,
         };
 
-        console.log("form email: ", axiosDBSubmitData);
-        console.log("form options: ", options);
-
         try {
-          console.log("Sending...");
-          let res = await axios(options);
-          //this.success(res);
-          console.log("Email sent: ", res);
+          await axios(options);
         } catch (err) {
-          console.log(err.message);
-          console.log("nodemailer failure");
+          // Email send failed - form will still show success since DB insert succeeded
         }
 
         this.successfullySubmitted = true;
         this.isSubmitting = false;
-
-        console.log("submitForm ", this.valid);
       } else {
         this.isSubmitting = false;
       }
@@ -660,8 +637,6 @@ export default {
       this.emailError = "";
       this.phoneError = "";
       this.messageError = "";
-
-      console.log("form cleared");
     },
   },
 

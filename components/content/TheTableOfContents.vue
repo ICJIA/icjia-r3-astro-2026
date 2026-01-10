@@ -156,8 +156,6 @@ onMounted(() => {
    */
   const toc = [];
 
-  console.log("mounted toc");
-
   /**
    * All H2 heading elements found in the document.
    * These form the basis of the table of contents structure.

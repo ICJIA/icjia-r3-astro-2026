@@ -300,8 +300,6 @@ const getPublicationType = function (type) {
 const { pending, data: hubArticles } = await useFetch(
   "/api/dataAndPublications"
 );
-// console.log("hub pending: ", pending.value);
-console.log("hub.json loaded from api.");
 let entityTags = useState("tags");
 let isMounted = ref(false);
 const articles = ref(hubArticles.value.content);

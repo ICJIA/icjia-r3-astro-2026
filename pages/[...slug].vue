@@ -164,7 +164,6 @@ onMounted(async () => {
   if (data.value.showTableOfContents) {
     showTOC.value = true;
     cols.value = 9;
-    console.log("showTOC", showTOC.value);
   }
   // $("table").attr("id", "board");
 });

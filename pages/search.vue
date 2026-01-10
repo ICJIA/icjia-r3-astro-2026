@@ -290,8 +290,6 @@ const router = useRouter();
  */
 const navigateTo = (item) => {
   addNewQuery(query.value);
-  console.log("query added to state: ", query.value);
-  console.log("navigateTo: ", item?.path);
   router.push({ path: item.path });
 };
 

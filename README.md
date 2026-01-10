@@ -796,6 +796,9 @@ DEBUG=1 yarn scripts  # Show full stack traces
 ### Internal Documentation
 
 - **[Documentation Index](./markdown-documentation/README.md)**: Complete documentation overview and index
+- **[ESM Migration Guide](./markdown-documentation/ESM_MIGRATION.md)**: Complete ESM conversion details and best practices
+- **[Config System](./markdown-documentation/CONFIG_SYSTEM.md)**: Configuration architecture and centralized config
+- **[Cleanup Summary](./markdown-documentation/CLEANUP_SUMMARY.md)**: Recent code cleanup and refactoring
 - **[Improvement Review](./markdown-documentation/IMPROVEMENT_REVIEW.md)**: Recent improvements to error handling and testing (January 2026)
 - **[Accessibility Fixes](./markdown-documentation/ACCESSIBILITY_FIXES.md)**: Documentation portal accessibility improvements and 100/100 Lighthouse scores
 - **[SEO Implementation Guide](./markdown-documentation/SEO_IMPLEMENTATION_GUIDE.md)**: Complete SEO documentation

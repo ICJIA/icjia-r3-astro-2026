@@ -224,7 +224,6 @@ export default {
       const offset = 100;
       const el = document.getElementById(id);
       const y = el.getBoundingClientRect().top + window.scrollY - offset;
-      console.log("scrollTo: ", y);
       if (type === "scrollIntoView") {
         el.scrollIntoView({ behavior: "smooth" });
       } else {

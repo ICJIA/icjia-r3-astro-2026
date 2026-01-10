@@ -39,10 +39,6 @@ const statusMessage = computed(() => {
   return msg.includes(":") ? msg.split(":")[0] : msg;
 });
 
-console.log("isMounted: ");
-console.log("Error: ", props.error?.statusCode);
-console.log("Error URL: ", props.error?.url);
-
 const handleError = () => clearError({ redirect: "/" });
 </script>
 

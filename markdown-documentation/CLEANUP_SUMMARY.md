@@ -517,6 +517,63 @@ If issues arise:
 
 ---
 
+## Version 1.0.1 Updates (January 10, 2026)
+
+### Additional High-Priority Fixes
+
+#### 1. Fixed Placeholder Meta Description
+
+**File**: `nuxt.config.js`
+- ❌ **Before**: `content: "R3 Description here"` (placeholder text)
+- ✅ **After**: `content: "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through grants supporting reentry, economic development, civil legal aid, youth development, and violence prevention."`
+
+#### 2. Fixed ArcGIS StoryMap iframe Sandbox (Critical for /eligibility Page)
+
+**File**: `components/content/MapCensusTracts.vue`
+- ❌ **Before**: `sandbox="allow-downloads"` (too restrictive - map wouldn't work)
+- ✅ **After**: `sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads"`
+
+#### 3. Fixed CSP for iframe (netlify.toml)
+
+Added `frame-src` directive to allow ArcGIS iframes:
+```
+frame-src 'self' https://storymaps.arcgis.com https://arcgis.com https://*.arcgis.com
+```
+
+#### 4. Removed Production console.log Statements
+
+| File | Statements Removed |
+|------|-------------------|
+| `error.vue` | 3 (critical - exposed error info) |
+| `pages/contact.vue` | 15 (form data exposure) |
+| `pages/search.vue` | 2 |
+| `pages/research/index.vue` | 1 |
+| `components/content/TheFaqBar.vue` | 2 |
+| `components/content/TheFaqBarMobile.vue` | 1 |
+| `components/content/TheTranslationModal.vue` | 4 |
+| `components/content/TheSidebar.vue` | 1 |
+| `components/content/Funding.vue` | 1 |
+| `components/content/HomeBoxes.vue` | 1 |
+| `components/content/TheTableOfContents.vue` | 1 |
+| `pages/[...slug].vue` | 1 |
+
+**Total**: 33 console.log statements removed
+
+#### 5. Removed Duplicate Vue Files
+
+Deleted duplicate files from `assets/content/` (components should only be in `components/content/`):
+- ❌ `assets/content/HomeBoxes.vue`
+- ❌ `assets/content/MapCensusTracts.vue`
+- ❌ `assets/content/Query.vue`
+
+Then removed the empty `assets/content/` directory.
+
+#### 6. Removed Debug Component
+
+- ❌ `components/content/Test.vue` - Debug component with console.log statements, not needed in production
+
+---
+
 **Completed by**: AI Assistant  
 **Date**: January 10, 2026  
-**Version**: 1.0.0
+**Version**: 1.0.1

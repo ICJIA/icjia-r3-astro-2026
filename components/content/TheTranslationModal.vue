@@ -291,11 +291,7 @@ const googleTranslate = (lang) => {
   show.value = false;
   dialog.value = false;
   const { root } = useAppConfig();
-  const { fullPath, href } = useRoute();
-  console.log("site root: ", root);
-  console.log("language target: ", lang);
-  console.log("full path: ", fullPath);
-  console.log("href: ", href);
+  const { fullPath } = useRoute();
   const route = `${root}${fullPath}`;
   const url =
     `https://translate.google.com/translate?hl=en&sl=en&u=${route}&tl=` + lang;

@@ -131,7 +131,6 @@ const { underConstruction } = useAppConfig();
 
 const gotoURL = ({ externalURL }) => {
   window.open(externalURL, "_blank");
-  console.log(externalURL);
 };
 
 onMounted(() => {

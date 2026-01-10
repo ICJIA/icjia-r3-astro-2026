@@ -73,7 +73,7 @@ export default defineNuxtConfig({
         {
           hid: "description",
           name: "description",
-          content: "R3 Description here",
+          content: "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through grants supporting reentry, economic development, civil legal aid, youth development, and violence prevention.",
         },
       ],
       link: [

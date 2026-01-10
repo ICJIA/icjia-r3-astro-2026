@@ -205,7 +205,6 @@ watchEffect(() => {
  * ```
  */
 const click = () => {
-  console.log("click sidebar");
   altState.value = false;
 };
 
