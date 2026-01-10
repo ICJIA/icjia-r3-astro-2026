@@ -7,11 +7,11 @@
     <style>
       :root {
         --primary: #0e4474;
-        --info: #17a2b8;
+        --info: #0066cc;
         --success: #28a745;
         --light: #f8f9fa;
         --text: #1f2937;
-        --muted: #6b7280;
+        --muted: #4b5563;
       }
       * {
         margin: 0;
@@ -62,9 +62,10 @@
         transform: translateY(-2px);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
       }
-      .doc-card h3 {
+      .doc-card h2 {
         color: var(--primary);
         margin-bottom: 8px;
+        font-size: 1.25rem;
       }
       .doc-card p {
         margin-bottom: 12px;
@@ -112,9 +113,8 @@
         margin-top: 10px;
       }
     </style>
-  </head>
   <body>
-    <div class="container">
+    <main class="container">
       <h1>📚 Documentation Portal</h1>
 
       <p>
@@ -125,13 +125,13 @@
 
       <div class="doc-grid">
         <div class="doc-card">
-          <h3>🧪 E2E and Unit Tests Report</h3>
+          <h2>🧪 E2E and Unit Tests Report</h2>
           <p>Unit/integration test results with a human-readable HTML report.</p>
           <a href="/docs/tests/index.html">View Test Results →</a>
         </div>
 
         <div class="doc-card">
-          <h3>♿ Accessibility Audit</h3>
+          <h2>♿ Accessibility Audit</h2>
           <p>
             Sitemap-driven WCAG audit results across desktop/tablet/mobile
             viewports.
@@ -140,7 +140,7 @@
         </div>
 
         <div class="doc-card">
-          <h3>📖 API Documentation</h3>
+          <h2>📖 API Documentation</h2>
           <p>TypeDoc-generated documentation for documented code in the repo.</p>
           <a href="/docs/jsdoc/index.html">View API Docs →</a>
         </div>
@@ -157,10 +157,10 @@
       <footer>
         <p>Last updated: <span id="lastUpdated">-</span></p>
         <div class="links">
-          <a href="/index.html">← Back to Application</a>
+          <a href="/">← Back to Application</a>
         </div>
       </footer>
-    </div>
+    </main>
 
     <script>
       document.getElementById("lastUpdated").textContent =
@@ -172,5 +172,3 @@
     </script>
   </body>
 </html>
-
-

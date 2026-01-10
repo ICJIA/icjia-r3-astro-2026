@@ -26,11 +26,21 @@ const axios = require("axios");
 const jsonfile = require("jsonfile");
 const _ = require("lodash");
 const yaml = require("yaml");
+const {
+  validateEnvironment,
+  withRetry,
+  safeWriteFile,
+  safeWriteFileSync,
+  ensureDirectory,
+  validateApiResponse,
+  runScript,
+} = require("./utils/errorHandler");
+
 const contentDir = path.join(__dirname, "../content");
 require("dotenv").config();
-// const moment = require("moment");
-// const SITE_URL = process.env.NUXT_PUBLIC_BASE_URL;
-// const API = process.env.NUXT_PUBLIC_API_BASE_URL;
+
+// Validate required environment variables
+validateEnvironment(["NUXT_PUBLIC_BASE_URL", "NUXT_PUBLIC_API_BASE_URL"]);
 
 const SITE_URL = process.env.NUXT_PUBLIC_BASE_URL;
 const API = process.env.NUXT_PUBLIC_API_BASE_URL;
@@ -81,18 +91,34 @@ const query = `query {
   }
   }`;
 
-axios;
-axios
-  .create({ baseURL: API })
-  .post("/graphql", {
-    query,
-    validateStatus: (status) => status === 200,
+/**
+ * Main script execution function
+ */
+async function main() {
+  const axiosInstance = axios.create({
+    baseURL: API,
+    timeout: 30000, // 30 second timeout
     headers: {
       "Accept-Encoding": "application/json",
     },
-  })
-  .then((res) => {
-    const raw = res.data.data.resources.data;
+  });
+
+  // Fetch resources from API with retry logic
+  const res = await withRetry(async () => {
+    const response = await axiosInstance.post("/graphql", {
+      query,
+      validateStatus: (status) => status === 200,
+    });
+    return response;
+  });
+
+  // Validate response structure
+  const raw = validateApiResponse(res, "data.resources.data");
+
+  if (!raw || raw.length === 0) {
+    console.warn("Warning: No resources found in API response");
+    return;
+  }
     const _resources = raw.map((item) => {
       const obj = { ...item };
       let rawText;
@@ -121,64 +147,34 @@ axios
     });
 
     let resources = _.orderBy(_resources, ["publishedAt"], ["desc"]);
-    jsonfile.writeFileSync(
-      `./assets/json/resources.json`,
-      resources,
-      function (err) {
-        if (err) {
-          console.error(err);
-        }
-        console.log("resources.json created in /assets/");
-      }
-    );
 
-    jsonfile.writeFileSync(
-      `./public/resources.json`,
-      resources,
-      function (err) {
-        if (err) {
-          console.error(err);
-        }
-        console.log("resources.json created in /public/");
-      }
-    );
-
-    jsonfile.writeFileSync(`./src/resources.json`, resources, function (err) {
-      if (err) {
-        console.error(err);
-      }
-      console.log("resources.json created in /src/");
-    });
+    // Write resource files with error handling
+    await safeWriteFile(`./assets/json/resources.json`, resources, jsonfile);
+    await safeWriteFile(`./public/resources.json`, resources, jsonfile);
+    await safeWriteFile(`./src/resources.json`, resources, jsonfile);
 
     const resourceRoutes = resources.map((item) => {
       return `/resources/${item.attributes.slug}`;
     });
 
-    jsonfile.writeFileSync(
-      `./public/routesResources.json`,
-      resourceRoutes,
-      function (err) {
-        if (err) {
-          console.error(err);
-        }
-      }
-    );
+    await safeWriteFile(`./public/routesResources.json`, resourceRoutes, jsonfile);
 
-    console.log("Total resources: ", resources.length);
-    let section;
-    resources.forEach((item) => {
-      section = "resources";
+    // Generate markdown files
+    const section = "resources";
+    const directoryPath = path.join(contentDir, section);
+    ensureDirectory(directoryPath, fs);
 
+    for (const item of resources) {
       const basename = item.attributes.slug;
       const fileName = `${section}/${basename}.md`;
       const filePath = path.join(contentDir, fileName);
-      const directoryPath = path.join(contentDir, `${section}`);
-      if (!fs.existsSync(directoryPath)) {
-        fs.mkdirSync(directoryPath);
-      }
 
       const content = formatMarkdown(item.attributes);
-      // console.log(content);
-      fs.writeFileSync(filePath, content);
-    });
-  });
+      safeWriteFileSync(filePath, content, fs);
+    }
+
+    console.log(`\n✓ Processed ${resources.length} resources`);
+}
+
+// Run the script with error handling wrapper
+runScript(main, "createMarkdownResources");

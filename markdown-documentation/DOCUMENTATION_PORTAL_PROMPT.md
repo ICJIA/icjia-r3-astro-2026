@@ -1,7 +1,7 @@
 # Documentation Portal Creation Prompt (Nuxt 4 + Vuetify 3)
 
-**Version**: 1.0.4  
-**Last Updated**: January 9, 2026  
+**Version**: 1.0.5  
+**Last Updated**: January 10, 2026  
 **Purpose**: Comprehensive prompt for LLMs to create a documentation portal with testing, accessibility auditing, JSDoc generation, and SEO optimization for any Nuxt 4 + Vuetify 3 application.
 
 ---
@@ -40,8 +40,9 @@ Copy and paste this entire document into an LLM along with your repository conte
 15. [Chrome DevTools 404 Fix](#chrome-devtools-404-fix)
 16. [Advanced Accessibility Audit Script](#advanced-accessibility-audit-script)
 17. [Light/Dark Mode Testing](#lightdark-mode-testing)
-18. [GitHub Reference Links Summary](#github-reference-links-summary)
-19. [Netlify Deployment Configuration](#netlify-deployment-configuration)
+18. [Accessibility Requirements - CRITICAL](#accessibility-requirements---critical)
+19. [GitHub Reference Links Summary](#github-reference-links-summary)
+20. [Netlify Deployment Configuration](#netlify-deployment-configuration)
 
 ---
 
@@ -1859,12 +1860,14 @@ Or use a separate CI step:
 
 ## Version History
 
-| Version | Date            | Changes                                                                                                                                              |
-| ------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.0.3   | January 8, 2026 | Updated test card name to "E2E and Unit Tests Report", added requirement for comprehensive axe-core and testing information in accessibility reports |
-| 1.0.2   | January 7, 2026 | Standardized audit script to ICJIA reference, added docs dry-run, and updated TypeDoc guidance                                                       |
-| 1.0.1   | January 7, 2026 | Standardized audit script to ICJIA reference, added docs dry-run, and updated TypeDoc guidance                                                       |
-| 1.0.0   | January 6, 2026 | Initial comprehensive prompt combining architecture guide and accessibility audit prompt                                                             |
+| Version | Date             | Changes                                                                                                                                                                              |
+| ------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1.0.5   | January 10, 2026 | **CRITICAL**: Added comprehensive accessibility requirements section with common issues, fixes, and testing procedures. Mandates 100/100 Lighthouse scores for all documentation pages |
+| 1.0.4   | January 9, 2026  | Updated test card name to "E2E and Unit Tests Report", added requirement for comprehensive axe-core and testing information in accessibility reports                                 |
+| 1.0.3   | January 8, 2026  | Updated test card name to "E2E and Unit Tests Report", added requirement for comprehensive axe-core and testing information in accessibility reports                                 |
+| 1.0.2   | January 7, 2026  | Standardized audit script to ICJIA reference, added docs dry-run, and updated TypeDoc guidance                                                                                       |
+| 1.0.1   | January 7, 2026  | Standardized audit script to ICJIA reference, added docs dry-run, and updated TypeDoc guidance                                                                                       |
+| 1.0.0   | January 6, 2026  | Initial comprehensive prompt combining architecture guide and accessibility audit prompt                                                                                             |
 
 ---
 
@@ -1901,3 +1904,12 @@ _This prompt is designed to be copied in its entirety into an LLM along with rep
 
 5. **Exclude `/docs/*`**
    - Keep `/docs/*` out of the sitemap and add Nitro prerender ignore rules for `/docs/**`.
+
+6. **100% Accessibility is Mandatory (CRITICAL)**
+   - All documentation portal pages MUST achieve 100/100 Lighthouse accessibility scores
+   - Use WCAG AA compliant colors: `--info: #0066cc`, `--muted: #4b5563`, `--success: #0d7e2e` (NOT #17a2b8, #6b7280, or #28a745)
+   - Always set explicit text colors on stat numbers: `.stat .num { color: #1f2937; }`
+   - Always wrap content in `<main>` element
+   - Maintain sequential heading hierarchy (h1 → h2 → h3, never skip levels)
+   - Test EVERY page before deployment: portal index, test results, accessibility report, JSDoc
+   - See [Accessibility Requirements](#accessibility-requirements---critical) section for detailed requirements and common pitfalls

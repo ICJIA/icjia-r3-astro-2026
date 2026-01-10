@@ -20,13 +20,43 @@
  * @since 1.0.0
  */
 
-const require = createRequire(import.meta.url);
 import { createRequire } from "module";
+import { existsSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+const require = createRequire(import.meta.url);
 require("dotenv").config();
 
 const { v4: uuidv4 } = require("uuid");
 const jsonfile = require("jsonfile");
-const faqs = require("../assets/json/faqs.json");
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+/**
+ * Safely require a JSON file, returning empty array if file doesn't exist
+ * @param {string} filePath - Path to the JSON file relative to project root
+ * @returns {Array<Object>} Content array or empty array if file doesn't exist
+ */
+function safeRequireJson(filePath) {
+  const fullPath = join(__dirname, "..", filePath);
+  try {
+    if (existsSync(fullPath)) {
+      // Use the fullPath for requiring to ensure consistency
+      const data = require(fullPath);
+      return data;
+    } else {
+      console.warn(`⚠️  Warning: ${filePath} not found, using empty array`);
+      return [];
+    }
+  } catch (error) {
+    console.warn(`⚠️  Warning: Error reading ${filePath}, using empty array:`, error.message);
+    return [];
+  }
+}
+
+const faqs = safeRequireJson("assets/json/faqs.json");
 
 import md from "markdown-it";
 import attrs from "markdown-it-attrs";
@@ -37,15 +67,8 @@ const renderer = new md({
   langPrefix: "language-",
   linkify: true,
   typographer: true,
-  quotes: "“”‘’",
+  quotes: """''",
 }).use(attrs);
-
-function formatMarkdown(content) {
-  const { body } = content;
-  delete content.body;
-  return `---\n${yaml.stringify(content)}---\n\n${body}\n`;
-}
-// const posts = require("../public/posts.json");
 
 const site = [...faqs];
 
@@ -71,20 +94,18 @@ const siteMeta = site.map((item) => {
   return obj;
 });
 
-jsonfile.writeFileSync(
-  `./assets/json/searchIndexFaqs.json`,
-  searchIndex,
-  function (err) {
-    if (err) {
-      console.error(err);
-    }
-  }
-);
-jsonfile.writeFileSync(`public/siteMetaFaqs.json`, siteMeta, function (err) {
-  if (err) {
-    console.error(err);
-  }
-});
+try {
+  jsonfile.writeFileSync(`./assets/json/searchIndexFaqs.json`, searchIndex, { spaces: 2 });
+  console.log("✓ searchIndexFaqs.json created in /assets/json/");
+} catch (err) {
+  console.error("❌ Failed to write searchIndexFaqs.json:", err);
+  process.exit(1);
+}
 
-console.log("searchIndexFaqs.json created in /assets/json/");
-console.log("siteMetaFaqs.json created in ../public/siteMetaFaqs.json");
+try {
+  jsonfile.writeFileSync(`public/siteMetaFaqs.json`, siteMeta, { spaces: 2 });
+  console.log("✓ siteMetaFaqs.json created in /public/");
+} catch (err) {
+  console.error("❌ Failed to write siteMetaFaqs.json:", err);
+  process.exit(1);
+}

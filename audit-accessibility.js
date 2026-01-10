@@ -568,7 +568,7 @@ function generateHTMLReport(results) {
     .container { max-width: 1200px; margin: 0 auto; }
     h1 { font-size: 2rem; margin-bottom: 1rem; }
     h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
-    .meta { color: #666; font-size: 0.9em; margin-bottom: 1rem; }
+    .meta { color: #4b5563; font-size: 0.9em; margin-bottom: 1rem; }
     .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
     .stat-card { padding: 1.25rem; border-radius: 8px; text-align: center; background: #f8f9fa; border: 1px solid #dee2e6; }
     .stat-card.success { background: #d1e7dd; border-color: #badbcc; color: #0f5132; }
@@ -579,12 +579,12 @@ function generateHTMLReport(results) {
     table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: white; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden; }
     thead { background: #f8f9fa; }
     th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #dee2e6; }
-    th { font-weight: 600; color: #495057; }
+    th { font-weight: 600; color: #1f2937; }
     tr:last-child td { border-bottom: none; }
     .status-pass { color: #198754; font-weight: 600; }
     .status-fail { color: #dc3545; font-weight: 600; }
     .status-warning { color: #856404; font-weight: 600; }
-    footer { margin-top: 2rem; padding-top: 1.25rem; border-top: 2px solid #dee2e6; text-align: center; color: #6c757d; font-size: 0.875rem; }
+    footer { margin-top: 2rem; padding-top: 1.25rem; border-top: 2px solid #dee2e6; text-align: center; color: #4b5563; font-size: 0.875rem; }
     .skip-link { position: absolute; top: -100px; left: 0; background: #0d6efd; color: #fff; padding: 12px 24px; text-decoration: none; z-index: 10000; border-radius: 0 0 4px 0; font-weight: 600; font-size: 1rem; transition: top 0.2s ease-in-out; }
     .skip-link:focus, .skip-link:focus-visible { top: 0; outline: 3px solid #0d6efd; outline-offset: 2px; }
   </style>

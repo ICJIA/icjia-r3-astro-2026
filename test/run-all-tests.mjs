@@ -416,21 +416,22 @@ function generateHTMLReport(results, reportDate) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test Results - R3 Restore, Reinvest, Renew</title>
     <style>
-      :root { --primary:#0e4474; --info:#17a2b8; --success:#28a745; --danger:#dc3545; --muted:#6b7280; }
+      :root { --primary:#0e4474; --info:#0066cc; --success:#0d7e2e; --danger:#dc3545; --muted:#4b5563; }
       body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding:20px; background:#f5f5f5; }
       .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
       h1 { color: var(--primary); border-bottom: 3px solid var(--info); padding-bottom: 10px; margin-bottom: 16px; }
+      h2 { color: var(--primary); margin-top: 22px; font-size: 1.5rem; }
+      h3 { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace; font-size: .95rem; margin-bottom: 10px; color:#111827; }
       .meta { color: var(--muted); margin-bottom: 16px; }
       .grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0; }
       .stat { background:#f8f9fa; padding:16px; border-radius: 10px; text-align:center; border:1px solid #e5e7eb; }
-      .stat .num { font-size: 2em; font-weight: 800; }
+      .stat .num { font-size: 2em; font-weight: 800; color: #1f2937; }
       .ok { color: var(--success); }
       .bad { color: var(--danger); }
       .banner { padding: 16px; border-radius: 10px; margin: 12px 0 22px; border-left: 4px solid; }
       .banner.ok { background:#d4edda; color:#155724; border-left-color: var(--success); }
       .banner.bad { background:#f8d7da; color:#721c24; border-left-color: var(--danger); }
       .file { background:#f8f9fa; padding: 18px; margin: 18px 0; border-radius: 10px; border-left: 4px solid var(--info); }
-      .file h3 { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace; font-size: .95rem; margin-bottom: 10px; color:#111827; }
       .test { background:white; border:1px solid #e5e7eb; border-left:4px solid var(--success); padding: 12px; border-radius: 10px; margin: 10px 0; }
       .test.failed { border-left-color: var(--danger); }
       .test small { color: var(--muted); }
@@ -443,7 +444,7 @@ function generateHTMLReport(results, reportDate) {
     </style>
   </head>
   <body>
-    <div class="container">
+    <main class="container">
       <h1>🧪 Test Results</h1>
       <div class="meta"><strong>Generated:</strong> ${escapeHtml(reportTimestamp)}</div>
 
@@ -502,7 +503,7 @@ function generateHTMLReport(results, reportDate) {
       <footer>
         <a href="/docs/index.html">← Back to Documentation Portal</a>
       </footer>
-    </div>
+    </main>
   </body>
 </html>`;
 }

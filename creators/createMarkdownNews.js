@@ -32,10 +32,20 @@ const jsonfile = require("jsonfile");
 const _ = require("lodash");
 const moment = require("moment");
 const yaml = require("yaml");
+const {
+  validateEnvironment,
+  withRetry,
+  safeWriteFile,
+  safeWriteFileSync,
+  ensureDirectory,
+  validateApiResponse,
+  runScript,
+} = require("./utils/errorHandler");
 
 const contentDir = path.join(__dirname, "../content");
-// fsExtra.emptyDirSync(contentDir);
-// console.log("Content directory cleared");
+
+// Validate required environment variables
+validateEnvironment(["NUXT_PUBLIC_BASE_URL", "NUXT_PUBLIC_API_BASE_URL"]);
 
 const SITE_URL = process.env.NUXT_PUBLIC_BASE_URL;
 const API = process.env.NUXT_PUBLIC_API_BASE_URL;
@@ -70,17 +80,34 @@ function formatMarkdown(content) {
   return `---\n${yaml.stringify(content)}---\n\n${body}\n`;
 }
 
-axios
-  .create({ baseURL: API })
-  .post("/graphql", {
-    query,
-    validateStatus: (status) => status === 200,
+/**
+ * Main script execution function
+ */
+async function main() {
+  const axiosInstance = axios.create({
+    baseURL: API,
+    timeout: 30000, // 30 second timeout
     headers: {
       "Accept-Encoding": "application/json",
     },
-  })
-  .then((res) => {
-    const posts = res.data.data.posts.data;
+  });
+
+  // Fetch posts from API with retry logic
+  const res = await withRetry(async () => {
+    const response = await axiosInstance.post("/graphql", {
+      query,
+      validateStatus: (status) => status === 200,
+    });
+    return response;
+  });
+
+  // Validate response structure
+  const posts = validateApiResponse(res, "data.posts.data");
+
+  if (!posts || posts.length === 0) {
+    console.warn("Warning: No posts found in API response");
+    return;
+  }
 
     let section;
     const site = posts.map((post) => {
@@ -118,28 +145,17 @@ axios
       return obj;
     });
 
-    jsonfile.writeFileSync(`./public/posts.json`, site, function (err) {
-      if (err) {
-        console.error(err);
-      }
-      console.log("posts.json created in /public/");
-    });
-
+    // Write route files with error handling
+    await safeWriteFile(`./public/posts.json`, site, jsonfile);
+    
     const newsRoutes = site.map((post) => {
       return `/news/${post.attributes.slug}`;
     });
 
-    jsonfile.writeFileSync(
-      `./public/routesNews.json`,
-      newsRoutes,
-      function (err) {
-        if (err) {
-          console.error(err);
-        }
-      }
-    );
+    await safeWriteFile(`./public/routesNews.json`, newsRoutes, jsonfile);
 
-    site.forEach((post) => {
+    // Generate markdown files
+    for (const post of site) {
       if (post.attributes.section === "root") {
         section = "";
       } else {
@@ -149,12 +165,15 @@ axios
       const basename = post.attributes.slug;
       const filePath = path.join(contentDir, `${section}/${basename}.md`);
       const directoryPath = path.join(contentDir, `${section}`);
-      if (!fs.existsSync(directoryPath)) {
-        fs.mkdirSync(directoryPath);
-      }
+
+      ensureDirectory(directoryPath, fs);
 
       const content = formatMarkdown(post.attributes);
-      // console.log(content);
-      fs.writeFileSync(filePath, content);
-    });
-  });
+      safeWriteFileSync(filePath, content, fs);
+    }
+
+    console.log(`\n✓ Processed ${posts.length} news posts`);
+}
+
+// Run the script with error handling wrapper
+runScript(main, "createMarkdownNews");

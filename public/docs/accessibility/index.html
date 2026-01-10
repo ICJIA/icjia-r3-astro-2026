@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accessibility Audit Report - 1/7/2026</title>
+  <title>Accessibility Audit Report - 1/10/2026</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #333; background: #fff; padding: 20px; }
     .container { max-width: 1200px; margin: 0 auto; }
     h1 { font-size: 2rem; margin-bottom: 1rem; }
     h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
-    .meta { color: #666; font-size: 0.9em; margin-bottom: 1rem; }
+    .meta { color: #4b5563; font-size: 0.9em; margin-bottom: 1rem; }
     .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
     .stat-card { padding: 1.25rem; border-radius: 8px; text-align: center; background: #f8f9fa; border: 1px solid #dee2e6; }
     .stat-card.success { background: #d1e7dd; border-color: #badbcc; color: #0f5132; }
@@ -21,12 +21,12 @@
     table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: white; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden; }
     thead { background: #f8f9fa; }
     th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #dee2e6; }
-    th { font-weight: 600; color: #495057; }
+    th { font-weight: 600; color: #1f2937; }
     tr:last-child td { border-bottom: none; }
     .status-pass { color: #198754; font-weight: 600; }
     .status-fail { color: #dc3545; font-weight: 600; }
     .status-warning { color: #856404; font-weight: 600; }
-    footer { margin-top: 2rem; padding-top: 1.25rem; border-top: 2px solid #dee2e6; text-align: center; color: #6c757d; font-size: 0.875rem; }
+    footer { margin-top: 2rem; padding-top: 1.25rem; border-top: 2px solid #dee2e6; text-align: center; color: #4b5563; font-size: 0.875rem; }
     .skip-link { position: absolute; top: -100px; left: 0; background: #0d6efd; color: #fff; padding: 12px 24px; text-decoration: none; z-index: 10000; border-radius: 0 0 4px 0; font-weight: 600; font-size: 1rem; transition: top 0.2s ease-in-out; }
     .skip-link:focus, .skip-link:focus-visible { top: 0; outline: 3px solid #0d6efd; outline-offset: 2px; }
   </style>
@@ -39,7 +39,7 @@
       <p class="meta">Accessibility audit report for the R3 (Restore, Reinvest, Renew) program website.</p>
 
       <div class="meta">
-        <p><strong>Generated:</strong> 1/7/2026, 9:38:20 AM</p>
+        <p><strong>Generated:</strong> 1/10/2026, 10:31:31 AM</p>
         <p><strong>Environment:</strong> Development (http://localhost:8000)</p>
         <p><strong>axe-core version:</strong> 4.11.0</p>
         <p><strong>Pages tested:</strong> 24</p>
@@ -55,7 +55,7 @@
         </div>
         <div class="stat-card success">
           <div class="label">Total Passes</div>
-          <div class="number">1050</div>
+          <div class="number">1092</div>
         </div>
         <div class="stat-card success">
           <div class="label">Pages Passing</div>
@@ -63,7 +63,7 @@
         </div>
         <div class="stat-card success">
           <div class="label">Skip Links</div>
-          <div class="number">75/75</div>
+          <div class="number">78/78</div>
         </div>
       </div>
 
@@ -254,6 +254,42 @@
           
             <tr>
               <td>/board</td>
+              <td>mobile</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/faqs</td>
+              <td>desktop</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/faqs</td>
+              <td>tablet</td>
+              <td>default</td>
+              <td>0</td>
+              <td>14</td>
+              <td>0</td>
+              <td><strong>14</strong></td>
+              <td class="status-pass">✅ Pass</td>
+              <td class="status-pass" title="">✅ OK</td>
+            </tr>
+          
+            <tr>
+              <td>/faqs</td>
               <td>mobile</td>
               <td>default</td>
               <td>0</td>
@@ -1114,7 +1150,7 @@
 
       <h3>Current Skip Link Status</h3>
       <p class="meta">
-        <strong>✅ All Skip Links Working:</strong> This audit found <strong>75/75 skip links</strong> are properly implemented and working correctly across all tested pages and viewports. 
+        <strong>✅ All Skip Links Working:</strong> This audit found <strong>78/78 skip links</strong> are properly implemented and working correctly across all tested pages and viewports. 
         All skip links meet the requirements for presence, target, keyboard accessibility, and focus visibility.
       </p>
 
@@ -1182,7 +1218,7 @@
       <p class="meta">This site is built using Nuxt 4 and Vuetify 3.</p>
 
       <footer>
-        <p>Generated by <strong>axe-core</strong> 4.11.0 on 1/7/2026, 9:38:20 AM</p>
+        <p>Generated by <strong>axe-core</strong> 4.11.0 on 1/10/2026, 10:31:31 AM</p>
         <p><a href="/docs/index.html">Back to Documentation Portal</a></p>
       </footer>
     </main>

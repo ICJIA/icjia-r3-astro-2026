@@ -108,12 +108,14 @@ The `yarn dev` and `yarn scripts` commands automatically run a preflight check t
 ### Key Features
 
 - **Dynamic Content Generation**: Content fetched from Strapi CMS APIs and converted to markdown at build time
+- **Robust Error Handling**: Centralized error handling with automatic retries, validation, and clear error messages
 - **File-Based Routing**: Nuxt pages directory for automatic route generation
 - **Component Auto-Import**: Vue components automatically imported
 - **Composable Functions**: Shared Vue composition functions in `composables/`
 - **SEO Optimization**: Comprehensive SEO with meta tags, structured data (JSON-LD), and 100/100 Lighthouse score
 - **Standalone Documentation Portal**: `/docs/` portal with tests, accessibility reports, and API docs
 - **Accessibility Compliance**: WCAG 2.1 Level AA compliance with automated auditing
+- **Comprehensive Testing**: 84+ test cases covering unit, integration, and error scenarios
 
 ---
 
@@ -142,6 +144,15 @@ This executes:
 3. **Route Creation**: Dynamic routes generated for all content pages (`public/appRoutes.json`)
 4. **Search Index**: Full-text search index built from all content (`public/searchIndex.json`)
 
+**Error Handling**: All creator scripts include comprehensive error handling:
+
+- ✅ Environment variable validation before execution
+- ✅ Automatic retry logic (3 attempts with exponential backoff)
+- ✅ API response structure validation
+- ✅ Graceful degradation for missing content
+- ✅ Clear, contextual error messages with HTTP details
+- ✅ 30-second timeouts for API requests
+
 ### Content Types
 
 - **Pages**: Static content pages (board, eligibility, funding, etc.)
@@ -160,6 +171,8 @@ Run `yarn scripts` when:
 - Routes need to be refreshed
 - Before running accessibility audits
 - Before building for production
+
+**Note**: Content generation scripts will continue even if some content types are unavailable (e.g., if FAQs aren't available from the CMS). You'll see warnings for missing content, but the build will succeed with available content.
 
 ---
 
@@ -187,6 +200,8 @@ icjia-r3-v5-nuxt/
 │   ├── resources/          # Generated resources
 │   └── *.md                # Generated content pages
 ├── creators/                # Content generation scripts
+│   ├── utils/              # Error handling utilities
+│   │   └── errorHandler.js # Centralized error handling
 │   ├── createMarkdownNews.js
 │   ├── createMarkdownPages.js
 │   ├── createSitemap.mjs
@@ -214,7 +229,12 @@ icjia-r3-v5-nuxt/
 ├── test/                    # Test files
 │   ├── setup.ts            # Vitest setup
 │   ├── run-all-tests.mjs   # Test runner with HTML report
-│   └── unit/               # Unit tests
+│   ├── unit/               # Unit tests
+│   │   ├── errorHandler.test.ts  # Error handling tests
+│   │   ├── composables/    # Composable tests (SEO, structured data)
+│   │   └── components/     # Component tests
+│   └── integration/        # Integration tests
+│       └── error-scenarios.test.ts  # Error scenario tests
 ├── audit-accessibility.js  # ICJIA-standard accessibility audit script
 ├── nuxt.config.js          # Nuxt configuration
 ├── package.json            # Dependencies and scripts
@@ -348,36 +368,34 @@ Two main composables provide comprehensive SEO functionality:
 ```typescript
 // In any page component
 usePageSeo({
-  title: 'Your Page Title',
-  description: 'Your page description (150-160 chars)',
-  path: '/your-page',
-  keywords: ['keyword1', 'keyword2'],
-})
+  title: "Your Page Title",
+  description: "Your page description (150-160 chars)",
+  path: "/your-page",
+  keywords: ["keyword1", "keyword2"],
+});
 ```
 
 #### `useStructuredData.ts` - Schema.org JSON-LD
 
 ```typescript
 // Homepage
-useWebsiteSchema()
+useWebsiteSchema();
 
 // News articles
 useNewsArticleSchema({
-  headline: 'Article Title',
-  description: 'Article summary',
-  datePublished: '2024-01-01',
-})
+  headline: "Article Title",
+  description: "Article summary",
+  datePublished: "2024-01-01",
+});
 
 // FAQ pages
-useFaqPageSchema([
-  { question: 'What is R3?', answer: 'R3 stands for...' }
-])
+useFaqPageSchema([{ question: "What is R3?", answer: "R3 stands for..." }]);
 
 // Breadcrumbs
 useBreadcrumbListSchema([
-  { name: 'Home', url: '/' },
-  { name: 'Current Page', url: '/current' }
-])
+  { name: "Home", url: "/" },
+  { name: "Current Page", url: "/current" },
+]);
 ```
 
 ### Available Structured Data Schemas
@@ -448,9 +466,17 @@ The test suite includes comprehensive coverage across multiple categories:
 
 - **Unit Tests** (`test/unit/`):
 
-  - Composable tests: `states.test.ts`, `eventBus.test.ts`, `useCurrentPage.test.ts`
-  - Component tests: `components/TheNav.test.ts`, `components/Query.test.ts`
-  - Accessibility tests: `accessibility.test.ts`
+  - **Error Handling**: `errorHandler.test.ts` (15 tests)
+    - Environment variable validation
+    - File operation safety
+    - API response validation
+    - Retry logic with exponential backoff
+  - **Composables**:
+    - `states.test.ts`, `eventBus.test.ts`, `useCurrentPage.test.ts`
+    - `composables/useSeoMeta.test.ts` (4 tests)
+    - `composables/useStructuredData.test.ts` (6 tests)
+  - **Components**: `components/TheNav.test.ts`, `components/Query.test.ts`
+  - **Accessibility**: `accessibility.test.ts`
 
 - **E2E Tests** (`test/e2e/`):
 
@@ -460,8 +486,16 @@ The test suite includes comprehensive coverage across multiple categories:
   - Search functionality: `search.test.ts`
 
 - **Integration Tests** (`test/integration/`):
+  - **Error Scenarios**: `error-scenarios.test.ts` (9 tests)
+    - Environment validation
+    - Network timeouts
+    - Invalid API responses
+    - Retry configuration
+    - Error logging
   - Content generation: `content-generation.test.ts`
   - API routes: `api.test.ts`
+
+**Test Coverage**: 84+ test cases with comprehensive error path testing
 
 **Reference Implementation**: The test structure and patterns follow the [ICJIA Accessibility Portal test suite](https://github.com/ICJIA/icjia-accessibility-portal/tree/main/test) as a reference for ICJIA-standard testing practices.
 
@@ -611,12 +645,46 @@ yarn nuxt prepare  # Generate Nuxt types
 yarn docs:jsdoc    # Retry TypeDoc generation
 ```
 
+### Error Messages
+
+The application provides clear, contextual error messages for all failures:
+
+**Example Error Output**:
+
+```
+================================================================================
+❌ ERROR: API request failed after 3 retries
+📍 Context: Fetching pages from Strapi CMS
+💥 Error Message: connect ETIMEDOUT
+🌐 Request URL: /graphql
+🌐 Request Method: POST
+💡 Tip: Set DEBUG=1 to see full stack trace
+================================================================================
+```
+
+**Understanding Error Messages**:
+
+- ❌ **ERROR**: Main error description
+- 📍 **Context**: Where the error occurred
+- 💥 **Error Details**: Specific error information
+- 📡 **HTTP Status**: HTTP response codes (if applicable)
+- 🌐 **Request Details**: API endpoint and method
+- 💡 **Tips**: Helpful suggestions for debugging
+
+**Enable Debug Mode**:
+
+```bash
+DEBUG=1 yarn scripts  # Show full stack traces
+```
+
 ### Getting Help
 
 1. **Check Documentation**: See `markdown-documentation/README.md` for detailed guides
-2. **Review Logs**: Check console output for specific error messages
-3. **Verify Environment**: Ensure all environment variables are set correctly
-4. **Contact Team**: For access or internal issues, contact ICJIA web development team
+2. **Review Improvement Report**: See `markdown-documentation/IMPROVEMENT_REVIEW.md` for recent updates
+3. **Review Error Messages**: Error messages include context and suggestions
+4. **Check Logs**: Console output includes detailed HTTP and request information
+5. **Verify Environment**: Ensure all environment variables are set correctly
+6. **Contact Team**: For access or internal issues, contact ICJIA web development team
 
 ---
 
@@ -625,6 +693,8 @@ yarn docs:jsdoc    # Retry TypeDoc generation
 ### Internal Documentation
 
 - **[Documentation Index](./markdown-documentation/README.md)**: Complete documentation overview and index
+- **[Improvement Review](./markdown-documentation/IMPROVEMENT_REVIEW.md)**: Recent improvements to error handling and testing (January 2026)
+- **[Accessibility Fixes](./markdown-documentation/ACCESSIBILITY_FIXES.md)**: Documentation portal accessibility improvements and 100/100 Lighthouse scores
 - **[SEO Implementation Guide](./markdown-documentation/SEO_IMPLEMENTATION_GUIDE.md)**: Complete SEO documentation
 - **[SEO Quick Reference](./markdown-documentation/SEO_QUICK_REFERENCE.md)**: Quick SEO usage examples
 - **[Documentation Portal Prompt](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md)**: LLM prompt for creating similar portals

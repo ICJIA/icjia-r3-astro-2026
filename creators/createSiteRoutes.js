@@ -15,6 +15,28 @@
 
 const { v4: uuidv4 } = require("uuid");
 const jsonfile = require("jsonfile");
+const fs = require("fs");
+const path = require("path");
+
+/**
+ * Safely require a JSON file, returning empty array if file doesn't exist
+ * @param {string} filePath - Path to the JSON file
+ * @returns {Array<string>} Route array or empty array if file doesn't exist
+ */
+function safeRequireRoutes(filePath) {
+  const fullPath = path.join(__dirname, "..", filePath);
+  try {
+    if (fs.existsSync(fullPath)) {
+      return require(fullPath);
+    } else {
+      console.warn(`⚠️  Warning: ${filePath} not found, using empty array`);
+      return [];
+    }
+  } catch (error) {
+    console.warn(`⚠️  Warning: Error reading ${filePath}, using empty array:`, error.message);
+    return [];
+  }
+}
 
 /**
  * Route definitions for static pages.
@@ -23,7 +45,7 @@ const jsonfile = require("jsonfile");
  *
  * @type {Array<string>}
  */
-const pageRoutes = require("../public/routesPages.json");
+const pageRoutes = safeRequireRoutes("public/routesPages.json");
 
 /**
  * Route definitions for news articles.
@@ -33,7 +55,7 @@ const pageRoutes = require("../public/routesPages.json");
  *
  * @type {Array<string>}
  */
-const newsRoutes = require("../public/routesNews.json");
+const newsRoutes = safeRequireRoutes("public/routesNews.json");
 
 /**
  * Route definitions for FAQ pages.
@@ -43,7 +65,7 @@ const newsRoutes = require("../public/routesNews.json");
  *
  * @type {Array<string>}
  */
-const faqRoutes = require("../public/routesFaqs.json");
+const faqRoutes = safeRequireRoutes("public/routesFaqs.json");
 
 /**
  * Route definitions for resource pages.
@@ -53,7 +75,7 @@ const faqRoutes = require("../public/routesFaqs.json");
  *
  * @type {Array<string>}
  */
-const resourceRoutes = require("../public/routesResources.json");
+const resourceRoutes = safeRequireRoutes("public/routesResources.json");
 
 /**
  * Route definitions for manually created pages.
@@ -63,7 +85,7 @@ const resourceRoutes = require("../public/routesResources.json");
  *
  * @type {Array<string>}
  */
-const myManualRoutes = require("../public/routesManual.json");
+const myManualRoutes = safeRequireRoutes("public/routesManual.json");
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -93,11 +115,13 @@ const appRoutes = Array.from(
  *
  * @throws {Error} If file write operation fails
  */
-jsonfile.writeFileSync(`public/appRoutes.json`, appRoutes, function (err) {
-  if (err) {
-    console.error(err);
-  }
-});
+try {
+  jsonfile.writeFileSync(`public/appRoutes.json`, appRoutes, { spaces: 2 });
+  console.log(`✓ Created public/appRoutes.json with ${appRoutes.length} routes`);
+} catch (err) {
+  console.error("❌ Failed to write public/appRoutes.json:", err);
+  process.exit(1);
+}
 
 /**
  * Write the consolidated routes to the assets directory.
@@ -105,10 +129,15 @@ jsonfile.writeFileSync(`public/appRoutes.json`, appRoutes, function (err) {
  *
  * @throws {Error} If file write operation fails
  */
-jsonfile.writeFileSync(`assets/json/appRoutes.json`, appRoutes, function (err) {
-  if (err) {
-    console.error(err);
+try {
+  // Ensure assets/json directory exists
+  const assetsDir = path.join(__dirname, "..", "assets", "json");
+  if (!fs.existsSync(assetsDir)) {
+    fs.mkdirSync(assetsDir, { recursive: true });
   }
-});
-
-console.log("public/appRoutes.json created:\n", appRoutes);
+  jsonfile.writeFileSync(`assets/json/appRoutes.json`, appRoutes, { spaces: 2 });
+  console.log(`✓ Created assets/json/appRoutes.json with ${appRoutes.length} routes`);
+} catch (err) {
+  console.error("❌ Failed to write assets/json/appRoutes.json:", err);
+  process.exit(1);
+}

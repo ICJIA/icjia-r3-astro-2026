@@ -28,10 +28,21 @@ const path = require("path");
 const axios = require("axios");
 const jsonfile = require("jsonfile");
 const _ = require("lodash");
-
 const yaml = require("yaml");
+const {
+  validateEnvironment,
+  withRetry,
+  safeWriteFile,
+  safeWriteFileSync,
+  ensureDirectory,
+  validateApiResponse,
+  runScript,
+} = require("./utils/errorHandler");
 
 const contentDir = path.join(__dirname, "../content");
+
+// Validate required environment variables
+validateEnvironment(["NUXT_PUBLIC_BASE_URL", "NUXT_PUBLIC_API_BASE_URL"]);
 
 const SITE_URL = process.env.NUXT_PUBLIC_BASE_URL;
 const API = process.env.NUXT_PUBLIC_API_BASE_URL;
@@ -66,90 +77,99 @@ function formatMarkdown(content) {
   return `---\n${yaml.stringify(content)}---\n\n${body}\n`;
 }
 
-axios
-  .create({ baseURL: API })
-  .post("/graphql", {
-    query,
-    validateStatus: (status) => status === 200,
+/**
+ * Main script execution function
+ */
+async function main() {
+  const axiosInstance = axios.create({
+    baseURL: API,
+    timeout: 30000, // 30 second timeout
     headers: {
       "Accept-Encoding": "application/json",
     },
-  })
-  .then((res) => {
-    const pages = res.data.data.pages.data;
-
-    let section;
-    const site = pages.map((page) => {
-      const obj = { ...page };
-      let rawText;
-
-      rawText = obj.attributes?.body
-        ?.replace(/<[^>]*>?/gm, "")
-        .replace(/[^a-z0-9]/gi, " ");
-      rawText = rawText.replace(/\s\s+/g, " ");
-      obj.attributes.rawText = rawText.toLowerCase();
-      obj.attributes.draft = false;
-      obj.attributes.type = "page";
-
-      obj.attributes.navigation = true;
-      if (page.attributes.section !== "root") {
-        section = page.attributes.section.toLowerCase();
-        obj.attributes.path = `/${section}/${page.attributes.slug}`;
-        obj.attributes.url = `${SITE_URL}${obj.attributes.path}`;
-      } else {
-        obj.attributes.path = `/${page.attributes.slug}`;
-        obj.attributes.url = `${SITE_URL}${obj.attributes.path}`;
-      }
-
-      if (page.attributes.slug === "index") {
-        obj.attributes.path = `/`;
-        obj.attributes.url = `${SITE_URL}`;
-      }
-
-      console.log("Markdown content created: ", obj.attributes.path);
-      return obj;
-    });
-
-    const pageRoutes = site.map((item) => {
-      if (item.attributes.slug !== "index") {
-        return `/${item.attributes.slug}`;
-      } else {
-        return `/`;
-      }
-    });
-
-    jsonfile.writeFileSync(
-      `./public/routesPages.json`,
-      pageRoutes,
-      function (err) {
-        if (err) {
-          console.error(err);
-        }
-      }
-    );
-
-    jsonfile.writeFileSync(`./public/pages.json`, site, function (err) {
-      if (err) {
-        console.error(err);
-      }
-      console.log("pages.json created in /public/");
-    });
-
-    site.forEach((page) => {
-      if (page.attributes.section === "root") {
-        section = "";
-      } else {
-        section = page.attributes.section.toLowerCase();
-      }
-
-      const basename = page.attributes.slug;
-      const filePath = path.join(contentDir, `${section}/${basename}.md`);
-      const directoryPath = path.join(contentDir, `${section}`);
-      if (!fs.existsSync(directoryPath)) {
-        fs.mkdirSync(directoryPath);
-      }
-
-      const content = formatMarkdown(page.attributes);
-      fs.writeFileSync(filePath, content);
-    });
   });
+
+  // Fetch pages from API with retry logic
+  const res = await withRetry(async () => {
+    const response = await axiosInstance.post("/graphql", {
+      query,
+      validateStatus: (status) => status === 200,
+    });
+    return response;
+  });
+
+  // Validate response structure
+  const pages = validateApiResponse(res, "data.pages.data");
+
+  if (!pages || pages.length === 0) {
+    console.warn("Warning: No pages found in API response");
+    return;
+  }
+
+  let section;
+  const site = pages.map((page) => {
+    const obj = { ...page };
+    let rawText;
+
+    rawText = obj.attributes?.body
+      ?.replace(/<[^>]*>?/gm, "")
+      .replace(/[^a-z0-9]/gi, " ");
+    rawText = rawText.replace(/\s\s+/g, " ");
+    obj.attributes.rawText = rawText.toLowerCase();
+    obj.attributes.draft = false;
+    obj.attributes.type = "page";
+
+    obj.attributes.navigation = true;
+    if (page.attributes.section !== "root") {
+      section = page.attributes.section.toLowerCase();
+      obj.attributes.path = `/${section}/${page.attributes.slug}`;
+      obj.attributes.url = `${SITE_URL}${obj.attributes.path}`;
+    } else {
+      obj.attributes.path = `/${page.attributes.slug}`;
+      obj.attributes.url = `${SITE_URL}${obj.attributes.path}`;
+    }
+
+    if (page.attributes.slug === "index") {
+      obj.attributes.path = `/`;
+      obj.attributes.url = `${SITE_URL}`;
+    }
+
+    console.log("Markdown content created: ", obj.attributes.path);
+    return obj;
+  });
+
+  const pageRoutes = site.map((item) => {
+    if (item.attributes.slug !== "index") {
+      return `/${item.attributes.slug}`;
+    } else {
+      return `/`;
+    }
+  });
+
+  // Write route files with error handling
+  await safeWriteFile(`./public/routesPages.json`, pageRoutes, jsonfile);
+  await safeWriteFile(`./public/pages.json`, site, jsonfile);
+
+  // Generate markdown files
+  for (const page of site) {
+    if (page.attributes.section === "root") {
+      section = "";
+    } else {
+      section = page.attributes.section.toLowerCase();
+    }
+
+    const basename = page.attributes.slug;
+    const filePath = path.join(contentDir, `${section}/${basename}.md`);
+    const directoryPath = path.join(contentDir, `${section}`);
+
+    ensureDirectory(directoryPath, fs);
+
+    const content = formatMarkdown(page.attributes);
+    safeWriteFileSync(filePath, content, fs);
+  }
+
+  console.log(`\n✓ Processed ${pages.length} pages`);
+}
+
+// Run the script with error handling wrapper
+runScript(main, "createMarkdownPages");

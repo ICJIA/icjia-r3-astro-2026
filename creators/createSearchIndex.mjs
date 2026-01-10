@@ -17,11 +17,40 @@
  */
 
 import { createRequire } from "module";
+import { existsSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
 const require = createRequire(import.meta.url);
 require("dotenv").config();
 
 const { v4: uuidv4 } = require("uuid");
 const jsonfile = require("jsonfile");
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+/**
+ * Safely require a JSON file, returning empty array if file doesn't exist
+ * @param {string} filePath - Path to the JSON file relative to project root
+ * @returns {Array<Object>} Content array or empty array if file doesn't exist
+ */
+function safeRequireJson(filePath) {
+  const fullPath = join(__dirname, "..", filePath);
+  try {
+    if (existsSync(fullPath)) {
+      // Use the fullPath for requiring to ensure consistency
+      const data = require(fullPath);
+      return data;
+    } else {
+      console.warn(`⚠️  Warning: ${filePath} not found, using empty array`);
+      return [];
+    }
+  } catch (error) {
+    console.warn(`⚠️  Warning: Error reading ${filePath}, using empty array:`, error.message);
+    return [];
+  }
+}
 
 /**
  * Content data from static pages.
@@ -29,7 +58,7 @@ const jsonfile = require("jsonfile");
  *
  * @type {Array<Object>} Array of page objects with id and attributes
  */
-const pages = require("../public/pages.json");
+const pages = safeRequireJson("public/pages.json");
 
 /**
  * Content data from news posts.
@@ -37,7 +66,7 @@ const pages = require("../public/pages.json");
  *
  * @type {Array<Object>} Array of post objects with id and attributes
  */
-const posts = require("../public/posts.json");
+const posts = safeRequireJson("public/posts.json");
 
 /**
  * Content data from FAQ pages.
@@ -45,7 +74,7 @@ const posts = require("../public/posts.json");
  *
  * @type {Array<Object>} Array of FAQ objects with id and attributes
  */
-const faqs = require("../public/faqs.json");
+const faqs = safeRequireJson("public/faqs.json");
 
 /**
  * Content data from resource pages.
@@ -53,7 +82,7 @@ const faqs = require("../public/faqs.json");
  *
  * @type {Array<Object>} Array of resource objects with id and attributes
  */
-const resources = require("../public/resources.json");
+const resources = safeRequireJson("public/resources.json");
 
 /**
  * Content data from manually created pages.
@@ -61,7 +90,7 @@ const resources = require("../public/resources.json");
  *
  * @type {Array<Object>} Array of manual page objects with id and attributes
  */
-const manualPages = require("../public/manual.json");
+const manualPages = safeRequireJson("public/manual.json");
 
 /**
  * Combined site content from all content types.
