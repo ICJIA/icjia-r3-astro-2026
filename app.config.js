@@ -39,12 +39,15 @@
  * Keep these in sync with config.js!
  */
 const SITE_NAME = "R3 - Restore, Reinvest, Renew";
-const SITE_DESCRIPTION = "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment.";
+const SITE_DESCRIPTION =
+  "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment.";
 const SITE_URL = "https://r3.illinois.gov";
 const API_BASE = "https://r3.icjia-api.cloud";
 const UNDER_CONSTRUCTION = false;
-const AMPLIFUND_OPPORTUNITY_1 = "https://il.amplifund.com/Public/Opportunities/Details/025c7e5e-0584-4bab-b2ce-c6528f5c132e";
-const AMPLIFUND_OPPORTUNITY_2 = "https://il.amplifund.com/Public/Opportunities/Details/41c400bd-795c-444a-a8db-9bad138127be";
+const AMPLIFUND_OPPORTUNITY_1 =
+  "https://il.amplifund.com/Public/Opportunities/Details/025c7e5e-0584-4bab-b2ce-c6528f5c132e";
+const AMPLIFUND_OPPORTUNITY_2 =
+  "https://il.amplifund.com/Public/Opportunities/Details/41c400bd-795c-444a-a8db-9bad138127be";
 
 /**
  * Main application configuration object.
