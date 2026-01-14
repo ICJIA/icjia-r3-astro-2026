@@ -171121,7 +171121,7 @@
               "all": [],
               "none": [],
               "impact": null,
-              "html": "<span class=\"\"> This page last updated:&nbsp;2 minutes ago</span>",
+              "html": "<span class=\"\"> This page last updated:&nbsp;an hour ago</span>",
               "target": [
                 ".mb-12 > span"
               ]
@@ -179231,7 +179231,7 @@
               "all": [],
               "none": [],
               "impact": null,
-              "html": "<span class=\"\"> This page last updated:&nbsp;2 minutes ago</span>",
+              "html": "<span class=\"\"> This page last updated:&nbsp;an hour ago</span>",
               "target": [
                 ".mb-12 > span"
               ]

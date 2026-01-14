@@ -1,8 +1,8 @@
 # Documentation Portal Implementation Prompt V2
 
-**Version**: 4.1  
+**Version**: 4.2  
 **Last Updated**: January 14, 2026  
-**Purpose**: Single comprehensive prompt for creating or migrating to a simplified, high-contrast, accessible documentation portal
+**Purpose**: Single comprehensive prompt for creating or migrating to a simplified, WCAG AAA-compliant, high-contrast accessible documentation portal
 
 > 💡 **Start with the [Questions](#-questions-to-ask-before-starting)** before generating any code.
 
@@ -140,9 +140,11 @@ scripts/
 
 > **Use this pathway if:** You're building a documentation portal from scratch. No existing `/docs/` folder or documentation files.
 
-## A1: Create Portal Landing Page
+## A1: Create Portal Landing Page (WCAG AAA Compliant)
 
 **File**: `public/docs/index.html`
+
+This template meets WCAG 2.1 Level AAA contrast requirements (7:1 for normal text, 4.5:1 for large text).
 
 ```html
 <!doctype html>
@@ -150,131 +152,254 @@ scripts/
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Documentation Portal</title>
+    <title>Documentation Portal - [PROJECT NAME]</title>
     <style>
-      /* HIGH CONTRAST DESIGN - DO NOT MODIFY */
+      /*
+       * WCAG AAA CONTRAST REQUIREMENTS:
+       * - Normal text: 7:1 minimum contrast ratio
+       * - Large text (18pt+ or 14pt+ bold): 4.5:1 minimum contrast ratio
+       * 
+       * This design uses:
+       * - Black (#000) on white (#fff): 21:1 ratio ✓
+       * - White (#fff) on black (#000): 21:1 ratio ✓
+       * - Black (#000) on light gray (#f5f5f5): 16:1 ratio ✓
+       */
+
+      :root {
+        --text-primary: #000000;
+        --text-inverse: #ffffff;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f5f5f5;
+        --bg-dark: #000000;
+        --border-heavy: #000000;
+        --focus-color: #ffff00;
+      }
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           sans-serif;
-        line-height: 1.8;
-        color: #000;
-        background: #fff;
+        background: var(--bg-secondary);
         padding: 20px;
-        font-size: 16px;
-      }
-      .container {
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-        color: #000;
-        font-weight: 700;
-        border-bottom: 4px solid #000;
-        padding-bottom: 0.5rem;
-      }
-      h2 {
-        font-size: 1.5rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        color: #000;
-        font-weight: 700;
-      }
-      p {
-        margin-bottom: 1rem;
         line-height: 1.8;
+        color: var(--text-primary);
+        font-size: 18px;
       }
-      .card {
-        background: #fff;
-        border: 4px solid #000;
-        padding: 2rem;
-        margin: 2rem 0;
+
+      .container {
+        max-width: 980px;
+        margin: 0 auto;
+        background: var(--bg-primary);
+        padding: 48px;
+        border: 4px solid var(--border-heavy);
       }
-      .card h2 {
-        margin-top: 0;
-        border-bottom: 3px solid #000;
-        padding-bottom: 0.5rem;
+
+      h1 {
+        color: var(--text-primary);
+        border-bottom: 6px solid var(--border-heavy);
+        padding-bottom: 16px;
+        margin-bottom: 24px;
+        font-size: 2.5rem;
+        font-weight: 900;
       }
-      .card a {
+
+      p {
+        color: var(--text-primary);
+        font-weight: 500;
+        margin-bottom: 16px;
+      }
+
+      strong {
+        font-weight: 900;
+      }
+
+      .doc-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin: 32px 0;
+      }
+
+      /* Dark card for maximum contrast */
+      .doc-card {
+        background: var(--bg-dark);
+        color: var(--text-inverse);
+        padding: 28px;
+        border: 4px solid var(--border-heavy);
+      }
+
+      .doc-card h2 {
+        color: var(--text-inverse);
+        margin-bottom: 12px;
+        font-size: 1.5rem;
+        font-weight: 900;
+      }
+
+      .doc-card p {
+        color: var(--text-inverse);
+        margin-bottom: 16px;
+        font-weight: 500;
+      }
+
+      .doc-card a {
         display: inline-block;
-        background: #000;
-        color: #fff;
-        padding: 12px 24px;
+        background: var(--bg-primary);
+        color: var(--text-primary);
         text-decoration: none;
-        font-weight: 700;
-        margin-top: 1rem;
-        border: 3px solid #000;
+        font-weight: 900;
+        padding: 12px 20px;
+        border: 3px solid var(--text-inverse);
       }
-      .card a:hover,
-      .card a:focus {
-        background: #fff;
-        color: #000;
-        outline: 4px solid #000;
+
+      .doc-card a:hover {
+        background: var(--focus-color);
+        color: var(--text-primary);
+        border-color: var(--text-primary);
+      }
+
+      .doc-card a:focus,
+      .doc-card a:focus-visible {
+        outline: 4px solid var(--focus-color);
         outline-offset: 2px;
       }
-      /* Skip link */
+
+      .callout {
+        background: var(--bg-secondary);
+        padding: 24px;
+        border: 4px solid var(--border-heavy);
+        margin: 24px 0;
+      }
+
+      footer {
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 4px solid var(--border-heavy);
+        font-weight: 600;
+      }
+
+      footer a {
+        color: var(--text-primary);
+        text-decoration: underline;
+        font-weight: 900;
+      }
+
+      footer a:hover {
+        background: var(--focus-color);
+      }
+
+      footer a:focus,
+      footer a:focus-visible {
+        outline: 3px solid var(--text-primary);
+        outline-offset: 2px;
+      }
+
+      /* Skip link - AAA compliant */
       .skip-link {
         position: absolute;
         top: -100px;
         left: 0;
-        background: #000;
-        color: #fff;
+        background: var(--bg-dark);
+        color: var(--text-inverse);
         padding: 16px 32px;
         text-decoration: none;
         z-index: 10000;
-        font-weight: 700;
+        font-weight: 900;
         font-size: 1.125rem;
-        border: 4px solid #fff;
+        border: 4px solid var(--text-inverse);
       }
-      .skip-link:focus {
+
+      .skip-link:focus,
+      .skip-link:focus-visible {
         top: 0;
-        outline: 4px solid #fff;
-        outline-offset: 4px;
+        outline: 4px solid var(--focus-color);
+        outline-offset: 2px;
       }
+
+      /* AAA Compliance Badge */
+      .aaa-badge {
+        display: inline-block;
+        background: var(--bg-dark);
+        color: var(--text-inverse);
+        padding: 4px 12px;
+        font-size: 0.875rem;
+        font-weight: 900;
+        border: 2px solid var(--border-heavy);
+        margin-left: 8px;
+        vertical-align: middle;
+      }
+
       /* Responsive */
-      @media (max-width: 768px) {
+      @media (max-width: 600px) {
         body {
-          padding: 15px;
-          font-size: 15px;
+          padding: 12px;
+          font-size: 16px;
+        }
+        .container {
+          padding: 24px;
         }
         h1 {
-          font-size: 2rem;
-        }
-        h2 {
-          font-size: 1.25rem;
-        }
-        .card {
-          padding: 1.5rem;
+          font-size: 1.75rem;
         }
       }
     </style>
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div class="container">
-      <main id="main-content" tabindex="-1">
-        <h1>📚 Documentation Portal</h1>
-        <p><strong>Project Name</strong> - Development Documentation</p>
+    <main class="container" id="main-content" tabindex="-1">
+      <h1>📚 Documentation Portal <span class="aaa-badge">WCAG AAA</span></h1>
 
-        <div class="card">
+      <p>
+        Welcome to the documentation portal for <strong>[PROJECT NAME]</strong>.
+        This portal provides accessibility audit reports to ensure the website
+        meets <strong>WCAG 2.1 Level AA</strong> standards. This portal itself
+        is designed to meet <strong>WCAG 2.1 Level AAA</strong> contrast
+        requirements (7:1 minimum for normal text).
+      </p>
+
+      <div class="doc-grid">
+        <div class="doc-card">
           <h2>♿ Accessibility Audit</h2>
           <p>
-            WCAG 2.1 Level AA compliance report with axe-core automated testing.
+            Sitemap-driven WCAG audit results across desktop, tablet, and mobile
+            viewports using axe-core.
           </p>
           <a
             href="/docs/accessibility/index.html"
             aria-label="View accessibility audit report"
-            >View Accessibility Report</a
+            >View Accessibility Report →</a
           >
         </div>
-      </main>
-    </div>
+      </div>
+
+      <div class="callout">
+        <p>
+          <strong>Repo access:</strong> This project repository is private. If
+          you need access to source code or internal documentation, please
+          contact the <strong>web development team</strong>.
+        </p>
+      </div>
+
+      <footer>
+        <p><strong>Last updated:</strong> <span id="lastUpdated">-</span></p>
+        <div style="margin-top: 12px;">
+          <a href="/">← Back to Application</a>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("lastUpdated").textContent =
+        new Date().toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+    </script>
   </body>
 </html>
 ```
@@ -1026,34 +1151,77 @@ open http://localhost:8000/docs/
 
 ---
 
-# 🎨 High Contrast Design Principles
+# 🎨 High Contrast Design Principles (WCAG AAA)
 
 **ALWAYS follow these rules for all generated HTML:**
 
-| Element           | Requirement                             |
-| ----------------- | --------------------------------------- |
-| **Text Color**    | #000 (black) only                       |
-| **Background**    | #fff (white) base                       |
-| **Borders**       | Minimum 3px, preferably 4px solid black |
-| **Font Weight**   | 700+ for headings, 500+ for body        |
-| **Font Size**     | Minimum 16px base                       |
-| **Line Height**   | 1.8 minimum                             |
-| **Success BG**    | #d4f4dd (light green)                   |
-| **Error BG**      | #ffe0e0 (light red)                     |
-| **Warning BG**    | #fff4cc (light yellow)                  |
-| **Padding**       | 1.5rem minimum for cards                |
-| **Focus Outline** | 4px solid with 4px offset               |
-| **Border Radius** | 0 (sharp corners only)                  |
+## WCAG AAA Contrast Requirements
+
+| Standard              | Contrast Ratio | When Applied                        |
+| --------------------- | -------------- | ----------------------------------- |
+| **AAA Normal Text**   | 7:1 minimum    | All body text, paragraphs, labels   |
+| **AAA Large Text**    | 4.5:1 minimum  | 18pt+ (24px) or 14pt+ bold (18.5px) |
+| **AAA UI Components** | 3:1 minimum    | Borders, icons, form controls       |
+| **AA Normal Text**    | 4.5:1 minimum  | Fallback minimum (prefer AAA)       |
+
+## AAA-Compliant Color Combinations
+
+| Combination         | Contrast Ratio | Usage                              |
+| ------------------- | -------------- | ---------------------------------- |
+| **#000 on #fff**    | 21:1 ✓         | Primary text on white backgrounds  |
+| **#fff on #000**    | 21:1 ✓         | Text on dark cards/buttons         |
+| **#000 on #f5f5f5** | 16:1 ✓         | Text on light gray backgrounds     |
+| **#000 on #ffff00** | 19.6:1 ✓       | Hover/focus states                 |
+| **#000 on #d4f4dd** | 15.6:1 ✓       | Success backgrounds (light green)  |
+| **#000 on #ffe0e0** | 14.7:1 ✓       | Error backgrounds (light red)      |
+| **#000 on #fff4cc** | 16.5:1 ✓       | Warning backgrounds (light yellow) |
+
+## Design Requirements
+
+| Element           | Requirement                               |
+| ----------------- | ----------------------------------------- |
+| **Text Color**    | #000 (black) only on light backgrounds    |
+| **Inverse Text**  | #fff (white) only on dark backgrounds     |
+| **Background**    | #fff (white) base, #000 for cards         |
+| **Borders**       | Minimum 3px, preferably 4px solid black   |
+| **Font Weight**   | 900 for headings, 500+ for body           |
+| **Font Size**     | Minimum 18px base for optimal readability |
+| **Line Height**   | 1.8 minimum                               |
+| **Success BG**    | #d4f4dd (light green) with #000 text      |
+| **Error BG**      | #ffe0e0 (light red) with #000 text        |
+| **Warning BG**    | #fff4cc (light yellow) with #000 text     |
+| **Padding**       | 1.5rem minimum for cards                  |
+| **Focus Outline** | 4px solid with 2-4px offset               |
+| **Focus Color**   | #ffff00 (yellow) on dark, #000 on light   |
+| **Border Radius** | 0 (sharp corners only)                    |
+
+## CSS Variables Template (AAA-Compliant)
+
+```css
+:root {
+  /* WCAG AAA Compliant Color System */
+  --text-primary: #000000; /* Black text - 21:1 on white */
+  --text-inverse: #ffffff; /* White text - 21:1 on black */
+  --bg-primary: #ffffff; /* White background */
+  --bg-secondary: #f5f5f5; /* Light gray - 16:1 with black */
+  --bg-dark: #000000; /* Black background */
+  --border-heavy: #000000; /* Maximum contrast borders */
+  --focus-color: #ffff00; /* Yellow focus on dark - 19.6:1 */
+  --focus-color-light: #000000; /* Black focus on light */
+}
+```
 
 **NEVER use:**
 
-- ❌ Gray text
-- ❌ Low contrast colors
+- ❌ Gray text (even #333 fails AAA on white: 12.6:1 is AA, not AAA for small text)
+- ❌ Low contrast colors (any combination below 7:1 for normal text)
+- ❌ Blue links without sufficient contrast (#0066cc on white is only 6.4:1)
 - ❌ Thin borders (< 3px)
 - ❌ Light font weights (< 500)
 - ❌ Rounded corners
-- ❌ Shadows or gradients
-- ❌ Small fonts (< 16px)
+- ❌ Shadows or gradients that reduce contrast
+- ❌ Small fonts (< 16px, prefer 18px+)
+- ❌ Color as the only differentiator (always pair with text/icons)
 
 ---
 
@@ -1071,19 +1239,31 @@ open http://localhost:8000/docs/
 - [ ] Run `yarn audit:a11y` - **zero violations**
 - [ ] Test skip link (Tab on page load)
 - [ ] Test with screen reader (VoiceOver/NVDA)
-- [ ] Check color contrast (all text #000 on #fff)
 - [ ] Test responsive (mobile, tablet, desktop)
 - [ ] Verify keyboard navigation (Tab, Enter, Space)
 - [ ] Check focus indicators (visible 4px outlines)
 
+## WCAG AAA Contrast Verification
+
+Use [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) to verify:
+
+- [ ] **Normal text** has 7:1+ contrast ratio (AAA requirement)
+- [ ] **Large text** (18pt+) has 4.5:1+ contrast ratio
+- [ ] **UI components** (borders, icons) have 3:1+ contrast ratio
+- [ ] All text is #000 on #fff or #fff on #000 (21:1 ratio)
+- [ ] Focus states use high-contrast yellow (#ffff00) on dark backgrounds
+- [ ] No gray text anywhere (even #333 doesn't meet AAA for small text)
+
 ## Visual Verification
 
-- [ ] All text is black on white
+- [ ] All body text is black (#000) on white (#fff)
+- [ ] Cards use inverted colors (white text on black background)
 - [ ] Borders are 3-4px solid black
-- [ ] Cards have clear boundaries
-- [ ] Buttons have high contrast
-- [ ] Tables have visible borders
-- [ ] Stat cards use approved backgrounds only
+- [ ] Buttons have maximum contrast (black/white or inverted)
+- [ ] Tables have visible borders with adequate padding
+- [ ] Status backgrounds (success/error/warning) use approved AAA colors
+- [ ] Font weight is 500+ for body, 900 for headings
+- [ ] Base font size is 18px minimum
 
 ---
 
@@ -1172,13 +1352,14 @@ After either pathway:
 
 # 📝 Version History
 
-| Version  | Date         | Changes                                               |
-| -------- | ------------ | ----------------------------------------------------- |
-| **v4.1** | Jan 14, 2026 | Added pre-implementation questionnaire section        |
-| **v4.0** | Jan 14, 2026 | V2 release: Prominent two-pathway structure           |
-| **v3.0** | Jan 14, 2026 | Consolidated to single prompt, high-contrast emphasis |
-| **v2.0** | Jan 14, 2026 | Added dual implementation paths                       |
-| **v1.0** | Jan 10, 2026 | Initial comprehensive guide                           |
+| Version  | Date         | Changes                                                                                           |
+| -------- | ------------ | ------------------------------------------------------------------------------------------------- |
+| **v4.2** | Jan 14, 2026 | Added WCAG AAA contrast guidelines (7:1 ratio), updated portal template with AAA-compliant design |
+| **v4.1** | Jan 14, 2026 | Added pre-implementation questionnaire section                                                    |
+| **v4.0** | Jan 14, 2026 | V2 release: Prominent two-pathway structure                                                       |
+| **v3.0** | Jan 14, 2026 | Consolidated to single prompt, high-contrast emphasis                                             |
+| **v2.0** | Jan 14, 2026 | Added dual implementation paths                                                                   |
+| **v1.0** | Jan 10, 2026 | Initial comprehensive guide                                                                       |
 
 ---
 

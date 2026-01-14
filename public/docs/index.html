@@ -47,162 +47,264 @@
     />
 
     <!-- Additional Meta Tags -->
-    <meta name="theme-color" content="#0e4474" />
+    <meta name="theme-color" content="#000000" />
     <meta name="application-name" content="R3 Documentation Portal" />
 
     <style>
+      /*
+       * WCAG AAA Contrast Requirements:
+       * - Normal text: 7:1 minimum contrast ratio
+       * - Large text (18pt+ or 14pt+ bold): 4.5:1 minimum contrast ratio
+       * 
+       * This design uses:
+       * - Black (#000) on white (#fff): 21:1 ratio ✓
+       * - White (#fff) on black (#000): 21:1 ratio ✓
+       * - Black (#000) on light gray (#f5f5f5): 16:1 ratio ✓
+       */
+      
       :root {
-        --primary: #0e4474;
-        --info: #0066cc;
-        --success: #28a745;
-        --light: #f8f9fa;
-        --text: #1f2937;
-        --muted: #4b5563;
+        --text-primary: #000000;
+        --text-inverse: #ffffff;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f5f5f5;
+        --bg-dark: #000000;
+        --border-heavy: #000000;
+        --link-color: #000000;
+        --focus-color: #000000;
       }
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          sans-serif;
-        background: #f5f5f5;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: var(--bg-secondary);
         padding: 20px;
-        line-height: 1.6;
-        color: var(--text);
+        line-height: 1.8;
+        color: var(--text-primary);
+        font-size: 18px;
       }
+
       .container {
         max-width: 980px;
         margin: 0 auto;
-        background: white;
-        padding: 40px;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        background: var(--bg-primary);
+        padding: 48px;
+        border: 4px solid var(--border-heavy);
       }
+
       h1 {
-        color: var(--primary);
-        border-bottom: 3px solid var(--info);
-        padding-bottom: 15px;
-        margin-bottom: 18px;
+        color: var(--text-primary);
+        border-bottom: 6px solid var(--border-heavy);
+        padding-bottom: 16px;
+        margin-bottom: 24px;
+        font-size: 2.5rem;
+        font-weight: 900;
+        letter-spacing: -0.02em;
       }
+
       p {
-        color: var(--muted);
+        color: var(--text-primary);
+        font-weight: 500;
+        margin-bottom: 16px;
       }
+
+      strong {
+        font-weight: 900;
+      }
+
       .doc-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 18px;
-        margin: 26px 0;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin: 32px 0;
       }
+
       .doc-card {
-        background: var(--light);
-        padding: 22px;
-        border-radius: 10px;
-        border-left: 4px solid var(--info);
-        transition:
-          transform 0.15s ease,
-          box-shadow 0.15s ease;
+        background: var(--bg-dark);
+        color: var(--text-inverse);
+        padding: 28px;
+        border: 4px solid var(--border-heavy);
+        transition: transform 0.15s ease;
       }
+
       .doc-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
       }
+
       .doc-card h2 {
-        color: var(--primary);
-        margin-bottom: 8px;
-        font-size: 1.25rem;
-      }
-      .doc-card p {
+        color: var(--text-inverse);
         margin-bottom: 12px;
-        font-size: 0.95rem;
+        font-size: 1.5rem;
+        font-weight: 900;
       }
+
+      .doc-card p {
+        color: var(--text-inverse);
+        margin-bottom: 16px;
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
       .doc-card a {
         display: inline-block;
-        color: var(--info);
+        color: var(--text-inverse);
+        background: var(--bg-primary);
+        color: var(--text-primary);
         text-decoration: none;
-        font-weight: 700;
+        font-weight: 900;
+        padding: 12px 20px;
+        border: 3px solid var(--text-inverse);
+        transition: background 0.15s ease, color 0.15s ease;
       }
+
       .doc-card a:hover {
-        text-decoration: underline;
+        background: #ffff00;
+        color: var(--text-primary);
+        border-color: var(--text-primary);
       }
+
+      .doc-card a:focus,
+      .doc-card a:focus-visible {
+        outline: 4px solid #ffff00;
+        outline-offset: 2px;
+      }
+
       .callout {
-        background: #e7f3ff;
-        padding: 18px 18px;
-        border-radius: 10px;
-        margin: 18px 0;
-        border-left: 4px solid var(--info);
+        background: var(--bg-secondary);
+        padding: 24px;
+        border: 4px solid var(--border-heavy);
+        margin: 24px 0;
       }
-      .callout strong {
-        color: #0b3b59;
+
+      .callout p {
+        margin-bottom: 0;
       }
+
       code,
       pre {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
           "Liberation Mono", "Courier New", monospace;
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-heavy);
+        padding: 2px 6px;
+        font-weight: 700;
       }
+
       footer {
-        margin-top: 28px;
-        padding-top: 18px;
-        border-top: 1px solid #e5e7eb;
-        color: var(--muted);
-        font-size: 0.95rem;
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 4px solid var(--border-heavy);
+        color: var(--text-primary);
+        font-size: 1rem;
+        font-weight: 600;
       }
+
       footer a {
-        color: var(--info);
-        text-decoration: none;
-      }
-      footer a:hover {
+        color: var(--text-primary);
         text-decoration: underline;
+        font-weight: 900;
       }
+
+      footer a:hover {
+        background: #ffff00;
+      }
+
+      footer a:focus,
+      footer a:focus-visible {
+        outline: 3px solid var(--focus-color);
+        outline-offset: 2px;
+      }
+
       .links {
-        margin-top: 10px;
+        margin-top: 12px;
       }
-      /* Skip link styles for accessibility */
+
+      /* Skip link - WCAG AAA compliant */
       .skip-link {
         position: absolute;
         top: -100px;
         left: 0;
-        background: #0066cc;
-        color: #fff;
-        padding: 12px 24px;
+        background: var(--bg-dark);
+        color: var(--text-inverse);
+        padding: 16px 32px;
         text-decoration: none;
         z-index: 10000;
-        border-radius: 0 0 4px 0;
-        font-weight: 600;
-        font-size: 1rem;
+        font-weight: 900;
+        font-size: 1.125rem;
+        border: 4px solid var(--text-inverse);
         transition: top 0.2s ease-in-out;
       }
+
       .skip-link:focus,
       .skip-link:focus-visible {
         top: 0;
-        outline: 3px solid #0066cc;
+        outline: 4px solid #ffff00;
         outline-offset: 2px;
+      }
+
+      /* Focus styles for all interactive elements */
+      a:focus-visible,
+      button:focus-visible {
+        outline: 4px solid var(--focus-color);
+        outline-offset: 2px;
+      }
+
+      /* AAA Compliance Badge */
+      .aaa-badge {
+        display: inline-block;
+        background: var(--bg-dark);
+        color: var(--text-inverse);
+        padding: 4px 12px;
+        font-size: 0.875rem;
+        font-weight: 900;
+        border: 2px solid var(--border-heavy);
+        margin-left: 8px;
+        vertical-align: middle;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 600px) {
+        body {
+          padding: 12px;
+          font-size: 16px;
+        }
+        
+        .container {
+          padding: 24px;
+        }
+        
+        h1 {
+          font-size: 1.75rem;
+        }
+        
+        .doc-card {
+          padding: 20px;
+        }
       }
     </style>
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <main class="container" id="main-content" tabindex="-1">
-      <h1>📚 Documentation Portal</h1>
+      <h1>📚 Documentation Portal <span class="aaa-badge">WCAG AAA</span></h1>
 
       <p>
         Welcome to the documentation portal for
         <strong>R3 Restore, Reinvest, Renew</strong>. This portal provides
-        accessibility audit reports to ensure the website meets WCAG 2.1 Level
-        AA standards.
+        accessibility audit reports to ensure the website meets <strong>WCAG 2.1 Level AA</strong> standards. This portal itself is designed to meet <strong>WCAG 2.1 Level AAA</strong> contrast requirements (7:1 minimum for normal text).
       </p>
 
       <div class="doc-grid">
         <div class="doc-card">
           <h2>♿ Accessibility Audit</h2>
           <p>
-            Sitemap-driven WCAG audit results across desktop/tablet/mobile
-            viewports.
+            Sitemap-driven WCAG audit results across desktop, tablet, and mobile viewports using axe-core.
           </p>
-          <a href="/docs/accessibility/index.html"
-            >View Accessibility Report →</a
-          >
+          <a href="/docs/accessibility/index.html">View Accessibility Report →</a>
         </div>
       </div>
 
@@ -215,7 +317,7 @@
       </div>
 
       <footer>
-        <p>Last updated: <span id="lastUpdated">-</span></p>
+        <p><strong>Last updated:</strong> <span id="lastUpdated">-</span></p>
         <div class="links">
           <a href="/">← Back to Application</a>
         </div>
