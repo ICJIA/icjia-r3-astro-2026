@@ -22,6 +22,31 @@
       class="markdown-body"
       style="min-height: 100vh"
     >
+      <!-- Reviewer Recruitment Banner -->
+      <div
+        class="reviewer-banner"
+        role="region"
+        aria-label="Grant reviewer recruitment announcement"
+      >
+        <a
+          :href="reviewerFormUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="banner-link"
+          aria-label="Lend Us Your Expertise. Become a grant application reviewer. Opens in a new tab."
+        >
+          <v-icon color="white" aria-hidden="true" class="mr-3"
+            >mdi-account-star</v-icon
+          >
+          <strong>Lend Us Your Expertise.</strong>&nbsp;<strong
+            >Become a grant application reviewer</strong
+          >
+          <v-icon size="small" class="ml-2" aria-hidden="true" color="white"
+            >mdi-open-in-new</v-icon
+          >
+        </a>
+      </div>
+
       <!-- <TheBreadcrumbBar
         v-if="!hideBreadcrumbBar"
         :key="routePath"
@@ -60,6 +85,10 @@
 const isHome = ref(true);
 const hideBreadcrumbBar = ref(false);
 const route = useRoute();
+
+// Reviewer recruitment banner URL
+const reviewerFormUrl =
+  "https://forms.office.com/pages/responsepage.aspx?id=nwgia7qOPEaE9TFxIQ-QBbUUzlNyrrlPuEf42By_l3NUOEU1M0laS042VFk3VTlUVjE2NzhCVTA2Ny4u&route=shorturl";
 
 // Normalize path by removing trailing slash for consistent comparisons
 const normalizePath = (p) =>
@@ -181,6 +210,57 @@ const tags = useState("tags", () => tagMeta);
 
 .skip-link:visited {
   color: #ffffff !important; /* Keep white even when visited */
+}
+
+/* Reviewer Recruitment Banner */
+.reviewer-banner {
+  z-index: 10;
+  position: relative;
+  min-height: 70px;
+  width: 100%;
+  background-color: #c62828; /* red-darken-2 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 24px;
+}
+
+.reviewer-banner .banner-link {
+  color: #ffffff !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.reviewer-banner .banner-link strong {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.reviewer-banner :deep(.v-icon) {
+  font-size: 1.5rem;
+}
+
+.reviewer-banner .banner-link:hover {
+  opacity: 0.9;
+  text-decoration: underline;
+}
+
+.reviewer-banner .banner-link:focus {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.reviewer-banner .banner-link:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .page-enter-active,

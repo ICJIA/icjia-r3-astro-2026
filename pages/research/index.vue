@@ -1,6 +1,5 @@
 <template>
   <div>
-    <TheBreadcrumbBar></TheBreadcrumbBar>
     <v-container fluid>
       <v-snackbar
         v-model="snackbar"

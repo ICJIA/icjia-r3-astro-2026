@@ -58,7 +58,7 @@
           width="100%"
           height="1500px"
           frameborder="0"
-          :title="'R3 Eligibility Areas Interactive StoryMap'"
+          title="R3 Eligibility Areas Interactive StoryMap"
           aria-label="R3 Eligibility Areas Interactive StoryMap"
           allowfullscreen
           allow="geolocation"

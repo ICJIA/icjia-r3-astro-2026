@@ -30,7 +30,6 @@ onMounted(() => {
 
 <template>
   <div>
-    <TheBreadcrumbBar></TheBreadcrumbBar>
     <div v-if="data">
       <v-container class="mt-12"
         ><v-row

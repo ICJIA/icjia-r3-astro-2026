@@ -1,6 +1,5 @@
 <template>
   <div>
-    <TheBreadcrumbBar></TheBreadcrumbBar>
     <keep-alive>
       <v-container class="mb-12" fluid
         ><v-row

@@ -180,7 +180,6 @@ onMounted(async () => {
 
 <template>
   <div>
-    <TheBreadcrumbBar></TheBreadcrumbBar>
     <div v-if="data.isFullPage">
       <ContentDoc :key="data?.title" :value="data" class="markdown-body">
         <template #empty>Document not found</template>

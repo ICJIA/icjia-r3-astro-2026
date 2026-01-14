@@ -1,6 +1,5 @@
 <template>
   <div class="mb-10">
-    <TheBreadcrumbBar></TheBreadcrumbBar>
     <v-container fluid
       ><v-row
         ><v-col cols="12">

@@ -1,6 +1,5 @@
 <template>
   <div v-if="resources" class="pb-12">
-    <TheBreadcrumbBar></TheBreadcrumbBar>
     <v-container fluid
       ><v-row
         ><v-col>

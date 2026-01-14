@@ -1,6 +1,5 @@
 <template>
   <div>
-    <TheBreadcrumbBar></TheBreadcrumbBar>
     <!-- main landmark is provided globally by app.vue v-main -->
 
     <section role="region" aria-labelledby="contact-heading">
