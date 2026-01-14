@@ -1,8 +1,10 @@
 # Documentation Portal Implementation Prompt V2
 
-**Version**: 4.0  
+**Version**: 4.1  
 **Last Updated**: January 14, 2026  
 **Purpose**: Single comprehensive prompt for creating or migrating to a simplified, high-contrast, accessible documentation portal
+
+> 💡 **Start with the [Questions](#-questions-to-ask-before-starting)** before generating any code.
 
 ---
 
@@ -12,13 +14,98 @@
 
 ---
 
+## ❓ QUESTIONS TO ASK BEFORE STARTING
+
+**Before generating any scripts or documentation, gather the following information from the user:**
+
+### Required Questions (Must Answer All)
+
+| #   | Question                                          | Why It Matters                                      | Example Answer                            |
+| --- | ------------------------------------------------- | --------------------------------------------------- | ----------------------------------------- |
+| 1   | **Do you have an existing documentation portal?** | Determines Pathway A (new) vs Pathway B (migration) | "Yes, we have `/public/docs/` with JSDoc" |
+| 2   | **What is your project name?**                    | Used in page titles and headings                    | "R3 Restore, Reinvest, Renew"             |
+| 3   | **What port does your dev server run on?**        | Required for audit script configuration             | "8000" or "3000"                          |
+| 4   | **What is your production URL?**                  | Required for audit script configuration             | "https://r3.illinois.gov"                 |
+| 5   | **Where is your sitemap.xml located?**            | Required for audit to find pages to test            | "public/sitemap.xml"                      |
+| 6   | **What framework are you using?**                 | Affects exclusion selectors for audit               | "Nuxt 3", "Vue 3", "React", "Plain HTML"  |
+
+### Conditional Questions (Based on Answers Above)
+
+**If existing portal exists (Pathway B):**
+
+| #   | Question                                                                                     | Why It Matters                      |
+| --- | -------------------------------------------------------------------------------------------- | ----------------------------------- |
+| 7   | **What documentation types currently exist?** (JSDoc, TypeDoc, test reports, API docs, etc.) | Identifies what needs to be removed |
+| 8   | **Are there any documentation links in your site footer or navigation?**                     | Need to update/remove these links   |
+| 9   | **What package.json scripts relate to documentation?**                                       | Identifies scripts to remove        |
+
+**If using a framework with DevTools:**
+
+| #   | Question                                   | Why It Matters                                   |
+| --- | ------------------------------------------ | ------------------------------------------------ |
+| 10  | **Are DevTools enabled in development?**   | May need to add exclusion selectors              |
+| 11  | **What is the DevTools element selector?** | For Nuxt: `nuxt-devtools-frame`, for Vue: varies |
+
+### Optional Questions (Nice to Have)
+
+| #   | Question                                                               | Default if Not Provided                |
+| --- | ---------------------------------------------------------------------- | -------------------------------------- |
+| 12  | **Do you need multi-viewport testing?** (desktop, tablet, mobile)      | Yes - all three viewports              |
+| 13  | **Any specific axe-core rules to disable?**                            | Only `region` rule disabled by default |
+| 14  | **Repository visibility?** (public/private - affects report messaging) | Private                                |
+| 15  | **Contact info for accessibility questions?**                          | "Contact the web development team"     |
+
+### Quick Questionnaire Template
+
+Copy and ask the user to fill in:
+
+```
+📋 DOCUMENTATION PORTAL SETUP - QUESTIONNAIRE
+
+1. Existing docs portal? [ ] Yes (Pathway B)  [ ] No (Pathway A)
+2. Project name: _______________________
+3. Dev server port: _______________________
+4. Production URL: _______________________
+5. Sitemap location: _______________________ (default: public/sitemap.xml)
+6. Framework: [ ] Nuxt  [ ] Vue  [ ] React  [ ] Other: _______
+
+If existing portal (Pathway B only):
+7. Current docs types: _______________________
+8. Docs links in footer/nav? [ ] Yes  [ ] No
+9. Docs-related package scripts: _______________________
+
+Optional:
+10. DevTools enabled? [ ] Yes  [ ] No
+11. Multi-viewport testing? [ ] Yes (default)  [ ] No (desktop only)
+12. Repository: [ ] Public  [ ] Private (default)
+```
+
+### Decision Logic After Questions
+
+```
+Q1 = "No" (no existing portal)
+└─► Use PATHWAY A
+
+Q1 = "Yes" (existing portal)
+└─► Use PATHWAY B
+    └─► Use Q7-Q9 to identify files to remove
+
+Q6 = "Nuxt"
+└─► Use default AXE_EXCLUDE_SELECTORS for Nuxt DevTools
+
+Q6 = Other framework
+└─► Ask for DevTools selector or skip exclusions
+```
+
+---
+
 ## ⚡ TWO PATHWAYS - Choose Your Starting Point
 
 This prompt provides **TWO DISTINCT PATHWAYS** based on your current situation:
 
-| Pathway | When to Use | Jump To |
-|---------|-------------|---------|
-| **🆕 PATHWAY A: New Setup** | Starting from scratch, no existing docs portal | [Pathway A](#pathway-a-new-documentation-portal-setup) |
+| Pathway                     | When to Use                                       | Jump To                                                             |
+| --------------------------- | ------------------------------------------------- | ------------------------------------------------------------------- |
+| **🆕 PATHWAY A: New Setup** | Starting from scratch, no existing docs portal    | [Pathway A](#pathway-a-new-documentation-portal-setup)              |
 | **🔄 PATHWAY B: Migration** | Have an existing portal that needs simplification | [Pathway B](#pathway-b-migrate-existing-portal-to-simplified-setup) |
 
 **Choose ONE pathway and follow it completely.**
@@ -44,6 +131,7 @@ scripts/
 ```
 
 **Package Scripts:**
+
 - `yarn audit:a11y` - Run accessibility audit
 
 ---
@@ -693,6 +781,7 @@ grep -r "jsdoc\|typedoc\|docs:" package.json
 ```
 
 **Common legacy patterns to remove:**
+
 - `public/docs/jsdoc/` - API documentation
 - `public/docs/tests/` - Test reports
 - `public/docs/api/` - API reference
@@ -732,16 +821,24 @@ rm -f scripts/generate-docs.js
     <title>Documentation Portal</title>
     <style>
       /* HIGH CONTRAST DESIGN - DO NOT MODIFY */
-      * { margin: 0; padding: 0; box-sizing: border-box; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
         line-height: 1.8;
         color: #000;
         background: #fff;
         padding: 20px;
         font-size: 16px;
       }
-      .container { max-width: 1000px; margin: 0 auto; }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
       h1 {
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
@@ -750,7 +847,10 @@ rm -f scripts/generate-docs.js
         border-bottom: 4px solid #000;
         padding-bottom: 0.5rem;
       }
-      p { margin-bottom: 1rem; line-height: 1.8; }
+      p {
+        margin-bottom: 1rem;
+        line-height: 1.8;
+      }
       .card {
         background: #fff;
         border: 4px solid #000;
@@ -776,7 +876,8 @@ rm -f scripts/generate-docs.js
         margin-top: 1rem;
         border: 3px solid #000;
       }
-      .card a:hover, .card a:focus {
+      .card a:hover,
+      .card a:focus {
         background: #fff;
         color: #000;
         outline: 4px solid #000;
@@ -801,10 +902,19 @@ rm -f scripts/generate-docs.js
         outline-offset: 4px;
       }
       @media (max-width: 768px) {
-        body { padding: 15px; font-size: 15px; }
-        h1 { font-size: 2rem; }
-        .card { padding: 1.5rem; }
-        .card h2 { font-size: 1.25rem; }
+        body {
+          padding: 15px;
+          font-size: 15px;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        .card {
+          padding: 1.5rem;
+        }
+        .card h2 {
+          font-size: 1.25rem;
+        }
       }
     </style>
   </head>
@@ -817,8 +927,14 @@ rm -f scripts/generate-docs.js
 
         <div class="card">
           <h2>♿ Accessibility Audit</h2>
-          <p>WCAG 2.1 Level AA compliance report with axe-core automated testing.</p>
-          <a href="/docs/accessibility/index.html" aria-label="View accessibility audit report">View Accessibility Report</a>
+          <p>
+            WCAG 2.1 Level AA compliance report with axe-core automated testing.
+          </p>
+          <a
+            href="/docs/accessibility/index.html"
+            aria-label="View accessibility audit report"
+            >View Accessibility Report</a
+          >
         </div>
       </main>
     </div>
@@ -839,6 +955,7 @@ If you don't have an audit script, create it following [Pathway A, Step A2](#a2-
 ## B5: Clean Up Package Scripts
 
 **Remove** these scripts from `package.json` if they exist:
+
 - `docs:jsdoc`
 - `docs:tests`
 - `docs:api`
@@ -846,6 +963,7 @@ If you don't have an audit script, create it following [Pathway A, Step A2](#a2-
 - `docs:generate`
 
 **Keep or add** only:
+
 ```json
 {
   "scripts": {
@@ -875,12 +993,14 @@ yarn remove jsdoc jsdoc-to-markdown typedoc
 If your site footer links to `/docs/` or specific documentation pages, update to point to the simplified structure:
 
 **Before (legacy):**
+
 ```html
 <a href="/docs/api/index.html">API Docs</a>
 <a href="/docs/jsdoc/index.html">JSDoc</a>
 ```
 
 **After (simplified):**
+
 ```html
 <a href="/docs/accessibility/index.html">Accessibility</a>
 ```
@@ -910,22 +1030,23 @@ open http://localhost:8000/docs/
 
 **ALWAYS follow these rules for all generated HTML:**
 
-| Element | Requirement |
-|---------|-------------|
-| **Text Color** | #000 (black) only |
-| **Background** | #fff (white) base |
-| **Borders** | Minimum 3px, preferably 4px solid black |
-| **Font Weight** | 700+ for headings, 500+ for body |
-| **Font Size** | Minimum 16px base |
-| **Line Height** | 1.8 minimum |
-| **Success BG** | #d4f4dd (light green) |
-| **Error BG** | #ffe0e0 (light red) |
-| **Warning BG** | #fff4cc (light yellow) |
-| **Padding** | 1.5rem minimum for cards |
-| **Focus Outline** | 4px solid with 4px offset |
-| **Border Radius** | 0 (sharp corners only) |
+| Element           | Requirement                             |
+| ----------------- | --------------------------------------- |
+| **Text Color**    | #000 (black) only                       |
+| **Background**    | #fff (white) base                       |
+| **Borders**       | Minimum 3px, preferably 4px solid black |
+| **Font Weight**   | 700+ for headings, 500+ for body        |
+| **Font Size**     | Minimum 16px base                       |
+| **Line Height**   | 1.8 minimum                             |
+| **Success BG**    | #d4f4dd (light green)                   |
+| **Error BG**      | #ffe0e0 (light red)                     |
+| **Warning BG**    | #fff4cc (light yellow)                  |
+| **Padding**       | 1.5rem minimum for cards                |
+| **Focus Outline** | 4px solid with 4px offset               |
+| **Border Radius** | 0 (sharp corners only)                  |
 
 **NEVER use:**
+
 - ❌ Gray text
 - ❌ Low contrast colors
 - ❌ Thin borders (< 3px)
@@ -939,12 +1060,14 @@ open http://localhost:8000/docs/
 # ✅ Validation Checklist
 
 ## Required Files
+
 - [ ] `public/docs/index.html` (landing page)
 - [ ] `audit-accessibility.js` (audit script)
 - [ ] `scripts/ensure-accessibility-report.js` (placeholder)
 - [ ] Package scripts configured
 
 ## Accessibility Verification
+
 - [ ] Run `yarn audit:a11y` - **zero violations**
 - [ ] Test skip link (Tab on page load)
 - [ ] Test with screen reader (VoiceOver/NVDA)
@@ -954,6 +1077,7 @@ open http://localhost:8000/docs/
 - [ ] Check focus indicators (visible 4px outlines)
 
 ## Visual Verification
+
 - [ ] All text is black on white
 - [ ] Borders are 3-4px solid black
 - [ ] Cards have clear boundaries
@@ -968,6 +1092,7 @@ open http://localhost:8000/docs/
 ## Issue: Audit finds violations from Nuxt DevTools
 
 **Fix**: Ensure `AXE_EXCLUDE_SELECTORS` includes:
+
 ```javascript
 const AXE_EXCLUDE_SELECTORS = [
   ["nuxt-devtools-frame"],
@@ -978,22 +1103,36 @@ const AXE_EXCLUDE_SELECTORS = [
 ## Issue: iframes failing accessibility checks
 
 **Fix**: Always add both `title` and `aria-label`:
+
 ```html
-<iframe src="..." title="Descriptive title" aria-label="Descriptive label"></iframe>
+<iframe
+  src="..."
+  title="Descriptive title"
+  aria-label="Descriptive label"
+></iframe>
 ```
 
 ## Issue: Scrollable tables not keyboard accessible
 
 **Fix**: Add to scrollable containers:
+
 ```html
-<div style="overflow-x:auto;" tabindex="0" role="region" aria-label="Table description">
-  <table>...</table>
+<div
+  style="overflow-x:auto;"
+  tabindex="0"
+  role="region"
+  aria-label="Table description"
+>
+  <table>
+    ...
+  </table>
 </div>
 ```
 
 ## Issue: Header role violation
 
 **Fix**: Use correct ARIA roles:
+
 - `<header>` → `role="banner"`
 - `<nav>` → `role="navigation"`
 - `<footer>` → `role="contentinfo"`
@@ -1022,7 +1161,7 @@ Does an existing documentation portal exist?
 │
 └─ YES → Use PATHWAY B (Migration)
          Steps B1 → B2 → B3 → B4 → B5 → B6 → B7 → B8
-         
+
 After either pathway:
 └─ Run validation checklist
    └─ Fix any violations
@@ -1033,12 +1172,13 @@ After either pathway:
 
 # 📝 Version History
 
-| Version | Date | Changes |
-|---------|------|---------|
-| **v4.0** | Jan 14, 2026 | V2 release: Prominent two-pathway structure |
+| Version  | Date         | Changes                                               |
+| -------- | ------------ | ----------------------------------------------------- |
+| **v4.1** | Jan 14, 2026 | Added pre-implementation questionnaire section        |
+| **v4.0** | Jan 14, 2026 | V2 release: Prominent two-pathway structure           |
 | **v3.0** | Jan 14, 2026 | Consolidated to single prompt, high-contrast emphasis |
-| **v2.0** | Jan 14, 2026 | Added dual implementation paths |
-| **v1.0** | Jan 10, 2026 | Initial comprehensive guide |
+| **v2.0** | Jan 14, 2026 | Added dual implementation paths                       |
+| **v1.0** | Jan 10, 2026 | Initial comprehensive guide                           |
 
 ---
 
