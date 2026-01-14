@@ -665,6 +665,9 @@ function generateHighContrastReport(data) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accessibility Audit Report - ${new Date().toLocaleDateString()}</title>
+  <meta name="description" content="WCAG 2.1 Level AA accessibility audit report for ${SITE_INFO.name}. Automated axe-core testing results across desktop, tablet, and mobile viewports with ${totalViolations} violations and ${totalPasses} passes.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="${PRODUCTION_URL}/docs/accessibility/">
   <style>
     /* HIGH CONTRAST ACCESSIBILITY-FIRST DESIGN */
     * { margin: 0; padding: 0; box-sizing: border-box; }
