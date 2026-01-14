@@ -115,8 +115,8 @@ The `yarn dev` and `yarn scripts` commands automatically run a preflight check t
 - **Component Auto-Import**: Vue components automatically imported
 - **Composable Functions**: Shared Vue composition functions in `composables/`
 - **SEO Optimization**: Comprehensive SEO with meta tags, structured data (JSON-LD), and 100/100 Lighthouse score
-- **Standalone Documentation Portal**: `/docs/` portal with tests, accessibility reports, and API docs
-- **Accessibility Compliance**: WCAG 2.1 Level AA compliance with automated auditing
+- **Standalone Documentation Portal**: `/docs/` portal with WCAG AAA-compliant accessibility reports (7:1 contrast ratio)
+- **Accessibility Compliance**: WCAG 2.1 Level AA (main site) + Level AAA (documentation portal) with automated auditing
 - **Comprehensive Testing**: 84+ test cases covering unit, integration, and error scenarios
 
 ---
@@ -604,9 +604,14 @@ The test suite includes comprehensive coverage across multiple categories:
 
 ### Accessibility Auditing
 
-**Current Status**: ✅ **Zero Violations** - 100% WCAG 2.1 Level AA compliant
+**Current Status**: ✅ **Zero Violations** - 100% WCAG 2.1 Level AA compliant (main site) + **AAA-compliant documentation portal**
 
-Accessibility audits use the **ICJIA-standard high-contrast audit script**. The script tests all pages against WCAG 2.1 Level AA standards and generates accessible, high-contrast HTML reports.
+Accessibility audits use the **ICJIA-standard high-contrast audit script**. The script tests all pages against WCAG 2.1 Level AA standards and generates WCAG AAA-compliant, high-contrast HTML reports.
+
+**Compliance Levels**:
+
+- **Main Website**: WCAG 2.1 Level AA (axe-core automated testing)
+- **Documentation Portal**: WCAG 2.1 Level AAA (7:1 contrast ratio, mandatory)
 
 ```bash
 # Start dev server (port 8000)
@@ -639,22 +644,29 @@ yarn audit:a11y
 
 ### Documentation Portal
 
-**Simplified Documentation Portal** at `/docs/`:
+**WCAG AAA-Compliant Documentation Portal** at `/docs/`:
 
-The project uses a **minimal, high-contrast documentation portal** focused exclusively on accessibility compliance:
+The project uses a **mandatory WCAG 2.1 Level AAA-compliant documentation portal** focused exclusively on accessibility compliance. AAA compliance is required for all ICJIA documentation portals.
 
-- **Portal Landing**: `/docs/index.html` - Simple single-card design
+- **Portal Landing**: `/docs/index.html` - AAA-compliant single-card design
 - **Accessibility Audit**: `/docs/accessibility/index.html` - High-contrast compliance report
 
-**Design Principles**:
+**Mandatory AAA Design Requirements**:
 
-- High contrast (black on white only)
-- 4px solid borders
-- No gray text, shadows, or gradients
-- Responsive and keyboard accessible
-- WCAG 2.1 Level AA compliant
+| Requirement        | Standard                                        |
+| ------------------ | ----------------------------------------------- |
+| **Contrast Ratio** | 7:1 minimum (21:1 used: #000 on #fff)           |
+| **Font Size**      | 18px minimum base size                          |
+| **Font Weight**    | 900 for headings, 500+ for body text            |
+| **Colors**         | Black (#000) on white (#fff) only               |
+| **Borders**        | 4px solid black for maximum visibility          |
+| **Focus States**   | 4px outline with high-contrast yellow (#ffff00) |
+| **Corners**        | Sharp corners only (no border-radius)           |
+| **Effects**        | No shadows, gradients, or decorative elements   |
 
-**Implementation Guide**: See [`markdown-documentation/DOCUMENTATION_PORTAL_PROMPT_V2.md`](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT_V2.md) for complete instructions on creating or migrating documentation portals (includes two pathways: new setup and migration).
+**Key Principle**: **Accessibility > Aesthetics**. If the portal looks "boring" but passes AAA, it's correct.
+
+**Implementation Guide**: See [`markdown-documentation/DOCUMENTATION_PORTAL_PROMPT_V2.md`](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT_V2.md) for complete instructions on creating or migrating documentation portals (includes two pathways: new setup and migration). Both pathways require mandatory AAA compliance.
 
 ---
 
@@ -791,7 +803,7 @@ DEBUG=1 yarn scripts  # Show full stack traces
 ### Internal Documentation
 
 - **[Documentation Index](./markdown-documentation/README.md)**: Complete documentation overview and index
-- **[Documentation Portal Prompt V2](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT_V2.md)**: ⭐ **Complete guide** with two pathways (new setup OR migration) for accessible, high-contrast documentation portals
+- **[Documentation Portal Prompt V2](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT_V2.md)**: ⭐ **MANDATORY WCAG AAA guide** with two pathways (new setup OR migration) for AAA-compliant documentation portals (7:1 contrast ratio required)
 - **[Project Review](./markdown-documentation/PROJECT_REVIEW.md)**: Comprehensive project analysis and architecture review
 - **[Config System](./markdown-documentation/CONFIG_SYSTEM.md)**: Configuration architecture and centralized config
 - **[Improvement Review](./markdown-documentation/IMPROVEMENT_REVIEW.md)**: Error handling and testing improvements (January 2026)
@@ -808,6 +820,7 @@ DEBUG=1 yarn scripts  # Show full stack traces
 - **Vue 3 Docs**: [https://vuejs.org](https://vuejs.org)
 - **Vitest Docs**: [https://vitest.dev](https://vitest.dev)
 - **WCAG 2.1**: [https://www.w3.org/WAI/WCAG21/quickref/](https://www.w3.org/WAI/WCAG21/quickref/)
+- **WCAG AAA Contrast**: [https://webaim.org/resources/contrastchecker/](https://webaim.org/resources/contrastchecker/) - Use to verify 7:1 ratio for AAA compliance
 - **axe-core**: [https://github.com/dequelabs/axe-core](https://github.com/dequelabs/axe-core)
 
 ### Key Scripts Reference

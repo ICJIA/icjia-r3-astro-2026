@@ -1,8 +1,8 @@
 # Documentation Portal Implementation Prompt V2
 
-**Version**: 4.2  
+**Version**: 4.3  
 **Last Updated**: January 14, 2026  
-**Purpose**: Single comprehensive prompt for creating or migrating to a simplified, WCAG AAA-compliant, high-contrast accessible documentation portal
+**Purpose**: Mandatory WCAG 2.1 Level AAA-compliant documentation portal guide. All portals (new and migrated) MUST meet AAA contrast requirements (7:1 ratio). Accessibility over aesthetics.
 
 > 💡 **Start with the [Questions](#-questions-to-ask-before-starting)** before generating any code.
 
@@ -10,7 +10,19 @@
 
 ## 🎯 Core Principle
 
-**Keep it simple.** Focus exclusively on accessibility compliance. No fancy features. High contrast. Fully accessible. Responsive design.
+**WCAG AAA compliance is mandatory. Accessibility over aesthetics.**
+
+| Requirement        | Standard                                             |
+| ------------------ | ---------------------------------------------------- |
+| **Contrast Ratio** | 7:1 minimum for normal text, 4.5:1 for large text    |
+| **Font Size**      | 18px minimum base size                               |
+| **Font Weight**    | 900 for headings, 500+ for body text                 |
+| **Colors**         | Black (#000) on white (#fff) only - no exceptions    |
+| **Borders**        | 4px solid black for maximum visibility               |
+| **Focus States**   | 4px outline with high-contrast yellow (#ffff00)      |
+| **Responsiveness** | Must work on all viewports (mobile, tablet, desktop) |
+
+**AAA compliance > fancy colors.** Every portal must pass axe-core AAA tests with zero violations.
 
 ---
 
@@ -114,7 +126,19 @@ This prompt provides **TWO DISTINCT PATHWAYS** based on your current situation:
 
 ## 📋 Quick Reference: What You'll End Up With
 
-Regardless of which pathway you choose, the end result is the same:
+Regardless of which pathway you choose, the end result is the same: **a WCAG AAA-compliant documentation portal**.
+
+### Mandatory AAA Requirements (Non-Negotiable)
+
+- ✅ **21:1 contrast ratio** (black #000 on white #fff)
+- ✅ **18px minimum font size** for all body text
+- ✅ **900 font weight** for headings, **500+** for body
+- ✅ **4px solid black borders** on all interactive elements
+- ✅ **Yellow (#ffff00) focus indicators** on dark backgrounds
+- ✅ **Zero rounded corners** (sharp edges only)
+- ✅ **Zero shadows or gradients**
+- ✅ **Fully responsive** across all viewports
+- ✅ **Zero axe-core AAA violations**
 
 ```
 public/
@@ -139,6 +163,8 @@ scripts/
 # PATHWAY A: New Documentation Portal Setup
 
 > **Use this pathway if:** You're building a documentation portal from scratch. No existing `/docs/` folder or documentation files.
+
+⚠️ **MANDATORY**: All new portals MUST meet WCAG 2.1 Level AAA contrast requirements. Use the templates below exactly as provided - do not modify colors, fonts, or styling.
 
 ## A1: Create Portal Landing Page (WCAG AAA Compliant)
 
@@ -893,6 +919,8 @@ open http://localhost:8000/docs/
 
 > **Use this pathway if:** You have an existing documentation portal (e.g., with JSDoc, TypeDoc, test reports, multiple features) that needs simplification.
 
+⚠️ **MANDATORY**: All migrated portals MUST be upgraded to WCAG 2.1 Level AAA contrast requirements. Replace ALL existing styling with the AAA-compliant templates below. Do not preserve legacy colors, fonts, or design elements that fail AAA standards.
+
 ## B1: Assess Current State
 
 Before migrating, identify what you currently have:
@@ -1324,12 +1352,31 @@ const AXE_EXCLUDE_SELECTORS = [
 When implementing this guide:
 
 1. **Ask first**: "Do you have an existing documentation portal?" → Choose Pathway A or B
-2. **Use templates exactly**: Copy/paste the provided code
-3. **High contrast only**: Black on white, no exceptions
-4. **Test immediately**: Run audit after each change
-5. **Fix all violations**: Zero tolerance for accessibility issues
-6. **One feature only**: Focus exclusively on accessibility audits
-7. **No creativity**: Don't add features, styling, or improvements
+2. **Use templates exactly**: Copy/paste the provided code - DO NOT MODIFY
+3. **WCAG AAA is mandatory**: 7:1 contrast ratio minimum, no exceptions
+4. **Black on white only**: No colors other than #000, #fff, #f5f5f5, #ffff00
+5. **18px minimum font size**: No smaller text anywhere
+6. **Test immediately**: Run `yarn audit:a11y` after each change
+7. **Zero AAA violations**: Portal must pass ALL axe-core AAA tests
+8. **No creativity**: Don't add fancy colors, gradients, shadows, or rounded corners
+9. **Accessibility > aesthetics**: If it looks boring but passes AAA, it's correct
+
+### AAA Compliance Checklist (Must Pass All)
+
+```
+☐ Contrast ratio 7:1+ for all normal text
+☐ Contrast ratio 4.5:1+ for all large text (18pt+)
+☐ Font size 18px+ for all body text
+☐ Font weight 900 for headings
+☐ Font weight 500+ for body text
+☐ 4px solid black borders on interactive elements
+☐ Yellow (#ffff00) focus indicators on dark backgrounds
+☐ Black (#000) focus indicators on light backgrounds
+☐ No rounded corners anywhere
+☐ No shadows or gradients
+☐ Responsive on mobile, tablet, desktop
+☐ axe-core audit shows zero AAA violations
+```
 
 ## Decision Tree
 
@@ -1352,14 +1399,15 @@ After either pathway:
 
 # 📝 Version History
 
-| Version  | Date         | Changes                                                                                           |
-| -------- | ------------ | ------------------------------------------------------------------------------------------------- |
-| **v4.2** | Jan 14, 2026 | Added WCAG AAA contrast guidelines (7:1 ratio), updated portal template with AAA-compliant design |
-| **v4.1** | Jan 14, 2026 | Added pre-implementation questionnaire section                                                    |
-| **v4.0** | Jan 14, 2026 | V2 release: Prominent two-pathway structure                                                       |
-| **v3.0** | Jan 14, 2026 | Consolidated to single prompt, high-contrast emphasis                                             |
-| **v2.0** | Jan 14, 2026 | Added dual implementation paths                                                                   |
-| **v1.0** | Jan 10, 2026 | Initial comprehensive guide                                                                       |
+| Version  | Date         | Changes                                                                                                                        |
+| -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| **v4.3** | Jan 14, 2026 | Made WCAG AAA mandatory for ALL portals (new and migrated). Added AAA checklist for AI assistants. Accessibility > aesthetics. |
+| **v4.2** | Jan 14, 2026 | Added WCAG AAA contrast guidelines (7:1 ratio), updated portal template with AAA-compliant design                              |
+| **v4.1** | Jan 14, 2026 | Added pre-implementation questionnaire section                                                                                 |
+| **v4.0** | Jan 14, 2026 | V2 release: Prominent two-pathway structure                                                                                    |
+| **v3.0** | Jan 14, 2026 | Consolidated to single prompt, high-contrast emphasis                                                                          |
+| **v2.0** | Jan 14, 2026 | Added dual implementation paths                                                                                                |
+| **v1.0** | Jan 10, 2026 | Initial comprehensive guide                                                                                                    |
 
 ---
 
