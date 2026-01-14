@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     id="navigation"
-    role="navigation"
+    role="banner"
     tabindex="-1"
     fixed
     app
@@ -11,7 +11,7 @@
     size="90"
     elevation="3"
     class="pl-5 pr-5"
-    aria-label="Site navigation"
+    aria-label="Site header"
   >
     <div
       v-if="!nav"

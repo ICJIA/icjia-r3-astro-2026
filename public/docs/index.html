@@ -4,6 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Documentation Portal - R3 Restore, Reinvest, Renew</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Documentation portal for R3 Restore, Reinvest, Renew program. Access accessibility audit reports, WCAG 2.1 Level AA compliance testing results, and technical documentation for Illinois' criminal justice reform initiative."
+    />
+    <meta
+      name="keywords"
+      content="R3 Illinois, Restore Reinvest Renew, accessibility audit, WCAG compliance, criminal justice reform, Illinois grants, community programs, documentation"
+    />
+    <meta
+      name="author"
+      content="Illinois Criminal Justice Information Authority (ICJIA)"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://r3.illinois.gov/docs/" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Documentation Portal - R3 Restore, Reinvest, Renew"
+    />
+    <meta
+      property="og:description"
+      content="Access accessibility audit reports and technical documentation for Illinois' R3 program supporting community-based violence prevention and reentry services."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://r3.illinois.gov/docs/" />
+    <meta property="og:site_name" content="R3 Restore, Reinvest, Renew" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Documentation Portal - R3 Restore, Reinvest, Renew"
+    />
+    <meta
+      name="twitter:description"
+      content="Access accessibility audit reports and technical documentation for Illinois' R3 program."
+    />
+
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#0e4474" />
+    <meta name="application-name" content="R3 Documentation Portal" />
+
     <style>
       :root {
         --primary: #0e4474;
@@ -112,37 +158,51 @@
       .links {
         margin-top: 10px;
       }
+      /* Skip link styles for accessibility */
+      .skip-link {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        background: #0066cc;
+        color: #fff;
+        padding: 12px 24px;
+        text-decoration: none;
+        z-index: 10000;
+        border-radius: 0 0 4px 0;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: top 0.2s ease-in-out;
+      }
+      .skip-link:focus,
+      .skip-link:focus-visible {
+        top: 0;
+        outline: 3px solid #0066cc;
+        outline-offset: 2px;
+      }
     </style>
+  </head>
   <body>
-    <main class="container">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main class="container" id="main-content" tabindex="-1">
       <h1>📚 Documentation Portal</h1>
 
       <p>
         Welcome to the documentation portal for
         <strong>R3 Restore, Reinvest, Renew</strong>. This portal provides
-        generated reports for testing, accessibility, and API documentation.
+        accessibility audit reports to ensure the website meets WCAG 2.1 Level
+        AA standards.
       </p>
 
       <div class="doc-grid">
-        <div class="doc-card">
-          <h2>🧪 E2E and Unit Tests Report</h2>
-          <p>Unit/integration test results with a human-readable HTML report.</p>
-          <a href="/docs/tests/index.html">View Test Results →</a>
-        </div>
-
         <div class="doc-card">
           <h2>♿ Accessibility Audit</h2>
           <p>
             Sitemap-driven WCAG audit results across desktop/tablet/mobile
             viewports.
           </p>
-          <a href="/docs/accessibility/index.html">View Accessibility Report →</a>
-        </div>
-
-        <div class="doc-card">
-          <h2>📖 API Documentation</h2>
-          <p>TypeDoc-generated documentation for documented code in the repo.</p>
-          <a href="/docs/jsdoc/index.html">View API Docs →</a>
+          <a href="/docs/accessibility/index.html"
+            >View Accessibility Report →</a
+          >
         </div>
       </div>
 
@@ -163,12 +223,38 @@
     </main>
 
     <script>
+      // Update last updated date
       document.getElementById("lastUpdated").textContent =
         new Date().toLocaleDateString("en-US", {
           year: "numeric",
           month: "long",
           day: "numeric",
         });
+
+      // Skip link functionality
+      (function () {
+        const skipLink = document.querySelector(".skip-link");
+        if (!skipLink) return;
+
+        const handleSkipLink = function (e) {
+          e.preventDefault();
+          const target = document.getElementById("main-content");
+          if (!target) return;
+          target.focus();
+          const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches;
+          target.scrollIntoView({
+            behavior: prefersReducedMotion ? "auto" : "smooth",
+            block: "start",
+          });
+        };
+
+        skipLink.addEventListener("click", handleSkipLink);
+        skipLink.addEventListener("keydown", function (e) {
+          if (e.key === "Enter") handleSkipLink(e);
+        });
+      })();
     </script>
   </body>
 </html>

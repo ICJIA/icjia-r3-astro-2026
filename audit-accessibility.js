@@ -97,8 +97,8 @@ const SKIP_LINK_CONFIG = {
   targetId: "main-content",
 };
 
-// Axe exclude selectors (Nuxt root container)
-const AXE_EXCLUDE_SELECTORS = [["#__nuxt"]];
+// Axe exclude selectors (exclude Nuxt DevTools overlay in dev mode)
+const AXE_EXCLUDE_SELECTORS = [["nuxt-devtools-frame"], ["nuxt-devtools-panel"]];
 
 // Command to start dev server (used only when dev server isn't already running)
 // NOTE: This repo needs generated content; dev:audit is expected to do the right thing.
@@ -193,7 +193,7 @@ const REPORT_FILE = path.join(OUTPUT_DIR, REPORT_FILE_NAME);
 let AXE_VERSION = AXE_VERSION_DEFAULT;
 try {
   const packageJson = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "package.json"), "utf8"),
+    fs.readFileSync(path.join(__dirname, "package.json"), "utf8")
   );
   AXE_VERSION =
     packageJson.devDependencies?.["axe-core"]?.replace(/[\^~]/, "") ||
@@ -204,7 +204,9 @@ try {
 }
 
 const BASE_URL =
-  TARGET_ENV === "production" ? PRODUCTION_URL : `http://localhost:${DEV_SERVER_PORT}`;
+  TARGET_ENV === "production"
+    ? PRODUCTION_URL
+    : `http://localhost:${DEV_SERVER_PORT}`;
 
 const THEMES = THEME_CONFIG.themes;
 
@@ -213,7 +215,11 @@ async function checkServer() {
     const url = new URL(BASE_URL);
     const client = url.protocol === "https:" ? https : http;
     const req = client.get(BASE_URL, (res) => {
-      resolve(res.statusCode === 200 || res.statusCode === 301 || res.statusCode === 302);
+      resolve(
+        res.statusCode === 200 ||
+          res.statusCode === 301 ||
+          res.statusCode === 302
+      );
     });
     req.on("error", () => resolve(false));
     req.setTimeout(5000, () => {
@@ -225,11 +231,15 @@ async function checkServer() {
 
 async function startDevServer() {
   return new Promise((resolve, reject) => {
-    const devServer = spawn(DEV_SERVER_COMMAND.command, DEV_SERVER_COMMAND.args, {
-      cwd: __dirname,
-      stdio: "pipe",
-      shell: true,
-    });
+    const devServer = spawn(
+      DEV_SERVER_COMMAND.command,
+      DEV_SERVER_COMMAND.args,
+      {
+        cwd: __dirname,
+        stdio: "pipe",
+        shell: true,
+      }
+    );
 
     let serverReady = false;
     const checkReady = setInterval(() => {
@@ -257,8 +267,8 @@ async function startDevServer() {
         devServer.kill();
         reject(
           new Error(
-            `Port ${DEV_SERVER_PORT} is already in use. Stop the existing server or change DEV_SERVER_PORT.`,
-          ),
+            `Port ${DEV_SERVER_PORT} is already in use. Stop the existing server or change DEV_SERVER_PORT.`
+          )
         );
       }
     });
@@ -352,7 +362,13 @@ async function runAxeAudit(page) {
       rulesConfig["frame-title"] = { enabled: true };
       rulesConfig["html-xml-lang-mismatch"] = { enabled: true };
 
-      const baseTags = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"];
+      const baseTags = [
+        "wcag2a",
+        "wcag2aa",
+        "wcag21a",
+        "wcag21aa",
+        "best-practice",
+      ];
       const experimentalRules = [
         "css-orientation-lock",
         "focus-order-semantics",
@@ -374,7 +390,7 @@ async function runAxeAudit(page) {
       });
     },
     AXE_RULE_CONFIG,
-    AXE_EXCLUDE_SELECTORS,
+    AXE_EXCLUDE_SELECTORS
   );
 }
 
@@ -408,7 +424,7 @@ async function verifySkipLink(page) {
         // OK
       } else {
         issues.push(
-          `Skip link target (${targetId}) should have tabindex='-1' for programmatic focus`,
+          `Skip link target (${targetId}) should have tabindex='-1' for programmatic focus`
         );
       }
     }
@@ -424,11 +440,12 @@ async function verifySkipLink(page) {
     const position = computedStyle.position;
     const top = computedStyle.top;
     const zIndex = parseInt(computedStyle.zIndex, 10) || 0;
-    const isOffScreen = position === "absolute" && (top === "-100px" || top.includes("-100"));
+    const isOffScreen =
+      position === "absolute" && (top === "-100px" || top.includes("-100"));
     if (isOffScreen || zIndex > 1000) visibleOnFocus = true;
     else {
       issues.push(
-        "Skip link may not be properly visible when focused (check CSS :focus styles)",
+        "Skip link may not be properly visible when focused (check CSS :focus styles)"
       );
     }
 
@@ -457,22 +474,30 @@ function escapeHtml(str) {
 
 function getRuleDescription(ruleName) {
   const descriptions = {
-    "aria-allowed-role": "Ensures ARIA roles are used correctly and are allowed for the element",
-    "scrollable-region-focusable": "Ensures scrollable regions are keyboard accessible",
-    "landmark-banner-is-top-level": "Ensures banner landmarks are at the top level",
-    "landmark-contentinfo-is-top-level": "Ensures contentinfo landmarks are at the top level",
+    "aria-allowed-role":
+      "Ensures ARIA roles are used correctly and are allowed for the element",
+    "scrollable-region-focusable":
+      "Ensures scrollable regions are keyboard accessible",
+    "landmark-banner-is-top-level":
+      "Ensures banner landmarks are at the top level",
+    "landmark-contentinfo-is-top-level":
+      "Ensures contentinfo landmarks are at the top level",
     "landmark-main-is-top-level": "Ensures main landmarks are at the top level",
     "landmark-unique": "Ensures landmarks are unique",
     "css-orientation-lock": "Checks for orientation lock (WCAG 2.1 SC 1.3.4)",
     "no-autoplay-audio": "Checks for autoplay audio (WCAG 2.1 SC 1.4.2)",
     "page-has-heading-one": "Ensures page has at least one h1 heading",
     "focus-order-semantics": "Checks focus order matches DOM order",
-    "identical-links-same-purpose": "Checks for duplicate links with same purpose",
-    "link-in-text-block": "Checks link contrast in text blocks (WCAG 2.1 SC 1.4.1)",
+    "identical-links-same-purpose":
+      "Checks for duplicate links with same purpose",
+    "link-in-text-block":
+      "Checks link contrast in text blocks (WCAG 2.1 SC 1.4.1)",
     "hidden-content": "Checks for hidden content that should be visible",
-    "label-content-name-mismatch": "Checks if label text matches accessible name",
+    "label-content-name-mismatch":
+      "Checks if label text matches accessible name",
     "presentation-role-conflict": "Checks for presentation role conflicts",
-    "region": "Disabled due to known incompatibility with Nuxt/Vue component structure. Vue components dynamically create regions that don't match the expected HTML5 landmark structure.",
+    region:
+      "Disabled due to known incompatibility with Nuxt/Vue component structure. Vue components dynamically create regions that don't match the expected HTML5 landmark structure.",
   };
   return descriptions[ruleName] || "No description available";
 }
@@ -482,7 +507,7 @@ function generateHTMLReport(results) {
   // For maintainability, we keep the same calculations + table model.
 
   const timestamp = new Date().toISOString();
-  
+
   // Calculate enabled/disabled rules for display
   const enabledRules = Object.entries(AXE_RULE_CONFIG)
     .filter(([, enabled]) => enabled)
@@ -505,10 +530,11 @@ function generateHTMLReport(results) {
 
   const uniquePages = new Set(results.map((r) => r.url)).size;
   const pagesWithViolations = new Set(
-    results.filter((r) => (r.violations?.length || 0) > 0).map((r) => r.url),
+    results.filter((r) => (r.violations?.length || 0) > 0).map((r) => r.url)
   ).size;
   const pagesPassing = uniquePages - pagesWithViolations;
-  const totalTestsRun = totalViolations + totalPasses + totalIncomplete + totalInapplicable;
+  const totalTestsRun =
+    totalViolations + totalPasses + totalIncomplete + totalInapplicable;
 
   // Skip link stats
   const skipLinkStats = results.reduce(
@@ -522,7 +548,7 @@ function generateHTMLReport(results) {
       acc.total++;
       return acc;
     },
-    { total: 0, exists: 0, working: 0, issues: 0 },
+    { total: 0, exists: 0, working: 0, issues: 0 }
   );
 
   const tableRows = results.map((result) => {
@@ -568,30 +594,204 @@ function generateHTMLReport(results) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accessibility Audit Report - ${new Date().toLocaleDateString()}</title>
   <style>
+    /* High Contrast Accessibility-First Design */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #333; background: #fff; padding: 20px; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
+      line-height: 1.8; 
+      color: #000; 
+      background: #fff; 
+      padding: 20px; 
+      font-size: 16px;
+    }
     .container { max-width: 1200px; margin: 0 auto; }
-    h1 { font-size: 2rem; margin-bottom: 1rem; }
-    h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
-    .meta { color: #4b5563; font-size: 0.9em; margin-bottom: 1rem; }
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .stat-card { padding: 1.25rem; border-radius: 8px; text-align: center; background: #f8f9fa; border: 1px solid #dee2e6; }
-    .stat-card.success { background: #d1e7dd; border-color: #badbcc; color: #0f5132; }
-    .stat-card.error { background: #f8d7da; border-color: #f5c2c7; color: #842029; }
-    .stat-card.warning { background: #fff3cd; border-color: #ffecb5; color: #856404; }
-    .stat-card .number { font-size: 2.2rem; font-weight: bold; margin: 0.25rem 0; }
-    .stat-card .label { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; }
-    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: white; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden; }
-    thead { background: #f8f9fa; }
-    th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #dee2e6; }
-    th { font-weight: 600; color: #1f2937; }
-    tr:last-child td { border-bottom: none; }
-    .status-pass { color: #198754; font-weight: 600; }
-    .status-fail { color: #dc3545; font-weight: 600; }
-    .status-warning { color: #856404; font-weight: 600; }
-    footer { margin-top: 2rem; padding-top: 1.25rem; border-top: 2px solid #dee2e6; text-align: center; color: #4b5563; font-size: 0.875rem; }
-    .skip-link { position: absolute; top: -100px; left: 0; background: #0d6efd; color: #fff; padding: 12px 24px; text-decoration: none; z-index: 10000; border-radius: 0 0 4px 0; font-weight: 600; font-size: 1rem; transition: top 0.2s ease-in-out; }
-    .skip-link:focus, .skip-link:focus-visible { top: 0; outline: 3px solid #0d6efd; outline-offset: 2px; }
+    h1 { 
+      font-size: 2.5rem; 
+      margin-bottom: 1.5rem; 
+      color: #000;
+      font-weight: 700;
+      border-bottom: 4px solid #000;
+      padding-bottom: 0.5rem;
+    }
+    h2 { 
+      font-size: 2rem; 
+      margin-top: 3rem; 
+      margin-bottom: 1.5rem; 
+      color: #000;
+      font-weight: 700;
+      border-bottom: 3px solid #000;
+      padding-bottom: 0.5rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #000;
+      font-weight: 700;
+    }
+    h4 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #000;
+      font-weight: 700;
+    }
+    p, li { 
+      margin-bottom: 0.75rem; 
+      line-height: 1.8;
+    }
+    .meta { 
+      color: #000; 
+      font-size: 1em; 
+      margin-bottom: 1.5rem; 
+      font-weight: 500;
+    }
+    .meta strong {
+      font-weight: 700;
+    }
+    ul {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    code {
+      background: #f0f0f0;
+      border: 2px solid #000;
+      padding: 2px 6px;
+      font-family: 'Courier New', monospace;
+      font-weight: 600;
+    }
+    /* High contrast stats grid */
+    .stats-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+      gap: 1.5rem; 
+      margin: 2rem 0; 
+    }
+    .stat-card { 
+      padding: 1.5rem; 
+      text-align: center; 
+      background: #fff; 
+      border: 4px solid #000;
+    }
+    .stat-card.success { 
+      background: #d4f4dd; 
+      border-color: #000; 
+    }
+    .stat-card.error { 
+      background: #ffe0e0; 
+      border-color: #000; 
+    }
+    .stat-card.warning { 
+      background: #fff4cc; 
+      border-color: #000; 
+    }
+    .stat-card .number { 
+      font-size: 3rem; 
+      font-weight: 900; 
+      margin: 0.5rem 0; 
+      color: #000;
+    }
+    .stat-card .label { 
+      font-size: 1rem; 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+      font-weight: 700;
+      color: #000;
+    }
+    /* High contrast table */
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin: 2rem 0; 
+      background: white; 
+      border: 3px solid #000;
+    }
+    thead { 
+      background: #000; 
+      color: #fff;
+    }
+    th, td { 
+      padding: 1rem; 
+      text-align: left; 
+      border: 2px solid #000;
+      font-size: 1rem;
+    }
+    th { 
+      font-weight: 700; 
+      color: #fff;
+    }
+    td {
+      color: #000;
+      font-weight: 500;
+    }
+    tbody tr:nth-child(even) {
+      background: #f5f5f5;
+    }
+    /* High contrast status indicators */
+    .status-pass { 
+      color: #000; 
+      background: #d4f4dd;
+      padding: 4px 8px;
+      font-weight: 700; 
+      border: 2px solid #000;
+    }
+    .status-fail { 
+      color: #000; 
+      background: #ffe0e0;
+      padding: 4px 8px;
+      font-weight: 700; 
+      border: 2px solid #000;
+    }
+    .status-warning { 
+      color: #000; 
+      background: #fff4cc;
+      padding: 4px 8px;
+      font-weight: 700; 
+      border: 2px solid #000;
+    }
+    /* Footer */
+    footer { 
+      margin-top: 3rem; 
+      padding-top: 1.5rem; 
+      border-top: 4px solid #000; 
+      text-align: center; 
+      color: #000; 
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    /* High contrast skip link */
+    .skip-link { 
+      position: absolute; 
+      top: -100px; 
+      left: 0; 
+      background: #000; 
+      color: #fff; 
+      padding: 16px 32px; 
+      text-decoration: none; 
+      z-index: 10000; 
+      font-weight: 700; 
+      font-size: 1.125rem; 
+      transition: top 0.2s ease-in-out;
+      border: 4px solid #fff;
+    }
+    .skip-link:focus, .skip-link:focus-visible { 
+      top: 0; 
+      outline: 4px solid #fff; 
+      outline-offset: 4px; 
+    }
+    /* Link styling for high contrast */
+    a {
+      color: #000;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    a:hover, a:focus {
+      background: #ffff00;
+      outline: 3px solid #000;
+    }
   </style>
 </head>
 <body>
@@ -660,7 +860,7 @@ function generateHTMLReport(results) {
               <td class="${row.violations === 0 ? "status-pass" : "status-fail"}">${row.status}</td>
               <td class="${row.skipLinkClass}" title="${row.skipLinkIssues.length ? escapeHtml(row.skipLinkIssues.join("; ")) : ""}">${escapeHtml(row.skipLink)}</td>
             </tr>
-          `,
+          `
             )
             .join("")}
         </tbody>
@@ -839,9 +1039,11 @@ function generateHTMLReport(results) {
       <h3>Current Audit Environment</h3>
       <p class="meta">
         This accessibility audit was run against the <strong>${TARGET_ENV === "production" ? "Production" : "Development"}</strong> environment at <strong>${escapeHtml(BASE_URL)}</strong>. 
-        ${TARGET_ENV === "production" 
-          ? "This represents the live, public-facing version of the website." 
-          : "This represents the local development version of the website. For compliance verification, consider running the audit against the production environment as well."}
+        ${
+          TARGET_ENV === "production"
+            ? "This represents the live, public-facing version of the website."
+            : "This represents the local development version of the website. For compliance verification, consider running the audit against the production environment as well."
+        }
       </p>
 
       <h2>Accessibility Standards & Compliance</h2>
@@ -854,12 +1056,12 @@ function generateHTMLReport(results) {
             ? `<ul style="margin-left:1.25rem;">${s.links
                 .map(
                   (l) =>
-                    `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.text)}</a></li>`,
+                    `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.text)}</a></li>`
                 )
                 .join("")}</ul>`
             : ""
         }
-      `,
+      `
       ).join("")}
 
       <h2>Framework Notes</h2>
@@ -908,8 +1110,14 @@ async function runAudit() {
   const disabledRules = Object.entries(AXE_RULE_CONFIG)
     .filter(([, enabled]) => !enabled)
     .map(([rule]) => rule);
-  if (enabledRules.length) console.log(` ✅ Enabled (${enabledRules.length}): ${enabledRules.join(", ")}`);
-  if (disabledRules.length) console.log(` ❌ Disabled (${disabledRules.length}): ${disabledRules.join(", ")}`);
+  if (enabledRules.length)
+    console.log(
+      ` ✅ Enabled (${enabledRules.length}): ${enabledRules.join(", ")}`
+    );
+  if (disabledRules.length)
+    console.log(
+      ` ❌ Disabled (${disabledRules.length}): ${disabledRules.join(", ")}`
+    );
   console.log("");
 
   if (TARGET_ENV === "production") {
@@ -923,7 +1131,9 @@ async function runAudit() {
     console.log("✓ Production server is accessible");
     console.log("");
   } else {
-    console.log(`Checking if dev server is running on port ${DEV_SERVER_PORT}...`);
+    console.log(
+      `Checking if dev server is running on port ${DEV_SERVER_PORT}...`
+    );
     let serverRunning = await checkServer();
     if (!serverRunning) {
       console.log(` ⚠️  Dev server not detected on port ${DEV_SERVER_PORT}`);
@@ -942,12 +1152,18 @@ async function runAudit() {
       console.log(" ✅ Dev server detected (already running)");
     }
     console.log("");
-    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log(
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    );
     console.log("📍 Dev Server Status:");
     console.log(` Port: ${DEV_SERVER_PORT}`);
-    console.log(` Status: ${serverWasAlreadyRunning ? "Already running" : "Started by audit script"}`);
+    console.log(
+      ` Status: ${serverWasAlreadyRunning ? "Already running" : "Started by audit script"}`
+    );
     console.log(` URL: ${BASE_URL}`);
-    console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    console.log(
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    );
     console.log("");
   }
 
@@ -974,8 +1190,13 @@ async function runAudit() {
         currentTest++;
         const page = await browser.newPage();
         try {
-          await page.setViewport({ width: viewport.width, height: viewport.height });
-          console.log(`[${currentTest}/${totalTests}] Testing ${url} (${viewport.name})...`);
+          await page.setViewport({
+            width: viewport.width,
+            height: viewport.height,
+          });
+          console.log(
+            `[${currentTest}/${totalTests}] Testing ${url} (${viewport.name})...`
+          );
 
           await page.goto(url, { waitUntil: "networkidle2", timeout: 30000 });
           await new Promise((r) => setTimeout(r, 2000));
@@ -988,10 +1209,11 @@ async function runAudit() {
                 const switching = themeConfig.switching;
                 if (switching.mode === "auto") {
                   const themeSwitch = document.querySelector(
-                    'input[type="checkbox"][role="switch"]',
+                    'input[type="checkbox"][role="switch"]'
                   );
                   if (themeSwitch) {
-                    const currentIsDark = document.body.classList.contains("v-theme--dark");
+                    const currentIsDark =
+                      document.body.classList.contains("v-theme--dark");
                     const targetIsDark = themeValue === "dark";
                     if (currentIsDark !== targetIsDark) {
                       themeSwitch.click();
@@ -1001,36 +1223,48 @@ async function runAudit() {
                     if (typeof localStorage !== "undefined") {
                       localStorage.setItem("theme", themeValue);
                     }
-                    if (themeValue === "dark") document.body.classList.add("v-theme--dark");
+                    if (themeValue === "dark")
+                      document.body.classList.add("v-theme--dark");
                     else document.body.classList.remove("v-theme--dark");
                   }
                 } else if (switching.mode === "manual") {
-                  const themeSwitch = document.querySelector(switching.toggleSelector);
+                  const themeSwitch = document.querySelector(
+                    switching.toggleSelector
+                  );
                   if (themeSwitch) {
                     const darkClass = switching.darkClass || "v-theme--dark";
-                    const currentIsDark = document.body.classList.contains(darkClass);
+                    const currentIsDark =
+                      document.body.classList.contains(darkClass);
                     const targetIsDark = themeValue === "dark";
                     if (currentIsDark !== targetIsDark) {
                       themeSwitch.click();
                       await new Promise((resolve) => setTimeout(resolve, 500));
                     }
                   } else {
-                    if (switching.localStorageKey && typeof localStorage !== "undefined") {
-                      localStorage.setItem(switching.localStorageKey, themeValue);
+                    if (
+                      switching.localStorageKey &&
+                      typeof localStorage !== "undefined"
+                    ) {
+                      localStorage.setItem(
+                        switching.localStorageKey,
+                        themeValue
+                      );
                     }
                     if (switching.darkClass) {
                       if (themeValue === "dark") {
                         document.body.classList.add(switching.darkClass);
-                        if (switching.lightClass) document.body.classList.remove(switching.lightClass);
+                        if (switching.lightClass)
+                          document.body.classList.remove(switching.lightClass);
                       } else {
                         document.body.classList.remove(switching.darkClass);
-                        if (switching.lightClass) document.body.classList.add(switching.lightClass);
+                        if (switching.lightClass)
+                          document.body.classList.add(switching.lightClass);
                       }
                     }
                   }
                 }
               },
-              { themeValue: theme.value, switching: THEME_CONFIG.switching },
+              { themeValue: theme.value, switching: THEME_CONFIG.switching }
             );
             await new Promise((r) => setTimeout(r, 800));
           }
@@ -1038,18 +1272,23 @@ async function runAudit() {
           // Vite error overlay detection (mirrors reference)
           const hasErrorOverlay = await page.evaluate(() => {
             const errorOverlay = document.querySelector("vite-error-overlay");
-            const errorMessages = Array.from(document.querySelectorAll("*")).some((el) => {
+            const errorMessages = Array.from(
+              document.querySelectorAll("*")
+            ).some((el) => {
               const text = (el.textContent || "").trim();
               return (
                 text.includes("Failed to fetch dynamically imported module") ||
                 text.includes("Internal server error") ||
-                (el.getAttribute("data-v-d6beb1d7") !== null && text.includes("Failed"))
+                (el.getAttribute("data-v-d6beb1d7") !== null &&
+                  text.includes("Failed"))
               );
             });
             return errorOverlay !== null || errorMessages;
           });
           if (hasErrorOverlay) {
-            throw new Error("Application has errors - Vite error overlay detected.");
+            throw new Error(
+              "Application has errors - Vite error overlay detected."
+            );
           }
 
           const auditResult = await runAxeAudit(page);
@@ -1069,18 +1308,28 @@ async function runAudit() {
           const violationCount = auditResult.violations?.length || 0;
           const passCount = auditResult.passes?.length || 0;
 
-          if (skipLinkVerification.exists && (skipLinkVerification.issues || []).length === 0) {
+          if (
+            skipLinkVerification.exists &&
+            (skipLinkVerification.issues || []).length === 0
+          ) {
             console.log("   ✅ Skip link: OK");
           } else if (skipLinkVerification.exists) {
-            console.log(`   ⚠️  Skip link: Issues found (${(skipLinkVerification.issues || []).length})`);
+            console.log(
+              `   ⚠️  Skip link: Issues found (${(skipLinkVerification.issues || []).length})`
+            );
           } else {
             console.log("   ❌ Skip link: Not found");
           }
 
-          if (violationCount > 0) console.log(`   ⚠️  Found ${violationCount} violation(s), ${passCount} pass(es)`);
+          if (violationCount > 0)
+            console.log(
+              `   ⚠️  Found ${violationCount} violation(s), ${passCount} pass(es)`
+            );
           else console.log(`   ✅ No violations, ${passCount} pass(es)`);
         } catch (error) {
-          console.error(`   ❌ Error testing ${url} (${viewport.name}): ${error.message}`);
+          console.error(
+            `   ❌ Error testing ${url} (${viewport.name}): ${error.message}`
+          );
           results.push({
             url,
             viewport: viewport.name,
@@ -1120,26 +1369,46 @@ async function runAudit() {
   console.log(`📄 Errors JSON saved to: ${errorsJsonPath}`);
 
   const resultsJsonPath = path.join(OUTPUT_DIR, "results.json");
-  fs.writeFileSync(resultsJsonPath, JSON.stringify({ baseUrl: BASE_URL, results }, null, 2));
+  fs.writeFileSync(
+    resultsJsonPath,
+    JSON.stringify({ baseUrl: BASE_URL, results }, null, 2)
+  );
   console.log(`📄 Results JSON saved to: ${resultsJsonPath}`);
 
   console.log("\n📝 Generating HTML report...");
   fs.writeFileSync(REPORT_FILE, generateHTMLReport(results));
 
-  const totalViolations = results.reduce((sum, r) => sum + (r.violations?.length || 0), 0);
-  const totalPasses = results.reduce((sum, r) => sum + (r.passes?.length || 0), 0);
-  const totalIncomplete = results.reduce((sum, r) => sum + (r.incomplete?.length || 0), 0);
-  const totalInapplicable = results.reduce((sum, r) => sum + (r.inapplicable?.length || 0), 0);
-  const totalTestsRun = totalViolations + totalPasses + totalIncomplete + totalInapplicable;
+  const totalViolations = results.reduce(
+    (sum, r) => sum + (r.violations?.length || 0),
+    0
+  );
+  const totalPasses = results.reduce(
+    (sum, r) => sum + (r.passes?.length || 0),
+    0
+  );
+  const totalIncomplete = results.reduce(
+    (sum, r) => sum + (r.incomplete?.length || 0),
+    0
+  );
+  const totalInapplicable = results.reduce(
+    (sum, r) => sum + (r.inapplicable?.length || 0),
+    0
+  );
+  const totalTestsRun =
+    totalViolations + totalPasses + totalIncomplete + totalInapplicable;
   const uniquePages = new Set(results.map((r) => r.url)).size;
-  const pagesWithViolations = new Set(results.filter((r) => (r.violations?.length || 0) > 0).map((r) => r.url)).size;
+  const pagesWithViolations = new Set(
+    results.filter((r) => (r.violations?.length || 0) > 0).map((r) => r.url)
+  ).size;
 
   console.log("\n✅ Audit Complete!");
   console.log("\n📊 Summary:");
   console.log(`   Total tests run: ${totalTestsRun}`);
   console.log(`   Pages tested: ${uniquePages}`);
   console.log(`   Viewports tested: ${VIEWPORTS.length}`);
-  console.log(`   Theme${THEMES.length !== 1 ? "s" : ""}: ${THEMES.map((t) => t.name).join(", ")}`);
+  console.log(
+    `   Theme${THEMES.length !== 1 ? "s" : ""}: ${THEMES.map((t) => t.name).join(", ")}`
+  );
   console.log(`   Total violations: ${totalViolations}`);
   console.log(`   Total passes: ${totalPasses}`);
   console.log(`   Pages with violations: ${pagesWithViolations}`);
@@ -1162,5 +1431,3 @@ runAudit().catch((error) => {
   console.error("❌ Fatal error:", error);
   process.exit(1);
 });
-
-

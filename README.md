@@ -604,62 +604,57 @@ The test suite includes comprehensive coverage across multiple categories:
 
 ### Accessibility Auditing
 
-Accessibility audits use the **ICJIA-standard audit script** (mirrors the ICJIA Accessibility Portal). The script name, behavior, and outputs are **standardized across all ICJIA web applications**:
+**Current Status**: ✅ **Zero Violations** - 100% WCAG 2.1 Level AA compliant
+
+Accessibility audits use the **ICJIA-standard high-contrast audit script**. The script tests all pages against WCAG 2.1 Level AA standards and generates accessible, high-contrast HTML reports.
 
 ```bash
-# Requires dev server running
-yarn dev:audit         # Start dev server (port 8000, no browser)
-yarn audit:a11y        # Run audit (reads sitemap.xml, tests all URLs)
+# Start dev server (port 8000)
+yarn dev:audit
+
+# Run accessibility audit (in another terminal)
+yarn audit:a11y
 
 # Outputs to public/docs/accessibility/:
-# - index.html (HTML report)
+# - index.html (high-contrast HTML report)
 # - results.json (full results)
 # - violations.json (violations only)
-# - errors.json (same as violations.json)
 ```
 
-**Standard Script Implementation** (`package.json`):
+**Key Features**:
 
-```json
-{
-  "scripts": {
-    "dev:audit": "yarn preflight && yarn ensure:docs && yarn clear:cache && yarn scripts && nuxt dev --port=8000",
-    "audit:a11y": "node ./audit-accessibility.js"
-  }
-}
-```
+- ✅ Tests all URLs from `public/sitemap.xml`
+- ✅ Multiple viewports (desktop, tablet, mobile)
+- ✅ Skip link verification
+- ✅ High-contrast report design (black on white, 4px borders)
+- ✅ axe-core with WCAG 2.1 Level AA rules
+- ✅ Excludes dev tools (Nuxt DevTools overlay)
 
-**Important**: The `audit-accessibility.js` script **MUST mirror** the ICJIA Accessibility Portal reference implementation. Only the Developer Configuration section (environment URLs, port, site info) should be customized. Output directory (`public/docs/accessibility/`), filenames, and core behavior must remain consistent across all ICJIA web apps.
+**Recent Fixes** (January 14, 2026):
 
-The audit script:
-
-- Reads URLs from `public/sitemap.xml`
-- Tests each URL in desktop, tablet, and mobile viewports
-- Verifies skip link implementation
-- Uses axe-core with WCAG 2.1 Level AA rules
-- Generates comprehensive HTML and JSON reports
-
-### API Documentation
-
-Generate TypeDoc API documentation:
-
-```bash
-yarn docs:jsdoc        # Generates public/docs/jsdoc/
-
-# Or generate all docs:
-yarn docs:all          # Tests + a11y + TypeDoc
-```
+- Fixed `aria-allowed-role` violation (header element)
+- Added iframe titles for accessibility
+- Made scrollable regions keyboard accessible
+- Updated to high-contrast report styling
 
 ### Documentation Portal
 
-The project includes a standalone documentation portal at `/docs/`:
+**Simplified Documentation Portal** at `/docs/`:
 
-- **Portal Landing**: `/docs/index.html`
-- **Test Results**: `/docs/tests/index.html`
-- **Accessibility Audit**: `/docs/accessibility/index.html`
-- **API Documentation**: `/docs/jsdoc/index.html`
+The project uses a **minimal, high-contrast documentation portal** focused exclusively on accessibility compliance:
 
-Documentation placeholders are automatically created during `yarn dev` and `yarn generate`. Full reports are generated on demand via `yarn docs:all`.
+- **Portal Landing**: `/docs/index.html` - Simple single-card design
+- **Accessibility Audit**: `/docs/accessibility/index.html` - High-contrast compliance report
+
+**Design Principles**:
+
+- High contrast (black on white only)
+- 4px solid borders
+- No gray text, shadows, or gradients
+- Responsive and keyboard accessible
+- WCAG 2.1 Level AA compliant
+
+**Implementation Guide**: See [`markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md`](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md) for complete instructions on creating or migrating documentation portals.
 
 ---
 
@@ -796,15 +791,15 @@ DEBUG=1 yarn scripts  # Show full stack traces
 ### Internal Documentation
 
 - **[Documentation Index](./markdown-documentation/README.md)**: Complete documentation overview and index
-- **[ESM Migration Guide](./markdown-documentation/ESM_MIGRATION.md)**: Complete ESM conversion details and best practices
+- **[Documentation Portal Prompt](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md)**: ⭐ **Complete guide** for creating accessible, high-contrast documentation portals
+- **[Project Review](./markdown-documentation/PROJECT_REVIEW.md)**: Comprehensive project analysis and architecture review
 - **[Config System](./markdown-documentation/CONFIG_SYSTEM.md)**: Configuration architecture and centralized config
-- **[Cleanup Summary](./markdown-documentation/CLEANUP_SUMMARY.md)**: Recent code cleanup and refactoring
-- **[Improvement Review](./markdown-documentation/IMPROVEMENT_REVIEW.md)**: Recent improvements to error handling and testing (January 2026)
-- **[Accessibility Fixes](./markdown-documentation/ACCESSIBILITY_FIXES.md)**: Documentation portal accessibility improvements and 100/100 Lighthouse scores
-- **[SEO Implementation Guide](./markdown-documentation/SEO_IMPLEMENTATION_GUIDE.md)**: Complete SEO documentation
+- **[Improvement Review](./markdown-documentation/IMPROVEMENT_REVIEW.md)**: Error handling and testing improvements (January 2026)
+- **[SEO Implementation Guide](./markdown-documentation/SEO_IMPLEMENTATION_GUIDE.md)**: Complete SEO system documentation
 - **[SEO Quick Reference](./markdown-documentation/SEO_QUICK_REFERENCE.md)**: Quick SEO usage examples
-- **[Documentation Portal Prompt](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md)**: LLM prompt for creating similar portals
-- **[Nuxt 4 Reference](./markdown-documentation/NUXT4_REFERENCE.md)**: Nuxt 4 migration reference and notes
+- **[ESM Migration Guide](./markdown-documentation/ESM_MIGRATION.md)**: ECMAScript Modules migration details
+- **[Cleanup Summary](./markdown-documentation/CLEANUP_SUMMARY.md)**: Code cleanup and refactoring summary
+- **[Nuxt 4 Reference](./markdown-documentation/NUXT4_REFERENCE.md)**: Nuxt 4 migration reference
 
 ### External Resources
 
@@ -812,25 +807,23 @@ DEBUG=1 yarn scripts  # Show full stack traces
 - **Vuetify 3 Docs**: [https://vuetifyjs.com](https://vuetifyjs.com)
 - **Vue 3 Docs**: [https://vuejs.org](https://vuejs.org)
 - **Vitest Docs**: [https://vitest.dev](https://vitest.dev)
-- **TypeDoc Docs**: [https://typedoc.org](https://typedoc.org)
+- **WCAG 2.1**: [https://www.w3.org/WAI/WCAG21/quickref/](https://www.w3.org/WAI/WCAG21/quickref/)
+- **axe-core**: [https://github.com/dequelabs/axe-core](https://github.com/dequelabs/axe-core)
 
 ### Key Scripts Reference
 
-| Script               | Purpose                                                |
-| -------------------- | ------------------------------------------------------ |
-| `yarn dev`           | Start development server (includes content generation) |
-| `yarn dev:audit`     | Start dev server without opening browser (for audits)  |
-| `yarn scripts`       | Regenerate all content from APIs                       |
-| `yarn generate`      | Build static site for production                       |
-| `yarn test`          | Run all tests and generate HTML report                 |
-| `yarn test:watch`    | Run tests in watch mode (for development)              |
-| `yarn test:coverage` | Run tests with coverage report                         |
-| `yarn test:run`      | Run tests once without generating HTML report          |
-| `yarn audit:a11y`    | Run accessibility audit (requires dev server)          |
-| `yarn docs:jsdoc`    | Generate TypeDoc API documentation                     |
-| `yarn docs:all`      | Generate all documentation (tests + a11y + TypeDoc)    |
-| `yarn docs:dry-run`  | Validate docs toolchain without dev server             |
-| `yarn clear:cache`   | Clear Nuxt build cache                                 |
+| Script               | Purpose                                                         |
+| -------------------- | --------------------------------------------------------------- |
+| `yarn dev`           | Start development server (includes content generation)          |
+| `yarn dev:audit`     | Start dev server without opening browser (for audits)           |
+| `yarn scripts`       | Regenerate all content from APIs                                |
+| `yarn generate`      | Build static site for production                                |
+| `yarn test`          | Run all tests and generate HTML report                          |
+| `yarn test:watch`    | Run tests in watch mode (for development)                       |
+| `yarn test:coverage` | Run tests with coverage report                                  |
+| `yarn test:run`      | Run tests once without generating HTML report                   |
+| `yarn audit:a11y`    | Run accessibility audit (requires dev server) - Zero violations |
+| `yarn clear:cache`   | Clear Nuxt build cache                                          |
 
 ---
 

@@ -54,14 +54,14 @@
         </div> -->
 
         <iframe
-          src="https://storymaps.arcgis.com/stories/954c5f9b4341460db6bb45709fea8db9"
+          src="https://storymaps.arcgis.com/stories/954c5f9b4341460db6bb45709fea8db9?cover=false"
           width="100%"
           height="1500px"
           frameborder="0"
-          title="R3 Eligibility Map (StoryMap)"
+          :title="'R3 Eligibility Areas Interactive StoryMap'"
+          aria-label="R3 Eligibility Areas Interactive StoryMap"
           allowfullscreen
           allow="geolocation"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads"
         ></iframe>
       </section>
     </div>
