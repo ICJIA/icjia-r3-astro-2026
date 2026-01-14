@@ -39,7 +39,7 @@ const CONFIG = {
     },
   },
   features: {
-    enableDevtools: true,
+    enableDevtools: false,
   },
 };
 
