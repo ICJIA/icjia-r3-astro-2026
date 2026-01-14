@@ -8,17 +8,24 @@ This directory contains comprehensive documentation for the ICJIA R3 Nuxt applic
 
 ### For Documentation Portal Work
 
-**[DOCUMENTATION_PORTAL_PROMPT.md](./DOCUMENTATION_PORTAL_PROMPT.md)** ← **USE THIS**
+**[DOCUMENTATION_PORTAL_PROMPT_V2.md](./DOCUMENTATION_PORTAL_PROMPT_V2.md)** ← **USE THIS**
 
-**Single comprehensive prompt** for creating or migrating documentation portals:
+**Single comprehensive prompt** with **TWO PATHWAYS**:
+
+| Pathway | Description |
+|---------|-------------|
+| **🆕 Pathway A** | New documentation portal setup (from scratch) |
+| **🔄 Pathway B** | Migrate existing portal to simplified setup |
+
+**Features:**
 - ✅ High-contrast, accessible design
 - ✅ Step-by-step implementation
-- ✅ Migration from legacy portals
+- ✅ Clear pathway selection
 - ✅ WCAG 2.1 Level AA compliance
 - ✅ Ready-to-use code templates
 - ✅ Troubleshooting guide
 
-**Version**: 3.0 (January 14, 2026)
+**Version**: 4.0 (January 14, 2026)
 
 ---
 
@@ -76,16 +83,16 @@ This directory contains comprehensive documentation for the ICJIA R3 Nuxt applic
 
 ```
 markdown-documentation/
-├── README.md                          # This file
-├── DOCUMENTATION_PORTAL_PROMPT.md     # ⭐ Main documentation portal guide
-├── PROJECT_REVIEW.md                  # Project analysis
-├── CONFIG_SYSTEM.md                   # Configuration system
-├── IMPROVEMENT_REVIEW.md              # Improvements review
-├── SEO_IMPLEMENTATION_GUIDE.md        # SEO comprehensive guide
-├── SEO_QUICK_REFERENCE.md             # SEO quick reference
-├── ESM_MIGRATION.md                   # ESM migration notes
-├── CLEANUP_SUMMARY.md                 # Cleanup summary
-└── NUXT4_REFERENCE.md                 # Nuxt 4 reference
+├── README.md                            # This file
+├── DOCUMENTATION_PORTAL_PROMPT_V2.md    # ⭐ Main documentation portal guide (V2)
+├── PROJECT_REVIEW.md                    # Project analysis
+├── CONFIG_SYSTEM.md                     # Configuration system
+├── IMPROVEMENT_REVIEW.md                # Improvements review
+├── SEO_IMPLEMENTATION_GUIDE.md          # SEO comprehensive guide
+├── SEO_QUICK_REFERENCE.md               # SEO quick reference
+├── ESM_MIGRATION.md                     # ESM migration notes
+├── CLEANUP_SUMMARY.md                   # Cleanup summary
+└── NUXT4_REFERENCE.md                   # Nuxt 4 reference
 ```
 
 ---
@@ -101,9 +108,11 @@ markdown-documentation/
 
 ### For Documentation Portal Work
 
-**Just read:** [DOCUMENTATION_PORTAL_PROMPT.md](./DOCUMENTATION_PORTAL_PROMPT.md)
+**Just read:** [DOCUMENTATION_PORTAL_PROMPT_V2.md](./DOCUMENTATION_PORTAL_PROMPT_V2.md)
 
-That's it. One file. All you need.
+That's it. One file. Two pathways:
+- **Pathway A**: Building from scratch
+- **Pathway B**: Migrating existing portal
 
 ### For SEO Work
 
@@ -116,7 +125,7 @@ That's it. One file. All you need.
 
 ### When to Update Documentation
 
-**DOCUMENTATION_PORTAL_PROMPT.md:**
+**DOCUMENTATION_PORTAL_PROMPT_V2.md:**
 - Accessibility requirements change
 - WCAG updates released
 - Audit script improvements
@@ -137,29 +146,30 @@ That's it. One file. All you need.
 
 ## 📊 Documentation Status
 
-| Document                         | Status    | Last Updated | Version |
-| -------------------------------- | --------- | ------------ | ------- |
-| DOCUMENTATION_PORTAL_PROMPT.md   | ✅ Active | Jan 14, 2026 | 3.0     |
-| PROJECT_REVIEW.md                | ✅ Active | Jan 10, 2026 | 1.0.0   |
-| CONFIG_SYSTEM.md                 | ✅ Active | Jan 10, 2026 | 1.0.0   |
-| IMPROVEMENT_REVIEW.md            | ✅ Active | Jan 10, 2026 | 1.0.0   |
-| SEO_IMPLEMENTATION_GUIDE.md      | ✅ Active | Jan 9, 2026  | 1.0.0   |
-| SEO_QUICK_REFERENCE.md           | ✅ Active | Jan 9, 2026  | 1.0.0   |
-| ESM_MIGRATION.md                 | ✅ Active | Jan 10, 2026 | 1.0.0   |
-| CLEANUP_SUMMARY.md               | ✅ Active | Jan 10, 2026 | 1.0.1   |
-| NUXT4_REFERENCE.md               | ✅ Active | Jan 9, 2026  | 1.0.0   |
+| Document                           | Status    | Last Updated | Version |
+| ---------------------------------- | --------- | ------------ | ------- |
+| DOCUMENTATION_PORTAL_PROMPT_V2.md  | ✅ Active | Jan 14, 2026 | 4.0     |
+| PROJECT_REVIEW.md                  | ✅ Active | Jan 10, 2026 | 1.0.0   |
+| CONFIG_SYSTEM.md                   | ✅ Active | Jan 10, 2026 | 1.0.0   |
+| IMPROVEMENT_REVIEW.md              | ✅ Active | Jan 10, 2026 | 1.0.0   |
+| SEO_IMPLEMENTATION_GUIDE.md        | ✅ Active | Jan 9, 2026  | 1.0.0   |
+| SEO_QUICK_REFERENCE.md             | ✅ Active | Jan 9, 2026  | 1.0.0   |
+| ESM_MIGRATION.md                   | ✅ Active | Jan 10, 2026 | 1.0.0   |
+| CLEANUP_SUMMARY.md                 | ✅ Active | Jan 10, 2026 | 1.0.1   |
+| NUXT4_REFERENCE.md                 | ✅ Active | Jan 9, 2026  | 1.0.0   |
 
 ---
 
 ## 🗑️ Removed Documentation
 
-**Consolidated into DOCUMENTATION_PORTAL_PROMPT.md:**
+**Consolidated into DOCUMENTATION_PORTAL_PROMPT_V2.md:**
+- ~~DOCUMENTATION_PORTAL_PROMPT.md~~ → Replaced by V2
 - ~~COMPREHENSIVE_DOCUMENTATION_PORTAL_GUIDE.md~~ → Too complex
 - ~~FINAL_DOCUMENTATION_PORTAL_SUMMARY.md~~ → Redundant
 - ~~ACCESSIBILITY_AUDIT_FIXES.md~~ → Historical
 - ~~ACCESSIBILITY_FIXES.md~~ → Historical
 
-**Reason**: One comprehensive prompt is better than multiple overlapping docs.
+**Reason**: One comprehensive prompt with two clear pathways is better than multiple overlapping docs.
 
 ---
 
@@ -170,6 +180,7 @@ That's it. One file. All you need.
 3. **Accessible**: High contrast examples
 4. **Current**: Remove outdated information
 5. **Consolidated**: Avoid duplication
+6. **Clear Pathways**: Distinct paths for different scenarios
 
 ---
 

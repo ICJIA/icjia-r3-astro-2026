@@ -1,6 +1,6 @@
-# Documentation Portal Implementation Prompt
+# Documentation Portal Implementation Prompt V2
 
-**Version**: 3.0  
+**Version**: 4.0  
 **Last Updated**: January 14, 2026  
 **Purpose**: Single comprehensive prompt for creating or migrating to a simplified, high-contrast, accessible documentation portal
 
@@ -12,18 +12,47 @@
 
 ---
 
-## 📋 When to Use This Guide
+## ⚡ TWO PATHWAYS - Choose Your Starting Point
 
-- **New Project**: Building documentation portal from scratch
-- **Migration**: Simplifying an existing over-engineered portal
-- **Compliance**: Need WCAG 2.1 Level AA accessibility
-- **State Requirements**: Meeting IITAA (Illinois) standards
+This prompt provides **TWO DISTINCT PATHWAYS** based on your current situation:
+
+| Pathway | When to Use | Jump To |
+|---------|-------------|---------|
+| **🆕 PATHWAY A: New Setup** | Starting from scratch, no existing docs portal | [Pathway A](#pathway-a-new-documentation-portal-setup) |
+| **🔄 PATHWAY B: Migration** | Have an existing portal that needs simplification | [Pathway B](#pathway-b-migrate-existing-portal-to-simplified-setup) |
+
+**Choose ONE pathway and follow it completely.**
 
 ---
 
-## 🚀 Implementation Steps
+## 📋 Quick Reference: What You'll End Up With
 
-### Step 1: Create Portal Landing Page
+Regardless of which pathway you choose, the end result is the same:
+
+```
+public/
+├── docs/
+│   ├── index.html              # Simple landing page (high contrast)
+│   └── accessibility/
+│       ├── index.html          # Auto-generated audit report
+│       ├── results.json        # Full audit data
+│       └── violations.json     # Violations only (if any)
+├── sitemap.xml                 # Required for audit
+audit-accessibility.js          # Audit script (project root)
+scripts/
+└── ensure-accessibility-report.js  # Placeholder script
+```
+
+**Package Scripts:**
+- `yarn audit:a11y` - Run accessibility audit
+
+---
+
+# PATHWAY A: New Documentation Portal Setup
+
+> **Use this pathway if:** You're building a documentation portal from scratch. No existing `/docs/` folder or documentation files.
+
+## A1: Create Portal Landing Page
 
 **File**: `public/docs/index.html`
 
@@ -162,21 +191,11 @@
 </html>
 ```
 
-**Key Features:**
-
-- ✅ High contrast (black on white, no gray text)
-- ✅ 4px borders for clarity
-- ✅ Large, bold headings
-- ✅ Skip link implementation
-- ✅ Responsive design
-- ✅ Focus indicators
-- ✅ No JavaScript required
-
 ---
 
-### Step 2: Create Accessibility Audit Script
+## A2: Create Accessibility Audit Script
 
-**File**: `audit-accessibility.js`
+**File**: `audit-accessibility.js` (project root)
 
 ```javascript
 #!/usr/bin/env node
@@ -582,24 +601,16 @@ function generateHighContrastReport(data) {
 }
 ```
 
-**Configuration Notes:**
-
-- Edit only the "DEVELOPER CONFIGURATION" section
-- Set `DEV_SERVER_PORT` to match your dev server
-- Update `SITE_INFO` with your project details
-- Customize `AXE_RULE_CONFIG` for specific needs
-
 ---
 
-### Step 3: Add Package Scripts
+## A3: Add Package Scripts
 
-**File**: `package.json`
+**File**: `package.json` (add to existing scripts)
 
 ```json
 {
   "scripts": {
     "dev": "nuxt dev --port=8000",
-    "dev:audit": "nuxt dev --port=8000",
     "audit:a11y": "node ./audit-accessibility.js"
   },
   "devDependencies": {
@@ -612,7 +623,7 @@ function generateHighContrastReport(data) {
 
 ---
 
-### Step 4: Create Placeholder Script
+## A4: Create Placeholder Script
 
 **File**: `scripts/ensure-accessibility-report.js`
 
@@ -645,123 +656,318 @@ console.log("✅ Accessibility documentation placeholders ensured");
 
 ---
 
-## 🎨 High Contrast Design Principles
+## A5: Test Your New Setup
 
-**ALWAYS follow these rules:**
+```bash
+# 1. Install dependencies
+yarn add -D axe-core puppeteer xml2js
 
-1. **Colors**: Only black (#000) and white (#fff)
-2. **Borders**: Minimum 3px, preferably 4px solid black
-3. **Font Weight**: 700+ for headings, 500+ for body
-4. **Font Size**: Minimum 16px base, 1.8 line-height
-5. **Backgrounds**:
-   - Success: #d4f4dd (light green)
-   - Error: #ffe0e0 (light red)
-   - Warning: #fff4cc (light yellow)
-6. **Padding**: Generous (1.5rem minimum for cards)
-7. **Focus Indicators**: 4px solid outline with 4px offset
-8. **Skip Links**: Black bg, white text, 16px padding
+# 2. Start dev server
+yarn dev
 
-**NO:**
+# 3. In another terminal, run audit
+yarn audit:a11y
 
+# 4. Visit the documentation portal
+open http://localhost:8000/docs/
+```
+
+**✅ Pathway A Complete!** Skip to [Validation Checklist](#-validation-checklist).
+
+---
+
+# PATHWAY B: Migrate Existing Portal to Simplified Setup
+
+> **Use this pathway if:** You have an existing documentation portal (e.g., with JSDoc, TypeDoc, test reports, multiple features) that needs simplification.
+
+## B1: Assess Current State
+
+Before migrating, identify what you currently have:
+
+```bash
+# List current docs structure
+ls -la public/docs/
+
+# Check for complex documentation scripts
+grep -r "jsdoc\|typedoc\|docs:" package.json
+```
+
+**Common legacy patterns to remove:**
+- `public/docs/jsdoc/` - API documentation
+- `public/docs/tests/` - Test reports
+- `public/docs/api/` - API reference
+- Complex `index.html` with multiple cards/links
+- Scripts like `docs:jsdoc`, `docs:tests`, `docs:all`
+
+---
+
+## B2: Remove Legacy Files
+
+```bash
+# Remove complex documentation directories
+rm -rf public/docs/jsdoc/
+rm -rf public/docs/tests/
+rm -rf public/docs/api/
+rm -rf public/docs/coverage/
+
+# Remove legacy creation scripts
+rm -f creators/createDocumentationHTML.js
+rm -f scripts/generate-docs.js
+```
+
+---
+
+## B3: Replace Landing Page
+
+**Delete** your current `public/docs/index.html` and **replace** with this simplified version:
+
+**File**: `public/docs/index.html`
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation Portal</title>
+    <style>
+      /* HIGH CONTRAST DESIGN - DO NOT MODIFY */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.8;
+        color: #000;
+        background: #fff;
+        padding: 20px;
+        font-size: 16px;
+      }
+      .container { max-width: 1000px; margin: 0 auto; }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: #000;
+        font-weight: 700;
+        border-bottom: 4px solid #000;
+        padding-bottom: 0.5rem;
+      }
+      p { margin-bottom: 1rem; line-height: 1.8; }
+      .card {
+        background: #fff;
+        border: 4px solid #000;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+      .card h2 {
+        font-size: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #000;
+        font-weight: 700;
+        border-bottom: 3px solid #000;
+        padding-bottom: 0.5rem;
+      }
+      .card a {
+        display: inline-block;
+        background: #000;
+        color: #fff;
+        padding: 12px 24px;
+        text-decoration: none;
+        font-weight: 700;
+        margin-top: 1rem;
+        border: 3px solid #000;
+      }
+      .card a:hover, .card a:focus {
+        background: #fff;
+        color: #000;
+        outline: 4px solid #000;
+        outline-offset: 2px;
+      }
+      .skip-link {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        background: #000;
+        color: #fff;
+        padding: 16px 32px;
+        text-decoration: none;
+        z-index: 10000;
+        font-weight: 700;
+        font-size: 1.125rem;
+        border: 4px solid #fff;
+      }
+      .skip-link:focus {
+        top: 0;
+        outline: 4px solid #fff;
+        outline-offset: 4px;
+      }
+      @media (max-width: 768px) {
+        body { padding: 15px; font-size: 15px; }
+        h1 { font-size: 2rem; }
+        .card { padding: 1.5rem; }
+        .card h2 { font-size: 1.25rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="container">
+      <main id="main-content" tabindex="-1">
+        <h1>📚 Documentation Portal</h1>
+        <p><strong>Your Project Name</strong> - Development Documentation</p>
+
+        <div class="card">
+          <h2>♿ Accessibility Audit</h2>
+          <p>WCAG 2.1 Level AA compliance report with axe-core automated testing.</p>
+          <a href="/docs/accessibility/index.html" aria-label="View accessibility audit report">View Accessibility Report</a>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+```
+
+---
+
+## B4: Update or Replace Audit Script
+
+If you have an existing audit script, replace it with the high-contrast version from [Pathway A, Step A2](#a2-create-accessibility-audit-script).
+
+If you don't have an audit script, create it following [Pathway A, Step A2](#a2-create-accessibility-audit-script).
+
+---
+
+## B5: Clean Up Package Scripts
+
+**Remove** these scripts from `package.json` if they exist:
+- `docs:jsdoc`
+- `docs:tests`
+- `docs:api`
+- `docs:all`
+- `docs:generate`
+
+**Keep or add** only:
+```json
+{
+  "scripts": {
+    "audit:a11y": "node ./audit-accessibility.js"
+  }
+}
+```
+
+---
+
+## B6: Clean Up Dependencies
+
+Remove unused documentation dependencies:
+
+```bash
+# Remove JSDoc and related packages
+yarn remove jsdoc jsdoc-to-markdown typedoc
+
+# Keep these (needed for accessibility audit)
+# axe-core, puppeteer, xml2js
+```
+
+---
+
+## B7: Update Footer Links (if applicable)
+
+If your site footer links to `/docs/` or specific documentation pages, update to point to the simplified structure:
+
+**Before (legacy):**
+```html
+<a href="/docs/api/index.html">API Docs</a>
+<a href="/docs/jsdoc/index.html">JSDoc</a>
+```
+
+**After (simplified):**
+```html
+<a href="/docs/accessibility/index.html">Accessibility</a>
+```
+
+---
+
+## B8: Test Your Migration
+
+```bash
+# 1. Start dev server
+yarn dev
+
+# 2. Run accessibility audit
+yarn audit:a11y
+
+# 3. Visit the documentation portal
+open http://localhost:8000/docs/
+
+# 4. Verify old links are removed/updated
+```
+
+**✅ Pathway B Complete!** Continue to [Validation Checklist](#-validation-checklist).
+
+---
+
+# 🎨 High Contrast Design Principles
+
+**ALWAYS follow these rules for all generated HTML:**
+
+| Element | Requirement |
+|---------|-------------|
+| **Text Color** | #000 (black) only |
+| **Background** | #fff (white) base |
+| **Borders** | Minimum 3px, preferably 4px solid black |
+| **Font Weight** | 700+ for headings, 500+ for body |
+| **Font Size** | Minimum 16px base |
+| **Line Height** | 1.8 minimum |
+| **Success BG** | #d4f4dd (light green) |
+| **Error BG** | #ffe0e0 (light red) |
+| **Warning BG** | #fff4cc (light yellow) |
+| **Padding** | 1.5rem minimum for cards |
+| **Focus Outline** | 4px solid with 4px offset |
+| **Border Radius** | 0 (sharp corners only) |
+
+**NEVER use:**
 - ❌ Gray text
 - ❌ Low contrast colors
 - ❌ Thin borders (< 3px)
 - ❌ Light font weights (< 500)
-- ❌ Border radius (keep sharp corners)
+- ❌ Rounded corners
 - ❌ Shadows or gradients
 - ❌ Small fonts (< 16px)
 
 ---
 
-## 🔧 Migration from Legacy Portal
+# ✅ Validation Checklist
 
-### If You Have Existing Documentation Portal
-
-**Step 1: Remove Old Files**
-
-```bash
-# Remove complex documentation if it exists
-rm -rf public/docs/tests/
-rm -rf public/docs/jsdoc/
-rm -f creators/createDocumentationHTML.js
-```
-
-**Step 2: Simplify Landing Page**
-
-Replace `public/docs/index.html` with the simple version above (Step 1).
-
-**Step 3: Update Audit Script**
-
-Replace your audit script with the high-contrast version above (Step 2).
-
-**Step 4: Remove Unused Scripts**
-
-Check `package.json` for documentation-related scripts and remove:
-
-- `docs:jsdoc`
-- `docs:tests`
-- `docs:all`
-
-Keep only:
-
-- `audit:a11y`
-
-**Step 5: Clean Up Dependencies**
-
-Remove if no longer needed:
-
-- `jsdoc`
-- Any TypeDoc-related packages
-
-**Step 6: Test**
-
-```bash
-yarn dev
-# In another terminal:
-yarn audit:a11y
-# Visit http://localhost:8000/docs/
-```
-
----
-
-## ✅ Validation Checklist
-
-### Required Files
-
+## Required Files
 - [ ] `public/docs/index.html` (landing page)
 - [ ] `audit-accessibility.js` (audit script)
 - [ ] `scripts/ensure-accessibility-report.js` (placeholder)
 - [ ] Package scripts configured
 
-### Accessibility Verification
-
-- [ ] Run `yarn audit:a11y` - zero violations
-- [ ] Test skip link (Tab on keyboard)
-- [ ] Test with screen reader (NVDA/JAWS/VoiceOver)
+## Accessibility Verification
+- [ ] Run `yarn audit:a11y` - **zero violations**
+- [ ] Test skip link (Tab on page load)
+- [ ] Test with screen reader (VoiceOver/NVDA)
 - [ ] Check color contrast (all text #000 on #fff)
 - [ ] Test responsive (mobile, tablet, desktop)
 - [ ] Verify keyboard navigation (Tab, Enter, Space)
 - [ ] Check focus indicators (visible 4px outlines)
 
-### Visual Verification
-
+## Visual Verification
 - [ ] All text is black on white
 - [ ] Borders are 3-4px solid black
 - [ ] Cards have clear boundaries
 - [ ] Buttons have high contrast
 - [ ] Tables have visible borders
-- [ ] Stat cards use approved backgrounds
+- [ ] Stat cards use approved backgrounds only
 
 ---
 
-## 🚨 Common Issues & Fixes
+# 🚨 Common Issues & Fixes
 
-### Issue: Audit finds violations on dev server
-
-**Cause**: Nuxt DevTools overlay is being scanned
+## Issue: Audit finds violations from Nuxt DevTools
 
 **Fix**: Ensure `AXE_EXCLUDE_SELECTORS` includes:
-
 ```javascript
 const AXE_EXCLUDE_SELECTORS = [
   ["nuxt-devtools-frame"],
@@ -769,132 +975,74 @@ const AXE_EXCLUDE_SELECTORS = [
 ];
 ```
 
-### Issue: iframes failing accessibility checks
+## Issue: iframes failing accessibility checks
 
 **Fix**: Always add both `title` and `aria-label`:
-
 ```html
-<iframe
-  src="..."
-  title="Descriptive title"
-  aria-label="Descriptive label"
-></iframe>
+<iframe src="..." title="Descriptive title" aria-label="Descriptive label"></iframe>
 ```
 
-### Issue: Scrollable tables not keyboard accessible
+## Issue: Scrollable tables not keyboard accessible
 
 **Fix**: Add to scrollable containers:
-
 ```html
-<div
-  style="overflow-x:auto;"
-  tabindex="0"
-  role="region"
-  aria-label="Table description"
->
-  <table>
-    ...
-  </table>
+<div style="overflow-x:auto;" tabindex="0" role="region" aria-label="Table description">
+  <table>...</table>
 </div>
 ```
 
-### Issue: Header role violation
+## Issue: Header role violation
 
 **Fix**: Use correct ARIA roles:
-
 - `<header>` → `role="banner"`
 - `<nav>` → `role="navigation"`
 - `<footer>` → `role="contentinfo"`
-- `<main>` → `role="main"` (implicit)
 
 ---
 
-## 📚 WCAG 2.1 Level AA Requirements
-
-### Must-Have Features
-
-1. **Skip Links** (2.4.1 Bypass Blocks)
-
-   - First focusable element
-   - Visible on focus
-   - Links to `#main-content`
-
-2. **Color Contrast** (1.4.3 Contrast Minimum)
-
-   - 4.5:1 for normal text
-   - 3:1 for large text
-   - Use black on white
-
-3. **Keyboard Navigation** (2.1.1 Keyboard)
-
-   - All interactive elements via Tab
-   - No keyboard traps
-   - Logical tab order
-
-4. **Focus Indicators** (2.4.7 Focus Visible)
-
-   - Visible on all interactive elements
-   - 4px minimum width
-   - High contrast
-
-5. **Semantic HTML** (4.1.1 Parsing, 4.1.2 Name/Role/Value)
-
-   - Proper heading hierarchy
-   - Landmarks (main, nav, footer)
-   - Alt text for images
-
-6. **Responsive** (1.4.10 Reflow)
-   - Works at 320px width
-   - No horizontal scroll
-   - Text scales to 200%
-
----
-
-## 🎓 For AI Assistants / LLMs
+# 🎓 For AI Assistants / LLMs
 
 When implementing this guide:
 
-1. **Start Simple**: Use provided templates exactly
-2. **High Contrast Only**: Black on white, no exceptions
-3. **Test Immediately**: Run audit after each change
-4. **Fix All Violations**: Zero tolerance for accessibility issues
-5. **One Feature**: Focus exclusively on accessibility audits
-6. **No Creativity**: Don't add features or styling
-7. **Document Changes**: Update this file if patterns change
+1. **Ask first**: "Do you have an existing documentation portal?" → Choose Pathway A or B
+2. **Use templates exactly**: Copy/paste the provided code
+3. **High contrast only**: Black on white, no exceptions
+4. **Test immediately**: Run audit after each change
+5. **Fix all violations**: Zero tolerance for accessibility issues
+6. **One feature only**: Focus exclusively on accessibility audits
+7. **No creativity**: Don't add features, styling, or improvements
 
-### Decision Tree for Implementation
+## Decision Tree
 
 ```
-Is there an existing documentation portal?
-├─ NO  → Use Step 1-4 templates exactly
-└─ YES →
-   ├─ Is it complex with multiple features?
-   │  ├─ YES → Remove extras, use Step 1-4 templates
-   │  └─ NO  → Update styling to high contrast
-   └─ Run audit, fix violations, verify zero violations
+Does an existing documentation portal exist?
+│
+├─ NO → Use PATHWAY A (New Setup)
+│        Steps A1 → A2 → A3 → A4 → A5
+│
+└─ YES → Use PATHWAY B (Migration)
+         Steps B1 → B2 → B3 → B4 → B5 → B6 → B7 → B8
+         
+After either pathway:
+└─ Run validation checklist
+   └─ Fix any violations
+      └─ Verify zero violations
 ```
 
 ---
 
-## 📝 Maintenance
+# 📝 Version History
 
-### When to Update This Document
-
-- Accessibility requirements change
-- WCAG updates released
-- New browser accessibility features
-- State/federal compliance changes
-- Audit script improvements
-
-### Version History
-
-- **v3.0** (Jan 14, 2026): Consolidated to single prompt, high-contrast emphasis
-- **v2.0** (Jan 14, 2026): Added dual implementation paths
-- **v1.0** (Jan 10, 2026): Initial comprehensive guide
+| Version | Date | Changes |
+|---------|------|---------|
+| **v4.0** | Jan 14, 2026 | V2 release: Prominent two-pathway structure |
+| **v3.0** | Jan 14, 2026 | Consolidated to single prompt, high-contrast emphasis |
+| **v2.0** | Jan 14, 2026 | Added dual implementation paths |
+| **v1.0** | Jan 10, 2026 | Initial comprehensive guide |
 
 ---
 
-## 🔗 External Resources
+# 🔗 External Resources
 
 - [WCAG 2.1 Quick Reference](https://www.w3.org/WAI/WCAG21/quickref/)
 - [axe-core Rules](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md)

@@ -535,7 +535,7 @@ yarn dev
 
 ## Testing & Documentation
 
-> ⚠️ **ICJIA Standard Scripts**: The test and accessibility scripts in this project are **standardized across all ICJIA web applications**. Script names, behavior, and output formats must remain consistent. See the [Documentation Portal Prompt](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md) for implementation details.
+> ⚠️ **ICJIA Standard Scripts**: The test and accessibility scripts in this project are **standardized across all ICJIA web applications**. Script names, behavior, and output formats must remain consistent. See the [Documentation Portal Prompt V2](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT_V2.md) for implementation details.
 
 ### Test Suite
 
@@ -654,7 +654,7 @@ The project uses a **minimal, high-contrast documentation portal** focused exclu
 - Responsive and keyboard accessible
 - WCAG 2.1 Level AA compliant
 
-**Implementation Guide**: See [`markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md`](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md) for complete instructions on creating or migrating documentation portals.
+**Implementation Guide**: See [`markdown-documentation/DOCUMENTATION_PORTAL_PROMPT_V2.md`](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT_V2.md) for complete instructions on creating or migrating documentation portals (includes two pathways: new setup and migration).
 
 ---
 
@@ -791,7 +791,7 @@ DEBUG=1 yarn scripts  # Show full stack traces
 ### Internal Documentation
 
 - **[Documentation Index](./markdown-documentation/README.md)**: Complete documentation overview and index
-- **[Documentation Portal Prompt](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md)**: ⭐ **Complete guide** for creating accessible, high-contrast documentation portals
+- **[Documentation Portal Prompt V2](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT_V2.md)**: ⭐ **Complete guide** with two pathways (new setup OR migration) for accessible, high-contrast documentation portals
 - **[Project Review](./markdown-documentation/PROJECT_REVIEW.md)**: Comprehensive project analysis and architecture review
 - **[Config System](./markdown-documentation/CONFIG_SYSTEM.md)**: Configuration architecture and centralized config
 - **[Improvement Review](./markdown-documentation/IMPROVEMENT_REVIEW.md)**: Error handling and testing improvements (January 2026)
