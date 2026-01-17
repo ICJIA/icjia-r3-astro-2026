@@ -141,7 +141,7 @@ export default defineNuxtConfig({
     "@nuxtjs/plausible",
   ],
   image: {
-    domains: ["r3.icjia-api.cloud"],
+    domains: ["r3.icjia-api.cloud", "researchhub.icjia-api.cloud"],
     format: ["webp", "avif", "jpeg", "png"],
   },
   site: {
