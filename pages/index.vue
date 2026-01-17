@@ -26,18 +26,38 @@
             >
               <div style="position: relative">
                 <!-- Background image -->
-                <v-img
-                  cover
+                <NuxtImg
                   :src="item.src"
-                  :lazy-src="item.lazySrc"
+                  :placeholder="item.lazySrc"
                   alt=""
-                  aspect-ratio="1"
                   class="grey lighten-2"
                   height="650"
-                  crossorigin
-                  gradient="to bottom, rgba(0,0,0,.25), rgba(0,0,0,.25)"
+                  width="100%"
+                  fit="cover"
+                  :loading="index === 0 ? 'eager' : 'lazy'"
+                  format="webp"
+                  quality="80"
                   role="presentation"
                   aria-hidden="true"
+                  style="display: block; width: 100%; object-fit: cover; height: 650px"
+                  :fetchpriority="index === 0 ? 'high' : 'auto'"
+                />
+
+                <!-- Gradient overlay to match previous v-img gradient -->
+                <div
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(
+                      to bottom,
+                      rgba(0, 0, 0, 0.25),
+                      rgba(0, 0, 0, 0.25)
+                    );
+                    pointer-events: none;
+                  "
                 />
 
                 <!-- Color wash overlay -->
@@ -157,7 +177,7 @@
             <!-- Applicant Tools -->
             <v-col cols="12" md="7">
               <h2>Applicant Tools</h2>
-              <HomePhotoBoxes />
+              <LazyHomePhotoBoxes />
             </v-col>
 
             <!-- News & Updates -->
@@ -273,6 +293,20 @@ useWebsiteSchema();
 
 // Add breadcrumb for homepage
 useBreadcrumbListSchema([{ name: "Home", url: "/" }]);
+
+// Preload the first splash image for LCP
+if (splash && splash.length > 0) {
+  useHead({
+    link: [
+      {
+        rel: "preload",
+        as: "image",
+        href: splash[0].src,
+        fetchpriority: "high",
+      },
+    ],
+  });
+}
 
 /**
  * Sorted and limited news articles for homepage display.

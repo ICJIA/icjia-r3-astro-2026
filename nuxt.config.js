@@ -31,14 +31,7 @@ const CONFIG = {
     plausibleDomain: "r3.illinois.gov",
   },
   external: {
-    cdn: {
-      jquery: "https://code.jquery.com/jquery-3.7.1.slim.min.js",
-      datatables:
-        "https://cdn.datatables.net/v/dt/dt-1.13.1/b-2.3.3/b-print-2.3.3/fh-3.3.1/r-2.4.0/sb-1.4.0/sp-2.1.0/datatables.min.js",
-      markJs: "https://cdn.jsdelivr.net/mark.js/8.6.0/mark.min.js",
-      datatablesCSS:
-        "https://cdn.datatables.net/v/dt/dt-1.13.1/b-2.3.3/b-print-2.3.3/fh-3.3.1/r-2.4.0/sb-1.4.0/sp-2.1.0/datatables.min.css",
-    },
+    cdn: {},
   },
   features: {
     enableDevtools: false,
@@ -82,24 +75,16 @@ export default defineNuxtConfig({
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         {
-          rel: "stylesheet",
-          href: CONFIG.external.cdn.datatablesCSS,
+          rel: "preconnect",
+          href: "https://fonts.googleapis.com",
+        },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossorigin: "anonymous",
         },
       ],
-      script: [
-        {
-          src: CONFIG.external.cdn.jquery,
-          type: "text/javascript",
-        },
-        {
-          src: CONFIG.external.cdn.datatables,
-          type: "text/javascript",
-        },
-        {
-          src: CONFIG.external.cdn.markJs,
-          type: "text/javascript",
-        },
-      ],
+      script: [],
     },
   },
   css: [
@@ -145,6 +130,9 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "@vueuse/nuxt",
     "@nuxt/content",
+    "@nuxtjs/sitemap",
+    "@nuxtjs/robots",
+    "@nuxt/image",
     async (options, nuxt) => {
       await nuxt.hooks.hook("vite:extendConfig", (config) => {
         config?.plugins?.push(vuetify());
@@ -152,6 +140,26 @@ export default defineNuxtConfig({
     },
     "@nuxtjs/plausible",
   ],
+  image: {
+    domains: ["r3.icjia-api.cloud"],
+    format: ["webp", "avif", "jpeg", "png"],
+  },
+  site: {
+    url: CONFIG.site.url,
+    name: "R3 - Restore, Reinvest, Renew",
+  },
+  sitemap: {
+    strictNuxtContentAds: true,
+    exclude: ["/docs/**", "/preview/**", "/sandbox"],
+  },
+  robots: {
+    rules: {
+      UserAgent: "*",
+      Disallow: ["/docs/**", "/preview/**", "/sandbox"],
+      Allow: "/",
+    },
+    sitemap: "https://r3.illinois.gov/sitemap.xml",
+  },
   content: {
     documentDriven: false,
     markdown: {

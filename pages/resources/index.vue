@@ -23,32 +23,20 @@
             style="width: 100%"
             @click="$router.push(`/resources/${item.slug}`)"
           >
-            <v-img
+            <NuxtImg
               class="align-end text-white rounded-xl"
-              max-height="300"
-              min-height="300"
-              :src="`https://r3.icjia-api.cloud${item.cover.data.attributes.formats.small.url}`"
-              :lazy-src="`https://r3.icjia-api.cloud${item.cover.data.attributes.formats.thumbnail.url}`"
+              :src="`https://r3.icjia-api.cloud${item.cover.data.attributes.url}`"
+              :placeholder="`https://r3.icjia-api.cloud${item.cover.data.attributes.formats.thumbnail.url}`"
               alt="R3 Resources Image"
-              cover
-              ><template #placeholder>
-                <v-row
-                  class="fill-height ma-0"
-                  align="center"
-                  justify="center"
-                  role="status"
-                  aria-live="polite"
-                  aria-label="Loading image"
-                >
-                  <v-progress-circular
-                    indeterminate
-                    :size="70"
-                    :width="7"
-                    color="purple"
-                  ></v-progress-circular>
-                </v-row>
-              </template>
-            </v-img>
+              sizes="xs:100vw sm:50vw md:33vw"
+              height="300"
+              width="100%"
+              fit="cover"
+              loading="lazy"
+              format="webp"
+              quality="80"
+              style="display: block; width: 100%; object-fit: cover; height: 300px"
+            />
             <v-card-title style="font-weight: 900" class="text-center mt-3">{{
               item.title
             }}</v-card-title>
@@ -117,8 +105,16 @@ const { data: resources } = await useAsyncData(`resources`, async () => {
 // sort resources by ranking
 const sortedResources = _.orderBy(resources.value, ["ranking"], ["asc"]);
 
-useHead({
-  title: "Resources",
+usePageSeo({
+  title: "R3 Resources",
+  description:
+    "Access resources, toolkits, and informational materials to help you navigate the R3 (Restore, Reinvest, Renew) program.",
+  keywords: [
+    "R3 resources",
+    "grant toolkits",
+    "Illinois grant help",
+    "community investment materials",
+  ],
 });
 </script>
 

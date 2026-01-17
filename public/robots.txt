@@ -1,9 +1,0 @@
-# Robots.txt for ICJIA R3 website
-# https://r3.illinois.gov
-
-# Allow all web crawlers to index all pages
-User-agent: *
-Allow: /
-
-# Sitemap location
-Sitemap: https://r3.illinois.gov/sitemap.xml

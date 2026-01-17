@@ -535,6 +535,21 @@ const api = axios.create({
 export default {
   name: "ContactForm",
 
+  setup() {
+    usePageSeo({
+      title: "Contact R3",
+      description:
+        "Get in touch with the R3 (Restore, Reinvest, Renew) program team at the Illinois Criminal Justice Information Authority (ICJIA).",
+      keywords: [
+        "contact R3",
+        "R3 support",
+        "Illinois grant assistance",
+        "ICJIA contact",
+      ],
+    });
+    useContactPageSchema();
+  },
+
   data: () => ({
     valid: false,
     successfullySubmitted: false,

@@ -129,46 +129,27 @@
                     {{ article.title }}
                   </div>
 
-                  <v-img
+                  <NuxtImg
                     :src="`/hub-images/${article._id}-splash.jpeg`"
-                    :lazy-src="`/hub-images/${article._id}-thumbnail.jpeg`"
-                    cover
+                    :placeholder="`/hub-images/${article._id}-thumbnail.jpeg`"
                     height="200"
+                    width="100%"
+                    fit="cover"
+                    loading="lazy"
+                    format="webp"
+                    quality="80"
                     class="mb-5"
-                    :ref="'img_' + article._id"
-                    style="border: 1px solid #fafafa"
+                    style="
+                      border: 1px solid #fafafa;
+                      display: block;
+                      width: 100%;
+                      object-fit: cover;
+                      height: 200px;
+                    "
                     alt="InfoNet article splash image"
                     v-if="article.source === 'hub'"
-                  >
-                    <template #placeholder>
-                      <v-row
-                        class="fill-height ma-0"
-                        align="center"
-                        justify="center"
-                        role="status"
-                        aria-live="polite"
-                        aria-label="Loading image"
-                      >
-                        <v-progress-circular
-                          indeterminate
-                          color="blue darken-3"
-                        ></v-progress-circular>
-                      </v-row>
-                    </template>
-                    <template v-slot:error>
-                      <v-img
-                        v-if="article.source === 'hub'"
-                        :src="`/hub-images/${article._id}-splash.png`"
-                        :lazy-src="`/hub-images/${article._id}-thumbnail.png`"
-                        cover
-                        height="200"
-                        class="mb-5"
-                        :ref="'img_' + article._id"
-                        style="border: 1px solid #fafafa"
-                        alt="InfoNet article splash image"
-                      ></v-img>
-                    </template>
-                  </v-img>
+                    sizes="xs:100vw sm:100vw md:50vw"
+                  />
 
                   <div>
                     {{ truncateString(article.abstract, 850) }}
@@ -226,12 +207,16 @@
 </template>
 
 <script setup>
-useHead({
-  title: "R3 Research at ICJIA",
-  meta: [
-    { name: "description", content: "R3 Research at ICJIA" },
-    { name: "og:title", content: "R3 Research at ICJIA" },
-    { name: "og:description", content: "R3 Research at ICJIA" },
+usePageSeo({
+  title: "R3 Research",
+  description:
+    "Explore R3 research, publications, and data-driven resources from the Illinois Criminal Justice Information Authority (ICJIA).",
+  keywords: [
+    "R3 Research",
+    "ICJIA research",
+    "Illinois criminal justice data",
+    "community investment research",
+    "justice reform data",
   ],
 });
 

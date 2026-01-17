@@ -102,9 +102,7 @@ export function usePageSeo(config: PageSeoConfig) {
     twitterSite: "@ICJIAIllinois",
 
     // Additional SEO tags
-    robots: shouldIndex
-      ? "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-      : "noindex, nofollow",
+    robots: shouldIndex ? "index, follow" : "noindex, nofollow",
     googlebot: shouldIndex ? "index, follow" : "noindex, nofollow",
 
     // Article-specific tags (if applicable)
@@ -149,6 +147,7 @@ export function useSiteSeo() {
     ogLocale: "en_US",
     twitterSite: "@ICJIAIllinois",
     applicationName: "R3 - Restore, Reinvest, Renew",
+    robots: "index, follow",
 
     // Verification tags (if needed)
     // googleSiteVerification: 'your-verification-code',

@@ -22,15 +22,30 @@
             style="margin-top: -25px"
             v-if="!underConstruction"
           >
-            <v-img
-              cover
-              crossorigin
-              :src="item.src"
-              :lazy-src="item.lazySrc"
-              aspect-ratio="1"
-              height="750"
-            >
-              <div class="text-center px-12" style="margin-top: 100px">
+            <div style="position: relative">
+              <NuxtImg
+                :src="item.src"
+                :placeholder="item.lazySrc"
+                height="750"
+                width="100%"
+                fit="cover"
+                loading="lazy"
+                format="webp"
+                quality="80"
+                style="display: block; width: 100%; object-fit: cover; height: 750px"
+                alt="R3 Funding Opportunity Image"
+                sizes="xs:100vw sm:100vw md:100vw"
+              />
+              <div
+                class="text-center px-12"
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  margin-top: 100px;
+                "
+              >
                 <h1 class="nofo-title mt-3">{{ item.title }}</h1>
                 <div class="nofo-tagline">
                   {{ item.tagline }}
@@ -61,31 +76,33 @@
                   >Expired 04/30/24</v-btn
                 >
               </div>
-              <template #placeholder>
-                <div
-                  class="d-flex align-center justify-center fill-height"
-                  role="status"
-                  aria-live="polite"
-                  aria-label="Loading image"
-                >
-                  <v-progress-circular
-                    indeterminate
-                    color="grey-lighten-4"
-                  ></v-progress-circular>
-                </div>
-              </template>
-            </v-img>
+            </div>
           </v-card>
           <v-card class="" style="margin-top: -25px" v-else>
-            <v-img
-              cover
-              crossorigin
-              :src="item.src"
-              :lazy-src="item.lazySrc"
-              aspect-ratio="1"
-              height="750"
-            >
-              <div class="text-center px-12" style="margin-top: 100px">
+            <div style="position: relative">
+              <NuxtImg
+                :src="item.src"
+                :placeholder="item.lazySrc"
+                height="750"
+                width="100%"
+                fit="cover"
+                loading="lazy"
+                format="webp"
+                quality="80"
+                style="display: block; width: 100%; object-fit: cover; height: 750px"
+                alt="R3 Funding Opportunity Image"
+                sizes="xs:100vw sm:100vw md:100vw"
+              />
+              <div
+                class="text-center px-12"
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  margin-top: 100px;
+                "
+              >
                 <h1 class="nofo-title mt-3">
                   2025 SERVICE DELIVERY GRANT OPPORTUNITIES
                 </h1>
@@ -109,20 +126,7 @@
                   >Coming Soon!</v-btn
                 >
               </div>
-              <template #placeholder>
-                <div
-                  class="d-flex align-center justify-center fill-height"
-                  role="status"
-                  aria-live="polite"
-                  aria-label="Loading image"
-                >
-                  <v-progress-circular
-                    indeterminate
-                    color="grey-lighten-4"
-                  ></v-progress-circular>
-                </div>
-              </template>
-            </v-img>
+            </div>
           </v-card> </v-col></v-row
     ></v-container>
     <v-container v-else

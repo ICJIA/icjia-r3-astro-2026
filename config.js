@@ -104,14 +104,7 @@ export const config = {
         "https://il.amplifund.com/Public/Opportunities/Details/41c400bd-795c-444a-a8db-9bad138127be",
     },
     /** CDN URLs for external libraries */
-    cdn: {
-      jquery: "https://code.jquery.com/jquery-3.7.1.slim.min.js",
-      datatables:
-        "https://cdn.datatables.net/v/dt/dt-1.13.1/b-2.3.3/b-print-2.3.3/fh-3.3.1/r-2.4.0/sb-1.4.0/sp-2.1.0/datatables.min.js",
-      markJs: "https://cdn.jsdelivr.net/mark.js/8.6.0/mark.min.js",
-      datatablesCSS:
-        "https://cdn.datatables.net/v/dt/dt-1.13.1/b-2.3.3/b-print-2.3.3/fh-3.3.1/r-2.4.0/sb-1.4.0/sp-2.1.0/datatables.min.css",
-    },
+    cdn: {},
     /** ICJIA organization URLs */
     icjia: {
       main: "https://icjia.illinois.gov",
@@ -163,15 +156,12 @@ export const config = {
         "'unsafe-inline'",
         "'unsafe-eval'",
         "https://cdn.jsdelivr.net",
-        "https://code.jquery.com",
-        "https://cdn.datatables.net",
         "https://plausible.icjia.cloud",
         "//siteimproveanalytics.com",
       ],
       styleSrc: [
         "'self'",
         "'unsafe-inline'",
-        "https://cdn.datatables.net",
         "https://fonts.googleapis.com",
       ],
       imgSrc: ["'self'", "data:", "https:", "https://r3.icjia-api.cloud"],

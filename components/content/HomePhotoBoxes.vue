@@ -3,29 +3,40 @@
     <v-row>
       <v-col v-for="card in cards" :key="card.title" cols="12" :md="card.flex">
         <v-card elevation="5" class="info-card" @click="routeToLink(card.link)">
-          <v-img
-            :src="card.src"
-            :lazy-src="card.lazySrc"
-            :alt="card.title + ' - ' + card.text"
-            gradient="to bottom, rgba(0,0,0,.6), rgba(0,0,0,.1)"
-            height="300px"
-            cover
-            crossorigin
-          >
-            <template v-slot:placeholder>
-              <div
-                class="d-flex align-center justify-center fill-height"
-                role="status"
-                aria-live="polite"
-                aria-label="Loading image"
-              >
-                <v-progress-circular
-                  color="grey-lighten-4"
-                  indeterminate
-                ></v-progress-circular>
-              </div>
-            </template>
-            <div class="px-3 py-5">
+          <div style="position: relative">
+            <NuxtImg
+              :src="card.src"
+              :placeholder="card.thumbnail"
+              :alt="card.title + ' - ' + card.text"
+              height="300"
+              width="100%"
+              fit="cover"
+              loading="lazy"
+              format="webp"
+              quality="80"
+              style="display: block; width: 100%; object-fit: cover; height: 300px"
+              sizes="xs:100vw sm:100vw md:50vw"
+            />
+            <!-- Gradient overlay to match previous v-img gradient -->
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.1)
+                );
+                pointer-events: none;
+              "
+            />
+            <div
+              class="px-3 py-5"
+              style="position: absolute; top: 0; left: 0; width: 100%"
+            >
               <v-card-title
                 class="text-white"
                 style="
@@ -37,7 +48,7 @@
               ></v-card-title>
               <v-card-text class="text-white mt-3">{{ card.text }}</v-card-text>
             </div>
-          </v-img>
+          </div>
         </v-card>
       </v-col>
     </v-row>

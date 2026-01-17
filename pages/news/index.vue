@@ -43,8 +43,16 @@ import moment from "moment";
 // definePageMeta({
 //   middleware: ["is-valid-content"],
 // });
-useHead({
+usePageSeo({
   title: "News and Updates",
+  description:
+    "Stay updated with the latest news, announcements, and reports from the R3 (Restore, Reinvest, Renew) program.",
+  keywords: [
+    "R3 news",
+    "R3 updates",
+    "Illinois grant news",
+    "community program announcements",
+  ],
 });
 const { path } = useRoute();
 const router = useRouter();
