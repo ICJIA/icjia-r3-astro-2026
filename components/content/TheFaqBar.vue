@@ -63,6 +63,7 @@
           append-icon="mdi-arrow-up"
           elevation="2"
           variant="tonal"
+          color="primary"
           @click="$emit('prev')"
           dark
           style="font-weight: 900"
@@ -75,6 +76,7 @@
           append-icon="mdi-arrow-down"
           elevation="2"
           variant="tonal"
+          color="primary"
           style="font-weight: 900"
           @click="$emit('next')"
           :disabled="
@@ -86,6 +88,7 @@
         <v-btn
           size="x-small"
           elevation="0"
+          color="primary"
           append-icon="mdi-close-circle"
           @click="clear"
           aria-label="Clear search and return to top of page"

@@ -211,3 +211,218 @@ label {
   color: #cccccc !important; /* Light gray on hover (6.2:1 ratio - still AAA compliant) */
   text-decoration: underline !important;
 }
+
+/* =============================================================================
+   VUETIFY BUTTON AAA ACCESSIBILITY OVERRIDES
+   All buttons must meet WCAG AAA requirements:
+   - Contrast: 7:1 for normal text
+   - Target Size (2.5.5): minimum 44x44 CSS pixels
+   ============================================================================= */
+
+/* AAA Target Size (2.5.5) - All interactive elements must be at least 44x44 pixels */
+.v-btn {
+  min-height: 44px !important;
+  min-width: 44px !important;
+}
+
+/* Exception for x-small buttons used in tight spaces - ensure they still meet target size */
+.v-btn--size-x-small {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 0 12px !important;
+}
+
+/* Exception for small buttons - ensure they meet target size */
+.v-btn--size-small {
+  min-height: 44px !important;
+  min-width: 44px !important;
+}
+
+/* Icon-only buttons need special handling to maintain square shape */
+.v-btn--icon {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  width: 44px !important;
+  height: 44px !important;
+}
+
+/* Ensure links used as navigation also meet target size */
+a.nuxt-link-active,
+a.nuxt-link-exact-active,
+.v-list-item--link {
+  min-height: 44px;
+}
+
+/* =============================================================================
+   NAVIGATION & SIDEBAR AAA TARGET SIZE
+   All navigation elements must be at least 44x44 pixels
+   Using high specificity to override Vuetify defaults
+   ============================================================================= */
+
+/* All v-list-item components used as navigation must meet AAA target size */
+.v-navigation-drawer .v-list-item,
+.v-list-item[role="menuitem"],
+.v-list-item--link {
+  min-height: 44px !important;
+}
+
+/* Force internal content and overlay to respect height */
+.v-navigation-drawer .v-list-item .v-list-item__content,
+.v-navigation-drawer .v-list-item .v-list-item__overlay {
+  min-height: 44px !important;
+}
+
+/* List group headers (expandable menu items) */
+.v-list-group__header,
+.v-list-group__header .v-list-item {
+  min-height: 44px !important;
+}
+
+/* Nested list items in navigation */
+.v-list-group__items .v-list-item {
+  min-height: 44px !important;
+}
+
+/* Force all menu items to have proper clickable area */
+.v-list-item[role="menuitem"] .v-list-item__content {
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Footer links - ensure they meet target size */
+.v-footer a {
+  display: inline-block;
+  min-height: 44px;
+  line-height: 44px;
+  padding: 0 8px;
+}
+
+/* Breadcrumb links */
+.v-breadcrumbs a,
+.v-breadcrumbs-item {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* AAA-compliant link class for standalone text links */
+.aaa-link,
+.aaa-target-link {
+  display: inline-block;
+  min-height: 44px;
+  min-width: 44px;
+  line-height: 44px;
+  padding: 0 12px;
+}
+
+/* Ensure aaa-target-link has proper focus indication */
+.aaa-target-link:focus {
+  outline: 2px solid #0D4474;
+  outline-offset: 2px;
+}
+
+/* Override Vuetify blue buttons to use AAA-compliant dark blue (#0D4474)
+   This color provides 8:1 contrast ratio with white text */
+.v-btn.bg-blue-darken-4,
+.v-btn[class*="bg-blue-darken"],
+.v-btn.text-white[class*="blue"] {
+  background-color: #0D4474 !important;
+  color: #ffffff !important;
+}
+
+/* Deep selector overrides for Vuetify button backgrounds */
+:deep(.v-btn.bg-blue-darken-4),
+:deep(.v-btn[class*="bg-blue-darken"]) {
+  background-color: #0D4474 !important;
+}
+
+/* Global v-btn color overrides for AAA compliance */
+/* Target elevated/flat buttons with blue color variants */
+.v-btn--variant-elevated.bg-blue-darken-4,
+.v-btn--variant-flat.bg-blue-darken-4,
+.v-btn--variant-elevated.bg-blue-darken-3,
+.v-btn--variant-flat.bg-blue-darken-3,
+.v-btn--variant-elevated.bg-blue-darken-2,
+.v-btn--variant-flat.bg-blue-darken-2 {
+  background-color: #0D4474 !important;
+  color: #ffffff !important;
+}
+
+/* Override any inline background-color for blue buttons via attribute selectors */
+.v-btn[style*="background-color: rgb(21, 101, 192)"],
+.v-btn[style*="background-color:#1565c0"],
+.v-btn[style*="background-color: #1565c0"] {
+  background-color: #0D4474 !important;
+}
+
+/* Ensure all v-btn components with common blue Vuetify classes meet AAA */
+.v-btn.v-btn--elevated,
+.v-btn.v-btn--flat {
+  /* Only apply to buttons that have blue-ish backgrounds via CSS variable override */
+}
+
+/* Override Vuetify's CSS custom properties for blue color palette */
+.v-btn {
+  --v-theme-blue-darken-4: 13, 68, 116 !important; /* #0D4474 in RGB */
+  --v-theme-blue-darken-3: 13, 68, 116 !important;
+  --v-theme-blue-darken-2: 13, 68, 116 !important;
+}
+
+/* Catch-all: Any button appearing to have Vuetify's default blue gets AAA treatment */
+/* This uses the Vuetify 3 class naming convention */
+.v-btn.bg-blue-darken-1,
+.v-btn.bg-blue-darken-2,
+.v-btn.bg-blue-darken-3,
+.v-btn.bg-blue-darken-4,
+.v-btn.bg-blue {
+  background-color: #0D4474 !important;
+  color: #ffffff !important;
+}
+
+/* Hover states for AAA-compliant buttons - use even darker shade */
+.v-btn.bg-blue-darken-4:hover,
+.v-btn.bg-blue-darken-4:focus,
+.v-btn.bg-blue-darken-3:hover,
+.v-btn.bg-blue-darken-3:focus,
+.v-btn.bg-blue-darken-2:hover,
+.v-btn.bg-blue-darken-2:focus,
+.v-btn.bg-blue-darken-1:hover,
+.v-btn.bg-blue-darken-1:focus,
+.v-btn.bg-blue:hover,
+.v-btn.bg-blue:focus,
+.v-btn[class*="bg-blue-darken"]:hover,
+.v-btn[class*="bg-blue-darken"]:focus {
+  background-color: #062a47 !important; /* Even darker blue for hover (11:1 ratio) */
+  color: #ffffff !important;
+}
+
+/* Focus visible state for keyboard navigation accessibility */
+.v-btn:focus-visible {
+  outline: 3px solid #004085 !important;
+  outline-offset: 2px !important;
+}
+
+/* Text/outlined button variants - ensure text meets AAA on light backgrounds */
+.v-btn--variant-text,
+.v-btn--variant-outlined {
+  color: #0D4474 !important; /* Dark blue text on light background (8:1 ratio on white) */
+}
+
+.v-btn--variant-text:hover,
+.v-btn--variant-text:focus,
+.v-btn--variant-outlined:hover,
+.v-btn--variant-outlined:focus {
+  color: #062a47 !important; /* Even darker on hover */
+  background-color: rgba(13, 68, 116, 0.1) !important;
+}
+
+/* Outlined button border color for AAA compliance */
+.v-btn--variant-outlined {
+  border-color: #0D4474 !important;
+}
+
+/* Ensure button text within v-btn__content is properly colored */
+.v-btn .v-btn__content {
+  color: inherit !important;
+}

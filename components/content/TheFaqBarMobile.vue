@@ -54,6 +54,7 @@
           size="x-small"
           elevation="2"
           variant="tonal"
+          color="primary"
           @click="$emit('prev')"
           dark
           style="font-weight: 900"
@@ -63,11 +64,12 @@
           size="x-small"
           elevation="2"
           variant="tonal"
+          color="primary"
           style="font-weight: 900"
           @click="$emit('next')"
           ><v-icon>mdi-arrow-down</v-icon></v-btn
         >&nbsp;
-        <v-btn size="x-small" elevation="0" @click="clear"
+        <v-btn size="x-small" elevation="0" color="primary" @click="clear"
           ><v-icon>mdi-close-circle</v-icon></v-btn
         >
       </v-app-bar>

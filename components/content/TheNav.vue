@@ -13,32 +13,30 @@
     class="pl-5 pr-5"
     aria-label="Site header"
   >
-    <div
+    <button
       v-if="!nav"
-      class="hover hamburger text-center hidden-md-and-up"
+      type="button"
+      class="hover hamburger text-center hidden-md-and-up aaa-hamburger"
       @click="toggleNav"
-      role="button"
-      tabindex="0"
       aria-label="Open navigation menu"
       @keydown.enter="toggleNav"
       @keydown.space="toggleNav"
     >
-      <v-icon icon="mdi-menu" size="large" aria-hidden="true"></v-icon>
+      <v-icon icon="mdi-menu" size="x-large" aria-hidden="true"></v-icon>
       <div style="font-size: 10px; font-weight: 900">MENU</div>
-    </div>
-    <div
+    </button>
+    <button
       v-else
-      class="hover hamburger text-center hidden-md-and-up"
+      type="button"
+      class="hover hamburger text-center hidden-md-and-up aaa-hamburger"
       @click="toggleNav"
-      role="button"
-      tabindex="0"
       aria-label="Close navigation menu"
       @keydown.enter="toggleNav"
       @keydown.space="toggleNav"
     >
-      <v-icon icon="mdi-window-close" size="large" aria-hidden="true"></v-icon>
+      <v-icon icon="mdi-window-close" size="x-large" aria-hidden="true"></v-icon>
       <div style="font-size: 10px; font-weight: 900">CLOSE</div>
-    </div>
+    </button>
     <v-spacer class="hidden-md-and-up"></v-spacer>
     <!-- <img
         alt="ICJIA Logo"
@@ -234,7 +232,7 @@
         <v-tooltip activator="parent" location="bottom" aria-hidden="true">
           Search
         </v-tooltip>
-        <v-icon icon="mdi-magnify" size="large" aria-hidden="true"></v-icon>
+        <v-icon icon="mdi-magnify" size="x-large" aria-hidden="true"></v-icon>
       </v-btn>
 
       <!-- <v-btn
@@ -247,18 +245,17 @@
           ><v-icon icon="mdi-web" size="large"></v-icon
         ></v-btn> -->
 
-      <span
-        class="hover hamburger text-center hidden-md-and-up"
+      <button
+        type="button"
+        class="hover hamburger text-center hidden-md-and-up aaa-hamburger"
         @click="goToSearch"
-        role="button"
-        tabindex="0"
         aria-label="Search"
         @keydown.enter="goToSearch"
         @keydown.space="goToSearch"
       >
-        <v-icon icon="mdi-magnify" size="large" aria-hidden="true"></v-icon>
+        <v-icon icon="mdi-magnify" size="x-large" aria-hidden="true"></v-icon>
         <div style="font-size: 10px; font-weight: 900">SEARCH</div>
-      </span>
+      </button>
     </span>
 
     <span v-else class="text center ml-12"><TheLoader></TheLoader></span>
@@ -473,5 +470,34 @@ const items = ref([
 .navItem {
   color: #333 !important;
   font-weight: 900;
+}
+
+/* AAA Target Size (2.5.5) - Hamburger menu must be at least 44x44 pixels */
+/* Only show on small screens (below 960px / md breakpoint) */
+.aaa-hamburger {
+  width: 60px !important; /* Fixed width for guaranteed AAA */
+  height: 64px !important; /* Fixed height for guaranteed AAA */
+  padding: 0 !important;
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: inherit;
+  box-sizing: border-box !important;
+}
+
+/* Show hamburger only on small screens (below md breakpoint = 960px) */
+@media (max-width: 959.98px) {
+  .aaa-hamburger {
+    display: inline-flex !important;
+  }
+}
+
+.aaa-hamburger:focus-visible {
+  outline: 2px solid #0D4474;
+  outline-offset: 2px;
 }
 </style>

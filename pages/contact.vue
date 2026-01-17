@@ -43,11 +43,11 @@
                       >CJA.r3mbr@illinois.gov</a
                     >
                   </li> -->
-                  <li>
+                  <li class="email-list-item">
                     <!-- <span>Questions about the R3 NOFO: </span> -->
                     <a
                       href="mailto: CJA.R3Questions@illinois.gov"
-                      class="white-text contact-email-link"
+                      class="white-text contact-email-link aaa-target-link"
                       >CJA.R3Questions@illinois.gov</a
                     >
                   </li>
@@ -67,53 +67,27 @@
               lazy-validation
             >
               <v-row>
-                <v-col cols="12">
-                  <v-select
-                    :items="subjects"
-                    label="Select Type of Request (Required)"
-                    dense
-                    v-model="subject"
-                    :rules="subjectRules"
-                    class="heavy"
-                    :aria-label="`Select Type of Request. Required field. ${subjectError ? 'Error: ' + subjectError : ''}`"
-                    :aria-describedby="
-                      subjectError ? 'subject-error' : undefined
-                    "
-                    :aria-invalid="subjectError ? 'true' : 'false'"
-                    :aria-expanded="false"
-                    aria-controls="subject-menu"
-                    required
-                    :disabled="successfullySubmitted"
-                    style="font-weight: 700 !important"
-                    @blur="validateField('subject')"
-                  ></v-select>
-                  <div
-                    v-if="subjectError"
-                    id="subject-error"
-                    class="v-messages v-messages--active"
-                    role="alert"
-                    aria-live="polite"
-                  >
-                    <div
-                      class="v-messages__message"
-                      style="color: rgb(176, 0, 32)"
-                    >
-                      {{ subjectError }}
-                    </div>
-                  </div>
-                </v-col>
+                <!-- Subject is hardcoded to "R3 Question" - no user selection needed -->
+                <input type="hidden" name="subject" value="R3 Question" />
                 <v-col cols="12" md="6">
+                  <label for="contact-firstname-input" class="form-label" id="firstname-label">
+                    First Name <span class="required-indicator" aria-hidden="true">*</span>
+                    <span class="sr-only">(Required)</span>
+                  </label>
                   <v-text-field
+                    id="contact-firstname"
+                    name="firstname"
                     v-model="firstname"
                     :rules="nameRules"
-                    label="First Name (Required)"
-                    :aria-label="`First Name. Required field. ${firstnameError ? 'Error: ' + firstnameError : ''}`"
+                    placeholder="Enter your first name"
+                    autocomplete="given-name"
+                    class="accessible-field"
+                    aria-required="true"
                     :aria-describedby="
                       firstnameError ? 'firstname-error' : undefined
                     "
                     :aria-invalid="firstnameError ? 'true' : 'false'"
                     :disabled="successfullySubmitted"
-                    required
                     @blur="validateField('firstname')"
                   ></v-text-field>
                   <div
@@ -132,17 +106,24 @@
                   </div>
                 </v-col>
                 <v-col cols="12" md="6">
+                  <label for="contact-lastname-input" class="form-label" id="lastname-label">
+                    Last Name <span class="required-indicator" aria-hidden="true">*</span>
+                    <span class="sr-only">(Required)</span>
+                  </label>
                   <v-text-field
+                    id="contact-lastname"
+                    name="lastname"
                     v-model="lastname"
                     :rules="nameRules"
-                    label="Last Name (Required)"
-                    :aria-label="`Last Name. Required field. ${lastnameError ? 'Error: ' + lastnameError : ''}`"
+                    placeholder="Enter your last name"
+                    autocomplete="family-name"
+                    class="accessible-field"
+                    aria-required="true"
                     :aria-describedby="
                       lastnameError ? 'lastname-error' : undefined
                     "
                     :aria-invalid="lastnameError ? 'true' : 'false'"
                     :disabled="successfullySubmitted"
-                    required
                     @blur="validateField('lastname')"
                   ></v-text-field>
                   <div
@@ -163,17 +144,23 @@
               </v-row>
               <v-row>
                 <v-col cols="12" md="6">
+                  <label for="contact-email" class="form-label" id="email-label">
+                    Email <span class="required-indicator" aria-hidden="true">*</span>
+                    <span class="sr-only">(Required)</span>
+                  </label>
                   <v-text-field
+                    id="contact-email"
+                    name="email"
                     v-model="email"
                     :rules="emailRules"
                     :disabled="successfullySubmitted"
-                    label="Email (Required)"
+                    placeholder="Enter your email address"
                     type="email"
                     autocomplete="email"
-                    :aria-label="`Email address. Required field. ${emailError ? 'Error: ' + emailError : ''}`"
+                    class="accessible-field"
+                    aria-required="true"
                     :aria-describedby="emailError ? 'email-error' : undefined"
                     :aria-invalid="emailError ? 'true' : 'false'"
-                    required
                     @blur="validateField('email')"
                   ></v-text-field>
                   <div
@@ -192,17 +179,23 @@
                   </div>
                 </v-col>
                 <v-col cols="12" md="6">
+                  <label for="contact-phone" class="form-label" id="phone-label">
+                    Phone Number <span class="required-indicator" aria-hidden="true">*</span>
+                    <span class="sr-only">(Required)</span>
+                  </label>
                   <v-text-field
+                    id="contact-phone"
+                    name="phone"
                     v-model="phone"
-                    label="Phone Number (Required)"
+                    placeholder="Enter your phone number"
                     type="tel"
                     autocomplete="tel"
                     :disabled="successfullySubmitted"
                     :rules="phoneRules"
-                    :aria-label="`Phone number. Required field. ${phoneError ? 'Error: ' + phoneError : ''}`"
+                    class="accessible-field"
+                    aria-required="true"
                     :aria-describedby="phoneError ? 'phone-error' : undefined"
                     :aria-invalid="phoneError ? 'true' : 'false'"
-                    required
                     @blur="validateField('phone')"
                   ></v-text-field>
                   <div
@@ -222,20 +215,26 @@
                 </v-col>
 
                 <v-col cols="12">
+                  <label for="contact-message" class="form-label" id="message-label">
+                    Message <span class="required-indicator" aria-hidden="true">*</span>
+                    <span class="sr-only">(Required)</span>
+                  </label>
                   <v-textarea
+                    id="contact-message"
+                    name="message"
                     v-model="message"
                     clearable
                     clear-icon="mdi-close-circle"
-                    label="Message (Required)"
+                    placeholder="Enter your message"
                     :disabled="successfullySubmitted"
                     :rules="messageRules"
                     auto-grow
-                    :aria-label="`Message. Required field. ${messageError ? 'Error: ' + messageError : ''}`"
+                    class="accessible-field"
+                    aria-required="true"
                     :aria-describedby="
                       messageError ? 'message-error' : undefined
                     "
                     :aria-invalid="messageError ? 'true' : 'false'"
-                    required
                     @blur="validateField('message')"
                   ></v-textarea>
                   <div
@@ -258,21 +257,28 @@
               <div class="text-center mt-5" v-if="!successfullySubmitted">
                 <v-btn
                   @click="submitForm"
+                  color="primary"
+                  type="submit"
                   :disabled="!valid || isSubmitting"
                   :aria-label="
                     isSubmitting
                       ? 'Submitting form, please wait'
                       : 'Submit contact form'
                   "
+                  :aria-busy="isSubmitting"
+                  style="min-height: 44px; min-width: 44px; padding: 12px 24px;"
                 >
                   {{ isSubmitting ? "Submitting..." : "Submit" }} </v-btn
                 >&nbsp;&nbsp;&nbsp;
 
                 <v-btn
                   @click="clearForm"
+                  color="primary"
                   variant="outlined"
+                  type="button"
                   :disabled="isSubmitting"
                   aria-label="Clear all form fields"
+                  style="min-height: 44px; min-width: 44px; padding: 12px 24px;"
                 >
                   Clear
                 </v-btn>
@@ -284,10 +290,11 @@
               >
                 Your form was successfully submitted!
                 <div style="color: #111; font-weight: 400" class="mt-2">
-                  &laquo;&nbsp;<nuxt-link
+                  <nuxt-link
                     to="/"
-                    style="color: #111; font-weight: 400"
-                    >Back to home</nuxt-link
+                    class="aaa-target-link"
+                    style="color: #0D4474; font-weight: 700;"
+                    >&laquo;&nbsp;Back to home</nuxt-link
                   >
                 </div>
               </div>
@@ -322,9 +329,127 @@
   white-space: nowrap;
   border: 0;
 }
+
+/* =============================================================================
+   FORM FIELD AAA ACCESSIBILITY - Contrast Requirements
+   All text must meet 7:1 contrast ratio for AAA compliance
+   ============================================================================= */
+
+/* Form labels - AAA compliant dark text (#111 = 18.1:1 contrast on white) */
 .contact-form :deep(.v-label),
+.contact-form :deep(.v-field-label),
 .contact-form :deep(.v-field-label--floating) {
-  color: #333 !important;
+  color: #111111 !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+/* Input text inside form fields - AAA compliant (#111 = 18.1:1 contrast) */
+.contact-form :deep(.v-field__input),
+.contact-form :deep(.v-field input),
+.contact-form :deep(.v-field textarea),
+.contact-form :deep(.v-select__selection-text),
+.contact-form :deep(.v-field__input input),
+.contact-form :deep(.v-textarea textarea) {
+  color: #111111 !important;
+  font-weight: 500 !important;
+}
+
+/* Placeholder text - AAA compliant (#555 = 7.5:1 contrast on white) */
+.contact-form :deep(.v-field input::placeholder),
+.contact-form :deep(.v-field textarea::placeholder),
+.contact-form :deep(.v-field__input::placeholder) {
+  color: #555555 !important;
+  opacity: 1 !important;
+}
+
+/* Form field borders - AAA compliant for non-text contrast (3:1 minimum) */
+.contact-form :deep(.v-field__outline),
+.contact-form :deep(.v-field--variant-outlined .v-field__outline__start),
+.contact-form :deep(.v-field--variant-outlined .v-field__outline__end),
+.contact-form :deep(.v-field--variant-outlined .v-field__outline__notch::before),
+.contact-form :deep(.v-field--variant-outlined .v-field__outline__notch::after) {
+  border-color: #555555 !important;
+}
+
+/* Focused state - darker border for visibility */
+.contact-form :deep(.v-field--focused .v-field__outline),
+.contact-form :deep(.v-field--focused .v-field__outline__start),
+.contact-form :deep(.v-field--focused .v-field__outline__end) {
+  border-color: #0D4474 !important;
+  border-width: 2px !important;
+}
+
+/* Error state messages - AAA compliant dark red (#9B0000 = 8.5:1 contrast) */
+.contact-form :deep(.v-messages__message),
+.contact-form .v-messages__message {
+  color: #9B0000 !important;
+  font-weight: 600 !important;
+}
+
+/* Select dropdown icon - ensure visible */
+.contact-form :deep(.v-select .v-icon),
+.contact-form :deep(.v-field__append-inner .v-icon) {
+  color: #333333 !important;
+}
+
+/* Clearable icon in textarea */
+.contact-form :deep(.v-field__clearable .v-icon) {
+  color: #333333 !important;
+}
+
+/* =============================================================================
+   FORM LABELS - WCAG 4.1.2 Name, Role, Value Compliance
+   Explicit labels for all form fields
+   ============================================================================= */
+
+/* Form label styling - AAA compliant contrast */
+.form-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111; /* 18.1:1 contrast ratio on white - exceeds AAA */
+  line-height: 1.4;
+}
+
+/* Required field indicator */
+.required-indicator {
+  color: #9B0000; /* Dark red for AAA compliance (8.5:1 contrast) */
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* Ensure labels have proper target area for touch */
+.form-label {
+  min-height: 24px;
+  cursor: pointer;
+}
+
+/* =============================================================================
+   AAA TARGET SIZE (2.5.5) - 44x44 pixel minimum for interactive elements
+   ============================================================================= */
+
+/* AAA compliant link target size */
+.aaa-target-link {
+  display: inline-block;
+  min-height: 44px;
+  min-width: 44px;
+  line-height: 44px;
+  padding: 0 12px;
+  text-decoration: underline;
+}
+
+.aaa-target-link:hover,
+.aaa-target-link:focus {
+  text-decoration: underline;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Email list item spacing */
+.email-list-item {
+  margin: 8px 0;
 }
 </style>
 
@@ -389,13 +514,12 @@ export default {
     isSubmitting: false,
     firstname: "",
     lastname: "",
-    subject: "",
-    subjects: ["R3 NOFO Questions", "R3 General Questions"],
+    // Subject is hardcoded - no user selection needed
+    subject: "R3 Question",
     phone: "",
     message: "",
     myForm: {},
     // Individual field error tracking for accessibility
-    subjectError: "",
     firstnameError: "",
     lastnameError: "",
     emailError: "",
@@ -405,12 +529,6 @@ export default {
       (v) => !!v || "Name is required",
       (v) => (v && v.length <= 100) || "Name must be less than 100 characters",
     ],
-    subjectRules: [
-      (v) => !!v || "Subject is required",
-      (v) =>
-        (v && v.length <= 100) || "Subject must be less than 100 characters",
-    ],
-
     phoneRules: [(v) => !!v || "Contact phone number is required"],
     messageRules: [(v) => !!v || "A message is required"],
     email: "",
@@ -435,7 +553,6 @@ export default {
         return "Form submitted successfully!";
       }
       const errorCount = [
-        this.subjectError,
         this.firstnameError,
         this.lastnameError,
         this.emailError,
@@ -455,12 +572,6 @@ export default {
      */
     validateField(fieldName) {
       switch (fieldName) {
-        case "subject":
-          this.subjectError =
-            this.subjectRules.find((rule) => rule(this.subject) !== true)?.(
-              this.subject
-            ) || "";
-          break;
         case "firstname":
           this.firstnameError =
             this.nameRules.find((rule) => rule(this.firstname) !== true)?.(
@@ -498,7 +609,6 @@ export default {
      * Validate all form fields
      */
     validateAllFields() {
-      this.validateField("subject");
       this.validateField("firstname");
       this.validateField("lastname");
       this.validateField("email");
@@ -517,7 +627,6 @@ export default {
 
       // Check if there are any validation errors
       const hasErrors = [
-        this.subjectError,
         this.firstnameError,
         this.lastnameError,
         this.emailError,
@@ -630,12 +739,45 @@ export default {
       this.isSubmitting = false;
 
       // Clear all error messages
-      this.subjectError = "";
       this.firstnameError = "";
       this.lastnameError = "";
       this.emailError = "";
       this.phoneError = "";
       this.messageError = "";
+    },
+    
+    /**
+     * Fix Vuetify's accessibility issues with form field labels.
+     * Vuetify generates aria-labelledby pointing to labels with aria-hidden="true",
+     * which causes accessibility tools to report missing labels (GitHub issue #17730).
+     * This method removes the problematic aria-labelledby and ensures aria-label is set.
+     */
+    fixVuetifyAccessibility() {
+      // Map of field IDs to their accessible labels
+      const fieldLabels = {
+        'contact-firstname': 'First Name. Required field.',
+        'contact-lastname': 'Last Name. Required field.',
+        'contact-email': 'Email address. Required field.',
+        'contact-phone': 'Phone number. Required field.',
+        'contact-message': 'Message. Required field.'
+      };
+      
+      // Fix each form field
+      Object.entries(fieldLabels).forEach(([fieldId, label]) => {
+        const input = document.getElementById(fieldId);
+        if (input) {
+          // Remove Vuetify's problematic aria-labelledby
+          input.removeAttribute('aria-labelledby');
+          // Ensure aria-label is set
+          input.setAttribute('aria-label', label);
+        }
+      });
+      
+      // Hide all Vuetify's internal floating labels since we have external labels
+      const internalLabels = document.querySelectorAll('.contact-form .v-field-label');
+      internalLabels.forEach(label => {
+        label.setAttribute('aria-hidden', 'true');
+      });
     },
   },
 
@@ -648,10 +790,13 @@ export default {
     //this.$refs.form.reset();
     this.valid = false;
     this.successfullySubmitted = false;
-    //console.log("Route query: ", this.$route.query);
-    // if (this.$route.query && this.$route.query.subject) {
-    //   this.subject = sanitizeString(this.$route.query.subject);
-    // }
+    
+    // Fix Vuetify accessibility bug (GitHub issue #17730)
+    // Vuetify adds aria-labelledby pointing to hidden labels, which breaks accessibility
+    // We remove aria-labelledby and add aria-label directly to ensure proper accessible names
+    this.$nextTick(() => {
+      this.fixVuetifyAccessibility();
+    });
   },
 };
 </script>

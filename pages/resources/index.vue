@@ -62,9 +62,9 @@
             <v-spacer></v-spacer>
             <v-card-actions class="justify-center">
               <v-btn
-                color="blue darken-4"
-                class="mt-1 mb-2"
-                style="font-weight: 900 !important; font-size: 14px"
+                color="primary"
+                class="mt-1 mb-2 aaa-btn"
+                style="font-weight: 900 !important; font-size: 14px; min-height: 44px; min-width: 44px; padding: 12px 24px;"
                 @click="$router.push(`/resources/${item.slug}`)"
                 >Find out more&nbsp;&raquo;</v-btn
               >
@@ -78,7 +78,10 @@
         ><v-col
           class="text-center"
           style="font-size: 14px; margin-top: 20px !important"
-          ><nuxt-link to="/resources/single-page"
+          ><nuxt-link 
+            to="/resources/single-page"
+            class="aaa-link"
+            style="display: inline-block; min-height: 44px; line-height: 44px; padding: 0 12px;"
             >Show all R3 resources on a single page
             (mobile-friendly)&nbsp;&raquo;</nuxt-link
           >

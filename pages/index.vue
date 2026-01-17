@@ -180,7 +180,11 @@
                 <p>{{ item.summary }}</p>
               </v-card>
               <div class="text-center mt-10">
-                <nuxt-link to="/news" class="home-link">
+                <nuxt-link 
+                  to="/news" 
+                  class="home-link"
+                  style="display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 150px; padding: 12px 24px; color: #0D4474; text-decoration: underline; font-weight: 600;"
+                >
                   News archive&nbsp;&raquo;
                 </nuxt-link>
               </div>
@@ -437,8 +441,29 @@ const handleSplashClick = (externalURL) => {
 }
 
 /* Links */
+/* AAA Compliant link - 7:1 contrast ratio and 44x44 minimum target size */
 a.home-link {
-  color: #333;
+  color: #0D4474 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 44px !important;
+  min-width: 150px !important;
+  padding: 12px 24px !important;
+  text-decoration: underline !important;
+  font-weight: 600 !important;
+  box-sizing: border-box !important;
+}
+
+a.home-link:hover,
+a.home-link:focus {
+  color: #062a47 !important;
+  text-decoration: underline !important;
+}
+
+a.home-link:focus-visible {
+  outline: 2px solid #0D4474 !important;
+  outline-offset: 2px !important;
 }
 
 /* Screen reader only content for accessibility */

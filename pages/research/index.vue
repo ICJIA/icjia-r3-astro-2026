@@ -17,7 +17,7 @@
 
         <template v-slot:actions>
           <v-btn
-            color="blue"
+            color="primary"
             variant="text"
             @click="snackbar = false"
             style="font-size: 12px"
@@ -195,6 +195,7 @@
                       v-if="article.source === 'hub'"
                       size="small"
                       class="mt-5"
+                      color="primary"
                       variant="text"
                       style="font-weight: 900; font-size: 11px"
                     >
@@ -205,6 +206,7 @@
                       v-if="article.source === 'publist'"
                       size="small"
                       class="mt-5"
+                      color="primary"
                       variant="text"
                       style="font-weight: 900; font-size: 11px"
                     >

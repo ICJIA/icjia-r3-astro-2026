@@ -23,7 +23,7 @@
                   <v-card-actions>
                     <v-spacer></v-spacer>
 
-                    <v-btn size="small" :to="item.path"
+                    <v-btn size="small" color="primary" :to="item.path"
                       >Read more&nbsp;&raquo;</v-btn
                     >
                   </v-card-actions>

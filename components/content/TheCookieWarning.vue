@@ -32,7 +32,7 @@
           <v-btn
             dark
             large
-            color="grey darken-1"
+            color="primary"
             class="mt-6"
             style="margin-left: -20px"
             @click="hideForGood"

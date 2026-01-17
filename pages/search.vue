@@ -27,14 +27,14 @@
                 </v-col>
                 <v-col cols="12" md="2" class="hidden-sm-and-down">
                   <div class="pt-6">
-                    <v-btn color="blue-darken-4" @click.prevent="clearAll"
+                    <v-btn color="primary" @click.prevent="clearAll"
                       >Clear Search</v-btn
                     >
                   </div></v-col
                 >
                 <v-col cols="12" md="2" class="hidden-md-and-up">
                   <div class="text-center">
-                    <v-btn color="blue-darken-4" @click.prevent="clearAll"
+                    <v-btn color="primary" @click.prevent="clearAll"
                       >Clear Search</v-btn
                     >
                   </div></v-col
