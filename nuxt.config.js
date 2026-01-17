@@ -33,9 +33,11 @@ const CONFIG = {
   external: {
     cdn: {
       jquery: "https://code.jquery.com/jquery-3.7.1.slim.min.js",
-      datatables: "https://cdn.datatables.net/v/dt/dt-1.13.1/b-2.3.3/b-print-2.3.3/fh-3.3.1/r-2.4.0/sb-1.4.0/sp-2.1.0/datatables.min.js",
+      datatables:
+        "https://cdn.datatables.net/v/dt/dt-1.13.1/b-2.3.3/b-print-2.3.3/fh-3.3.1/r-2.4.0/sb-1.4.0/sp-2.1.0/datatables.min.js",
       markJs: "https://cdn.jsdelivr.net/mark.js/8.6.0/mark.min.js",
-      datatablesCSS: "https://cdn.datatables.net/v/dt/dt-1.13.1/b-2.3.3/b-print-2.3.3/fh-3.3.1/r-2.4.0/sb-1.4.0/sp-2.1.0/datatables.min.css",
+      datatablesCSS:
+        "https://cdn.datatables.net/v/dt/dt-1.13.1/b-2.3.3/b-print-2.3.3/fh-3.3.1/r-2.4.0/sb-1.4.0/sp-2.1.0/datatables.min.css",
     },
   },
   features: {
@@ -73,7 +75,8 @@ export default defineNuxtConfig({
         {
           hid: "description",
           name: "description",
-          content: "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through grants supporting reentry, economic development, civil legal aid, youth development, and violence prevention.",
+          content:
+            "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through grants supporting reentry, economic development, civil legal aid, youth development, and violence prevention.",
         },
       ],
       link: [

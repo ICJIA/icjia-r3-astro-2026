@@ -50,11 +50,11 @@
 const query = useRoute().query;
 const router = useRouter();
 const referrer = ref(
-  query.referrer ? decodeURIComponent(query.referrer) : null
+  query.referrer ? decodeURIComponent(query.referrer) : null,
 );
 
 const destination = ref(
-  query.destination ? decodeURIComponent(query.destination) : null
+  query.destination ? decodeURIComponent(query.destination) : null,
 );
 
 const goHome = () => router.push("/");

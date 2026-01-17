@@ -577,7 +577,11 @@ async function createDocumentationHTML() {
     console.log("📖 Creating documentation HTML...");
 
     // Read the PROJECT-DOCUMENTATION.md file
-    const markdownPath = path.join(process.cwd(), "markdown-documentation", "PROJECT-DOCUMENTATION.md");
+    const markdownPath = path.join(
+      process.cwd(),
+      "markdown-documentation",
+      "PROJECT-DOCUMENTATION.md",
+    );
 
     if (!fs.existsSync(markdownPath)) {
       throw new Error(`PROJECT-DOCUMENTATION.md not found at ${markdownPath}`);
@@ -589,7 +593,7 @@ async function createDocumentationHTML() {
     // Extract headings for table of contents
     const headings = extractHeadings(markdownContent);
     console.log(
-      `✅ Extracted ${headings.length} headings for table of contents`
+      `✅ Extracted ${headings.length} headings for table of contents`,
     );
 
     // Convert markdown to HTML
@@ -611,7 +615,7 @@ async function createDocumentationHTML() {
       process.cwd(),
       "public",
       "documentation",
-      "project"
+      "project",
     );
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir, { recursive: true });

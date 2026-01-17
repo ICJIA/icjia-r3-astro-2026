@@ -107,7 +107,8 @@ export const useTranslateToggle = () =>
  *
  * @since 1.0.0
  */
-export const useSearchQueries = () => useState<string[]>("searchQueries", () => []);
+export const useSearchQueries = () =>
+  useState<string[]>("searchQueries", () => []);
 
 /**
  * Provides reactive state for storing FAQ search query history.
@@ -124,7 +125,8 @@ export const useSearchQueries = () => useState<string[]>("searchQueries", () => 
  *
  * @since 1.0.0
  */
-export const useFaqSearchQueries = () => useState<string[]>("faqSearchQueries", () => []);
+export const useFaqSearchQueries = () =>
+  useState<string[]>("faqSearchQueries", () => []);
 
 /**
  * Provides search actions and state management for general search functionality.
@@ -189,7 +191,7 @@ export const useSearchActions = () => {
   return {
     queries: readonly(queries),
     addNewQuery,
-    clearQueries
+    clearQueries,
   };
 };
 
@@ -256,6 +258,6 @@ export const useFaqSearchActions = () => {
   return {
     faqQueries: readonly(faqQueries),
     addNewFaqQuery,
-    clearFaqQueries
+    clearFaqQueries,
   };
 };

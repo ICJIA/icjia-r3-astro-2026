@@ -24,7 +24,8 @@ describe("API Integration", () => {
   describe("Runtime Configuration", () => {
     it("should have API base URL configured", () => {
       const config = {
-        apiBase: process.env.NUXT_PUBLIC_API_BASE_URL || "http://localhost:8000/api",
+        apiBase:
+          process.env.NUXT_PUBLIC_API_BASE_URL || "http://localhost:8000/api",
       };
       expect(config.apiBase).toBeDefined();
     });
@@ -56,4 +57,3 @@ describe("API Integration", () => {
     });
   });
 });
-

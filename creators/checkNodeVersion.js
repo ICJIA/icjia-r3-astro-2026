@@ -56,15 +56,19 @@ if (currentMajor && currentMajor < desiredMajor) {
   console.error("❌ Node.js version too old for this project.");
   console.error("");
   console.error("  Current Node:  " + formatVersion(currentNode));
-  console.error("  Required Node: >= " + (desiredNode || String(desiredMajor) + ".x"));
+  console.error(
+    "  Required Node: >= " + (desiredNode || String(desiredMajor) + ".x"),
+  );
   console.error("");
   console.error("Fix:");
-  console.error("  - If you use nvm/fnm/asdf: run `nvm use` (or equivalent) in this repo.");
-  console.error("  - If you use mise: run `mise use -g node@" + (desiredNode || "20") + "`");
+  console.error(
+    "  - If you use nvm/fnm/asdf: run `nvm use` (or equivalent) in this repo.",
+  );
+  console.error(
+    "  - If you use mise: run `mise use -g node@" + (desiredNode || "20") + "`",
+  );
   console.error("");
   console.error("Then re-run your command (e.g. `yarn dev`).");
   console.error("");
   process.exit(1);
 }
-
-

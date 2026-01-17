@@ -1,28 +1,15 @@
 {
   "source": {
-    "include": [
-      "./components/",
-      "./app.vue",
-      "./error.vue"
-    ],
+    "include": ["./components/", "./app.vue", "./error.vue"],
     "includePattern": "\\.vue$",
-    "exclude": [
-      "node_modules/",
-      ".nuxt/",
-      ".output/",
-      "dist/",
-      "./pages/"
-    ]
+    "exclude": ["node_modules/", ".nuxt/", ".output/", "dist/", "./pages/"]
   },
   "opts": {
     "destination": "./public/documentation/vue-components/",
     "recurse": true,
     "template": "node_modules/clean-jsdoc-theme"
   },
-  "plugins": [
-    "plugins/markdown",
-    "./jsdoc-vue-plugin.js"
-  ],
+  "plugins": ["plugins/markdown", "./jsdoc-vue-plugin.js"],
   "templates": {
     "cleverLinks": false,
     "monospaceLinks": false,

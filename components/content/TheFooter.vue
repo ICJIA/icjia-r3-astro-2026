@@ -21,13 +21,19 @@
             class="text-center mt-2"
             style="color: white"
           >
-            <div style="font-size: 14px; font-weight: 400; line-height: 1.8;">
+            <div style="font-size: 14px; font-weight: 400; line-height: 1.8">
               <strong
                 >&#169; 2025
                 <a
                   href="https://www.illinois.gov"
                   target="_blank"
-                  style="color: #fff; display: inline-block; min-height: 44px; padding: 8px 4px; line-height: 28px;"
+                  style="
+                    color: #fff;
+                    display: inline-block;
+                    min-height: 44px;
+                    padding: 8px 4px;
+                    line-height: 28px;
+                  "
                   >State of Illinois</a
                 >
               </strong>
@@ -36,13 +42,27 @@
                 <a
                   href="https://www2.illinois.gov/sites/gov/Pages/default.aspx"
                   target="_blank"
-                  style="color: #fff; display: inline-block; min-height: 44px; padding: 8px 4px; line-height: 28px;"
+                  style="
+                    color: #fff;
+                    display: inline-block;
+                    min-height: 44px;
+                    padding: 8px 4px;
+                    line-height: 28px;
+                  "
                   >Governor JB Pritzker
                 </a>
               </strong>
               &nbsp;|&nbsp;
               <strong>
-                <nuxt-link to="/privacy" style="color: #fff; display: inline-block; min-height: 44px; padding: 8px 4px; line-height: 28px;"
+                <nuxt-link
+                  to="/privacy"
+                  style="
+                    color: #fff;
+                    display: inline-block;
+                    min-height: 44px;
+                    padding: 8px 4px;
+                    line-height: 28px;
+                  "
                   >Privacy
                 </nuxt-link>
               </strong>
@@ -50,19 +70,42 @@
               <strong>
                 <a
                   href="/docs/accessibility/index.html"
-                  style="color: #fff; display: inline-block; min-height: 44px; padding: 8px 4px; line-height: 28px;"
+                  style="
+                    color: #fff;
+                    display: inline-block;
+                    min-height: 44px;
+                    padding: 8px 4px;
+                    line-height: 28px;
+                  "
                   >Accessibility
                 </a>
               </strong>
               &nbsp;|&nbsp;
-              <nuxt-link to="/contact" style="color: #fff; background: none; display: inline-block; min-height: 44px; padding: 8px 4px; line-height: 28px;"
+              <nuxt-link
+                to="/contact"
+                style="
+                  color: #fff;
+                  background: none;
+                  display: inline-block;
+                  min-height: 44px;
+                  padding: 8px 4px;
+                  line-height: 28px;
+                "
                 >Contact</nuxt-link
               >&nbsp;
 
               <span>
                 &nbsp;|&nbsp;
                 <nuxt-link
-                  style="color: #fff; background: none; cursor: pointer; display: inline-block; min-height: 44px; padding: 8px 4px; line-height: 28px;"
+                  style="
+                    color: #fff;
+                    background: none;
+                    cursor: pointer;
+                    display: inline-block;
+                    min-height: 44px;
+                    padding: 8px 4px;
+                    line-height: 28px;
+                  "
                   class="hover-anchor"
                   to="/translate"
                 >

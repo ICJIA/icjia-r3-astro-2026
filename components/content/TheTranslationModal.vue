@@ -19,7 +19,7 @@
         <v-card-text id="translation-description" class="mt-3 mb-3">
           <v-container fluid>
             <v-row>
-              <v-col cols="12" md="4">
+              <v-col cols="12" md="6">
                 <v-btn
                   size="small"
                   variant="text"
@@ -27,24 +27,6 @@
                   @click="googleTranslate('es')"
                   aria-label="Translate page to Spanish"
                   >Spanish</v-btn
-                >
-                <br />
-                <v-btn
-                  size="small"
-                  variant="text"
-                  class="translate-button"
-                  @click="googleTranslate('pt')"
-                  aria-label="Translate page to Portuguese"
-                  >Portuguese</v-btn
-                >
-                <br />
-                <v-btn
-                  size="small"
-                  variant="text"
-                  class="translate-button"
-                  @click="googleTranslate('fr')"
-                  aria-label="Translate page to French"
-                  >French</v-btn
                 >
                 <br />
                 <v-btn
@@ -60,22 +42,31 @@
                   size="small"
                   variant="text"
                   class="translate-button"
-                  @click="googleTranslate('ru')"
-                  aria-label="Translate page to Russian"
-                  >Russian</v-btn
+                  @click="googleTranslate('zh-CN')"
+                  aria-label="Translate page to Simplified Chinese"
+                  >Chinese (Simplified)</v-btn
                 >
                 <br />
                 <v-btn
                   size="small"
                   variant="text"
                   class="translate-button"
-                  @click="googleTranslate('it')"
-                  aria-label="Translate page to Italian"
-                  >Italian</v-btn
+                  @click="googleTranslate('zh-TW')"
+                  aria-label="Translate page to Traditional Chinese"
+                  >Chinese (Traditional)</v-btn
                 >
                 <br />
               </v-col>
-              <v-col cols="12" md="4">
+              <v-col cols="12" md="6">
+                <v-btn
+                  size="small"
+                  variant="text"
+                  class="translate-button"
+                  @click="googleTranslate('tl')"
+                  aria-label="Translate page to Tagalog"
+                  >Tagalog</v-btn
+                >
+                <br />
                 <v-btn
                   size="small"
                   variant="text"
@@ -89,103 +80,18 @@
                   size="small"
                   variant="text"
                   class="translate-button"
-                  @click="googleTranslate('hy')"
-                  aria-label="Translate page to Armenian"
-                  >Armenian</v-btn
+                  @click="googleTranslate('hi')"
+                  aria-label="Translate page to Hindi"
+                  >Hindi</v-btn
                 >
                 <br />
                 <v-btn
                   size="small"
                   variant="text"
                   class="translate-button"
-                  @click="googleTranslate('de')"
-                  aria-label="Translate page to German"
-                  >German</v-btn
-                >
-                <br />
-
-                <v-btn
-                  size="small"
-                  variant="text"
-                  class="translate-button"
-                  @click="googleTranslate('zh-TW')"
-                  aria-label="Translate page to Traditional Chinese"
-                  >Chinese (Traditional)</v-btn
-                >
-                <br />
-                <v-btn
-                  size="small"
-                  variant="text"
-                  class="translate-button"
-                  @click="googleTranslate('zh-CN')"
-                  aria-label="Translate page to Simplified Chinese"
-                  >Chinese (Simplified)</v-btn
-                >
-                <br />
-
-                <v-btn
-                  size="small"
-                  variant="text"
-                  class="translate-button"
-                  @click="googleTranslate('sr')"
-                  aria-label="Translate page to Serbian"
-                  >Serbian</v-btn
-                >
-                <br />
-              </v-col>
-              <v-col cols="12" md="4">
-                <v-btn
-                  size="small"
-                  variant="text"
-                  class="translate-button"
-                  @click="googleTranslate('iw')"
-                  aria-label="Translate page to Hebrew"
-                  >Hebrew</v-btn
-                >
-                <br />
-                <v-btn
-                  size="small"
-                  variant="text"
-                  class="translate-button"
-                  @click="googleTranslate('hu')"
-                  aria-label="Translate page to Hungarian"
-                  >Hungarian</v-btn
-                >
-                <br />
-                <v-btn
-                  size="small"
-                  variant="text"
-                  class="translate-button"
-                  @click="googleTranslate('is')"
-                  aria-label="Translate page to Icelandic"
-                  >Icelandic</v-btn
-                >
-                <br />
-                <v-btn
-                  size="small"
-                  variant="text"
-                  class="translate-button"
-                  @click="googleTranslate('lv')"
-                  aria-label="Translate page to Latvian"
-                  >Latvian</v-btn
-                >
-                <br />
-                <v-btn
-                  size="small"
-                  variant="text"
-                  class="translate-button"
-                  @click="googleTranslate('fa')"
-                  aria-label="Translate page to Persian"
-                  >Persian</v-btn
-                >
-                <br />
-                <v-btn
-                  size="small"
-                  variant="text"
-                  class="translate-button"
-                  @click="googleTranslate('tr')"
-                  aria-label="Translate page to Turkish"
-                  >Turkish</v-btn
+                  @click="googleTranslate('ur')"
+                  aria-label="Translate page to Urdu"
+                  >Urdu</v-btn
                 >
                 <br />
               </v-col>

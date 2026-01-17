@@ -124,74 +124,74 @@ async function main() {
     console.warn("Warning: No FAQs found in API response");
     return;
   }
-    const _faqs = raw.map((item) => {
-      const obj = { ...item };
-      let rawText;
+  const _faqs = raw.map((item) => {
+    const obj = { ...item };
+    let rawText;
 
-      obj.attributes.postDate = item.attributes.dateOverride
-        ? moment(item.attributes.dateOverride).utc().format()
-        : moment(item.attributes.publishedAt).utc().format();
-      rawText = obj.attributes?.body
-        ?.replace(/<[^>]*>?/gm, "")
-        .replace(/[^a-z0-9]/gi, " ");
-      rawText = rawText.replace(/\s\s+/g, " ");
-      obj.attributes.rawText = rawText.toLowerCase();
-      obj.attributes.draft = false;
-      // obj.attributes.title = obj.attributes.question;
-      // obj.attributes.summary = obj.attributes.question;
-      // obj.attributes.body = obj.attributes.answer;
-      obj.attributes.path = `/faqs/${item.attributes.slug}`;
-      obj.attributes.url = `${SITE_URL}${obj.attributes.path}`;
-      obj.attributes.markdown = styleInject + item.attributes.body;
-      obj.attributes.type = "faq";
-      if (item.attributes.searchMeta) {
-        obj.attributes.searchMeta = "faq " + item.attributes.searchMeta;
-      } else {
-        obj.attributes.searchMeta = "faq  ";
-      }
-
-      obj.attributes.postDate = item.attributes.dateOverride
-        ? moment(item.attributes.dateOverride).utc().format()
-        : moment(item.attributes.publishedAt).utc().format();
-      console.log("Markdown faq created: ", obj.attributes.path);
-
-      return obj;
-    });
-
-    //  let faqs = _.orderBy(_faqs, ["ranking"], ["asc"]);
-    // let faqs = _faqs;
-    let faqs = _.orderBy(_faqs, ["postDate"], ["desc"]);
-
-    // let categories = _.uniq(faqs.map((item) => item.attributes.category));
-    // console.log("categories: ", categories);
-    // console.log('faqs: ', faqs);
-
-    // Write FAQ files with error handling
-    await safeWriteFile(`./assets/json/faqs.json`, faqs, jsonfile);
-    await safeWriteFile(`./public/faqs.json`, faqs, jsonfile);
-    await safeWriteFile(`./src/faqs.json`, faqs, jsonfile);
-
-    const faqRoutes = faqs.map((item) => {
-      return `/faqs/${item.attributes.slug}`;
-    });
-
-    await safeWriteFile(`./public/routesFaqs.json`, faqRoutes, jsonfile);
-
-    // Generate markdown files
-    const section = "faqs";
-    const directoryPath = path.join(contentDir, section);
-    ensureDirectory(directoryPath, fs);
-
-    for (const item of faqs) {
-      const basename = item.attributes.slug;
-      const fileName = `${section}/${basename}.md`;
-      const filePath = path.join(contentDir, fileName);
-
-      const content = formatMarkdown(item.attributes);
-      safeWriteFileSync(filePath, content, fs);
+    obj.attributes.postDate = item.attributes.dateOverride
+      ? moment(item.attributes.dateOverride).utc().format()
+      : moment(item.attributes.publishedAt).utc().format();
+    rawText = obj.attributes?.body
+      ?.replace(/<[^>]*>?/gm, "")
+      .replace(/[^a-z0-9]/gi, " ");
+    rawText = rawText.replace(/\s\s+/g, " ");
+    obj.attributes.rawText = rawText.toLowerCase();
+    obj.attributes.draft = false;
+    // obj.attributes.title = obj.attributes.question;
+    // obj.attributes.summary = obj.attributes.question;
+    // obj.attributes.body = obj.attributes.answer;
+    obj.attributes.path = `/faqs/${item.attributes.slug}`;
+    obj.attributes.url = `${SITE_URL}${obj.attributes.path}`;
+    obj.attributes.markdown = styleInject + item.attributes.body;
+    obj.attributes.type = "faq";
+    if (item.attributes.searchMeta) {
+      obj.attributes.searchMeta = "faq " + item.attributes.searchMeta;
+    } else {
+      obj.attributes.searchMeta = "faq  ";
     }
 
-    console.log(`\n✓ Processed ${faqs.length} FAQs`);
+    obj.attributes.postDate = item.attributes.dateOverride
+      ? moment(item.attributes.dateOverride).utc().format()
+      : moment(item.attributes.publishedAt).utc().format();
+    console.log("Markdown faq created: ", obj.attributes.path);
+
+    return obj;
+  });
+
+  //  let faqs = _.orderBy(_faqs, ["ranking"], ["asc"]);
+  // let faqs = _faqs;
+  let faqs = _.orderBy(_faqs, ["postDate"], ["desc"]);
+
+  // let categories = _.uniq(faqs.map((item) => item.attributes.category));
+  // console.log("categories: ", categories);
+  // console.log('faqs: ', faqs);
+
+  // Write FAQ files with error handling
+  await safeWriteFile(`./assets/json/faqs.json`, faqs, jsonfile);
+  await safeWriteFile(`./public/faqs.json`, faqs, jsonfile);
+  await safeWriteFile(`./src/faqs.json`, faqs, jsonfile);
+
+  const faqRoutes = faqs.map((item) => {
+    return `/faqs/${item.attributes.slug}`;
+  });
+
+  await safeWriteFile(`./public/routesFaqs.json`, faqRoutes, jsonfile);
+
+  // Generate markdown files
+  const section = "faqs";
+  const directoryPath = path.join(contentDir, section);
+  ensureDirectory(directoryPath, fs);
+
+  for (const item of faqs) {
+    const basename = item.attributes.slug;
+    const fileName = `${section}/${basename}.md`;
+    const filePath = path.join(contentDir, fileName);
+
+    const content = formatMarkdown(item.attributes);
+    safeWriteFileSync(filePath, content, fs);
+  }
+
+  console.log(`\n✓ Processed ${faqs.length} FAQs`);
 }
 
 // Run the script with error handling wrapper

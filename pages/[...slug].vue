@@ -187,7 +187,8 @@ onMounted(async () => {
       </ContentDoc>
     </div>
     <div v-else>
-      <v-container fluid><v-row
+      <v-container fluid
+        ><v-row
           ><v-col cols="12" :md="cols">
             <div v-if="data" class="mt-6">
               <h1>{{ data.title }}</h1>

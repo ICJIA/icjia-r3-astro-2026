@@ -88,4 +88,3 @@ describe("Event Bus Composable", () => {
     });
   });
 });
-

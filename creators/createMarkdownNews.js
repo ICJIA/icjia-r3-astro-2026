@@ -107,70 +107,70 @@ async function main() {
     return;
   }
 
-    let section;
-    const site = posts.map((post) => {
-      const obj = { ...post };
-      let rawText;
+  let section;
+  const site = posts.map((post) => {
+    const obj = { ...post };
+    let rawText;
 
-      rawText = obj.attributes?.body
-        ?.replace(/<[^>]*>?/gm, "")
-        .replace(/[^a-z0-9]/gi, " ");
-      rawText = rawText.replace(/\s\s+/g, " ");
-      obj.attributes.rawText = rawText.toLowerCase();
-      obj.attributes.draft = false;
-      obj.attributes.type = "news";
-      // obj.attributes.description = post.attributes.summary;
-      obj.attributes.navigation = true;
-      if (post.attributes.section !== "root") {
-        section = post.attributes.section.toLowerCase();
-        obj.attributes.path = `/${section}/${post.attributes.slug}`;
-        obj.attributes.url = `${SITE_URL}${obj.attributes.path}`;
-      } else {
-        obj.attributes.path = `/${post.attributes.slug}`;
-        obj.attributes.url = `${SITE_URL}${obj.attributes.path}`;
-      }
-
-      if (post.attributes.slug === "index") {
-        obj.attributes.path = `/`;
-        obj.attributes.url = `${SITE_URL}`;
-      }
-
-      obj.attributes.postDate = post.attributes.dateOverride
-        ? moment(post.attributes.dateOverride).utc().format()
-        : moment(post.attributes.publishedAt).utc().format();
-
-      console.log("Markdown posts content created: ", obj.attributes.path);
-      return obj;
-    });
-
-    // Write route files with error handling
-    await safeWriteFile(`./public/posts.json`, site, jsonfile);
-    
-    const newsRoutes = site.map((post) => {
-      return `/news/${post.attributes.slug}`;
-    });
-
-    await safeWriteFile(`./public/routesNews.json`, newsRoutes, jsonfile);
-
-    // Generate markdown files
-    for (const post of site) {
-      if (post.attributes.section === "root") {
-        section = "";
-      } else {
-        section = post.attributes.section.toLowerCase();
-      }
-
-      const basename = post.attributes.slug;
-      const filePath = path.join(contentDir, `${section}/${basename}.md`);
-      const directoryPath = path.join(contentDir, `${section}`);
-
-      ensureDirectory(directoryPath, fs);
-
-      const content = formatMarkdown(post.attributes);
-      safeWriteFileSync(filePath, content, fs);
+    rawText = obj.attributes?.body
+      ?.replace(/<[^>]*>?/gm, "")
+      .replace(/[^a-z0-9]/gi, " ");
+    rawText = rawText.replace(/\s\s+/g, " ");
+    obj.attributes.rawText = rawText.toLowerCase();
+    obj.attributes.draft = false;
+    obj.attributes.type = "news";
+    // obj.attributes.description = post.attributes.summary;
+    obj.attributes.navigation = true;
+    if (post.attributes.section !== "root") {
+      section = post.attributes.section.toLowerCase();
+      obj.attributes.path = `/${section}/${post.attributes.slug}`;
+      obj.attributes.url = `${SITE_URL}${obj.attributes.path}`;
+    } else {
+      obj.attributes.path = `/${post.attributes.slug}`;
+      obj.attributes.url = `${SITE_URL}${obj.attributes.path}`;
     }
 
-    console.log(`\n✓ Processed ${posts.length} news posts`);
+    if (post.attributes.slug === "index") {
+      obj.attributes.path = `/`;
+      obj.attributes.url = `${SITE_URL}`;
+    }
+
+    obj.attributes.postDate = post.attributes.dateOverride
+      ? moment(post.attributes.dateOverride).utc().format()
+      : moment(post.attributes.publishedAt).utc().format();
+
+    console.log("Markdown posts content created: ", obj.attributes.path);
+    return obj;
+  });
+
+  // Write route files with error handling
+  await safeWriteFile(`./public/posts.json`, site, jsonfile);
+
+  const newsRoutes = site.map((post) => {
+    return `/news/${post.attributes.slug}`;
+  });
+
+  await safeWriteFile(`./public/routesNews.json`, newsRoutes, jsonfile);
+
+  // Generate markdown files
+  for (const post of site) {
+    if (post.attributes.section === "root") {
+      section = "";
+    } else {
+      section = post.attributes.section.toLowerCase();
+    }
+
+    const basename = post.attributes.slug;
+    const filePath = path.join(contentDir, `${section}/${basename}.md`);
+    const directoryPath = path.join(contentDir, `${section}`);
+
+    ensureDirectory(directoryPath, fs);
+
+    const content = formatMarkdown(post.attributes);
+    safeWriteFileSync(filePath, content, fs);
+  }
+
+  console.log(`\n✓ Processed ${posts.length} news posts`);
 }
 
 // Run the script with error handling wrapper

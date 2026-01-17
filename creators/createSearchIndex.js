@@ -47,7 +47,10 @@ function safeRequireJson(filePath) {
       return [];
     }
   } catch (error) {
-    console.warn(`⚠️  Warning: Error reading ${filePath}, using empty array:`, error.message);
+    console.warn(
+      `⚠️  Warning: Error reading ${filePath}, using empty array:`,
+      error.message,
+    );
     return [];
   }
 }
@@ -153,7 +156,7 @@ jsonfile.writeFileSync(
     if (err) {
       console.error(err);
     }
-  }
+  },
 );
 
 /**

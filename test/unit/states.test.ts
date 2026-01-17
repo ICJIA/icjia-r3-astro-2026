@@ -248,7 +248,9 @@ describe("State Management Composables", () => {
       const { faqQueries, addNewFaqQuery } = useFaqSearchActions();
       addNewFaqQuery("duplicate FAQ");
       addNewFaqQuery("duplicate FAQ");
-      expect(faqQueries.value.filter((q) => q === "duplicate FAQ").length).toBe(1);
+      expect(faqQueries.value.filter((q) => q === "duplicate FAQ").length).toBe(
+        1,
+      );
     });
 
     it("does not add empty FAQ queries", () => {
@@ -259,7 +261,8 @@ describe("State Management Composables", () => {
     });
 
     it("clears all FAQ queries with clearFaqQueries", () => {
-      const { faqQueries, addNewFaqQuery, clearFaqQueries } = useFaqSearchActions();
+      const { faqQueries, addNewFaqQuery, clearFaqQueries } =
+        useFaqSearchActions();
       addNewFaqQuery("FAQ 1");
       addNewFaqQuery("FAQ 2");
       expect(faqQueries.value.length).toBe(2);
@@ -277,4 +280,3 @@ describe("State Management Composables", () => {
     });
   });
 });
-

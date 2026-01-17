@@ -28,12 +28,14 @@ This document summarizes the comprehensive code cleanup and configuration refact
 #### Configuration Files
 
 **`nuxt.config.js`**:
+
 - ✅ Removed all commented code
 - ✅ Import and use `config.js`
 - ✅ Replace environment variables with config values
 - ✅ Cleaner, more maintainable
 
 **`app.config.js`**:
+
 - ✅ Import and use `config.js`
 - ✅ Use config values for site metadata
 - ✅ Use config for external URLs
@@ -41,42 +43,50 @@ This document summarizes the comprehensive code cleanup and configuration refact
 #### Creator Scripts
 
 **`creators/createMarkdownPages.js`**:
+
 - ✅ Import `config.js`
 - ✅ Removed environment variable validation
 - ✅ Use `config.site.url` and `config.api.base`
 
 **`creators/createMarkdownNews.js`**:
+
 - ✅ Import `config.js`
 - ✅ Removed environment variable validation
 - ✅ Use `config.site.url` and `config.api.base`
 
 **`creators/createMarkdownResources.js`**:
+
 - ✅ Import `config.js`
 - ✅ Removed environment variable validation
 - ✅ Use `config.site.url` and `config.api.base`
 
 **`creators/createMarkdownFaqs.js`**:
+
 - ✅ Import `config.js`
 - ✅ Removed environment variable validation
 - ✅ Use `config.site.url` and `config.api.base`
 
 **`creators/createHubArticles.mjs`**:
+
 - ✅ Import `config.js` (ES module style)
 - ✅ Use `config.api.researchHub`
 
 **`creators/createHubImages.mjs`**:
+
 - ✅ Import `config.js` (ES module style)
 - ✅ Use `config.api.researchHub`
 
 #### Public Files
 
 **`public/a11y.js`**:
+
 - ✅ Removed all `console.log` statements
 - ✅ Cleaner, production-ready code
 
 #### Git Configuration
 
 **`.gitignore`**:
+
 - ✅ Removed commented lines
 - ✅ Clean, uncommented entries only
 - ✅ Added entries for generated test/audit files
@@ -97,16 +107,19 @@ This document summarizes the comprehensive code cleanup and configuration refact
 ### 4. Security Headers
 
 **`netlify.toml`**:
+
 - ✅ Security headers were already enabled (no change needed)
 - ✅ Includes X-Frame-Options, X-XSS-Protection, Referrer-Policy, X-Content-Type-Options, Content-Security-Policy
 
 ### 5. Documentation
 
 **Created**:
+
 - ✅ `/markdown-documentation/CONFIG_SYSTEM.md` - Comprehensive configuration system guide
 - ✅ `/markdown-documentation/CLEANUP_SUMMARY.md` - This document
 
 **Updated**:
+
 - ✅ `/markdown-documentation/README.md` - Added new documentation to index
 
 ## Benefits of Changes
@@ -114,12 +127,14 @@ This document summarizes the comprehensive code cleanup and configuration refact
 ### Centralized Configuration
 
 **Before**:
+
 - Configuration scattered across `.env` files
 - Manual Netlify dashboard setup required
 - Environment variables could be forgotten or misconfigured
 - Hard to track configuration changes
 
 **After**:
+
 - Single source of truth in `config.js`
 - Version controlled configuration
 - No manual Netlify setup needed
@@ -129,6 +144,7 @@ This document summarizes the comprehensive code cleanup and configuration refact
 ### Code Cleanup
 
 **Before**:
+
 - Commented code cluttering files
 - console.log statements in production code
 - Outdated config files (.old files)
@@ -137,6 +153,7 @@ This document summarizes the comprehensive code cleanup and configuration refact
 - Generated files tracked in git
 
 **After**:
+
 - Clean, uncommented code
 - No console.log statements
 - No outdated config files
@@ -147,10 +164,12 @@ This document summarizes the comprehensive code cleanup and configuration refact
 ## Files Summary
 
 ### New Files (2)
+
 - `/config.js` - Centralized configuration
 - `/markdown-documentation/CONFIG_SYSTEM.md` - Configuration documentation
 
 ### Modified Files (13)
+
 - `/nuxt.config.js` - Uses centralized config
 - `/app.config.js` - Uses centralized config
 - `/creators/createMarkdownPages.js` - Uses centralized config
@@ -165,6 +184,7 @@ This document summarizes the comprehensive code cleanup and configuration refact
 - `/markdown-documentation/CLEANUP_SUMMARY.md` - This document
 
 ### Deleted Files (8)
+
 - `/.eslintrc.old`
 - `/.eslintignore.old`
 - `/global.js`
@@ -177,6 +197,7 @@ This document summarizes the comprehensive code cleanup and configuration refact
 ## Project Simplification Results
 
 ### Before:
+
 - **20+ configuration points** scattered across files
 - **8 unused/outdated files** cluttering the project
 - **Commented code** in 5+ files
@@ -184,6 +205,7 @@ This document summarizes the comprehensive code cleanup and configuration refact
 - **Manual environment setup** required for deployment
 
 ### After:
+
 - **1 single configuration file** (`config.js`)
 - **0 unused files** - all cleaned up
 - **0 commented code** - clean codebase
@@ -195,6 +217,7 @@ This document summarizes the comprehensive code cleanup and configuration refact
 Before deploying to production, test the following:
 
 ### 1. Local Development
+
 ```bash
 # Test that config is loaded correctly
 yarn dev
@@ -210,16 +233,19 @@ yarn test
 ```
 
 ### 2. Verify Configuration Values
+
 - Check that API endpoints are correct
 - Verify site URLs are correct
 - Ensure external URLs work
 
 ### 3. Test Content Generation
+
 - Run all creator scripts
 - Verify markdown files are generated
 - Check JSON route files are created
 
 ### 4. Test Build
+
 - Ensure build completes successfully
 - Check that no errors reference missing environment variables
 - Verify all routes are pre-rendered
@@ -229,12 +255,14 @@ yarn test
 ### No Environment Variables Needed
 
 The following environment variables are **NO LONGER NEEDED**:
+
 - `NUXT_PUBLIC_API_BASE_URL` - Now `config.api.base`
 - `NUXT_PUBLIC_BASE_URL` - Now `config.site.url`
 
 ### Netlify Deployment
 
 No changes needed in Netlify:
+
 - Remove environment variables from Netlify dashboard (optional, they're not used anymore)
 - Build command remains: `yarn generate`
 - Publish directory remains: `.output/public`
@@ -245,6 +273,7 @@ No changes needed in Netlify:
 ### Risk Level: **LOW**
 
 **Why Low Risk**:
+
 - Configuration values remain the same (just moved to different file)
 - No functional changes to application logic
 - Environment variables still work if needed (backwards compatible)
@@ -254,6 +283,7 @@ No changes needed in Netlify:
 ### Rollback Plan
 
 If issues arise:
+
 1. Revert commit containing these changes
 2. Restore environment variables in Netlify (if needed)
 3. Redeploy previous version
@@ -261,6 +291,7 @@ If issues arise:
 ## Future Improvements
 
 ### Possible Enhancements
+
 1. **Environment-Specific Configs**: Create `config.dev.js`, `config.prod.js`
 2. **Config Validation**: Add runtime validation for required values
 3. **TypeScript**: Convert config to TypeScript for type safety
@@ -275,6 +306,7 @@ If issues arise:
 ## Summary Statistics
 
 ### Code Cleanup
+
 - ✅ **8 files deleted** (unused/outdated)
 - ✅ **13 files updated** (cleaner code)
 - ✅ **2 new files created** (centralized config + docs)
@@ -283,11 +315,13 @@ If issues arise:
 - ✅ **100% old config files removed**
 
 ### Configuration Simplification
+
 - ✅ **1 single config file** (was scattered across multiple locations)
 - ✅ **0 environment variables needed** (was 2+ required)
 - ✅ **0 manual Netlify setup** (was manual entry required)
 
 ### Result
+
 **Clean, simplified, maintainable codebase with zero deployment friction.**
 
 ---
@@ -313,12 +347,14 @@ If issues arise:
 #### Configuration Files
 
 **`nuxt.config.js`**:
+
 - ✅ Removed all commented code
 - ✅ Import and use `config.js`
 - ✅ Replace environment variables with config values
 - ✅ Cleaner, more maintainable
 
 **`app.config.js`**:
+
 - ✅ Import and use `config.js`
 - ✅ Use config values for site metadata
 - ✅ Use config for external URLs
@@ -326,57 +362,68 @@ If issues arise:
 #### Creator Scripts
 
 **`creators/createMarkdownPages.js`**:
+
 - ✅ Import `config.js`
 - ✅ Removed environment variable validation
 - ✅ Use `config.site.url` and `config.api.base`
 
 **`creators/createMarkdownNews.js`**:
+
 - ✅ Import `config.js`
 - ✅ Removed environment variable validation
 - ✅ Use `config.site.url` and `config.api.base`
 
 **`creators/createMarkdownResources.js`**:
+
 - ✅ Import `config.js`
 - ✅ Removed environment variable validation
 - ✅ Use `config.site.url` and `config.api.base`
 
 **`creators/createMarkdownFaqs.js`**:
+
 - ✅ Import `config.js`
 - ✅ Removed environment variable validation
 - ✅ Use `config.site.url` and `config.api.base`
 
 **`creators/createHubArticles.mjs`**:
+
 - ✅ Import `config.js` (ES module style)
 - ✅ Use `config.api.researchHub`
 
 **`creators/createHubImages.mjs`**:
+
 - ✅ Import `config.js` (ES module style)
 - ✅ Use `config.api.researchHub`
 
 #### Public Files
 
 **`public/a11y.js`**:
+
 - ✅ Removed all `console.log` statements
 - ✅ Cleaner, production-ready code
 
 #### Git Configuration
 
 **`.gitignore`**:
+
 - ✅ Removed commented lines
 - ✅ Clean, uncommented entries only
 
 ### 3. Security Headers
 
 **`netlify.toml`**:
+
 - ✅ Security headers were already enabled (no change needed)
 - ✅ Includes X-Frame-Options, X-XSS-Protection, Referrer-Policy, X-Content-Type-Options, Content-Security-Policy
 
 ### 4. Documentation
 
 **Created**:
+
 - ✅ `/markdown-documentation/CONFIG_SYSTEM.md` - Complete guide to the configuration system
 
 **Updated**:
+
 - ✅ `/markdown-documentation/README.md` - Added CONFIG_SYSTEM.md to index
 
 ## Benefits of Changes
@@ -384,12 +431,14 @@ If issues arise:
 ### Centralized Configuration
 
 **Before**:
+
 - Configuration scattered across `.env` files
 - Manual Netlify dashboard setup required
 - Environment variables could be forgotten or misconfigured
 - Hard to track configuration changes
 
 **After**:
+
 - Single source of truth in `config.js`
 - Version controlled configuration
 - No manual Netlify setup needed
@@ -399,11 +448,13 @@ If issues arise:
 ### Code Cleanup
 
 **Before**:
+
 - Commented code cluttering files
 - console.log statements in production code
 - Harder to read and maintain
 
 **After**:
+
 - Clean, uncommented code
 - No console.log statements
 - Easier to read and maintain
@@ -412,10 +463,12 @@ If issues arise:
 ## Files Modified
 
 ### New Files (1)
+
 - `/config.js`
 - `/markdown-documentation/CONFIG_SYSTEM.md`
 
 ### Modified Files (13)
+
 - `/nuxt.config.js`
 - `/app.config.js`
 - `/creators/createMarkdownPages.js`
@@ -433,6 +486,7 @@ If issues arise:
 Before deploying to production, test the following:
 
 ### 1. Local Development
+
 ```bash
 # Test that config is loaded correctly
 yarn dev
@@ -445,16 +499,19 @@ yarn generate
 ```
 
 ### 2. Verify Configuration Values
+
 - Check that API endpoints are correct
 - Verify site URLs are correct
 - Ensure external URLs work
 
 ### 3. Test Content Generation
+
 - Run all creator scripts
 - Verify markdown files are generated
 - Check JSON route files are created
 
 ### 4. Test Build
+
 - Ensure build completes successfully
 - Check that no errors reference missing environment variables
 - Verify all routes are pre-rendered
@@ -464,12 +521,14 @@ yarn generate
 ### No Environment Variables Needed
 
 The following environment variables are **NO LONGER NEEDED**:
+
 - `NUXT_PUBLIC_API_BASE_URL` - Now `config.api.base`
 - `NUXT_PUBLIC_BASE_URL` - Now `config.site.url`
 
 ### Netlify Deployment
 
 No changes needed in Netlify:
+
 - Remove environment variables from Netlify dashboard (optional, they're not used anymore)
 - Build command remains: `yarn generate`
 - Publish directory remains: `.output/public`
@@ -480,6 +539,7 @@ No changes needed in Netlify:
 ### Risk Level: **LOW**
 
 **Why Low Risk**:
+
 - Configuration values remain the same (just moved to different file)
 - No functional changes to application logic
 - Environment variables still work if needed (backwards compatible)
@@ -488,6 +548,7 @@ No changes needed in Netlify:
 ### Rollback Plan
 
 If issues arise:
+
 1. Revert commit containing these changes
 2. Restore environment variables in Netlify
 3. Redeploy previous version
@@ -495,6 +556,7 @@ If issues arise:
 ## Future Improvements
 
 ### Possible Enhancements
+
 1. **Environment-Specific Configs**: Create `config.dev.js`, `config.prod.js`
 2. **Config Validation**: Add runtime validation for required values
 3. **TypeScript**: Convert config to TypeScript for type safety
@@ -511,7 +573,7 @@ If issues arise:
 ✅ **Completed**: Centralized configuration system  
 ✅ **Completed**: Removed commented code  
 ✅ **Completed**: Removed console.log statements  
-✅ **Completed**: Updated documentation  
+✅ **Completed**: Updated documentation
 
 **Result**: Cleaner, more maintainable codebase with simplified deployment process.
 
@@ -524,44 +586,48 @@ If issues arise:
 #### 1. Fixed Placeholder Meta Description
 
 **File**: `nuxt.config.js`
+
 - ❌ **Before**: `content: "R3 Description here"` (placeholder text)
 - ✅ **After**: `content: "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through grants supporting reentry, economic development, civil legal aid, youth development, and violence prevention."`
 
 #### 2. Fixed ArcGIS StoryMap iframe Sandbox (Critical for /eligibility Page)
 
 **File**: `components/content/MapCensusTracts.vue`
+
 - ❌ **Before**: `sandbox="allow-downloads"` (too restrictive - map wouldn't work)
 - ✅ **After**: `sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads"`
 
 #### 3. Fixed CSP for iframe (netlify.toml)
 
 Added `frame-src` directive to allow ArcGIS iframes:
+
 ```
 frame-src 'self' https://storymaps.arcgis.com https://arcgis.com https://*.arcgis.com
 ```
 
 #### 4. Removed Production console.log Statements
 
-| File | Statements Removed |
-|------|-------------------|
-| `error.vue` | 3 (critical - exposed error info) |
-| `pages/contact.vue` | 15 (form data exposure) |
-| `pages/search.vue` | 2 |
-| `pages/research/index.vue` | 1 |
-| `components/content/TheFaqBar.vue` | 2 |
-| `components/content/TheFaqBarMobile.vue` | 1 |
-| `components/content/TheTranslationModal.vue` | 4 |
-| `components/content/TheSidebar.vue` | 1 |
-| `components/content/Funding.vue` | 1 |
-| `components/content/HomeBoxes.vue` | 1 |
-| `components/content/TheTableOfContents.vue` | 1 |
-| `pages/[...slug].vue` | 1 |
+| File                                         | Statements Removed                |
+| -------------------------------------------- | --------------------------------- |
+| `error.vue`                                  | 3 (critical - exposed error info) |
+| `pages/contact.vue`                          | 15 (form data exposure)           |
+| `pages/search.vue`                           | 2                                 |
+| `pages/research/index.vue`                   | 1                                 |
+| `components/content/TheFaqBar.vue`           | 2                                 |
+| `components/content/TheFaqBarMobile.vue`     | 1                                 |
+| `components/content/TheTranslationModal.vue` | 4                                 |
+| `components/content/TheSidebar.vue`          | 1                                 |
+| `components/content/Funding.vue`             | 1                                 |
+| `components/content/HomeBoxes.vue`           | 1                                 |
+| `components/content/TheTableOfContents.vue`  | 1                                 |
+| `pages/[...slug].vue`                        | 1                                 |
 
 **Total**: 33 console.log statements removed
 
 #### 5. Removed Duplicate Vue Files
 
 Deleted duplicate files from `assets/content/` (components should only be in `components/content/`):
+
 - ❌ `assets/content/HomeBoxes.vue`
 - ❌ `assets/content/MapCensusTracts.vue`
 - ❌ `assets/content/Query.vue`

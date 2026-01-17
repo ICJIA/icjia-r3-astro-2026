@@ -32,9 +32,9 @@
               alt="R3 Resources Image"
               cover
               ><template #placeholder>
-                <v-row 
-                  class="fill-height ma-0" 
-                  align="center" 
+                <v-row
+                  class="fill-height ma-0"
+                  align="center"
                   justify="center"
                   role="status"
                   aria-live="polite"
@@ -64,7 +64,13 @@
               <v-btn
                 color="primary"
                 class="mt-1 mb-2 aaa-btn"
-                style="font-weight: 900 !important; font-size: 14px; min-height: 44px; min-width: 44px; padding: 12px 24px;"
+                style="
+                  font-weight: 900 !important;
+                  font-size: 14px;
+                  min-height: 44px;
+                  min-width: 44px;
+                  padding: 12px 24px;
+                "
                 @click="$router.push(`/resources/${item.slug}`)"
                 >Find out more&nbsp;&raquo;</v-btn
               >
@@ -78,10 +84,15 @@
         ><v-col
           class="text-center"
           style="font-size: 14px; margin-top: 20px !important"
-          ><nuxt-link 
+          ><nuxt-link
             to="/resources/single-page"
             class="aaa-link"
-            style="display: inline-block; min-height: 44px; line-height: 44px; padding: 0 12px;"
+            style="
+              display: inline-block;
+              min-height: 44px;
+              line-height: 44px;
+              padding: 0 12px;
+            "
             >Show all R3 resources on a single page
             (mobile-friendly)&nbsp;&raquo;</nuxt-link
           >

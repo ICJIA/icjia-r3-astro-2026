@@ -23,10 +23,7 @@
       {
         "id": "accesskeys",
         "impact": null,
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ],
+        "tags": ["cat.keyboard", "best-practice"],
         "description": "Ensure every accesskey attribute value is unique",
         "help": "accesskey attribute value should be unique",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/accesskeys?application=webdriverjs",
@@ -57,13 +54,7 @@
       {
         "id": "aria-braille-equivalent",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag412", "EN-301-549", "EN-9.4.1.2"],
         "description": "Ensure aria-braillelabel and aria-brailleroledescription have a non-braille equivalent",
         "help": "aria-braille attributes must have a non-braille equivalent",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-braille-equivalent?application=webdriverjs",
@@ -72,10 +63,7 @@
       {
         "id": "aria-dialog-name",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "best-practice"
-        ],
+        "tags": ["cat.aria", "best-practice"],
         "description": "Ensure every ARIA dialog and alertdialog node has an accessible name",
         "help": "ARIA dialog and alertdialog nodes should have an accessible name",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-dialog-name?application=webdriverjs",
@@ -102,13 +90,7 @@
       {
         "id": "aria-meter-name",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag111",
-          "EN-301-549",
-          "EN-9.1.1.1"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag111", "EN-301-549", "EN-9.1.1.1"],
         "description": "Ensure every ARIA meter node has an accessible name",
         "help": "ARIA meter nodes must have an accessible name",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-meter-name?application=webdriverjs",
@@ -117,13 +99,7 @@
       {
         "id": "aria-progressbar-name",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag111",
-          "EN-301-549",
-          "EN-9.1.1.1"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag111", "EN-301-549", "EN-9.1.1.1"],
         "description": "Ensure every ARIA progressbar node has an accessible name",
         "help": "ARIA progressbar nodes must have an accessible name",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-progressbar-name?application=webdriverjs",
@@ -132,13 +108,7 @@
       {
         "id": "aria-required-children",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag131",
-          "EN-301-549",
-          "EN-9.1.3.1"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag131", "EN-301-549", "EN-9.1.3.1"],
         "description": "Ensure elements with an ARIA role that require child roles contain them",
         "help": "Certain ARIA roles must contain particular children",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-required-children?application=webdriverjs",
@@ -147,13 +117,7 @@
       {
         "id": "aria-required-parent",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag131",
-          "EN-301-549",
-          "EN-9.1.3.1"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag131", "EN-301-549", "EN-9.1.3.1"],
         "description": "Ensure elements with an ARIA role that require parent roles are contained by them",
         "help": "Certain ARIA roles must be contained by particular parents",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-required-parent?application=webdriverjs",
@@ -162,10 +126,7 @@
       {
         "id": "aria-text",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "best-practice"
-        ],
+        "tags": ["cat.aria", "best-practice"],
         "description": "Ensure role=\"text\" is used on elements with no focusable descendants",
         "help": "\"role=text\" should have no focusable descendants",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-text?application=webdriverjs",
@@ -192,13 +153,7 @@
       {
         "id": "aria-tooltip-name",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag412", "EN-301-549", "EN-9.4.1.2"],
         "description": "Ensure every ARIA tooltip node has an accessible name",
         "help": "ARIA tooltip nodes must have an accessible name",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-tooltip-name?application=webdriverjs",
@@ -207,10 +162,7 @@
       {
         "id": "aria-treeitem-name",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "best-practice"
-        ],
+        "tags": ["cat.aria", "best-practice"],
         "description": "Ensure every ARIA treeitem node has an accessible name",
         "help": "ARIA treeitem nodes should have an accessible name",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-treeitem-name?application=webdriverjs",
@@ -319,10 +271,7 @@
       {
         "id": "empty-table-header",
         "impact": null,
-        "tags": [
-          "cat.name-role-value",
-          "best-practice"
-        ],
+        "tags": ["cat.name-role-value", "best-practice"],
         "description": "Ensure table headers have discernible text",
         "help": "Table header text should not be empty",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/empty-table-header?application=webdriverjs",
@@ -365,11 +314,7 @@
       {
         "id": "frame-tested",
         "impact": null,
-        "tags": [
-          "cat.structure",
-          "best-practice",
-          "review-item"
-        ],
+        "tags": ["cat.structure", "best-practice", "review-item"],
         "description": "Ensure <iframe> and <frame> elements contain the axe-core script",
         "help": "Frames should be tested with axe-core",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/frame-tested?application=webdriverjs",
@@ -472,10 +417,7 @@
       {
         "id": "label-title-only",
         "impact": null,
-        "tags": [
-          "cat.forms",
-          "best-practice"
-        ],
+        "tags": ["cat.forms", "best-practice"],
         "description": "Ensure that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
         "help": "Form elements should have a visible label",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/label-title-only?application=webdriverjs",
@@ -504,10 +446,7 @@
       {
         "id": "landmark-complementary-is-top-level",
         "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
+        "tags": ["cat.semantics", "best-practice"],
         "description": "Ensure the complementary landmark or aside is at top level",
         "help": "Aside should not be contained in another landmark",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-complementary-is-top-level?application=webdriverjs",
@@ -516,10 +455,7 @@
       {
         "id": "landmark-contentinfo-is-top-level",
         "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
+        "tags": ["cat.semantics", "best-practice"],
         "description": "Ensure the contentinfo landmark is at top level",
         "help": "Contentinfo landmark should not be contained in another landmark",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-contentinfo-is-top-level?application=webdriverjs",
@@ -528,10 +464,7 @@
       {
         "id": "landmark-no-duplicate-contentinfo",
         "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
+        "tags": ["cat.semantics", "best-practice"],
         "description": "Ensure the document has at most one contentinfo landmark",
         "help": "Document should not have more than one contentinfo landmark",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-no-duplicate-contentinfo?application=webdriverjs",
@@ -591,11 +524,7 @@
       {
         "id": "presentation-role-conflict",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "best-practice",
-          "ACT"
-        ],
+        "tags": ["cat.aria", "best-practice", "ACT"],
         "description": "Elements marked as presentational should not have global ARIA or tabindex to ensure all screen readers ignore them",
         "help": "Ensure elements marked as presentational are consistently ignored",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/presentation-role-conflict?application=webdriverjs",
@@ -624,10 +553,7 @@
       {
         "id": "scope-attr-valid",
         "impact": null,
-        "tags": [
-          "cat.tables",
-          "best-practice"
-        ],
+        "tags": ["cat.tables", "best-practice"],
         "description": "Ensure the scope attribute is used correctly on tables",
         "help": "scope attribute should be used correctly",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/scope-attr-valid?application=webdriverjs",
@@ -714,10 +640,7 @@
       {
         "id": "table-duplicate-name",
         "impact": null,
-        "tags": [
-          "cat.tables",
-          "best-practice"
-        ],
+        "tags": ["cat.tables", "best-practice"],
         "description": "Ensure the <caption> element does not contain the same text as the summary attribute",
         "help": "Tables should not have the same summary and caption",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/table-duplicate-name?application=webdriverjs",
@@ -821,13 +744,7 @@
       {
         "id": "aria-allowed-attr",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag412", "EN-301-549", "EN-9.4.1.2"],
         "description": "Ensure an element's role supports its ARIA attributes",
         "help": "Elements must only use supported ARIA attributes",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-allowed-attr?application=webdriverjs",
@@ -854,9 +771,7 @@
             ],
             "impact": null,
             "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
-            "target": [
-              "nav"
-            ]
+            "target": ["nav"]
           },
           {
             "any": [],
@@ -880,9 +795,7 @@
             ],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [],
@@ -906,9 +819,7 @@
             ],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [],
@@ -932,19 +843,14 @@
             ],
             "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
-            "target": [
-              "div[role=\"status\"]"
-            ]
+            "target": ["div[role=\"status\"]"]
           }
         ]
       },
       {
         "id": "aria-allowed-role",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "best-practice"
-        ],
+        "tags": ["cat.aria", "best-practice"],
         "description": "Ensure role attribute has an appropriate value for the element",
         "help": "ARIA role should be appropriate for the element",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-allowed-role?application=webdriverjs",
@@ -963,9 +869,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [
@@ -999,9 +903,7 @@
             "none": [],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [
@@ -1017,9 +919,7 @@
             "none": [],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:30px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 - Go to home page\" data-v-c47643d2=\"\">R3 </span>",
-            "target": [
-              "span[aria-label=\"R3 - Go to home page\"]"
-            ]
+            "target": ["span[aria-label=\"R3 - Go to home page\"]"]
           },
           {
             "any": [
@@ -1035,9 +935,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
-            "target": [
-              "div[role=\"status\"]"
-            ]
+            "target": ["div[role=\"status\"]"]
           },
           {
             "any": [
@@ -1053,9 +951,7 @@
             "none": [],
             "impact": null,
             "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;min-height:80vh !important;background:#f2f2f2;\" id=\"main-content\" role=\"main\">",
-            "target": [
-              "#main-content"
-            ]
+            "target": ["#main-content"]
           },
           {
             "any": [
@@ -1071,9 +967,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-progress-linear v-theme--light v-locale--is-ltr\" style=\"top:0;height:0;--v-progress-linear-height:2px;\" role=\"progressbar\" aria-hidden=\"true\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-linear"
-            ]
+            "target": [".v-progress-linear"]
           }
         ]
       },
@@ -1115,9 +1009,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [
@@ -1140,22 +1032,14 @@
             "none": [],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           }
         ]
       },
       {
         "id": "aria-conditional-attr",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag412", "EN-301-549", "EN-9.4.1.2"],
         "description": "Ensure ARIA attributes are used as described in the specification of the element's role",
         "help": "ARIA attributes must be used as specified for the element's role",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-conditional-attr?application=webdriverjs",
@@ -1174,9 +1058,7 @@
             "none": [],
             "impact": null,
             "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
-            "target": [
-              "nav"
-            ]
+            "target": ["nav"]
           },
           {
             "any": [],
@@ -1192,9 +1074,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [],
@@ -1210,9 +1090,7 @@
             "none": [],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [],
@@ -1228,22 +1106,14 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
-            "target": [
-              "div[role=\"status\"]"
-            ]
+            "target": ["div[role=\"status\"]"]
           }
         ]
       },
       {
         "id": "aria-deprecated-role",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag412", "EN-301-549", "EN-9.4.1.2"],
         "description": "Ensure elements do not use deprecated roles",
         "help": "Deprecated ARIA roles must not be used",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-deprecated-role?application=webdriverjs",
@@ -1262,9 +1132,7 @@
             ],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [],
@@ -1280,9 +1148,7 @@
             ],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [],
@@ -1298,9 +1164,7 @@
             ],
             "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
-            "target": [
-              "div[role=\"status\"]"
-            ]
+            "target": ["div[role=\"status\"]"]
           },
           {
             "any": [],
@@ -1316,9 +1180,7 @@
             ],
             "impact": null,
             "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;min-height:80vh !important;background:#f2f2f2;\" id=\"main-content\" role=\"main\">",
-            "target": [
-              "#main-content"
-            ]
+            "target": ["#main-content"]
           }
         ]
       },
@@ -1352,9 +1214,7 @@
             "none": [],
             "impact": null,
             "html": "<body>",
-            "target": [
-              "body"
-            ]
+            "target": ["body"]
           }
         ]
       },
@@ -1402,9 +1262,7 @@
             "none": [],
             "impact": null,
             "html": "<i class=\"mdi-menu mdi v-icon notranslate v-theme--light v-icon--size-large\" style=\"\" aria-hidden=\"true\" data-v-c47643d2=\"\"></i>",
-            "target": [
-              "i"
-            ]
+            "target": ["i"]
           },
           {
             "any": [],
@@ -1434,22 +1292,14 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-progress-linear v-theme--light v-locale--is-ltr\" style=\"top:0;height:0;--v-progress-linear-height:2px;\" role=\"progressbar\" aria-hidden=\"true\" aria-valuemin=\"0\" aria-valuemax=\"100\">",
-            "target": [
-              ".v-progress-linear"
-            ]
+            "target": [".v-progress-linear"]
           }
         ]
       },
       {
         "id": "aria-prohibited-attr",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag412", "EN-301-549", "EN-9.4.1.2"],
         "description": "Ensure ARIA attributes are not prohibited for an element's role",
         "help": "Elements must only use permitted ARIA attributes",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-prohibited-attr?application=webdriverjs",
@@ -1468,9 +1318,7 @@
             ],
             "impact": null,
             "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
-            "target": [
-              "nav"
-            ]
+            "target": ["nav"]
           },
           {
             "any": [],
@@ -1486,9 +1334,7 @@
             ],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [],
@@ -1504,9 +1350,7 @@
             ],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [],
@@ -1522,22 +1366,14 @@
             ],
             "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
-            "target": [
-              "div[role=\"status\"]"
-            ]
+            "target": ["div[role=\"status\"]"]
           }
         ]
       },
       {
         "id": "aria-required-attr",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag412", "EN-301-549", "EN-9.4.1.2"],
         "description": "Ensure elements with ARIA roles have all required ARIA attributes",
         "help": "Required ARIA attributes must be provided",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-required-attr?application=webdriverjs",
@@ -1556,9 +1392,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [
@@ -1574,9 +1408,7 @@
             "none": [],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [
@@ -1592,9 +1424,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
-            "target": [
-              "div[role=\"status\"]"
-            ]
+            "target": ["div[role=\"status\"]"]
           },
           {
             "any": [
@@ -1610,22 +1440,14 @@
             "none": [],
             "impact": null,
             "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;min-height:80vh !important;background:#f2f2f2;\" id=\"main-content\" role=\"main\">",
-            "target": [
-              "#main-content"
-            ]
+            "target": ["#main-content"]
           }
         ]
       },
       {
         "id": "aria-roles",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag412", "EN-301-549", "EN-9.4.1.2"],
         "description": "Ensure all elements with a role attribute use a valid value",
         "help": "ARIA roles used must conform to valid values",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-roles?application=webdriverjs",
@@ -1658,9 +1480,7 @@
             ],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [],
@@ -1690,9 +1510,7 @@
             ],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [],
@@ -1722,9 +1540,7 @@
             ],
             "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
-            "target": [
-              "div[role=\"status\"]"
-            ]
+            "target": ["div[role=\"status\"]"]
           },
           {
             "any": [],
@@ -1754,22 +1570,14 @@
             ],
             "impact": null,
             "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;min-height:80vh !important;background:#f2f2f2;\" id=\"main-content\" role=\"main\">",
-            "target": [
-              "#main-content"
-            ]
+            "target": ["#main-content"]
           }
         ]
       },
       {
         "id": "aria-valid-attr-value",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag412", "EN-301-549", "EN-9.4.1.2"],
         "description": "Ensure all ARIA attributes have valid values",
         "help": "ARIA attributes must conform to valid values",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-valid-attr-value?application=webdriverjs",
@@ -1802,9 +1610,7 @@
             "none": [],
             "impact": null,
             "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
-            "target": [
-              "nav"
-            ]
+            "target": ["nav"]
           },
           {
             "any": [],
@@ -1834,9 +1640,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [],
@@ -1866,9 +1670,7 @@
             "none": [],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [],
@@ -1898,22 +1700,14 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
-            "target": [
-              "div[role=\"status\"]"
-            ]
+            "target": ["div[role=\"status\"]"]
           }
         ]
       },
       {
         "id": "aria-valid-attr",
         "impact": null,
-        "tags": [
-          "cat.aria",
-          "wcag2a",
-          "wcag412",
-          "EN-301-549",
-          "EN-9.4.1.2"
-        ],
+        "tags": ["cat.aria", "wcag2a", "wcag412", "EN-301-549", "EN-9.4.1.2"],
         "description": "Ensure attributes that begin with aria- are valid ARIA attributes",
         "help": "ARIA attributes must conform to valid names",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/aria-valid-attr?application=webdriverjs",
@@ -1932,9 +1726,7 @@
             "none": [],
             "impact": null,
             "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
-            "target": [
-              "nav"
-            ]
+            "target": ["nav"]
           },
           {
             "any": [
@@ -1950,9 +1742,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [
@@ -1968,9 +1758,7 @@
             "none": [],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [
@@ -1986,9 +1774,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
-            "target": [
-              "div[role=\"status\"]"
-            ]
+            "target": ["div[role=\"status\"]"]
           }
         ]
       },
@@ -2035,9 +1821,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-application v-theme--light v-layout v-layout--full-height v-locale--is-ltr\" style=\"\" id=\"app-top\">",
-            "target": [
-              "#app-top"
-            ]
+            "target": ["#app-top"]
           },
           {
             "any": [],
@@ -2067,9 +1851,7 @@
             "none": [],
             "impact": null,
             "html": "<header class=\"v-toolbar v-toolbar--collapse-start v-toolbar--density-default bg-white elevation-3 v-theme--light v-locale--is-ltr v-app-bar pl-5 pr-5\" style=\"top:0;z-index:1004;transform:translateY(0%);position:fixed;transition:none !important;z-index:50;width:100%;\" id=\"navigation\" fixed=\"\" app=\"\" size=\"90\" data-v-c47643d2=\"\">",
-            "target": [
-              "#navigation"
-            ]
+            "target": ["#navigation"]
           },
           {
             "any": [],
@@ -2099,9 +1881,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-toolbar__content\" style=\"height:64px;\">",
-            "target": [
-              ".v-toolbar__content"
-            ]
+            "target": [".v-toolbar__content"]
           },
           {
             "any": [],
@@ -2131,9 +1911,7 @@
             "none": [],
             "impact": null,
             "html": "<div style=\"font-size:10px;font-weight:900;\" data-v-c47643d2=\"\">MENU</div>",
-            "target": [
-              ".hamburger > div[data-v-c47643d2=\"\"]"
-            ]
+            "target": [".hamburger > div[data-v-c47643d2=\"\"]"]
           },
           {
             "any": [],
@@ -2163,9 +1941,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-spacer hidden-md-and-up\" style=\"\" data-v-c47643d2=\"\"></div>",
-            "target": [
-              ".v-spacer.hidden-md-and-up[data-v-c47643d2=\"\"]"
-            ]
+            "target": [".v-spacer.hidden-md-and-up[data-v-c47643d2=\"\"]"]
           },
           {
             "any": [],
@@ -2195,9 +1971,7 @@
             "none": [],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [],
@@ -2227,9 +2001,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-spacer\" style=\"\" data-v-c47643d2=\"\"></div>",
-            "target": [
-              ".v-spacer[data-v-c47643d2=\"\"]:nth-child(6)"
-            ]
+            "target": [".v-spacer[data-v-c47643d2=\"\"]:nth-child(6)"]
           },
           {
             "any": [],
@@ -2259,9 +2031,7 @@
             "none": [],
             "impact": null,
             "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;min-height:80vh !important;background:#f2f2f2;\" id=\"main-content\" role=\"main\">",
-            "target": [
-              "#main-content"
-            ]
+            "target": ["#main-content"]
           },
           {
             "any": [],
@@ -2291,9 +2061,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-container v-locale--is-ltr\" style=\"margin-top:-45px;\">",
-            "target": [
-              ".v-container"
-            ]
+            "target": [".v-container"]
           },
           {
             "any": [],
@@ -2323,9 +2091,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-row\" style=\"\">",
-            "target": [
-              ".v-row"
-            ]
+            "target": [".v-row"]
           },
           {
             "any": [],
@@ -2355,9 +2121,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-col\" style=\"\">",
-            "target": [
-              ".v-col"
-            ]
+            "target": [".v-col"]
           },
           {
             "any": [],
@@ -2387,9 +2151,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-card v-theme--light v-card--density-default v-card--variant-elevated px-10 py-5\" style=\"\">",
-            "target": [
-              ".v-card"
-            ]
+            "target": [".v-card"]
           }
         ]
       },
@@ -2426,21 +2188,15 @@
                 "relatedNodes": [
                   {
                     "html": "<h1>03-29-24: 2025 R3 NOFO Applicant Questions</h1>",
-                    "target": [
-                      "h1"
-                    ]
+                    "target": ["h1"]
                   },
                   {
                     "html": "<h2 class=\"pl-2\" data-v-2a6831d8=\"\">Download</h2>",
-                    "target": [
-                      "h2"
-                    ]
+                    "target": ["h2"]
                   },
                   {
                     "html": "<h3>Posted: March 29, 2024</h3>",
-                    "target": [
-                      "h3"
-                    ]
+                    "target": ["h3"]
                   }
                 ],
                 "impact": "serious",
@@ -2452,9 +2208,7 @@
                 "relatedNodes": [
                   {
                     "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;min-height:80vh !important;background:#f2f2f2;\" id=\"main-content\" role=\"main\">",
-                    "target": [
-                      "#main-content"
-                    ]
+                    "target": ["#main-content"]
                   }
                 ],
                 "impact": "serious",
@@ -2465,9 +2219,7 @@
             "none": [],
             "impact": null,
             "html": "<html lang=\"en\">",
-            "target": [
-              "html"
-            ]
+            "target": ["html"]
           }
         ]
       },
@@ -2509,9 +2261,7 @@
             "none": [],
             "impact": null,
             "html": "<div style=\"font-size:10px;font-weight:900;\" data-v-c47643d2=\"\">MENU</div>",
-            "target": [
-              ".hamburger > div[data-v-c47643d2=\"\"]"
-            ]
+            "target": [".hamburger > div[data-v-c47643d2=\"\"]"]
           },
           {
             "any": [
@@ -2534,9 +2284,7 @@
             "none": [],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [
@@ -2559,9 +2307,7 @@
             "none": [],
             "impact": null,
             "html": "<span data-v-10e9bd57=\"\">LOADING</span>",
-            "target": [
-              "span[data-v-10e9bd57=\"\"]:nth-child(1)"
-            ]
+            "target": ["span[data-v-10e9bd57=\"\"]:nth-child(1)"]
           },
           {
             "any": [
@@ -2584,9 +2330,7 @@
             "none": [],
             "impact": null,
             "html": "<h1>03-29-24: 2025 R3 NOFO Applicant Questions</h1>",
-            "target": [
-              "h1"
-            ]
+            "target": ["h1"]
           },
           {
             "any": [
@@ -2609,9 +2353,7 @@
             "none": [],
             "impact": null,
             "html": "<h2 class=\"pl-2\" data-v-2a6831d8=\"\">Download</h2>",
-            "target": [
-              "h2"
-            ]
+            "target": ["h2"]
           },
           {
             "any": [
@@ -2634,9 +2376,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a>",
-            "target": [
-              "a[target=\"_blank\"]"
-            ]
+            "target": ["a[target=\"_blank\"]"]
           },
           {
             "any": [
@@ -2659,9 +2399,7 @@
             "none": [],
             "impact": null,
             "html": "<h3>Posted: March 29, 2024</h3>",
-            "target": [
-              "h3"
-            ]
+            "target": ["h3"]
           },
           {
             "any": [
@@ -2684,9 +2422,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/22/24</strong>",
-            "target": [
-              "p:nth-child(3) > strong"
-            ]
+            "target": ["p:nth-child(3) > strong"]
           },
           {
             "any": [
@@ -2709,9 +2445,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Is it possible to receive from you an emailed copy of the R3 application/questions to this email address?</p>",
-            "target": [
-              "p:nth-child(4)"
-            ]
+            "target": ["p:nth-child(4)"]
           },
           {
             "any": [
@@ -2734,9 +2468,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(5) > strong"
-            ]
+            "target": ["p:nth-child(5) > strong"]
           },
           {
             "any": [
@@ -2759,9 +2491,7 @@
             "none": [],
             "impact": null,
             "html": "<p><a href=\"https://icjia.illinois.gov/grants/funding/r3-nofo-service-delivery-nofo-2378-030124/\">View and download application materials here</a>. Please note that the application must be completed and submitted within the Amplifund system.</p>",
-            "target": [
-              "p:nth-child(6)"
-            ]
+            "target": ["p:nth-child(6)"]
           },
           {
             "any": [
@@ -2784,9 +2514,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"https://icjia.illinois.gov/grants/funding/r3-nofo-service-delivery-nofo-2378-030124/\">View and download application materials here</a>",
-            "target": [
-              "p:nth-child(6) > a"
-            ]
+            "target": ["p:nth-child(6) > a"]
           },
           {
             "any": [
@@ -2809,9 +2537,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/21/24</strong>",
-            "target": [
-              "p:nth-child(7) > strong"
-            ]
+            "target": ["p:nth-child(7) > strong"]
           },
           {
             "any": [
@@ -2834,9 +2560,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Is there flexibility to start a grant in perhaps November rather than July 1st?</p>",
-            "target": [
-              "p:nth-child(8)"
-            ]
+            "target": ["p:nth-child(8)"]
           },
           {
             "any": [
@@ -2859,9 +2583,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(9) > strong"
-            ]
+            "target": ["p:nth-child(9) > strong"]
           },
           {
             "any": [
@@ -2884,9 +2606,7 @@
             "none": [],
             "impact": null,
             "html": "<p>The 2025 R3 program period of performance will begin July 1, 2024, and end June 30, 2025. Successful applicants (grantees) may start operating their programs at a later date; however, the program performance period will not be extended.</p>",
-            "target": [
-              "p:nth-child(10)"
-            ]
+            "target": ["p:nth-child(10)"]
           },
           {
             "any": [
@@ -2909,9 +2629,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/21/24</strong>",
-            "target": [
-              "p:nth-child(11) > strong"
-            ]
+            "target": ["p:nth-child(11) > strong"]
           },
           {
             "any": [
@@ -2934,9 +2652,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Can we provide services in partnership with this school is 60% of students come from R3 Zones? Would we have to filter out students who reside outside the Zones?</p>",
-            "target": [
-              "p:nth-child(12)"
-            ]
+            "target": ["p:nth-child(12)"]
           },
           {
             "any": [
@@ -2959,9 +2675,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(13) > strong"
-            ]
+            "target": ["p:nth-child(13) > strong"]
           },
           {
             "any": [
@@ -2984,9 +2698,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Yes, you can provide services in partnership with the school with 60% of participants living in an R3 zone as long as the program will be provided within an R3 zone. No, you would not have to filter those students who reside outside of an R3 zone according to their zip code.</p>",
-            "target": [
-              "p:nth-child(14)"
-            ]
+            "target": ["p:nth-child(14)"]
           },
           {
             "any": [
@@ -3009,9 +2721,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/20/24</strong>",
-            "target": [
-              "p:nth-child(15) > strong"
-            ]
+            "target": ["p:nth-child(15) > strong"]
           },
           {
             "any": [
@@ -3034,9 +2744,7 @@
             "none": [],
             "impact": null,
             "html": "<p>",
-            "target": [
-              "p:nth-child(16)"
-            ]
+            "target": ["p:nth-child(16)"]
           },
           {
             "any": [
@@ -3059,9 +2767,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(17) > strong"
-            ]
+            "target": ["p:nth-child(17) > strong"]
           },
           {
             "any": [
@@ -3084,9 +2790,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Yes, government entities are eligible to apply for R3 funds for that purpose.</p>",
-            "target": [
-              "p:nth-child(18)"
-            ]
+            "target": ["p:nth-child(18)"]
           },
           {
             "any": [
@@ -3109,9 +2813,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/20/24</strong>",
-            "target": [
-              "p:nth-child(19) > strong"
-            ]
+            "target": ["p:nth-child(19) > strong"]
           },
           {
             "any": [
@@ -3134,9 +2836,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Would the construction of an extension to an existing Transitional Housing and/or Permanent Supportive Housing location through the Problem-Solving Courts be considered an “expansion” and therefore an allowable cost or defined as “new construction” and prohibited?</p>",
-            "target": [
-              "p:nth-child(20)"
-            ]
+            "target": ["p:nth-child(20)"]
           },
           {
             "any": [
@@ -3159,9 +2859,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(21) > strong"
-            ]
+            "target": ["p:nth-child(21) > strong"]
           },
           {
             "any": [
@@ -3184,9 +2882,7 @@
             "none": [],
             "impact": null,
             "html": "<p>The expansion language refers to <em>program</em> expansion. Funding may not be used to expand building space or any bricks-and-mortar structure.</p>",
-            "target": [
-              "p:nth-child(22)"
-            ]
+            "target": ["p:nth-child(22)"]
           },
           {
             "any": [
@@ -3209,9 +2905,7 @@
             "none": [],
             "impact": null,
             "html": "<em>program</em>",
-            "target": [
-              "p:nth-child(22) > em"
-            ]
+            "target": ["p:nth-child(22) > em"]
           },
           {
             "any": [
@@ -3234,9 +2928,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/20/24</strong>",
-            "target": [
-              "p:nth-child(23) > strong"
-            ]
+            "target": ["p:nth-child(23) > strong"]
           },
           {
             "any": [
@@ -3259,9 +2951,7 @@
             "none": [],
             "impact": null,
             "html": "<p>I can find the applications in the NOFO, but I need the word or character counts for the questions. Can you send me the application, please?</p>",
-            "target": [
-              "p:nth-child(24)"
-            ]
+            "target": ["p:nth-child(24)"]
           },
           {
             "any": [
@@ -3284,9 +2974,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(25) > strong"
-            ]
+            "target": ["p:nth-child(25) > strong"]
           },
           {
             "any": [
@@ -3309,9 +2997,7 @@
             "none": [],
             "impact": null,
             "html": "<p>",
-            "target": [
-              "p:nth-child(26)"
-            ]
+            "target": ["p:nth-child(26)"]
           },
           {
             "any": [
@@ -3334,9 +3020,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"https://icjia.illinois.gov/grants/funding/r3-nofo-service-delivery-nofo-2378-030124/\">View and download application materials here</a>",
-            "target": [
-              "p:nth-child(26) > a"
-            ]
+            "target": ["p:nth-child(26) > a"]
           },
           {
             "any": [
@@ -3359,9 +3043,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/20/24</strong>",
-            "target": [
-              "p:nth-child(27) > strong"
-            ]
+            "target": ["p:nth-child(27) > strong"]
           },
           {
             "any": [
@@ -3384,9 +3066,7 @@
             "none": [],
             "impact": null,
             "html": "<p>I have been trying to view the live event today, but it does not appear active on Facebook or LinkedIn. Is this still happening?</p>",
-            "target": [
-              "p:nth-child(28)"
-            ]
+            "target": ["p:nth-child(28)"]
           },
           {
             "any": [
@@ -3409,9 +3089,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(29) > strong"
-            ]
+            "target": ["p:nth-child(29) > strong"]
           },
           {
             "any": [
@@ -3434,9 +3112,7 @@
             "none": [],
             "impact": null,
             "html": "<p><a href=\"https://www.facebook.com/ICJIA/videos/884630350101734/\">Click here</a> to view ICJIA webinar <em>What is R3: An R3 Overview and Eligibility Map Demonstration</em>.</p>",
-            "target": [
-              "p:nth-child(30)"
-            ]
+            "target": ["p:nth-child(30)"]
           },
           {
             "any": [
@@ -3459,9 +3135,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"https://www.facebook.com/ICJIA/videos/884630350101734/\">Click here</a>",
-            "target": [
-              "p:nth-child(30) > a"
-            ]
+            "target": ["p:nth-child(30) > a"]
           },
           {
             "any": [
@@ -3484,9 +3158,7 @@
             "none": [],
             "impact": null,
             "html": "<em>What is R3: An R3 Overview and Eligibility Map Demonstration</em>",
-            "target": [
-              "p:nth-child(30) > em"
-            ]
+            "target": ["p:nth-child(30) > em"]
           },
           {
             "any": [
@@ -3509,9 +3181,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/20/24</strong>",
-            "target": [
-              "p:nth-child(31) > strong"
-            ]
+            "target": ["p:nth-child(31) > strong"]
           },
           {
             "any": [
@@ -3534,9 +3204,7 @@
             "none": [],
             "impact": null,
             "html": "<p>I have a question regarding the Tier Level on Appendix C: Funding Table. How do you define “service provision”? Is this how long our organization has provided any programs/services or services under an R3 grant?</p>",
-            "target": [
-              "p:nth-child(32)"
-            ]
+            "target": ["p:nth-child(32)"]
           },
           {
             "any": [
@@ -3559,9 +3227,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(33) > strong"
-            ]
+            "target": ["p:nth-child(33) > strong"]
           },
           {
             "any": [
@@ -3584,9 +3250,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Service provision refers to how many years of experience the applicant has in providing any of its proposed services, not just R3-funded services.</p>",
-            "target": [
-              "p:nth-child(34)"
-            ]
+            "target": ["p:nth-child(34)"]
           }
         ]
       },
@@ -3621,19 +3285,14 @@
             "none": [],
             "impact": null,
             "html": "<html lang=\"en\">",
-            "target": [
-              "html"
-            ]
+            "target": ["html"]
           }
         ]
       },
       {
         "id": "empty-heading",
         "impact": null,
-        "tags": [
-          "cat.name-role-value",
-          "best-practice"
-        ],
+        "tags": ["cat.name-role-value", "best-practice"],
         "description": "Ensure headings have discernible text",
         "help": "Headings should not be empty",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/empty-heading?application=webdriverjs",
@@ -3652,9 +3311,7 @@
             "none": [],
             "impact": null,
             "html": "<h1>03-29-24: 2025 R3 NOFO Applicant Questions</h1>",
-            "target": [
-              "h1"
-            ]
+            "target": ["h1"]
           },
           {
             "any": [
@@ -3670,9 +3327,7 @@
             "none": [],
             "impact": null,
             "html": "<h2 class=\"pl-2\" data-v-2a6831d8=\"\">Download</h2>",
-            "target": [
-              "h2"
-            ]
+            "target": ["h2"]
           },
           {
             "any": [
@@ -3688,19 +3343,14 @@
             "none": [],
             "impact": null,
             "html": "<h3>Posted: March 29, 2024</h3>",
-            "target": [
-              "h3"
-            ]
+            "target": ["h3"]
           }
         ]
       },
       {
         "id": "heading-order",
         "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
+        "tags": ["cat.semantics", "best-practice"],
         "description": "Ensure the order of headings is semantically correct",
         "help": "Heading levels should only increase by one",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/heading-order?application=webdriverjs",
@@ -3740,9 +3390,7 @@
             "none": [],
             "impact": null,
             "html": "<h1>03-29-24: 2025 R3 NOFO Applicant Questions</h1>",
-            "target": [
-              "h1"
-            ]
+            "target": ["h1"]
           },
           {
             "any": [
@@ -3758,9 +3406,7 @@
             "none": [],
             "impact": null,
             "html": "<h2 class=\"pl-2\" data-v-2a6831d8=\"\">Download</h2>",
-            "target": [
-              "h2"
-            ]
+            "target": ["h2"]
           },
           {
             "any": [
@@ -3776,9 +3422,7 @@
             "none": [],
             "impact": null,
             "html": "<h3>Posted: March 29, 2024</h3>",
-            "target": [
-              "h3"
-            ]
+            "target": ["h3"]
           }
         ]
       },
@@ -3813,9 +3457,7 @@
             "none": [],
             "impact": null,
             "html": "<html lang=\"en\">",
-            "target": [
-              "html"
-            ]
+            "target": ["html"]
           }
         ]
       },
@@ -3850,9 +3492,7 @@
             ],
             "impact": null,
             "html": "<html lang=\"en\">",
-            "target": [
-              "html"
-            ]
+            "target": ["html"]
           }
         ]
       },
@@ -3898,19 +3538,14 @@
             ],
             "impact": null,
             "html": "<img src=\"/loading.gif\" alt=\"Loading content, please wait...\" data-v-10e9bd57=\"\">",
-            "target": [
-              "img"
-            ]
+            "target": ["img"]
           }
         ]
       },
       {
         "id": "image-redundant-alt",
         "impact": null,
-        "tags": [
-          "cat.text-alternatives",
-          "best-practice"
-        ],
+        "tags": ["cat.text-alternatives", "best-practice"],
         "description": "Ensure image alternative is not repeated as text",
         "help": "Alternative text of images should not be repeated as text",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/image-redundant-alt?application=webdriverjs",
@@ -3929,19 +3564,14 @@
             ],
             "impact": null,
             "html": "<img src=\"/loading.gif\" alt=\"Loading content, please wait...\" data-v-10e9bd57=\"\">",
-            "target": [
-              "img"
-            ]
+            "target": ["img"]
           }
         ]
       },
       {
         "id": "landmark-banner-is-top-level",
         "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
+        "tags": ["cat.semantics", "best-practice"],
         "description": "Ensure the banner landmark is at top level",
         "help": "Banner landmark should not be contained in another landmark",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-banner-is-top-level?application=webdriverjs",
@@ -3962,19 +3592,14 @@
             "none": [],
             "impact": null,
             "html": "<header class=\"v-toolbar v-toolbar--collapse-start v-toolbar--density-default bg-white elevation-3 v-theme--light v-locale--is-ltr v-app-bar pl-5 pr-5\" style=\"top:0;z-index:1004;transform:translateY(0%);position:fixed;transition:none !important;z-index:50;width:100%;\" id=\"navigation\" fixed=\"\" app=\"\" size=\"90\" data-v-c47643d2=\"\">",
-            "target": [
-              "#navigation"
-            ]
+            "target": ["#navigation"]
           }
         ]
       },
       {
         "id": "landmark-main-is-top-level",
         "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
+        "tags": ["cat.semantics", "best-practice"],
         "description": "Ensure the main landmark is at top level",
         "help": "Main landmark should not be contained in another landmark",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-main-is-top-level?application=webdriverjs",
@@ -3995,19 +3620,14 @@
             "none": [],
             "impact": null,
             "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;min-height:80vh !important;background:#f2f2f2;\" id=\"main-content\" role=\"main\">",
-            "target": [
-              "#main-content"
-            ]
+            "target": ["#main-content"]
           }
         ]
       },
       {
         "id": "landmark-no-duplicate-banner",
         "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
+        "tags": ["cat.semantics", "best-practice"],
         "description": "Ensure the document has at most one banner landmark",
         "help": "Document should not have more than one banner landmark",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-no-duplicate-banner?application=webdriverjs",
@@ -4026,19 +3646,14 @@
             "none": [],
             "impact": null,
             "html": "<header class=\"v-toolbar v-toolbar--collapse-start v-toolbar--density-default bg-white elevation-3 v-theme--light v-locale--is-ltr v-app-bar pl-5 pr-5\" style=\"top:0;z-index:1004;transform:translateY(0%);position:fixed;transition:none !important;z-index:50;width:100%;\" id=\"navigation\" fixed=\"\" app=\"\" size=\"90\" data-v-c47643d2=\"\">",
-            "target": [
-              "#navigation"
-            ]
+            "target": ["#navigation"]
           }
         ]
       },
       {
         "id": "landmark-no-duplicate-main",
         "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
+        "tags": ["cat.semantics", "best-practice"],
         "description": "Ensure the document has at most one main landmark",
         "help": "Document should not have more than one main landmark",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-no-duplicate-main?application=webdriverjs",
@@ -4057,19 +3672,14 @@
             "none": [],
             "impact": null,
             "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;min-height:80vh !important;background:#f2f2f2;\" id=\"main-content\" role=\"main\">",
-            "target": [
-              "#main-content"
-            ]
+            "target": ["#main-content"]
           }
         ]
       },
       {
         "id": "landmark-one-main",
         "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
+        "tags": ["cat.semantics", "best-practice"],
         "description": "Ensure the document has a main landmark",
         "help": "Document should have one main landmark",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-one-main?application=webdriverjs",
@@ -4083,9 +3693,7 @@
                 "relatedNodes": [
                   {
                     "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;min-height:80vh !important;background:#f2f2f2;\" id=\"main-content\" role=\"main\">",
-                    "target": [
-                      "#main-content"
-                    ]
+                    "target": ["#main-content"]
                   }
                 ],
                 "impact": "moderate",
@@ -4095,19 +3703,14 @@
             "none": [],
             "impact": null,
             "html": "<html lang=\"en\">",
-            "target": [
-              "html"
-            ]
+            "target": ["html"]
           }
         ]
       },
       {
         "id": "landmark-unique",
         "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
+        "tags": ["cat.semantics", "best-practice"],
         "description": "Ensure landmarks are unique",
         "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/landmark-unique?application=webdriverjs",
@@ -4129,9 +3732,7 @@
             "none": [],
             "impact": null,
             "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
-            "target": [
-              "nav"
-            ]
+            "target": ["nav"]
           },
           {
             "any": [
@@ -4150,9 +3751,7 @@
             "none": [],
             "impact": null,
             "html": "<header class=\"v-toolbar v-toolbar--collapse-start v-toolbar--density-default bg-white elevation-3 v-theme--light v-locale--is-ltr v-app-bar pl-5 pr-5\" style=\"top:0;z-index:1004;transform:translateY(0%);position:fixed;transition:none !important;z-index:50;width:100%;\" id=\"navigation\" fixed=\"\" app=\"\" size=\"90\" data-v-c47643d2=\"\">",
-            "target": [
-              "#navigation"
-            ]
+            "target": ["#navigation"]
           },
           {
             "any": [
@@ -4171,9 +3770,7 @@
             "none": [],
             "impact": null,
             "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;min-height:80vh !important;background:#f2f2f2;\" id=\"main-content\" role=\"main\">",
-            "target": [
-              "#main-content"
-            ]
+            "target": ["#main-content"]
           }
         ]
       },
@@ -4201,9 +3798,7 @@
                 "relatedNodes": [
                   {
                     "html": "<p><a href=\"https://icjia.illinois.gov/grants/funding/r3-nofo-service-delivery-nofo-2378-030124/\">View and download application materials here</a>. Please note that the application must be completed and submitted within the Amplifund system.</p>",
-                    "target": [
-                      "p:nth-child(6)"
-                    ]
+                    "target": ["p:nth-child(6)"]
                   }
                 ],
                 "impact": "serious",
@@ -4214,9 +3809,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"https://icjia.illinois.gov/grants/funding/r3-nofo-service-delivery-nofo-2378-030124/\">View and download application materials here</a>",
-            "target": [
-              "p:nth-child(6) > a"
-            ]
+            "target": ["p:nth-child(6) > a"]
           },
           {
             "any": [
@@ -4226,9 +3819,7 @@
                 "relatedNodes": [
                   {
                     "html": "<p>",
-                    "target": [
-                      "p:nth-child(26)"
-                    ]
+                    "target": ["p:nth-child(26)"]
                   }
                 ],
                 "impact": "serious",
@@ -4239,9 +3830,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"https://icjia.illinois.gov/grants/funding/r3-nofo-service-delivery-nofo-2378-030124/\">View and download application materials here</a>",
-            "target": [
-              "p:nth-child(26) > a"
-            ]
+            "target": ["p:nth-child(26) > a"]
           },
           {
             "any": [
@@ -4251,9 +3840,7 @@
                 "relatedNodes": [
                   {
                     "html": "<p><a href=\"https://www.facebook.com/ICJIA/videos/884630350101734/\">Click here</a> to view ICJIA webinar <em>What is R3: An R3 Overview and Eligibility Map Demonstration</em>.</p>",
-                    "target": [
-                      "p:nth-child(30)"
-                    ]
+                    "target": ["p:nth-child(30)"]
                   }
                 ],
                 "impact": "serious",
@@ -4264,9 +3851,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"https://www.facebook.com/ICJIA/videos/884630350101734/\">Click here</a>",
-            "target": [
-              "p:nth-child(30) > a"
-            ]
+            "target": ["p:nth-child(30) > a"]
           }
         ]
       },
@@ -4313,9 +3898,7 @@
             ],
             "impact": null,
             "html": "<a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>",
-            "target": [
-              "a[href$=\"#main-content\"]"
-            ]
+            "target": ["a[href$=\"#main-content\"]"]
           },
           {
             "any": [
@@ -4339,9 +3922,7 @@
             ],
             "impact": null,
             "html": "<a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a>",
-            "target": [
-              "a[href$=\"#navigation\"]"
-            ]
+            "target": ["a[href$=\"#navigation\"]"]
           },
           {
             "any": [
@@ -4365,9 +3946,7 @@
             ],
             "impact": null,
             "html": "<a href=\"/faqs\" class=\"\"> &nbsp;«&nbsp;Back to all FAQs</a>",
-            "target": [
-              "a[href$=\"faqs\"]"
-            ]
+            "target": ["a[href$=\"faqs\"]"]
           },
           {
             "any": [
@@ -4391,9 +3970,7 @@
             ],
             "impact": null,
             "html": "<a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a>",
-            "target": [
-              "a[target=\"_blank\"]"
-            ]
+            "target": ["a[target=\"_blank\"]"]
           },
           {
             "any": [
@@ -4417,9 +3994,7 @@
             ],
             "impact": null,
             "html": "<a href=\"https://icjia.illinois.gov/grants/funding/r3-nofo-service-delivery-nofo-2378-030124/\">View and download application materials here</a>",
-            "target": [
-              "p:nth-child(6) > a"
-            ]
+            "target": ["p:nth-child(6) > a"]
           },
           {
             "any": [
@@ -4443,9 +4018,7 @@
             ],
             "impact": null,
             "html": "<a href=\"https://icjia.illinois.gov/grants/funding/r3-nofo-service-delivery-nofo-2378-030124/\">View and download application materials here</a>",
-            "target": [
-              "p:nth-child(26) > a"
-            ]
+            "target": ["p:nth-child(26) > a"]
           },
           {
             "any": [
@@ -4469,9 +4042,7 @@
             ],
             "impact": null,
             "html": "<a href=\"https://www.facebook.com/ICJIA/videos/884630350101734/\">Click here</a>",
-            "target": [
-              "p:nth-child(30) > a"
-            ]
+            "target": ["p:nth-child(30) > a"]
           }
         ]
       },
@@ -4503,9 +4074,7 @@
             ],
             "impact": null,
             "html": "<ul class=\"mt-2\" data-v-2a6831d8=\"\"><!--[--><li data-v-2a6831d8=\"\"><a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a></li><!--]--></ul>",
-            "target": [
-              "ul"
-            ]
+            "target": ["ul"]
           }
         ]
       },
@@ -4537,19 +4106,14 @@
             "none": [],
             "impact": null,
             "html": "<li data-v-2a6831d8=\"\"><a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a></li>",
-            "target": [
-              "li"
-            ]
+            "target": ["li"]
           }
         ]
       },
       {
         "id": "meta-viewport-large",
         "impact": null,
-        "tags": [
-          "cat.sensory-and-visual-cues",
-          "best-practice"
-        ],
+        "tags": ["cat.sensory-and-visual-cues", "best-practice"],
         "description": "Ensure <meta name=\"viewport\"> can scale a significant amount",
         "help": "Users should be able to zoom and scale the text up to 500%",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/meta-viewport-large?application=webdriverjs",
@@ -4568,9 +4132,7 @@
             "none": [],
             "impact": null,
             "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-            "target": [
-              "meta[name=\"viewport\"]"
-            ]
+            "target": ["meta[name=\"viewport\"]"]
           }
         ]
       },
@@ -4603,9 +4165,7 @@
             "none": [],
             "impact": null,
             "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-            "target": [
-              "meta[name=\"viewport\"]"
-            ]
+            "target": ["meta[name=\"viewport\"]"]
           }
         ]
       },
@@ -4639,9 +4199,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [
@@ -4657,9 +4215,7 @@
             "none": [],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [
@@ -4675,19 +4231,14 @@
             "none": [],
             "impact": null,
             "html": "<img src=\"/loading.gif\" alt=\"Loading content, please wait...\" data-v-10e9bd57=\"\">",
-            "target": [
-              "img"
-            ]
+            "target": ["img"]
           }
         ]
       },
       {
         "id": "page-has-heading-one",
         "impact": null,
-        "tags": [
-          "cat.semantics",
-          "best-practice"
-        ],
+        "tags": ["cat.semantics", "best-practice"],
         "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
         "help": "Page should contain a level-one heading",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/page-has-heading-one?application=webdriverjs",
@@ -4701,9 +4252,7 @@
                 "relatedNodes": [
                   {
                     "html": "<h1>03-29-24: 2025 R3 NOFO Applicant Questions</h1>",
-                    "target": [
-                      "h1"
-                    ]
+                    "target": ["h1"]
                   }
                 ],
                 "impact": "moderate",
@@ -4713,19 +4262,14 @@
             "none": [],
             "impact": null,
             "html": "<html lang=\"en\">",
-            "target": [
-              "html"
-            ]
+            "target": ["html"]
           }
         ]
       },
       {
         "id": "region",
         "impact": null,
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ],
+        "tags": ["cat.keyboard", "best-practice"],
         "description": "Ensure all page content is contained by landmarks",
         "help": "All page content should be contained by landmarks",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/region?application=webdriverjs",
@@ -4746,9 +4290,7 @@
             "none": [],
             "impact": null,
             "html": "<div id=\"__nuxt\">",
-            "target": [
-              "#__nuxt"
-            ]
+            "target": ["#__nuxt"]
           },
           {
             "any": [
@@ -4766,9 +4308,7 @@
             "none": [],
             "impact": null,
             "html": "<div>",
-            "target": [
-              "#__nuxt > div"
-            ]
+            "target": ["#__nuxt > div"]
           },
           {
             "any": [
@@ -4786,9 +4326,7 @@
             "none": [],
             "impact": null,
             "html": "<nav aria-label=\"Skip navigation\" class=\"skip-links\"><a href=\"#main-content\" class=\"skip-link\">Skip to main content</a><a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a></nav>",
-            "target": [
-              "nav"
-            ]
+            "target": ["nav"]
           },
           {
             "any": [
@@ -4806,9 +4344,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>",
-            "target": [
-              "a[href$=\"#main-content\"]"
-            ]
+            "target": ["a[href$=\"#main-content\"]"]
           },
           {
             "any": [
@@ -4826,9 +4362,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a>",
-            "target": [
-              "a[href$=\"#navigation\"]"
-            ]
+            "target": ["a[href$=\"#navigation\"]"]
           },
           {
             "any": [
@@ -4846,9 +4380,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-application v-theme--light v-layout v-layout--full-height v-locale--is-ltr\" style=\"\" id=\"app-top\">",
-            "target": [
-              "#app-top"
-            ]
+            "target": ["#app-top"]
           },
           {
             "any": [
@@ -4866,9 +4398,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-application__wrap\">",
-            "target": [
-              ".v-application__wrap"
-            ]
+            "target": [".v-application__wrap"]
           },
           {
             "any": [
@@ -4886,9 +4416,7 @@
             "none": [],
             "impact": null,
             "html": "<div data-v-c47643d2=\"\">",
-            "target": [
-              ".v-application__wrap > div[data-v-c47643d2=\"\"]"
-            ]
+            "target": [".v-application__wrap > div[data-v-c47643d2=\"\"]"]
           },
           {
             "any": [
@@ -4906,9 +4434,7 @@
             "none": [],
             "impact": null,
             "html": "<header class=\"v-toolbar v-toolbar--collapse-start v-toolbar--density-default bg-white elevation-3 v-theme--light v-locale--is-ltr v-app-bar pl-5 pr-5\" style=\"top:0;z-index:1004;transform:translateY(0%);position:fixed;transition:none !important;z-index:50;width:100%;\" id=\"navigation\" fixed=\"\" app=\"\" size=\"90\" data-v-c47643d2=\"\">",
-            "target": [
-              "#navigation"
-            ]
+            "target": ["#navigation"]
           },
           {
             "any": [
@@ -4926,9 +4452,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-toolbar__content\" style=\"height:64px;\">",
-            "target": [
-              ".v-toolbar__content"
-            ]
+            "target": [".v-toolbar__content"]
           },
           {
             "any": [
@@ -4946,9 +4470,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [
@@ -4966,9 +4488,7 @@
             "none": [],
             "impact": null,
             "html": "<div style=\"font-size:10px;font-weight:900;\" data-v-c47643d2=\"\">MENU</div>",
-            "target": [
-              ".hamburger > div[data-v-c47643d2=\"\"]"
-            ]
+            "target": [".hamburger > div[data-v-c47643d2=\"\"]"]
           },
           {
             "any": [
@@ -4986,9 +4506,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-spacer hidden-md-and-up\" style=\"\" data-v-c47643d2=\"\"></div>",
-            "target": [
-              ".v-spacer.hidden-md-and-up[data-v-c47643d2=\"\"]"
-            ]
+            "target": [".v-spacer.hidden-md-and-up[data-v-c47643d2=\"\"]"]
           },
           {
             "any": [
@@ -5006,9 +4524,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"hover hidden-md-and-up hidden-xs\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs"
-            ]
+            "target": [".hidden-xs"]
           },
           {
             "any": [
@@ -5026,9 +4542,7 @@
             "none": [],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           },
           {
             "any": [
@@ -5046,9 +4560,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-spacer\" style=\"\" data-v-c47643d2=\"\"></div>",
-            "target": [
-              ".v-spacer[data-v-c47643d2=\"\"]:nth-child(6)"
-            ]
+            "target": [".v-spacer[data-v-c47643d2=\"\"]:nth-child(6)"]
           },
           {
             "any": [
@@ -5066,9 +4578,7 @@
             "none": [],
             "impact": null,
             "html": "<span class=\"text center ml-12\" data-v-c47643d2=\"\">",
-            "target": [
-              ".text"
-            ]
+            "target": [".text"]
           },
           {
             "any": [
@@ -5086,9 +4596,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"text-center\" role=\"status\" aria-live=\"polite\" data-v-c47643d2=\"\" data-v-10e9bd57=\"\">",
-            "target": [
-              "div[role=\"status\"]"
-            ]
+            "target": ["div[role=\"status\"]"]
           },
           {
             "any": [
@@ -5106,9 +4614,7 @@
             "none": [],
             "impact": null,
             "html": "<span data-v-10e9bd57=\"\">LOADING</span>",
-            "target": [
-              "span[data-v-10e9bd57=\"\"]:nth-child(1)"
-            ]
+            "target": ["span[data-v-10e9bd57=\"\"]:nth-child(1)"]
           },
           {
             "any": [
@@ -5126,9 +4632,7 @@
             "none": [],
             "impact": null,
             "html": "<img src=\"/loading.gif\" alt=\"Loading content, please wait...\" data-v-10e9bd57=\"\">",
-            "target": [
-              "img"
-            ]
+            "target": ["img"]
           },
           {
             "any": [
@@ -5146,9 +4650,7 @@
             "none": [],
             "impact": null,
             "html": "<span class=\"sr-only\" data-v-10e9bd57=\"\">Loading content, please wait...</span>",
-            "target": [
-              ".sr-only"
-            ]
+            "target": [".sr-only"]
           },
           {
             "any": [
@@ -5166,9 +4668,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"d-flex\" data-v-c8aa5ae8=\"\"><!----></div>",
-            "target": [
-              ".d-flex"
-            ]
+            "target": [".d-flex"]
           },
           {
             "any": [
@@ -5186,9 +4686,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"nuxt-loading-indicator\" style=\"position:fixed;top:0;right:0;left:0;pointer-events:none;width:auto;height:3px;opacity:0;background:blue;background-size:0% auto;transform:scaleX(0%);transform-origin:left;transition:transform 0.1s, height 0.4s, opacity 0.4s;z-index:999999;\"></div>",
-            "target": [
-              ".nuxt-loading-indicator"
-            ]
+            "target": [".nuxt-loading-indicator"]
           },
           {
             "any": [
@@ -5206,9 +4704,7 @@
             "none": [],
             "impact": null,
             "html": "<main class=\"v-main markdown-body\" style=\"--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:0px;transition:none !important;min-height:80vh !important;background:#f2f2f2;\" id=\"main-content\" role=\"main\">",
-            "target": [
-              "#main-content"
-            ]
+            "target": ["#main-content"]
           },
           {
             "any": [
@@ -5226,9 +4722,7 @@
             "none": [],
             "impact": null,
             "html": "<div>",
-            "target": [
-              "#main-content > div"
-            ]
+            "target": ["#main-content > div"]
           },
           {
             "any": [
@@ -5246,9 +4740,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"mb-12\">",
-            "target": [
-              ".mb-12"
-            ]
+            "target": [".mb-12"]
           },
           {
             "any": [
@@ -5266,9 +4758,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-container v-locale--is-ltr\" style=\"margin-top:-45px;\">",
-            "target": [
-              ".v-container"
-            ]
+            "target": [".v-container"]
           },
           {
             "any": [
@@ -5286,9 +4776,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-row\" style=\"\">",
-            "target": [
-              ".v-row"
-            ]
+            "target": [".v-row"]
           },
           {
             "any": [
@@ -5306,9 +4794,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-col\" style=\"\">",
-            "target": [
-              ".v-col"
-            ]
+            "target": [".v-col"]
           },
           {
             "any": [
@@ -5326,9 +4812,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"mb-4\" style=\"font-size:13px;\"><a href=\"/faqs\" class=\"\"> &nbsp;«&nbsp;Back to all FAQs</a></div>",
-            "target": [
-              ".mb-4"
-            ]
+            "target": [".mb-4"]
           },
           {
             "any": [
@@ -5346,9 +4830,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"/faqs\" class=\"\"> &nbsp;«&nbsp;Back to all FAQs</a>",
-            "target": [
-              "a[href$=\"faqs\"]"
-            ]
+            "target": ["a[href$=\"faqs\"]"]
           },
           {
             "any": [
@@ -5366,9 +4848,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"context\">",
-            "target": [
-              ".context"
-            ]
+            "target": [".context"]
           },
           {
             "any": [
@@ -5386,9 +4866,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-card v-theme--light v-card--density-default v-card--variant-elevated px-10 py-5\" style=\"\">",
-            "target": [
-              ".v-card"
-            ]
+            "target": [".v-card"]
           },
           {
             "any": [
@@ -5406,9 +4884,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"v-card__loader\">",
-            "target": [
-              ".v-card__loader"
-            ]
+            "target": [".v-card__loader"]
           },
           {
             "any": [
@@ -5426,9 +4902,7 @@
             "none": [],
             "impact": null,
             "html": "<h1>03-29-24: 2025 R3 NOFO Applicant Questions</h1>",
-            "target": [
-              "h1"
-            ]
+            "target": ["h1"]
           },
           {
             "any": [
@@ -5446,9 +4920,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"pl-2 mt-6\" data-v-2a6831d8=\"\">",
-            "target": [
-              ".mt-6"
-            ]
+            "target": [".mt-6"]
           },
           {
             "any": [
@@ -5466,9 +4938,7 @@
             "none": [],
             "impact": null,
             "html": "<div data-v-2a6831d8=\"\">",
-            "target": [
-              ".mt-6 > div[data-v-2a6831d8=\"\"]"
-            ]
+            "target": [".mt-6 > div[data-v-2a6831d8=\"\"]"]
           },
           {
             "any": [
@@ -5506,9 +4976,7 @@
             "none": [],
             "impact": null,
             "html": "<h2 class=\"pl-2\" data-v-2a6831d8=\"\">Download</h2>",
-            "target": [
-              "h2"
-            ]
+            "target": ["h2"]
           },
           {
             "any": [
@@ -5526,9 +4994,7 @@
             "none": [],
             "impact": null,
             "html": "<ul class=\"mt-2\" data-v-2a6831d8=\"\"><!--[--><li data-v-2a6831d8=\"\"><a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a></li><!--]--></ul>",
-            "target": [
-              "ul"
-            ]
+            "target": ["ul"]
           },
           {
             "any": [
@@ -5546,9 +5012,7 @@
             "none": [],
             "impact": null,
             "html": "<li data-v-2a6831d8=\"\"><a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a></li>",
-            "target": [
-              "li"
-            ]
+            "target": ["li"]
           },
           {
             "any": [
@@ -5566,9 +5030,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"https://r3.icjia-api.cloud/uploads/2378_030124_QA_Response_4201f88f99.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" data-v-2a6831d8=\"\">2378-030124QAResponse.pdf</a>",
-            "target": [
-              "a[target=\"_blank\"]"
-            ]
+            "target": ["a[target=\"_blank\"]"]
           },
           {
             "any": [
@@ -5586,9 +5048,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"pl-3\">",
-            "target": [
-              ".pl-3"
-            ]
+            "target": [".pl-3"]
           },
           {
             "any": [
@@ -5606,9 +5066,7 @@
             "none": [],
             "impact": null,
             "html": "<h3>Posted: March 29, 2024</h3>",
-            "target": [
-              "h3"
-            ]
+            "target": ["h3"]
           },
           {
             "any": [
@@ -5626,9 +5084,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Question Received 3/22/24</strong></p>",
-            "target": [
-              "p:nth-child(3)"
-            ]
+            "target": ["p:nth-child(3)"]
           },
           {
             "any": [
@@ -5646,9 +5102,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/22/24</strong>",
-            "target": [
-              "p:nth-child(3) > strong"
-            ]
+            "target": ["p:nth-child(3) > strong"]
           },
           {
             "any": [
@@ -5666,9 +5120,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Is it possible to receive from you an emailed copy of the R3 application/questions to this email address?</p>",
-            "target": [
-              "p:nth-child(4)"
-            ]
+            "target": ["p:nth-child(4)"]
           },
           {
             "any": [
@@ -5686,9 +5138,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Response</strong></p>",
-            "target": [
-              "p:nth-child(5)"
-            ]
+            "target": ["p:nth-child(5)"]
           },
           {
             "any": [
@@ -5706,9 +5156,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(5) > strong"
-            ]
+            "target": ["p:nth-child(5) > strong"]
           },
           {
             "any": [
@@ -5726,9 +5174,7 @@
             "none": [],
             "impact": null,
             "html": "<p><a href=\"https://icjia.illinois.gov/grants/funding/r3-nofo-service-delivery-nofo-2378-030124/\">View and download application materials here</a>. Please note that the application must be completed and submitted within the Amplifund system.</p>",
-            "target": [
-              "p:nth-child(6)"
-            ]
+            "target": ["p:nth-child(6)"]
           },
           {
             "any": [
@@ -5746,9 +5192,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"https://icjia.illinois.gov/grants/funding/r3-nofo-service-delivery-nofo-2378-030124/\">View and download application materials here</a>",
-            "target": [
-              "p:nth-child(6) > a"
-            ]
+            "target": ["p:nth-child(6) > a"]
           },
           {
             "any": [
@@ -5766,9 +5210,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Question Received 3/21/24</strong></p>",
-            "target": [
-              "p:nth-child(7)"
-            ]
+            "target": ["p:nth-child(7)"]
           },
           {
             "any": [
@@ -5786,9 +5228,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/21/24</strong>",
-            "target": [
-              "p:nth-child(7) > strong"
-            ]
+            "target": ["p:nth-child(7) > strong"]
           },
           {
             "any": [
@@ -5806,9 +5246,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Is there flexibility to start a grant in perhaps November rather than July 1st?</p>",
-            "target": [
-              "p:nth-child(8)"
-            ]
+            "target": ["p:nth-child(8)"]
           },
           {
             "any": [
@@ -5826,9 +5264,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Response</strong></p>",
-            "target": [
-              "p:nth-child(9)"
-            ]
+            "target": ["p:nth-child(9)"]
           },
           {
             "any": [
@@ -5846,9 +5282,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(9) > strong"
-            ]
+            "target": ["p:nth-child(9) > strong"]
           },
           {
             "any": [
@@ -5866,9 +5300,7 @@
             "none": [],
             "impact": null,
             "html": "<p>The 2025 R3 program period of performance will begin July 1, 2024, and end June 30, 2025. Successful applicants (grantees) may start operating their programs at a later date; however, the program performance period will not be extended.</p>",
-            "target": [
-              "p:nth-child(10)"
-            ]
+            "target": ["p:nth-child(10)"]
           },
           {
             "any": [
@@ -5886,9 +5318,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Question Received 3/21/24</strong></p>",
-            "target": [
-              "p:nth-child(11)"
-            ]
+            "target": ["p:nth-child(11)"]
           },
           {
             "any": [
@@ -5906,9 +5336,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/21/24</strong>",
-            "target": [
-              "p:nth-child(11) > strong"
-            ]
+            "target": ["p:nth-child(11) > strong"]
           },
           {
             "any": [
@@ -5926,9 +5354,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Can we provide services in partnership with this school is 60% of students come from R3 Zones? Would we have to filter out students who reside outside the Zones?</p>",
-            "target": [
-              "p:nth-child(12)"
-            ]
+            "target": ["p:nth-child(12)"]
           },
           {
             "any": [
@@ -5946,9 +5372,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Response</strong></p>",
-            "target": [
-              "p:nth-child(13)"
-            ]
+            "target": ["p:nth-child(13)"]
           },
           {
             "any": [
@@ -5966,9 +5390,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(13) > strong"
-            ]
+            "target": ["p:nth-child(13) > strong"]
           },
           {
             "any": [
@@ -5986,9 +5408,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Yes, you can provide services in partnership with the school with 60% of participants living in an R3 zone as long as the program will be provided within an R3 zone. No, you would not have to filter those students who reside outside of an R3 zone according to their zip code.</p>",
-            "target": [
-              "p:nth-child(14)"
-            ]
+            "target": ["p:nth-child(14)"]
           },
           {
             "any": [
@@ -6006,9 +5426,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Question Received 3/20/24</strong></p>",
-            "target": [
-              "p:nth-child(15)"
-            ]
+            "target": ["p:nth-child(15)"]
           },
           {
             "any": [
@@ -6026,9 +5444,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/20/24</strong>",
-            "target": [
-              "p:nth-child(15) > strong"
-            ]
+            "target": ["p:nth-child(15) > strong"]
           },
           {
             "any": [
@@ -6046,9 +5462,7 @@
             "none": [],
             "impact": null,
             "html": "<p>",
-            "target": [
-              "p:nth-child(16)"
-            ]
+            "target": ["p:nth-child(16)"]
           },
           {
             "any": [
@@ -6066,9 +5480,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Response</strong></p>",
-            "target": [
-              "p:nth-child(17)"
-            ]
+            "target": ["p:nth-child(17)"]
           },
           {
             "any": [
@@ -6086,9 +5498,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(17) > strong"
-            ]
+            "target": ["p:nth-child(17) > strong"]
           },
           {
             "any": [
@@ -6106,9 +5516,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Yes, government entities are eligible to apply for R3 funds for that purpose.</p>",
-            "target": [
-              "p:nth-child(18)"
-            ]
+            "target": ["p:nth-child(18)"]
           },
           {
             "any": [
@@ -6126,9 +5534,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Question Received 3/20/24</strong></p>",
-            "target": [
-              "p:nth-child(19)"
-            ]
+            "target": ["p:nth-child(19)"]
           },
           {
             "any": [
@@ -6146,9 +5552,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/20/24</strong>",
-            "target": [
-              "p:nth-child(19) > strong"
-            ]
+            "target": ["p:nth-child(19) > strong"]
           },
           {
             "any": [
@@ -6166,9 +5570,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Would the construction of an extension to an existing Transitional Housing and/or Permanent Supportive Housing location through the Problem-Solving Courts be considered an “expansion” and therefore an allowable cost or defined as “new construction” and prohibited?</p>",
-            "target": [
-              "p:nth-child(20)"
-            ]
+            "target": ["p:nth-child(20)"]
           },
           {
             "any": [
@@ -6186,9 +5588,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Response</strong></p>",
-            "target": [
-              "p:nth-child(21)"
-            ]
+            "target": ["p:nth-child(21)"]
           },
           {
             "any": [
@@ -6206,9 +5606,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(21) > strong"
-            ]
+            "target": ["p:nth-child(21) > strong"]
           },
           {
             "any": [
@@ -6226,9 +5624,7 @@
             "none": [],
             "impact": null,
             "html": "<p>The expansion language refers to <em>program</em> expansion. Funding may not be used to expand building space or any bricks-and-mortar structure.</p>",
-            "target": [
-              "p:nth-child(22)"
-            ]
+            "target": ["p:nth-child(22)"]
           },
           {
             "any": [
@@ -6246,9 +5642,7 @@
             "none": [],
             "impact": null,
             "html": "<em>program</em>",
-            "target": [
-              "p:nth-child(22) > em"
-            ]
+            "target": ["p:nth-child(22) > em"]
           },
           {
             "any": [
@@ -6266,9 +5660,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Question Received 3/20/24</strong></p>",
-            "target": [
-              "p:nth-child(23)"
-            ]
+            "target": ["p:nth-child(23)"]
           },
           {
             "any": [
@@ -6286,9 +5678,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/20/24</strong>",
-            "target": [
-              "p:nth-child(23) > strong"
-            ]
+            "target": ["p:nth-child(23) > strong"]
           },
           {
             "any": [
@@ -6306,9 +5696,7 @@
             "none": [],
             "impact": null,
             "html": "<p>I can find the applications in the NOFO, but I need the word or character counts for the questions. Can you send me the application, please?</p>",
-            "target": [
-              "p:nth-child(24)"
-            ]
+            "target": ["p:nth-child(24)"]
           },
           {
             "any": [
@@ -6326,9 +5714,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Response</strong></p>",
-            "target": [
-              "p:nth-child(25)"
-            ]
+            "target": ["p:nth-child(25)"]
           },
           {
             "any": [
@@ -6346,9 +5732,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(25) > strong"
-            ]
+            "target": ["p:nth-child(25) > strong"]
           },
           {
             "any": [
@@ -6366,9 +5750,7 @@
             "none": [],
             "impact": null,
             "html": "<p>",
-            "target": [
-              "p:nth-child(26)"
-            ]
+            "target": ["p:nth-child(26)"]
           },
           {
             "any": [
@@ -6386,9 +5768,7 @@
             "none": [],
             "impact": null,
             "html": "<br>",
-            "target": [
-              "br:nth-child(1)"
-            ]
+            "target": ["br:nth-child(1)"]
           },
           {
             "any": [
@@ -6406,9 +5786,7 @@
             "none": [],
             "impact": null,
             "html": "<br>",
-            "target": [
-              "br:nth-child(2)"
-            ]
+            "target": ["br:nth-child(2)"]
           },
           {
             "any": [
@@ -6426,9 +5804,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"https://icjia.illinois.gov/grants/funding/r3-nofo-service-delivery-nofo-2378-030124/\">View and download application materials here</a>",
-            "target": [
-              "p:nth-child(26) > a"
-            ]
+            "target": ["p:nth-child(26) > a"]
           },
           {
             "any": [
@@ -6446,9 +5822,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Question Received 3/20/24</strong></p>",
-            "target": [
-              "p:nth-child(27)"
-            ]
+            "target": ["p:nth-child(27)"]
           },
           {
             "any": [
@@ -6466,9 +5840,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/20/24</strong>",
-            "target": [
-              "p:nth-child(27) > strong"
-            ]
+            "target": ["p:nth-child(27) > strong"]
           },
           {
             "any": [
@@ -6486,9 +5858,7 @@
             "none": [],
             "impact": null,
             "html": "<p>I have been trying to view the live event today, but it does not appear active on Facebook or LinkedIn. Is this still happening?</p>",
-            "target": [
-              "p:nth-child(28)"
-            ]
+            "target": ["p:nth-child(28)"]
           },
           {
             "any": [
@@ -6506,9 +5876,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Response</strong></p>",
-            "target": [
-              "p:nth-child(29)"
-            ]
+            "target": ["p:nth-child(29)"]
           },
           {
             "any": [
@@ -6526,9 +5894,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(29) > strong"
-            ]
+            "target": ["p:nth-child(29) > strong"]
           },
           {
             "any": [
@@ -6546,9 +5912,7 @@
             "none": [],
             "impact": null,
             "html": "<p><a href=\"https://www.facebook.com/ICJIA/videos/884630350101734/\">Click here</a> to view ICJIA webinar <em>What is R3: An R3 Overview and Eligibility Map Demonstration</em>.</p>",
-            "target": [
-              "p:nth-child(30)"
-            ]
+            "target": ["p:nth-child(30)"]
           },
           {
             "any": [
@@ -6566,9 +5930,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"https://www.facebook.com/ICJIA/videos/884630350101734/\">Click here</a>",
-            "target": [
-              "p:nth-child(30) > a"
-            ]
+            "target": ["p:nth-child(30) > a"]
           },
           {
             "any": [
@@ -6586,9 +5948,7 @@
             "none": [],
             "impact": null,
             "html": "<em>What is R3: An R3 Overview and Eligibility Map Demonstration</em>",
-            "target": [
-              "p:nth-child(30) > em"
-            ]
+            "target": ["p:nth-child(30) > em"]
           },
           {
             "any": [
@@ -6606,9 +5966,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Question Received 3/20/24</strong></p>",
-            "target": [
-              "p:nth-child(31)"
-            ]
+            "target": ["p:nth-child(31)"]
           },
           {
             "any": [
@@ -6626,9 +5984,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Question Received 3/20/24</strong>",
-            "target": [
-              "p:nth-child(31) > strong"
-            ]
+            "target": ["p:nth-child(31) > strong"]
           },
           {
             "any": [
@@ -6646,9 +6002,7 @@
             "none": [],
             "impact": null,
             "html": "<p>I have a question regarding the Tier Level on Appendix C: Funding Table. How do you define “service provision”? Is this how long our organization has provided any programs/services or services under an R3 grant?</p>",
-            "target": [
-              "p:nth-child(32)"
-            ]
+            "target": ["p:nth-child(32)"]
           },
           {
             "any": [
@@ -6666,9 +6020,7 @@
             "none": [],
             "impact": null,
             "html": "<p><strong>Response</strong></p>",
-            "target": [
-              "p:nth-child(33)"
-            ]
+            "target": ["p:nth-child(33)"]
           },
           {
             "any": [
@@ -6686,9 +6038,7 @@
             "none": [],
             "impact": null,
             "html": "<strong>Response</strong>",
-            "target": [
-              "p:nth-child(33) > strong"
-            ]
+            "target": ["p:nth-child(33) > strong"]
           },
           {
             "any": [
@@ -6706,9 +6056,7 @@
             "none": [],
             "impact": null,
             "html": "<p>Service provision refers to how many years of experience the applicant has in providing any of its proposed services, not just R3-funded services.</p>",
-            "target": [
-              "p:nth-child(34)"
-            ]
+            "target": ["p:nth-child(34)"]
           },
           {
             "any": [
@@ -6726,9 +6074,7 @@
             "none": [],
             "impact": null,
             "html": "<span class=\"v-card__underlay\"></span>",
-            "target": [
-              ".v-card__underlay"
-            ]
+            "target": [".v-card__underlay"]
           },
           {
             "any": [
@@ -6746,9 +6092,7 @@
             "none": [],
             "impact": null,
             "html": "<div id=\"teleports\"></div>",
-            "target": [
-              "#teleports"
-            ]
+            "target": ["#teleports"]
           }
         ]
       },
@@ -6784,19 +6128,14 @@
             "none": [],
             "impact": null,
             "html": "<html lang=\"en\">",
-            "target": [
-              "html"
-            ]
+            "target": ["html"]
           }
         ]
       },
       {
         "id": "skip-link",
         "impact": null,
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ],
+        "tags": ["cat.keyboard", "best-practice"],
         "description": "Ensure all skip links have a focusable target",
         "help": "The skip-link target should exist and be focusable",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/skip-link?application=webdriverjs",
@@ -6815,9 +6154,7 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>",
-            "target": [
-              "a[href$=\"#main-content\"]"
-            ]
+            "target": ["a[href$=\"#main-content\"]"]
           },
           {
             "any": [
@@ -6833,19 +6170,14 @@
             "none": [],
             "impact": null,
             "html": "<a href=\"#navigation\" class=\"skip-link\">Skip to navigation</a>",
-            "target": [
-              "a[href$=\"#navigation\"]"
-            ]
+            "target": ["a[href$=\"#navigation\"]"]
           }
         ]
       },
       {
         "id": "tabindex",
         "impact": null,
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ],
+        "tags": ["cat.keyboard", "best-practice"],
         "description": "Ensure tabindex attribute values are not greater than 0",
         "help": "Elements should not have tabindex greater than zero",
         "helpUrl": "https://dequeuniversity.com/rules/axe/4.10/tabindex?application=webdriverjs",
@@ -6864,9 +6196,7 @@
             "none": [],
             "impact": null,
             "html": "<div class=\"hover hamburger text-center hidden-md-and-up\" role=\"button\" tabindex=\"0\" aria-label=\"Open navigation menu\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hamburger"
-            ]
+            "target": [".hamburger"]
           },
           {
             "any": [
@@ -6882,9 +6212,7 @@
             "none": [],
             "impact": null,
             "html": "<span style=\"font-weight:900 !important;font-size:14px;letter-spacing:0.004em;font-family:&quot;Roboto&quot;, sans-serif !important;\" class=\"agency app-title\" tabindex=\"0\" role=\"button\" aria-label=\"R3 RESTORE. REINVEST. RENEW. - Go to home page\" data-v-c47643d2=\"\">",
-            "target": [
-              ".hidden-xs > .agency.app-title[role=\"button\"]"
-            ]
+            "target": [".hidden-xs > .agency.app-title[role=\"button\"]"]
           }
         ]
       }

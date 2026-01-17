@@ -58,7 +58,8 @@ describe("Error Scenarios Integration", () => {
 
     it("should handle empty API responses", () => {
       const emptyResponse = { data: { pages: { data: [] } } };
-      const isEmpty = Array.isArray(emptyResponse.data.pages.data) &&
+      const isEmpty =
+        Array.isArray(emptyResponse.data.pages.data) &&
         emptyResponse.data.pages.data.length === 0;
       expect(isEmpty).toBe(true);
     });

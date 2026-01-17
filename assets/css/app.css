@@ -318,7 +318,7 @@ a.nuxt-link-exact-active,
 
 /* Ensure aaa-target-link has proper focus indication */
 .aaa-target-link:focus {
-  outline: 2px solid #0D4474;
+  outline: 2px solid #0d4474;
   outline-offset: 2px;
 }
 
@@ -327,14 +327,14 @@ a.nuxt-link-exact-active,
 .v-btn.bg-blue-darken-4,
 .v-btn[class*="bg-blue-darken"],
 .v-btn.text-white[class*="blue"] {
-  background-color: #0D4474 !important;
+  background-color: #0d4474 !important;
   color: #ffffff !important;
 }
 
 /* Deep selector overrides for Vuetify button backgrounds */
 :deep(.v-btn.bg-blue-darken-4),
 :deep(.v-btn[class*="bg-blue-darken"]) {
-  background-color: #0D4474 !important;
+  background-color: #0d4474 !important;
 }
 
 /* Global v-btn color overrides for AAA compliance */
@@ -345,7 +345,7 @@ a.nuxt-link-exact-active,
 .v-btn--variant-flat.bg-blue-darken-3,
 .v-btn--variant-elevated.bg-blue-darken-2,
 .v-btn--variant-flat.bg-blue-darken-2 {
-  background-color: #0D4474 !important;
+  background-color: #0d4474 !important;
   color: #ffffff !important;
 }
 
@@ -353,7 +353,7 @@ a.nuxt-link-exact-active,
 .v-btn[style*="background-color: rgb(21, 101, 192)"],
 .v-btn[style*="background-color:#1565c0"],
 .v-btn[style*="background-color: #1565c0"] {
-  background-color: #0D4474 !important;
+  background-color: #0d4474 !important;
 }
 
 /* Ensure all v-btn components with common blue Vuetify classes meet AAA */
@@ -376,7 +376,7 @@ a.nuxt-link-exact-active,
 .v-btn.bg-blue-darken-3,
 .v-btn.bg-blue-darken-4,
 .v-btn.bg-blue {
-  background-color: #0D4474 !important;
+  background-color: #0d4474 !important;
   color: #ffffff !important;
 }
 
@@ -406,7 +406,7 @@ a.nuxt-link-exact-active,
 /* Text/outlined button variants - ensure text meets AAA on light backgrounds */
 .v-btn--variant-text,
 .v-btn--variant-outlined {
-  color: #0D4474 !important; /* Dark blue text on light background (8:1 ratio on white) */
+  color: #0d4474 !important; /* Dark blue text on light background (8:1 ratio on white) */
 }
 
 .v-btn--variant-text:hover,
@@ -419,7 +419,7 @@ a.nuxt-link-exact-active,
 
 /* Outlined button border color for AAA compliance */
 .v-btn--variant-outlined {
-  border-color: #0D4474 !important;
+  border-color: #0d4474 !important;
 }
 
 /* Ensure button text within v-btn__content is properly colored */

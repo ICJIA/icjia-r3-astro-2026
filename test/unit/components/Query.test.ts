@@ -41,7 +41,14 @@ describe("Query Component Logic", () => {
   });
 
   it("expects query to return pages data structure", () => {
-    const expectedFields = ["id", "title", "slug", "summary", "body", "section"];
+    const expectedFields = [
+      "id",
+      "title",
+      "slug",
+      "summary",
+      "body",
+      "section",
+    ];
     const queryString = `
       query getPages {
         pages {
@@ -85,4 +92,3 @@ describe("Query Component Logic", () => {
     expect(mockData.pages.data[0].attributes.title).toBe("Test Page");
   });
 });
-

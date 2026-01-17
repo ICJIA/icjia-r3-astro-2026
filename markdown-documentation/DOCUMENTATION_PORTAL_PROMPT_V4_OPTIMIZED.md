@@ -79,7 +79,7 @@ async function runAudit() {
   const xml = fs.readFileSync(CONFIG.sitemapPath, "utf8");
   const sitemap = await parseStringPromise(xml);
   const urls = sitemap.urlset.url.map((u) =>
-    u.loc[0].replace(CONFIG.productionUrl, CONFIG.baseUrl)
+    u.loc[0].replace(CONFIG.productionUrl, CONFIG.baseUrl),
   );
 
   for (const url of urls) {
@@ -96,13 +96,13 @@ async function runAudit() {
             exclude: ex,
             runOnly: ["wcag2a", "wcag2aa", "wcag2aaa", "wcag21aaa"],
           }),
-        CONFIG.exclude
+        CONFIG.exclude,
       );
 
       // 3. Custom AAA Checks (Touch Targets & Font Size)
       const custom = await page.evaluate(() => {
         const interactive = document.querySelectorAll(
-          "a, button, input, select"
+          "a, button, input, select",
         );
         const textNodes = document.querySelectorAll("p, li, span, div");
         return {

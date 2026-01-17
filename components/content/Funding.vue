@@ -62,8 +62,8 @@
                 >
               </div>
               <template #placeholder>
-                <div 
-                  class="d-flex align-center justify-center fill-height" 
+                <div
+                  class="d-flex align-center justify-center fill-height"
                   role="status"
                   aria-live="polite"
                   aria-label="Loading image"
@@ -110,8 +110,8 @@
                 >
               </div>
               <template #placeholder>
-                <div 
-                  class="d-flex align-center justify-center fill-height" 
+                <div
+                  class="d-flex align-center justify-center fill-height"
                   role="status"
                   aria-live="polite"
                   aria-label="Loading image"

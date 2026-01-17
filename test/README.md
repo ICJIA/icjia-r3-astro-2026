@@ -8,5 +8,3 @@ This project uses **Vitest** for unit/integration tests and generates a human-re
 - `yarn test:watch` — run tests in watch mode (for development)
 - `yarn test:coverage` — run tests with coverage report
 - `yarn test:run` — run tests once without generating HTML report
-
-

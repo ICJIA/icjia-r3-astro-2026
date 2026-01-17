@@ -70,8 +70,13 @@
                 <!-- Subject is hardcoded to "R3 Question" - no user selection needed -->
                 <input type="hidden" name="subject" value="R3 Question" />
                 <v-col cols="12" md="6">
-                  <label for="contact-firstname-input" class="form-label" id="firstname-label">
-                    First Name <span class="required-indicator" aria-hidden="true">*</span>
+                  <label
+                    for="contact-firstname-input"
+                    class="form-label"
+                    id="firstname-label"
+                  >
+                    First Name
+                    <span class="required-indicator" aria-hidden="true">*</span>
                     <span class="sr-only">(Required)</span>
                   </label>
                   <v-text-field
@@ -106,8 +111,13 @@
                   </div>
                 </v-col>
                 <v-col cols="12" md="6">
-                  <label for="contact-lastname-input" class="form-label" id="lastname-label">
-                    Last Name <span class="required-indicator" aria-hidden="true">*</span>
+                  <label
+                    for="contact-lastname-input"
+                    class="form-label"
+                    id="lastname-label"
+                  >
+                    Last Name
+                    <span class="required-indicator" aria-hidden="true">*</span>
                     <span class="sr-only">(Required)</span>
                   </label>
                   <v-text-field
@@ -144,8 +154,13 @@
               </v-row>
               <v-row>
                 <v-col cols="12" md="6">
-                  <label for="contact-email" class="form-label" id="email-label">
-                    Email <span class="required-indicator" aria-hidden="true">*</span>
+                  <label
+                    for="contact-email"
+                    class="form-label"
+                    id="email-label"
+                  >
+                    Email
+                    <span class="required-indicator" aria-hidden="true">*</span>
                     <span class="sr-only">(Required)</span>
                   </label>
                   <v-text-field
@@ -179,8 +194,13 @@
                   </div>
                 </v-col>
                 <v-col cols="12" md="6">
-                  <label for="contact-phone" class="form-label" id="phone-label">
-                    Phone Number <span class="required-indicator" aria-hidden="true">*</span>
+                  <label
+                    for="contact-phone"
+                    class="form-label"
+                    id="phone-label"
+                  >
+                    Phone Number
+                    <span class="required-indicator" aria-hidden="true">*</span>
                     <span class="sr-only">(Required)</span>
                   </label>
                   <v-text-field
@@ -215,8 +235,13 @@
                 </v-col>
 
                 <v-col cols="12">
-                  <label for="contact-message" class="form-label" id="message-label">
-                    Message <span class="required-indicator" aria-hidden="true">*</span>
+                  <label
+                    for="contact-message"
+                    class="form-label"
+                    id="message-label"
+                  >
+                    Message
+                    <span class="required-indicator" aria-hidden="true">*</span>
                     <span class="sr-only">(Required)</span>
                   </label>
                   <v-textarea
@@ -266,7 +291,7 @@
                       : 'Submit contact form'
                   "
                   :aria-busy="isSubmitting"
-                  style="min-height: 44px; min-width: 44px; padding: 12px 24px;"
+                  style="min-height: 44px; min-width: 44px; padding: 12px 24px"
                 >
                   {{ isSubmitting ? "Submitting..." : "Submit" }} </v-btn
                 >&nbsp;&nbsp;&nbsp;
@@ -278,7 +303,7 @@
                   type="button"
                   :disabled="isSubmitting"
                   aria-label="Clear all form fields"
-                  style="min-height: 44px; min-width: 44px; padding: 12px 24px;"
+                  style="min-height: 44px; min-width: 44px; padding: 12px 24px"
                 >
                   Clear
                 </v-btn>
@@ -293,7 +318,7 @@
                   <nuxt-link
                     to="/"
                     class="aaa-target-link"
-                    style="color: #0D4474; font-weight: 700;"
+                    style="color: #0d4474; font-weight: 700"
                     >&laquo;&nbsp;Back to home</nuxt-link
                   >
                 </div>
@@ -367,8 +392,10 @@
 .contact-form :deep(.v-field__outline),
 .contact-form :deep(.v-field--variant-outlined .v-field__outline__start),
 .contact-form :deep(.v-field--variant-outlined .v-field__outline__end),
-.contact-form :deep(.v-field--variant-outlined .v-field__outline__notch::before),
-.contact-form :deep(.v-field--variant-outlined .v-field__outline__notch::after) {
+.contact-form
+  :deep(.v-field--variant-outlined .v-field__outline__notch::before),
+.contact-form
+  :deep(.v-field--variant-outlined .v-field__outline__notch::after) {
   border-color: #555555 !important;
 }
 
@@ -376,14 +403,14 @@
 .contact-form :deep(.v-field--focused .v-field__outline),
 .contact-form :deep(.v-field--focused .v-field__outline__start),
 .contact-form :deep(.v-field--focused .v-field__outline__end) {
-  border-color: #0D4474 !important;
+  border-color: #0d4474 !important;
   border-width: 2px !important;
 }
 
 /* Error state messages - AAA compliant dark red (#9B0000 = 8.5:1 contrast) */
 .contact-form :deep(.v-messages__message),
 .contact-form .v-messages__message {
-  color: #9B0000 !important;
+  color: #9b0000 !important;
   font-weight: 600 !important;
 }
 
@@ -415,7 +442,7 @@
 
 /* Required field indicator */
 .required-indicator {
-  color: #9B0000; /* Dark red for AAA compliance (8.5:1 contrast) */
+  color: #9b0000; /* Dark red for AAA compliance (8.5:1 contrast) */
   font-weight: 700;
   margin-left: 2px;
 }
@@ -536,7 +563,7 @@ export default {
       (v) => !!v || "E-mail is required",
       (v) =>
         /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-          v
+          v,
         ) || "E-mail must be valid",
     ],
   }),
@@ -575,31 +602,31 @@ export default {
         case "firstname":
           this.firstnameError =
             this.nameRules.find((rule) => rule(this.firstname) !== true)?.(
-              this.firstname
+              this.firstname,
             ) || "";
           break;
         case "lastname":
           this.lastnameError =
             this.nameRules.find((rule) => rule(this.lastname) !== true)?.(
-              this.lastname
+              this.lastname,
             ) || "";
           break;
         case "email":
           this.emailError =
             this.emailRules.find((rule) => rule(this.email) !== true)?.(
-              this.email
+              this.email,
             ) || "";
           break;
         case "phone":
           this.phoneError =
             this.phoneRules.find((rule) => rule(this.phone) !== true)?.(
-              this.phone
+              this.phone,
             ) || "";
           break;
         case "message":
           this.messageError =
             this.messageRules.find((rule) => rule(this.message) !== true)?.(
-              this.message
+              this.message,
             ) || "";
           break;
       }
@@ -639,7 +666,7 @@ export default {
         // Focus on first error field for accessibility
         this.$nextTick(() => {
           const firstErrorField = document.querySelector(
-            '[aria-invalid="true"]'
+            '[aria-invalid="true"]',
           );
           if (firstErrorField) {
             firstErrorField.focus();
@@ -654,21 +681,21 @@ export default {
           type: "R3 Contact Form",
           subject: DOMPurify.sanitize(this.subject).replace(
             /(<([^>]+)>)/gi,
-            ""
+            "",
           ),
           firstname: DOMPurify.sanitize(this.firstname).replace(
             /(<([^>]+)>)/gi,
-            ""
+            "",
           ),
           lastname: DOMPurify.sanitize(this.lastname).replace(
             /(<([^>]+)>)/gi,
-            ""
+            "",
           ),
           email: DOMPurify.sanitize(this.email).replace(/(<([^>]+)>)/gi, ""),
           phone: DOMPurify.sanitize(this.phone).replace(/(<([^>]+)>)/gi, ""),
           message: DOMPurify.sanitize(this.message).replace(
             /(<([^>]+)>)/gi,
-            ""
+            "",
           ),
         };
 
@@ -692,7 +719,7 @@ export default {
           await api.post(
             `https://r3.icjia-api.cloud/api/forms`,
             { data: axiosDBSubmitData },
-            axiosHeaders
+            axiosHeaders,
           );
         } catch (e) {
           // Database insert failed - continue with email send
@@ -745,7 +772,7 @@ export default {
       this.phoneError = "";
       this.messageError = "";
     },
-    
+
     /**
      * Fix Vuetify's accessibility issues with form field labels.
      * Vuetify generates aria-labelledby pointing to labels with aria-hidden="true",
@@ -755,28 +782,30 @@ export default {
     fixVuetifyAccessibility() {
       // Map of field IDs to their accessible labels
       const fieldLabels = {
-        'contact-firstname': 'First Name. Required field.',
-        'contact-lastname': 'Last Name. Required field.',
-        'contact-email': 'Email address. Required field.',
-        'contact-phone': 'Phone number. Required field.',
-        'contact-message': 'Message. Required field.'
+        "contact-firstname": "First Name. Required field.",
+        "contact-lastname": "Last Name. Required field.",
+        "contact-email": "Email address. Required field.",
+        "contact-phone": "Phone number. Required field.",
+        "contact-message": "Message. Required field.",
       };
-      
+
       // Fix each form field
       Object.entries(fieldLabels).forEach(([fieldId, label]) => {
         const input = document.getElementById(fieldId);
         if (input) {
           // Remove Vuetify's problematic aria-labelledby
-          input.removeAttribute('aria-labelledby');
+          input.removeAttribute("aria-labelledby");
           // Ensure aria-label is set
-          input.setAttribute('aria-label', label);
+          input.setAttribute("aria-label", label);
         }
       });
-      
+
       // Hide all Vuetify's internal floating labels since we have external labels
-      const internalLabels = document.querySelectorAll('.contact-form .v-field-label');
-      internalLabels.forEach(label => {
-        label.setAttribute('aria-hidden', 'true');
+      const internalLabels = document.querySelectorAll(
+        ".contact-form .v-field-label",
+      );
+      internalLabels.forEach((label) => {
+        label.setAttribute("aria-hidden", "true");
       });
     },
   },
@@ -790,7 +819,7 @@ export default {
     //this.$refs.form.reset();
     this.valid = false;
     this.successfullySubmitted = false;
-    
+
     // Fix Vuetify accessibility bug (GitHub issue #17730)
     // Vuetify adds aria-labelledby pointing to hidden labels, which breaks accessibility
     // We remove aria-labelledby and add aria-label directly to ensure proper accessible names

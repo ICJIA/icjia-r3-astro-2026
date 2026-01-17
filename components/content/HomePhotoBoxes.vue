@@ -13,7 +13,7 @@
             crossorigin
           >
             <template v-slot:placeholder>
-              <div 
+              <div
                 class="d-flex align-center justify-center fill-height"
                 role="status"
                 aria-live="polite"

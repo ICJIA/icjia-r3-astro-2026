@@ -43,25 +43,29 @@ describe("Navigation E2E", () => {
   describe("Breadcrumb Navigation", () => {
     it("should hide breadcrumb on homepage", () => {
       const route = "/";
-      const shouldHide = route === "/" || route === "/sandbox" || route === "/faqs";
+      const shouldHide =
+        route === "/" || route === "/sandbox" || route === "/faqs";
       expect(shouldHide).toBe(true);
     });
 
     it("should hide breadcrumb on sandbox page", () => {
       const route = "/sandbox";
-      const shouldHide = route === "/" || route === "/sandbox" || route === "/faqs";
+      const shouldHide =
+        route === "/" || route === "/sandbox" || route === "/faqs";
       expect(shouldHide).toBe(true);
     });
 
     it("should hide breadcrumb on FAQs index", () => {
       const route = "/faqs";
-      const shouldHide = route === "/" || route === "/sandbox" || route === "/faqs";
+      const shouldHide =
+        route === "/" || route === "/sandbox" || route === "/faqs";
       expect(shouldHide).toBe(true);
     });
 
     it("should show breadcrumb on other pages", () => {
       const route = "/funding";
-      const shouldHide = route === "/" || route === "/sandbox" || route === "/faqs";
+      const shouldHide =
+        route === "/" || route === "/sandbox" || route === "/faqs";
       expect(shouldHide).toBe(false);
     });
   });
@@ -82,4 +86,3 @@ describe("Navigation E2E", () => {
     });
   });
 });
-

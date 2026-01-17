@@ -25,19 +25,29 @@
             @click="closeDrawer"
             aria-label="Close navigation menu"
           >
-            <v-icon icon="mdi-window-close" size="x-large" aria-hidden="true"></v-icon>
+            <v-icon
+              icon="mdi-window-close"
+              size="x-large"
+              aria-hidden="true"
+            ></v-icon>
             <div style="font-size: 10px; font-weight: 900">CLOSE</div>
           </button>
         </div>
         <ul class="sidebar-menu" role="menu">
           <template v-for="(menu, index) in navMenu" :key="`sidebar-${index}`">
             <!-- Menu item with children (expandable) -->
-            <li v-if="menu && menu.children" class="sidebar-menu-item" role="none">
+            <li
+              v-if="menu && menu.children"
+              class="sidebar-menu-item"
+              role="none"
+            >
               <button
                 type="button"
                 class="sidebar-link sidebar-expandable"
                 role="menuitem"
-                :aria-expanded="expandedMenus.includes(index) ? 'true' : 'false'"
+                :aria-expanded="
+                  expandedMenus.includes(index) ? 'true' : 'false'
+                "
                 :aria-haspopup="true"
                 :aria-label="`${menu.main} section. Press Enter to expand or collapse.`"
                 @click="toggleMenu(index)"
@@ -45,7 +55,9 @@
                 <span>{{ menu.main }}</span>
                 <svg
                   class="sidebar-chevron"
-                  :class="{ 'sidebar-chevron-open': expandedMenus.includes(index) }"
+                  :class="{
+                    'sidebar-chevron-open': expandedMenus.includes(index),
+                  }"
                   width="20"
                   height="20"
                   viewBox="0 0 24 24"
@@ -64,13 +76,24 @@
                 class="sidebar-submenu"
                 role="menu"
               >
-                <template v-for="(child, i) in menu.children" :key="`child-${i}`">
+                <template
+                  v-for="(child, i) in menu.children"
+                  :key="`child-${i}`"
+                >
                   <!-- Section header -->
-                  <li v-if="child.section" class="sidebar-section" role="presentation">
+                  <li
+                    v-if="child.section"
+                    class="sidebar-section"
+                    role="presentation"
+                  >
                     {{ child.section }}
                   </li>
                   <!-- Divider -->
-                  <li v-if="child.divider" class="sidebar-divider" role="presentation">
+                  <li
+                    v-if="child.divider"
+                    class="sidebar-divider"
+                    role="presentation"
+                  >
                     <hr aria-hidden="true" />
                   </li>
                   <!-- Child link -->
@@ -79,7 +102,11 @@
                       :to="child.link"
                       class="sidebar-link sidebar-child-link"
                       role="menuitem"
-                      :aria-label="child.external ? `${child.title} (opens in new window)` : child.title"
+                      :aria-label="
+                        child.external
+                          ? `${child.title} (opens in new window)`
+                          : child.title
+                      "
                       @click="closeDrawer"
                     >
                       {{ child.title }}
@@ -296,7 +323,7 @@ const toggleMenu = (index) => {
 }
 
 .aaa-hamburger-sidebar:focus-visible {
-  outline: 2px solid #0D4474;
+  outline: 2px solid #0d4474;
   outline-offset: 2px;
 }
 
@@ -324,10 +351,10 @@ const toggleMenu = (index) => {
   width: 100%;
   min-height: 44px;
   padding: 10px 16px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #0D4474;
+  color: #0d4474;
   text-decoration: none;
   background: transparent;
   border: none;
@@ -342,7 +369,7 @@ const toggleMenu = (index) => {
 }
 
 .sidebar-link:focus-visible {
-  outline: 2px solid #0D4474;
+  outline: 2px solid #0d4474;
   outline-offset: -2px;
 }
 
@@ -350,7 +377,7 @@ const toggleMenu = (index) => {
 .sidebar-link.router-link-active,
 .sidebar-link.router-link-exact-active {
   background-color: #e8f0f8;
-  border-left: 3px solid #0D4474;
+  border-left: 3px solid #0d4474;
 }
 
 /* Expandable menu button */
@@ -390,7 +417,7 @@ const toggleMenu = (index) => {
   display: flex;
   align-items: center;
   padding: 10px 16px 10px 32px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: #555;

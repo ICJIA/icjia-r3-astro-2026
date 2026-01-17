@@ -45,4 +45,3 @@ export const useRuntimeConfig = () => ({
     apiBase: "http://localhost:8000/api",
   },
 });
-

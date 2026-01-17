@@ -74,7 +74,8 @@ const manualPages = [
       createdAt: moment().format(),
       updatedAt: moment().format(),
       publishedAt: moment().format(),
-      searchMeta: "translate google spanish polish tagalog italian ",
+      searchMeta:
+        "translate google spanish polish tagalog chinese arabic hindi urdu ",
       path: "/translate",
       url: `${SITE_URL}/translate`,
       type: "page",

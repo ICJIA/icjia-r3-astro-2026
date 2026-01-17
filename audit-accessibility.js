@@ -98,7 +98,10 @@ const SKIP_LINK_CONFIG = {
 };
 
 // Axe exclude selectors (exclude Nuxt DevTools overlay in dev mode)
-const AXE_EXCLUDE_SELECTORS = [["nuxt-devtools-frame"], ["nuxt-devtools-panel"]];
+const AXE_EXCLUDE_SELECTORS = [
+  ["nuxt-devtools-frame"],
+  ["nuxt-devtools-panel"],
+];
 
 // Command to start dev server (used only when dev server isn't already running)
 // NOTE: This repo needs generated content; dev:audit is expected to do the right thing.
@@ -193,7 +196,7 @@ const REPORT_FILE = path.join(OUTPUT_DIR, REPORT_FILE_NAME);
 let AXE_VERSION = AXE_VERSION_DEFAULT;
 try {
   const packageJson = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "package.json"), "utf8")
+    fs.readFileSync(path.join(__dirname, "package.json"), "utf8"),
   );
   AXE_VERSION =
     packageJson.devDependencies?.["axe-core"]?.replace(/[\^~]/, "") ||
@@ -218,7 +221,7 @@ async function checkServer() {
       resolve(
         res.statusCode === 200 ||
           res.statusCode === 301 ||
-          res.statusCode === 302
+          res.statusCode === 302,
       );
     });
     req.on("error", () => resolve(false));
@@ -238,7 +241,7 @@ async function startDevServer() {
         cwd: __dirname,
         stdio: "pipe",
         shell: true,
-      }
+      },
     );
 
     let serverReady = false;
@@ -267,8 +270,8 @@ async function startDevServer() {
         devServer.kill();
         reject(
           new Error(
-            `Port ${DEV_SERVER_PORT} is already in use. Stop the existing server or change DEV_SERVER_PORT.`
-          )
+            `Port ${DEV_SERVER_PORT} is already in use. Stop the existing server or change DEV_SERVER_PORT.`,
+          ),
         );
       }
     });
@@ -390,7 +393,7 @@ async function runAxeAudit(page) {
       });
     },
     AXE_RULE_CONFIG,
-    AXE_EXCLUDE_SELECTORS
+    AXE_EXCLUDE_SELECTORS,
   );
 }
 
@@ -424,7 +427,7 @@ async function verifySkipLink(page) {
         // OK
       } else {
         issues.push(
-          `Skip link target (${targetId}) should have tabindex='-1' for programmatic focus`
+          `Skip link target (${targetId}) should have tabindex='-1' for programmatic focus`,
         );
       }
     }
@@ -445,7 +448,7 @@ async function verifySkipLink(page) {
     if (isOffScreen || zIndex > 1000) visibleOnFocus = true;
     else {
       issues.push(
-        "Skip link may not be properly visible when focused (check CSS :focus styles)"
+        "Skip link may not be properly visible when focused (check CSS :focus styles)",
       );
     }
 
@@ -530,7 +533,7 @@ function generateHTMLReport(results) {
 
   const uniquePages = new Set(results.map((r) => r.url)).size;
   const pagesWithViolations = new Set(
-    results.filter((r) => (r.violations?.length || 0) > 0).map((r) => r.url)
+    results.filter((r) => (r.violations?.length || 0) > 0).map((r) => r.url),
   ).size;
   const pagesPassing = uniquePages - pagesWithViolations;
   const totalTestsRun =
@@ -548,7 +551,7 @@ function generateHTMLReport(results) {
       acc.total++;
       return acc;
     },
-    { total: 0, exists: 0, working: 0, issues: 0 }
+    { total: 0, exists: 0, working: 0, issues: 0 },
   );
 
   const tableRows = results.map((result) => {
@@ -863,7 +866,7 @@ function generateHTMLReport(results) {
               <td class="${row.violations === 0 ? "status-pass" : "status-fail"}">${row.status}</td>
               <td class="${row.skipLinkClass}" title="${row.skipLinkIssues.length ? escapeHtml(row.skipLinkIssues.join("; ")) : ""}">${escapeHtml(row.skipLink)}</td>
             </tr>
-          `
+          `,
             )
             .join("")}
         </tbody>
@@ -1059,12 +1062,12 @@ function generateHTMLReport(results) {
             ? `<ul style="margin-left:1.25rem;">${s.links
                 .map(
                   (l) =>
-                    `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.text)}</a></li>`
+                    `<li><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.text)}</a></li>`,
                 )
                 .join("")}</ul>`
             : ""
         }
-      `
+      `,
       ).join("")}
 
       <h2>Framework Notes</h2>
@@ -1115,11 +1118,11 @@ async function runAudit() {
     .map(([rule]) => rule);
   if (enabledRules.length)
     console.log(
-      ` ✅ Enabled (${enabledRules.length}): ${enabledRules.join(", ")}`
+      ` ✅ Enabled (${enabledRules.length}): ${enabledRules.join(", ")}`,
     );
   if (disabledRules.length)
     console.log(
-      ` ❌ Disabled (${disabledRules.length}): ${disabledRules.join(", ")}`
+      ` ❌ Disabled (${disabledRules.length}): ${disabledRules.join(", ")}`,
     );
   console.log("");
 
@@ -1135,7 +1138,7 @@ async function runAudit() {
     console.log("");
   } else {
     console.log(
-      `Checking if dev server is running on port ${DEV_SERVER_PORT}...`
+      `Checking if dev server is running on port ${DEV_SERVER_PORT}...`,
     );
     let serverRunning = await checkServer();
     if (!serverRunning) {
@@ -1156,16 +1159,16 @@ async function runAudit() {
     }
     console.log("");
     console.log(
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     );
     console.log("📍 Dev Server Status:");
     console.log(` Port: ${DEV_SERVER_PORT}`);
     console.log(
-      ` Status: ${serverWasAlreadyRunning ? "Already running" : "Started by audit script"}`
+      ` Status: ${serverWasAlreadyRunning ? "Already running" : "Started by audit script"}`,
     );
     console.log(` URL: ${BASE_URL}`);
     console.log(
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     );
     console.log("");
   }
@@ -1198,7 +1201,7 @@ async function runAudit() {
             height: viewport.height,
           });
           console.log(
-            `[${currentTest}/${totalTests}] Testing ${url} (${viewport.name})...`
+            `[${currentTest}/${totalTests}] Testing ${url} (${viewport.name})...`,
           );
 
           await page.goto(url, { waitUntil: "networkidle2", timeout: 30000 });
@@ -1212,7 +1215,7 @@ async function runAudit() {
                 const switching = themeConfig.switching;
                 if (switching.mode === "auto") {
                   const themeSwitch = document.querySelector(
-                    'input[type="checkbox"][role="switch"]'
+                    'input[type="checkbox"][role="switch"]',
                   );
                   if (themeSwitch) {
                     const currentIsDark =
@@ -1232,7 +1235,7 @@ async function runAudit() {
                   }
                 } else if (switching.mode === "manual") {
                   const themeSwitch = document.querySelector(
-                    switching.toggleSelector
+                    switching.toggleSelector,
                   );
                   if (themeSwitch) {
                     const darkClass = switching.darkClass || "v-theme--dark";
@@ -1250,7 +1253,7 @@ async function runAudit() {
                     ) {
                       localStorage.setItem(
                         switching.localStorageKey,
-                        themeValue
+                        themeValue,
                       );
                     }
                     if (switching.darkClass) {
@@ -1267,7 +1270,7 @@ async function runAudit() {
                   }
                 }
               },
-              { themeValue: theme.value, switching: THEME_CONFIG.switching }
+              { themeValue: theme.value, switching: THEME_CONFIG.switching },
             );
             await new Promise((r) => setTimeout(r, 800));
           }
@@ -1276,7 +1279,7 @@ async function runAudit() {
           const hasErrorOverlay = await page.evaluate(() => {
             const errorOverlay = document.querySelector("vite-error-overlay");
             const errorMessages = Array.from(
-              document.querySelectorAll("*")
+              document.querySelectorAll("*"),
             ).some((el) => {
               const text = (el.textContent || "").trim();
               return (
@@ -1290,7 +1293,7 @@ async function runAudit() {
           });
           if (hasErrorOverlay) {
             throw new Error(
-              "Application has errors - Vite error overlay detected."
+              "Application has errors - Vite error overlay detected.",
             );
           }
 
@@ -1318,7 +1321,7 @@ async function runAudit() {
             console.log("   ✅ Skip link: OK");
           } else if (skipLinkVerification.exists) {
             console.log(
-              `   ⚠️  Skip link: Issues found (${(skipLinkVerification.issues || []).length})`
+              `   ⚠️  Skip link: Issues found (${(skipLinkVerification.issues || []).length})`,
             );
           } else {
             console.log("   ❌ Skip link: Not found");
@@ -1326,12 +1329,12 @@ async function runAudit() {
 
           if (violationCount > 0)
             console.log(
-              `   ⚠️  Found ${violationCount} violation(s), ${passCount} pass(es)`
+              `   ⚠️  Found ${violationCount} violation(s), ${passCount} pass(es)`,
             );
           else console.log(`   ✅ No violations, ${passCount} pass(es)`);
         } catch (error) {
           console.error(
-            `   ❌ Error testing ${url} (${viewport.name}): ${error.message}`
+            `   ❌ Error testing ${url} (${viewport.name}): ${error.message}`,
           );
           results.push({
             url,
@@ -1374,7 +1377,7 @@ async function runAudit() {
   const resultsJsonPath = path.join(OUTPUT_DIR, "results.json");
   fs.writeFileSync(
     resultsJsonPath,
-    JSON.stringify({ baseUrl: BASE_URL, results }, null, 2)
+    JSON.stringify({ baseUrl: BASE_URL, results }, null, 2),
   );
   console.log(`📄 Results JSON saved to: ${resultsJsonPath}`);
 
@@ -1383,25 +1386,25 @@ async function runAudit() {
 
   const totalViolations = results.reduce(
     (sum, r) => sum + (r.violations?.length || 0),
-    0
+    0,
   );
   const totalPasses = results.reduce(
     (sum, r) => sum + (r.passes?.length || 0),
-    0
+    0,
   );
   const totalIncomplete = results.reduce(
     (sum, r) => sum + (r.incomplete?.length || 0),
-    0
+    0,
   );
   const totalInapplicable = results.reduce(
     (sum, r) => sum + (r.inapplicable?.length || 0),
-    0
+    0,
   );
   const totalTestsRun =
     totalViolations + totalPasses + totalIncomplete + totalInapplicable;
   const uniquePages = new Set(results.map((r) => r.url)).size;
   const pagesWithViolations = new Set(
-    results.filter((r) => (r.violations?.length || 0) > 0).map((r) => r.url)
+    results.filter((r) => (r.violations?.length || 0) > 0).map((r) => r.url),
   ).size;
 
   console.log("\n✅ Audit Complete!");
@@ -1410,7 +1413,7 @@ async function runAudit() {
   console.log(`   Pages tested: ${uniquePages}`);
   console.log(`   Viewports tested: ${VIEWPORTS.length}`);
   console.log(
-    `   Theme${THEMES.length !== 1 ? "s" : ""}: ${THEMES.map((t) => t.name).join(", ")}`
+    `   Theme${THEMES.length !== 1 ? "s" : ""}: ${THEMES.map((t) => t.name).join(", ")}`,
   );
   console.log(`   Total violations: ${totalViolations}`);
   console.log(`   Total passes: ${totalPasses}`);

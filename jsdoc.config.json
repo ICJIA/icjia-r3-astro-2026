@@ -26,10 +26,7 @@
     "template": "node_modules/clean-jsdoc-theme",
     "readme": "./markdown-documentation/README.md"
   },
-  "plugins": [
-    "plugins/markdown",
-    "./jsdoc-vue-plugin.js"
-  ],
+  "plugins": ["plugins/markdown", "./jsdoc-vue-plugin.js"],
   "templates": {
     "cleverLinks": false,
     "monospaceLinks": false,

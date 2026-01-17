@@ -120,61 +120,65 @@ async function main() {
     console.warn("Warning: No resources found in API response");
     return;
   }
-    const _resources = raw.map((item) => {
-      const obj = { ...item };
-      let rawText;
+  const _resources = raw.map((item) => {
+    const obj = { ...item };
+    let rawText;
 
-      //   obj.attributes.postDate = item.attributes.dateOverride
-      //     ? moment(item.attributes.dateOverride).utc().format()
-      //     : moment(item.attributes.publishedAt).utc().format();
-      rawText = obj.attributes?.body
-        ?.replace(/<[^>]*>?/gm, "")
-        .replace(/[^a-z0-9]/gi, " ");
-      rawText = rawText.replace(/\s\s+/g, " ");
-      obj.attributes.rawText = rawText.toLowerCase();
-      obj.attributes.draft = false;
+    //   obj.attributes.postDate = item.attributes.dateOverride
+    //     ? moment(item.attributes.dateOverride).utc().format()
+    //     : moment(item.attributes.publishedAt).utc().format();
+    rawText = obj.attributes?.body
+      ?.replace(/<[^>]*>?/gm, "")
+      .replace(/[^a-z0-9]/gi, " ");
+    rawText = rawText.replace(/\s\s+/g, " ");
+    obj.attributes.rawText = rawText.toLowerCase();
+    obj.attributes.draft = false;
 
-      obj.attributes.path = `/resources/${item.attributes.slug}`;
-      obj.attributes.url = `${SITE_URL}${obj.attributes.path}`;
-      obj.attributes.markdown = item.attributes.body;
-      obj.attributes.type = "resource";
-      if (item.attributes.searchMeta) {
-        obj.attributes.searchMeta = "resource " + item.attributes.searchMeta;
-      } else {
-        obj.attributes.searchMeta = "resource  ";
-      }
-
-      return obj;
-    });
-
-    let resources = _.orderBy(_resources, ["publishedAt"], ["desc"]);
-
-    // Write resource files with error handling
-    await safeWriteFile(`./assets/json/resources.json`, resources, jsonfile);
-    await safeWriteFile(`./public/resources.json`, resources, jsonfile);
-    await safeWriteFile(`./src/resources.json`, resources, jsonfile);
-
-    const resourceRoutes = resources.map((item) => {
-      return `/resources/${item.attributes.slug}`;
-    });
-
-    await safeWriteFile(`./public/routesResources.json`, resourceRoutes, jsonfile);
-
-    // Generate markdown files
-    const section = "resources";
-    const directoryPath = path.join(contentDir, section);
-    ensureDirectory(directoryPath, fs);
-
-    for (const item of resources) {
-      const basename = item.attributes.slug;
-      const fileName = `${section}/${basename}.md`;
-      const filePath = path.join(contentDir, fileName);
-
-      const content = formatMarkdown(item.attributes);
-      safeWriteFileSync(filePath, content, fs);
+    obj.attributes.path = `/resources/${item.attributes.slug}`;
+    obj.attributes.url = `${SITE_URL}${obj.attributes.path}`;
+    obj.attributes.markdown = item.attributes.body;
+    obj.attributes.type = "resource";
+    if (item.attributes.searchMeta) {
+      obj.attributes.searchMeta = "resource " + item.attributes.searchMeta;
+    } else {
+      obj.attributes.searchMeta = "resource  ";
     }
 
-    console.log(`\n✓ Processed ${resources.length} resources`);
+    return obj;
+  });
+
+  let resources = _.orderBy(_resources, ["publishedAt"], ["desc"]);
+
+  // Write resource files with error handling
+  await safeWriteFile(`./assets/json/resources.json`, resources, jsonfile);
+  await safeWriteFile(`./public/resources.json`, resources, jsonfile);
+  await safeWriteFile(`./src/resources.json`, resources, jsonfile);
+
+  const resourceRoutes = resources.map((item) => {
+    return `/resources/${item.attributes.slug}`;
+  });
+
+  await safeWriteFile(
+    `./public/routesResources.json`,
+    resourceRoutes,
+    jsonfile,
+  );
+
+  // Generate markdown files
+  const section = "resources";
+  const directoryPath = path.join(contentDir, section);
+  ensureDirectory(directoryPath, fs);
+
+  for (const item of resources) {
+    const basename = item.attributes.slug;
+    const fileName = `${section}/${basename}.md`;
+    const filePath = path.join(contentDir, fileName);
+
+    const content = formatMarkdown(item.attributes);
+    safeWriteFileSync(filePath, content, fs);
+  }
+
+  console.log(`\n✓ Processed ${resources.length} resources`);
 }
 
 // Run the script with error handling wrapper

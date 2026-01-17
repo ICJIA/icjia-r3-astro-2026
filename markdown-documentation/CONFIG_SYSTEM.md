@@ -10,12 +10,14 @@ The ICJIA R3 Nuxt application uses a centralized configuration system via the `c
 ## Why This Approach?
 
 ### Before (Environment Variables)
+
 - Configuration values scattered across `.env` files
 - Manual setup required in Netlify dashboard for each environment variable
 - Harder to version control configuration changes
 - Risk of missing or incorrect environment variables in production
 
 ### After (Centralized Config)
+
 - All configuration in one version-controlled file
 - No manual Netlify setup required
 - Easy to update and track configuration changes
@@ -25,6 +27,7 @@ The ICJIA R3 Nuxt application uses a centralized configuration system via the `c
 ## Configuration File Structure
 
 ### Location
+
 ```
 /config.js
 ```
@@ -80,12 +83,10 @@ export default defineNuxtConfig({
       siteBase: config.site.url,
     },
   },
-  
+
   app: {
     head: {
-      script: [
-        { src: config.external.cdn.jquery },
-      ],
+      script: [{ src: config.external.cdn.jquery }],
     },
   },
 });
@@ -95,7 +96,7 @@ export default defineNuxtConfig({
 
 ```javascript
 // app.config.js
-import config from './config.js';
+import config from "./config.js";
 
 export default defineAppConfig({
   title: config.site.name,
@@ -131,55 +132,64 @@ axios.create({ baseURL: config.api.researchHub });
 The config file also exports a helper function to get values using dot notation:
 
 ```javascript
-import { getConfig } from './config.js';
+import { getConfig } from "./config.js";
 
-const apiBase = getConfig('api.base');
-const email = getConfig('email.r3Nofo');
+const apiBase = getConfig("api.base");
+const email = getConfig("email.r3Nofo");
 ```
 
 ## Configuration Sections
 
 ### 1. Site Configuration
+
 - Production URL
 - Site name and description
 - Contact email
 
 ### 2. API Endpoints
+
 - Main Strapi CMS API
 - GraphQL endpoints
 - Research Hub API
 - Forms API
 
 ### 3. Email Service
+
 - Mail service API
 - R3 NOFO email endpoint
 - Test endpoints
 
 ### 4. Analytics & Monitoring
+
 - Plausible Analytics
 - Site Improve ID
 
 ### 5. External Services
+
 - AmplifFund opportunities
 - CDN URLs (jQuery, DataTables, Mark.js)
 - ICJIA organization links
 - Social media links
 
 ### 6. Build & Development
+
 - Dev server port
 - Node version requirement
 - Yarn version
 
 ### 7. Content Generation
+
 - API timeout settings
 - Retry configuration
 - Delay settings
 
 ### 8. Security
+
 - CORS origins
 - Content Security Policy directives
 
 ### 9. Feature Flags
+
 - Devtools enabled/disabled
 - Translation feature
 - Site construction status
@@ -198,39 +208,49 @@ const email = getConfig('email.r3Nofo');
 8. **`creators/createHubImages.mjs`** - Uses `config` for API URLs
 
 ### Removed Files
+
 - No longer need `.env` file (though `.env.example` can remain for documentation)
 
 ## Benefits
 
 ### 1. **Version Control**
+
 All configuration is tracked in Git, making it easy to see when and why values changed.
 
 ### 2. **No Manual Setup**
+
 Deploy to Netlify without manually entering environment variables in the dashboard.
 
 ### 3. **Type Safety**
+
 JSDoc comments provide IDE autocomplete and type checking.
 
 ### 4. **Single Source of Truth**
+
 One file to update when configuration changes are needed.
 
 ### 5. **Easy Testing**
+
 Can easily create test configurations by modifying the config object.
 
 ### 6. **Documentation**
+
 Built-in documentation via JSDoc comments explains each configuration value.
 
 ## Important Notes
 
 ### ⚠️ No Secrets in Config
+
 The `config.js` file is committed to version control and deployed with the application. **Never store sensitive secrets** like API keys, passwords, or tokens in this file.
 
 For sensitive values:
+
 - Use server-side only environment variables
 - Use Netlify's build environment variables (not accessible to client)
 - Use encrypted secrets management
 
 ### ✅ Good for Config
+
 - Public API endpoints
 - Site URLs
 - External service URLs
@@ -239,6 +259,7 @@ For sensitive values:
 - Timeouts and retry settings
 
 ### ❌ Bad for Config
+
 - API keys
 - Database passwords
 - Authentication tokens
@@ -248,12 +269,14 @@ For sensitive values:
 ## Updating Configuration
 
 ### For Development Changes
+
 1. Edit `/config.js`
 2. Update relevant values
 3. Test locally
 4. Commit changes to Git
 
 ### For Production Changes
+
 1. Edit `/config.js`
 2. Update production values
 3. Test in development/staging
@@ -263,6 +286,7 @@ For sensitive values:
 ## Backwards Compatibility
 
 ### Environment Variables Still Work
+
 If you need to override configuration values with environment variables (for testing or special deployments), you can still use them:
 
 ```javascript
@@ -274,6 +298,7 @@ However, this is not recommended for standard deployments.
 ## Future Enhancements
 
 ### Possible Improvements
+
 1. **Environment-Specific Configs**: Create `config.dev.js`, `config.prod.js`
 2. **Config Validation**: Add runtime validation for required config values
 3. **TypeScript**: Convert to TypeScript for stronger type safety
@@ -283,16 +308,19 @@ However, this is not recommended for standard deployments.
 ## Troubleshooting
 
 ### Config Not Loading
+
 - Ensure `config.js` is at the project root
 - Check import/require syntax matches module type (ES modules vs CommonJS)
 - Verify file permissions
 
 ### Values Not Updating
+
 - Clear `.nuxt` and `.output` directories
 - Restart dev server
 - Rebuild for production
 
 ### Type Errors
+
 - Check JSDoc comments are correct
 - Ensure you're accessing nested values correctly
 - Use `getConfig()` helper for safe access

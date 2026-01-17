@@ -28,7 +28,7 @@ const PATHS = {
     "public",
     "docs",
     "accessibility",
-    "index.html"
+    "index.html",
   ),
 };
 
@@ -48,15 +48,15 @@ function main() {
   // checkout (or CI) never serves a 404 if they were removed accidentally.
   writeIfMissing(
     PATHS.docsIndex,
-    `<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Documentation Portal</title></head><body><p>Missing portal file. Please restore <code>public/docs/index.html</code>.</p></body></html>\n`
+    `<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Documentation Portal</title></head><body><p>Missing portal file. Please restore <code>public/docs/index.html</code>.</p></body></html>\n`,
   );
   writeIfMissing(
     PATHS.a11yIndex,
-    `<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Accessibility Audit</title></head><body><p>Placeholder. Start the dev server and run <code>yarn audit:a11y</code>.</p><p><a href="/docs/index.html">Back</a></p></body></html>\n`
+    `<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Accessibility Audit</title></head><body><p>Placeholder. Start the dev server and run <code>yarn audit:a11y</code>.</p><p><a href="/docs/index.html">Back</a></p></body></html>\n`,
   );
 
   console.log(
-    "✅ Accessibility documentation placeholders ensured under /public/docs"
+    "✅ Accessibility documentation placeholders ensured under /public/docs",
   );
 }
 

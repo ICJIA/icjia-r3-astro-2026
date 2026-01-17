@@ -34,7 +34,7 @@
   a.fn.addAriaLabel = function (text) {
     $(this).attr(
       "aria-label",
-      "Click this to toggle between showing and hiding news article"
+      "Click this to toggle between showing and hiding news article",
     );
   };
 })(window.jQuery);

@@ -141,9 +141,9 @@
                     v-if="article.source === 'hub'"
                   >
                     <template #placeholder>
-                      <v-row 
-                        class="fill-height ma-0" 
-                        align="center" 
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
                         justify="center"
                         role="status"
                         aria-live="polite"
@@ -301,7 +301,7 @@ const getPublicationType = function (type) {
 
 // import hubArticles from "~/assets/json/hub.json";
 const { pending, data: hubArticles } = await useFetch(
-  "/api/dataAndPublications"
+  "/api/dataAndPublications",
 );
 let entityTags = useState("tags");
 let isMounted = ref(false);
@@ -312,7 +312,7 @@ const tagFilter = route.query.tag;
 const tagIndex = route.query.tagIndex;
 if (tagFilter && tagFilter.length > 0) {
   filteredArticles = articles.value.filter(
-    (article) => article.tags.includes(tagFilter) === true
+    (article) => article.tags.includes(tagFilter) === true,
   );
 } else {
   filteredArticles = articles;
@@ -360,7 +360,7 @@ watch(selectedTag, (newSelectedTag) => {
     } else {
       filteredArticles = articles.value.filter(
         (article) =>
-          article.tags.includes(convertIndexToTag(newSelectedTag)) === true
+          article.tags.includes(convertIndexToTag(newSelectedTag)) === true,
       );
     }
 

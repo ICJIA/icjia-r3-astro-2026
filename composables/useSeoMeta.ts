@@ -1,6 +1,6 @@
 /**
  * @fileoverview SEO Meta composable for managing dynamic SEO metadata across the R3 application.
- * 
+ *
  * This composable provides a centralized way to manage SEO metadata including:
  * - Page titles with dynamic templates
  * - Meta descriptions
@@ -8,7 +8,7 @@
  * - Twitter Card tags
  * - Canonical URLs
  * - Robots directives
- * 
+ *
  * @since 1.0.0
  * @example
  * ```typescript
@@ -26,87 +26,87 @@
  */
 export interface PageSeoConfig {
   /** Page title (will be formatted with site name) */
-  title?: string
+  title?: string;
   /** Meta description for search engines */
-  description?: string
+  description?: string;
   /** Current page path for canonical URL */
-  path?: string
+  path?: string;
   /** Open Graph image URL (defaults to site logo) */
-  image?: string
+  image?: string;
   /** Open Graph type (defaults to 'website') */
-  type?: 'website' | 'article'
+  type?: "website" | "article";
   /** Article-specific metadata */
   article?: {
-    publishedTime?: string
-    modifiedTime?: string
-    author?: string
-    section?: string
-    tags?: string[]
-  }
+    publishedTime?: string;
+    modifiedTime?: string;
+    author?: string;
+    section?: string;
+    tags?: string[];
+  };
   /** Whether to index this page (defaults to true) */
-  index?: boolean
+  index?: boolean;
   /** Additional keywords for meta tags */
-  keywords?: string[]
+  keywords?: string[];
 }
 
 /**
  * Composable for setting comprehensive page SEO metadata
- * 
+ *
  * @param config - SEO configuration for the page
  */
 export function usePageSeo(config: PageSeoConfig) {
-  const appConfig = useAppConfig()
-  const route = useRoute()
-  
+  const appConfig = useAppConfig();
+  const route = useRoute();
+
   // Build the full URL for canonical and og:url
-  const baseUrl = appConfig.root || 'https://r3.illinois.gov'
-  const fullPath = config.path || route.path
-  const canonicalUrl = `${baseUrl}${fullPath}`
-  
+  const baseUrl = appConfig.root || "https://r3.illinois.gov";
+  const fullPath = config.path || route.path;
+  const canonicalUrl = `${baseUrl}${fullPath}`;
+
   // Default values
-  const defaultImage = `${baseUrl}/icjia-logo.png`
-  const siteTitle = 'R3 | Restore. Reinvest. Renew.'
-  const defaultDescription = appConfig.description || 'The R3 program invests in communities most affected by systemic racism and disinvestment.'
-  
+  const defaultImage = `${baseUrl}/icjia-logo.png`;
+  const siteTitle = "R3 | Restore. Reinvest. Renew.";
+  const defaultDescription =
+    appConfig.description ||
+    "The R3 program invests in communities most affected by systemic racism and disinvestment.";
+
   // Format title with site name
-  const pageTitle = config.title 
-    ? `${config.title} | ${siteTitle}`
-    : siteTitle
-  
-  const description = config.description || defaultDescription
-  const image = config.image || defaultImage
-  const type = config.type || 'website'
-  const shouldIndex = config.index !== false
-  
+  const pageTitle = config.title ? `${config.title} | ${siteTitle}` : siteTitle;
+
+  const description = config.description || defaultDescription;
+  const image = config.image || defaultImage;
+  const type = config.type || "website";
+  const shouldIndex = config.index !== false;
+
   // Use Nuxt's useSeoMeta for type-safe meta tags
   useSeoMeta({
     title: pageTitle,
     description: description,
-    
+
     // Open Graph tags
     ogTitle: config.title || siteTitle,
     ogDescription: description,
     ogImage: image,
-    ogImageWidth: '1200',
-    ogImageHeight: '630',
+    ogImageWidth: "1200",
+    ogImageHeight: "630",
     ogUrl: canonicalUrl,
     ogType: type,
-    ogSiteName: 'R3 Illinois',
-    ogLocale: 'en_US',
-    
+    ogSiteName: "R3 Illinois",
+    ogLocale: "en_US",
+
     // Twitter Card tags
-    twitterCard: 'summary_large_image',
+    twitterCard: "summary_large_image",
     twitterTitle: config.title || siteTitle,
     twitterDescription: description,
     twitterImage: image,
-    twitterSite: '@ICJIAIllinois',
-    
+    twitterSite: "@ICJIAIllinois",
+
     // Additional SEO tags
-    robots: shouldIndex 
-      ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
-      : 'noindex, nofollow',
-    googlebot: shouldIndex ? 'index, follow' : 'noindex, nofollow',
-    
+    robots: shouldIndex
+      ? "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      : "noindex, nofollow",
+    googlebot: shouldIndex ? "index, follow" : "noindex, nofollow",
+
     // Article-specific tags (if applicable)
     ...(config.article && {
       articlePublishedTime: config.article.publishedTime,
@@ -115,23 +115,25 @@ export function usePageSeo(config: PageSeoConfig) {
       articleSection: config.article.section,
       articleTag: config.article.tags,
     }),
-  })
-  
+  });
+
   // Use useHead for canonical URL and other head tags
   useHead({
     link: [
       {
-        rel: 'canonical',
+        rel: "canonical",
         href: canonicalUrl,
       },
     ],
-    meta: config.keywords ? [
-      {
-        name: 'keywords',
-        content: config.keywords.join(', '),
-      },
-    ] : [],
-  })
+    meta: config.keywords
+      ? [
+          {
+            name: "keywords",
+            content: config.keywords.join(", "),
+          },
+        ]
+      : [],
+  });
 }
 
 /**
@@ -139,191 +141,196 @@ export function usePageSeo(config: PageSeoConfig) {
  * Should be called in app.vue or layout
  */
 export function useSiteSeo() {
-  const appConfig = useAppConfig()
-  const baseUrl = appConfig.root || 'https://r3.illinois.gov'
-  
+  const appConfig = useAppConfig();
+  const baseUrl = appConfig.root || "https://r3.illinois.gov";
+
   useSeoMeta({
-    ogSiteName: 'R3 Illinois',
-    ogLocale: 'en_US',
-    twitterSite: '@ICJIAIllinois',
-    applicationName: 'R3 - Restore, Reinvest, Renew',
-    
+    ogSiteName: "R3 Illinois",
+    ogLocale: "en_US",
+    twitterSite: "@ICJIAIllinois",
+    applicationName: "R3 - Restore, Reinvest, Renew",
+
     // Verification tags (if needed)
     // googleSiteVerification: 'your-verification-code',
-  })
-  
+  });
+
   useHead({
     titleTemplate: (titleChunk) => {
-      return titleChunk ? `${titleChunk}` : 'R3 | Restore. Reinvest. Renew.'
+      return titleChunk ? `${titleChunk}` : "R3 | Restore. Reinvest. Renew.";
     },
     htmlAttrs: {
-      lang: 'en',
-      prefix: 'og: https://ogp.me/ns#',
+      lang: "en",
+      prefix: "og: https://ogp.me/ns#",
     },
     link: [
       {
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon.ico',
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico",
       },
       // Preconnect to external domains for performance
       {
-        rel: 'preconnect',
-        href: 'https://fonts.googleapis.com',
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
       },
       {
-        rel: 'preconnect',
-        href: 'https://fonts.gstatic.com',
-        crossorigin: 'anonymous',
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossorigin: "anonymous",
       },
       {
-        rel: 'dns-prefetch',
-        href: 'https://r3.icjia-api.cloud',
+        rel: "dns-prefetch",
+        href: "https://r3.icjia-api.cloud",
       },
     ],
-  })
+  });
 }
 
 /**
  * Helper to generate article schema for news/blog posts
  */
 export function useArticleSchema(config: {
-  headline: string
-  description: string
-  image: string
-  datePublished: string
-  dateModified?: string
-  author: string
+  headline: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  dateModified?: string;
+  author: string;
 }) {
-  const appConfig = useAppConfig()
-  const route = useRoute()
-  const baseUrl = appConfig.root || 'https://r3.illinois.gov'
-  
+  const appConfig = useAppConfig();
+  const route = useRoute();
+  const baseUrl = appConfig.root || "https://r3.illinois.gov";
+
   const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+    "@context": "https://schema.org",
+    "@type": "Article",
     headline: config.headline,
     description: config.description,
     image: config.image,
     datePublished: config.datePublished,
     dateModified: config.dateModified || config.datePublished,
     author: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: config.author,
       url: baseUrl,
     },
     publisher: {
-      '@type': 'Organization',
-      name: 'Illinois Criminal Justice Information Authority',
+      "@type": "Organization",
+      name: "Illinois Criminal Justice Information Authority",
       logo: {
-        '@type': 'ImageObject',
+        "@type": "ImageObject",
         url: `${baseUrl}/icjia-logo.png`,
       },
     },
     mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `${baseUrl}${route.path}`,
+      "@type": "WebPage",
+      "@id": `${baseUrl}${route.path}`,
     },
-  }
-  
+  };
+
   useHead({
     script: [
       {
-        type: 'application/ld+json',
+        type: "application/ld+json",
         innerHTML: JSON.stringify(schema),
       },
     ],
-  })
+  });
 }
 
 /**
  * Helper to generate organization schema
  */
 export function useOrganizationSchema() {
-  const appConfig = useAppConfig()
-  const baseUrl = appConfig.root || 'https://r3.illinois.gov'
-  
+  const appConfig = useAppConfig();
+  const baseUrl = appConfig.root || "https://r3.illinois.gov";
+
   const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'GovernmentOrganization',
-    name: 'Illinois Criminal Justice Information Authority - R3 Program',
-    alternateName: 'R3 Program',
+    "@context": "https://schema.org",
+    "@type": "GovernmentOrganization",
+    name: "Illinois Criminal Justice Information Authority - R3 Program",
+    alternateName: "R3 Program",
     url: baseUrl,
     logo: `${baseUrl}/icjia-logo.png`,
-    description: 'The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment.',
+    description:
+      "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment.",
     address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'US',
-      addressRegion: 'IL',
-      addressLocality: 'Chicago',
+      "@type": "PostalAddress",
+      addressCountry: "US",
+      addressRegion: "IL",
+      addressLocality: "Chicago",
     },
     sameAs: [
-      'https://twitter.com/ICJIAIllinois',
-      'https://www.facebook.com/ICJIA',
+      "https://twitter.com/ICJIAIllinois",
+      "https://www.facebook.com/ICJIA",
     ],
-  }
-  
+  };
+
   useHead({
     script: [
       {
-        type: 'application/ld+json',
+        type: "application/ld+json",
         innerHTML: JSON.stringify(schema),
       },
     ],
-  })
+  });
 }
 
 /**
  * Helper to generate breadcrumb schema
  */
-export function useBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
-  const appConfig = useAppConfig()
-  const baseUrl = appConfig.root || 'https://r3.illinois.gov'
-  
+export function useBreadcrumbSchema(
+  items: Array<{ name: string; url: string }>,
+) {
+  const appConfig = useAppConfig();
+  const baseUrl = appConfig.root || "https://r3.illinois.gov";
+
   const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
     itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: item.url.startsWith('http') ? item.url : `${baseUrl}${item.url}`,
+      item: item.url.startsWith("http") ? item.url : `${baseUrl}${item.url}`,
     })),
-  }
-  
+  };
+
   useHead({
     script: [
       {
-        type: 'application/ld+json',
+        type: "application/ld+json",
         innerHTML: JSON.stringify(schema),
       },
     ],
-  })
+  });
 }
 
 /**
  * Helper to generate FAQ schema
  */
-export function useFaqSchema(faqs: Array<{ question: string; answer: string }>) {
+export function useFaqSchema(
+  faqs: Array<{ question: string; answer: string }>,
+) {
   const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
+      "@type": "Question",
       name: faq.question,
       acceptedAnswer: {
-        '@type': 'Answer',
+        "@type": "Answer",
         text: faq.answer,
       },
     })),
-  }
-  
+  };
+
   useHead({
     script: [
       {
-        type: 'application/ld+json',
+        type: "application/ld+json",
         innerHTML: JSON.stringify(schema),
       },
     ],
-  })
+  });
 }

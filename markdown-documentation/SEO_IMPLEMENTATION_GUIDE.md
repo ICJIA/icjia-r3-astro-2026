@@ -12,6 +12,7 @@ This document describes the comprehensive SEO implementation for the R3 (Restore
 **Lighthouse SEO Score:** 100/100 ✅
 
 The application maintains perfect SEO scores with the following features:
+
 - ✅ All pages have proper meta descriptions
 - ✅ Document has valid `<title>` element
 - ✅ Document has a meta description
@@ -35,6 +36,7 @@ This composable provides comprehensive SEO meta tag management with type safety.
 ##### `usePageSeo(config: PageSeoConfig)`
 
 Sets page-specific SEO metadata including:
+
 - Page titles with dynamic templates
 - Meta descriptions
 - Open Graph tags (Facebook, LinkedIn)
@@ -48,11 +50,11 @@ Sets page-specific SEO metadata including:
 ```typescript
 // In any page component
 usePageSeo({
-  title: 'About R3 Program',
-  description: 'Learn about the Restore, Reinvest, and Renew program',
-  path: '/about',
-  keywords: ['R3', 'Illinois grants', 'criminal justice reform'],
-})
+  title: "About R3 Program",
+  description: "Learn about the Restore, Reinvest, and Renew program",
+  path: "/about",
+  keywords: ["R3", "Illinois grants", "criminal justice reform"],
+});
 ```
 
 ##### `useSiteSeo()`
@@ -60,6 +62,7 @@ usePageSeo({
 Sets site-wide default SEO metadata. Called once in `app.vue`.
 
 **Features:**
+
 - Title template for consistent branding
 - Default Open Graph and Twitter tags
 - HTML lang attribute
@@ -74,26 +77,29 @@ Provides structured data (JSON-LD) composables for rich search results.
 #### Available Schemas:
 
 ##### `useWebsiteSchema()`
+
 - **Type:** WebSite + SearchAction
 - **Use Case:** Homepage
 - **Features:** Includes site-wide search functionality
 
 ```typescript
 // In pages/index.vue
-useWebsiteSchema()
+useWebsiteSchema();
 ```
 
 ##### `useGovernmentOrganizationSchema()`
+
 - **Type:** GovernmentOrganization
 - **Use Case:** Site-wide in app.vue or About page
 - **Features:** Organization details, contact info, social profiles
 
 ```typescript
 // In app.vue
-useGovernmentOrganizationSchema()
+useGovernmentOrganizationSchema();
 ```
 
 ##### `useNewsArticleSchema(config)`
+
 - **Type:** NewsArticle
 - **Use Case:** News/blog posts
 - **Features:** Article metadata, author, publisher, dates
@@ -105,10 +111,11 @@ useNewsArticleSchema({
   description: article.summary,
   datePublished: article.publishedAt,
   dateModified: article.updatedAt,
-})
+});
 ```
 
 ##### `useWebPageSchema(config)`
+
 - **Type:** WebPage
 - **Use Case:** Standard content pages
 - **Features:** Page metadata, publication dates
@@ -116,12 +123,13 @@ useNewsArticleSchema({
 ```typescript
 // In content pages
 useWebPageSchema({
-  name: 'Page Title',
-  description: 'Page description',
-})
+  name: "Page Title",
+  description: "Page description",
+});
 ```
 
 ##### `useFaqPageSchema(faqs)`
+
 - **Type:** FAQPage
 - **Use Case:** FAQ pages
 - **Features:** Question/answer pairs for rich snippets
@@ -130,13 +138,14 @@ useWebPageSchema({
 // In FAQ pages
 useFaqPageSchema([
   {
-    question: 'What is R3?',
-    answer: 'R3 stands for Restore, Reinvest, Renew...'
-  }
-])
+    question: "What is R3?",
+    answer: "R3 stands for Restore, Reinvest, Renew...",
+  },
+]);
 ```
 
 ##### `useBreadcrumbListSchema(items)`
+
 - **Type:** BreadcrumbList
 - **Use Case:** Pages with breadcrumb navigation
 - **Features:** Hierarchical page structure
@@ -144,20 +153,21 @@ useFaqPageSchema([
 ```typescript
 // In any page with breadcrumbs
 useBreadcrumbListSchema([
-  { name: 'Home', url: '/' },
-  { name: 'News', url: '/news' },
-  { name: 'Article Title', url: '/news/article' }
-])
+  { name: "Home", url: "/" },
+  { name: "News", url: "/news" },
+  { name: "Article Title", url: "/news/article" },
+]);
 ```
 
 ##### `useContactPageSchema()`
+
 - **Type:** ContactPage
 - **Use Case:** Contact page
 - **Features:** Contact page identification
 
 ```typescript
 // In pages/contact.vue
-useContactPageSchema()
+useContactPageSchema();
 ```
 
 ## Implementation by Page Type
@@ -167,20 +177,21 @@ useContactPageSchema()
 ```typescript
 // SEO Configuration
 usePageSeo({
-  title: 'Restore. Reinvest. Renew.',
-  description: 'The R3 program invests in communities...',
-  path: '/',
-  keywords: ['R3', 'Restore Reinvest Renew', 'Illinois grants'],
-})
+  title: "Restore. Reinvest. Renew.",
+  description: "The R3 program invests in communities...",
+  path: "/",
+  keywords: ["R3", "Restore Reinvest Renew", "Illinois grants"],
+});
 
 // Structured Data
-useWebsiteSchema() // With search functionality
-useBreadcrumbListSchema([{ name: 'Home', url: '/' }])
+useWebsiteSchema(); // With search functionality
+useBreadcrumbListSchema([{ name: "Home", url: "/" }]);
 ```
 
 ### Dynamic Content Pages (`pages/[...slug].vue`)
 
 The catch-all route automatically:
+
 - Sets page-specific SEO based on content data
 - Adds appropriate structured data (WebPage or NewsArticle)
 - Generates breadcrumb navigation
@@ -190,36 +201,37 @@ The catch-all route automatically:
 
 ```typescript
 usePageSeo({
-  title: 'Frequently Asked Questions',
-  description: 'Find answers to FAQs about R3...',
-  path: '/faqs',
-  keywords: ['R3 FAQs', 'frequently asked questions'],
-})
+  title: "Frequently Asked Questions",
+  description: "Find answers to FAQs about R3...",
+  path: "/faqs",
+  keywords: ["R3 FAQs", "frequently asked questions"],
+});
 
 useWebPageSchema({
-  name: 'R3 Frequently Asked Questions',
-  description: 'Find answers to common questions',
-})
+  name: "R3 Frequently Asked Questions",
+  description: "Find answers to common questions",
+});
 
 useBreadcrumbListSchema([
-  { name: 'Home', url: '/' },
-  { name: 'FAQs', url: '/faqs' }
-])
+  { name: "Home", url: "/" },
+  { name: "FAQs", url: "/faqs" },
+]);
 ```
 
 ### App-wide Configuration (`app.vue`)
 
 ```typescript
 // Called once for site-wide defaults
-useSiteSeo()
+useSiteSeo();
 
 // Organization schema for brand recognition
-useGovernmentOrganizationSchema()
+useGovernmentOrganizationSchema();
 ```
 
 ## Meta Tags Generated
 
 ### Standard Meta Tags
+
 - `<title>` - Dynamic page titles
 - `<meta name="description">` - Page descriptions
 - `<meta name="keywords">` - Relevant keywords
@@ -227,6 +239,7 @@ useGovernmentOrganizationSchema()
 - `<link rel="canonical">` - Canonical URLs
 
 ### Open Graph (OG) Tags
+
 - `og:title` - Social media title
 - `og:description` - Social media description
 - `og:image` - Social media image (1200x630)
@@ -236,6 +249,7 @@ useGovernmentOrganizationSchema()
 - `og:locale` - Language/region
 
 ### Twitter Card Tags
+
 - `twitter:card` - Card type (summary_large_image)
 - `twitter:title` - Twitter title
 - `twitter:description` - Twitter description
@@ -243,6 +257,7 @@ useGovernmentOrganizationSchema()
 - `twitter:site` - Twitter handle (@ICJIAIllinois)
 
 ### Article-Specific Tags (News Posts)
+
 - `article:published_time`
 - `article:modified_time`
 - `article:author`
@@ -262,35 +277,41 @@ useGovernmentOrganizationSchema()
 ## SEO Best Practices Followed
 
 ### 1. **Title Optimization**
+
 - Unique titles for each page
 - Consistent branding with site name
 - 50-60 characters optimal length
 - Primary keywords near the beginning
 
 ### 2. **Meta Descriptions**
+
 - Unique descriptions for each page
 - 150-160 characters optimal length
 - Compelling and actionable
 - Includes primary keywords naturally
 
 ### 3. **URL Structure**
+
 - Clean, readable URLs
 - Canonical URLs prevent duplicate content
 - Trailing slash normalization
 
 ### 4. **Structured Data**
+
 - Valid Schema.org JSON-LD format
 - Rich snippets for better SERP appearance
 - Breadcrumbs for site structure
 - Article metadata for news content
 
 ### 5. **Social Media Optimization**
+
 - Open Graph tags for Facebook, LinkedIn
 - Twitter Card tags for Twitter
 - Optimized image sizes (1200x630)
 - Proper content type declarations
 
 ### 6. **Technical SEO**
+
 - HTML lang attribute set to "en"
 - Robots directives properly configured
 - No duplicate content issues
@@ -302,6 +323,7 @@ useGovernmentOrganizationSchema()
 ### `nuxt.config.js`
 
 Already configured with:
+
 - `titleTemplate` in app.head
 - HTML lang attribute
 - Viewport meta tag
@@ -312,6 +334,7 @@ Already configured with:
 ### `app.config.js`
 
 Contains site-level configuration:
+
 - `root`: Base URL (https://r3.illinois.gov)
 - `title`: Site title
 - `description`: Default description
@@ -321,19 +344,23 @@ Contains site-level configuration:
 ### Tools for Testing SEO
 
 1. **Lighthouse** (Built-in)
+
    ```bash
    # Already achieving 100/100 SEO score
    ```
 
 2. **Google Rich Results Test**
+
    - URL: https://search.google.com/test/rich-results
    - Test structured data validity
 
 3. **Facebook Sharing Debugger**
+
    - URL: https://developers.facebook.com/tools/debug/
    - Test Open Graph tags
 
 4. **Twitter Card Validator**
+
    - URL: https://cards-dev.twitter.com/validator
    - Test Twitter Card tags
 
@@ -357,22 +384,27 @@ Contains site-level configuration:
 ### Potential Improvements
 
 1. **Multi-language Support**
+
    - Add hreflang tags for Spanish version
    - Implement language alternates
 
 2. **Video Schema**
+
    - Add VideoObject schema for video content
    - Enhanced video rich snippets
 
 3. **Event Schema**
+
    - Add Event schema for meetings/events
    - Calendar integration
 
 4. **Review Schema**
+
    - Add aggregate ratings if applicable
    - User testimonials structured data
 
 5. **Local Business Schema**
+
    - Add LocalBusiness schema if physical location
    - Opening hours, contact details
 
@@ -409,12 +441,14 @@ Contains site-level configuration:
 ## Resources
 
 ### Documentation
+
 - [Nuxt SEO Documentation](https://nuxt.com/docs/getting-started/seo-meta)
 - [Schema.org Documentation](https://schema.org/)
 - [Google Search Central](https://developers.google.com/search)
 - [Open Graph Protocol](https://ogp.me/)
 
 ### Related Files
+
 - `/composables/useSeoMeta.ts` - SEO meta tag composable
 - `/composables/useStructuredData.ts` - Structured data composable
 - `/app.vue` - Site-wide SEO configuration
@@ -424,6 +458,7 @@ Contains site-level configuration:
 ## Support
 
 For questions or issues related to SEO implementation:
+
 - Review this documentation
 - Check Nuxt SEO docs
 - Validate with Google tools

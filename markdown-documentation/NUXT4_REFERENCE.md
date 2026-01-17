@@ -11,6 +11,7 @@
 This document consolidates all Nuxt 4 migration information for the ICJIA R3 application. The project successfully migrated to Nuxt 4 and is now fully operational. This document serves as a historical reference and guide for future upgrades.
 
 **Current Status:**
+
 - ✅ Nuxt 4.0.0+ (as of package.json)
 - ✅ Directory structure configured for Nuxt 4
 - ✅ All imports updated to use `~` alias
@@ -60,7 +61,7 @@ export default defineNuxtConfig({
     server: "server",
   },
   // ... rest of config
-})
+});
 ```
 
 **Purpose:** Explicitly tells Nuxt 4 where to find each type of file, following Nuxt 4 conventions while using root-level directories.
@@ -84,6 +85,7 @@ icjia-r3-v5-nuxt/
 ```
 
 **Key Points:**
+
 - Only `app/router.options.ts` needs to be in the `app/` directory
 - `app.vue` can be in root or `app/` directory (we keep it in root)
 - All other directories are explicitly configured to be at root level
@@ -113,6 +115,7 @@ icjia-r3-v5-nuxt/
 ### 1. `nuxt.config.js` - Directory Configuration
 
 **Added:**
+
 ```javascript
 dir: {
   pages: "pages",
@@ -131,11 +134,13 @@ dir: {
 ### 2. `middleware/isValidContent.js` - Import Update
 
 **Before:**
+
 ```javascript
 import appRoutes from "assets/json/appRoutes.json";
 ```
 
 **After:**
+
 ```javascript
 import appRoutes from "~/assets/json/appRoutes.json";
 ```
@@ -145,6 +150,7 @@ import appRoutes from "~/assets/json/appRoutes.json";
 ### 3. `jsdoc-vue.config.json` - Path Support
 
 **Updated:**
+
 ```json
 {
   "include": [
@@ -168,6 +174,7 @@ import appRoutes from "~/assets/json/appRoutes.json";
 ### 4. Verification
 
 All core functionality verified:
+
 - ✅ `yarn dev` - Development server works
 - ✅ `yarn generate` - Static generation works
 - ✅ `yarn test` - All tests pass
@@ -213,9 +220,11 @@ All core functionality verified:
 ### Directory Structure (Optional)
 
 **Nuxt 3:**
+
 - All directories at root level by default
 
 **Nuxt 4:**
+
 - Can optionally use `app/` directory for better organization
 - Root-level directories still fully supported with explicit configuration
 - We chose to keep root-level with explicit `dir` configuration
@@ -223,20 +232,24 @@ All core functionality verified:
 ### Import Paths
 
 **Nuxt 3:**
+
 - Mix of relative and aliased imports
 
 **Nuxt 4:**
+
 - Prefer `~` alias for all imports
 - More consistent import resolution
 
 ### Auto-imports
 
 **Both versions support:**
+
 - Component auto-imports
 - Composable auto-imports
 - Utility auto-imports
 
 **Nuxt 4 improvements:**
+
 - Better TypeScript support
 - Faster import resolution
 - More predictable behavior
@@ -244,6 +257,7 @@ All core functionality verified:
 ### Build Process
 
 **Nuxt 4 improvements:**
+
 - Faster builds with Vite 7+
 - Better tree-shaking
 - Improved HMR performance
@@ -257,6 +271,7 @@ All core functionality verified:
 **Problem:** Module not found errors after upgrade
 
 **Solution:**
+
 1. Ensure all imports use `~` alias
 2. Verify `dir` configuration in `nuxt.config.js`
 3. Clear Nuxt cache: `yarn clear:cache`
@@ -267,6 +282,7 @@ All core functionality verified:
 **Problem:** Build fails after Nuxt 4 upgrade
 
 **Solution:**
+
 1. Check Node version (should be 22.14.0+)
 2. Clear `node_modules` and reinstall: `rm -rf node_modules && yarn install`
 3. Clear Nuxt cache: `yarn clear:cache`
@@ -277,6 +293,7 @@ All core functionality verified:
 **Problem:** TypeScript errors in editor
 
 **Solution:**
+
 1. Generate Nuxt types: `yarn nuxt prepare`
 2. Restart TypeScript server in editor
 3. Check `tsconfig.json` extends `.nuxt/tsconfig.json`
@@ -286,6 +303,7 @@ All core functionality verified:
 **Problem:** `/docs/` returns 404
 
 **Solution:**
+
 1. Ensure placeholders exist: `yarn ensure:docs`
 2. Generate full docs: `yarn docs:all`
 3. Verify `public/docs/` directory exists
@@ -303,11 +321,13 @@ All core functionality verified:
 ## Reference Links
 
 ### Nuxt 4 Documentation
+
 - [Nuxt 4 Announcement](https://nuxt.com/blog/nuxt4)
 - [Migration Guide](https://nuxt.com/docs/getting-started/upgrade)
 - [Directory Structure](https://nuxt.com/docs/guide/directory-structure)
 
 ### Related Project Files
+
 - `/nuxt.config.js` - Main Nuxt configuration
 - `/middleware/isValidContent.js` - Updated import example
 - `/jsdoc-vue.config.json` - TypeDoc configuration
@@ -329,18 +349,21 @@ The ICJIA R3 application was successfully migrated to Nuxt 4 in January 2026. Th
 ### Key Decisions
 
 **Why keep directories at root level?**
+
 - Existing structure works perfectly
 - Less disruptive to the project
 - Easier for developers familiar with the codebase
 - Fully supported by Nuxt 4 with explicit configuration
 
 **Why use explicit `dir` configuration?**
+
 - Makes structure clear and intentional
 - Documents our directory choices
 - Prevents confusion about Nuxt 4 expectations
 - Allows gradual migration if needed in future
 
 **Why update to `~` alias?**
+
 - More consistent with Nuxt 4 conventions
 - Better TypeScript/IDE support
 - Clearer import resolution
@@ -355,11 +378,13 @@ The ICJIA R3 application was successfully migrated to Nuxt 4 in January 2026. Th
 If the project grows significantly, consider:
 
 1. **Moving to `app/` directory structure**
+
    - Better organization for large projects
    - Clearer separation of app code vs. build config
    - More aligned with Nuxt 4 "default" structure
 
 2. **TypeScript migration**
+
    - Better type safety
    - Improved developer experience
    - Better IDE support
@@ -391,7 +416,7 @@ The ICJIA R3 application is successfully running on Nuxt 4 with a pragmatic dire
 ✅ Maintains familiar structure for developers  
 ✅ Uses explicit configuration for clarity  
 ✅ Follows Nuxt team recommendations  
-✅ Is ready for future updates  
+✅ Is ready for future updates
 
 This approach proves that Nuxt 4 is flexible and can accommodate different project structures while maintaining full compatibility and modern features.
 

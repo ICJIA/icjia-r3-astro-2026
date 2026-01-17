@@ -51,7 +51,10 @@ function safeRequireJson(filePath) {
       return [];
     }
   } catch (error) {
-    console.warn(`⚠️  Warning: Error reading ${filePath}, using empty array:`, error.message);
+    console.warn(
+      `⚠️  Warning: Error reading ${filePath}, using empty array:`,
+      error.message,
+    );
     return [];
   }
 }
@@ -67,7 +70,7 @@ const renderer = new md({
   langPrefix: "language-",
   linkify: true,
   typographer: true,
-  quotes: """''",
+  quotes: "“”‘’",
 }).use(attrs);
 
 const site = [...faqs];
@@ -95,7 +98,9 @@ const siteMeta = site.map((item) => {
 });
 
 try {
-  jsonfile.writeFileSync(`./assets/json/searchIndexFaqs.json`, searchIndex, { spaces: 2 });
+  jsonfile.writeFileSync(`./assets/json/searchIndexFaqs.json`, searchIndex, {
+    spaces: 2,
+  });
   console.log("✓ searchIndexFaqs.json created in /assets/json/");
 } catch (err) {
   console.error("❌ Failed to write searchIndexFaqs.json:", err);

@@ -30,7 +30,8 @@ describe("useStructuredData Composable", () => {
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: "https://r3.illinois.gov/search?q={search_term_string}",
+            urlTemplate:
+              "https://r3.illinois.gov/search?q={search_term_string}",
           },
         },
       };
@@ -50,7 +51,9 @@ describe("useStructuredData Composable", () => {
       };
 
       expect(schema["@type"]).toBe("GovernmentOrganization");
-      expect(schema.name).toContain("Illinois Criminal Justice Information Authority");
+      expect(schema.name).toContain(
+        "Illinois Criminal Justice Information Authority",
+      );
     });
   });
 

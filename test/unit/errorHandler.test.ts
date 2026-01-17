@@ -44,22 +44,28 @@ describe("Error Handler Utilities", () => {
   describe("validateEnvironment", () => {
     it("should pass when all required environment variables are set", () => {
       process.env.TEST_VAR = "test-value";
-      const { validateEnvironment } = require("../../creators/utils/errorHandler");
+      const {
+        validateEnvironment,
+      } = require("../../creators/utils/errorHandler");
       expect(() => validateEnvironment(["TEST_VAR"])).not.toThrow();
     });
 
     it("should throw error when environment variables are missing", () => {
-      const { validateEnvironment } = require("../../creators/utils/errorHandler");
+      const {
+        validateEnvironment,
+      } = require("../../creators/utils/errorHandler");
       expect(() => validateEnvironment(["MISSING_VAR"])).toThrow(
-        "Missing required environment variables"
+        "Missing required environment variables",
       );
     });
 
     it("should throw error with all missing variable names", () => {
-      const { validateEnvironment } = require("../../creators/utils/errorHandler");
-      expect(() =>
-        validateEnvironment(["VAR1", "VAR2", "VAR3"])
-      ).toThrow("Missing required environment variables: VAR1, VAR2, VAR3");
+      const {
+        validateEnvironment,
+      } = require("../../creators/utils/errorHandler");
+      expect(() => validateEnvironment(["VAR1", "VAR2", "VAR3"])).toThrow(
+        "Missing required environment variables: VAR1, VAR2, VAR3",
+      );
     });
   });
 
@@ -67,7 +73,7 @@ describe("Error Handler Utilities", () => {
     it("should successfully write file when no error occurs", async () => {
       const { safeWriteFile } = require("../../creators/utils/errorHandler");
       await expect(
-        safeWriteFile("/test/path.json", { data: "test" }, mockJsonfile)
+        safeWriteFile("/test/path.json", { data: "test" }, mockJsonfile),
       ).resolves.not.toThrow();
       expect(mockJsonfile.writeFile).toHaveBeenCalled();
     });
@@ -80,21 +86,23 @@ describe("Error Handler Utilities", () => {
       };
       const { safeWriteFile } = require("../../creators/utils/errorHandler");
       await expect(
-        safeWriteFile("/test/path.json", { data: "test" }, errorJsonfile)
+        safeWriteFile("/test/path.json", { data: "test" }, errorJsonfile),
       ).rejects.toThrow("Write failed");
     });
   });
 
   describe("safeWriteFileSync", () => {
     it("should successfully write file synchronously", () => {
-      const { safeWriteFileSync } = require("../../creators/utils/errorHandler");
+      const {
+        safeWriteFileSync,
+      } = require("../../creators/utils/errorHandler");
       expect(() =>
-        safeWriteFileSync("/test/path.txt", "content", mockFs)
+        safeWriteFileSync("/test/path.txt", "content", mockFs),
       ).not.toThrow();
       expect(mockFs.writeFileSync).toHaveBeenCalledWith(
         "/test/path.txt",
         "content",
-        "utf8"
+        "utf8",
       );
     });
 
@@ -104,9 +112,11 @@ describe("Error Handler Utilities", () => {
           throw new Error("Write failed");
         }),
       };
-      const { safeWriteFileSync } = require("../../creators/utils/errorHandler");
+      const {
+        safeWriteFileSync,
+      } = require("../../creators/utils/errorHandler");
       expect(() =>
-        safeWriteFileSync("/test/path.txt", "content", errorFs)
+        safeWriteFileSync("/test/path.txt", "content", errorFs),
       ).toThrow("Write failed");
     });
   });
@@ -139,14 +149,16 @@ describe("Error Handler Utilities", () => {
       };
       const { ensureDirectory } = require("../../creators/utils/errorHandler");
       expect(() => ensureDirectory("/test/dir", errorFs)).toThrow(
-        "Permission denied"
+        "Permission denied",
       );
     });
   });
 
   describe("validateApiResponse", () => {
     it("should return data when response structure is valid", () => {
-      const { validateApiResponse } = require("../../creators/utils/errorHandler");
+      const {
+        validateApiResponse,
+      } = require("../../creators/utils/errorHandler");
       const response = {
         data: {
           pages: {
@@ -159,26 +171,32 @@ describe("Error Handler Utilities", () => {
     });
 
     it("should throw error when response is missing data property", () => {
-      const { validateApiResponse } = require("../../creators/utils/errorHandler");
+      const {
+        validateApiResponse,
+      } = require("../../creators/utils/errorHandler");
       expect(() => validateApiResponse(null, "pages.data")).toThrow(
-        "Invalid API response: missing data property"
+        "Invalid API response: missing data property",
       );
     });
 
     it("should throw error when path segment is missing", () => {
-      const { validateApiResponse } = require("../../creators/utils/errorHandler");
+      const {
+        validateApiResponse,
+      } = require("../../creators/utils/errorHandler");
       const response = {
         data: {
           pages: null,
         },
       };
       expect(() => validateApiResponse(response, "pages.data")).toThrow(
-        "Invalid API response: missing path segment"
+        "Invalid API response: missing path segment",
       );
     });
 
     it("should throw error when data type is incorrect", () => {
-      const { validateApiResponse } = require("../../creators/utils/errorHandler");
+      const {
+        validateApiResponse,
+      } = require("../../creators/utils/errorHandler");
       const response = {
         data: {
           pages: {
@@ -187,7 +205,7 @@ describe("Error Handler Utilities", () => {
         },
       };
       expect(() => validateApiResponse(response, "pages.data")).toThrow(
-        "Invalid API response: expected array or object"
+        "Invalid API response: expected array or object",
       );
     });
   });
@@ -216,7 +234,7 @@ describe("Error Handler Utilities", () => {
       const { withRetry } = require("../../creators/utils/errorHandler");
       const fn = vi.fn().mockRejectedValue(new Error("Network error"));
       await expect(withRetry(fn, { maxRetries: 2 })).rejects.toThrow(
-        "Network error"
+        "Network error",
       );
       expect(fn).toHaveBeenCalledTimes(3); // Initial + 2 retries
     });

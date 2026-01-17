@@ -180,10 +180,20 @@
                 <p>{{ item.summary }}</p>
               </v-card>
               <div class="text-center mt-10">
-                <nuxt-link 
-                  to="/news" 
+                <nuxt-link
+                  to="/news"
                   class="home-link"
-                  style="display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 150px; padding: 12px 24px; color: #0D4474; text-decoration: underline; font-weight: 600;"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-height: 44px;
+                    min-width: 150px;
+                    padding: 12px 24px;
+                    color: #0d4474;
+                    text-decoration: underline;
+                    font-weight: 600;
+                  "
                 >
                   News archive&nbsp;&raquo;
                 </nuxt-link>
@@ -242,19 +252,27 @@ const { data: news } = await useAsyncData(`news-home`, async () => {
 
 // SEO Configuration for Homepage
 usePageSeo({
-  title: 'Restore. Reinvest. Renew.',
-  description: 'The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through economic development, violence prevention, reentry, and civil legal aid services.',
-  path: '/',
-  keywords: ['R3', 'Restore Reinvest Renew', 'Illinois grants', 'community investment', 'criminal justice reform', 'reentry programs', 'violence prevention', 'economic development'],
-})
+  title: "Restore. Reinvest. Renew.",
+  description:
+    "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through economic development, violence prevention, reentry, and civil legal aid services.",
+  path: "/",
+  keywords: [
+    "R3",
+    "Restore Reinvest Renew",
+    "Illinois grants",
+    "community investment",
+    "criminal justice reform",
+    "reentry programs",
+    "violence prevention",
+    "economic development",
+  ],
+});
 
 // Add Website structured data with search functionality
-useWebsiteSchema()
+useWebsiteSchema();
 
 // Add breadcrumb for homepage
-useBreadcrumbListSchema([
-  { name: 'Home', url: '/' }
-])
+useBreadcrumbListSchema([{ name: "Home", url: "/" }]);
 
 /**
  * Sorted and limited news articles for homepage display.
@@ -443,7 +461,7 @@ const handleSplashClick = (externalURL) => {
 /* Links */
 /* AAA Compliant link - 7:1 contrast ratio and 44x44 minimum target size */
 a.home-link {
-  color: #0D4474 !important;
+  color: #0d4474 !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -462,7 +480,7 @@ a.home-link:focus {
 }
 
 a.home-link:focus-visible {
-  outline: 2px solid #0D4474 !important;
+  outline: 2px solid #0d4474 !important;
   outline-offset: 2px !important;
 }
 

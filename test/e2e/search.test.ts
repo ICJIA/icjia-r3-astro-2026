@@ -104,7 +104,7 @@ describe("Search E2E", () => {
       ];
       const query = "eligibility";
       const filtered = faqs.filter((faq) =>
-        faq.question.toLowerCase().includes(query.toLowerCase())
+        faq.question.toLowerCase().includes(query.toLowerCase()),
       );
       expect(filtered.length).toBeGreaterThan(0);
     });
@@ -123,4 +123,3 @@ describe("Search E2E", () => {
     });
   });
 });
-

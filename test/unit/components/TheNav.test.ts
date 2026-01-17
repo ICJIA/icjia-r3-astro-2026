@@ -34,4 +34,3 @@ describe("TheNav Component Logic", () => {
     expect(navToggle2.value).toBe(true);
   });
 });
-

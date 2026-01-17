@@ -5,11 +5,7 @@
         <v-col cols="12">
           <div v-if="data" class="mt-6">
             <h1>{{ data.title }}</h1>
-            <ContentDoc
-              :key="data?.title"
-              :value="data"
-              class="markdown-body"
-            >
+            <ContentDoc :key="data?.title" :value="data" class="markdown-body">
               <template #empty>Document not found</template>
               <template #not-found>Document not found</template>
             </ContentDoc>
@@ -30,7 +26,7 @@
  * from Strapi via the createMarkdownPages.js creator script.
  */
 
-const path = '/faqs';
+const path = "/faqs";
 
 // Fetch the FAQs page content
 const { data } = await useAsyncData(`content-${path}`, async () => {
@@ -40,21 +36,31 @@ const { data } = await useAsyncData(`content-${path}`, async () => {
 
 // SEO Configuration for FAQs page
 usePageSeo({
-  title: data.value?.title || 'Frequently Asked Questions',
-  description: data.value?.summary || 'Find answers to frequently asked questions about the R3 (Restore, Reinvest, Renew) program, including eligibility, funding, application process, and more.',
-  path: '/faqs',
-  keywords: ['R3 FAQs', 'frequently asked questions', 'R3 eligibility', 'grant questions', 'application help'],
-})
+  title: data.value?.title || "Frequently Asked Questions",
+  description:
+    data.value?.summary ||
+    "Find answers to frequently asked questions about the R3 (Restore, Reinvest, Renew) program, including eligibility, funding, application process, and more.",
+  path: "/faqs",
+  keywords: [
+    "R3 FAQs",
+    "frequently asked questions",
+    "R3 eligibility",
+    "grant questions",
+    "application help",
+  ],
+});
 
 // Add WebPage structured data
 useWebPageSchema({
-  name: data.value?.title || 'R3 Frequently Asked Questions',
-  description: data.value?.summary || 'Find answers to common questions about the R3 program',
-})
+  name: data.value?.title || "R3 Frequently Asked Questions",
+  description:
+    data.value?.summary ||
+    "Find answers to common questions about the R3 program",
+});
 
 // Add breadcrumb schema
 useBreadcrumbListSchema([
-  { name: 'Home', url: '/' },
-  { name: 'FAQs', url: '/faqs' }
-])
+  { name: "Home", url: "/" },
+  { name: "FAQs", url: "/faqs" },
+]);
 </script>

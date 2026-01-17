@@ -7,29 +7,13 @@
           <div class="mt-3 mb-3">
             <v-container>
               <v-row>
-                <v-col cols="12" md="4">
+                <v-col cols="12" md="6">
                   <v-btn
                     size="small"
                     variant="text"
                     class="translate-button"
                     @click="googleTranslate('es')"
                     >Spanish</v-btn
-                  >
-                  <br />
-                  <v-btn
-                    size="small"
-                    variant="text"
-                    class="translate-button"
-                    @click="googleTranslate('pt')"
-                    >Portugese</v-btn
-                  >
-                  <br />
-                  <v-btn
-                    size="small"
-                    variant="text"
-                    class="translate-button"
-                    @click="googleTranslate('fr')"
-                    >French</v-btn
                   >
                   <br />
                   <v-btn
@@ -44,20 +28,28 @@
                     size="small"
                     variant="text"
                     class="translate-button"
-                    @click="googleTranslate('ru')"
-                    >Russian</v-btn
+                    @click="googleTranslate('zh-CN')"
+                    >Chinese (Simplified)</v-btn
                   >
                   <br />
                   <v-btn
                     size="small"
                     variant="text"
                     class="translate-button"
-                    @click="googleTranslate('it')"
-                    >Italian</v-btn
+                    @click="googleTranslate('zh-TW')"
+                    >Chinese (Traditional)</v-btn
                   >
                   <br />
                 </v-col>
-                <v-col cols="12" md="4">
+                <v-col cols="12" md="6">
+                  <v-btn
+                    size="small"
+                    variant="text"
+                    class="translate-button"
+                    @click="googleTranslate('tl')"
+                    >Tagalog</v-btn
+                  >
+                  <br />
                   <v-btn
                     size="small"
                     variant="text"
@@ -70,92 +62,16 @@
                     size="small"
                     variant="text"
                     class="translate-button"
-                    @click="googleTranslate('hy')"
-                    >Armenian</v-btn
+                    @click="googleTranslate('hi')"
+                    >Hindi</v-btn
                   >
                   <br />
                   <v-btn
                     size="small"
                     variant="text"
                     class="translate-button"
-                    @click="googleTranslate('de')"
-                    >German</v-btn
-                  >
-                  <br />
-
-                  <v-btn
-                    size="small"
-                    variant="text"
-                    class="translate-button"
-                    @click="googleTranslate('zh-TW')"
-                    >Chinese (Traditional)</v-btn
-                  >
-                  <br />
-                  <v-btn
-                    size="small"
-                    variant="text"
-                    class="translate-button"
-                    @click="googleTranslate('zh-CN')"
-                    >Chinese (Simplified)</v-btn
-                  >
-                  <br />
-
-                  <v-btn
-                    size="small"
-                    variant="text"
-                    class="translate-button"
-                    @click="googleTranslate('sr')"
-                    >Serbian</v-btn
-                  >
-                  <br />
-                </v-col>
-                <v-col cols="12" md="4">
-                  <v-btn
-                    size="small"
-                    variant="text"
-                    class="translate-button"
-                    @click="googleTranslate('iw')"
-                    >Hebrew</v-btn
-                  >
-                  <br />
-                  <v-btn
-                    size="small"
-                    variant="text"
-                    class="translate-button"
-                    @click="googleTranslate('hu')"
-                    >Hungarian</v-btn
-                  >
-                  <br />
-                  <v-btn
-                    size="small"
-                    variant="text"
-                    class="translate-button"
-                    @click="googleTranslate('is')"
-                    >Icelandic</v-btn
-                  >
-                  <br />
-                  <v-btn
-                    size="small"
-                    variant="text"
-                    class="translate-button"
-                    @click="googleTranslate('lv')"
-                    >Latvian</v-btn
-                  >
-                  <br />
-                  <v-btn
-                    size="small"
-                    variant="text"
-                    class="translate-button"
-                    @click="googleTranslate('fa')"
-                    >Persian</v-btn
-                  >
-                  <br />
-                  <v-btn
-                    size="small"
-                    variant="text"
-                    class="translate-button"
-                    @click="googleTranslate('tr')"
-                    >Turkish</v-btn
+                    @click="googleTranslate('ur')"
+                    >Urdu</v-btn
                   >
                   <br />
                 </v-col>

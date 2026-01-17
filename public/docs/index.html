@@ -61,7 +61,7 @@
        * - White (#fff) on black (#000): 21:1 ratio ✓
        * - Black (#000) on light gray (#f5f5f5): 16:1 ratio ✓
        */
-      
+
       :root {
         --text-primary: #000000;
         --text-inverse: #ffffff;
@@ -80,7 +80,8 @@
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
         background: var(--bg-secondary);
         padding: 20px;
         line-height: 1.8;
@@ -158,7 +159,9 @@
         font-weight: 900;
         padding: 12px 20px;
         border: 3px solid var(--text-inverse);
-        transition: background 0.15s ease, color 0.15s ease;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease;
       }
 
       .doc-card a:hover {
@@ -272,15 +275,15 @@
           padding: 12px;
           font-size: 16px;
         }
-        
+
         .container {
           padding: 24px;
         }
-        
+
         h1 {
           font-size: 1.75rem;
         }
-        
+
         .doc-card {
           padding: 20px;
         }
@@ -295,16 +298,22 @@
       <p>
         Welcome to the documentation portal for
         <strong>R3 Restore, Reinvest, Renew</strong>. This portal provides
-        accessibility audit reports to ensure the website meets <strong>WCAG 2.1 Level AA</strong> standards. This portal itself is designed to meet <strong>WCAG 2.1 Level AAA</strong> contrast requirements (7:1 minimum for normal text).
+        accessibility audit reports to ensure the website meets
+        <strong>WCAG 2.1 Level AA</strong> standards. This portal itself is
+        designed to meet <strong>WCAG 2.1 Level AAA</strong> contrast
+        requirements (7:1 minimum for normal text).
       </p>
 
       <div class="doc-grid">
         <div class="doc-card">
           <h2>♿ Accessibility Audit</h2>
           <p>
-            Sitemap-driven WCAG audit results across desktop, tablet, and mobile viewports using axe-core.
+            Sitemap-driven WCAG audit results across desktop, tablet, and mobile
+            viewports using axe-core.
           </p>
-          <a href="/docs/accessibility/index.html">View Accessibility Report →</a>
+          <a href="/docs/accessibility/index.html"
+            >View Accessibility Report →</a
+          >
         </div>
       </div>
 
@@ -344,7 +353,7 @@
           if (!target) return;
           target.focus();
           const prefersReducedMotion = window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
+            "(prefers-reduced-motion: reduce)",
           ).matches;
           target.scrollIntoView({
             behavior: prefersReducedMotion ? "auto" : "smooth",

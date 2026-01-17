@@ -27,7 +27,10 @@ export function logError(message, error = null, context = null) {
         console.error("📡 HTTP Status:", error.response.status);
         console.error("📡 HTTP Status Text:", error.response.statusText);
         if (error.response.data) {
-          console.error("📡 Response Data:", JSON.stringify(error.response.data, null, 2));
+          console.error(
+            "📡 Response Data:",
+            JSON.stringify(error.response.data, null, 2),
+          );
         }
       }
       if (error.config) {
@@ -69,7 +72,7 @@ export function validateEnvironment(requiredVars) {
     logError(
       errorMessage,
       null,
-      "Environment validation failed. Please check your .env file."
+      "Environment validation failed. Please check your .env file.",
     );
     throw new Error(errorMessage);
   }
@@ -121,7 +124,9 @@ export async function withRetry(fn, config = {}) {
   for (let attempt = 0; attempt <= retryConfig.maxRetries; attempt++) {
     try {
       if (attempt > 0) {
-        console.log(`🔄 Retry attempt ${attempt + 1}/${retryConfig.maxRetries}`);
+        console.log(
+          `🔄 Retry attempt ${attempt + 1}/${retryConfig.maxRetries}`,
+        );
       }
       return await fn();
     } catch (error) {
@@ -136,13 +141,13 @@ export async function withRetry(fn, config = {}) {
           logError(
             `Failed after ${retryConfig.maxRetries + 1} attempts`,
             error,
-            "Maximum retry attempts exceeded"
+            "Maximum retry attempts exceeded",
           );
         } else {
           logError(
             "Error is not retryable",
             error,
-            "Error does not match retry criteria (network errors or 5xx status codes)"
+            "Error does not match retry criteria (network errors or 5xx status codes)",
           );
         }
         throw error;
@@ -152,7 +157,7 @@ export async function withRetry(fn, config = {}) {
       const delay = retryConfig.delay * Math.pow(2, attempt);
       logWarning(
         `Attempt ${attempt + 1} failed. Retrying in ${delay}ms...`,
-        error.message
+        error.message,
       );
       await sleep(delay);
     }
@@ -175,7 +180,7 @@ export async function safeWriteFile(filePath, data, jsonfile) {
         logError(
           `Failed to write file: ${filePath}`,
           err,
-          "File write operation failed"
+          "File write operation failed",
         );
         reject(err);
       } else {
@@ -202,7 +207,7 @@ export function ensureDirectory(dirPath, fs) {
     logError(
       `Failed to create directory: ${dirPath}`,
       error,
-      "Directory creation failed"
+      "Directory creation failed",
     );
     throw error;
   }
@@ -223,7 +228,7 @@ export function safeWriteFileSync(filePath, content, fs) {
     logError(
       `Failed to write file: ${filePath}`,
       error,
-      "Synchronous file write operation failed"
+      "Synchronous file write operation failed",
     );
     throw error;
   }
@@ -242,7 +247,7 @@ export function validateApiResponse(response, expectedPath) {
     logError(
       "API response validation failed",
       error,
-      `Expected response.data at path: ${expectedPath}`
+      `Expected response.data at path: ${expectedPath}`,
     );
     throw error;
   }
@@ -254,12 +259,12 @@ export function validateApiResponse(response, expectedPath) {
   for (const part of pathParts) {
     if (current === null || current === undefined) {
       const error = new Error(
-        `Invalid API response: missing path segment '${part}' in '${expectedPath}'`
+        `Invalid API response: missing path segment '${part}' in '${expectedPath}'`,
       );
       logError(
         "API response validation failed",
         error,
-        `Traversed path: ${traversedPath.join(".")}, missing: ${part}`
+        `Traversed path: ${traversedPath.join(".")}, missing: ${part}`,
       );
       throw error;
     }
@@ -269,12 +274,12 @@ export function validateApiResponse(response, expectedPath) {
 
   if (!Array.isArray(current) && typeof current !== "object") {
     const error = new Error(
-      `Invalid API response: expected array or object at '${expectedPath}', got ${typeof current}`
+      `Invalid API response: expected array or object at '${expectedPath}', got ${typeof current}`,
     );
     logError(
       "API response validation failed",
       error,
-      `Path: ${expectedPath}, actual type: ${typeof current}, value: ${JSON.stringify(current).substring(0, 100)}`
+      `Path: ${expectedPath}, actual type: ${typeof current}, value: ${JSON.stringify(current).substring(0, 100)}`,
     );
     throw error;
   }
@@ -304,7 +309,7 @@ export async function runScript(mainFunction, scriptName) {
     logError(
       `${scriptName} failed after ${duration}s`,
       error,
-      "Script execution terminated with errors"
+      "Script execution terminated with errors",
     );
     if (error.stack && !process.env.DEBUG) {
       console.error("💡 Tip: Set DEBUG=1 to see full stack trace");

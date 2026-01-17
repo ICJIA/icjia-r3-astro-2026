@@ -34,7 +34,11 @@
       @keydown.enter="toggleNav"
       @keydown.space="toggleNav"
     >
-      <v-icon icon="mdi-window-close" size="x-large" aria-hidden="true"></v-icon>
+      <v-icon
+        icon="mdi-window-close"
+        size="x-large"
+        aria-hidden="true"
+      ></v-icon>
       <div style="font-size: 10px; font-weight: 900">CLOSE</div>
     </button>
     <v-spacer class="hidden-md-and-up"></v-spacer>
@@ -130,7 +134,11 @@
                 size="large"
                 class="hidden-sm-and-down navItem"
                 v-bind="props"
-                style="font-family: Roboto, sans-serif !important; min-height: 44px; padding: 12px 16px;"
+                style="
+                  font-family: Roboto, sans-serif !important;
+                  min-height: 44px;
+                  padding: 12px 16px;
+                "
                 :aria-expanded="isActive ? 'true' : 'false'"
                 :aria-haspopup="true"
                 :aria-label="`${menu.main} menu. Press Enter or Space to open submenu.`"
@@ -180,7 +188,7 @@
                   tabindex="0"
                   @keydown.enter="navigateToLink(child)"
                   @keydown.space.prevent="navigateToLink(child)"
-                  style="min-height: 44px;"
+                  style="min-height: 44px"
                 >
                   <v-list-item-title style="font-size: 12px !important"
                     >{{ child.title }}
@@ -208,7 +216,12 @@
             variant="text"
             size="large"
             class="hidden-sm-and-down navItem"
-            style="font-weight: 900 !important; font-size: 16px; min-height: 44px; padding: 12px 16px;"
+            style="
+              font-weight: 900 !important;
+              font-size: 16px;
+              min-height: 44px;
+              padding: 12px 16px;
+            "
             >{{ menu.main }}&nbsp;
             <v-icon
               v-if="menu.icon"
@@ -225,7 +238,13 @@
         variant="text"
         size="large"
         class="hidden-md-and-down navItem"
-        style="font-weight: 900 !important; font-size: 16px; min-width: 44px; min-height: 44px; padding: 12px;"
+        style="
+          font-weight: 900 !important;
+          font-size: 16px;
+          min-width: 44px;
+          min-height: 44px;
+          padding: 12px;
+        "
         @click="goToSearch"
         aria-label="Search"
       >
@@ -497,7 +516,7 @@ const items = ref([
 }
 
 .aaa-hamburger:focus-visible {
-  outline: 2px solid #0D4474;
+  outline: 2px solid #0d4474;
   outline-offset: 2px;
 }
 </style>

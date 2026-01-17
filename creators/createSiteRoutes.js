@@ -31,14 +31,17 @@ function safeRequireRoutes(filePath) {
   const fullPath = path.join(__dirname, "..", filePath);
   try {
     if (fs.existsSync(fullPath)) {
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const fileContents = fs.readFileSync(fullPath, "utf8");
       return JSON.parse(fileContents);
     } else {
       console.warn(`⚠️  Warning: ${filePath} not found, using empty array`);
       return [];
     }
   } catch (error) {
-    console.warn(`⚠️  Warning: Error reading ${filePath}, using empty array:`, error.message);
+    console.warn(
+      `⚠️  Warning: Error reading ${filePath}, using empty array:`,
+      error.message,
+    );
     return [];
   }
 }
@@ -108,7 +111,7 @@ const appRoutes = Array.from(
     ...faqRoutes,
     ...resourceRoutes,
     ...myManualRoutes,
-  ])
+  ]),
 );
 
 /**
@@ -119,7 +122,9 @@ const appRoutes = Array.from(
  */
 try {
   jsonfile.writeFileSync(`public/appRoutes.json`, appRoutes, { spaces: 2 });
-  console.log(`✓ Created public/appRoutes.json with ${appRoutes.length} routes`);
+  console.log(
+    `✓ Created public/appRoutes.json with ${appRoutes.length} routes`,
+  );
 } catch (err) {
   console.error("❌ Failed to write public/appRoutes.json:", err);
   process.exit(1);
@@ -137,8 +142,12 @@ try {
   if (!fs.existsSync(assetsDir)) {
     fs.mkdirSync(assetsDir, { recursive: true });
   }
-  jsonfile.writeFileSync(`assets/json/appRoutes.json`, appRoutes, { spaces: 2 });
-  console.log(`✓ Created assets/json/appRoutes.json with ${appRoutes.length} routes`);
+  jsonfile.writeFileSync(`assets/json/appRoutes.json`, appRoutes, {
+    spaces: 2,
+  });
+  console.log(
+    `✓ Created assets/json/appRoutes.json with ${appRoutes.length} routes`,
+  );
 } catch (err) {
   console.error("❌ Failed to write assets/json/appRoutes.json:", err);
   process.exit(1);

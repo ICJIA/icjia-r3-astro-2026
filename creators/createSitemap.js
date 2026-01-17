@@ -49,7 +49,10 @@ function safeRequireJson(filePath) {
       return [];
     }
   } catch (error) {
-    console.warn(`⚠️  Warning: Error reading ${filePath}, using empty array:`, error.message);
+    console.warn(
+      `⚠️  Warning: Error reading ${filePath}, using empty array:`,
+      error.message,
+    );
     return [];
   }
 }
@@ -100,9 +103,12 @@ if (siteIndex && siteIndex.length > 0) {
   console.log(`✓ Created sitemap.xml with ${siteIndex.length} entries`);
 } else {
   // Write at least the homepage to avoid empty sitemap error
-  const homepageUrl = process.env.NUXT_PUBLIC_BASE_URL || "https://r3.illinois.gov";
+  const homepageUrl =
+    process.env.NUXT_PUBLIC_BASE_URL || "https://r3.illinois.gov";
   sitemap.write({ url: homepageUrl, changefreq: "weekly", priority: 1.0 });
-  console.warn("⚠️  Warning: No site metadata found, created minimal sitemap with homepage only");
+  console.warn(
+    "⚠️  Warning: No site metadata found, created minimal sitemap with homepage only",
+  );
 }
 
 // Finalize the sitemap generation
