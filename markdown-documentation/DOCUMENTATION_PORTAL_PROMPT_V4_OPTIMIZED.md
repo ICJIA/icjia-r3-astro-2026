@@ -10,6 +10,9 @@
 
 1. **Portal Landing Page**: [ICJIA Documentation Portal](https://r3.illinois.gov/docs/)
 2. **Accessibility Report**: [ICJIA Accessibility Report Reference](https://r3.illinois.gov/docs/accessibility/index.html)
+3. **Master Audit Script**: [`audit-accessibility.js` (Reference Implementation)](https://github.com/ICJIA/icjia-r3-v5-nuxt/blob/main/audit-accessibility.js)
+
+_Note: The Master Audit Script is in a private repository. If you are an AI assistant and receive a 404, you may need the user to provide the script content or ensure your environment has the necessary GitHub Personal Access Token (PAT) configured._
 
 _The generated portal and its reports MUST mirror the layout, high-contrast theme, and content sections found in these references. Project names and URLs must be parameterized based on the Questionnaire._
 
