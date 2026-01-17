@@ -141,15 +141,17 @@
                     v-if="article.source === 'hub'"
                   >
                     <template #placeholder>
-                      <v-row
-                        class="fill-height ma-0"
-                        align="center"
+                      <v-row 
+                        class="fill-height ma-0" 
+                        align="center" 
                         justify="center"
+                        role="status"
+                        aria-live="polite"
+                        aria-label="Loading image"
                       >
                         <v-progress-circular
                           indeterminate
                           color="blue darken-3"
-                          aria-label="progress"
                         ></v-progress-circular>
                       </v-row>
                     </template>

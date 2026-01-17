@@ -187,23 +187,8 @@ onMounted(async () => {
       </ContentDoc>
     </div>
     <div v-else>
-      <v-container
-        fluid
-        :tabindex="path === '/eligibility' ? 0 : undefined"
-        :aria-label="
-          path === '/eligibility'
-            ? 'Eligibility page content container'
-            : undefined
-        "
-        ><v-row
-          ><v-col
-            :tabindex="path === '/eligibility' ? 0 : undefined"
-            :aria-label="
-              path === '/eligibility' ? 'Eligibility main column' : undefined
-            "
-            cols="12"
-            :md="cols"
-          >
+      <v-container fluid><v-row
+          ><v-col cols="12" :md="cols">
             <div v-if="data" class="mt-6">
               <h1>{{ data.title }}</h1>
               <ContentDoc

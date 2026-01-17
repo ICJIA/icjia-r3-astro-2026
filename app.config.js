@@ -190,10 +190,6 @@ export default defineAppConfig({
       link: "/news",
     },
     {
-      main: "Board",
-      link: "/board",
-    },
-    {
       main: "Contact",
       link: "/contact",
     },

@@ -13,11 +13,15 @@
             crossorigin
           >
             <template v-slot:placeholder>
-              <div class="d-flex align-center justify-center fill-height">
+              <div 
+                class="d-flex align-center justify-center fill-height"
+                role="status"
+                aria-live="polite"
+                aria-label="Loading image"
+              >
                 <v-progress-circular
                   color="grey-lighten-4"
                   indeterminate
-                  aria-label="Loading image"
                 ></v-progress-circular>
               </div>
             </template>

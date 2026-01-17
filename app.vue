@@ -233,6 +233,8 @@ const tags = useState("tags", () => tagMeta);
   transition: opacity 0.2s ease;
   font-weight: 600;
   font-size: 1.15rem;
+  min-height: 44px;
+  padding: 12px 16px;
 }
 
 .reviewer-banner .banner-link strong {

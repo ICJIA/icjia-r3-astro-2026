@@ -32,13 +32,19 @@
               alt="R3 Resources Image"
               cover
               ><template #placeholder>
-                <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-row 
+                  class="fill-height ma-0" 
+                  align="center" 
+                  justify="center"
+                  role="status"
+                  aria-live="polite"
+                  aria-label="Loading image"
+                >
                   <v-progress-circular
                     indeterminate
                     :size="70"
                     :width="7"
                     color="purple"
-                    aria-label="Contact Us: Loading"
                   ></v-progress-circular>
                 </v-row>
               </template>

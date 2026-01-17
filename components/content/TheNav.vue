@@ -55,6 +55,10 @@
           font-size: 22px;
           letter-spacing: 0.004em;
           font-family: &quot;Roboto&quot;, sans-serif !important;
+          display: inline-block;
+          min-height: 44px;
+          line-height: 44px;
+          padding: 0 8px;
         "
         class="agency app-title"
         tabindex="0"
@@ -74,6 +78,10 @@
           font-size: 14px;
           letter-spacing: 0.004em;
           font-family: &quot;Roboto&quot;, sans-serif !important;
+          display: inline-block;
+          min-height: 44px;
+          line-height: 44px;
+          padding: 0 8px;
         "
         class="agency app-title"
         tabindex="0"
@@ -93,6 +101,10 @@
           font-size: 30px;
           letter-spacing: 0.004em;
           font-family: &quot;Roboto&quot;, sans-serif !important;
+          display: inline-block;
+          min-height: 44px;
+          line-height: 44px;
+          padding: 0 8px;
         "
         class="agency app-title"
         tabindex="0"
@@ -117,10 +129,10 @@
             <template #activator="{ props, isActive }">
               <v-btn
                 variant="text"
-                size="default"
+                size="large"
                 class="hidden-sm-and-down navItem"
                 v-bind="props"
-                style="font-family: Roboto, sans-serif !important"
+                style="font-family: Roboto, sans-serif !important; min-height: 44px; padding: 12px 16px;"
                 :aria-expanded="isActive ? 'true' : 'false'"
                 :aria-haspopup="true"
                 :aria-label="`${menu.main} menu. Press Enter or Space to open submenu.`"
@@ -128,7 +140,7 @@
                 @keydown.space.prevent="$event.target.click()"
               >
                 {{ menu.main }}
-                <v-icon right small aria-hidden="true"
+                <v-icon size="small" aria-hidden="true"
                   >mdi-menu-down</v-icon
                 ></v-btn
               >
@@ -170,16 +182,17 @@
                   tabindex="0"
                   @keydown.enter="navigateToLink(child)"
                   @keydown.space.prevent="navigateToLink(child)"
+                  style="min-height: 44px;"
                 >
                   <v-list-item-title style="font-size: 12px !important"
                     >{{ child.title }}
                     <span v-if="child?.external" class="sr-only">External</span>
                     <v-icon
                       v-if="child.icon"
-                      small
-                      right
+                      size="small"
                       color="black"
                       aria-hidden="true"
+                      class="ml-1"
                       >{{ child.icon }}</v-icon
                     ></v-list-item-title
                   >
@@ -195,16 +208,16 @@
             :target="menu?.external ? '_blank' : null"
             :aria-label="menu.main"
             variant="text"
-            size="default"
+            size="large"
             class="hidden-sm-and-down navItem"
-            style="font-weight: 900 !important; font-size: 16px"
+            style="font-weight: 900 !important; font-size: 16px; min-height: 44px; padding: 12px 16px;"
             >{{ menu.main }}&nbsp;
             <v-icon
               v-if="menu.icon"
-              right
-              small
+              size="small"
               color="black"
               aria-hidden="true"
+              class="ml-1"
               >{{ menu.icon }}</v-icon
             >
           </v-btn>
@@ -212,9 +225,9 @@
       </span>
       <v-btn
         variant="text"
-        size="default"
+        size="large"
         class="hidden-md-and-down navItem"
-        style="font-weight: 900 !important; font-size: 16px"
+        style="font-weight: 900 !important; font-size: 16px; min-width: 44px; min-height: 44px; padding: 12px;"
         @click="goToSearch"
         aria-label="Search"
       >

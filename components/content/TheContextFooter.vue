@@ -15,6 +15,10 @@
             font-size: 14px;
             font-family: 'Roboto', sans-serif !important;
             font-weight: 900;
+            display: inline-block;
+            min-height: 44px;
+            line-height: 44px;
+            padding: 0 12px;
           "
           >&nbsp;{{ item.main }}&nbsp;</a
         >
@@ -26,6 +30,10 @@
             font-size: 14px;
             font-family: 'Roboto', sans-serif !important;
             font-weight: 900;
+            display: inline-block;
+            min-height: 44px;
+            line-height: 44px;
+            padding: 0 12px;
           "
           >&nbsp;{{ item.main }}&nbsp;</NuxtLink
         >
@@ -54,12 +62,15 @@ const menuLength = navMenu.length;
 a.context-link {
   font-family: "Raleway" !important;
   color: #fff;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 700;
   text-decoration: none;
-
   text-transform: uppercase;
   letter-spacing: 0.09em;
+  display: inline-block;
+  min-height: 44px;
+  line-height: 44px;
+  padding: 0 12px;
 }
 
 a.context-link:hover {
