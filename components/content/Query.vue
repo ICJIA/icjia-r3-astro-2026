@@ -3,7 +3,9 @@
   <div v-if="data">
     {{ data }}
   </div>
-  <div v-else>Loading ...</div>
+  <div v-else role="status" aria-live="polite" class="text-center">
+    <TheLoader />
+  </div>
 </template>
 
 <script setup>
