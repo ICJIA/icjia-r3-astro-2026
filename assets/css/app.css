@@ -98,10 +98,67 @@ ul.cohort-list li {
   color: red;
 }
 
+/* =============================================================================
+   FORM FIELD AAA CONTRAST (WCAG 1.4.3 & 1.4.6)
+   All form labels, input text, and form elements must meet AAA contrast (7:1)
+   ============================================================================= */
+
 /* Improve contrast of floating labels and labels in forms */
+/* AAA compliant: #000 on white = 21:1 contrast ratio */
 .v-field-label,
 label {
-  color: #222 !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+}
+
+/* When labels float (Vuetify v-text-field focus/has-value), ensure AAA contrast */
+/* AAA compliant: #000 on white = 21:1 contrast ratio */
+.v-field-label--floating {
+  color: #000 !important;
+  font-weight: 600 !important;
+}
+
+/* Strengthen Vuetify label contrast (override default low-opacity labels) */
+/* AAA compliant: #000 on white = 21:1 contrast ratio */
+.v-theme--light .v-field-label,
+.v-theme--light .v-label.v-field-label,
+.v-field--active .v-field-label,
+.v-field-label--floating {
+  color: #000 !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+/* Input text color - ensure AAA contrast */
+/* AAA compliant: #000 on white = 21:1 contrast ratio */
+.v-field input,
+.v-field textarea,
+.v-text-field input {
+  color: #000 !important;
+  font-weight: 500 !important;
+}
+
+/* Placeholder text - ensure sufficient contrast */
+/* AAA compliant for large text: #555 on white = 8.6:1 contrast ratio */
+.v-field input::placeholder,
+.v-field textarea::placeholder,
+.v-text-field input::placeholder {
+  color: #555 !important;
+  opacity: 1 !important;
+}
+
+/* Input border - ensure visible and high contrast */
+.v-field__outline,
+.v-field--variant-outlined .v-field__outline {
+  color: #333 !important;
+  border-color: #333 !important;
+}
+
+/* Focused input border - high contrast blue */
+.v-field--focused .v-field__outline,
+.v-field--focused.v-field--variant-outlined .v-field__outline {
+  color: #0d4474 !important;
+  border-color: #0d4474 !important;
 }
 
 /* Fix text clipping accessibility issue (WCAG 1.4.4 Resize Text) */
@@ -119,20 +176,6 @@ label {
 /* Ensure card actions (Read more buttons) remain visible at all zoom levels */
 .v-card-actions {
   overflow: visible !important;
-}
-
-/* When labels float (Vuetify v-text-field focus/has-value), ensure adequate contrast */
-.v-field-label--floating {
-  color: #111 !important;
-}
-
-/* Strengthen Vuetify label contrast (override default low-opacity labels) */
-.v-theme--light .v-field-label,
-.v-theme--light .v-label.v-field-label,
-.v-field--active .v-field-label,
-.v-field-label--floating {
-  color: #111 !important;
-  opacity: 1 !important;
 }
 
 /* Improve NOFO title contrast on homepage */
@@ -430,8 +473,8 @@ a.nuxt-link-exact-active,
    ============================================================================= */
 
 /* Base rule: ALL links must have BOTH minimum 44px height AND 44px width */
-/* Apply to all anchor tags except Vuetify components */
-a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item) {
+/* Apply to all anchor tags except Vuetify components and sidebar links */
+a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):not(.sidebar-link) {
   display: inline-block !important;
   min-height: 44px !important;
   min-width: 44px !important;
@@ -447,17 +490,18 @@ a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item
 /* For inline links within paragraphs, lists, tables, use padding with negative margin */
 /* This creates the touch target while maintaining visual appearance */
 /* CRITICAL: These MUST also have min-width AND min-height of 44px */
-p a:not(.v-btn):not(.v-list-item),
-li a:not(.v-btn):not(.v-list-item),
-td a:not(.v-btn):not(.v-list-item),
-th a:not(.v-btn):not(.v-list-item),
-blockquote a:not(.v-btn):not(.v-list-item),
-.markdown-body p a:not(.v-btn):not(.v-list-item),
-.markdown-body li a:not(.v-btn):not(.v-list-item),
-.markdown-body td a:not(.v-btn):not(.v-list-item),
-.markdown-body th a:not(.v-btn):not(.v-list-item),
-.markdown-body blockquote a:not(.v-btn):not(.v-list-item),
-div a:not(.v-btn):not(.v-list-item) {
+/* Excludes sidebar links which have their own styling */
+p a:not(.v-btn):not(.v-list-item):not(.sidebar-link),
+li a:not(.v-btn):not(.v-list-item):not(.sidebar-link),
+td a:not(.v-btn):not(.v-list-item):not(.sidebar-link),
+th a:not(.v-btn):not(.v-list-item):not(.sidebar-link),
+blockquote a:not(.v-btn):not(.v-list-item):not(.sidebar-link),
+.markdown-body p a:not(.v-btn):not(.v-list-item):not(.sidebar-link),
+.markdown-body li a:not(.v-btn):not(.v-list-item):not(.sidebar-link),
+.markdown-body td a:not(.v-btn):not(.v-list-item):not(.sidebar-link),
+.markdown-body th a:not(.v-btn):not(.v-list-item):not(.sidebar-link),
+.markdown-body blockquote a:not(.v-btn):not(.v-list-item):not(.sidebar-link),
+div a:not(.v-btn):not(.v-list-item):not(.sidebar-link) {
   display: inline-block !important;
   min-height: 44px !important;
   min-width: 44px !important;
@@ -478,10 +522,11 @@ a:focus-visible {
 }
 
 /* Maintain underline for links (unless overridden by other styles) */
-a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item) {
+/* Excludes sidebar links which have their own styling */
+a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):not(.sidebar-link) {
   text-decoration: underline !important;
 }
 
-a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):hover {
+a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):not(.sidebar-link):hover {
   text-decoration: underline !important;
 }

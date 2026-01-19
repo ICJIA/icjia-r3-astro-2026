@@ -344,23 +344,39 @@ const toggleMenu = (index) => {
    INTERACTIVE ELEMENTS - AAA TARGET SIZE (44x44 minimum)
    ============================================================================= */
 
-/* All interactive links and buttons */
+/* All interactive links and buttons - consistent alignment */
+/* Using !important to override global link styles from app.css */
 .sidebar-link {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  min-height: 44px;
-  padding: 10px 16px;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: #0d4474;
-  text-decoration: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-  box-sizing: border-box;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  min-height: 44px !important;
+  min-width: unset !important;
+  padding: 10px 16px !important;
+  margin: 0 !important;
+  font-family: "Roboto", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #0d4474 !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+}
+
+/* Explicitly reset button defaults to match links */
+button.sidebar-link {
+  margin: 0 !important;
+  padding: 10px 16px !important;
+  border: none !important;
+  background: transparent !important;
+  width: 100% !important;
+  text-align: left !important;
 }
 
 .sidebar-link:hover,
@@ -380,10 +396,15 @@ const toggleMenu = (index) => {
   border-left: 3px solid #0d4474;
 }
 
-/* Expandable menu button */
+/* Expandable menu button - ensure same alignment as other items */
 .sidebar-expandable {
   justify-content: space-between;
-  text-align: left;
+  padding: 10px 16px !important;
+  margin: 0 !important;
+}
+
+.sidebar-expandable span {
+  flex: 1;
 }
 
 /* Chevron icon */
