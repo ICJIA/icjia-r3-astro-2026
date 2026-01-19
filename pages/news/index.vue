@@ -23,9 +23,20 @@
                   <v-card-actions>
                     <v-spacer></v-spacer>
 
-                    <v-btn size="small" color="primary" :to="item.path"
-                      >Read more&nbsp;&raquo;</v-btn
+                    <v-btn 
+                      size="large" 
+                      color="primary" 
+                      :to="item.path"
+                      :aria-label="`Read more about ${item.title}`"
+                      style="
+                        min-width: 44px;
+                        min-height: 44px;
+                        padding: 12px 24px;
+                        font-weight: 600;
+                      "
                     >
+                      Read more&nbsp;&raquo;
+                    </v-btn>
                   </v-card-actions>
                 </v-card>
               </v-col></v-row

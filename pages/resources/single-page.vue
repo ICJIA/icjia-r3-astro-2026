@@ -60,4 +60,49 @@ useHead({
 const sortedResources = _.orderBy(resources.value, ["ranking"], ["asc"]);
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+/* AAA Target Size (2.5.5) - Ensure all links in rendered markdown meet 44x44px */
+/* Using :deep() to target v-html rendered content */
+:deep(a) {
+  display: inline-block !important;
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 10px 14px !important;
+  line-height: 1.5 !important;
+  box-sizing: border-box !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
+/* For inline links within paragraphs, lists, tables */
+:deep(p a),
+:deep(li a),
+:deep(td a),
+:deep(th a),
+:deep(blockquote a) {
+  display: inline-block !important;
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 10px 14px !important;
+  margin: -10px -14px !important;
+  line-height: 1.5 !important;
+  vertical-align: baseline !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure all links have proper focus indicators */
+:deep(a:focus-visible) {
+  outline: 3px solid #0d4474 !important;
+  outline-offset: 2px !important;
+  border-radius: 2px !important;
+}
+
+/* Maintain underline for links */
+:deep(a) {
+  text-decoration: underline !important;
+}
+
+:deep(a:hover) {
+  text-decoration: underline !important;
+}
+</style>

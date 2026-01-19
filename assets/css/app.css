@@ -356,12 +356,6 @@ a.nuxt-link-exact-active,
   background-color: #0d4474 !important;
 }
 
-/* Ensure all v-btn components with common blue Vuetify classes meet AAA */
-.v-btn.v-btn--elevated,
-.v-btn.v-btn--flat {
-  /* Only apply to buttons that have blue-ish backgrounds via CSS variable override */
-}
-
 /* Override Vuetify's CSS custom properties for blue color palette */
 .v-btn {
   --v-theme-blue-darken-4: 13, 68, 116 !important; /* #0D4474 in RGB */
@@ -425,4 +419,69 @@ a.nuxt-link-exact-active,
 /* Ensure button text within v-btn__content is properly colored */
 .v-btn .v-btn__content {
   color: inherit !important;
+}
+
+/* =============================================================================
+   ALL LINKS AAA TARGET SIZE (2.5.5)
+   ALL links across the entire site MUST be at least 44x44 pixels
+   This includes markdown content (from Strapi CMS) and all other links
+   Using !important to override Vuetify and other framework styles
+   CRITICAL: Both width AND height must be minimum 44px
+   ============================================================================= */
+
+/* Base rule: ALL links must have BOTH minimum 44px height AND 44px width */
+/* Apply to all anchor tags except Vuetify components */
+a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item) {
+  display: inline-block !important;
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 10px 14px !important;
+  line-height: 1.75 !important;
+  box-sizing: border-box !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  overflow: visible !important;
+  height: auto !important;
+}
+
+/* For inline links within paragraphs, lists, tables, use padding with negative margin */
+/* This creates the touch target while maintaining visual appearance */
+/* CRITICAL: These MUST also have min-width AND min-height of 44px */
+p a:not(.v-btn):not(.v-list-item),
+li a:not(.v-btn):not(.v-list-item),
+td a:not(.v-btn):not(.v-list-item),
+th a:not(.v-btn):not(.v-list-item),
+blockquote a:not(.v-btn):not(.v-list-item),
+.markdown-body p a:not(.v-btn):not(.v-list-item),
+.markdown-body li a:not(.v-btn):not(.v-list-item),
+.markdown-body td a:not(.v-btn):not(.v-list-item),
+.markdown-body th a:not(.v-btn):not(.v-list-item),
+.markdown-body blockquote a:not(.v-btn):not(.v-list-item),
+div a:not(.v-btn):not(.v-list-item) {
+  display: inline-block !important;
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 10px 14px !important;
+  margin: -10px -14px !important;
+  line-height: 1.75 !important;
+  vertical-align: baseline !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  height: auto !important;
+}
+
+/* Ensure all links have proper focus indicators for accessibility */
+a:focus-visible {
+  outline: 3px solid #0d4474 !important;
+  outline-offset: 2px !important;
+  border-radius: 2px !important;
+}
+
+/* Maintain underline for links (unless overridden by other styles) */
+a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item) {
+  text-decoration: underline !important;
+}
+
+a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):hover {
+  text-decoration: underline !important;
 }
