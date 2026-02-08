@@ -1,4 +1,7 @@
 # ICJIA R3 Program Website
+
+![R3 - Restore. Reinvest. Renew.](public/og-image.png)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
 ![Node](https://img.shields.io/badge/Node-22.14.0-339933?logo=node.js&logoColor=white)
 ![Nuxt](https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxtdotjs&logoColor=white)
