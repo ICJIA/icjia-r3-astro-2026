@@ -64,7 +64,7 @@ export function usePageSeo(config: PageSeoConfig) {
   const canonicalUrl = `${baseUrl}${fullPath}`;
 
   // Default values
-  const defaultImage = `${baseUrl}/icjia-logo.png`;
+  const defaultImage = `${baseUrl}/og-image.png`;
   const siteTitle = "R3 | Restore. Reinvest. Renew.";
   const defaultDescription =
     appConfig.description ||
