@@ -13,7 +13,7 @@
               style="border: 1px solid #ccc"
               ><h2>{{ item.title }}</h2>
               <div class="px-5">
-                <span v-html="renderer.render(item.markdown)"></span></div
+                <span v-html="DOMPurify.sanitize(renderer.render(item.markdown), { ADD_TAGS: ['iframe'], ADD_ATTR: ['allowfullscreen', 'frameborder', 'allow', 'loading', 'title'] })"></span></div
             ></v-card>
           </div> </v-col></v-row
     ></v-container>
@@ -36,6 +36,7 @@ import _ from "lodash";
 import moment from "moment";
 import md from "markdown-it";
 import attrs from "markdown-it-attrs";
+import DOMPurify from "dompurify";
 const renderer = new md({
   html: true,
   xhtmlOut: false,

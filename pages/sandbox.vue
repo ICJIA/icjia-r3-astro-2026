@@ -49,7 +49,7 @@
                     />
 
                     <div class="px-5 mt-4">
-                      <span v-html="renderer.render(item.markdown)"></span>
+                      <span v-html="DOMPurify.sanitize(renderer.render(item.markdown), { ADD_TAGS: ['iframe'], ADD_ATTR: ['allowfullscreen', 'frameborder', 'allow', 'loading', 'title'] })"></span>
                     </div>
                   </div></div
               ></v-card>
@@ -65,6 +65,7 @@
 <script setup>
 import md from "markdown-it";
 import attrs from "markdown-it-attrs";
+import DOMPurify from "dompurify";
 import { useDisplay } from "vuetify";
 import { v4 as uuidv4 } from "uuid";
 // const uuid = uuidv4();
