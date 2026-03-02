@@ -29,17 +29,18 @@
         aria-label="Grant reviewer recruitment announcement"
       >
         <a
-          :href="reviewerFormUrl"
+          href="https://r3.illinois.gov/eligibility"
           target="_blank"
           rel="noopener noreferrer"
           class="banner-link"
-          aria-label="Lend Us Your Expertise. Become a grant application reviewer. Opens in a new tab."
+          aria-label="Banner Notice."
         >
           <v-icon color="white" aria-hidden="true" class="mr-3"
-            >mdi-account-star</v-icon
+            >mdi-car-brake-alert</v-icon
           >
-          <strong>Lend Us Your Expertise.</strong>&nbsp;<strong
-            >Become a grant application reviewer</strong
+          <strong>March 2, 2026:</strong>&nbsp;<strong
+            >We are aware of an issue with the Service Area Selector tool and
+            are currently working to address it.</strong
           >
           <v-icon size="small" class="ml-2" aria-hidden="true" color="white"
             >mdi-open-in-new</v-icon
