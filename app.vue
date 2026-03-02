@@ -26,12 +26,10 @@
       <div
         class="reviewer-banner"
         role="region"
-        aria-label="Grant reviewer recruitment announcement"
+        aria-label="Eligibility tool error announcement"
       >
         <a
           href="https://r3.illinois.gov/eligibility"
-          target="_blank"
-          rel="noopener noreferrer"
           class="banner-link"
           aria-label="Banner Notice."
         >
