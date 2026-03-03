@@ -22,7 +22,7 @@
       class="markdown-body"
       style="min-height: 100vh"
     >
-      <!-- Reviewer Recruitment Banner -->
+      <!--
       <div
         class="reviewer-banner"
         role="region"
@@ -45,6 +45,7 @@
           >
         </a>
       </div>
+      -->
 
       <!-- <TheBreadcrumbBar
         v-if="!hideBreadcrumbBar"
