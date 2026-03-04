@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-/* eslint-disable no-console */
+ 
 
 /**
  * Logs an error with clear formatting and context

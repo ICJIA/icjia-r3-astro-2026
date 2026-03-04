@@ -69,7 +69,7 @@
           @click="$emit('next')"
           ><v-icon>mdi-arrow-down</v-icon></v-btn
         >&nbsp;
-        <v-btn size="x-small" elevation="0" color="primary" @click="clear"
+        <v-btn size="x-small" elevation="0" color="primary" @click="clearSearch"
           ><v-icon>mdi-close-circle</v-icon></v-btn
         >
       </v-app-bar>
@@ -83,7 +83,7 @@ const emits = defineEmits(["query", "prev", "next", "clear"]);
 const props = defineProps({
   currentIndex: Number,
   results: Array,
-  clear: Boolean,
+  shouldClear: Boolean,
 });
 
 // console.log("faqbar component props: ", props);
@@ -96,7 +96,7 @@ onMounted(() => {
 
 let _query = ref("");
 
-const clear = () => {
+const clearSearch = () => {
   _query.value = "";
   emits("clear", true);
 };

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
+ 
 
 /**
  * Ensures accessibility documentation placeholders exist under /public/docs.

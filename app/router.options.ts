@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable require-await */
 import { useNuxtApp } from "#imports";
 export default {
   async scrollBehavior(to: any, from: any, savedPosition: any) {

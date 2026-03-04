@@ -15,7 +15,7 @@
           </div>
         </div>
 
-        <template v-slot:actions>
+        <template #actions>
           <v-btn
             color="primary"
             variant="text"

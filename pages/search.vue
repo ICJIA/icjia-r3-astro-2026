@@ -48,8 +48,8 @@
             >
               <span>Your recent queries:&nbsp;</span>
               <span
-                v-for="q in queries"
-                :key="Math.random()"
+                v-for="(q, qIndex) in queries"
+                :key="`query-${qIndex}-${q}`"
                 @click="addQuery(q)"
                 class="hover"
                 ><v-chip

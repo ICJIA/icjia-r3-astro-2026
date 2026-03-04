@@ -6,7 +6,7 @@
         @next="updateCountIndex('next')"
         @query="performMark"
         @clear="clear"
-        :currentIndex="currentIndex"
+        :current-index="currentIndex"
         :results="results"
         v-if="display && !display.mobile"
         :key="getUUID"
@@ -16,7 +16,7 @@
         @next="updateCountIndex('next')"
         @query="performMark"
         @clear="clear"
-        :currentIndex="currentIndex"
+        :current-index="currentIndex"
         :results="results"
         v-if="display && display.mobile"
         :key="getUUID"
@@ -44,7 +44,7 @@
                     </nuxt-link>
                     <attachmentsv2
                       :attachments="item.attachment.data"
-                      :attachmentHeading="item.attachmentHeading"
+                      :attachment-heading="item.attachmentHeading"
                       class="mt-6"
                     />
 

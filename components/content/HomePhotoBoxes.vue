@@ -44,8 +44,7 @@
                   font-weight: 700;
                   font-size: 26px;
                 "
-                v-text="card.title"
-              ></v-card-title>
+              >{{ card.title }}</v-card-title>
               <v-card-text class="text-white mt-3">{{ card.text }}</v-card-text>
             </div>
           </div>

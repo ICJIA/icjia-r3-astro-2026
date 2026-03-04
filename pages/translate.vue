@@ -26,7 +26,7 @@
                   sm="6" 
                   md="4" 
                   lg="auto"
-                  v-for="(language, index) in languages" 
+                  v-for="language in languages" 
                   :key="language.code"
                   class="language-col"
                 >

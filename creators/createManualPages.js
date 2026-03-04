@@ -207,7 +207,6 @@ jsonfile.writeFileSync(`./public/routesManual.json`, routes, function (err) {
   if (err) {
     console.error(err);
   }
-  // eslint-disable-next-line prettier/prettier
 });
 
 console.log("Manual routes: ", routes);

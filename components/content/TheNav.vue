@@ -179,6 +179,7 @@
                   :to="child?.external ? null : child?.link"
                   :href="child?.external ? child?.link : null"
                   :target="child?.external ? '_blank' : null"
+                  :rel="child?.external ? 'noopener noreferrer' : null"
                   role="menuitem"
                   :aria-label="
                     child?.external

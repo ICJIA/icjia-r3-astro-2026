@@ -14,7 +14,7 @@
  * @since 1.0.0
  */
 
-/* eslint-disable no-console */
+ 
 
 import fs from "fs";
 import path from "path";

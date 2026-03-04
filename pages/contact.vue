@@ -341,145 +341,6 @@
   </div>
 </template>
 
-<style scoped>
-/* Screen reader only content */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* =============================================================================
-   FORM FIELD AAA ACCESSIBILITY - Contrast Requirements
-   All text must meet 7:1 contrast ratio for AAA compliance
-   ============================================================================= */
-
-/* Form labels - AAA compliant dark text (#111 = 18.1:1 contrast on white) */
-.contact-form :deep(.v-label),
-.contact-form :deep(.v-field-label),
-.contact-form :deep(.v-field-label--floating) {
-  color: #111111 !important;
-  opacity: 1 !important;
-  font-weight: 600 !important;
-}
-
-/* Input text inside form fields - AAA compliant (#111 = 18.1:1 contrast) */
-.contact-form :deep(.v-field__input),
-.contact-form :deep(.v-field input),
-.contact-form :deep(.v-field textarea),
-.contact-form :deep(.v-select__selection-text),
-.contact-form :deep(.v-field__input input),
-.contact-form :deep(.v-textarea textarea) {
-  color: #111111 !important;
-  font-weight: 500 !important;
-}
-
-/* Placeholder text - AAA compliant (#555 = 7.5:1 contrast on white) */
-.contact-form :deep(.v-field input::placeholder),
-.contact-form :deep(.v-field textarea::placeholder),
-.contact-form :deep(.v-field__input::placeholder) {
-  color: #555555 !important;
-  opacity: 1 !important;
-}
-
-/* Form field borders - AAA compliant for non-text contrast (3:1 minimum) */
-.contact-form :deep(.v-field__outline),
-.contact-form :deep(.v-field--variant-outlined .v-field__outline__start),
-.contact-form :deep(.v-field--variant-outlined .v-field__outline__end),
-.contact-form
-  :deep(.v-field--variant-outlined .v-field__outline__notch::before),
-.contact-form
-  :deep(.v-field--variant-outlined .v-field__outline__notch::after) {
-  border-color: #555555 !important;
-}
-
-/* Focused state - darker border for visibility */
-.contact-form :deep(.v-field--focused .v-field__outline),
-.contact-form :deep(.v-field--focused .v-field__outline__start),
-.contact-form :deep(.v-field--focused .v-field__outline__end) {
-  border-color: #0d4474 !important;
-  border-width: 2px !important;
-}
-
-/* Error state messages - AAA compliant dark red (#9B0000 = 8.5:1 contrast) */
-.contact-form :deep(.v-messages__message),
-.contact-form .v-messages__message {
-  color: #9b0000 !important;
-  font-weight: 600 !important;
-}
-
-/* Select dropdown icon - ensure visible */
-.contact-form :deep(.v-select .v-icon),
-.contact-form :deep(.v-field__append-inner .v-icon) {
-  color: #333333 !important;
-}
-
-/* Clearable icon in textarea */
-.contact-form :deep(.v-field__clearable .v-icon) {
-  color: #333333 !important;
-}
-
-/* =============================================================================
-   FORM LABELS - WCAG 4.1.2 Name, Role, Value Compliance
-   Explicit labels for all form fields
-   ============================================================================= */
-
-/* Form label styling - AAA compliant contrast */
-.form-label {
-  display: block;
-  margin-bottom: 4px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #111111; /* 18.1:1 contrast ratio on white - exceeds AAA */
-  line-height: 1.4;
-}
-
-/* Required field indicator */
-.required-indicator {
-  color: #9b0000; /* Dark red for AAA compliance (8.5:1 contrast) */
-  font-weight: 700;
-  margin-left: 2px;
-}
-
-/* Ensure labels have proper target area for touch */
-.form-label {
-  min-height: 24px;
-  cursor: pointer;
-}
-
-/* =============================================================================
-   AAA TARGET SIZE (2.5.5) - 44x44 pixel minimum for interactive elements
-   ============================================================================= */
-
-/* AAA compliant link target size */
-.aaa-target-link {
-  display: inline-block;
-  min-height: 44px;
-  min-width: 44px;
-  line-height: 44px;
-  padding: 0 12px;
-  text-decoration: underline;
-}
-
-.aaa-target-link:hover,
-.aaa-target-link:focus {
-  text-decoration: underline;
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-}
-
-/* Email list item spacing */
-.email-list-item {
-  margin: 8px 0;
-}
-</style>
-
 <script>
 import DOMPurify from "dompurify";
 import axios from "axios";
@@ -606,6 +467,24 @@ export default {
       }
       return "";
     },
+  },
+
+  /**
+   * Lifecycle hook that initializes app state on mount.
+   *
+   * @return {void}
+   */
+  mounted() {
+    //this.$refs.form.reset();
+    this.valid = false;
+    this.successfullySubmitted = false;
+
+    // Fix Vuetify accessibility bug (GitHub issue #17730)
+    // Vuetify adds aria-labelledby pointing to hidden labels, which breaks accessibility
+    // We remove aria-labelledby and add aria-label directly to ensure proper accessible names
+    this.$nextTick(() => {
+      this.fixVuetifyAccessibility();
+    });
   },
   methods: {
     /**
@@ -824,26 +703,147 @@ export default {
       });
     },
   },
-
-  /**
-   * Lifecycle hook that initializes app state on mount.
-   *
-   * @return {void}
-   */
-  mounted() {
-    //this.$refs.form.reset();
-    this.valid = false;
-    this.successfullySubmitted = false;
-
-    // Fix Vuetify accessibility bug (GitHub issue #17730)
-    // Vuetify adds aria-labelledby pointing to hidden labels, which breaks accessibility
-    // We remove aria-labelledby and add aria-label directly to ensure proper accessible names
-    this.$nextTick(() => {
-      this.fixVuetifyAccessibility();
-    });
-  },
 };
 </script>
+
+<style scoped>
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =============================================================================
+   FORM FIELD AAA ACCESSIBILITY - Contrast Requirements
+   All text must meet 7:1 contrast ratio for AAA compliance
+   ============================================================================= */
+
+/* Form labels - AAA compliant dark text (#111 = 18.1:1 contrast on white) */
+.contact-form :deep(.v-label),
+.contact-form :deep(.v-field-label),
+.contact-form :deep(.v-field-label--floating) {
+  color: #111111 !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+/* Input text inside form fields - AAA compliant (#111 = 18.1:1 contrast) */
+.contact-form :deep(.v-field__input),
+.contact-form :deep(.v-field input),
+.contact-form :deep(.v-field textarea),
+.contact-form :deep(.v-select__selection-text),
+.contact-form :deep(.v-field__input input),
+.contact-form :deep(.v-textarea textarea) {
+  color: #111111 !important;
+  font-weight: 500 !important;
+}
+
+/* Placeholder text - AAA compliant (#555 = 7.5:1 contrast on white) */
+.contact-form :deep(.v-field input::placeholder),
+.contact-form :deep(.v-field textarea::placeholder),
+.contact-form :deep(.v-field__input::placeholder) {
+  color: #555555 !important;
+  opacity: 1 !important;
+}
+
+/* Form field borders - AAA compliant for non-text contrast (3:1 minimum) */
+.contact-form :deep(.v-field__outline),
+.contact-form :deep(.v-field--variant-outlined .v-field__outline__start),
+.contact-form :deep(.v-field--variant-outlined .v-field__outline__end),
+.contact-form
+  :deep(.v-field--variant-outlined .v-field__outline__notch::before),
+.contact-form
+  :deep(.v-field--variant-outlined .v-field__outline__notch::after) {
+  border-color: #555555 !important;
+}
+
+/* Focused state - darker border for visibility */
+.contact-form :deep(.v-field--focused .v-field__outline),
+.contact-form :deep(.v-field--focused .v-field__outline__start),
+.contact-form :deep(.v-field--focused .v-field__outline__end) {
+  border-color: #0d4474 !important;
+  border-width: 2px !important;
+}
+
+/* Error state messages - AAA compliant dark red (#9B0000 = 8.5:1 contrast) */
+.contact-form :deep(.v-messages__message),
+.contact-form .v-messages__message {
+  color: #9b0000 !important;
+  font-weight: 600 !important;
+}
+
+/* Select dropdown icon - ensure visible */
+.contact-form :deep(.v-select .v-icon),
+.contact-form :deep(.v-field__append-inner .v-icon) {
+  color: #333333 !important;
+}
+
+/* Clearable icon in textarea */
+.contact-form :deep(.v-field__clearable .v-icon) {
+  color: #333333 !important;
+}
+
+/* =============================================================================
+   FORM LABELS - WCAG 4.1.2 Name, Role, Value Compliance
+   Explicit labels for all form fields
+   ============================================================================= */
+
+/* Form label styling - AAA compliant contrast */
+.form-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111; /* 18.1:1 contrast ratio on white - exceeds AAA */
+  line-height: 1.4;
+}
+
+/* Required field indicator */
+.required-indicator {
+  color: #9b0000; /* Dark red for AAA compliance (8.5:1 contrast) */
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* Ensure labels have proper target area for touch */
+.form-label {
+  min-height: 24px;
+  cursor: pointer;
+}
+
+/* =============================================================================
+   AAA TARGET SIZE (2.5.5) - 44x44 pixel minimum for interactive elements
+   ============================================================================= */
+
+/* AAA compliant link target size */
+.aaa-target-link {
+  display: inline-block;
+  min-height: 44px;
+  min-width: 44px;
+  line-height: 44px;
+  padding: 0 12px;
+  text-decoration: underline;
+}
+
+.aaa-target-link:hover,
+.aaa-target-link:focus {
+  text-decoration: underline;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Email list item spacing */
+.email-list-item {
+  margin: 8px 0;
+}
+</style>
 <style scoped>
 .fluid {
   margin: 0;

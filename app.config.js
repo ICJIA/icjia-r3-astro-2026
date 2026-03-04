@@ -143,6 +143,11 @@ export default defineAppConfig({
           title: "Research",
           link: "/research",
         },
+        {
+          title: "About the R3 Program",
+          link: "https://storymaps.arcgis.com/stories/ba94e59080224a78bae5a5511dec5b6f",
+          external: true,
+        },
 
         {
           divider: true,

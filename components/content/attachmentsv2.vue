@@ -21,7 +21,7 @@
         </thead>
         <tbody>
           <tr
-            v-for="(attachment, index) in props.attachments"
+            v-for="attachment in props.attachments"
             :key="attachment.attributes.url"
           >
             <td>
@@ -46,7 +46,7 @@
         <strong>{{ props.linkHeading }}</strong>
 
         <ul class="mt-2">
-          <li v-for="(link, index) in props.links" :key="link.url">
+          <li v-for="link in props.links" :key="link.url">
             <a :href="link.url" target="_blank">
               {{ link.title }}
             </a>
@@ -60,7 +60,7 @@
         <h2 v-if="attachmentHeading" class="pl-2">{{ attachmentHeading }}</h2>
         <ul class="mt-2">
           <li
-            v-for="(attachment, index) in props.attachments"
+            v-for="attachment in props.attachments"
             :key="attachment.attributes.url"
           >
             <a
@@ -77,7 +77,7 @@
         <strong>{{ props.linkHeading }}</strong>
 
         <ul class="mt-2">
-          <li v-for="(link, index) in props.links" :key="link.url">
+          <li v-for="link in props.links" :key="link.url">
             <a :href="link.url" target="_blank"> {{ link.title }} </a>
             <div v-if="link.summary">{{ link.summary }}</div>
           </li>
@@ -92,11 +92,11 @@ const navigation = ref(null);
 const props = defineProps({
   attachments: {
     type: Array,
-    default: [],
+    default: () => [],
   },
   links: {
     type: Array,
-    default: [],
+    default: () => [],
   },
   attachmentHeading: {
     type: String,

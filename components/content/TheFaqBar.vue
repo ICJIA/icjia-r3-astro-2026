@@ -90,7 +90,7 @@
           elevation="0"
           color="primary"
           append-icon="mdi-close-circle"
-          @click="clear"
+          @click="clearSearch"
           aria-label="Clear search and return to top of page"
           >Clear</v-btn
         >
@@ -106,7 +106,7 @@ const emits = defineEmits(["query", "prev", "next", "clear"]);
 const props = defineProps({
   currentIndex: Number,
   results: Array,
-  clear: Boolean,
+  shouldClear: Boolean,
 });
 
 // console.log("faqbar component props: ", props);
@@ -123,7 +123,7 @@ onMounted(() => {
 
 let _query = ref("");
 
-const clear = () => {
+const clearSearch = () => {
   _query.value = "";
   emits("clear");
 };

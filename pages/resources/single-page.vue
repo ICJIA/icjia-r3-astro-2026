@@ -6,7 +6,7 @@
           <h1 class="mx-auto text-left" style="color: #000">
             R3 Resources (Single Page)
           </h1>
-          <div v-for="(item, index) in sortedResources" :key="item._id">
+          <div v-for="item in sortedResources" :key="item._id">
             <v-card
               class="mx-auto my-5 px-8 py-4"
               elevation="0"
