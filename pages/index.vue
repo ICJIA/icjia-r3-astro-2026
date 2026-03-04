@@ -87,7 +87,7 @@
                       {{ item.tagline }}
                     </div>
                     <div class="application-date mt-4">
-                      Applications open Tuesday, January 6, 2026 at 12:00pm
+                      Applications close Friday, March 6, 2026 at 2:00pm
                       (CST)
                     </div>
                     <!-- Commented out for future use - button will be restored when links are ready -->
