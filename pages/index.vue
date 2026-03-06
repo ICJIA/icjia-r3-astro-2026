@@ -39,7 +39,12 @@
                   quality="80"
                   role="presentation"
                   aria-hidden="true"
-                  style="display: block; width: 100%; object-fit: cover; height: 650px"
+                  style="
+                    display: block;
+                    width: 100%;
+                    object-fit: cover;
+                    height: 650px;
+                  "
                   :fetchpriority="index === 0 ? 'high' : 'auto'"
                 />
 
@@ -87,8 +92,7 @@
                       {{ item.tagline }}
                     </div>
                     <div class="application-date mt-4">
-                      Applications close Friday, March 6, 2026 at 2:00pm
-                      (CST)
+                      EXPIRED Friday, March 6, 2026
                     </div>
                     <!-- Commented out for future use - button will be restored when links are ready -->
                     <!--
