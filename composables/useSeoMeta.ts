@@ -94,11 +94,15 @@ export function usePageSeo(config: PageSeoConfig) {
     ogSiteName: "R3 Illinois",
     ogLocale: "en_US",
 
+    // OG image alt text for accessibility
+    ogImageAlt: `${config.title || siteTitle} - R3 Illinois`,
+
     // Twitter Card tags
     twitterCard: "summary_large_image",
     twitterTitle: config.title || siteTitle,
     twitterDescription: description,
     twitterImage: image,
+    twitterImageAlt: `${config.title || siteTitle} - R3 Illinois`,
     twitterSite: "@ICJIAIllinois",
 
     // Additional SEO tags
