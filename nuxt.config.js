@@ -71,6 +71,11 @@ export default defineNuxtConfig({
           content:
             "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through grants supporting reentry, economic development, civil legal aid, youth development, and violence prevention.",
         },
+        {
+          name: "author",
+          content:
+            "Illinois Criminal Justice Information Authority (ICJIA)",
+        },
       ],
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },

@@ -1,0 +1,44 @@
+# R3 - Restore, Reinvest, Renew
+
+> The R3 program, administered by the Illinois Criminal Justice Information Authority (ICJIA), invests in communities most affected by systemic racism and disinvestment.
+
+## About
+
+The R3 (Restore, Reinvest, and Renew) program was established by the Cannabis Regulation and Tax Act to fund services in communities most impacted by economic disinvestment, violence, and the war on drugs. R3 grants support programs in five service areas: civil legal aid, economic development, reentry, violence prevention, and youth development.
+
+## Organization
+
+- **Administered by:** Illinois Criminal Justice Information Authority (ICJIA)
+- **Website:** https://r3.illinois.gov
+- **Contact:** CJA.R3grants@illinois.gov
+- **Location:** Chicago, Illinois
+
+## Key Pages
+
+- Homepage: https://r3.illinois.gov/
+- About R3: https://r3.illinois.gov/about
+- Eligibility: https://r3.illinois.gov/eligibility
+- Funding: https://r3.illinois.gov/funding
+- FAQs: https://r3.illinois.gov/faqs
+- News & Updates: https://r3.illinois.gov/news
+- Resources: https://r3.illinois.gov/resources
+- Research: https://r3.illinois.gov/research
+- Contact: https://r3.illinois.gov/contact
+
+## Service Areas
+
+R3 grants fund programs in five categories:
+1. **Civil Legal Aid** — Legal assistance for communities impacted by the justice system
+2. **Economic Development** — Job training, workforce development, and financial literacy
+3. **Reentry** — Support for individuals returning from incarceration
+4. **Violence Prevention** — Community-based violence intervention and prevention
+5. **Youth Development** — Programs supporting at-risk youth
+
+## R3 Zones
+
+R3 zones are geographic areas identified as disproportionately impacted by economic disinvestment, violence, and incarceration. Funding is prioritized for organizations serving these communities across Illinois.
+
+## Data Sources
+
+- Sitemap: https://r3.illinois.gov/sitemap.xml
+- Robots: https://r3.illinois.gov/robots.txt

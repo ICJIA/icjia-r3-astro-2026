@@ -280,6 +280,12 @@ usePageSeo({
   description:
     "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through economic development, violence prevention, reentry, and civil legal aid services.",
   path: "/",
+  type: "website",
+  article: {
+    publishedTime: "2024-01-15T00:00:00Z",
+    modifiedTime: "2026-03-09T00:00:00Z",
+    author: "Illinois Criminal Justice Information Authority",
+  },
   keywords: [
     "R3",
     "Restore Reinvest Renew",
@@ -294,6 +300,15 @@ usePageSeo({
 
 // Add Website structured data with search functionality
 useWebsiteSchema();
+
+// Add WebPage structured data with dates for AI readiness
+useWebPageSchema({
+  name: "R3 - Restore, Reinvest, Renew",
+  description:
+    "The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through economic development, violence prevention, reentry, and civil legal aid services.",
+  datePublished: "2024-01-15",
+  dateModified: "2026-03-09",
+});
 
 // Add breadcrumb for homepage
 useBreadcrumbListSchema([{ name: "Home", url: "/" }]);
