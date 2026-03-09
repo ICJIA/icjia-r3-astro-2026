@@ -58,7 +58,7 @@ export function useWebsiteSchema() {
     script: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(schema),
+        innerHTML: JSON.stringify(schema),
       },
     ],
   });
@@ -123,7 +123,7 @@ export function useGovernmentOrganizationSchema() {
     script: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(schema),
+        innerHTML: JSON.stringify(schema),
       },
     ],
   });
@@ -199,7 +199,7 @@ export function useNewsArticleSchema(config: NewsArticleConfig) {
     script: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(schema),
+        innerHTML: JSON.stringify(schema),
       },
     ],
   });
@@ -246,7 +246,7 @@ export function useFaqPageSchema(faqs: FaqItem[]) {
     script: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(schema),
+        innerHTML: JSON.stringify(schema),
       },
     ],
   });
@@ -293,7 +293,7 @@ export function useBreadcrumbListSchema(items: BreadcrumbItem[]) {
     script: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(schema),
+        innerHTML: JSON.stringify(schema),
       },
     ],
   });
@@ -354,7 +354,7 @@ export function useWebPageSchema(config: {
     script: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(schema),
+        innerHTML: JSON.stringify(schema),
       },
     ],
   });
@@ -395,7 +395,7 @@ export function useContactPageSchema() {
     script: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(schema),
+        innerHTML: JSON.stringify(schema),
       },
     ],
   });
