@@ -1,5 +1,8 @@
 <template>
   <div>
+    <h1 class="mb-10 px-8 pt-5" style="border: none" v-show="!isMounted">
+      R3 Frequently Asked Questions
+    </h1>
     <div v-if="isMounted">
       <the-faq-bar
         @prev="updateCountIndex('prev')"

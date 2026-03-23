@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Skip Links for Accessibility -->
-    <nav aria-label="Skip navigation" class="skip-links">
+    <nav aria-label="Translation page navigation" class="skip-links">
       <a href="#main-content" class="skip-link">Skip to main content</a>
       <a href="#language-selection" class="skip-link">Skip to language selection</a>
       <a href="#translation-info" class="skip-link">Skip to translation information</a>

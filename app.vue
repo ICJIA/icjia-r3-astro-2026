@@ -17,7 +17,7 @@
 
     <v-main
       id="main-content"
-      role="main"
+      aria-label="Main content"
       tabindex="-1"
       class="markdown-body"
       style="min-height: 100vh"
