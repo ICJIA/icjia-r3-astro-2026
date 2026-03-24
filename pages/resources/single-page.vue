@@ -44,6 +44,17 @@ const purifyConfig = {
   ADD_TAGS: ["iframe"],
   ADD_ATTR: ["allowfullscreen", "frameborder", "allow", "loading", "title"],
 };
+// Restrict iframe src to trusted domains only (ArcGIS maps)
+if (DOMPurify) {
+  DOMPurify.addHook("uponSanitizeElement", (node) => {
+    if (node.tagName === "IFRAME") {
+      const src = node.getAttribute("src") || "";
+      if (!/^https:\/\/([a-z0-9-]+\.)*arcgis\.com(\/|$)/i.test(src)) {
+        node.remove();
+      }
+    }
+  });
+}
 const sanitize = (html) =>
   DOMPurify ? DOMPurify.sanitize(html, purifyConfig) : html;
 const renderer = new md({
