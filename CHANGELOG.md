@@ -4,6 +4,50 @@ All notable changes to the ICJIA R3 Program Website are documented in this file.
 
 ---
 
+## SEO & CLS Performance Fixes -- April 7, 2026
+
+Full Lighthouse audit across 15 pages. SEO indexing fixed, CLS eliminated on 14 of 15 pages, performance scores dramatically improved.
+
+### SEO Changes
+
+| Fix | Files Changed | Impact |
+|-----|---------------|--------|
+| Disable `@nuxtjs/robots` module | `nuxt.config.js` | Module blocked indexing in dev mode; replaced with static robots.txt |
+| Add static `robots.txt` | `public/robots.txt` | Allows full site indexing, blocks `/docs/`, `/preview/`, `/sandbox` |
+| Remove conditional `noindex` meta tags | `composables/useSeoMeta.ts` | All pages now always output `index, follow` |
+
+### CLS (Cumulative Layout Shift) Fixes
+
+| Fix | Files Changed | Impact |
+|-----|---------------|--------|
+| Replace `v-layout-item` scroll button with fixed CSS | `app.vue` | Eliminated 88px layout reservation that shifted all content |
+| Remove `v-if="isMounted"` from footer | `app.vue` | Footer now SSR-rendered, no hydration shift |
+| Remove `v-if="isMounted"` from Funding content | `components/content/Funding.vue` | Funding content SSR-rendered directly |
+| Set TOC columns from SSR data | `pages/[...slug].vue` | Column layout (12→9) no longer shifts on mount |
+| Replace nav loader with zero-width hidden span | `components/content/TheNav.vue` | Eliminates visible loader→nav swap shift |
+
+### Audit Scores (Post-Fix)
+
+| Page | A11y | Perf | Best Practices | SEO |
+|------|------|------|----------------|-----|
+| `/` | 100 | 89 | 100 | 100 |
+| `/funding` | 100 | 82 | 100 | 100 |
+| `/faqs` | 100 | 99 | 100 | 100 |
+| `/contact` | 100 | 99 | 100 | 100 |
+| `/search` | 100 | 99 | 100 | 100 |
+| `/translate` | 100 | 99 | 100 | 100 |
+| `/news` | 100 | 99 | 100 | 100 |
+| `/research` | 100 | 99 | 100 | 100 |
+| `/resources` | 100 | 95 | 100 | 100 |
+| `/board` | 100 | 99 | 100 | 100 |
+| `/collaboratives` | 100 | 99 | 100 | 100 |
+| `/eligibility` | 100 | 92 | 96 | 100 |
+| `/meetings` | 100 | 99 | 100 | 100 |
+| `/privacy` | 100 | 99 | 100 | 100 |
+| `/resources/single-page` | 100 | 99 | 100 | 100 |
+
+---
+
 ## Lighthouse Audit Fixes -- April 7, 2026
 
 Full Lighthouse audit across 8 pages (home, news, research, resources, funding, contact, FAQs, search). All pages score 100 for Accessibility and Best Practices. Performance and image delivery improvements applied.

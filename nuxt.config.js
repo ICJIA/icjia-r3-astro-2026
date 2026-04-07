@@ -136,7 +136,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/content",
     "@nuxtjs/sitemap",
-    "@nuxtjs/robots",
+    // "@nuxtjs/robots",
     "@nuxt/image",
     async (options, nuxt) => {
       await nuxt.hooks.hook("vite:extendConfig", (config) => {
@@ -157,14 +157,7 @@ export default defineNuxtConfig({
     strictNuxtContentAds: true,
     exclude: ["/docs/**", "/preview/**", "/sandbox"],
   },
-  robots: {
-    rules: {
-      UserAgent: "*",
-      Disallow: ["/docs/**", "/preview/**", "/sandbox"],
-      Allow: "/",
-    },
-    sitemap: "https://r3.illinois.gov/sitemap.xml",
-  },
+  // robots module disabled — using static public/robots.txt instead
   content: {
     documentDriven: false,
     markdown: {

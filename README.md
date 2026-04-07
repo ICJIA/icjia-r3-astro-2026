@@ -77,7 +77,7 @@ The blue team review documents existing security measures already protecting use
 
 ## Lighthouse Audit (April 2026)
 
-Full Lighthouse audit across 8 pages. All pages score **100 for Accessibility** and **100 for Best Practices**. Performance ranges from 85-99 (dev mode). See [CHANGELOG.md](./CHANGELOG.md) for detailed scores and fixes.
+Full Lighthouse audit across 15 pages. All pages score **100 for Accessibility**, **100 for SEO**, and **100 for Best Practices**. Performance ranges from 82-99 (dev mode). CLS eliminated on 14 of 15 pages. See [CHANGELOG.md](./CHANGELOG.md) for detailed scores and fixes.
 
 ## Accessibility Audit (March 2026)
 

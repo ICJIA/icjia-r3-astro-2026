@@ -9,7 +9,7 @@
       </v-row>
     </v-container>
 
-    <v-container v-if="isMounted"
+    <v-container
       ><v-row>
         <v-col
           v-for="(item, index) in splash"
@@ -129,10 +129,7 @@
             </div>
           </v-card> </v-col></v-row
     ></v-container>
-    <v-container v-else
-      ><v-row
-        ><v-col><ThePageLoader /></v-col></v-row
-    ></v-container>
+    <!-- loader removed: content now renders during SSR to prevent CLS -->
   </div>
 </template>
 
@@ -140,17 +137,11 @@
 const { splash } = useAppConfig();
 const { path } = useRoute();
 const router = useRouter();
-const isMounted = ref(false);
 const { underConstruction } = useAppConfig();
 
 const gotoURL = ({ externalURL }) => {
   window.open(externalURL, "_blank");
 };
-
-onMounted(() => {
-  isMounted.value = true;
-  // console.log("funding component mounted");
-});
 </script>
 
 <style lang="scss" scoped></style>

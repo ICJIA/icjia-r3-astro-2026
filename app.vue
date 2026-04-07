@@ -55,28 +55,20 @@
       <NuxtPage></NuxtPage>
     </v-main>
 
-    <TheFooter v-if="isMounted"></TheFooter>
+    <TheFooter></TheFooter>
 
-    <v-layout-item
-      model-value
-      position="bottom"
-      class="text-end"
-      size="88"
-      v-if="isMounted"
-    >
-      <div class="ma-4">
-        <v-btn
-          icon="mdi-menu-up"
-          size="large"
-          color="primary"
-          elevation="8"
-          @click.stop.prevent="scrollToTop()"
-          style="z-index: 0; font-size: 20px"
-          aria-label="Scroll to top of page"
-        >
-        </v-btn>
-      </div>
-    </v-layout-item>
+    <div class="scroll-to-top">
+      <v-btn
+        icon="mdi-menu-up"
+        size="large"
+        color="primary"
+        elevation="8"
+        @click.stop.prevent="scrollToTop()"
+        style="font-size: 20px"
+        aria-label="Scroll to top of page"
+      >
+      </v-btn>
+    </div>
   </v-app>
 </template>
 
@@ -143,6 +135,17 @@ const tags = useState("tags", () => tagMeta);
 /* Main content background */
 .v-main {
   background: #f2f2f2;
+}
+
+/* Scroll-to-top button — fixed position to avoid CLS from v-layout-item */
+.scroll-to-top {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 99;
+  width: 48px;
+  height: 48px;
+  contain: layout style;
 }
 
 /* Skip Links for Accessibility */

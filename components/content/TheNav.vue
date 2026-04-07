@@ -278,7 +278,7 @@
       </button>
     </span>
 
-    <span v-else class="text center ml-12"><TheLoader></TheLoader></span>
+    <span v-else class="text center ml-12" style="visibility: hidden; width: 0; overflow: hidden"></span>
   </v-app-bar>
 </template>
 
@@ -307,6 +307,10 @@
  * @type {Ref<boolean>}
  */
 const isMounted = ref(false);
+
+onMounted(() => {
+  isMounted.value = true;
+});
 
 /**
  * Reactive navigation toggle state from the global state management.
@@ -371,9 +375,6 @@ const isExternalUrl = (url) => {
  * Component lifecycle hook that runs after the component is mounted.
  * Sets the mounted state to true for proper client-side rendering.
  */
-onMounted(() => {
-  isMounted.value = true;
-});
 
 /**
  * Vue Router instance for programmatic navigation.

@@ -76,7 +76,6 @@ export function usePageSeo(config: PageSeoConfig) {
   const description = config.description || defaultDescription;
   const image = config.image || defaultImage;
   const type = config.type || "website";
-  const shouldIndex = config.index !== false;
 
   // Use Nuxt's useSeoMeta for type-safe meta tags
   useSeoMeta({
@@ -106,8 +105,8 @@ export function usePageSeo(config: PageSeoConfig) {
     twitterSite: "@ICJIAIllinois",
 
     // Additional SEO tags
-    robots: shouldIndex ? "index, follow" : "noindex, nofollow",
-    googlebot: shouldIndex ? "index, follow" : "noindex, nofollow",
+    robots: "index, follow",
+    googlebot: "index, follow",
 
     // Article-specific tags (if applicable)
     ...(config.article && {

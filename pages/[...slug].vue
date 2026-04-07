@@ -71,6 +71,9 @@ const showTOC = ref(false);
  */
 const cols = ref(12);
 
+// Set TOC layout immediately after data fetch to prevent CLS
+// (moved from onMounted to avoid layout shift)
+
 // const error = useError();
 
 /**
@@ -83,6 +86,12 @@ const { data } = await useAsyncData(`content-${path}`, async () => {
   const post = await queryContent().where({ _path: path }).findOne();
   return post;
 });
+
+// Set TOC layout from SSR data to prevent CLS
+if (data.value?.showTableOfContents) {
+  showTOC.value = true;
+  cols.value = 9;
+}
 
 /**
  * Redirects to the 404 error page.
@@ -167,15 +176,7 @@ if (data.value) {
  * Configures the layout based on content metadata, particularly
  * whether to show the table of contents.
  */
-onMounted(async () => {
-  await nextTick();
-  await nextTick();
-  if (data.value.showTableOfContents) {
-    showTOC.value = true;
-    cols.value = 9;
-  }
-  // $("table").attr("id", "board");
-});
+// TOC layout is now set during SSR (above) to prevent CLS
 </script>
 
 <template>
