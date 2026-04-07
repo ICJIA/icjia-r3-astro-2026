@@ -140,11 +140,14 @@
               <v-col>
                 <h2>Letter From the Director</h2>
                 <p>
-                  <img
+                  <NuxtImg
                     src="/DirectorAdamsResized.jpg"
                     width="140"
                     alt="ICJIA Executive Director, Delrice Adams"
                     class="elevation-12 director-photo"
+                    format="webp"
+                    quality="80"
+                    loading="lazy"
                   />
                   Thank you for visiting the Restore, Reinvest, Review (R3)
                   program website. We appreciate your interest in the R3 mission

@@ -179,6 +179,7 @@
                       color="primary"
                       variant="text"
                       style="font-weight: 900; font-size: 11px"
+                      :aria-label="`Read Article (Web) \u00BB, ${article.title}`"
                     >
                       Read Article (Web)&nbsp;&raquo;
                     </v-btn>
@@ -190,6 +191,7 @@
                       color="primary"
                       variant="text"
                       style="font-weight: 900; font-size: 11px"
+                      :aria-label="`Read ${getPublicationType(article.pubType)} (${article.ext}) \u00BB, ${article.title}`"
                     >
                       Read {{ getPublicationType(article.pubType) }} ({{
                         article.ext

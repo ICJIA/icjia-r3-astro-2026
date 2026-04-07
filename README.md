@@ -75,6 +75,10 @@ The blue team review documents existing security measures already protecting use
 - **Privacy-first analytics**: Plausible Analytics (no cookies, no personal data, GDPR-compliant)
 - **Whitelisted domains**: Both image sources and API connections are restricted to approved domains via CSP and Nuxt config
 
+## Lighthouse Audit (April 2026)
+
+Full Lighthouse audit across 8 pages. All pages score **100 for Accessibility** and **100 for Best Practices**. Performance ranges from 85-99 (dev mode). See [CHANGELOG.md](./CHANGELOG.md) for detailed scores and fixes.
+
 ## Accessibility Audit (March 2026)
 
 Full axe-core WCAG 2.1 Level AA audit across all 25 pages in 3 viewports (desktop, tablet, mobile):

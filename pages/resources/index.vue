@@ -60,6 +60,7 @@
                   padding: 12px 24px;
                 "
                 @click="$router.push(`/resources/${item.slug}`)"
+                :aria-label="`Find out more \u00BB, ${item.title}`"
                 >Find out more&nbsp;&raquo;</v-btn
               >
             </v-card-actions>

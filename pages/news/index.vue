@@ -27,7 +27,7 @@
                       size="large" 
                       color="primary" 
                       :to="item.path"
-                      :aria-label="`Read more about ${item.title}`"
+                      :aria-label="`Read more \u00BB, ${item.title}`"
                       style="
                         min-width: 44px;
                         min-height: 44px;

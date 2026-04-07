@@ -4,6 +4,44 @@ All notable changes to the ICJIA R3 Program Website are documented in this file.
 
 ---
 
+## Lighthouse Audit Fixes -- April 7, 2026
+
+Full Lighthouse audit across 8 pages (home, news, research, resources, funding, contact, FAQs, search). All pages score 100 for Accessibility and Best Practices. Performance and image delivery improvements applied.
+
+### Changes
+
+| Fix | Files Changed | Impact |
+|-----|---------------|--------|
+| Convert director photo to `<NuxtImg>` with WebP | `pages/index.vue` | Image savings reduced from 182 KiB to 98 KiB; home page perf 85 → 89 |
+| Add `font-display: swap` to octicons-link @font-face | `assets/css/github-markdown.css` | Eliminates flash of invisible text for markdown icon font |
+| Fix `label-content-name-mismatch` on news buttons | `pages/news/index.vue` | aria-label now starts with visible text before appending article title |
+| Add aria-labels to research article buttons | `pages/research/index.vue` | Both hub and publist buttons now have descriptive accessible names |
+| Add aria-label to resources "Find out more" button | `pages/resources/index.vue` | Button accessible name now includes resource title |
+
+### Audit Scores (Post-Fix)
+
+| Page | A11y | Perf | Best Practices | SEO |
+|------|------|------|----------------|-----|
+| `/` | 100 | 89 | 100 | 69* |
+| `/news` | 100 | 99 | 100 | 66* |
+| `/research` | 100 | 99 | 100 | 69* |
+| `/resources` | 100 | 94 | 100 | 69* |
+| `/funding` | 100 | 85 | 100 | 69* |
+| `/contact` | 100 | 99 | 100 | 66* |
+| `/faqs` | 100 | 99 | 100 | 66* |
+| `/search` | 100 | 99 | 100 | 63* |
+
+*SEO scores are suppressed by dev-mode `robots.txt` (`@nuxtjs/robots` blocks indexing in development). Production builds serve the correct `Allow: /` rules.
+
+### Not Addressed (Dev-Only / Third-Party)
+
+- **Unminified JS/CSS**: Expected in dev mode; resolved by `nuxt build`.
+- **`is-crawlable`**: Dev-mode `robots.txt` disallows all. Production is correctly configured.
+- **`font-display-insight` (MDI icons)**: Third-party `@mdi/font` package; cannot modify source.
+- **`bf-cache`**: Single failure reason from Nuxt framework internals.
+
+---
+
 ## Security Audit Summary (Red Team Review) -- March 24, 2026
 
 A red team security review was conducted against the full application codebase. A red team review simulates how an attacker would look for weaknesses in the application. The review covered cross-site scripting (XSS), injection attacks, authentication, data exposure, Content Security Policy (CSP), CORS (cross-origin resource sharing), dependency vulnerabilities, and server configuration.
