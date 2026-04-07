@@ -27,6 +27,7 @@
                 <a
                   href="https://www.illinois.gov"
                   target="_blank"
+                  rel="noopener noreferrer"
                   style="
                     color: #fff;
                     display: inline-block;
@@ -42,6 +43,7 @@
                 <a
                   href="https://www2.illinois.gov/sites/gov/Pages/default.aspx"
                   target="_blank"
+                  rel="noopener noreferrer"
                   style="
                     color: #fff;
                     display: inline-block;

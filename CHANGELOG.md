@@ -4,6 +4,18 @@ All notable changes to the ICJIA R3 Program Website are documented in this file.
 
 ---
 
+## SEO Crawlability & Link Fixes -- April 7, 2026
+
+### Changes
+
+| Fix | Files Changed | Impact |
+|-----|---------------|--------|
+| Convert nav title from `<span role="button">` to `<nuxt-link>` | `components/content/TheNav.vue` | Site title is now a crawlable `<a href="/">` link instead of a JS-only span |
+| Add `rel="noopener noreferrer"` to footer external links | `components/content/TheFooter.vue` | State of Illinois and Governor links now follow security best practices |
+| Add `rel="noopener noreferrer"` to meetings external link | `content/meetings.md` | Lieutenant Governor website link follows security best practices |
+
+---
+
 ## SEO & CLS Performance Fixes -- April 7, 2026
 
 Full Lighthouse audit across 15 pages. SEO indexing fixed, CLS eliminated on 14 of 15 pages, performance scores dramatically improved.

@@ -51,7 +51,8 @@
         @click="$router.push('/')"
       /> -->
     <div class="hover hidden-sm-and-down">
-      <span
+      <nuxt-link
+        to="/"
         style="
           font-weight: 900 !important;
           font-size: 22px;
@@ -61,20 +62,18 @@
           min-height: 44px;
           line-height: 44px;
           padding: 0 8px;
+          text-decoration: none;
+          color: inherit;
         "
         class="agency app-title"
-        tabindex="0"
-        role="button"
         aria-label="R3 RESTORE. REINVEST. RENEW. - Go to home page"
-        @click="$router.push('/')"
-        @keydown.enter="$router.push('/')"
-        @keydown.space="$router.push('/')"
         >R3&nbsp;&nbsp;RESTORE. REINVEST. RENEW.
-      </span>
+      </nuxt-link>
     </div>
 
     <div class="hover hidden-md-and-up hidden-xs">
-      <span
+      <nuxt-link
+        to="/"
         style="
           font-weight: 900 !important;
           font-size: 14px;
@@ -84,20 +83,18 @@
           min-height: 44px;
           line-height: 44px;
           padding: 0 8px;
+          text-decoration: none;
+          color: inherit;
         "
         class="agency app-title"
-        tabindex="0"
-        role="button"
         aria-label="R3 RESTORE. REINVEST. RENEW. - Go to home page"
-        @click="$router.push('/')"
-        @keydown.enter="$router.push('/')"
-        @keydown.space="$router.push('/')"
         >R3&nbsp;&nbsp;RESTORE. REINVEST. RENEW.
-      </span>
+      </nuxt-link>
     </div>
 
     <div class="hover hidden-sm-and-up">
-      <span
+      <nuxt-link
+        to="/"
         style="
           font-weight: 900 !important;
           font-size: 30px;
@@ -107,16 +104,13 @@
           min-height: 44px;
           line-height: 44px;
           padding: 0 8px;
+          text-decoration: none;
+          color: inherit;
         "
         class="agency app-title"
-        tabindex="0"
-        role="button"
         aria-label="R3 - Go to home page"
-        @click="$router.push('/')"
-        @keydown.enter="$router.push('/')"
-        @keydown.space="$router.push('/')"
         >R3
-      </span>
+      </nuxt-link>
     </div>
 
     <v-spacer></v-spacer>
