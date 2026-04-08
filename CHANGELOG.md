@@ -32,26 +32,17 @@ All notable changes to the ICJIA R3 Program Website are documented in this file.
 
 ---
 
-## SEO Crawlability & Link Fixes -- April 7, 2026
+## Lighthouse Audit, SEO & CLS Fixes -- April 7, 2026
 
-### Changes
+Full Lighthouse audit across 15 pages. SEO indexing fixed, CLS eliminated on 14 of 15 pages, performance scores dramatically improved.
+
+### SEO & Crawlability
 
 | Fix | Files Changed | Impact |
 |-----|---------------|--------|
 | Convert nav title from `<span role="button">` to `<nuxt-link>` | `components/content/TheNav.vue` | Site title is now a crawlable `<a href="/">` link instead of a JS-only span |
 | Add `rel="noopener noreferrer"` to footer external links | `components/content/TheFooter.vue` | State of Illinois and Governor links now follow security best practices |
 | Add `rel="noopener noreferrer"` to meetings external link | `content/meetings.md` | Lieutenant Governor website link follows security best practices |
-
----
-
-## SEO & CLS Performance Fixes -- April 7, 2026
-
-Full Lighthouse audit across 15 pages. SEO indexing fixed, CLS eliminated on 14 of 15 pages, performance scores dramatically improved.
-
-### SEO Changes
-
-| Fix | Files Changed | Impact |
-|-----|---------------|--------|
 | Disable `@nuxtjs/robots` module | `nuxt.config.js` | Module blocked indexing in dev mode; replaced with static robots.txt |
 | Add static `robots.txt` | `public/robots.txt` | Allows full site indexing, blocks `/docs/`, `/preview/`, `/sandbox` |
 | Remove conditional `noindex` meta tags | `composables/useSeoMeta.ts` | All pages now always output `index, follow` |
@@ -65,6 +56,16 @@ Full Lighthouse audit across 15 pages. SEO indexing fixed, CLS eliminated on 14 
 | Remove `v-if="isMounted"` from Funding content | `components/content/Funding.vue` | Funding content SSR-rendered directly |
 | Set TOC columns from SSR data | `pages/[...slug].vue` | Column layout (12→9) no longer shifts on mount |
 | Replace nav loader with zero-width hidden span | `components/content/TheNav.vue` | Eliminates visible loader→nav swap shift |
+
+### Accessibility & Image Optimization
+
+| Fix | Files Changed | Impact |
+|-----|---------------|--------|
+| Convert director photo to `<NuxtImg>` with WebP | `pages/index.vue` | Image savings reduced from 182 KiB to 98 KiB; home page perf 85 → 89 |
+| Add `font-display: swap` to octicons-link @font-face | `assets/css/github-markdown.css` | Eliminates flash of invisible text for markdown icon font |
+| Fix `label-content-name-mismatch` on news buttons | `pages/news/index.vue` | aria-label now starts with visible text before appending article title |
+| Add aria-labels to research article buttons | `pages/research/index.vue` | Both hub and publist buttons now have descriptive accessible names |
+| Add aria-label to resources "Find out more" button | `pages/resources/index.vue` | Button accessible name now includes resource title |
 
 ### Audit Scores (Post-Fix)
 
@@ -85,37 +86,6 @@ Full Lighthouse audit across 15 pages. SEO indexing fixed, CLS eliminated on 14 
 | `/meetings` | 100 | 99 | 100 | 100 |
 | `/privacy` | 100 | 99 | 100 | 100 |
 | `/resources/single-page` | 100 | 99 | 100 | 100 |
-
----
-
-## Lighthouse Audit Fixes -- April 7, 2026
-
-Full Lighthouse audit across 8 pages (home, news, research, resources, funding, contact, FAQs, search). All pages score 100 for Accessibility and Best Practices. Performance and image delivery improvements applied.
-
-### Changes
-
-| Fix | Files Changed | Impact |
-|-----|---------------|--------|
-| Convert director photo to `<NuxtImg>` with WebP | `pages/index.vue` | Image savings reduced from 182 KiB to 98 KiB; home page perf 85 → 89 |
-| Add `font-display: swap` to octicons-link @font-face | `assets/css/github-markdown.css` | Eliminates flash of invisible text for markdown icon font |
-| Fix `label-content-name-mismatch` on news buttons | `pages/news/index.vue` | aria-label now starts with visible text before appending article title |
-| Add aria-labels to research article buttons | `pages/research/index.vue` | Both hub and publist buttons now have descriptive accessible names |
-| Add aria-label to resources "Find out more" button | `pages/resources/index.vue` | Button accessible name now includes resource title |
-
-### Audit Scores (Post-Fix)
-
-| Page | A11y | Perf | Best Practices | SEO |
-|------|------|------|----------------|-----|
-| `/` | 100 | 89 | 100 | 69* |
-| `/news` | 100 | 99 | 100 | 66* |
-| `/research` | 100 | 99 | 100 | 69* |
-| `/resources` | 100 | 94 | 100 | 69* |
-| `/funding` | 100 | 85 | 100 | 69* |
-| `/contact` | 100 | 99 | 100 | 66* |
-| `/faqs` | 100 | 99 | 100 | 66* |
-| `/search` | 100 | 99 | 100 | 63* |
-
-*SEO scores are suppressed by dev-mode `robots.txt` (`@nuxtjs/robots` blocks indexing in development). Production builds serve the correct `Allow: /` rules.
 
 ### Not Addressed (Dev-Only / Third-Party)
 

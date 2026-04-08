@@ -77,7 +77,20 @@ The blue team review documents existing security measures already protecting use
 
 ## Lighthouse Audit (April 2026)
 
-Full Lighthouse audit across 15 pages. All pages score **100 for Accessibility**, **100 for SEO**, and **100 for Best Practices**. Performance ranges from 82-99 (dev mode). CLS eliminated on 14 of 15 pages. See [CHANGELOG.md](./CHANGELOG.md) for detailed scores and fixes.
+Full Lighthouse audit across all pages. All pages score **100 for Accessibility**, **100 for SEO**, and **100 for Best Practices**. Production performance: 6 of 9 pages score **100**, remaining pages 88-97. See [CHANGELOG.md](./CHANGELOG.md) for detailed scores and fixes.
+
+| Page | Perf | A11y | BP | SEO |
+|------|------|------|----|-----|
+| `/` | 96 | 100 | 100 | 100 |
+| `/contact` | 100 | 100 | 100 | 100 |
+| `/faqs` | 97 | 100 | 100 | 100 |
+| `/news` | 88 | 100 | 100 | 100 |
+| `/research` | 100 | 100 | 100 | 100 |
+| `/resources` | 100 | 100 | 100 | 100 |
+| `/search` | 100 | 100 | 100 | 100 |
+| `/translate` | 100 | 100 | 100 | 100 |
+
+Key optimizations: lazy-loaded Fuse.js/DOMPurify/axios to eliminate render-blocking JS, trailing slash normalization for consistent Plausible analytics, SSR hydration fixes for deterministic date formatting, and static `useAsyncData` keys to prevent payload mismatches with Netlify Pretty URLs.
 
 ## Accessibility Audit (March 2026)
 

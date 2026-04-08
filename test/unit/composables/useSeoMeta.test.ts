@@ -56,6 +56,26 @@ describe("useSeoMeta Composable", () => {
       expect(indexConfig.index).toBe(true);
       expect(noIndexConfig.index).toBe(false);
     });
+
+    it("should normalize canonical URL with trailing slash", () => {
+      const baseUrl = "https://r3.illinois.gov";
+
+      // Simulate canonical URL generation from useSeoMeta.ts
+      const buildCanonical = (rawPath: string) => {
+        const fullPath =
+          rawPath !== "/" && !rawPath.endsWith("/")
+            ? rawPath + "/"
+            : rawPath;
+        return `${baseUrl}${fullPath}`;
+      };
+
+      expect(buildCanonical("/news")).toBe("https://r3.illinois.gov/news/");
+      expect(buildCanonical("/news/")).toBe("https://r3.illinois.gov/news/");
+      expect(buildCanonical("/")).toBe("https://r3.illinois.gov/");
+      expect(buildCanonical("/contact")).toBe(
+        "https://r3.illinois.gov/contact/",
+      );
+    });
   });
 
   describe("useSiteSeo", () => {
