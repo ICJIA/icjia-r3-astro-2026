@@ -65,11 +65,10 @@ usePageSeo({
     "community program announcements",
   ],
 });
-const { path } = useRoute();
 const router = useRouter();
 
 // const error = useError();
-const { data: news } = await useAsyncData(`news-${path}`, async () => {
+const { data: news } = await useAsyncData("news-index", async () => {
   const post = await queryContent("/news").find();
   return post;
 });

@@ -111,11 +111,10 @@ const results = ref([]);
 const currentIndex = ref(0);
 const isMounted = ref(false);
 const currentClass = ref("current");
-const { path } = useRoute();
 // const router = useRouter();
 const route = useRoute();
 // const routePath = ref(route.path);
-const { data: faqs } = await useAsyncData(`faqs-${path}`, async () => {
+const { data: faqs } = await useAsyncData("faqs-sandbox", async () => {
   const post = await queryContent("/faqs").find();
   return post;
 });

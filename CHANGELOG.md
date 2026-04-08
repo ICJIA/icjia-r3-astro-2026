@@ -10,7 +10,8 @@ All notable changes to the ICJIA R3 Program Website are documented in this file.
 
 | Fix | Files Changed | Impact |
 |-----|---------------|--------|
-| Normalize trailing slashes for Plausible analytics | `plugins/trailingSlash.client.js`, `composables/useSeoMeta.ts`, `nuxt.config.js` | Client-side navigation now appends trailing slash via `beforeResolve`, matching Netlify's Pretty URLs; canonical URLs and sitemap also normalized — eliminates duplicate entries in Plausible |
+| Normalize trailing slashes for Plausible analytics | `plugins/trailingSlash.client.js`, `composables/useSeoMeta.ts`, `nuxt.config.js` | Client-side navigation now appends trailing slash via `replaceState`, matching Netlify's Pretty URLs; canonical URLs and sitemap also normalized — eliminates duplicate entries in Plausible |
+| Fix useAsyncData payload key mismatch from trailing slashes | `pages/news/index.vue`, `pages/sandbox.vue` | Use static keys instead of path-dependent keys to prevent SSG payload mismatch when Netlify adds trailing slashes |
 | Fix SSR hydration mismatch from locale-dependent dates | `pages/research/index.vue`, `components/content/attachments.vue`, `components/content/attachmentsv2.vue` | `toLocaleDateString(undefined)` → `toLocaleDateString("en-US")` — eliminates "Hydration completed but contains mismatches" console error |
 | Lazy-load Fuse.js via dynamic `import()` | `pages/search.vue` | Eliminates render-blocking JS on search page |
 | Lazy-load DOMPurify and axios on form submit | `pages/contact.vue` | Eliminates render-blocking JS on contact page |
