@@ -60,7 +60,10 @@ export function usePageSeo(config: PageSeoConfig) {
 
   // Build the full URL for canonical and og:url
   const baseUrl = appConfig.root || "https://r3.illinois.gov";
-  const fullPath = config.path || route.path;
+  const rawPath = config.path || route.path;
+  // Normalize trailing slash to match Netlify's Pretty URLs and prevent duplicate analytics entries
+  const fullPath =
+    rawPath !== "/" && !rawPath.endsWith("/") ? rawPath + "/" : rawPath;
   const canonicalUrl = `${baseUrl}${fullPath}`;
 
   // Default values
@@ -226,7 +229,7 @@ export function useArticleSchema(config: {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${baseUrl}${route.path}`,
+      "@id": `${baseUrl}${route.path.endsWith("/") || route.path === "/" ? route.path : route.path + "/"}`,
     },
   };
 

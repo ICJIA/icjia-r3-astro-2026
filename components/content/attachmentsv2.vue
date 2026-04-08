@@ -141,7 +141,7 @@ const niceBytes = (bytes, si = false, dp = 1) => {
 
 const formatDate = (dateString) => {
   const options = { year: "numeric", month: "long", day: "numeric" };
-  return new Date(dateString).toLocaleDateString(undefined, options);
+  return new Date(dateString).toLocaleDateString("en-US", options);
 };
 </script>
 

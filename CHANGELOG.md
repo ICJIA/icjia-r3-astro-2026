@@ -4,23 +4,30 @@ All notable changes to the ICJIA R3 Program Website are documented in this file.
 
 ---
 
-## Performance Optimization & Content Update -- April 8, 2026
+## Trailing Slash Normalization, Hydration Fix & Performance -- April 8, 2026
 
 ### Changes
 
 | Fix | Files Changed | Impact |
 |-----|---------------|--------|
+| Normalize trailing slashes for Plausible analytics | `plugins/trailingSlash.client.js`, `composables/useSeoMeta.ts`, `nuxt.config.js` | Client-side navigation now appends trailing slash via `beforeResolve`, matching Netlify's Pretty URLs; canonical URLs and sitemap also normalized — eliminates duplicate entries in Plausible |
+| Fix SSR hydration mismatch from locale-dependent dates | `pages/research/index.vue`, `components/content/attachments.vue`, `components/content/attachmentsv2.vue` | `toLocaleDateString(undefined)` → `toLocaleDateString("en-US")` — eliminates "Hydration completed but contains mismatches" console error |
 | Lazy-load Fuse.js via dynamic `import()` | `pages/search.vue` | Eliminates render-blocking JS on search page |
 | Lazy-load DOMPurify and axios on form submit | `pages/contact.vue` | Eliminates render-blocking JS on contact page |
 | Change "EXPIRED Friday, March 6, 2026" to "EXPIRED" | `pages/index.vue` | Cleaner expired notice on splash cards |
 
-### Audit Scores (Post-Fix)
+### Production Audit Scores
 
 | Page | A11y | Perf | Best Practices | SEO |
 |------|------|------|----------------|-----|
-| `/` | 100 | 90 | 100 | 100 |
-| `/contact` | 100 | 99 | 100 | 100 |
-| `/search` | 100 | 99 | 100 | 100 |
+| `/` | 100 | 96 | 100 | 100 |
+| `/contact` | 100 | 100 | 100 | 100 |
+| `/faqs` | 100 | 97 | 100 | 100 |
+| `/news` | 100 | 88 | 96 | 100 |
+| `/research` | 100 | 100 | 96 | 100 |
+| `/resources` | 100 | 100 | 100 | 100 |
+| `/search` | 100 | 100 | 100 | 100 |
+| `/translate` | 100 | 100 | 100 | 100 |
 
 ---
 

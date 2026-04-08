@@ -155,6 +155,7 @@ export default defineNuxtConfig({
   },
   sitemap: {
     strictNuxtContentAds: true,
+    trailingSlash: true,
     exclude: ["/docs/**", "/preview/**", "/sandbox"],
   },
   // robots module disabled — using static public/robots.txt instead
