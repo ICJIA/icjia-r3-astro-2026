@@ -342,11 +342,9 @@
 </template>
 
 <script>
-import DOMPurify from "dompurify";
-import axios from "axios";
-const api = axios.create({
-  timeout: 15000,
-});
+let DOMPurify = null;
+let axios = null;
+let api = null;
 /**
  * Sanitizes a string by removing any characters that are not alphanumeric, space, period,
  * comma, underscore, or hyphen. Also trims any leading or trailing whitespace.
@@ -567,6 +565,17 @@ export default {
           }
         });
         return;
+      }
+
+      // Lazy load DOMPurify and axios on first submission
+      if (!DOMPurify) {
+        const mod = await import("dompurify");
+        DOMPurify = mod.default;
+      }
+      if (!axios) {
+        const mod = await import("axios");
+        axios = mod.default;
+        api = axios.create({ timeout: 15000 });
       }
 
       let myForm;

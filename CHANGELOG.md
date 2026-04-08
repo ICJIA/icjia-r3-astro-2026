@@ -4,6 +4,26 @@ All notable changes to the ICJIA R3 Program Website are documented in this file.
 
 ---
 
+## Performance Optimization & Content Update -- April 8, 2026
+
+### Changes
+
+| Fix | Files Changed | Impact |
+|-----|---------------|--------|
+| Lazy-load Fuse.js via dynamic `import()` | `pages/search.vue` | Eliminates render-blocking JS on search page |
+| Lazy-load DOMPurify and axios on form submit | `pages/contact.vue` | Eliminates render-blocking JS on contact page |
+| Change "EXPIRED Friday, March 6, 2026" to "EXPIRED" | `pages/index.vue` | Cleaner expired notice on splash cards |
+
+### Audit Scores (Post-Fix)
+
+| Page | A11y | Perf | Best Practices | SEO |
+|------|------|------|----------------|-----|
+| `/` | 100 | 90 | 100 | 100 |
+| `/contact` | 100 | 99 | 100 | 100 |
+| `/search` | 100 | 99 | 100 | 100 |
+
+---
+
 ## SEO Crawlability & Link Fixes -- April 7, 2026
 
 ### Changes

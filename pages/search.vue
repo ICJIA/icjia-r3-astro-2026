@@ -120,7 +120,6 @@
  * @since 1.0.0
  */
 
-import Fuse from "fuse.js";
 import searchIndex from "~/assets/json/searchIndex.json";
 
 /**
@@ -181,12 +180,11 @@ const options = {
 const query = ref("");
 
 /**
- * Fuse.js search instance configured with the search index and options.
- * Provides the core search functionality for the application.
+ * Fuse.js search instance, lazy-loaded to avoid render-blocking.
  *
- * @type {Fuse}
+ * @type {Ref<Fuse|null>}
  */
-const fuse = new Fuse(searchIndex, options);
+const fuse = ref(null);
 
 /**
  * Reactive search results array.
@@ -194,17 +192,24 @@ const fuse = new Fuse(searchIndex, options);
  *
  * @type {Ref<Array<Object>>}
  */
-const result = ref(fuse.search(query.value.toLowerCase));
-// console.log("queries: ", queries.value.length);
+const result = ref([]);
 
 /**
- * Initialize search with the most recent query from history.
- * If there are previous queries, use the latest one to populate the search.
+ * Initialize Fuse.js on mount to avoid render-blocking import.
  */
-if (queries.value.length) {
-  query.value = queries.value[queries.value.length - 1];
-  result.value = fuse.search(query.value);
-}
+onMounted(async () => {
+  const el = document.getElementById("textfield");
+  el.focus();
+
+  const { default: Fuse } = await import("fuse.js");
+  fuse.value = new Fuse(searchIndex, options);
+
+  // Initialize search with the most recent query from history
+  if (queries.value.length) {
+    query.value = queries.value[queries.value.length - 1];
+    result.value = fuse.value.search(query.value);
+  }
+});
 
 /**
  * Performs an instant search with the current query value.
@@ -218,7 +223,9 @@ if (queries.value.length) {
  * ```
  */
 const instantSearch = () => {
-  result.value = fuse.search(query.value);
+  if (fuse.value) {
+    result.value = fuse.value.search(query.value);
+  }
 };
 
 /**
@@ -253,7 +260,9 @@ const toggleIndex = () => {
  */
 const addQuery = (q) => {
   query.value = q;
-  result.value = fuse.search(query.value);
+  if (fuse.value) {
+    result.value = fuse.value.search(query.value);
+  }
 };
 
 /**
@@ -310,14 +319,6 @@ const clearAll = () => {
   el.focus();
 };
 
-/**
- * Component lifecycle hook that runs after the component is mounted.
- * Automatically focuses the search input field for better user experience.
- */
-onMounted(() => {
-  const el = document.getElementById("textfield");
-  el.focus();
-});
 </script>
 
 <style scoped>

@@ -92,7 +92,7 @@
                       {{ item.tagline }}
                     </div>
                     <div class="application-date mt-4">
-                      EXPIRED Friday, March 6, 2026
+                      EXPIRED
                     </div>
                     <!-- Commented out for future use - button will be restored when links are ready -->
                     <!--
