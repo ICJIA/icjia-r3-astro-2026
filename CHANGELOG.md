@@ -6,7 +6,7 @@ All notable changes to the ICJIA R3 Program Website are documented in this file.
 
 ## Siteimprove A11y Fixes & CLS Optimization -- April 11, 2026
 
-Resolved Siteimprove WCAG 2.1 potential issues (contrast, focus visibility) and refactored link tap targets to eliminate CLS.
+Resolved Siteimprove WCAG 2.1 potential issues (contrast, focus visibility) and refactored link tap targets to eliminate CLS. Fixed layout regression from tap target CSS.
 
 ### Changes
 
@@ -17,6 +17,7 @@ Resolved Siteimprove WCAG 2.1 potential issues (contrast, focus visibility) and 
 | Add `outline: 3px solid #0d4474` on focused form fields | `assets/css/app.css`, `pages/contact.vue` | WCAG 2.4.7 — keyboard focus is now clearly visible on all 5 contact form inputs |
 | Refactor link 44px tap targets from padding/margin to `::after` pseudo-element | `assets/css/app.css` | Eliminates layout reflow from link styling — zero CLS impact while maintaining WCAG 2.5.5 compliance |
 | Add `min-height: 60vh` to catch-all content container | `pages/[...slug].vue` | Reserves vertical space to reduce CLS during content hydration |
+| Exclude skip-links and nav title from global link tap target CSS | `assets/css/app.css` | Fixes 27px gap between navbar and content caused by `position: relative !important` overriding skip-link `position: absolute` |
 
 ### Siteimprove Issues Resolved
 

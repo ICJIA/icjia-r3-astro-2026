@@ -494,12 +494,13 @@ a.nuxt-link-exact-active,
    ============================================================================= */
 
 /* Base rule: ALL links get a 44x44 tap target via ::after overlay */
-a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):not(.sidebar-link) {
+/* Exclude skip-links (position:absolute), sidebar-link, and Vuetify components */
+a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):not(.sidebar-link):not(.skip-link) {
   position: relative !important;
 }
 
 /* Invisible 44x44 hit area centered on the link — no padding/margin on the element itself */
-a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):not(.sidebar-link)::after {
+a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):not(.sidebar-link):not(.skip-link)::after {
   content: "" !important;
   position: absolute !important;
   top: 50% !important;
@@ -519,11 +520,11 @@ a:focus-visible {
 }
 
 /* Maintain underline for links (unless overridden by other styles) */
-/* Excludes sidebar links which have their own styling */
-a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):not(.sidebar-link) {
+/* Excludes sidebar, skip, nav title, and Vuetify component links */
+a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):not(.sidebar-link):not(.skip-link):not(.app-title) {
   text-decoration: underline !important;
 }
 
-a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):not(.sidebar-link):hover {
+a:not(.v-btn):not(.v-list-item):not(.v-breadcrumbs-item):not(.v-pagination__item):not(.sidebar-link):not(.skip-link):not(.app-title):hover {
   text-decoration: underline !important;
 }
