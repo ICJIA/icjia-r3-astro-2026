@@ -754,11 +754,11 @@ export default {
   font-weight: 500 !important;
 }
 
-/* Placeholder text - AAA compliant (#555 = 7.5:1 contrast on white) */
+/* Placeholder text - AAA compliant (#333 = 12.6:1 contrast on white) */
 .contact-form :deep(.v-field input::placeholder),
 .contact-form :deep(.v-field textarea::placeholder),
 .contact-form :deep(.v-field__input::placeholder) {
-  color: #555555 !important;
+  color: #333333 !important;
   opacity: 1 !important;
 }
 
@@ -779,6 +779,13 @@ export default {
 .contact-form :deep(.v-field--focused .v-field__outline__end) {
   border-color: #0d4474 !important;
   border-width: 2px !important;
+}
+
+/* WCAG 2.4.7: Focus visible outline for keyboard navigation */
+.contact-form :deep(.v-field--focused) {
+  outline: 3px solid #0d4474 !important;
+  outline-offset: 2px !important;
+  border-radius: 4px !important;
 }
 
 /* Error state messages - AAA compliant dark red (#9B0000 = 8.5:1 contrast) */

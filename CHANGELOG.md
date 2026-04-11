@@ -4,6 +4,50 @@ All notable changes to the ICJIA R3 Program Website are documented in this file.
 
 ---
 
+## Siteimprove A11y Fixes & CLS Optimization -- April 11, 2026
+
+Resolved Siteimprove WCAG 2.1 potential issues (contrast, focus visibility) and refactored link tap targets to eliminate CLS.
+
+### Changes
+
+| Fix | Files Changed | Impact |
+|-----|---------------|--------|
+| Darken form placeholder text `#555` → `#333` for reliable contrast on all backgrounds | `assets/css/app.css`, `pages/contact.vue` | Placeholder text now passes AA contrast on both white and Vuetify gray filled backgrounds |
+| Force white background on Vuetify filled-variant inputs | `assets/css/app.css` | Eliminates gray background that reduced placeholder contrast ratio |
+| Add `outline: 3px solid #0d4474` on focused form fields | `assets/css/app.css`, `pages/contact.vue` | WCAG 2.4.7 — keyboard focus is now clearly visible on all 5 contact form inputs |
+| Refactor link 44px tap targets from padding/margin to `::after` pseudo-element | `assets/css/app.css` | Eliminates layout reflow from link styling — zero CLS impact while maintaining WCAG 2.5.5 compliance |
+| Add `min-height: 60vh` to catch-all content container | `pages/[...slug].vue` | Reserves vertical space to reduce CLS during content hydration |
+
+### Siteimprove Issues Resolved
+
+| Issue | WCAG | Pages Affected | Status |
+|-------|------|----------------|--------|
+| 1.4.3: Contrast (Minimum) — form elements | AA | `/`, `/search/`, `/contact/` | Fixed |
+| 2.4.7: Focus Visible — keyboard focus | AA | `/contact/` | Fixed |
+
+### Full Site Audit Scores (localhost, April 11, 2026)
+
+| Page | axe AAA | A11y | Perf | BP | SEO |
+|------|---------|------|------|----|-----|
+| `/` | 0 violations | 100 | 93 | 100 | 100 |
+| `/contact/` | 0 violations | 100 | 99 | 100 | 100 |
+| `/search/` | 0 violations | 100 | 99 | 100 | 100 |
+| `/funding/` | 0 violations | 100 | 90 | 100 | 100 |
+| `/news/` | 0 violations | 100 | 99 | 100 | 100 |
+| `/faqs/` | 0 violations | 100 | 99 | 100 | 100 |
+| `/eligibility/` | timeout* | 100 | 92 | 96 | 100 |
+| `/board/` | 0 violations | 100 | 94 | 100 | 100 |
+| `/meetings/` | 0 violations | 100 | 99 | 100 | 100 |
+| `/collaboratives/` | 0 violations | 100 | 87 | 100 | 100 |
+| `/privacy/` | 0 violations | 100 | 77 | 100 | 100 |
+| `/translate/` | 0 violations | 100 | 99 | 100 | 100 |
+| `/resources/` | 0 violations | 100 | 91 | 100 | 100 |
+| `/resources/single-page/` | 0 violations | 100 | 99 | 100 | 100 |
+
+\* `/eligibility/` axe times out due to embedded iframe; Lighthouse still scores 100 a11y.
+
+---
+
 ## Trailing Slash Normalization, Hydration Fix & Performance -- April 8, 2026
 
 ### Changes

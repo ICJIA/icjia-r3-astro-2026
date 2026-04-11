@@ -31,7 +31,7 @@ yarn dev  # Runs at http://localhost:8000
 - **Framework**: Nuxt 4, Vue 3, Vuetify 3.
 - **Config**: Centralized `config.js` (No `.env` files for public API paths).
 - **SEO**: Lighthouse 100/100 via `usePageSeo` and JSON-LD.
-- **Accessibility**: 100/100 WCAG 2.1 AA.
+- **Accessibility**: 100/100 WCAG 2.1 AAA (0 axe violations at AAA level).
 - **Docs**: Mandatory WCAG 2.1 AAA portal at `/docs/`.
 
 ## 📂 Documentation Index

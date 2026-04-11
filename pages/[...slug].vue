@@ -191,7 +191,7 @@ if (data.value) {
       <v-container fluid
         ><v-row
           ><v-col cols="12" :md="cols">
-            <div v-if="data" class="mt-6">
+            <div v-if="data" class="mt-6" style="min-height: 60vh">
               <h1>{{ data.title }}</h1>
               <ContentDoc
                 :key="data?.title"
