@@ -78,7 +78,7 @@
     "@vueuse/integrations": "^14.1.0",
     "@vueuse/router": "^14.1.0",
     "aos": "2.3.4",
-    "axios": "^1.13.6",
+    "axios": "^1.15.0",
     "dompurify": "3.2.6",
     "fs-extra": "^11.3.0",
     "fuse.js": "7.0.0",
