@@ -6,7 +6,6 @@
       style="border-left: 0px solid #eee; background: #fafafa"
     >
       <div
-        id="navigation"
         ref="navigation"
         class="hover pb-4 navigation-anchor"
         style="border: 0px; font-size: 20px; font-weight: bold"

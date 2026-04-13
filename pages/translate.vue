@@ -1,19 +1,18 @@
 <template>
   <div>
-    <!-- Skip Links for Accessibility -->
+    <!-- Page-level skip links (global skip links in app.vue provide #main-content and #navigation) -->
     <nav aria-label="Translation page navigation" class="skip-links">
-      <a href="#main-content" class="skip-link">Skip to main content</a>
       <a href="#language-selection" class="skip-link">Skip to language selection</a>
       <a href="#translation-info" class="skip-link">Skip to translation information</a>
     </nav>
 
-    <v-container id="main-content">
+    <v-container>
       <v-row>
         <v-col>
           <h1>Translation Options</h1>
           
           <!-- Language Selection Section -->
-          <div id="language-selection" class="mt-3 mb-3" role="region" aria-labelledby="language-heading">
+          <div id="language-selection" tabindex="-1" class="mt-3 mb-3" role="region" aria-labelledby="language-heading">
             <h2 id="language-heading" class="sr-only">Select a language to translate this page</h2>
             <p class="sr-only">
               Choose one of the five most commonly spoken languages in Illinois to translate this page using Google Translate.
@@ -60,7 +59,7 @@
           <v-divider class="my-6" role="separator" aria-orientation="horizontal"></v-divider>
 
           <!-- Translation Information Section -->
-          <div id="translation-info" class="mt-3" role="region" aria-labelledby="info-heading">
+          <div id="translation-info" tabindex="-1" class="mt-3" role="region" aria-labelledby="info-heading">
             <h2 id="info-heading" class="sr-only">Translation Information</h2>
             <div style="font-size: 16px; font-weight: 400">
               <p>

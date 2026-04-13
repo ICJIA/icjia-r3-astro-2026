@@ -4,6 +4,60 @@ All notable changes to the ICJIA R3 Program Website are documented in this file.
 
 ---
 
+## Skip Link Verification & A11y Fixes -- April 13, 2026
+
+Verified skip-link behavior on every page of the app and fixed three underlying accessibility issues that prevented skip-links from being reliable on certain pages.
+
+### Changes
+
+| Fix | Files Changed | Impact |
+|-----|---------------|--------|
+| Remove duplicate `id="main-content"` from translate page v-container (app.vue v-main already owns it globally) | `pages/translate.vue` | Eliminates duplicate-ID validation error; skip-link target is now unambiguous |
+| Remove redundant page-level "Skip to main content" link on translate page | `pages/translate.vue` | App-level skip-link in `app.vue` already provides it — avoids double announcement |
+| Add `tabindex="-1"` to `#language-selection` and `#translation-info` skip-link targets | `pages/translate.vue` | Activating a skip-link now moves keyboard focus to the target (WCAG 2.4.1) |
+| Remove duplicate `id="navigation"` from TOC title (kept `ref="navigation"` for internal scroll logic) | `components/content/TheTableOfContents.vue` | Every page that renders a TOC (news, resources, general slug pages) previously had two `#navigation` elements; skip-to-navigation is now unambiguous |
+| Add skip-link nav and matching styles to the error layout | `error.vue` | 404 / error page is now keyboard-accessible via the same skip-link pattern as the rest of the app |
+
+### Skip-Link Verification (localhost, April 13, 2026)
+
+| Check | Result |
+|-------|--------|
+| Pages audited | 20 routes (home, contact, funding, search, faqs, translate, board, sandbox, news, resources, eligibility, meetings, collaboratives, privacy, plus 6 slug routes) |
+| Exactly 1 `#main-content` per page | Pass (all 20) |
+| Exactly 1 `#navigation` per page | Pass (all 20) |
+| Both global skip-links present in SSR HTML | Pass (all 20) |
+| Tab 1 from page load focuses "Skip to main content" + visible | Pass (home, translate, privacy) |
+| Tab 2 focuses "Skip to navigation" + visible | Pass (home) |
+| Enter on skip-link updates URL hash and moves focus to target | Pass (home → MAIN, HEADER; translate → all 4 targets; privacy → both global) |
+| TOC page has no duplicate `id="navigation"` in TOC | Pass (privacy with TOC mounted) |
+
+### Site Audit Scores (localhost, April 13, 2026)
+
+| Page | axe AAA | A11y | Perf | BP | SEO |
+|------|---------|------|------|----|-----|
+| `/` | 0 violations | 100 | 95 | 100 | 100 |
+| `/contact/` | 0 violations | 100 | 99 | 100 | 100 |
+| `/funding/` | 0 violations | 100 | 79 | 100 | 100 |
+| `/search/` | 0 violations | 100 | 99 | 100 | 100 |
+| `/faqs/` | 0 violations | 100 | 99 | 100 | 100 |
+| `/translate/` | 0 violations | 100 | 99 | 100 | 100 |
+| `/board/` | 0 violations | 100 | 94 | 100 | 100 |
+| `/news/` | 0 violations | 100 | 99 | 100 | 100 |
+| `/resources/` | 0 violations | 100 | 95 | 100 | 100 |
+| `/eligibility/` | timeout* | 100 | 88 | 96 | 100 |
+| `/meetings/` | 0 violations | 100 | 99 | 100 | 100 |
+| `/collaboratives/` | 0 violations | 100 | 87 | 100 | 100 |
+| `/privacy/` | 0 violations | 100 | 77 | 100 | 100 |
+| `/sandbox/` | 1 pre-existing† | 95 | 98 | 100 | 54 |
+| `/news/r3-2022-annual-report/` | 0 violations | 100 | 75 | 100 | 100 |
+| `/resources/single-page/` | 0 violations | 100 | 98 | 100 | 100 |
+| `/faqs/2025-r3-frequently-asked-questions/` | 0 violations | — | — | — | — |
+
+*`/eligibility` axe run times out (pre-existing, same as prior audits).
+†`/sandbox` lacks `<html lang>` — pre-existing dev/test page issue, outside the scope of this change.
+
+---
+
 ## Siteimprove A11y Fixes & CLS Optimization -- April 11, 2026
 
 Resolved Siteimprove WCAG 2.1 potential issues (contrast, focus visibility) and refactored link tap targets to eliminate CLS. Fixed layout regression from tap target CSS.
