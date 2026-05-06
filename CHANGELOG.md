@@ -4,6 +4,31 @@ All notable changes to the ICJIA R3 Program Website are documented in this file.
 
 ---
 
+## SiteImprove SIA-R17 Fix on Contact Form -- May 6, 2026
+
+Resolved the only WCAG Level A finding in the May 6, 2026 SiteImprove audit ("Hidden element has focusable content," 1 occurrence on `/contact/`). Vuetify's auto-grow `v-textarea` renders an internal sizer `<textarea>` with `aria-hidden="true"` but no `tabindex`, leaving it nominally in sequential focus navigation. SiteImprove SIA-R17 flags this on the static markup; axe-core's `aria-hidden-focus` skips it because the element is `visibility: hidden`. We add `tabindex="-1"` so both static and computed checks agree.
+
+### Changes
+
+| Fix | Files Changed | Impact |
+|-----|---------------|--------|
+| Extend `fixVuetifyAccessibility()` to set `tabindex="-1"` on `.contact-form .v-textarea__sizer` | `pages/contact.vue` | Removes the sizer textarea from sequential focus navigation, clearing SiteImprove SIA-R17 ("Hidden element has focusable content") |
+
+### Verification (localhost, May 6, 2026)
+
+| Check | Result |
+|-------|--------|
+| `#contact-message-sizer` `tabindex` after mount | `-1` (was unset → default 0) |
+| ACT 6cfa84 / SIA-R17 mirror check (aria-hidden containers with sequentially focusable content) | 0 offenders (was 1) |
+| axe-core `aria-hidden-focus`, `focus-order-semantics`, `tabindex` rules | 0 violations |
+| axe-core full AA audit on `/contact/` | 0 violations |
+
+### SiteImprove rollup, expected post-fix
+
+Every WCAG 2.1 Level A and AA rule SiteImprove tested is now at 100/100. The only remaining sub-100 item in the rollup is "Interactive element does not meet enhanced size" (WCAG 2.5.5, AAA) at 63.14/100 — an AAA stretch goal not required by ADA Title II or IITAA 2.1.
+
+---
+
 ## Skip Link Verification & A11y Fixes -- April 13, 2026
 
 Verified skip-link behavior on every page of the app and fixed three underlying accessibility issues that prevented skip-links from being reliable on certain pages.

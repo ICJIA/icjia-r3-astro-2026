@@ -710,6 +710,15 @@ export default {
       internalLabels.forEach((label) => {
         label.setAttribute("aria-hidden", "true");
       });
+
+      // Vuetify's auto-grow v-textarea renders an internal sizer textarea with
+      // aria-hidden="true" but no tabindex, leaving it in the focus order.
+      // SiteImprove SIA-R17 flags this as "Hidden element has focusable content."
+      document
+        .querySelectorAll(".contact-form .v-textarea__sizer")
+        .forEach((sizer) => {
+          sizer.setAttribute("tabindex", "-1");
+        });
     },
   },
 };
