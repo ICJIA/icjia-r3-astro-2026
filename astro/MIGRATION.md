@@ -5,7 +5,7 @@ Nuxt → Astro 6 migration. Companion to `astro/CHANGELOG.md`.
 
 ---
 
-# R3 Astro Migration — Baseline (Nuxt prod build)
+## Phase 0 baseline — Nuxt prod build
 
 Captured 2026-05-08 against `yarn generate && npx serve .output/public -l 8001` (Nuxt static server, captured locally), lightcap mobile preset.
 

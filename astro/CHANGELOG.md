@@ -12,8 +12,8 @@ chronological order.
 
 - Captured P0 mobile Lighthouse scores for all 25 routes of the current
   Nuxt prod build (see `MIGRATION.md` for the table). Mobile Perf range
-  52–93, average ~78. A11y/BP/SEO = 100 across all routes (validates
-  the Nuxt site's existing audit posture).
+  52–93, average ~79. A11y/SEO = 100 across all routes; BP = 100 on
+  24/25 routes (96 on `/eligibility/` due to the ArcGIS storymap iframe).
 - Captured P0 axe-core baseline: 84 test runs (28 pages × 3 viewports),
   7,588 individual checks, **3 violations** (all `page-has-heading-one`
   on `/404`, best-practice tag — NOT WCAG AA). 27/28 pages pass with
@@ -22,9 +22,8 @@ chronological order.
 ### Phase 1 — Foundation
 
 - Scaffolded Astro 6.3.1 project under `astro/` subfolder; pinned
-  Node 22.22.2 LTS via `.nvmrc`; renamed scaffold-generated `eccentric-zero`
-  package to `icjia-r3-astro`; switched scaffold's npm output to yarn
-  with regenerated `yarn.lock`
+  Node 22.22.2 LTS via `.nvmrc`; named the package `icjia-r3-astro`;
+  switched scaffold's npm output to yarn with regenerated `yarn.lock`
 - Installed core deps: Astro integrations (`@astrojs/sitemap`,
   `@astrojs/vue`), Tailwind 4 via `@tailwindcss/vite` (NOT the legacy
   `@astrojs/tailwind`), Vue 3, markdown stack (`markdown-it` + plugins,
@@ -49,7 +48,9 @@ chronological order.
   `.env.production`, `.env.local`, `.env.*.local`), test artifacts
   (`test-results/`, `playwright-report/`, `playwright/.cache/`,
   `coverage/`), and OS/editor patterns
-- Documented Strapi/Hub baseline endpoints in `MIGRATION.md`
+- Documented Strapi (`r3.icjia-api.cloud`) and Research Hub
+  (`researchhub.icjia-api.cloud`) endpoints in `astro/.env.sample`
+  and `astro/astro.config.ts` env schema
 
 ### Cross-site policy notes
 
