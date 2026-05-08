@@ -1,0 +1,90 @@
+---
+// astro/src/components/Attachments.astro
+//
+// Renders a Strapi `attachments` array as a download list. Used inside
+// markdown bodies and by detail pages that surface downloadable files.
+//
+// Note: per Task 2.7/2.8 discovery, R3's Post and Resource Strapi types do
+// NOT have an attachments field. This component is reusable for any future
+// row shape that provides one. If consumers pass undefined or empty, the
+// component renders nothing.
+
+import { absoluteMediaURL } from '~/lib/strapi';
+
+interface Attachment {
+  attributes?: {
+    name?: string;
+    alternativeText?: string;
+    url?: string;
+    ext?: string;
+    size?: number;
+  };
+}
+
+interface Props {
+  attachments?: { data?: Attachment[] };
+}
+
+const { attachments } = Astro.props;
+const items = attachments?.data ?? [];
+
+function bytesToReadable(b?: number): string {
+  if (!b) return '';
+  if (b < 1024) return `${b} B`;
+  if (b < 1024 * 1024) return `${Math.round(b / 1024)} KB`;
+  return `${Math.round((b / 1024 / 1024) * 10) / 10} MB`;
+}
+---
+
+{items.length > 0 && (
+  <section class="attachments" aria-label="Downloads">
+    <h2>Downloads</h2>
+    <ul role="list">
+      {items.map((a) => (
+        <li>
+          <a
+            href={absoluteMediaURL(a.attributes?.url)}
+            download={a.attributes?.name}
+            rel="noopener"
+          >
+            {a.attributes?.name}
+          </a>
+          {a.attributes?.size && (
+            <span class="attachments__meta">
+              {' '}({a.attributes.ext?.replace('.', '').toUpperCase()}, {bytesToReadable(a.attributes.size)})
+            </span>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .attachments {
+    margin: 1.5rem 0;
+  }
+  .attachments h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .attachments ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+  .attachments li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+  }
+  .attachments a {
+    color: var(--color-r3-primary);
+    text-decoration: underline;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .attachments__meta {
+    color: var(--color-r3-text-muted);
+    font-size: 0.875rem;
+  }
+</style>
