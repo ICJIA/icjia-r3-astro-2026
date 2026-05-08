@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { renderMarkdown } from '~/lib/markdown';
 import { formatDate } from '~/lib/dateFormat';
+import { newsArticleSchema } from '~/lib/schemas';
 
 export async function getStaticPaths() {
   const items = await getCollection('news');
@@ -17,27 +18,13 @@ const { entry } = Astro.props;
 const d = entry.data;
 const html = d.body ? renderMarkdown(d.body) : '';
 
-const newsSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'NewsArticle',
-  headline: d.title,
+const newsSchema = newsArticleSchema({
+  title: d.title,
   description: d.summary ?? '',
+  canonicalURL: new URL(d.path, Astro.site).toString(),
   datePublished: d.postDate,
   dateModified: d.updatedAt ?? d.postDate,
-  author: {
-    '@type': 'GovernmentOrganization',
-    name: 'Illinois Criminal Justice Information Authority',
-  },
-  publisher: {
-    '@type': 'GovernmentOrganization',
-    name: 'Illinois Criminal Justice Information Authority',
-    url: 'https://icjia.illinois.gov',
-  },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': new URL(d.path, Astro.site).toString(),
-  },
-};
+});
 ---
 
 <BaseLayout

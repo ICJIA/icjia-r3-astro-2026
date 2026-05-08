@@ -11,6 +11,7 @@ import SiteNav from '~/components/SiteNav.astro';
 import SiteFooter from '~/components/SiteFooter.astro';
 import Breadcrumb from '~/components/Breadcrumb.astro';
 import Dialog from '~/components/Dialog.vue';
+import { websiteSchema } from '~/lib/schemas';
 
 interface Props {
   title: string;
@@ -48,22 +49,7 @@ const description = truncate(rawDescription);
 const datePublished = publishedAt ?? updatedAt;
 const dateModified = updatedAt ?? publishedAt;
 
-const ldJSON: Record<string, unknown> = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'R3 — Restore, Reinvest, Renew',
-  url: 'https://r3.illinois.gov',
-  description:
-    'The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment.',
-  publisher: {
-    '@type': 'GovernmentOrganization',
-    name: 'Illinois Criminal Justice Information Authority',
-    url: 'https://icjia.illinois.gov',
-  },
-  inLanguage: 'en',
-};
-if (datePublished) ldJSON['datePublished'] = datePublished;
-if (dateModified) ldJSON['dateModified'] = dateModified;
+const ldJSON = websiteSchema();
 ---
 
 <!doctype html>
