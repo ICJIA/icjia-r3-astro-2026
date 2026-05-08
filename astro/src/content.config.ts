@@ -352,7 +352,7 @@ const hubArticles = defineCollection({
   loader: hubLoader(
     'articles',
     `query {
-      articles(where: { tags_contains: [${HUB_TAGS.map((t) => `"${t}"`).join(', ')}] }, limit: 100) {
+      articles(where: { tags_contains: [${HUB_TAGS.map((t) => JSON.stringify(t)).join(', ')}] }, limit: 100) {
         _id title slug abstract date
         updatedAt createdAt
         tags
@@ -382,11 +382,14 @@ const hubArticles = defineCollection({
       ...data,
       // Compute the homepage flag like the old createHubArticles.js did:
       // an article goes on the homepage when its tags include 'r3'.
+      // homePage = true if tags include exact lowercase 'r3'. Case-sensitive: 'R3'
+      // or ' r3' will NOT match. Tag values must match the canonical form set in
+      // HUB_TAGS (src/lib/tags.ts).
       homePage: Array.isArray(data.tags) && data.tags.includes('r3'),
       rawText: rawText(`${data.title} ${data.abstract ?? ''}`),
       path: ensureTrailingSlash(`/research/${data.slug}`),
-      splashURL: absoluteMediaURL(typeof data.splash === 'string' ? data.splash : undefined),
-      thumbnailURL: absoluteMediaURL(typeof data.thumbnail === 'string' ? data.thumbnail : undefined),
+      splashURL: absoluteMediaURL(data.splash),
+      thumbnailURL: absoluteMediaURL(data.thumbnail),
     })),
 });
 

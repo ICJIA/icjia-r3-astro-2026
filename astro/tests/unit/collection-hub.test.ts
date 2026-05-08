@@ -82,7 +82,32 @@ describe('collection: hubArticles', () => {
       abstract: 'A very interesting **abstract** here.',
     }) as { success: true; data: { rawText: string } };
     expect(result.success).toBe(true);
-    expect(result.data.rawText).toContain('My Article');
-    expect(result.data.rawText).toContain('abstract');
+    // rawText concatenates title + ' ' + abstract, then strips Markdown
+    expect(result.data.rawText).toBe(
+      'My Article A very interesting abstract here.',
+    );
+  });
+
+  it('transform passes splash string through to splashURL', () => {
+    const result = collections.hubArticles.schema?.safeParse({
+      _id: 'x',
+      title: 'X',
+      slug: 'x',
+      splash: 'https://researchhub.icjia-api.cloud/uploads/splash.jpg',
+    }) as { success: true; data: { splashURL?: string } };
+    expect(result.success).toBe(true);
+    expect(result.data.splashURL).toBe(
+      'https://researchhub.icjia-api.cloud/uploads/splash.jpg',
+    );
+  });
+
+  it('transform leaves splashURL undefined when splash absent', () => {
+    const result = collections.hubArticles.schema?.safeParse({
+      _id: 'x',
+      title: 'X',
+      slug: 'x',
+    }) as { success: true; data: { splashURL?: string } };
+    expect(result.success).toBe(true);
+    expect(result.data.splashURL).toBeUndefined();
   });
 });
