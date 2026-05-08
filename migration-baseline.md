@@ -46,3 +46,23 @@ Lightcap: @icjia/lightcap v0.1.5 / Lighthouse v13 / Node v22.22.2 / darwin arm64
 - **CLS:** Several pages show CLS 0.11–0.22 (eligibility worst at 0.22).
 - **LCP images:** Homepage hero and grants news post have LCP >7s on mobile.
 - **`/funding/` redirect:** This route uses a `<meta http-equiv="refresh">` to redirect to `/`; no dedicated content page exists in the static output.
+
+## axe-core baseline
+
+Captured 2026-05-08 via `yarn audit:a11y`.
+
+Static server (`npx serve .output/public -l 8000`) used; sitemap copied from `.output/public/sitemap.xml` to `public/sitemap.xml` so the script could locate it. axe-core 4.10.0 (resolved from `^4.11.0`).
+
+- Total pages tested: 28 (all sitemap URLs; includes `/404`, `/research`, `/news` index not in the 25-route Lightcap table)
+- Viewports per page: 3 (desktop 1920×1080, tablet 768×1024, mobile 375×812)
+- Total individual checks run: 7,588 (violations + passes + incomplete + inapplicable across all 84 test runs)
+- Total passes: 3,351
+- Violations found: 3 (all on `/404`, same rule across 3 viewports — target: fix before Astro launch)
+
+### Violation detail
+
+| Rule | Page | Severity | Tag | Description |
+|---|---|---|---|---|
+| `page-has-heading-one` | `/404` × 3 viewports | moderate | best-practice | 404 page lacks an `<h1>` heading |
+
+**Note:** `page-has-heading-one` is tagged `best-practice` (not WCAG A or AA), so it does not affect WCAG 2.1 AA / IITAA / ADA Title II conformance. It is a pre-existing issue to carry forward as a known fix target in the Astro migration. All 27 non-404 pages pass with 0 violations.
