@@ -26,16 +26,30 @@ interface V3Response<T> {
   errors?: GraphQLError[];
 }
 
+const FETCH_TIMEOUT_MS = 30_000;
+
 async function postGraphQL(origin: string, query: string): Promise<unknown> {
-  const res = await fetch(`${origin}/graphql`, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ query }),
-  });
-  if (!res.ok) {
-    throw new Error(`${origin}/graphql: HTTP ${res.status} ${res.statusText}`);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    const res = await fetch(`${origin}/graphql`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ query }),
+      signal: controller.signal,
+    });
+    if (!res.ok) {
+      throw new Error(`${origin}/graphql: HTTP ${res.status} ${res.statusText}`);
+    }
+    return res.json();
+  } catch (err) {
+    if (err instanceof Error && err.name === 'AbortError') {
+      throw new Error(`${origin}/graphql: timed out after ${FETCH_TIMEOUT_MS / 1000}s`);
+    }
+    throw err;
+  } finally {
+    clearTimeout(timer);
   }
-  return res.json();
 }
 
 function checkErrors(json: { errors?: GraphQLError[] }, origin: string, name: string): void {
@@ -81,6 +95,7 @@ export async function hubQuery<T>(name: string, query: string): Promise<T[]> {
 export function absoluteMediaURL(relative: string | undefined | null): string | undefined {
   if (!relative) return undefined;
   if (/^https?:\/\//i.test(relative)) return relative;
+  if (relative.startsWith('//')) return `https:${relative}`;
   const sep = relative.startsWith('/') ? '' : '/';
   return `${STRAPI_ORIGIN}${sep}${relative}`;
 }

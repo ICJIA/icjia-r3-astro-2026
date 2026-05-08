@@ -25,6 +25,11 @@ describe('absoluteMediaURL', () => {
     expect(absoluteMediaURL('uploads/foo.jpg'))
       .toBe('https://r3.icjia-api.cloud/uploads/foo.jpg');
   });
+
+  it('upgrades protocol-relative URLs to https://', () => {
+    expect(absoluteMediaURL('//cdn.example.com/foo.jpg'))
+      .toBe('https://cdn.example.com/foo.jpg');
+  });
 });
 
 describe('rawText', () => {
@@ -136,6 +141,16 @@ describe('hubQuery (v3 — Hub Strapi shape)', () => {
     );
     const { hubQuery } = await import('~/lib/strapi');
     await expect(hubQuery('articles', 'query{}')).rejects.toThrow(/invalid filter/);
+  });
+
+  it('throws when response missing the named collection', async () => {
+    (fetch as ReturnType<typeof vi.fn>).mockResolvedValue(
+      new Response(JSON.stringify({ data: { somethingElse: [] } }), {
+        status: 200, headers: { 'content-type': 'application/json' },
+      }),
+    );
+    const { hubQuery } = await import('~/lib/strapi');
+    await expect(hubQuery('articles', 'query{}')).rejects.toThrow(/articles/);
   });
 
   it('returns the rows array when response is healthy (v3 shape: flat array under data[name])', async () => {
