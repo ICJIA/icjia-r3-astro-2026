@@ -36,7 +36,7 @@ describe('collection: pages', () => {
     expect(result?.success).toBe(false);
   });
 
-  it('transform computes path: /<slug>/ for non-root section', () => {
+  it('transform computes path: /<slug>/ for root section', () => {
     const result = collections.pages.schema?.safeParse({
       id: '1',
       title: 'Privacy',
@@ -65,6 +65,7 @@ describe('collection: pages', () => {
       slug: 'sub',
       section: 'about',
     }) as { success: true; data: { path: string } };
+    expect(result.success).toBe(true);
     expect(result.data.path).toBe('/about/sub/');
   });
 
@@ -75,6 +76,7 @@ describe('collection: pages', () => {
       slug: 'x',
       body: '# Hello\n\n**bold** text.',
     }) as { success: true; data: { rawText: string } };
+    expect(result.success).toBe(true);
     expect(result.data.rawText).toBe('Hello bold text.');
   });
 
@@ -84,6 +86,28 @@ describe('collection: pages', () => {
       title: 'X',
       slug: 'x',
     }) as { success: true; data: { rawText: string } };
+    expect(result.success).toBe(true);
     expect(result.data.rawText).toBe('');
+  });
+
+  it('transform handles null section by falling back to /<slug>/', () => {
+    const result = collections.pages.schema?.safeParse({
+      id: '1',
+      title: 'Terms',
+      slug: 'terms',
+      section: null,
+    }) as { success: true; data: { path: string } };
+    expect(result.success).toBe(true);
+    expect(result.data.path).toBe('/terms/');
+  });
+
+  it('transform handles missing section by falling back to /<slug>/', () => {
+    const result = collections.pages.schema?.safeParse({
+      id: '1',
+      title: 'Terms',
+      slug: 'terms',
+    }) as { success: true; data: { path: string } };
+    expect(result.success).toBe(true);
+    expect(result.data.path).toBe('/terms/');
   });
 });
