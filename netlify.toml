@@ -1,25 +1,36 @@
 [build]
-# Use yarn generate directly - let Netlify handle Node version
-command = "yarn generate"
-publish = ".output/public"
+  base = "astro"
+  command = "yarn build"
+  publish = "dist"
 
 [build.environment]
-# Set Node version explicitly for Netlify
-NODE_VERSION = "22.14.0"
-# Disable mise to prevent Python installation
-MISE_DISABLE = "1"
+  NODE_VERSION = "22.22.2"
+  YARN_VERSION = "1.22.22"
+  MISE_DISABLE = "1"
+  PUPPETEER_SKIP_DOWNLOAD = "1"
+  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "1"
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1"
 
 [[headers]]
-for = "/*"
-[headers.values]
-X-Frame-Options = "SAMEORIGIN"
-X-XSS-Protection = "1; mode=block"
-Referrer-Policy = "strict-origin-when-cross-origin"
-X-Content-Type-Options = "nosniff"
-# Access-Control-Allow-Origin removed: wildcard (*) was overly permissive.
-# Static site does not need CORS headers. If needed later, specify exact origins.
-# X-Greeting header removed: unnecessary information disclosure
-Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://plausible.icjia.cloud https://siteimproveanalytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: https://r3.icjia-api.cloud; font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com; connect-src 'self' https://r3.icjia-api.cloud https://researchhub.icjia-api.cloud https://mail.icjia.cloud https://plausible.icjia.cloud; frame-src 'self' https://storymaps.arcgis.com https://arcgis.com https://*.arcgis.com"
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://plausible.icjia.cloud https://siteimproveanalytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: https://r3.icjia-api.cloud; font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com; connect-src 'self' https://r3.icjia-api.cloud https://researchhub.icjia-api.cloud https://mail.icjia.cloud https://plausible.icjia.cloud; frame-src 'self' https://storymaps.arcgis.com https://arcgis.com https://*.arcgis.com"
+
+# Astro hashes asset filenames in /_astro/ so they can be cached forever.
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# /searchIndex.json refreshes on every build; revalidate on each request.
+[[headers]]
+  for = "/searchIndex.json"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [images]
   remote_images = ["https://r3\\.icjia-api\\.cloud/.*", "https://researchhub\\.icjia-api\\.cloud/.*"]
