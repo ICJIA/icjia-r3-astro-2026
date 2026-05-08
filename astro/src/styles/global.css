@@ -2,6 +2,13 @@
 
 @import 'tailwindcss';
 
+/* Font imports — variable axes for Roboto/Raleway, static weights for Lato
+   (Lato isn't published as variable-axis on npm; static was the Task 1.2
+   substitute). All three families' @font-face rules emit unconditionally;
+   Tailwind 4 tree-shakes the `--font-*` *tokens* but cannot tree-shake the
+   imported @font-face rules. The placeholder tokens (--font-display,
+   --font-body) are consumed by Phase 3 components in Tasks 3.3-3.8.
+   Don't prune these imports as "dead" before those tasks land. */
 /* Self-hosted variable fonts (eliminates render-blocking external Google Fonts).
    Latin subset only; the variable axes give the same range as the previous
    weight matrix without shipping multiple files per weight.
@@ -72,6 +79,24 @@
   margin-top: 1.25rem;
   margin-bottom: 0.5rem;
 }
+.markdown-body h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+.markdown-body h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+.markdown-body h6 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
 .markdown-body a {
   color: var(--color-r3-primary);
   text-decoration: underline;
@@ -91,9 +116,13 @@
   padding: 0.5rem 0.75rem;
 }
 
-/* Screen-reader-only utility (replaces Vuetify's sr-only) */
+/* Screen-reader-only utility. Overrides Tailwind 4's built-in `.sr-only`
+   (which uses `clip-path: inset(50%)`) to keep the legacy `clip: rect()`
+   pattern — broader compat with older AT/browser combinations. The
+   unlayered rule wins over Tailwind's `@layer utilities` automatically;
+   no `!important` needed. */
 .sr-only {
-  position: absolute !important;
+  position: absolute;
   width: 1px;
   height: 1px;
   padding: 0;
