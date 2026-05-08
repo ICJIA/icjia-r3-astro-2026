@@ -73,7 +73,7 @@ Introspection succeeded on both endpoints (not disabled in production).
 ### Confirmed top-level Strapi collection fields
 
 R3 Strapi (`https://r3.icjia-api.cloud/graphql`) exposes these content collections:
-`faq` / `faqs`, `form` / `forms`, `page` / `pages`, `post` / `posts`, `resource` / `resources`, `v2Weeklyfaq` / `v2Weeklyfaqs`, `weeklyFaq` / `weeklyFaqs`
+`faq` / `faqs`, `form` / `forms`, `page` / `pages`, `post` / `posts`, `resource` / `resources`, `v2Weeklyfaq` / `v2Weeklyfaqs` (legacy collection, confirmed empty), `weeklyFaq` / `weeklyFaqs`
 
 Research Hub (`https://researchhub.icjia-api.cloud/graphql`) exposes:
 `app` / `apps` / `appsConnection`, `article` / `articles` / `articlesConnection`, `dataset` / `datasets` / `datasetsConnection`
@@ -97,7 +97,7 @@ Returns empty array in current production data — collection exists but has no 
 Creator also uses: `hideFromSearch`, `cover { data { attributes { url formats name alternativeText caption width height ext size createdAt updatedAt } } }`
 
 **articles** (Research Hub — Strapi v3, flat response, no `data[]` wrapper):
-`_id`, `title`, `slug`, `date`, `tags`, `authors { title description }`, `abstract`
+`_id`, `title`, `slug`, `date`, `tags`, `authors` (JSON scalar; parse post-fetch as `{ title: string; description: string }[]`), `abstract`
 Note: `pubType`, `type`, `fileURL`, `ext` are NOT schema fields — they are computed and injected by `createHubArticles.js` after fetch.
 
 ### Field-name divergences from i2i
