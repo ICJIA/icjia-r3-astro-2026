@@ -1,0 +1,212 @@
+---
+// astro/src/components/HomeSplashCard.astro
+//
+// Single splash/NOFO card for the homepage. Card itself is a clickable link
+// (or static block if no externalURL). Hover effect via pure CSS.
+//
+// Color-wash overlays match the Nuxt original:
+//   card 0 → rgba(200,120,120,0.15)  (warm red tint)
+//   card 1 → rgba(120,140,200,0.15)  (cool blue tint)
+// Pass `cardIndex` to get the correct wash; any value other than 0 uses the
+// blue-tint default.
+
+interface Props {
+  src: string;
+  lazySrc?: string;
+  title: string;
+  tagline: string;
+  externalURL?: string;
+  applicationDate?: string;
+  preload?: boolean;
+  cardIndex?: number;
+}
+const {
+  src,
+  lazySrc: _lazySrc, // accepted for interface parity; native <img> has no LQIP API
+  title,
+  tagline,
+  externalURL,
+  applicationDate = 'EXPIRED',
+  preload = false,
+  cardIndex = 1,
+} = Astro.props;
+
+const colorWash =
+  cardIndex === 0
+    ? 'rgba(200,120,120,0.15)'
+    : 'rgba(120,140,200,0.15)';
+---
+
+<div class="splash-card">
+  <a
+    class="splash-card__link"
+    href={externalURL ?? '#'}
+    target={externalURL ? '_blank' : undefined}
+    rel={externalURL ? 'noopener noreferrer' : undefined}
+    aria-label={`${title} — ${tagline}`}
+  >
+    <div class="splash-card__media">
+      <img
+        src={src}
+        alt=""
+        role="presentation"
+        aria-hidden="true"
+        width="1200"
+        height="650"
+        class="splash-card__img"
+        loading={preload ? 'eager' : 'lazy'}
+        fetchpriority={preload ? 'high' : 'auto'}
+      />
+
+      <!-- Base gradient overlay -->
+      <div class="splash-card__gradient" aria-hidden="true"></div>
+
+      <!-- Per-card colour-wash overlay -->
+      <div
+        class="splash-card__wash"
+        style={`background-color: ${colorWash};`}
+        aria-hidden="true"
+      ></div>
+
+      <!-- Content band -->
+      <div class="splash-card__overlay">
+        <div class="splash-card__band">
+          <h2 class="splash-card__title">{title}</h2>
+          <div class="splash-card__tagline">{tagline}</div>
+          <div class="splash-card__date">{applicationDate}</div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<style>
+  .splash-card {
+    position: relative;
+    overflow: hidden;
+    background: #ddd;
+    min-height: 600px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .splash-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .splash-card__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .splash-card__link:focus-visible {
+    outline: 3px solid var(--color-r3-primary, #0d4474);
+    outline-offset: -3px;
+  }
+
+  .splash-card__media {
+    position: relative;
+  }
+
+  .splash-card__img {
+    display: block;
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+  }
+
+  /* Base gradient — matches Nuxt: rgba(0,0,0,0.25) top-to-bottom flat wash */
+  .splash-card__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.25)
+    );
+    pointer-events: none;
+  }
+
+  /* Per-card colour wash (red vs blue tint) */
+  .splash-card__wash {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* Content overlay — centred vertically and horizontally */
+  .splash-card__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 48px;
+  }
+
+  /* Dark translucent band behind text */
+  .splash-card__band {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    color: #fff;
+    backdrop-filter: saturate(110%) brightness(115%);
+  }
+
+  /* Title — three-layer shadow matching Nuxt source exactly */
+  .splash-card__title {
+    margin: 0.25rem 0 0.5rem;
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.9),
+      0 0 20px rgba(0, 0, 0, 0.8),
+      0 0 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .splash-card__tagline {
+    color: #fff;
+    line-height: 1.5;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  }
+
+  .splash-card__date {
+    margin-top: 1rem;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Responsive: smaller screens */
+  @media (max-width: 959px) {
+    .splash-card__title {
+      font-size: 1.75rem;
+    }
+
+    .splash-card__date {
+      font-size: 1rem;
+    }
+
+    /* Truncate long taglines on mobile — matches Nuxt treatment */
+    .splash-card__tagline {
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: 9em;
+      word-wrap: break-word;
+    }
+  }
+</style>
