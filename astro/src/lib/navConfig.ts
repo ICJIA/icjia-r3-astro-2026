@@ -12,11 +12,10 @@
 //   - Eligibility (link: /eligibility)
 //   - Contact (link: /contact)
 //
-// The "About" dropdown is flattened here. All children that had their own
-// top-level presence in the Nuxt footer menu (News, Meetings, Board,
-// Research, FAQs, Collaboratives, Resources) are promoted to top-level nav
-// items. The external ArcGIS story-map link is omitted — it is a deep-link
-// to a third-party resource and would be awkward as a persistent nav item.
+// Sourced from app.config.js navMenu (Nuxt era). The "About" dropdown header
+// in the original is not a routable page — its children are flattened to
+// individual top-level entries here. /funding/ is included per the plan and
+// per appRoutes.json (it's a real Strapi page, slug: funding).
 // A `children` field is left reserved in the interface for future dropdown
 // support if needed.
 
@@ -27,7 +26,7 @@ export interface NavItem {
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'About',          href: '/about/' },
+  { label: 'Funding',        href: '/funding/' },
   { label: 'Eligibility',    href: '/eligibility/' },
   { label: 'News',           href: '/news/' },
   { label: 'Meetings',       href: '/meetings/' },
