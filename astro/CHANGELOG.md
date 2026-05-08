@@ -6,6 +6,62 @@ chronological order.
 
 ---
 
+## v0.3.0 — 2026-05-08
+
+### Phase 3 — Layout shell + global components
+
+- `src/styles/global.css` — Tailwind 4 + brand `@theme` (8 colors, 3 font
+  tokens), `.markdown-body` h1-h6 + ul/ol/p/a/table restorations, `.sr-only`
+  utility, prefers-reduced-motion default, html/body baseline. Lato uses
+  static-weight imports (no variable-axis published on npm).
+- `SkipLinks.astro` — direct port of app.vue lines 152-216 (focus-visible
+  clip-path reveal pattern, AAA contrast)
+- `SiteNav.astro` + `navConfig.ts` — fixed 90px white app-bar, mobile
+  hamburger via native `<details>` (zero JS), 44px tap targets, NAV_ITEMS
+  ported from app.config.js navMenu (10 items: Funding/Eligibility/News/
+  Meetings/Resources/FAQs/Research/Collaboratives/Board/Contact). The Nuxt
+  "About" dropdown header was correctly NOT promoted to a link (no /about/
+  page exists).
+- `SiteFooter.astro` — two-band layout matching the actual Nuxt
+  TheContextFooter + TheFooter (uppercase Raleway nav strip + State of
+  Illinois legal bar). AAA-contrast white-on-slate, 44px tap targets.
+- `Breadcrumb.astro` — URL-derived trail, hidden on `/`, `/sandbox/`,
+  `/faqs/` (matches app.vue HIDE_ON logic), schema.org-ready
+- `Dialog.vue` — Vue 3 SFC island via native `<dialog>` + showModal();
+  hydrates `client:idle`. Custom-event API (`r3-dialog:open`) for
+  Astro→Vue island communication.
+- `Attachments.astro` — markdown-body helper for download lists (reusable;
+  R3's Strapi types don't currently expose attachments but the helper is
+  ready for any future row shape that does)
+- `BaseLayout.astro` — composes all 5 components + Plausible <script>
+  in head (full script tag, NOT just preconnect — guards against the i2i
+  silent-analytics regression), JSON-LD WebSite schema, scroll-to-top
+  vanilla button, external-link interceptor (whitelists icjia.illinois.gov
+  / illinois.gov / arcgis.com)
+- Phase 3 smoke (live `mcp lightcap run_a11y --preset mobile`):
+  **Lighthouse Accessibility = 100/100** on `/smoke/` exercising every
+  component + dialog interception
+- Cross-collection note: NAV_ITEMS includes /research/ even though the
+  research page lands in Phase 4e (Hub article feed); link 404s until
+  Phase 4e ships, which is expected for a forward-looking entry.
+
+### Vitest infrastructure addition
+
+- `astro/src/__mocks__/astro-content.ts` shim from Task 2.6 enables
+  vitest unit testing of `astro:content` schema validation (Astro's
+  virtual module isn't accessible from vitest's module resolution).
+
+### Notable plan deviations (all justified, all documented in MIGRATION.md)
+
+- App's "About" dropdown header was treated as non-routable (correct per
+  app.config.js `navMenu` — it has children but no `link:` field)
+- SiteFooter has no mailing address (the spec template's "300 W. Adams"
+  was i2i-era; R3's actual footer doesn't carry address copy)
+- Smoke page can't use `__smoke__.astro` filename (Astro 6's router skips
+  files starting with `_`); used `smoke.astro` instead
+
+---
+
 ## v0.2.0 — 2026-05-08
 
 ### Phase 2 — Content collections
