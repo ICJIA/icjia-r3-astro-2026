@@ -51,13 +51,14 @@ Lightcap: @icjia/lightcap v0.1.5 / Lighthouse v13 / Node v22.22.2 / darwin arm64
 
 Captured 2026-05-08 via `yarn audit:a11y`.
 
-Static server (`npx serve .output/public -l 8000`) used; sitemap copied from `.output/public/sitemap.xml` to `public/sitemap.xml` so the script could locate it. axe-core 4.10.0 (resolved from `^4.11.0`).
+Static server (`npx serve .output/public -l 8000`) used; sitemap copied from `.output/public/sitemap.xml` to `public/sitemap.xml` so the script could locate it. axe-core 4.11.0.
 
 - Total pages tested: 28 (all sitemap URLs; includes `/404`, `/research`, `/news` index not in the 25-route Lightcap table)
 - Viewports per page: 3 (desktop 1920×1080, tablet 768×1024, mobile 375×812)
 - Total individual checks run: 7,588 (violations + passes + incomplete + inapplicable across all 84 test runs)
 - Total passes: 3,351
 - Violations found: 3 (all on `/404`, same rule across 3 viewports — target: fix before Astro launch)
+- Incomplete (needs review) + inapplicable (rule did not apply): 4,234 combined
 
 ### Violation detail
 
@@ -65,4 +66,4 @@ Static server (`npx serve .output/public -l 8000`) used; sitemap copied from `.o
 |---|---|---|---|---|
 | `page-has-heading-one` | `/404` × 3 viewports | moderate | best-practice | 404 page lacks an `<h1>` heading |
 
-**Note:** `page-has-heading-one` is tagged `best-practice` (not WCAG A or AA), so it does not affect WCAG 2.1 AA / IITAA / ADA Title II conformance. It is a pre-existing issue to carry forward as a known fix target in the Astro migration. All 27 non-404 pages pass with 0 violations.
+**Note:** `page-has-heading-one` is tagged `best-practice` (not WCAG A or AA), so it does not affect WCAG 2.1 AA / IITAA / ADA Title II conformance. It is a pre-existing issue to carry forward as a known fix target in the Astro migration. All 27 non-404 pages pass with 0 violations. Auto-fixed by Phase 4h.1 (`404.astro` includes `<h1>`).
