@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /preview/
+Disallow: /sandbox
+
+Sitemap: https://r3.illinois.gov/sitemap.xml
