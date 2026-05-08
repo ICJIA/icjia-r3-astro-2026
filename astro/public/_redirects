@@ -1,0 +1,8 @@
+# Static redirects for r3.illinois.gov.
+# Netlify Pretty URLs handles trailing-slash 301s automatically; no rules needed there.
+
+/downloads/*    /                                                                                301
+/apply          /funding/                                                                        301
+
+# FAQ alias preserved from current Nuxt build
+/faqs/2025-r3-nofo-applicant-questions    /faqs/03-08-24-2025-r3-nofo-applicant-questions/   301

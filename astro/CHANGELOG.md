@@ -6,6 +6,59 @@ chronological order.
 
 ---
 
+## v0.4.0 — 2026-05-08
+
+### Phase 4 — Page ports (all 25 routes)
+
+- `[...slug].astro` catch-all serving 8 single Strapi page rows: /contact/,
+  /privacy/, /board/, /collaboratives/, /funding/, /meetings/, /eligibility/,
+  /faqs/. Conditional MapEmbed on /eligibility/ (lazy-loaded ArcGIS storymap
+  with skip-link).
+- `/news/` list (sorted postDate desc) + 8 `/news/<slug>/` detail pages with
+  NewsArticle JSON-LD.
+- `/resources/` list (sorted alpha) + 4 `/resources/<slug>/` detail + 1
+  `/resources/single-page/` (all-on-one printable view, noIndex).
+- `/research/` Hub article feed (12 articles, external links to icjia.illinois.gov/researchhub).
+- `/search/` Vue 3 island (Search.vue) consuming /searchIndex.json (33 rows
+  across 5 collections); filter chips by content type. `/searchIndex.json`
+  emitted at build time from all collections via Astro endpoint.
+- `/translate/` Google Translate language buttons (5 languages: Spanish,
+  Polish, Chinese, Tagalog, Arabic — external links matching legacy site).
+- `/` real homepage — splash row (HomeSplashCard ×2 with per-card color
+  wash), Director Adams letter section, "Applicant Tools" photo grid
+  (HomePhotoBoxes ×4: Eligibility / FAQs / Collaboratives / Resources),
+  latest 2 news cards, news-archive link. LCP preload on first splash.
+- `/404.astro` — minimal 404 with home link, noIndex.
+- `astro/public/_redirects` — `/downloads/** → /`, `/apply → /funding/`,
+  FAQ alias preserved.
+
+### Phase 4 reframings (justified deviations from the plan)
+
+- **Funding.astro removed** — the plan called for tables driven by R3_site_table_*.json,
+  but those JSON files are census tract eligibility data, not grant
+  recipient tables. The legacy `Funding.vue` actually shows a NOFO hero;
+  the catch-all already serves the Strapi `funding` body. Tables would be
+  wrong content. JSON files retained in `astro/public/` for future use.
+- **FaqAccordion + /faqs/<slug>/ removed** — Phase 2 found the
+  `weeklyFaqs` collection has 0 published rows, and the legacy /faqs/ uses
+  the Strapi `pages.faqs` body (single page) for FAQ Q&A. The catch-all
+  already serves /faqs/ correctly; no individual FAQ slugs to route.
+- **Translate page** — actual Nuxt `pages/translate.vue` uses 5 external
+  Google Translate links (not the embedded widget the plan template
+  assumed). Faithfully ported the link-based approach.
+- **Hub article URLs** — actual Hub URL pattern is
+  `https://icjia.illinois.gov/researchhub/articles/<slug>` (not
+  `researchhub.illinois.gov`); verified against legacy `pages/research/index.vue`.
+
+### Test coverage
+
+- Vitest unit: 114 tests across 10 files
+- Playwright e2e: 23 routes covered with 70+ test runs across mobile/tablet/desktop
+- Type-check: 0 errors / 0 warnings / 2 pre-existing hints (BaseLayout
+  inline LD+JSON, news slug — non-blocking)
+
+---
+
 ## v0.3.0 — 2026-05-08
 
 ### Phase 3 — Layout shell + global components
