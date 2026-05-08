@@ -1,0 +1,37 @@
+---
+// astro/src/pages/resources/single-page.astro
+//
+// Renders every resource concatenated. Mirrors the existing Nuxt
+// `/resources/single-page` route — used by clients that want one printable
+// page of all resources.
+
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { renderMarkdown } from '~/lib/markdown';
+
+const all = await getCollection('resources');
+const sorted = [...all].sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<BaseLayout
+  title="All Resources"
+  description="Every R3 resource on a single page."
+  noIndex
+>
+  <article class="page-wrap markdown-body">
+    <h1>All Resources</h1>
+    {sorted.map((r) => (
+      <section>
+        <h2 id={r.data.slug}>{r.data.title}</h2>
+        {r.data.summary && <p>{r.data.summary}</p>}
+        <div set:html={renderMarkdown(r.data.body ?? '')} />
+        <hr />
+      </section>
+    ))}
+  </article>
+</BaseLayout>
+
+<style>
+  .page-wrap { max-width: 880px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  hr { border: none; border-top: 1px solid var(--color-r3-card-border); margin: 2rem 0; }
+</style>

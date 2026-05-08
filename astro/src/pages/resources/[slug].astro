@@ -1,0 +1,29 @@
+---
+// astro/src/pages/resources/[slug].astro
+import { getCollection } from 'astro:content';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { renderMarkdown } from '~/lib/markdown';
+
+export async function getStaticPaths() {
+  const items = await getCollection('resources');
+  return items.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const html = d.body ? renderMarkdown(d.body) : '';
+---
+
+<BaseLayout title={d.title} description={d.summary ?? undefined} updatedAt={d.updatedAt}>
+  <article class="page-wrap">
+    <h1>{d.title}</h1>
+    <div class="markdown-body" set:html={html} />
+  </article>
+</BaseLayout>
+
+<style>
+  .page-wrap { max-width: 880px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+</style>
