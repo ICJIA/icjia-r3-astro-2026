@@ -1,0 +1,159 @@
+---
+// astro/src/components/HomePhotoBoxes.astro
+//
+// "Applicant Tools" photo grid. Each box: image background + title/text + link.
+// Box list ported from components/content/HomePhotoBoxes.vue.
+//
+// Layout: 2-up grid on md+, stacked on mobile (matches Nuxt flex:6 columns).
+// Gradient overlay runs top-to-bottom (rgba(0,0,0,0.6) → rgba(0,0,0,0.1))
+// with title+text anchored at the top-left — exactly as in the Vue original.
+
+interface Box {
+  href: string;
+  src: string;
+  alt: string;
+  title: string;
+  text: string;
+}
+
+const BOXES: Box[] = [
+  {
+    href: '/eligibility',
+    src: 'https://r3.icjia-api.cloud/uploads/medium_eligibility_unsplash_018a3e660b.jpg',
+    alt: '',
+    title: 'Eligibility',
+    text: "Find out if you're eligible to apply for funding",
+  },
+  {
+    href: '/faqs',
+    src: 'https://r3.icjia-api.cloud/uploads/medium_faqs_unsplash_db1670a0ab.jpg',
+    alt: '',
+    title: 'Frequently Asked Questions (FAQs)',
+    text: 'Frequently Asked Questions about the R3 funding process',
+  },
+  {
+    href: '/collaboratives',
+    src: 'https://r3.icjia-api.cloud/uploads/medium_collab_unsplash_636089005f.jpg',
+    alt: '',
+    title: 'Collaboratives',
+    text: 'Groups of two or more organizations that apply for funding for a single program under one application',
+  },
+  {
+    href: '/resources',
+    src: 'https://r3.icjia-api.cloud/uploads/medium_resources2_unsplash_18ead79024.jpg',
+    alt: '',
+    title: 'Resources',
+    text: 'R3 resources and analysis',
+  },
+];
+---
+
+<ul class="photo-boxes" role="list">
+  {BOXES.map((b) => (
+    <li>
+      <a href={b.href} class="photo-box" aria-label={`${b.title} — ${b.text}`}>
+        <img
+          src={b.src}
+          alt=""
+          role="presentation"
+          aria-hidden="true"
+          loading="lazy"
+          width="800"
+          height="300"
+          class="photo-box__img"
+        />
+        <!-- Gradient overlay: top-dark to bottom-light, matching Nuxt original -->
+        <div class="photo-box__overlay" aria-hidden="true"></div>
+        <!-- Title + text anchored top-left, matching Nuxt card layout -->
+        <div class="photo-box__content">
+          <p class="photo-box__title">{b.title}</p>
+          <p class="photo-box__text">{b.text}</p>
+        </div>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .photo-boxes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 960px) {
+    .photo-boxes {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .photo-box {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    height: 300px;
+    cursor: pointer;
+  }
+
+  .photo-box:hover .photo-box__img {
+    transform: scale(1.04);
+  }
+
+  .photo-box:focus-visible {
+    outline: 3px solid var(--color-r3-primary, #0d4474);
+    outline-offset: -3px;
+  }
+
+  .photo-box__img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  /* Gradient overlay: rgba(0,0,0,0.6) top → rgba(0,0,0,0.1) bottom */
+  .photo-box__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.1)
+    );
+    pointer-events: none;
+  }
+
+  /* Title + text: top-left, matching Nuxt px-3 py-5 positioning */
+  .photo-box__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.25rem 0.75rem;
+  }
+
+  .photo-box__title {
+    margin: 0 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    font-weight: 700;
+    font-size: 1.625rem; /* ~26px, matching Nuxt font-size: 26px */
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+  }
+
+  .photo-box__text {
+    margin: 0;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+</style>
