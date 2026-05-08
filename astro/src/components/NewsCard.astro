@@ -1,0 +1,67 @@
+---
+// astro/src/components/NewsCard.astro
+//
+// Reusable card for the news list and the homepage "News & Updates" preview.
+// Shows: post date (UTC, "MMM DD, YYYY"), title, summary, link to detail.
+
+import { formatDate } from '~/lib/dateFormat';
+
+interface Props {
+  title: string;
+  postDate: string;
+  summary?: string | null;
+  href: string;
+  compact?: boolean;
+}
+const { title, postDate, summary, href, compact = false } = Astro.props;
+---
+
+<a class:list={['news-card', compact && 'news-card--compact']} href={href}>
+  <time class="news-card__date" datetime={postDate}>{formatDate(postDate)}</time>
+  <h3 class="news-card__title">{title}</h3>
+  {summary && <p class="news-card__summary">{summary}</p>}
+</a>
+
+<style>
+  .news-card {
+    display: block;
+    background: #fff;
+    border: 1px solid var(--color-r3-card-border);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    color: inherit;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+    min-height: 44px;
+  }
+  .news-card:hover,
+  .news-card:focus-visible {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
+  .news-card:focus-visible {
+    outline: 3px solid var(--color-r3-primary);
+    outline-offset: 2px;
+  }
+  .news-card__date {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-r3-text-muted);
+    letter-spacing: 0.05em;
+  }
+  .news-card__title {
+    margin: 0.25rem 0 0.5rem;
+    color: var(--color-r3-primary);
+    font-size: 1.125rem;
+    line-height: 1.4;
+    border-bottom: 1px solid var(--color-r3-card-border);
+    padding-bottom: 0.5rem;
+  }
+  .news-card__summary {
+    margin: 0;
+    color: var(--color-r3-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .news-card--compact .news-card__title { font-size: 1rem; }
+</style>
