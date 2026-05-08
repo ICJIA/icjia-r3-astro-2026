@@ -80,7 +80,7 @@ Static server (`npx serve .output/public -l 8000`) used; sitemap copied from `.o
 Documented quirks contributors will hit. Living list — append as discovered.
 
 - **`yarn check` is shadowed by Yarn 1's lockfile-integrity command.** Always
-  invoke the Astro type-checker as `yarn run check` (or `npx astro sync &&
-  npx astro check`). The `check` script in `astro/package.json` is correctly
+  invoke the Astro type-checker as `yarn run check` (or run the two underlying
+  commands directly: `yarn run astro sync && yarn run astro check`). The `check` script in `astro/package.json` is correctly
   defined; Yarn 1's CLI just intercepts the bare `yarn check` form. This is
   Yarn 1 behavior — Yarn 2+ doesn't have this issue.
