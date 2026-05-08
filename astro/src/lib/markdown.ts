@@ -5,6 +5,11 @@
 // to enforce the same iframe whitelist the Nuxt site enforced (March 2026
 // red-team mitigation: only ArcGIS hosts allowed in iframe src).
 
+// Note: with `html: true`, markdown-it passes raw HTML through verbatim but
+// does NOT process Markdown inside HTML block elements. `<div>**bold**</div>`
+// renders literally — the `**` is not converted. Strapi content authors
+// should pick one syntax per region, not mix.
+
 import MarkdownIt from 'markdown-it';
 import anchor from 'markdown-it-anchor';
 import attrs from 'markdown-it-attrs';
@@ -16,8 +21,13 @@ const md = new MarkdownIt({ html: true, linkify: true, typographer: false })
   .use(anchor, { permalink: false });
 
 const window = new Window();
+// happy-dom 20.x's Window type doesn't structurally satisfy DOMPurify's
+// `WindowLike`. Double cast is the canonical workaround; reassess when
+// happy-dom's types converge.
 const DOMPurify = createDOMPurify(window as unknown as Window & typeof globalThis);
 
+// Path anchor `\/` is intentional — bare `https://arcgis.com` (no path) is
+// rejected because a valid embed URL always has a path component.
 const ARCGIS_PATTERN = /^https:\/\/(?:[a-z0-9-]+\.)?arcgis\.com\//i;
 const ARCGIS_STORYMAPS_PATTERN = /^https:\/\/storymaps\.arcgis\.com\//i;
 

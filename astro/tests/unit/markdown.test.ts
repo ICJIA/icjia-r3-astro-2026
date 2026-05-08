@@ -92,6 +92,11 @@ describe('renderMarkdown', () => {
     expect(html).toContain('title="Map"');
   });
 
+  it('applies attrs plugin — curly-brace class syntax', () => {
+    const html = renderMarkdown('## Section {.highlight}');
+    expect(html).toMatch(/class="highlight"/);
+  });
+
   it('handles empty input', () => {
     expect(renderMarkdown('')).toBe('');
   });
