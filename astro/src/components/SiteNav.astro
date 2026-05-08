@@ -1,0 +1,279 @@
+---
+// astro/src/components/SiteNav.astro
+//
+// Fixed 90px-tall white app-bar with the R3 wordmark, primary nav links on
+// desktop, and a <details>-based hamburger menu on mobile (zero JS, native
+// keyboard support). Active route is highlighted via Astro.url.pathname.
+//
+// id="navigation" matches the skip-link target #navigation from SkipLinks.astro.
+
+import { NAV_ITEMS } from '~/lib/navConfig';
+import { ensureTrailingSlash } from '~/lib/slug';
+
+const currentPath = ensureTrailingSlash(Astro.url.pathname);
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath === href || currentPath.startsWith(href);
+}
+---
+
+<header id="navigation" class="site-nav" role="banner">
+  <div class="site-nav__inner">
+    <!-- Logo / wordmark -->
+    <a class="site-nav__home" href="/" aria-label="R3 RESTORE. REINVEST. RENEW. — Go to home page">
+      <span class="site-nav__wordmark" aria-hidden="true">R3</span>
+    </a>
+
+    <!-- Desktop primary nav links -->
+    <nav class="site-nav__links" aria-label="Primary navigation">
+      <ul role="list">
+        {NAV_ITEMS.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={['site-nav__link', isActive(item.href) && 'is-active']}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              target={item.external ? '_blank' : undefined}
+              rel={item.external ? 'noopener noreferrer' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Mobile hamburger via <details> (zero-JS; Enter/Space open natively) -->
+    <details class="site-nav__mobile">
+      <summary aria-label="Open navigation menu">
+        <span class="site-nav__hamburger-icon" aria-hidden="true">
+          <!-- SVG hamburger icon — no icon-font dependency -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <line x1="3" y1="6"  x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </span>
+        <span class="site-nav__menu-label" aria-hidden="true">MENU</span>
+      </summary>
+      <ul class="site-nav__mobile-list" role="list">
+        {NAV_ITEMS.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={['site-nav__mobile-link', isActive(item.href) && 'is-active']}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              target={item.external ? '_blank' : undefined}
+              rel={item.external ? 'noopener noreferrer' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  </div>
+</header>
+
+<style>
+  /* ── App-bar shell ───────────────────────────────────────────────────── */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 90px;
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .site-nav__inner {
+    height: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  /* ── Wordmark / home link ────────────────────────────────────────────── */
+  .site-nav__home {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 8px;
+    text-decoration: none;
+    color: var(--color-r3-primary, #0d4474);
+    flex-shrink: 0;
+  }
+  .site-nav__home:focus-visible {
+    outline: 2px solid var(--color-r3-primary, #0d4474);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .site-nav__wordmark {
+    font-family: Roboto, sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 0.004em;
+    line-height: 1;
+    color: var(--color-r3-primary, #0d4474);
+  }
+
+  /* ── Desktop nav links ───────────────────────────────────────────────── */
+  .site-nav__links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.125rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-nav__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 12px;
+    color: var(--color-r3-primary, #0d4474);
+    text-decoration: none;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background 0.15s ease;
+  }
+
+  .site-nav__link:hover {
+    background: rgba(13, 68, 116, 0.06);
+    text-decoration: underline;
+  }
+
+  .site-nav__link:focus-visible {
+    outline: 2px solid var(--color-r3-primary, #0d4474);
+    outline-offset: 2px;
+    text-decoration: none;
+  }
+
+  .site-nav__link.is-active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+  }
+
+  /* ── Mobile hamburger (<details>) ────────────────────────────────────── */
+  .site-nav__mobile {
+    display: none; /* shown only via media query below */
+    position: relative;
+  }
+
+  .site-nav__mobile > summary {
+    /* Reset <summary> browser defaults */
+    list-style: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    /* WCAG 2.5.5 tap target ≥ 44×44px */
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 12px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    color: var(--color-r3-primary, #0d4474);
+    border-radius: 4px;
+    user-select: none;
+  }
+
+  /* Remove the default disclosure triangle in all browsers */
+  .site-nav__mobile > summary::-webkit-details-marker { display: none; }
+  .site-nav__mobile > summary::marker { content: ''; }
+
+  .site-nav__mobile > summary:focus-visible {
+    outline: 2px solid var(--color-r3-primary, #0d4474);
+    outline-offset: 2px;
+  }
+
+  .site-nav__hamburger-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-nav__menu-label {
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    font-family: Roboto, sans-serif;
+  }
+
+  /* Dropdown panel */
+  .site-nav__mobile-list {
+    display: none; /* hidden until [open] */
+    position: absolute;
+    right: 0;
+    top: calc(100% + 4px);
+    min-width: 220px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    z-index: 101;
+  }
+
+  .site-nav__mobile[open] > .site-nav__mobile-list {
+    display: block;
+  }
+
+  .site-nav__mobile-link {
+    display: flex;
+    align-items: center;
+    /* WCAG 2.5.5 tap target ≥ 44px tall */
+    min-height: 44px;
+    padding: 0 16px;
+    color: var(--color-r3-primary, #0d4474);
+    text-decoration: none;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .site-nav__mobile-link:hover {
+    background: rgba(13, 68, 116, 0.06);
+    text-decoration: underline;
+  }
+
+  .site-nav__mobile-link:focus-visible {
+    outline: 2px solid var(--color-r3-primary, #0d4474);
+    outline-offset: -2px;
+    text-decoration: none;
+  }
+
+  .site-nav__mobile-link.is-active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+  }
+
+  /* ── Responsive breakpoint ───────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .site-nav__links {
+      display: none;
+    }
+    .site-nav__mobile {
+      display: inline-block;
+    }
+  }
+</style>
