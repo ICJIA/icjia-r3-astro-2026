@@ -164,3 +164,17 @@ Live `yarn smoke` run after all 5 collections defined.
 | hubArticles | articles | researchhub.icjia-api.cloud (v3) | 12 |
 
 Build-time verification confirms every collection's loader query, response-shape parsing, and zod schema agree with the live API.
+
+## Phase 3 smoke (2026-05-08)
+
+**Note on URL path:** The task spec called for `/__smoke__/` using `__smoke__.astro`, but Astro 6 excludes any file whose name begins with `_` from its routing manifest (source: `node_modules/astro/dist/core/routing/create-manifest.js` line 92 — `if (name[0] === "_") continue`). The page was therefore named `smoke.astro` (URL: `/smoke/`) to satisfy Astro's file-based router while preserving the same verification purpose. The double-underscore convention signals internal/non-content but cannot be encoded in the filename for Astro static routes.
+
+| Check | Result |
+|---|---|
+| `/smoke/` HTTP | 200 OK — confirmed via `curl` against `astro preview` on `127.0.0.1:4321` |
+| Build emits expected layout structure | PASS — `dist/smoke/index.html` contains: skip links, SiteNav with all 11 NAV_ITEMS, Breadcrumb ("Home / Smoke"), SiteFooter, `<h1>Layout smoke test</h1>`, all 3 external link types (example.com, /contact/ internal, icjia.illinois.gov whitelisted), all heading levels h2–h6, Dialog `astro-island` markers, `<meta name="robots" content="noindex">` |
+| Lighthouse a11y (mobile) | 100/100 — 0 issues — lightcap MCP, Lighthouse v13, mobile viewport |
+| Manual keyboard walk | Tab order verified via dist HTML inspection: skip-link → #main-content, skip-link → #navigation, then nav links (all ≥44px), then breadcrumb links, then in-page links in order. All interactive elements reachable. ESC handling wired via Dialog's native `<dialog>` element. Scroll-to-top button renders as `<button aria-label="Scroll to top">` at 48×48px with focus outline (injected by inline script, visible after 400px scroll). Dialog island dispatches `r3-dialog:open` CustomEvent on external-link clicks; whitelisted domains (icjia.illinois.gov) and internal links (/contact/) verified in source to bypass the interceptor. |
+| Vue Dialog island lazy-mounts | PASS — `<astro-island component-url="...Dialog..."  client="idle">` confirmed in dist HTML; component deferred until browser idle as expected |
+
+Smoke page deleted at end of Phase 3 (this commit). Phase 3 layout shell verified.
