@@ -42,9 +42,10 @@ describe('collection: faqs', () => {
       body: 'Additional context.',
     }) as { success: true; data: { rawText: string } };
     expect(result.success).toBe(true);
-    expect(result.data.rawText).toContain('Who is eligible');
-    expect(result.data.rawText).toContain('Anyone');
-    expect(result.data.rawText).toContain('Additional context');
+    // rawText concatenates with single spaces, then strips Markdown
+    expect(result.data.rawText).toBe(
+      'Who is eligible? Anyone in the listed areas. Additional context.',
+    );
   });
 
   it('transform handles missing question/answer/body without throwing', () => {
@@ -55,5 +56,21 @@ describe('collection: faqs', () => {
     }) as { success: true; data: { rawText: string } };
     expect(result.success).toBe(true);
     expect(typeof result.data.rawText).toBe('string');
+  });
+
+  it('schema rejects unparseable dateOverride strings', () => {
+    const result = collections.faqs.schema?.safeParse({
+      id: '1',
+      title: 'X',
+      slug: 'x',
+      dateOverride: 'not-a-date',
+    });
+    expect(result?.success).toBe(false);
+  });
+
+  it('schema rejects rows missing title', () => {
+    const invalid = { id: '1', slug: 'x' };
+    const result = collections.faqs.schema?.safeParse(invalid);
+    expect(result?.success).toBe(false);
   });
 });

@@ -54,4 +54,10 @@ describe('collection: resources', () => {
     expect(result.success).toBe(true);
     expect(result.data.rawText).toBe('');
   });
+
+  it('schema rejects rows missing title', () => {
+    const invalid = { id: '1', slug: 'x' };
+    const result = collections.resources.schema?.safeParse(invalid);
+    expect(result?.success).toBe(false);
+  });
 });

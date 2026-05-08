@@ -245,6 +245,11 @@ const faqs = defineCollection({
 // (UploadFileEntityResponse — relational, omitted), showTableOfContents,
 // hideFromSitemap, hideFromSearch, createdAt, updatedAt, publishedAt.
 //
+// `ranking` (Int) exists on the live API but is intentionally omitted from
+// the query — Phase 4b list pages sort by title. If Strapi ranking-based
+// ordering is required later, add `ranking: z.number().nullable().optional()`
+// to the schema and include `ranking` in the GQL attributes list.
+//
 // The following plan-listed fields do NOT exist on `Resource` and are omitted:
 //   - mediaTitle  (GRAPHQL_VALIDATION_FAILED: "Cannot query field")
 //   - media       (relational field not present on this type)
