@@ -19,6 +19,8 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   build: {
+    // Inline small CSS chunks; externalize larger ones — keeps render-blocking
+    // CSS minimal on small pages without bloating large bundles.
     inlineStylesheets: 'auto',
   },
   vite: {
@@ -28,10 +30,10 @@ export default defineConfig({
     vue(),
     sitemap({
       filter: (page) =>
-        !page.includes('/sandbox') &&
-        !page.includes('/preview') &&
-        !page.includes('/translate') &&
-        !page.includes('/404'),
+        !page.includes('/sandbox/') &&
+        !page.includes('/preview/') &&
+        !page.includes('/translate/') &&
+        !page.includes('/404/'),
       changefreq: 'weekly',
       priority: 0.5,
     }),
@@ -41,23 +43,32 @@ export default defineConfig({
       PUBLIC_API_BASE_URL: envField.string({
         context: 'client',
         access: 'public',
+        url: true,
         default: 'https://r3.icjia-api.cloud',
       }),
       PUBLIC_HUB_API_BASE_URL: envField.string({
         context: 'client',
         access: 'public',
+        url: true,
         default: 'https://researchhub.icjia-api.cloud',
       }),
       PUBLIC_BASE_URL: envField.string({
         context: 'client',
         access: 'public',
+        url: true,
         default: 'https://r3.illinois.gov',
       }),
       PUBLIC_PLAUSIBLE_HOST: envField.string({
         context: 'client',
         access: 'public',
+        url: true,
         default: 'https://plausible.icjia.cloud',
       }),
+      // IMPORTANT: When PUBLIC_BASE_URL is overridden for a staging or branch
+      // deploy, PUBLIC_PLAUSIBLE_DOMAIN MUST also be overridden — otherwise
+      // staging traffic fires against the production r3.illinois.gov Plausible
+      // bucket. Set this to the staging hostname for non-prod deploys.
+      // NOTE: This is a bare hostname (not a URL), so url: true is intentionally absent.
       PUBLIC_PLAUSIBLE_DOMAIN: envField.string({
         context: 'client',
         access: 'public',
