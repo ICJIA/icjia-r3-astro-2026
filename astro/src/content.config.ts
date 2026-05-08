@@ -12,8 +12,9 @@
 import { defineCollection } from 'astro:content';
 import { type LoaderContext } from 'astro/loaders';
 import { z } from 'zod/v4';
-import { strapiQuery, rawText } from '~/lib/strapi';
+import { strapiQuery, hubQuery, absoluteMediaURL, rawText } from '~/lib/strapi';
 import { ensureTrailingSlash } from '~/lib/slug';
+import { HUB_TAGS } from '~/lib/tags';
 
 // ─── Loader factory (Strapi v4) ─────────────────────────────────────────
 
@@ -293,9 +294,106 @@ const resources = defineCollection({
     })),
 });
 
+// ─── Hub loader factory (Strapi v3 — flat array, _id, no attributes wrapper) ─
+
+interface StrapiV3Item {
+  _id: string;
+  slug?: string;
+  [key: string]: unknown;
+}
+
+function hubLoader(collectionName: string, query: string) {
+  return {
+    name: `hub-${collectionName}`,
+    load: async ({ store, parseData, logger }: LoaderContext) => {
+      const items = await hubQuery<StrapiV3Item>(collectionName, query);
+      store.clear();
+      for (const item of items) {
+        if (!item.slug) continue;
+        const data = await parseData({ id: item.slug, data: item });
+        store.set({ id: item.slug, data });
+      }
+      logger.info(`Loaded ${items.length} ${collectionName} from Hub.`);
+    },
+  };
+}
+
+// ─── 5. hubArticles ────────────────────────────────────────────────────
+//
+// Research Hub at https://researchhub.icjia-api.cloud/graphql is Strapi v3.
+// Different response shape from R3 Strapi (v4):
+//   - Items live at data[name] (flat array, NOT data[name].data)
+//   - IDs are _id (MongoDB ObjectID), NOT id
+//   - No attributes wrapper (fields are flat on each item)
+//   - Filter syntax is `where: { tags_contains: [...] }`, NOT v4's `filters`
+//   - Pagination is `limit:` and `start:` (no pagination object wrapper)
+//   - `authors` is a JSON scalar (type "JSON") — no sub-selection allowed;
+//     the returned value is an array of {title, description} objects
+//
+// Live-verified PRESENT (Task 2.9, 2026-05-08):
+//   _id, title, slug, abstract, date, updatedAt, createdAt,
+//   tags (String[]), authors (JSON scalar), splash (String scalar), thumbnail (String scalar)
+//
+// Live-verified ABSENT (GRAPHQL_VALIDATION_FAILED):
+//   publishedAt — does NOT exist on the v3 Article type
+//
+// Live-verified ABSENT (computed in transform, not CMS fields):
+//   pubType, type, fileURL, ext, homePage
+//
+// `splash` and `thumbnail` are String scalars (not relational objects). They
+// may contain absolute URLs or base64-encoded image data depending on the entry.
+//
+// `authors` GraphQL type is "JSON" — queried as bare scalar; returned value is
+// an array of {title: string, description: string} objects parsed from JSON.
+//
+// See MIGRATION.md "Strapi schema discovery" for the full discovery results.
+
+const hubArticles = defineCollection({
+  loader: hubLoader(
+    'articles',
+    `query {
+      articles(where: { tags_contains: [${HUB_TAGS.map((t) => `"${t}"`).join(', ')}] }, limit: 100) {
+        _id title slug abstract date
+        updatedAt createdAt
+        tags
+        authors
+        splash
+        thumbnail
+      }
+    }`,
+  ),
+  schema: z
+    .object({
+      _id: z.string(),
+      title: z.string(),
+      slug: z.string(),
+      abstract: z.string().nullable().optional(),
+      date: z.string().nullable().optional(),
+      createdAt: z.string().optional(),
+      updatedAt: z.string().optional(),
+      tags: z.array(z.string()).nullable().optional(),
+      // JSON scalar — no GraphQL sub-selection; value is an array of author objects
+      authors: z.unknown().optional(),
+      // String scalars — may be absolute URL or base64 image data
+      splash: z.string().nullable().optional(),
+      thumbnail: z.string().nullable().optional(),
+    })
+    .transform((data) => ({
+      ...data,
+      // Compute the homepage flag like the old createHubArticles.js did:
+      // an article goes on the homepage when its tags include 'r3'.
+      homePage: Array.isArray(data.tags) && data.tags.includes('r3'),
+      rawText: rawText(`${data.title} ${data.abstract ?? ''}`),
+      path: ensureTrailingSlash(`/research/${data.slug}`),
+      splashURL: absoluteMediaURL(typeof data.splash === 'string' ? data.splash : undefined),
+      thumbnailURL: absoluteMediaURL(typeof data.thumbnail === 'string' ? data.thumbnail : undefined),
+    })),
+});
+
 export const collections = {
   pages,
   news,
   faqs,
   resources,
+  hubArticles,
 };
