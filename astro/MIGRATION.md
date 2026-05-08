@@ -177,4 +177,33 @@ Build-time verification confirms every collection's loader query, response-shape
 | Manual keyboard walk | Tab order verified via dist HTML inspection: skip-link → #main-content, skip-link → #navigation, then nav links (all ≥44px), then breadcrumb links, then in-page links in order. All interactive elements reachable. ESC handling wired via Dialog's native `<dialog>` element. Scroll-to-top button renders as `<button aria-label="Scroll to top">` at 48×48px with focus outline (injected by inline script, visible after 400px scroll). Dialog island dispatches `r3-dialog:open` CustomEvent on external-link clicks; whitelisted domains (icjia.illinois.gov) and internal links (/contact/) verified in source to bypass the interceptor. |
 | Vue Dialog island lazy-mounts | PASS — `<astro-island component-url="...Dialog..."  client="idle">` confirmed in dist HTML; component deferred until browser idle as expected |
 
+## Phase 4d — FAQ accordion REPLACED by catch-all (2026-05-08)
+
+The plan's Task 4d called for `FaqAccordion.astro` rendering individual rows
+from the `weeklyFaqs` collection, plus `/faqs/index.astro` and
+`/faqs/[slug].astro` for list + detail routes.
+
+**This was reframed during execution.** Live introspection (Task 2.1) found
+that:
+
+- The `weeklyFaqs` Strapi collection has **0 published rows**
+- The actual FAQ content on the legacy R3 site lives in the
+  `pages.faqs` row — a single Strapi page whose body markdown contains the
+  FAQ Q&A (presumably as a series of headings + answers, or HTML
+  `<details>` blocks)
+
+The catch-all `[...slug].astro` (Task 4a.1) already serves `/faqs/` by
+rendering the body of the `pages.faqs` row. No additional accordion
+component is needed; no `/faqs/[slug]/` detail routes exist (there are no
+individual FAQ slugs to route).
+
+**If the team later moves FAQ data into the `weeklyFaqs` collection** (or
+adds a `faqs` collection with individual entries), the accordion +
+detail-route plan from the design spec can be implemented at that point.
+For now, the existing Strapi-page-body approach is preserved as-is.
+
+The single-page faqs URL (`/faqs/`) is correctly excluded from the
+breadcrumb (per `Breadcrumb.astro`'s HIDE_ON list — Task 3.5) since it's
+treated as a "section index" page in the original IA.
+
 Smoke page deleted at end of Phase 3 (this commit). Phase 3 layout shell verified.
