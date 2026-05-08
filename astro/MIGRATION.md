@@ -150,3 +150,17 @@ Documented quirks contributors will hit. Living list — append as discovered.
   commands directly: `yarn run astro sync && yarn run astro check`). The `check` script in `astro/package.json` is correctly
   defined; Yarn 1's CLI just intercepts the bare `yarn check` form. This is
   Yarn 1 behavior — Yarn 2+ doesn't have this issue.
+
+## Phase 2 smoke (2026-05-08)
+
+Live `yarn smoke` run after all 5 collections defined.
+
+| Collection | GraphQL field | Source | Row count |
+|---|---|---|---|
+| pages | pages | r3.icjia-api.cloud (v4) | 9 |
+| news | posts | r3.icjia-api.cloud (v4) | 8 |
+| faqs | weeklyFaqs | r3.icjia-api.cloud (v4) | 0 (expected — see Task 2.1) |
+| resources | resources | r3.icjia-api.cloud (v4) | 4 |
+| hubArticles | articles | researchhub.icjia-api.cloud (v3) | 12 |
+
+Build-time verification confirms every collection's loader query, response-shape parsing, and zod schema agree with the live API.

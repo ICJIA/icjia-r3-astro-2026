@@ -6,6 +6,57 @@ chronological order.
 
 ---
 
+## v0.2.0 — 2026-05-08
+
+### Phase 2 — Content collections
+
+- Live-introspected R3 Strapi (v4) and Research Hub (Strapi v3) GraphQL
+  schemas; documented in `MIGRATION.md` "Strapi schema discovery"
+- `src/lib/strapi.ts` (TDD, 22 tests) — `strapiQuery` (v4 shape),
+  `hubQuery` (v3 shape), `absoluteMediaURL`, `rawText`, with 30s
+  AbortController timeout to prevent build hangs
+- `src/lib/markdown.ts` (TDD, 16 tests) — markdown-it + DOMPurify with
+  ArcGIS-only iframe whitelist preserving the March 2026 audit posture
+- `src/lib/dateFormat.ts`, `src/lib/slug.ts` (TDD, 26 tests) — UTC
+  date formatting + path normalization helpers
+- `src/lib/manualPages.ts` (port of `app.config.js` splash array, 2 entries)
+- `src/lib/tags.ts` (port of `src/tags.json`, 3 hub tags)
+- `src/content.config.ts` — 5 content collections defined live:
+  - `pages` (Strapi `pages`, v4) — 11 tests
+  - `news` (Strapi `posts`, v4 — discovered alias) — 12 tests, with
+    `dateOverride` schema-level rejection of unparseable strings and
+    `dateOverride → publishedAt → createdAt → 'MISSING_DATE'` fallback
+  - `faqs` (Strapi `weeklyFaqs`, v4 — discovered alias) — 8 tests
+  - `resources` (Strapi `resources`, v4) — 7 tests
+  - `hubArticles` (Hub `articles`, **v3**) — 11 tests, separate
+    `hubLoader` factory for v3 response shape (flat array, `_id`,
+    `where:` filter, `limit:` pagination, JSON-scalar `authors`)
+- Vitest infrastructure: `astro:content` shim mock for unit-test access
+  to schema validation (Task 2.6)
+- `astro/scripts/smoke-collections.ts` — live build-time verifier; prints
+  row counts per collection. Smoke run at v0.2.0 close: pages=9,
+  news=8, faqs=0 (expected empty per discovery), resources=4,
+  hubArticles=12
+- Removed `astro/scripts/strapi-introspect.sh` (no longer needed; smoke
+  is the regression path going forward)
+
+### Cross-collection live-API findings (corrects plan template assumptions)
+
+- R3 Strapi `Page` type: no `mediaTitle`, no `media` (relational fields
+  the plan listed don't exist on this type)
+- R3 Strapi `Post` type: scalar-only — no `media`, no `splash`, no
+  `attachments`. Has `section` ENUM (newly discovered)
+- R3 Strapi `WeeklyFaq` type: no `category`/`question`/`answer` (the
+  schema-suggesting names from i2i don't exist on R3); has `week` ENUM,
+  `attachmentHeading`, `dateOverride`
+- R3 Strapi `Resource` type: standard scalars + `searchMeta` +
+  `hideFromSearch` (intentionally omitted: `ranking` Int — Phase 4b
+  sorts by title; can re-add if Strapi-driven order is needed)
+- Hub `Article` type (v3): no `publishedAt`; `splash`/`thumbnail` are
+  String scalars (not relational); `authors` is JSON scalar
+
+---
+
 ## v0.1.0 — 2026-05-08
 
 ### Phase 0 — Baseline capture
