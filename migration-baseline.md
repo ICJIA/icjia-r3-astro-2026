@@ -1,0 +1,48 @@
+# R3 Astro Migration — Baseline (Nuxt prod build)
+
+Captured 2026-05-08 against `yarn generate && npx serve .output/public -l 8001`, lightcap mobile preset.
+
+Lightcap: @icjia/lightcap v0.1.5 / Lighthouse v13 / Node v22.22.2 / darwin arm64
+
+| Route | Perf | A11y | BP | SEO | Notes |
+|---|---:|---:|---:|---:|---|
+| `/` | 65 | 100 | 100 | 100 | FCP 3.8s, LCP 7.5s |
+| `/eligibility/` | 52 | 100 | 96 | 100 | FCP 5.9s, LCP 6.0s, CLS 0.22 |
+| `/contact/` | 93 | 100 | 100 | 100 | FCP 2.4s |
+| `/collaboratives/` | 60 | 100 | 100 | 100 | FCP 5.7s, LCP 5.7s, CLS 0.13 |
+| `/board/` | 84 | 100 | 100 | 100 | FCP 3.2s, LCP 3.2s, CLS 0.12 |
+| `/faqs/` | 63 | 100 | 100 | 100 | FCP 5.7s, LCP 5.7s |
+| `/funding/` | 65 | 100 | 100 | 100 | Redirects to `/` via meta-refresh; scores reflect homepage |
+| `/meetings/` | 89 | 100 | 100 | 100 | FCP 2.9s, LCP 2.9s |
+| `/privacy/` | 88 | 100 | 100 | 100 | FCP 2.9s, LCP 3.0s |
+| `/news/r3-2022-annual-report/` | 88 | 100 | 100 | 100 | FCP 2.9s, LCP 3.0s |
+| `/news/2023-04-06-annual-report-2023/` | 85 | 100 | 100 | 100 | FCP 3.2s, LCP 3.3s |
+| `/news/r3-2021-annual-report/` | 88 | 100 | 100 | 100 | FCP 2.9s, LCP 3.0s |
+| `/news/2021-01-21-release/` | 88 | 100 | 100 | 100 | FCP 2.9s, LCP 2.9s |
+| `/news/2022-06-23-r3-grants-list/` | 81 | 100 | 100 | 100 | FCP 3.2s, LCP 3.3s, CLS 0.13 |
+| `/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants/` | 58 | 100 | 100 | 100 | FCP 5.9s, LCP 7.7s, CLS 0.11; large unoptimized image |
+| `/news/lend-us-your-expertise-become-a-grant-application-reviewer/` | 90 | 100 | 100 | 100 | FCP 2.9s, LCP 2.9s |
+| `/news/restore-reinvest-renew-r3-program-grants-apply-now/` | 84 | 100 | 100 | 100 | FCP 3.3s, LCP 3.3s |
+| `/resources/spanish-language-materials/` | 89 | 100 | 100 | 100 | FCP 2.9s, LCP 3.0s |
+| `/resources/video-resources/` | 86 | 100 | 100 | 100 | FCP 2.9s, LCP 3.0s, CLS 0.11 |
+| `/resources/ampli-fund-portal-guide-and-tip-sheet/` | 88 | 100 | 100 | 100 | FCP 2.9s, LCP 3.0s |
+| `/resources/prequalification-steps/` | 57 | 100 | 100 | 100 | FCP 5.7s, LCP 5.7s, CLS 0.17 |
+| `/search/` | 93 | 100 | 100 | 100 | FCP 2.6s, LCP 2.6s |
+| `/translate/` | 91 | 100 | 100 | 100 | FCP 2.6s, LCP 2.7s |
+| `/resources/` | 72 | 100 | 100 | 100 | FCP 2.7s, LCP 6.2s |
+| `/resources/single-page/` | 87 | 100 | 100 | 100 | FCP 3.0s, LCP 3.0s |
+
+## Summary
+
+- **Accessibility:** 100 across all 25 routes — perfect baseline.
+- **Best Practices:** 100 on 24/25 routes; `/eligibility/` scores 96 (Chrome DevTools Issues panel warnings).
+- **SEO:** 100 across all 25 routes.
+- **Performance:** Ranges from 52–93. Heavy pages (`/`, `/eligibility/`, `/collaboratives/`, `/faqs/`, `/funding/`→`/`) score 52–65 due to render-blocking resources (~3,450 ms savings available) and large LCP images (7–8s). Lighter content pages (news/resources single articles) score 81–93.
+
+## Known Issues for Astro Migration to Address
+
+- **Render-blocking resources:** Up to 3,450 ms penalty on Vuetify-heavy pages — main target for Astro SSG improvement.
+- **Cache policy:** ~828–1,163 KiB uncached assets on every page.
+- **CLS:** Several pages show CLS 0.11–0.22 (eligibility worst at 0.22).
+- **LCP images:** Homepage hero and grants news post have LCP >7s on mobile.
+- **`/funding/` redirect:** This route uses a `<meta http-equiv="refresh">` to redirect to `/`; no dedicated content page exists in the static output.
