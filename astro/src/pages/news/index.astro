@@ -1,0 +1,34 @@
+---
+// astro/src/pages/news/index.astro
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import NewsCard from '~/components/NewsCard.astro';
+import { getCollection } from 'astro:content';
+
+const all = await getCollection('news');
+const sorted = [...all].sort(
+  (a, b) => new Date(b.data.postDate).getTime() - new Date(a.data.postDate).getTime(),
+);
+---
+
+<BaseLayout title="News" description="Latest news from the R3 program.">
+  <div class="page-wrap">
+    <h1>News</h1>
+    <ul class="news-list" role="list">
+      {sorted.map((p) => (
+        <li>
+          <NewsCard
+            title={p.data.title}
+            postDate={p.data.postDate}
+            summary={p.data.summary}
+            href={p.data.path}
+          />
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-wrap { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  .news-list { list-style: none; padding: 0; margin: 1.5rem 0; display: grid; gap: 1rem; }
+</style>
