@@ -1,6 +1,6 @@
 # R3 Astro Migration — Baseline (Nuxt prod build)
 
-Captured 2026-05-08 against `yarn generate && npx serve .output/public -l 8001`, lightcap mobile preset.
+Captured 2026-05-08 against `yarn generate && npx serve .output/public -l 8001` (Nuxt static server, captured locally), lightcap mobile preset.
 
 Lightcap: @icjia/lightcap v0.1.5 / Lighthouse v13 / Node v22.22.2 / darwin arm64
 
@@ -8,7 +8,7 @@ Lightcap: @icjia/lightcap v0.1.5 / Lighthouse v13 / Node v22.22.2 / darwin arm64
 |---|---:|---:|---:|---:|---|
 | `/` | 65 | 100 | 100 | 100 | FCP 3.8s, LCP 7.5s |
 | `/eligibility/` | 52 | 100 | 96 | 100 | FCP 5.9s, LCP 6.0s, CLS 0.22 |
-| `/contact/` | 93 | 100 | 100 | 100 | FCP 2.4s |
+| `/contact/` | 93 | 100 | 100 | 100 | FCP 2.4s (LCP = FCP) |
 | `/collaboratives/` | 60 | 100 | 100 | 100 | FCP 5.7s, LCP 5.7s, CLS 0.13 |
 | `/board/` | 84 | 100 | 100 | 100 | FCP 3.2s, LCP 3.2s, CLS 0.12 |
 | `/faqs/` | 63 | 100 | 100 | 100 | FCP 5.7s, LCP 5.7s |
@@ -37,7 +37,7 @@ Lightcap: @icjia/lightcap v0.1.5 / Lighthouse v13 / Node v22.22.2 / darwin arm64
 - **Accessibility:** 100 across all 25 routes — perfect baseline.
 - **Best Practices:** 100 on 24/25 routes; `/eligibility/` scores 96 (Chrome DevTools Issues panel warnings).
 - **SEO:** 100 across all 25 routes.
-- **Performance:** Ranges from 52–93. Heavy pages (`/`, `/eligibility/`, `/collaboratives/`, `/faqs/`, `/funding/`→`/`) score 52–65 due to render-blocking resources (~3,450 ms savings available) and large LCP images (7–8s). Lighter content pages (news/resources single articles) score 81–93.
+- **Performance:** Ranges from 52–93. Heavy pages (`/`, `/eligibility/`, `/collaboratives/`, `/faqs/`, `/funding/`→`/`) score 52–65 due to render-blocking resources (~3,450 ms savings available) and large LCP images (7–8s). Lighter content pages typically score 81–93. Outliers include the grants-announcement news post (58 — large unoptimized image), `/resources/prequalification-steps/` (57), and the `/resources/` index (72). These three are candidate Phase 7 perf-polish targets along with the heavier pages above.
 
 ## Known Issues for Astro Migration to Address
 
