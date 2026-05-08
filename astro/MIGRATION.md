@@ -54,6 +54,72 @@ Lightcap: @icjia/lightcap v0.1.5 / Lighthouse v13 / Node v22.22.2 / darwin arm64
 - **LCP images:** Homepage hero and grants news post have LCP >7s on mobile.
 - **`/funding/` redirect:** This route uses a `<meta http-equiv="refresh">` to redirect to `/`; no dedicated content page exists in the static output.
 
+## Strapi schema discovery (2026-05-08)
+
+Endpoints introspected:
+- `https://r3.icjia-api.cloud/graphql` (Strapi v4)
+- `https://researchhub.icjia-api.cloud/graphql` (Research Hub — Strapi v3 / Apollo)
+
+Introspection succeeded on both endpoints (not disabled in production).
+
+| Local collection | GraphQL field | Source verified at |
+|---|---|---|
+| `pages` | `pages` | 2026-05-08 (Strapi) |
+| `news` | `posts` | 2026-05-08 (Strapi) |
+| `faqs` | `weeklyFaqs` | 2026-05-08 (Strapi) |
+| `resources` | `resources` | 2026-05-08 (Strapi) |
+| `hubArticles` | `articles` (filtered by `tags_contains: ["r3"]`) | 2026-05-08 (Research Hub) |
+
+### Confirmed top-level Strapi collection fields
+
+R3 Strapi (`https://r3.icjia-api.cloud/graphql`) exposes these content collections:
+`faq` / `faqs`, `form` / `forms`, `page` / `pages`, `post` / `posts`, `resource` / `resources`, `v2Weeklyfaq` / `v2Weeklyfaqs`, `weeklyFaq` / `weeklyFaqs`
+
+Research Hub (`https://researchhub.icjia-api.cloud/graphql`) exposes:
+`app` / `apps` / `appsConnection`, `article` / `articles` / `articlesConnection`, `dataset` / `datasets` / `datasetsConnection`
+
+### Field shapes confirmed by live fetch (one-row sample)
+
+**pages** (`pages(pagination: { limit: 1 }) { data { id attributes { ... } } }`):
+`title`, `slug`, `section`, `summary`, `body`, `createdAt`, `updatedAt`, `publishedAt`, `hideFromSitemap`, `showTableOfContents`, `searchMeta`
+Creator also uses: `hideFromSearch`, `isFullPage`
+
+**posts** (news) (`posts(pagination: { limit: 1 }) { data { id attributes { ... } } }`):
+`title`, `slug`, `section`, `summary`, `body`, `createdAt`, `updatedAt`, `publishedAt`, `hideFromSitemap`, `showTableOfContents`, `searchMeta`, `dateOverride`
+Creator also uses: `hideFromSearch`
+
+**weeklyFaqs** (`weeklyFaqs(pagination: { limit: 1 }) { data { ... } }`):
+Returns empty array in current production data — collection exists but has no published records. Creator query uses:
+`title`, `slug`, `week`, `summary`, `body`, `dateOverride`, `createdAt`, `updatedAt`, `attachmentHeading`, `attachment { data { id attributes { name hash ext url size createdAt updatedAt } } }`
+
+**resources** (`resources(pagination: { limit: 1 }) { data { id attributes { ... } } }`):
+`title`, `slug`, `summary`, `body`, `createdAt`, `updatedAt`, `publishedAt`, `hideFromSitemap`, `showTableOfContents`, `searchMeta`, `ranking`
+Creator also uses: `hideFromSearch`, `cover { data { attributes { url formats name alternativeText caption width height ext size createdAt updatedAt } } }`
+
+**articles** (Research Hub — Strapi v3, flat response, no `data[]` wrapper):
+`_id`, `title`, `slug`, `date`, `tags`, `authors { title description }`, `abstract`
+Note: `pubType`, `type`, `fileURL`, `ext` are NOT schema fields — they are computed and injected by `createHubArticles.js` after fetch.
+
+### Field-name divergences from i2i
+
+- **FAQs GQL field name:** R3 uses `weeklyFaqs` (not `faqs`). The `faqs` field exists in the schema but appears to be a different/unused collection. The actual FAQ data lives in `weeklyFaqs`.
+- **News GQL field name:** R3 uses `posts` (not `news`). Local collection name in Astro will remain `news`.
+- **Hub response shape:** Research Hub is Strapi v3 — articles return as a flat array directly (no `data[]` wrapper, no `attributes` nesting). IDs use `_id` (MongoDB ObjectID string), not `id`.
+- **Hub filter syntax:** Strapi v3 `where` argument with `tags_contains` array, not Strapi v4 `filters` object. Exact shape: `articles(limit: 100, sort: "date:desc", where: { status: "published", tags_contains: ["r3", ...] })`.
+
+### Pagination behavior
+
+- **R3 Strapi (v4):** Results live under `data[]` with `id` + `attributes` shape. Confirmed via live fetch.
+- **Research Hub (Strapi v3):** Flat array response — no `data[]` wrapper, no `attributes` nesting. Pagination uses top-level `limit`/`start` args, not `pagination: { limit, start }`.
+
+### Notes for content.config.ts
+
+- The local Astro collection name `news` maps to the GQL field `posts` — use `posts` in any fetch query targeting R3 Strapi.
+- The local Astro collection name `faqs` maps to the GQL field `weeklyFaqs` — use `weeklyFaqs` in fetch queries.
+- Hub query filter shape (Strapi v3): `articles(limit: 100, sort: "date:desc", where: { status: "published", tags_contains: [...tagsArray] })`. Tags array must be JSON-serialized inline into the query string (as the creator does with `JSON.stringify(tags)`).
+- Hub articles need `pubType`, `type`, `fileURL`, and `ext` set programmatically post-fetch — these are not CMS fields.
+- `homePage` flag on hub articles is set when the article's tags include `"r3"` (lowercased).
+
 ## axe-core baseline
 
 Captured 2026-05-08 via `yarn audit:a11y`.
