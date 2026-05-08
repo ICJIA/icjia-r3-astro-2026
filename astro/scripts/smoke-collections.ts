@@ -15,8 +15,9 @@
 //
 // Usage: yarn smoke
 
-// Mark this file as an ES module so TypeScript allows top-level await.
-export {};
+// Import from src/lib/tags.ts (no Vite/Astro deps, safe in tsx).
+// .js extension is required for ESM resolution under tsx.
+import { HUB_TAGS } from '../src/lib/tags.js';
 
 const STRAPI_ORIGIN = 'https://r3.icjia-api.cloud';
 const HUB_ORIGIN = 'https://researchhub.icjia-api.cloud';
@@ -64,8 +65,6 @@ async function countV3(gqlField: string, query: string): Promise<number> {
 }
 
 // Mirror the exact queries from src/content.config.ts.
-const HUB_TAGS = ['all research', 'r3', 'cannabis'];
-
 type CollectionDef =
   | { name: string; kind: 'v4'; gqlField: string; query: string }
   | { name: string; kind: 'v3'; gqlField: string; query: string };

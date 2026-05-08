@@ -8,6 +8,10 @@
 //
 // THIS FILE REPLACES THE ENTIRE /creators DIRECTORY. No prebuild step.
 // No markdown fixtures on disk. Build is one process: `astro build`.
+//
+// MAINTENANCE: when adding or modifying queries here, also update
+// `astro/scripts/smoke-collections.ts` so the smoke regression test
+// exercises the same query strings.
 
 import { defineCollection } from 'astro:content';
 import { type LoaderContext } from 'astro/loaders';
