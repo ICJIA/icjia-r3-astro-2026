@@ -1,0 +1,184 @@
+---
+// astro/src/layouts/BaseLayout.astro
+//
+// Wraps every page with skip-links, nav, footer, dialog island, scroll-to-top.
+// Mirror of app.vue with all Vuetify removed. Plausible script lives here
+// (not just preconnect — fixes the silent-analytics bug from i2i).
+
+import '~/styles/global.css';
+import SkipLinks from '~/components/SkipLinks.astro';
+import SiteNav from '~/components/SiteNav.astro';
+import SiteFooter from '~/components/SiteFooter.astro';
+import Breadcrumb from '~/components/Breadcrumb.astro';
+import Dialog from '~/components/Dialog.vue';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+  preloadImages?: string[];
+  pageBackground?: string;
+  publishedAt?: string;
+  updatedAt?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description: rawDescription =
+    'The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment.',
+  ogImage = 'https://r3.illinois.gov/og-image.png',
+  canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://r3.illinois.gov').toString(),
+  preloadImages = [],
+  pageBackground = 'var(--color-r3-bg)',
+  publishedAt,
+  updatedAt,
+  noIndex = false,
+} = Astro.props;
+
+function truncate(s: string, max = 160): string {
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max - 1);
+  const lastSp = cut.lastIndexOf(' ');
+  return (lastSp > max * 0.6 ? cut.slice(0, lastSp) : cut).trim() + '…';
+}
+const description = truncate(rawDescription);
+
+const datePublished = publishedAt ?? updatedAt;
+const dateModified = updatedAt ?? publishedAt;
+
+const ldJSON: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'R3 — Restore, Reinvest, Renew',
+  url: 'https://r3.illinois.gov',
+  description:
+    'The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment.',
+  publisher: {
+    '@type': 'GovernmentOrganization',
+    name: 'Illinois Criminal Justice Information Authority',
+    url: 'https://icjia.illinois.gov',
+  },
+  inLanguage: 'en',
+};
+if (datePublished) ldJSON['datePublished'] = datePublished;
+if (dateModified) ldJSON['dateModified'] = dateModified;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>R3 | {title}</title>
+    <meta name="description" content={description} />
+    {noIndex && <meta name="robots" content="noindex" />}
+
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- API + analytics warmup -->
+    <link rel="preconnect" href="https://r3.icjia-api.cloud" crossorigin />
+    <link rel="preconnect" href="https://researchhub.icjia-api.cloud" crossorigin />
+    <link rel="preconnect" href="https://plausible.icjia.cloud" />
+
+    {preloadImages.map((src) => (
+      <link rel="preload" as="image" href={src} fetchpriority="high" />
+    ))}
+
+    <meta name="author" content="Illinois Criminal Justice Information Authority" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="R3 — Restore, Reinvest, Renew" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+
+    {datePublished && <meta property="article:published_time" content={datePublished} />}
+    {dateModified && <meta property="article:modified_time" content={dateModified} />}
+
+    <script type="application/ld+json" set:html={JSON.stringify(ldJSON)} />
+
+    <!-- Plausible analytics: bare <script> in <head>. Native browser navigation
+         in Astro static = full page load = pageview auto-fires. No SPA tracking
+         needed. CSP allows plausible.icjia.cloud (netlify.toml). -->
+    <script
+      is:inline
+      defer
+      data-domain="r3.illinois.gov"
+      src="https://plausible.icjia.cloud/js/script.js"
+    ></script>
+  </head>
+  <body style={`background: ${pageBackground};`}>
+    <SkipLinks />
+    <SiteNav />
+    <main
+      id="main-content"
+      class="markdown-body"
+      tabindex="-1"
+      role="main"
+      style={`padding-top: 90px; background: ${pageBackground}; min-height: 100vh; flex: 1 0 auto;`}
+    >
+      <Breadcrumb />
+      <slot />
+    </main>
+    <SiteFooter />
+    <Dialog client:idle />
+
+    <!-- Scroll-to-top + external-link interceptor (vanilla, ~2 KB total) -->
+    <script>
+      // Scroll-to-top
+      const SHOW_AFTER = 400;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Scroll to top');
+      btn.textContent = '↑';
+      btn.style.cssText = [
+        'position:fixed','bottom:16px','right:16px','z-index:99',
+        'width:48px','height:48px','border-radius:50%','border:none',
+        'background:#0d4474','color:#fff','font-size:24px','cursor:pointer',
+        'box-shadow:0 4px 12px rgba(0,0,0,0.2)','display:none',
+        'min-width:44px','min-height:44px',
+      ].join(';');
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      btn.addEventListener('focus', () => { btn.style.outline = '3px solid #fff'; btn.style.outlineOffset = '2px'; });
+      btn.addEventListener('blur', () => { btn.style.outline = ''; btn.style.outlineOffset = ''; });
+      document.body.appendChild(btn);
+      window.addEventListener('scroll', () => {
+        btn.style.display = window.scrollY > SHOW_AFTER ? 'inline-flex' : 'none';
+      }, { passive: true });
+
+      // External-link interceptor: any <a> in main content that points off-domain
+      // shows the Dialog island confirmation before opening.
+      function isExternal(href: string) {
+        try {
+          const u = new URL(href, window.location.href);
+          return u.host !== window.location.host && /^https?:$/.test(u.protocol);
+        } catch { return false; }
+      }
+      document.querySelector('main')?.addEventListener('click', (e) => {
+        const a = (e.target as Element)?.closest && (e.target as Element).closest('a[href]');
+        if (!a) return;
+        const href = a.getAttribute('href');
+        if (!href || !isExternal(href)) return;
+        // Whitelist: ICJIA + Illinois.gov + ArcGIS skip the modal
+        if (/icjia\.illinois\.gov|illinois\.gov|arcgis\.com/.test(new URL(href, window.location.href).host)) return;
+        e.preventDefault();
+        window.dispatchEvent(new CustomEvent('r3-dialog:open', {
+          detail: {
+            title: 'You are leaving R3',
+            body: 'This link goes to an external site outside the R3 program.',
+            confirmHref: href,
+            confirmLabel: 'Continue',
+            cancelLabel: 'Stay here',
+          },
+        }));
+      });
+    </script>
+  </body>
+</html>
