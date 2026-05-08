@@ -125,7 +125,14 @@ const news = defineCollection({
       id: z.string(),
       title: z.string(),
       slug: z.string(),
-      dateOverride: z.string().nullable().optional(),
+      dateOverride: z
+        .string()
+        .nullable()
+        .optional()
+        .refine(
+          (v) => v == null || v === '' || !Number.isNaN(new Date(v).getTime()),
+          { message: 'dateOverride must be a parseable date string' },
+        ),
       summary: z.string().nullable().optional(),
       body: z.string().nullable().optional(),
       searchMeta: z.string().nullable().optional(),
@@ -143,7 +150,9 @@ const news = defineCollection({
         ? new Date(data.dateOverride).toISOString()
         : data.publishedAt
           ? new Date(data.publishedAt).toISOString()
-          : new Date().toISOString(),
+          : data.createdAt
+            ? new Date(data.createdAt).toISOString()
+            : 'MISSING_DATE',
       rawText: rawText(data.body ?? ''),
       path: ensureTrailingSlash(`/news/${data.slug}`),
     })),

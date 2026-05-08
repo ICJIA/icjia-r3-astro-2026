@@ -86,4 +86,36 @@ describe('collection: news', () => {
     expect(result.success).toBe(true);
     expect(result.data.rawText).toBe('');
   });
+
+  it('preserves hideFromSearch through the transform', () => {
+    const result = collections.news.schema?.safeParse({
+      id: '1',
+      title: 'X',
+      slug: 'foo',
+      hideFromSearch: true,
+    }) as { success: true; data: { hideFromSearch?: boolean } };
+    expect(result.success).toBe(true);
+    expect(result.data.hideFromSearch).toBe(true);
+  });
+
+  it('schema rejects unparseable dateOverride strings', () => {
+    const result = collections.news.schema?.safeParse({
+      id: '1',
+      title: 'X',
+      slug: 'foo',
+      dateOverride: 'not-a-date',
+    });
+    expect(result?.success).toBe(false);
+  });
+
+  it('transform falls back to createdAt when both dateOverride and publishedAt absent', () => {
+    const result = collections.news.schema?.safeParse({
+      id: '1',
+      title: 'X',
+      slug: 'foo',
+      createdAt: '2025-01-01T00:00:00Z',
+    }) as { success: true; data: { postDate: string } };
+    expect(result.success).toBe(true);
+    expect(result.data.postDate).toBe('2025-01-01T00:00:00.000Z');
+  });
 });
