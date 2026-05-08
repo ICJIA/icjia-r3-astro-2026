@@ -5,6 +5,14 @@ export default defineConfig({
   resolve: {
     alias: {
       '~': fileURLToPath(new URL('./src', import.meta.url)),
+      // Astro's `astro:content` is a virtual module resolved by Astro's Vite
+      // plugin at build time. Vitest needs a concrete shim that re-exports the
+      // same underlying implementations (defineCollection from
+      // astro/content/config, z from astro/zod) so collection schemas can be
+      // imported and exercised directly in unit tests.
+      'astro:content': fileURLToPath(
+        new URL('./src/__mocks__/astro-content.ts', import.meta.url),
+      ),
     },
   },
   test: {
