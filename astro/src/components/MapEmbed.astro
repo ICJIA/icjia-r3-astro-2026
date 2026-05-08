@@ -1,0 +1,68 @@
+---
+// astro/src/components/MapEmbed.astro
+//
+// ArcGIS storymap iframe for /eligibility/. Lazy-loaded, scrollable,
+// includes skip-the-map link + visually-hidden description (port of
+// MapCensusTracts.vue logic, minus Vuetify).
+---
+
+<section
+  class="map-embed"
+  role="region"
+  aria-labelledby="map-heading"
+  aria-describedby="map-desc"
+>
+  <h2 id="map-heading">Eligibility Map</h2>
+  <p id="map-desc" class="sr-only">
+    Interactive map of R3&#8209;eligible areas. Use arrow keys to pan and
+    plus/minus keys to zoom, or open the full&#8209;screen map below.
+  </p>
+  <a class="map-embed__skip-link" href="#after-map">Skip the interactive map</a>
+
+  <div class="map-embed__scroll" tabindex="0" aria-label="Map container, scroll to view full map">
+    <iframe
+      src="https://storymaps.arcgis.com/stories/954c5f9b4341460db6bb45709fea8db9?cover=false"
+      width="100%"
+      height="1500"
+      title="R3 Eligibility Areas Interactive StoryMap"
+      aria-label="R3 Eligibility Areas Interactive StoryMap"
+      loading="lazy"
+      allowfullscreen
+      allow="geolocation"
+    ></iframe>
+  </div>
+
+  <p class="map-embed__updated">Last updated: 12/28/2025</p>
+  <div id="after-map" tabindex="-1"></div>
+</section>
+
+<style>
+  .map-embed { margin: 1.5rem 0; }
+  .map-embed h2 { margin-top: 1rem; }
+  .map-embed__skip-link {
+    display: inline-block;
+    margin: 0.5rem 0 0.75rem;
+    color: var(--color-r3-primary);
+    text-decoration: underline;
+    min-height: 44px;
+    padding: 4px 8px;
+  }
+  .map-embed__skip-link:focus-visible {
+    outline: 3px solid var(--color-r3-primary);
+    outline-offset: 2px;
+  }
+  .map-embed__scroll {
+    overflow: auto;
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .map-embed__scroll iframe { display: block; border: 0; }
+  .map-embed__updated {
+    margin-top: 0.75rem;
+    text-align: right;
+    font-size: 0.75rem;
+    color: var(--color-r3-text-muted);
+    font-weight: 700;
+  }
+</style>

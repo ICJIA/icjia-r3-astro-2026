@@ -10,6 +10,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { renderMarkdown } from '~/lib/markdown';
+import MapEmbed from '~/components/MapEmbed.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
@@ -35,6 +36,9 @@ const html = data.body ? renderMarkdown(data.body) : '';
 >
   <div class="page-wrap">
     <h1>{data.title}</h1>
+
+    {data.slug === 'eligibility' && <MapEmbed />}
+
     <article class="markdown-body" set:html={html} />
   </div>
 </BaseLayout>
