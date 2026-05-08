@@ -11,6 +11,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { renderMarkdown } from '~/lib/markdown';
 import MapEmbed from '~/components/MapEmbed.astro';
+import Funding from '~/components/Funding.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
@@ -38,6 +39,7 @@ const html = data.body ? renderMarkdown(data.body) : '';
     <h1>{data.title}</h1>
 
     {data.slug === 'eligibility' && <MapEmbed />}
+    {data.slug === 'funding' && <Funding />}
 
     <article class="markdown-body" set:html={html} />
   </div>
