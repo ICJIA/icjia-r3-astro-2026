@@ -1,0 +1,48 @@
+---
+// astro/src/pages/[...slug].astro
+//
+// Catch-all route for any single Strapi `pages` row whose slug isn't
+// already served by a more specific page. Examples: /contact/, /privacy/,
+// /board/, /collaboratives/, /eligibility/, /funding/, /meetings/.
+//
+// Returns 404 if no matching page found.
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { renderMarkdown } from '~/lib/markdown';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages
+    .filter((p) => p.data.slug !== 'index')   // homepage is /index.astro (Phase 4g)
+    .map((p) => ({
+      params: { slug: p.data.slug === 'index' ? undefined : p.data.slug },
+      props: { entry: p },
+    }));
+}
+
+const { entry } = Astro.props;
+const data = entry.data;
+const html = data.body ? renderMarkdown(data.body) : '';
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.summary ?? undefined}
+  canonical={new URL(data.path, Astro.site).toString()}
+  publishedAt={data.createdAt}
+  updatedAt={data.updatedAt}
+>
+  <div class="page-wrap">
+    <h1>{data.title}</h1>
+    <article class="markdown-body" set:html={html} />
+  </div>
+</BaseLayout>
+
+<style>
+  .page-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+</style>
