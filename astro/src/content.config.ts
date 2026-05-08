@@ -86,6 +86,70 @@ const pages = defineCollection({
     })),
 });
 
+// ─── 2. news ───────────────────────────────────────────────────────────
+//
+// Strapi GraphQL field is `posts` (NOT `news`); local collection name is
+// `news` to match the URL path /news/<slug>/. See MIGRATION.md "Strapi
+// schema discovery" for the discovery results.
+//
+// Live introspection of the `Post` type (2026-05-08) confirmed these fields
+// exist on the Strapi API: title, slug, summary, body, searchMeta,
+// showTableOfContents, section, hideFromSitemap, hideFromSearch, dateOverride,
+// createdAt, updatedAt, publishedAt.
+//
+// The following plan-listed fields do NOT exist on `Post` and are omitted:
+//   - mediaTitle  (GRAPHQL_VALIDATION_FAILED: "Cannot query field")
+//   - media       (GRAPHQL_VALIDATION_FAILED: "Cannot query field")
+//   - splash      (GRAPHQL_VALIDATION_FAILED: "Cannot query field")
+//   - attachments (GRAPHQL_VALIDATION_FAILED: "Cannot query field")
+
+const news = defineCollection({
+  loader: strapiLoader(
+    'posts', // GraphQL field name; not 'news'
+    `query {
+      posts {
+        data {
+          id
+          attributes {
+            title slug dateOverride summary body searchMeta
+            hideFromSitemap hideFromSearch showTableOfContents
+            section
+            createdAt updatedAt publishedAt
+          }
+        }
+      }
+    }`,
+  ),
+  schema: z
+    .object({
+      id: z.string(),
+      title: z.string(),
+      slug: z.string(),
+      dateOverride: z.string().nullable().optional(),
+      summary: z.string().nullable().optional(),
+      body: z.string().nullable().optional(),
+      searchMeta: z.string().nullable().optional(),
+      hideFromSitemap: z.boolean().optional(),
+      hideFromSearch: z.boolean().optional(),
+      showTableOfContents: z.boolean().optional(),
+      section: z.string().nullable().optional(),
+      createdAt: z.string().optional(),
+      updatedAt: z.string().optional(),
+      publishedAt: z.string().optional(),
+    })
+    .transform((data) => ({
+      ...data,
+      postDate: data.dateOverride
+        ? new Date(data.dateOverride).toISOString()
+        : data.publishedAt
+          ? new Date(data.publishedAt).toISOString()
+          : new Date().toISOString(),
+      rawText: rawText(data.body ?? ''),
+      path: ensureTrailingSlash(`/news/${data.slug}`),
+    })),
+});
+
 export const collections = {
   pages,
+  news,
 };
