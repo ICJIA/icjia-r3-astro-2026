@@ -1,0 +1,60 @@
+---
+// astro/src/pages/news/[slug].astro
+import { getCollection } from 'astro:content';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { renderMarkdown } from '~/lib/markdown';
+import { formatDate } from '~/lib/dateFormat';
+
+export async function getStaticPaths() {
+  const items = await getCollection('news');
+  return items.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const html = d.body ? renderMarkdown(d.body) : '';
+
+const newsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: d.title,
+  description: d.summary ?? '',
+  datePublished: d.postDate,
+  dateModified: d.updatedAt ?? d.postDate,
+  author: {
+    '@type': 'GovernmentOrganization',
+    name: 'Illinois Criminal Justice Information Authority',
+  },
+  publisher: {
+    '@type': 'GovernmentOrganization',
+    name: 'Illinois Criminal Justice Information Authority',
+    url: 'https://icjia.illinois.gov',
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': new URL(d.path, Astro.site).toString(),
+  },
+};
+---
+
+<BaseLayout
+  title={d.title}
+  description={d.summary ?? undefined}
+  publishedAt={d.postDate}
+  updatedAt={d.updatedAt}
+>
+  <article class="news-detail page-wrap">
+    <h1>{d.title}</h1>
+    <time class="news-detail__date" datetime={d.postDate}>{formatDate(d.postDate)}</time>
+    <div class="markdown-body" set:html={html} />
+  </article>
+  <script type="application/ld+json" set:html={JSON.stringify(newsSchema)} />
+</BaseLayout>
+
+<style>
+  .page-wrap { max-width: 880px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  .news-detail__date { font-size: 0.875rem; color: var(--color-r3-text-muted); display: block; margin-bottom: 1rem; }
+</style>
