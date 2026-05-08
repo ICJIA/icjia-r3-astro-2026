@@ -1,0 +1,247 @@
+---
+// astro/src/components/SiteFooter.astro
+//
+// Two-band dark footer: upper nav-link strip (footerMenu) + lower legal bar.
+// Direct port of TheFooter.vue + TheContextFooter.vue from the Nuxt era.
+//
+// TheContextFooter rendered the footerMenu as a horizontal link strip
+// (hidden on mobile, shown on sm-and-up in the Nuxt version).
+// TheFooter rendered the legal / attribution links below it.
+//
+// AAA-contrast: white text (#ffffff) on dark slate — commit 925d1a0 pattern,
+// applied here via `color: #ffffff !important` to defeat any .markdown-body
+// inherited color if the footer ever appears in a markdown context.
+//
+// 44px tap targets: every <a> gets `min-height: 44px` + `line-height: 44px`
+// per WCAG 2.5.5 (Level AA Success Criterion).
+//
+// Year is computed at build time via new Date().getUTCFullYear() — UTC for
+// determinism across build environments.
+
+const year = new Date().getUTCFullYear();
+
+// Mirror of app.config.js `footerMenu` — static copy for Astro build time.
+// SOURCE: app.config.js footerMenu array (Nuxt source of truth).
+// Keep in sync with app.config.js if the Nuxt menu changes.
+interface FooterLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+const footerLinks: FooterLink[] = [
+  { label: 'Home',           href: '/' },
+  { label: 'FAQs',           href: '/faqs/' },
+  { label: 'News',           href: '/news/' },
+  { label: 'Contact',        href: '/contact/' },
+  { label: 'Meetings',       href: '/meetings/' },
+  { label: 'Eligibility',    href: '/eligibility/' },
+  { label: 'Collaboratives', href: '/collaboratives/' },
+  { label: 'Research',       href: '/research/' },
+  { label: 'Resources',      href: '/resources/' },
+  { label: 'Search',         href: '/search/' },
+  { label: 'Accessibility',  href: '/docs/accessibility/index.html', external: true },
+];
+---
+
+<footer class="site-footer" role="contentinfo" aria-label="Site footer">
+
+  <!--
+    Upper band: footerMenu nav links.
+    Mirrors TheContextFooter.vue — horizontal strip, uppercase, bold.
+    Hidden on small viewports (matches Nuxt's hidden-sm-and-down).
+  -->
+  <nav class="site-footer__nav" aria-label="Footer navigation">
+    <ul role="list" class="site-footer__nav-list">
+      {footerLinks.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="site-footer__nav-link"
+            target={item.external ? '_blank' : undefined}
+            rel={item.external ? 'noopener noreferrer' : undefined}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <!--
+    Lower band: legal / attribution links.
+    Mirrors TheFooter.vue bottom bar:
+      © {year} State of Illinois | Governor JB Pritzker | Privacy | Accessibility | Contact | Translate
+  -->
+  <div class="site-footer__bottom">
+    <p class="site-footer__copy">
+      &copy;&nbsp;{year}&nbsp;
+      <a
+        href="https://www.illinois.gov"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="site-footer__legal-link"
+      >State of Illinois</a>
+    </p>
+
+    <nav class="site-footer__legal-nav" aria-label="Legal and utility links">
+      <ul role="list" class="site-footer__legal-list">
+        <li>
+          <a
+            href="https://www.illinois.gov/government/governor"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="site-footer__legal-link"
+          >Governor JB Pritzker</a>
+        </li>
+        <li aria-hidden="true" class="site-footer__divider">|</li>
+        <li>
+          <a href="/privacy/" class="site-footer__legal-link">Privacy</a>
+        </li>
+        <li aria-hidden="true" class="site-footer__divider">|</li>
+        <li>
+          <a
+            href="/docs/accessibility/index.html"
+            class="site-footer__legal-link"
+          >Accessibility</a>
+        </li>
+        <li aria-hidden="true" class="site-footer__divider">|</li>
+        <li>
+          <a href="/contact/" class="site-footer__legal-link">Contact</a>
+        </li>
+        <li aria-hidden="true" class="site-footer__divider">|</li>
+        <li>
+          <a href="/translate/" class="site-footer__legal-link">Translate</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+<style>
+  /* ── Shared shell ────────────────────────────────────────────────────── */
+  .site-footer {
+    margin-top: auto;
+    /* stacks to bottom in a flex-column body */
+  }
+
+  /* ── Upper nav band ──────────────────────────────────────────────────── */
+  .site-footer__nav {
+    background: var(--color-r3-primary, #0d4474);
+    /* Matches TheContextFooter .footer-bg (#11568e is close; primary is the
+       canonical token and close enough for brand fidelity) */
+    padding: 0.25rem 1rem;
+  }
+
+  .site-footer__nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .site-footer__nav-link {
+    /* AAA contrast: white on dark blue (WCAG ratio > 7:1) */
+    color: #ffffff !important;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    font-family: var(--font-display, 'Raleway Variable', sans-serif);
+    font-weight: 700;
+    font-size: 14px;
+    /* 44px tap target (WCAG 2.5.5) */
+    display: inline-block;
+    min-height: 44px;
+    line-height: 44px;
+    padding: 0 12px;
+  }
+
+  .site-footer__nav-link:hover {
+    color: #cccccc !important;
+  }
+
+  .site-footer__nav-link:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+    border-radius: 2px;
+    text-decoration: underline;
+  }
+
+  /* Hidden on small screens — matches Nuxt's hidden-sm-and-down */
+  @media (max-width: 600px) {
+    .site-footer__nav {
+      display: none;
+    }
+  }
+
+  /* ── Lower legal band ────────────────────────────────────────────────── */
+  .site-footer__bottom {
+    background: var(--color-r3-footer, #082c4f);
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .site-footer__copy {
+    margin: 0;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .site-footer__legal-nav {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .site-footer__legal-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-footer__legal-link {
+    /* AAA contrast: white on very dark navy (WCAG ratio > 7:1) */
+    color: #ffffff !important;
+    font-weight: 700;
+    text-decoration: none;
+    /* 44px tap target (WCAG 2.5.5) */
+    display: inline-block;
+    min-height: 44px;
+    padding: 8px 4px;
+    line-height: 28px;
+  }
+
+  .site-footer__legal-link:hover {
+    text-decoration: underline;
+  }
+
+  .site-footer__legal-link:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+    border-radius: 2px;
+    text-decoration: underline;
+  }
+
+  .site-footer__divider {
+    color: rgba(255, 255, 255, 0.6);
+    padding: 0 2px;
+    /* Removed from tab order via aria-hidden="true" on the element */
+    user-select: none;
+  }
+</style>
