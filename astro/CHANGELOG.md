@@ -52,6 +52,17 @@ chronological order.
   (`researchhub.icjia-api.cloud`) endpoints in `astro/.env.sample`
   and `astro/astro.config.ts` env schema
 
+- Vitest configured with `happy-dom` environment; sanity test passes
+- Playwright configured with chromium-mobile, chromium-tablet, chromium-desktop
+  projects; sanity e2e passes across all three; webServer auto-builds and
+  previews via `yarn build && yarn preview --host 127.0.0.1 --port 4321`,
+  with all hostnames pinned to `127.0.0.1` to avoid IPv6 `localhost` hangs
+- Root `netlify.toml` rewritten to `base = "astro"`; CSP and 4 security
+  headers preserved verbatim from the Nuxt-era; new `/_astro/*` immutable
+  cache and `/searchIndex.json` revalidate-on-each-request rules added
+- Phase 1 close verification: `yarn run check`, `yarn test`, `yarn build`,
+  `yarn test:e2e` all green at Phase 1 close
+
 ### Cross-site policy notes
 
 - **Trailing slash uniform:** all internal links and emitted URLs end

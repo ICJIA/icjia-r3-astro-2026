@@ -74,3 +74,13 @@ Static server (`npx serve .output/public -l 8000`) used; sitemap copied from `.o
 | `page-has-heading-one` | `/404` × 3 viewports | moderate | best-practice | 404 page lacks an `<h1>` heading |
 
 **Note:** `page-has-heading-one` is tagged `best-practice` (not WCAG A or AA), so it does not affect WCAG 2.1 AA / IITAA / ADA Title II conformance. It is a pre-existing issue to carry forward as a known fix target in the Astro migration. All 27 non-404 pages pass with 0 violations. Auto-fixed by Phase 4h.1 (`404.astro` includes `<h1>`).
+
+## Tooling gotchas
+
+Documented quirks contributors will hit. Living list — append as discovered.
+
+- **`yarn check` is shadowed by Yarn 1's lockfile-integrity command.** Always
+  invoke the Astro type-checker as `yarn run check` (or `npx astro sync &&
+  npx astro check`). The `check` script in `astro/package.json` is correctly
+  defined; Yarn 1's CLI just intercepts the bare `yarn check` form. This is
+  Yarn 1 behavior — Yarn 2+ doesn't have this issue.
