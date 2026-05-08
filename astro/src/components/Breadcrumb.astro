@@ -1,0 +1,80 @@
+---
+// astro/src/components/Breadcrumb.astro
+//
+// Computes breadcrumb trail from URL pathname. Hidden on /, /sandbox/, /faqs/
+// (matches current Nuxt logic in app.vue lines 90-103). Renders schema.org
+// BreadcrumbList microdata.
+
+import { ensureTrailingSlash } from '~/lib/slug';
+
+const path = ensureTrailingSlash(Astro.url.pathname);
+const HIDE_ON: readonly string[] = ['/', '/sandbox/', '/faqs/'];
+const hide = HIDE_ON.includes(path);
+
+const segments = path.split('/').filter(Boolean);
+const trail: Array<{ label: string; href: string }> = [{ label: 'Home', href: '/' }];
+
+let cumulative = '';
+for (const seg of segments) {
+  cumulative += `/${seg}`;
+  trail.push({
+    label: seg.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase()),
+    href: ensureTrailingSlash(cumulative),
+  });
+}
+---
+
+{!hide && (
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol role="list">
+      {trail.map((node, i) => (
+        <li>
+          {i < trail.length - 1 ? (
+            <>
+              <a href={node.href}>{node.label}</a>
+              <span aria-hidden="true"> / </span>
+            </>
+          ) : (
+            <span aria-current="page">{node.label}</span>
+          )}
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
+
+<style>
+  .breadcrumb {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  .breadcrumb ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .breadcrumb li {
+    display: inline-flex;
+    align-items: center;
+  }
+  .breadcrumb a {
+    color: var(--color-r3-primary);
+    text-decoration: underline;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 4px;
+  }
+  .breadcrumb a:hover,
+  .breadcrumb a:focus-visible {
+    color: var(--color-r3-primary-dark);
+  }
+  .breadcrumb [aria-current='page'] {
+    color: var(--color-r3-text-muted);
+    padding: 0 4px;
+  }
+</style>
