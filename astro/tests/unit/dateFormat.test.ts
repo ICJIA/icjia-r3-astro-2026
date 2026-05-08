@@ -31,6 +31,13 @@ describe('formatDate', () => {
     // Output must use UTC date to match Nuxt site's moment.utc(...).format(...)
     expect(formatDate('2026-03-09T23:30:00Z')).toBe('Mar 09, 2026');
   });
+
+  it('handles date-only input strings (no T separator)', () => {
+    // ES2015+ parses 'YYYY-MM-DD' as UTC midnight; getUTCDate is unaffected
+    // by host TZ. Without this guarantee, getUTCDate() could return 8 in TZs
+    // west of UTC.
+    expect(formatDate('2026-03-09')).toBe('Mar 09, 2026');
+  });
 });
 
 describe('isoDateOnly', () => {

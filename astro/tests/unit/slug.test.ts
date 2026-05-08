@@ -51,4 +51,8 @@ describe('joinSlug', () => {
   it('handles three parts', () => {
     expect(joinSlug('faqs', 'category', 'eligibility')).toBe('/faqs/category/eligibility/');
   });
+
+  it('skips whitespace-only parts', () => {
+    expect(joinSlug('news', '   ', 'post')).toBe('/news/post/');
+  });
 });

@@ -19,6 +19,7 @@ export function formatDate(input: string | null | undefined): string {
 }
 
 /** Strip the time portion from an ISO datetime, returning only YYYY-MM-DD.
+ * If the input has no `T` separator, the input is returned unchanged.
  * Returns empty string for null / undefined / empty inputs. */
 export function isoDateOnly(input: string | null | undefined): string {
   if (!input) return '';
