@@ -4,6 +4,18 @@ All notable changes to the ICJIA R3 Program Website are documented in this file.
 
 ---
 
+## Update "About the R3 Program" StoryMap Link -- May 11, 2026
+
+Replaced the StoryMap URL behind the **About → About the R3 Program** nav item with the new ArcGIS StoryMap.
+
+### Changes
+
+| Fix | Files Changed | Impact |
+|-----|---------------|--------|
+| Update `storymaps.arcgis.com/stories/...` link in the About nav menu to the new story ID | `app.config.js` | The "About the R3 Program" menu item now points to the current StoryMap |
+
+---
+
 ## SiteImprove SIA-R17 Fix on Contact Form -- May 6, 2026
 
 Resolved the only WCAG Level A finding in the May 6, 2026 SiteImprove audit ("Hidden element has focusable content," 1 occurrence on `/contact/`). Vuetify's auto-grow `v-textarea` renders an internal sizer `<textarea>` with `aria-hidden="true"` but no `tabindex`, leaving it nominally in sequential focus navigation. SiteImprove SIA-R17 flags this on the static markup; axe-core's `aria-hidden-focus` skips it because the element is `visibility: hidden`. We add `tabindex="-1"` so both static and computed checks agree.

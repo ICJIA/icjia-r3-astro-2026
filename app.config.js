@@ -145,7 +145,7 @@ export default defineAppConfig({
         },
         {
           title: "About the R3 Program",
-          link: "https://storymaps.arcgis.com/stories/ba94e59080224a78bae5a5511dec5b6f",
+          link: "https://storymaps.arcgis.com/stories/8607e513363e49f5b02a6e7d8a82432a",
           external: true,
         },
 
