@@ -51,6 +51,10 @@ match the live r3.illinois.gov site exactly:
   root `README.md`.
 - `astro check` now excludes `playwright-report/` / `test-results/` /
   `coverage/` (test artifacts were tripping 200+ spurious hints).
+- Internal links now honor `trailingSlash: 'always'` — `HomePhotoBoxes`
+  hrefs fixed and `markdown.ts` normalizes Strapi-body content links (a
+  non-slash internal link 404s on `astro dev` and forces a 301 hop in
+  production). Guarded by `tests/e2e/trailing-slash.spec.ts`.
 
 **Astro-only branch**
 

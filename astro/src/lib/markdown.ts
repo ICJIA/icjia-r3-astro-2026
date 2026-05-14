@@ -46,6 +46,21 @@ DOMPurify.addHook('afterSanitizeAttributes', (node) => {
   }
 });
 
+// Normalize internal route links to a trailing slash so Strapi-body content
+// honours the site's `trailingSlash: 'always'` policy — a non-slash internal
+// link 404s on `astro dev` and forces a 301 hop in production. Only clean
+// route paths are touched; `/`, `//host` (protocol-relative), query strings,
+// fragments, file links (e.g. `/x.pdf`), and already-slashed paths are left
+// untouched.
+DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+  if (node.nodeName !== 'A') return;
+  const el = node as Element;
+  const href = el.getAttribute('href');
+  if (href && /^\/[a-z0-9][a-z0-9/_-]*$/i.test(href) && !href.endsWith('/')) {
+    el.setAttribute('href', `${href}/`);
+  }
+});
+
 /** Convert Markdown to safe HTML. Strapi-body content goes through here.
  * Iframes are restricted to ArcGIS hosts (storymaps.arcgis.com or any
  * subdomain of arcgis.com). All other iframes are stripped. */

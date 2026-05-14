@@ -23,6 +23,23 @@ describe('renderMarkdown', () => {
     expect(html).toContain('href="https://example.com"');
   });
 
+  it('adds a trailing slash to internal route links (trailingSlash: always)', () => {
+    expect(renderMarkdown('[x](/eligibility)')).toContain('href="/eligibility/"');
+    expect(
+      renderMarkdown('[x](/resources/spanish-language-materials)'),
+    ).toContain('href="/resources/spanish-language-materials/"');
+  });
+
+  it('leaves slashed / root / external / file / anchor links alone', () => {
+    expect(renderMarkdown('[x](/eligibility/)')).toContain('href="/eligibility/"');
+    expect(renderMarkdown('[x](/eligibility/)')).not.toContain('href="/eligibility//"');
+    expect(renderMarkdown('[home](/)')).toContain('href="/"');
+    expect(renderMarkdown('[ext](https://example.com)')).toContain(
+      'href="https://example.com"',
+    );
+    expect(renderMarkdown('[pdf](/docs/file.pdf)')).toContain('href="/docs/file.pdf"');
+  });
+
   it('renders bold and italic', () => {
     const html = renderMarkdown('**bold** and _italic_');
     expect(html).toContain('<strong>bold</strong>');
