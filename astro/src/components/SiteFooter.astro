@@ -34,7 +34,9 @@ const footerLinks: FooterLink[] = [
   { label: 'Research',       href: '/research/' },
   { label: 'Resources',      href: '/resources/' },
   { label: 'Search',         href: '/search/' },
-  { label: 'Accessibility',  href: '/docs/accessibility/index.html', external: true },
+  // "Accessibility" intentionally dropped: the live site links to a generated
+  // /docs/accessibility/ report page that is being retired — axe-core results
+  // and mitigations now live in the README, not a site page.
 ];
 ---
 
@@ -81,8 +83,6 @@ const footerLinks: FooterLink[] = [
       class="site-footer__legal-link">Governor JB Pritzker</a>
     <span class="site-footer__sep" aria-hidden="true">|</span>
     <a href="/privacy/" class="site-footer__legal-link">Privacy</a>
-    <span class="site-footer__sep" aria-hidden="true">|</span>
-    <a href="/docs/accessibility/index.html" class="site-footer__legal-link">Accessibility</a>
     <span class="site-footer__sep" aria-hidden="true">|</span>
     <a href="/contact/" class="site-footer__legal-link">Contact</a>
     <span class="site-footer__sep" aria-hidden="true">|</span>
