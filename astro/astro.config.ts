@@ -18,6 +18,12 @@ export default defineConfig({
   site: 'https://r3.illinois.gov',
   output: 'static',
   trailingSlash: 'always',
+  // The live site's /funding/ is a meta-refresh redirect to the homepage with
+  // no content page. In `output: 'static'` Astro emits exactly that — an HTML
+  // page with `<meta http-equiv="refresh">` — so this matches r3.illinois.gov.
+  redirects: {
+    '/funding': '/',
+  },
   image: {
     // Authorize the Strapi media host so <Image> can pull the homepage
     // splash + photo-box images at build time and emit optimized,
@@ -40,7 +46,8 @@ export default defineConfig({
         !page.includes('/sandbox/') &&
         !page.includes('/preview/') &&
         !page.includes('/translate/') &&
-        !page.includes('/404/'),
+        !page.includes('/404/') &&
+        !page.includes('/funding/'), // redirect-only route, not real content
       changefreq: 'weekly',
       priority: 0.5,
     }),

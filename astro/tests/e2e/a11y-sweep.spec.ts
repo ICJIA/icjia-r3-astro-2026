@@ -6,9 +6,10 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
+// /funding/ omitted — it is a meta-refresh redirect to /, not a content page.
 const ROUTES = [
   '/', '/eligibility/', '/contact/', '/collaboratives/', '/board/', '/faqs/',
-  '/funding/', '/meetings/', '/privacy/',
+  '/meetings/', '/privacy/',
   '/news/', '/news/r3-2022-annual-report/',
   '/resources/', '/resources/spanish-language-materials/', '/resources/single-page/',
   '/research/', '/search/', '/translate/', '/404/',

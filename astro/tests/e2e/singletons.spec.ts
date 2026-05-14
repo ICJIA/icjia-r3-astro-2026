@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-const ROUTES = ['/board/', '/collaboratives/', '/funding/', '/meetings/', '/eligibility/'];
+// /funding/ is intentionally absent — it is a meta-refresh redirect to / (it
+// has no content page on the live site). See funding-redirect.spec.ts.
+const ROUTES = ['/board/', '/collaboratives/', '/meetings/', '/eligibility/'];
 
 for (const route of ROUTES) {
   test(`${route} renders correctly`, async ({ page }) => {
