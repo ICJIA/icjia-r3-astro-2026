@@ -38,7 +38,7 @@ const newsSchema = newsArticleSchema({
     <time class="news-detail__date" datetime={d.postDate}>{formatDate(d.postDate)}</time>
     <div class="markdown-body" set:html={html} />
   </article>
-  <script type="application/ld+json" set:html={JSON.stringify(newsSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(newsSchema)} />
 </BaseLayout>
 
 <style>
