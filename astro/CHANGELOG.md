@@ -6,6 +6,30 @@ chronological order.
 
 ---
 
+## v0.5.0 — 2026-05-14
+
+### Phase 5 — Sitemap + JSON-LD + AI readiness + Plausible guard
+
+- `src/lib/schemas.ts` centralizes WebSite, WebPage, NewsArticle,
+  BreadcrumbList JSON-LD builders; BaseLayout + `/news/[slug]` now source
+  their JSON-LD from it (Task 5.1, committed 2026-05-08)
+- `astro/public/robots.txt`, `astro/public/llms.txt` ported (Task 5.2,
+  committed 2026-05-08)
+- All static assets ported from `public/` to `astro/public/` — favicon,
+  og-image, hero photos, `downloads/`, `hub-images/`, table JSON (Task 5.3,
+  committed 2026-05-08)
+- `@astrojs/sitemap` integration verified against e2e
+  (`tests/e2e/sitemap.spec.ts`): index resolves, every URL is
+  trailing-slash canonical, `/sandbox/` `/preview/` `/translate/` `/404/`
+  stay excluded
+- Plausible regression e2e (`tests/e2e/plausible.spec.ts`) confirms the
+  `<script>` tag fires on every sample route — preconnect + script tag +
+  network hit — guarding against the silent-analytics bug i2i currently has
+- `astro check` cleared to 0 errors / 0 warnings / 0 hints: explicit
+  `is:inline` directive added to the two JSON-LD `<script>` tags
+
+---
+
 ## v0.4.0 — 2026-05-08
 
 ### Phase 4 — Page ports (all 25 routes)
