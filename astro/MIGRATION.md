@@ -251,3 +251,48 @@ Final scores after fixes — **Lighthouse a11y = 100 on every route, 0 issues:**
 | `/search/` | 100 | 0 |
 | `/translate/` | 100 | 0 |
 | `/404/` | 100 | 0 |
+
+### Keyboard focus-order verification (2026-05-14)
+
+Verified two ways: static source inspection for the site-wide structural
+guarantees, plus a live Tab-key walk driven through Chrome DevTools.
+
+**Source inspection — structural guarantees (apply to every route via
+`BaseLayout`):**
+
+- No positive `tabindex` anywhere in `src/` — only `tabindex="-1"` (skip
+  targets: `#main-content`, `MapEmbed`'s `#after-map`, translate page
+  anchors) and `tabindex="0"` (`MapEmbed`'s scrollable region, keeping
+  natural order). Nothing overrides the natural DOM tab order.
+- No `accesskey` attributes.
+- `:focus-visible` / `:focus` styles present in all 11 interactive
+  components + `global.css`.
+- `BaseLayout` body DOM order: `SkipLinks → SiteNav → main → SiteFooter →
+  Dialog island → scroll-to-top`.
+
+**Live Tab walk (Chrome DevTools, homepage):**
+
+- Tab 1 → `Skip to main content`, Tab 2 → `Skip to navigation`, Tab 3 →
+  first nav link (`R3` home). Order correct.
+- Enter on `Skip to main content` → focus lands on `#main-content`
+  (`tabindex="-1"` target), URL hash updates. Skip link functional.
+- `r3-dialog:open` event → `<dialog>` opens with `showModal()`: reports
+  `:modal`, focus is trapped inside, content renders. Modal behaviour
+  intact.
+
+**Bug found and fixed — Dialog `<Teleport>` destroyed the skip links
+site-wide.** `Dialog.vue` wrapped its `<dialog>` in `<Teleport to="body">`.
+Under Astro's `client:idle` island boundary, Vue's Teleport mishydrated:
+after hydration the live DOM had **no skip-links `<nav>` at all** (Vue's
+mismatched teleport hydration clobbered `<body>`'s first child — exactly
+where the skip links live) and the `<dialog>` relocated to `body[0]`. This
+silently broke WCAG 2.4.1 Bypass Blocks (Level A) on every page. The
+axe-core sweep and Lighthouse audits missed it because they run before
+`client:idle` fires — only the post-hydration keyboard walk caught it.
+
+Fix: removed `<Teleport to="body">` entirely. A native `<dialog>` opened
+with `showModal()` is promoted to the browser top layer regardless of DOM
+position, so the teleport was never necessary. The `<dialog>` now stays as
+the island root; skip links survive hydration; modal display, `::backdrop`,
+and the native focus trap all still work (verified live). Full e2e suite
+(147 tests) green after the change.

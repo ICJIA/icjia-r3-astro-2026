@@ -8,36 +8,42 @@
   Mounted in BaseLayout.astro with `client:idle`. ~3 KB component code on top
   of the shared Vue runtime.
 -->
+<!--
+  NO <Teleport to="body">. A native <dialog> opened with showModal() is
+  promoted to the browser top layer — it renders above all content
+  regardless of DOM position, so teleporting is unnecessary. Worse, under
+  Astro's `client:idle` island boundary the Teleport mishydrates: it
+  clobbers <body>'s first child (the skip-links <nav>), silently breaking
+  WCAG 2.4.1 Bypass Blocks site-wide. Keep the <dialog> as the island root.
+-->
 <template>
-  <Teleport to="body">
-    <dialog ref="dlg" class="r3-dialog" @close="onClose">
-      <h2 class="r3-dialog__title">{{ title }}</h2>
-      <p class="r3-dialog__body">{{ body }}</p>
-      <div class="r3-dialog__actions">
-        <button type="button" class="r3-dialog__cancel" @click="cancel">
-          {{ cancelLabel }}
-        </button>
-        <a
-          v-if="confirmHref"
-          :href="confirmHref"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="r3-dialog__confirm"
-          @click="confirm"
-        >
-          {{ confirmLabel }}
-        </a>
-        <button
-          v-else
-          type="button"
-          class="r3-dialog__confirm"
-          @click="confirm"
-        >
-          {{ confirmLabel }}
-        </button>
-      </div>
-    </dialog>
-  </Teleport>
+  <dialog ref="dlg" class="r3-dialog" @close="onClose">
+    <h2 class="r3-dialog__title">{{ title }}</h2>
+    <p class="r3-dialog__body">{{ body }}</p>
+    <div class="r3-dialog__actions">
+      <button type="button" class="r3-dialog__cancel" @click="cancel">
+        {{ cancelLabel }}
+      </button>
+      <a
+        v-if="confirmHref"
+        :href="confirmHref"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="r3-dialog__confirm"
+        @click="confirm"
+      >
+        {{ confirmLabel }}
+      </a>
+      <button
+        v-else
+        type="button"
+        class="r3-dialog__confirm"
+        @click="confirm"
+      >
+        {{ confirmLabel }}
+      </button>
+    </div>
+  </dialog>
 </template>
 
 <script setup lang="ts">
