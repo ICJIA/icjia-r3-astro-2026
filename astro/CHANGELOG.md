@@ -6,6 +6,35 @@ chronological order.
 
 ---
 
+## v0.7.0 — 2026-05-14
+
+### Phase 7 — Performance polish
+
+- Mobile Lighthouse baseline (lightcap MCP, Lighthouse v13) found every
+  route already ≥ 95 except the homepage, which was unstable at 93–96
+  with LCP climbing 2.8s → 3.2s — raw `<img>` tags re-fetching full-size
+  Strapi JPEGs cross-origin on every load.
+- `HomeSplashCard` + `HomePhotoBoxes` converted from raw `<img>` to Astro
+  `<Image>` (`inferSize` + responsive `widths`/`sizes`); `r3.icjia-api.cloud`
+  authorized in `astro.config.ts` `image.domains`. Homepage images are now
+  build-time responsive webp served from `/_astro/` — the LCP image went
+  100 kB JPEG → 21 kB webp (400w mobile variant). Homepage `/` perf
+  93–96 → stable **97–98**, LCP → 2.3–2.5s.
+- The stale `preloadImages` prop (pointed at the now-unused Strapi URL)
+  was dropped; `<Image loading="eager" fetchpriority="high">` carries LCP
+  priority. `home.spec.ts`'s preload assertion rewritten to test intent —
+  eager, high-priority, locally-optimized.
+- **Final: mobile Perf ≥ 95 on every route, average ≈ 99.2** (Nuxt P0
+  average ≈ 79). A11y = 100 and SEO = 100 every route; BP = 100 every
+  route except `/eligibility/` = 96 — the pre-existing ArcGIS storymap
+  iframe Issues-panel warning, carried over verbatim from the Nuxt
+  baseline.
+- Known headroom (render-blocking `BaseLayout` CSS; director-photo
+  image-delivery) documented in `MIGRATION.md` — not blocking; Phase 7
+  exit criteria met.
+
+---
+
 ## v0.6.0 — 2026-05-14
 
 ### Phase 6 — Accessibility polish
