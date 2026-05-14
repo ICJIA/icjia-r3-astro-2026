@@ -1,16 +1,20 @@
 ---
 // astro/src/pages/[...slug].astro
 //
-// Catch-all route for any single Strapi `pages` row whose slug isn't
-// already served by a more specific page. Examples: /contact/, /privacy/,
-// /board/, /collaboratives/, /eligibility/, /funding/, /meetings/.
+// Catch-all route for single Strapi `pages` rows: /privacy/, /board/,
+// /collaboratives/, /eligibility/, /meetings/, /faqs/. Mirrors the Nuxt
+// pages/[...slug].vue:
+//   - <h1> + the rendered Strapi markdown body
+//   - a right-hand "Navigation" TOC sidebar when showTableOfContents is set
+//   - a "This page last updated" line on /board/
 //
-// Returns 404 if no matching page found.
+// /eligibility/ keeps its ArcGIS map embed inside the Strapi body markdown
+// (the markdown.ts ArcGIS iframe whitelist renders it) — exactly as the live
+// site does — so no separate MapEmbed component is injected.
 
 import { getCollection } from 'astro:content';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { renderMarkdown } from '~/lib/markdown';
-import MapEmbed from '~/components/MapEmbed.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
@@ -35,6 +39,28 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const data = entry.data;
 const html = data.body ? renderMarkdown(data.body) : '';
+
+// Build a "Navigation" table of contents from the body's <h2> headings
+// (markdown-it-anchor gives each one a stable id) when the page opts in.
+const showTOC = data.showTableOfContents === true;
+const toc = showTOC
+  ? [...html.matchAll(/<h2[^>]*\bid="([^"]+)"[^>]*>(.*?)<\/h2>/gs)].map((m) => ({
+      id: m[1],
+      text: m[2].replace(/<[^>]+>/g, '').trim(),
+    }))
+  : [];
+
+// Approximates moment().fromNow() for the /board/ "last updated" line.
+function relativeTime(iso: string | undefined): string {
+  if (!iso) return '';
+  const days = Math.floor((Date.now() - new Date(iso).getTime()) / 86_400_000);
+  if (days < 1) return 'today';
+  if (days < 30) return `${days} day${days === 1 ? '' : 's'} ago`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months} month${months === 1 ? '' : 's'} ago`;
+  const years = Math.floor(days / 365);
+  return `${years} year${years === 1 ? '' : 's'} ago`;
+}
 ---
 
 <BaseLayout
@@ -44,19 +70,99 @@ const html = data.body ? renderMarkdown(data.body) : '';
   publishedAt={data.createdAt}
   updatedAt={data.updatedAt}
 >
-  <div class="page-wrap">
-    <h1>{data.title}</h1>
+  <div class:list={['page-layout', showTOC && toc.length > 0 && 'page-layout--has-toc']}>
+    <div class="page-content">
+      <h1>{data.title}</h1>
+      <article class="markdown-body" set:html={html} />
+      {data.slug === 'board' && (
+        <p class="page-updated">
+          This page last updated:&nbsp;{relativeTime(data.updatedAt)}
+        </p>
+      )}
+    </div>
 
-    {data.slug === 'eligibility' && <MapEmbed />}
-
-    <article class="markdown-body" set:html={html} />
+    {showTOC && toc.length > 0 && (
+      <aside class="page-toc" aria-label="Page navigation">
+        <a class="page-toc__heading" href="#main-content">Navigation</a>
+        <ul role="list">
+          {toc.map((h) => (
+            <li><a class="page-toc__link" href={`#${h.id}`}>{h.text}</a></li>
+          ))}
+        </ul>
+      </aside>
+    )}
   </div>
 </BaseLayout>
 
 <style>
-  .page-wrap {
+  .page-layout {
     max-width: 1080px;
     margin: 0 auto;
     padding: 1.5rem 1rem 3rem;
+  }
+
+  /* Two-column layout when a TOC sidebar is present (Nuxt used 9 / 3 cols) */
+  .page-layout--has-toc {
+    max-width: 1280px;
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+  @media (max-width: 959.98px) {
+    .page-layout--has-toc {
+      grid-template-columns: 1fr;
+    }
+    /* The TOC sidebar is desktop-only, matching the Nuxt hidden-sm-and-down */
+    .page-layout--has-toc .page-toc {
+      display: none;
+    }
+  }
+
+  .page-updated {
+    margin-top: 3rem;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-r3-text-muted, #555);
+  }
+
+  .page-toc {
+    position: sticky;
+    top: 115px;
+    align-self: start;
+    background: #fafafa;
+    border-left: 1px solid #e9e9e9;
+    padding: 1.25rem 1.25rem 2rem;
+    font-size: 14px;
+  }
+  .page-toc__heading {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-r3-text, #1a1a1a);
+    text-decoration: none;
+  }
+  .page-toc__heading:hover {
+    text-decoration: underline;
+  }
+  .page-toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .page-toc li {
+    margin-bottom: 0.5rem;
+  }
+  .page-toc__link {
+    color: var(--color-r3-primary, #0d4474);
+    text-decoration: none;
+  }
+  .page-toc__link:hover {
+    text-decoration: underline;
+  }
+  .page-toc__link:focus-visible {
+    outline: 2px solid var(--color-r3-primary, #0d4474);
+    outline-offset: 2px;
   }
 </style>

@@ -14,10 +14,12 @@ for (const route of ROUTES) {
   });
 }
 
-test('/eligibility/ embeds the ArcGIS storymap iframe (lazy)', async ({ page }) => {
+test('/eligibility/ embeds the ArcGIS storymap iframe', async ({ page }) => {
   await page.goto('/eligibility/');
-  // Scope to the MapEmbed section to avoid a second ArcGIS iframe in the Strapi body markdown.
-  const iframe = page.locator('section.map-embed iframe[src*="storymaps.arcgis.com"]');
-  await expect(iframe).toHaveAttribute('loading', 'lazy');
-  await expect(iframe).toHaveAttribute('title', /Interactive StoryMap/i);
+  // The map iframe lives inside the Strapi `pages.eligibility` body markdown
+  // (markdown.ts's ArcGIS iframe whitelist renders it) — exactly as the live
+  // site does. No separate MapEmbed component is injected.
+  const iframe = page.locator('iframe[src*="arcgis.com"]').first();
+  await expect(iframe).toBeAttached();
+  await expect(iframe).toHaveAttribute('title', /eligibility/i);
 });

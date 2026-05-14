@@ -1,5 +1,9 @@
 ---
 // astro/src/pages/resources/[slug].astro
+//
+// Single resource detail page — port of the Nuxt pages/resources/[...slug].vue:
+// the content sits in a white card, with a "« Back to R3 Resources" link below.
+
 import { getCollection } from 'astro:content';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { renderMarkdown } from '~/lib/markdown';
@@ -18,12 +22,42 @@ const html = d.body ? renderMarkdown(d.body) : '';
 ---
 
 <BaseLayout title={d.title} description={d.summary ?? undefined} updatedAt={d.updatedAt}>
-  <article class="page-wrap">
-    <h1>{d.title}</h1>
-    <div class="markdown-body" set:html={html} />
-  </article>
+  <div class="page-wrap">
+    <article class="resource-card">
+      <h1>{d.title}</h1>
+      <div class="markdown-body" set:html={html} />
+      <p class="resource-back">
+        &laquo;&nbsp;<a href="/resources/">Back to R3 Resources</a>
+      </p>
+    </article>
+  </div>
 </BaseLayout>
 
 <style>
-  .page-wrap { max-width: 880px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  .page-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+  .resource-card {
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.16), 0 1px 18px rgba(0, 0, 0, 0.12);
+    padding: 2rem 2.5rem 3rem;
+  }
+  @media (max-width: 600px) {
+    .resource-card {
+      padding: 1.5rem 1.25rem 2rem;
+    }
+  }
+  .resource-back {
+    margin-top: 4rem;
+  }
+  .resource-back a {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: var(--color-r3-primary, #0d4474);
+    text-decoration: underline;
+  }
 </style>

@@ -1,34 +1,90 @@
 ---
+// astro/src/pages/404.astro
+//
+// 404 page — port of the Nuxt pages/404.vue: a big "Oops" headline,
+// "404 | Page not found" subheading, and a row of quick-link buttons.
+
 import BaseLayout from '~/layouts/BaseLayout.astro';
+
+const quickLinks = [
+  { label: 'R3 Home',     href: '/' },
+  { label: 'Funding',     href: '/funding/' },
+  { label: 'Eligibility', href: '/eligibility/' },
+  { label: 'FAQs',        href: '/faqs/' },
+  { label: 'Contact',     href: '/contact/' },
+];
 ---
 
-<BaseLayout
-  title="Page not found"
-  description="That page doesn't exist."
-  noIndex
->
+<BaseLayout title="Page not found" description="404 - Page not found" noIndex>
   <div class="not-found">
-    <h1>404 — Page not found</h1>
-    <p>The page you're looking for isn't here.</p>
-    <p>
-      <a href="/">Return to the R3 home page</a>
-    </p>
+    <p class="not-found__oops">Oops</p>
+    <h1 class="not-found__heading">404 | Page not found</h1>
+    <nav class="not-found__links" aria-label="Quick links">
+      {quickLinks.map((link) => (
+        <a class="not-found__link" href={link.href}>{link.label}&nbsp;&raquo;</a>
+      ))}
+    </nav>
   </div>
 </BaseLayout>
 
 <style>
   .not-found {
-    max-width: 720px;
-    margin: 4rem auto;
-    padding: 0 1rem;
+    max-width: 1080px;
+    margin: 2rem auto 4rem;
+    padding: 2rem 1rem;
     text-align: center;
   }
-  .not-found a {
-    color: var(--color-r3-primary);
-    text-decoration: underline;
-    min-height: 44px;
+
+  .not-found__oops {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    font-weight: 900;
+    font-size: 120px;
+    line-height: 1.1;
+    color: #0d4474;
+  }
+
+  .not-found__heading {
+    margin: 0 0 3rem;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.2;
+  }
+
+  .not-found__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .not-found__link {
     display: inline-flex;
     align-items: center;
-    padding: 4px 8px;
+    min-height: 44px;
+    padding: 12px 16px;
+    color: #0d4474;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.15s ease;
+  }
+  .not-found__link:hover {
+    background: rgba(13, 68, 116, 0.08);
+    text-decoration: underline;
+  }
+  .not-found__link:focus-visible {
+    outline: 3px solid #0d4474;
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .not-found__oops {
+      font-size: 80px;
+    }
+    .not-found__heading {
+      font-size: 32px;
+    }
   }
 </style>

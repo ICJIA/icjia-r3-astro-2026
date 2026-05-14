@@ -1,37 +1,60 @@
 ---
 // astro/src/pages/resources/single-page.astro
 //
-// Renders every resource concatenated. Mirrors the existing Nuxt
-// `/resources/single-page` route — used by clients that want one printable
-// page of all resources.
+// /resources/single-page/ — every resource on one page, each in its own
+// bordered card. Port of the Nuxt pages/resources/single-page.vue. Ordered by
+// the Strapi `ranking` field; noindex (a printable convenience view).
 
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { renderMarkdown } from '~/lib/markdown';
 
 const all = await getCollection('resources');
-const sorted = [...all].sort((a, b) => a.data.title.localeCompare(b.data.title));
+const sorted = [...all].sort(
+  (a, b) => (a.data.ranking ?? 999) - (b.data.ranking ?? 999),
+);
 ---
 
 <BaseLayout
-  title="All Resources"
+  title="Resources (Single Page)"
   description="Every R3 resource on a single page."
   noIndex
 >
-  <article class="page-wrap markdown-body">
-    <h1>All Resources</h1>
+  <div class="page-wrap">
+    <h1>R3 Resources (Single Page)</h1>
     {sorted.map((r) => (
-      <section>
+      <section class="resource-block">
         <h2 id={r.data.slug}>{r.data.title}</h2>
-        {r.data.summary && <p>{r.data.summary}</p>}
-        <div set:html={renderMarkdown(r.data.body ?? '')} />
-        <hr />
+        <div class="markdown-body resource-block__body" set:html={renderMarkdown(r.data.body ?? '')} />
       </section>
     ))}
-  </article>
+  </div>
 </BaseLayout>
 
 <style>
-  .page-wrap { max-width: 880px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
-  hr { border: none; border-top: 1px solid var(--color-r3-card-border); margin: 2rem 0; }
+  .page-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+  .resource-block {
+    margin: 1.5rem auto;
+    padding: 1rem 2rem 1.5rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background: #ffffff;
+  }
+  @media (max-width: 600px) {
+    .resource-block {
+      padding: 1rem 1.25rem 1.5rem;
+    }
+  }
+  .resource-block__body {
+    padding-left: 1.25rem;
+  }
+  @media (max-width: 600px) {
+    .resource-block__body {
+      padding-left: 0;
+    }
+  }
 </style>

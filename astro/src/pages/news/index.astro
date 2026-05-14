@@ -1,5 +1,10 @@
 ---
 // astro/src/pages/news/index.astro
+//
+// /news/ — port of the Nuxt pages/news/index.vue: an "News and Updates"
+// heading over a single column of #fafafa news cards (date, title, summary,
+// "Read more »"), newest first.
+
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import NewsCard from '~/components/NewsCard.astro';
 import { getCollection } from 'astro:content';
@@ -10,9 +15,12 @@ const sorted = [...all].sort(
 );
 ---
 
-<BaseLayout title="News" description="Latest news from the R3 program.">
+<BaseLayout
+  title="News and Updates"
+  description="Stay updated with the latest news, announcements, and reports from the R3 (Restore, Reinvest, Renew) program."
+>
   <div class="page-wrap">
-    <h1>News</h1>
+    <h1>News and Updates</h1>
     <ul class="news-list" role="list">
       {sorted.map((p) => (
         <li>
@@ -31,5 +39,11 @@ const sorted = [...all].sort(
 
 <style>
   .page-wrap { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
-  .news-list { list-style: none; padding: 0; margin: 1.5rem 0; display: grid; gap: 1rem; }
+  .news-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    gap: 2.5rem;
+  }
 </style>

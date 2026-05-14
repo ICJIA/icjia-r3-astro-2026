@@ -8,6 +8,7 @@
 // The hubArticles collection is exclusively Hub articles (filtered by
 // HUB_TAGS), so the type label is always "Article" — matching the live page.
 
+import fs from 'node:fs';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
@@ -34,6 +35,18 @@ function truncate(s: string | null | undefined, n = 850): string {
   return s.length <= n ? s : `${s.slice(0, n)}...`;
 }
 
+// Prefer the locally-ported Hub splash image; fall back to the Hub CDN URL
+// from the Strapi `splash` field; omit the image if neither is available.
+function researchImageSrc(
+  id: string,
+  splashURL: string | null | undefined,
+): string | null {
+  if (fs.existsSync(`public/hub-images/${id}-splash.jpeg`)) {
+    return `/hub-images/${id}-splash.jpeg`;
+  }
+  return splashURL || null;
+}
+
 const hubArticleURL = (slug: string): string =>
   `https://icjia.illinois.gov/researchhub/articles/${slug}`;
 ---
@@ -56,38 +69,43 @@ const hubArticleURL = (slug: string): string =>
     </p>
 
     <ul class="research-grid" role="list">
-      {sorted.map((a) => (
-        <li class="research-card">
-          <a
-            class="research-card__link"
-            href={hubArticleURL(a.data.slug)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <p class="research-card__meta">
-              <span class="research-card__date">
-                {formatResearchDate(a.data.date ?? a.data.createdAt)}
-              </span>
-              <span class="research-card__sep" aria-hidden="true"> | </span>
-              <span class="research-card__type">Article</span>
-            </p>
-            <h2 class="research-card__title">{a.data.title}</h2>
-            <img
-              class="research-card__img"
-              src={`/hub-images/${a.data._id}-splash.jpeg`}
-              alt=""
-              width="800"
-              height="200"
-              loading="lazy"
-              decoding="async"
-            />
-            {a.data.abstract && (
-              <p class="research-card__abstract">{truncate(a.data.abstract)}</p>
-            )}
-            <span class="research-card__cta">Read Article (Web)&nbsp;&raquo;</span>
-          </a>
-        </li>
-      ))}
+      {sorted.map((a) => {
+        const imgSrc = researchImageSrc(a.data._id, a.data.splashURL);
+        return (
+          <li class="research-card">
+            <a
+              class="research-card__link"
+              href={hubArticleURL(a.data.slug)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p class="research-card__meta">
+                <span class="research-card__date">
+                  {formatResearchDate(a.data.date ?? a.data.createdAt)}
+                </span>
+                <span class="research-card__sep" aria-hidden="true"> | </span>
+                <span class="research-card__type">Article</span>
+              </p>
+              <h2 class="research-card__title">{a.data.title}</h2>
+              {imgSrc && (
+                <img
+                  class="research-card__img"
+                  src={imgSrc}
+                  alt=""
+                  width="800"
+                  height="200"
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+              {a.data.abstract && (
+                <p class="research-card__abstract">{truncate(a.data.abstract)}</p>
+              )}
+              <span class="research-card__cta">Read Article (Web)&nbsp;&raquo;</span>
+            </a>
+          </li>
+        );
+      })}
     </ul>
   </div>
 </BaseLayout>
