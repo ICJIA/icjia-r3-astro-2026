@@ -11,8 +11,13 @@ test('/ renders homepage hero + director letter + news', async ({ page }) => {
   await expect(page.getByRole('heading', { name: /News/i })).toBeVisible();
 });
 
-test('/ preloads first splash image', async ({ page }) => {
+test('/ first splash image is a high-priority, locally-optimized LCP image', async ({ page }) => {
   await page.goto('/');
-  const preload = await page.locator('link[rel="preload"][as="image"]').count();
-  expect(preload).toBeGreaterThanOrEqual(1);
+  // The first splash image is the LCP element. It must load eagerly at high
+  // priority, and — since Phase 7 — be a build-time Astro <Image> webp served
+  // from /_astro/ rather than a runtime fetch from the Strapi media host.
+  const firstSplashImg = page.locator('.splash-card').first().locator('img.splash-card__img');
+  await expect(firstSplashImg).toHaveAttribute('loading', 'eager');
+  await expect(firstSplashImg).toHaveAttribute('fetchpriority', 'high');
+  await expect(firstSplashImg).toHaveAttribute('src', /^\/_astro\/.*\.webp$/);
 });

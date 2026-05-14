@@ -24,14 +24,11 @@ const allNews = await getCollection('news');
 const latestNews = [...allNews]
   .sort((a, b) => new Date(b.data.postDate).getTime() - new Date(a.data.postDate).getTime())
   .slice(0, 2);
-
-const firstSplashSrc = HOMEPAGE_SPLASH[0]?.src;
 ---
 
 <BaseLayout
   title="Restore. Reinvest. Renew."
   description="The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through economic development, violence prevention, reentry, and civil legal aid services."
-  preloadImages={firstSplashSrc ? [firstSplashSrc] : []}
 >
   <h1 class="sr-only">R3 Restore, Reinvest, Renew - Illinois Criminal Justice Information Authority</h1>
 

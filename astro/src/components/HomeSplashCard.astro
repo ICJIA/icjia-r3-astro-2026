@@ -9,6 +9,12 @@
 //   card 1 → rgba(120,140,200,0.15)  (cool blue tint)
 // Pass `cardIndex` to get the correct wash; any value other than 0 uses the
 // blue-tint default.
+//
+// The splash image goes through Astro's <Image> (inferSize, since the two
+// cards carry differently-sized Strapi originals) so it is fetched at build
+// time, converted to webp, and served locally — no runtime Strapi round-trip.
+
+import { Image } from 'astro:assets';
 
 interface Props {
   src: string;
@@ -48,13 +54,14 @@ const colorWash =
     rel={externalURL ? 'noopener noreferrer' : undefined}
   >
     <div class="splash-card__media">
-      <img
+      <Image
         src={src}
         alt=""
         role="presentation"
         aria-hidden="true"
-        width="1200"
-        height="650"
+        inferSize
+        widths={[400, 858]}
+        sizes="(max-width: 720px) 100vw, 50vw"
         class="splash-card__img"
         loading={preload ? 'eager' : 'lazy'}
         fetchpriority={preload ? 'high' : 'auto'}

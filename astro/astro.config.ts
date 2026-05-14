@@ -18,6 +18,13 @@ export default defineConfig({
   site: 'https://r3.illinois.gov',
   output: 'static',
   trailingSlash: 'always',
+  image: {
+    // Authorize the Strapi media host so <Image> can pull the homepage
+    // splash + photo-box images at build time and emit optimized,
+    // locally-served files. This removes the runtime cross-origin round-trip
+    // to r3.icjia-api.cloud that made the homepage LCP swing 2.8–3.2s.
+    domains: ['r3.icjia-api.cloud'],
+  },
   build: {
     // Inline small CSS chunks; externalize larger ones — keeps render-blocking
     // CSS minimal on small pages without bloating large bundles.
