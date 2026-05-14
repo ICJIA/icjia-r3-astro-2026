@@ -38,12 +38,14 @@ const colorWash =
 ---
 
 <div class="splash-card">
+  <!-- No aria-label: the link's visible text (title + tagline + date) is its
+       accessible name. An aria-label that omitted the date would trip
+       WCAG 2.5.3 label-content-name-mismatch. -->
   <a
     class="splash-card__link"
     href={externalURL ?? '#'}
     target={externalURL ? '_blank' : undefined}
     rel={externalURL ? 'noopener noreferrer' : undefined}
-    aria-label={`${title} — ${tagline}`}
   >
     <div class="splash-card__media">
       <img

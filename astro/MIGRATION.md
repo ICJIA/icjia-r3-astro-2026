@@ -207,3 +207,47 @@ breadcrumb (per `Breadcrumb.astro`'s HIDE_ON list — Task 3.5) since it's
 treated as a "section index" page in the original IA.
 
 Smoke page deleted at end of Phase 3 (this commit). Phase 3 layout shell verified.
+
+## Phase 6 — Accessibility polish (2026-05-14)
+
+### axe-core AA sweep
+
+`tests/e2e/a11y-sweep.spec.ts` runs axe-core (`wcag2a`, `wcag2aa`,
+`wcag21a`, `wcag21aa`) against 18 public routes × 3 viewports = 54 scans.
+**0 violations** on the first run — the Phase 3/4 components were built
+accessibly from the start.
+
+### Lighthouse a11y per route (lightcap MCP, mobile preset)
+
+Lighthouse v13 via `@icjia/lightcap`. First-pass run surfaced two issues
+that axe-core's tag filter missed (both on rules axe tags `experimental`
+or `best-practice`, so they fell outside the AA sweep's `withTags` filter
+but still cost Lighthouse points / flagged serious):
+
+| Issue | Route | Rule | WCAG | Fix |
+|---|---|---|---|---|
+| `label-content-name-mismatch` | `/` | serious | 2.5.3 (A) | Dropped `HomeSplashCard`'s `aria-label` — the link's visible text (title + tagline + date) already forms a complete accessible name; the old `aria-label` omitted the date, tripping 2.5.3 |
+| `heading-order` | `/news/` | moderate | best-practice | `NewsCard` gained a `headingLevel` prop (default `h3`); `/news/` index passes `h2` so card titles follow its `h1` without skipping a level. Homepage cards stay `h3` under the `h2` "News & Updates" section |
+
+Final scores after fixes — **Lighthouse a11y = 100 on every route, 0 issues:**
+
+| Route | Lighthouse a11y | axe-core AA |
+|---|---:|---:|
+| `/` | 100 | 0 |
+| `/eligibility/` | 100 | 0 |
+| `/contact/` | 100 | 0 |
+| `/collaboratives/` | 100 | 0 |
+| `/board/` | 100 | 0 |
+| `/faqs/` | 100 | 0 |
+| `/funding/` | 100 | 0 |
+| `/meetings/` | 100 | 0 |
+| `/privacy/` | 100 | 0 |
+| `/news/` | 100 | 0 |
+| `/news/r3-2022-annual-report/` | 100 | 0 |
+| `/resources/` | 100 | 0 |
+| `/resources/spanish-language-materials/` | 100 | 0 |
+| `/resources/single-page/` | 100 | 0 |
+| `/research/` | 100 | 0 |
+| `/search/` | 100 | 0 |
+| `/translate/` | 100 | 0 |
+| `/404/` | 100 | 0 |

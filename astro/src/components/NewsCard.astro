@@ -12,13 +12,28 @@ interface Props {
   summary?: string | null;
   href: string;
   compact?: boolean;
+  /**
+   * Heading level for the card title. Defaults to `h3` (correct on the
+   * homepage, where cards sit under an `h2` "News & Updates" section). The
+   * `/news/` index page passes `h2` so the card titles follow its `h1`
+   * directly without skipping a level.
+   */
+  headingLevel?: 'h2' | 'h3';
 }
-const { title, postDate, summary, href, compact = false } = Astro.props;
+const {
+  title,
+  postDate,
+  summary,
+  href,
+  compact = false,
+  headingLevel = 'h3',
+} = Astro.props;
+const Heading = headingLevel;
 ---
 
 <a class:list={['news-card', compact && 'news-card--compact']} href={href}>
   <time class="news-card__date" datetime={postDate}>{formatDate(postDate)}</time>
-  <h3 class="news-card__title">{title}</h3>
+  <Heading class="news-card__title">{title}</Heading>
   {summary && <p class="news-card__summary">{summary}</p>}
 </a>
 
