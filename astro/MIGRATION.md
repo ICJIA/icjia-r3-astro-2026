@@ -398,3 +398,53 @@ are homepage-only) — re-spot-checked `/contact/` 100, `/eligibility/` 99,
   Converting it needs the file moved into `src/assets/`; left as-is
   because it does not affect LCP/FCP and the homepage already scores
   97–98.
+
+## Phase 8 — Invisible-migration parity pass (2026-05-14)
+
+After Phase 7, a side-by-side review against the live r3.illinois.gov site
+found the Phase 4 page ports were lower-fidelity than an "invisible
+migration" requires. A parity pass rebuilt them to match live exactly. The
+single open structural question — whether to keep the migration's
+deliberately-flattened nav or rebuild the live dropdown nav — was resolved
+with the user: **match live exactly**.
+
+### Reference-driven rebuilds
+
+Each page was rebuilt against its Nuxt source as the reference:
+
+| Page / area | Nuxt reference | Change |
+|---|---|---|
+| Top nav | `TheNav.vue` + `TheSidebar.vue` + `app.config.js` navMenu | 4-item bar + real "About" dropdown + Search icon + left-sliding mobile drawer (was a flat 10-item bar) |
+| Footer | `TheFooter.vue` + `TheContextFooter.vue` | `#11568e` / `#0e4474` bands, Governor URL, underlined links |
+| `/funding/` | live = `<meta refresh>` to `/` | meta-refresh redirect via `astro.config.ts`; dropped from nav + sitemap |
+| `/contact/` | `pages/contact.vue` | custom page: intro card + `ContactForm.vue` island (posts to `r3.icjia-api.cloud/api/forms` + `mail.icjia.cloud/internet/r3-nofo`, same as live) |
+| Breadcrumb | `app.vue` keeps `TheBreadcrumbBar` commented out | removed from `BaseLayout` |
+| `/resources/` | `pages/resources/index.vue` | 3-up image-card grid, `ranking`-ordered; `resources` collection now queries `cover` + `ranking` |
+| `/research/` | `pages/research/index.vue` | 2-up image-card grid (hub splash images, "Read Article (Web) »"); full-month dates |
+| `/news/` | `pages/news/index.vue` | `#fafafa` cards with "Read more »"; "News and Updates" heading |
+| catch-all (`/privacy/` etc.) | `pages/[...slug].vue` | "Navigation" TOC sidebar when `showTableOfContents`; `/board/` "last updated" line |
+| `/eligibility/` | `pages/[...slug].vue` (no MapEmbed) | dropped the duplicate injected `MapEmbed`; the Strapi body's own ArcGIS iframe renders at the correct position |
+| `/404/` | `pages/404.vue` | "Oops" headline + quick-link button row |
+| `/translate/` | `pages/translate.vue` | single centred vertical button column |
+| `/resources/<slug>/`, `/resources/single-page/` | `pages/resources/...` | card wrapper + "« Back to R3 Resources"; bordered per-resource cards |
+
+### Accessibility re-verification
+
+- `tests/e2e/a11y-sweep.spec.ts` rewritten to be **sitemap-driven** — it
+  reads `dist/sitemap-0.xml` and audits every route (+ `/404/`):
+  26 routes × 3 viewports = 78 axe-core scans, **0 WCAG 2.1 A/AA
+  violations**.
+- Lighthouse accessibility spot-checked on the most-rebuilt routes
+  (`/`, `/contact/`, `/news/`, `/resources/`, `/research/`) — **100/100**
+  on every one; the nav/footer rebuild did not regress a11y.
+- `tsconfig.json` excludes `playwright-report/` / `test-results/` /
+  `coverage/` so `astro check` no longer scans test artifacts.
+
+### Astro-only branch
+
+The Nuxt source (230+ files) was deleted from `migration/astro-full` — the
+branch is now Astro-only. The Nuxt source remains recoverable in git
+history and on `main`. Root `README.md` rewritten for the Astro era; root
+`.gitignore` reduced to non-Nuxt essentials.
+
+Full Playwright e2e green against a production build: **195 tests**.

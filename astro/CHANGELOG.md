@@ -6,6 +6,63 @@ chronological order.
 
 ---
 
+## v0.8.0 — 2026-05-14
+
+### Phase 8 — CI gate + "invisible migration" parity pass + Astro-only branch
+
+**CI gate**
+
+- `astro/scripts/check-all.sh` — single-command pre-push verification
+  (astro check → vitest → build → Playwright e2e).
+
+**Invisible-migration parity pass.** The Phase 4 page ports were rebuilt to
+match the live r3.illinois.gov site exactly:
+
+- **Top nav** rebuilt from the live `app.config.js` navMenu: a 4-item bar
+  (`Home` / `About ▾` / `Eligibility` / `Contact`) + Search icon, with a
+  real "About" dropdown (sections, divider, external StoryMap link) and a
+  left-sliding mobile drawer. Replaces the migration's flattened 10-item bar.
+- **Footer** brought to exact parity — `#11568e` upper band / `#0e4474`
+  legal bar, Governor URL corrected, underlined links.
+- **`/funding/`** is now a meta-refresh redirect to `/` (the live site has
+  no funding content page); dropped from the nav and the sitemap; `/apply`
+  repointed to `/`.
+- **`/contact/`** ported as a real custom page — the "Have R3 questions"
+  card + a working contact form (`ContactForm.vue` island, posts to the
+  same two endpoints as live). It was previously a bare Strapi-body stub
+  served by the catch-all.
+- **Breadcrumb bar removed** site-wide — the live app keeps
+  `TheBreadcrumbBar` commented out.
+- **`/resources/`** + **`/research/`** rebuilt as image-card grids
+  (cover/splash thumbnails, "Find out more »" / "Read Article (Web) »").
+  `resources` collection now queries Strapi `cover` + `ranking`.
+- **`/news/`** list restyled as `#fafafa` cards with "Read more »";
+  heading "News and Updates".
+- **Catch-all pages** gained the "Navigation" TOC sidebar when
+  `showTableOfContents` is set, plus the `/board/` "last updated" line.
+- **`/eligibility/`** — removed the duplicate injected `MapEmbed`; the
+  ArcGIS map renders from the Strapi body markdown at the correct position,
+  as on live.
+- **`/404/`** enriched with the "Oops" headline + quick-link button row.
+- **`/translate/`** buttons stack in a single centred column.
+- **`a11y-sweep.spec.ts`** is now sitemap-driven — it audits every URL in
+  the built `sitemap.xml` (+ `/404/`): 26 routes × 3 viewports = 78
+  axe-core scans, **0 WCAG 2.1 A/AA violations**. Results recorded in the
+  root `README.md`.
+- `astro check` now excludes `playwright-report/` / `test-results/` /
+  `coverage/` (test artifacts were tripping 200+ spurious hints).
+
+**Astro-only branch**
+
+- The Nuxt 4 + Vuetify source (app.vue, pages/, components/, creators/,
+  nuxt.config.js, root package.json, etc. — 230+ files) was deleted from
+  `migration/astro-full`; it remains recoverable in git history and on
+  `main`. Root `README.md` rewritten for the Astro era.
+
+Full Playwright e2e suite green against a production build: 195 tests.
+
+---
+
 ## v0.7.0 — 2026-05-14
 
 ### Phase 7 — Performance polish

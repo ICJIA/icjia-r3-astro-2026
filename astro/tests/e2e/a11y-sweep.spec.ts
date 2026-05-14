@@ -1,19 +1,29 @@
 // astro/tests/e2e/a11y-sweep.spec.ts
 //
-// Runs axe-core against every public route. Hard-fail on any AA violation.
-// This is the test that replaces the current Nuxt audit-accessibility.js.
+// Sitemap-driven axe-core sweep. Reads every URL out of the built
+// `dist/sitemap-0.xml` and audits each one against WCAG 2.1 A/AA across the
+// three viewport projects — hard-fail on any violation. New routes are picked
+// up automatically. /404/ is added explicitly (it ships but is sitemap-
+// excluded). Falls back to a core route list if the build output is absent.
 
+import fs from 'node:fs';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-// /funding/ omitted — it is a meta-refresh redirect to /, not a content page.
-const ROUTES = [
-  '/', '/eligibility/', '/contact/', '/collaboratives/', '/board/', '/faqs/',
-  '/meetings/', '/privacy/',
-  '/news/', '/news/r3-2022-annual-report/',
-  '/resources/', '/resources/spanish-language-materials/', '/resources/single-page/',
-  '/research/', '/search/', '/translate/', '/404/',
-];
+function routesFromSitemap(): string[] {
+  try {
+    const xml = fs.readFileSync('dist/sitemap-0.xml', 'utf8');
+    const routes = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
+      (m) => new URL(m[1]).pathname,
+    );
+    if (!routes.includes('/404/')) routes.push('/404/');
+    return [...new Set(routes)].sort();
+  } catch {
+    return ['/', '/contact/', '/news/', '/eligibility/', '/research/', '/404/'];
+  }
+}
+
+const ROUTES = routesFromSitemap();
 
 for (const route of ROUTES) {
   test(`axe-core AA: ${route}`, async ({ page }) => {

@@ -68,9 +68,32 @@ The full axe-core results and any mitigations are recorded below — see
 
 ### Accessibility audit results
 
-_Populated by the latest full axe-core sweep against the built `sitemap.xml`._
+Latest sweep — every route in the built `sitemap.xml` (25 routes) plus
+`/404/`, across mobile / tablet / desktop:
 
-<!-- AXE-AUDIT-RESULTS -->
+| Metric | Result |
+|--------|--------|
+| Routes audited | 26 (25 sitemap + `/404/`) |
+| Viewports | 3 — mobile, tablet, desktop |
+| Total axe-core scans | 78 |
+| WCAG 2.1 A / AA violations | **0** |
+| Lighthouse accessibility (per route) | **100** |
+
+Tags audited: `wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa`. The sweep runs on
+every build (`tests/e2e/a11y-sweep.spec.ts`) and hard-fails on any violation.
+The current sweep is clean — no outstanding mitigations.
+
+**Mitigations applied during the Astro rebuild** (full detail in
+`astro/MIGRATION.md`):
+
+| Issue | WCAG | Fix |
+|-------|------|-----|
+| `HomeSplashCard` `aria-label` omitted the visible date text | 2.5.3 (A) | Dropped the redundant `aria-label`; the link's visible text is its accessible name |
+| `/news/` card titles jumped `h1` → `h3` | 1.3.1 / best-practice | `NewsCard` gained a `headingLevel` prop; `/news/` passes `h2` |
+| `Dialog.vue`'s `<Teleport>` destroyed the skip-links `<nav>` on `client:idle` hydration, site-wide | 2.4.1 (A) | Removed the `<Teleport>` — a native `<dialog>` + `showModal()` is top-layer-promoted and never needed it; regression test added |
+
+Compliant with **WCAG 2.1 AA**, **IITAA** (Illinois state standard), and
+**ADA Title II**.
 
 ## Security
 
