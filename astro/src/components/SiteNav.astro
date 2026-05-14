@@ -1,13 +1,24 @@
 ---
 // astro/src/components/SiteNav.astro
 //
-// Fixed 90px-tall white app-bar with the R3 wordmark, primary nav links on
-// desktop, and a <details>-based hamburger menu on mobile (zero JS, native
-// keyboard support). Active route is highlighted via Astro.url.pathname.
+// Fixed 90px white app-bar — a faithful port of the live r3.illinois.gov nav
+// (Nuxt TheNav.vue + TheSidebar.vue). Top bar carries the
+// "R3  RESTORE. REINVEST. RENEW." wordmark, four primary entries
+// (Home / About ▾ / Eligibility / Contact), and a Search icon.
+//
+//   - The "About" entry is a <details> dropdown (zero-JS baseline; a small
+//     inline script adds click-outside + Esc close to match the live v-menu).
+//   - Below 960px the bar collapses to a hamburger that opens a left-sliding
+//     drawer (port of TheSidebar.vue), with "About" as a nested <details>.
 //
 // id="navigation" matches the skip-link target #navigation from SkipLinks.astro.
 
-import { NAV_ITEMS } from '~/lib/navConfig';
+import {
+  NAV_ITEMS,
+  isNavSection,
+  isNavDivider,
+  type NavChild,
+} from '~/lib/navConfig';
 import { ensureTrailingSlash } from '~/lib/slug';
 
 const currentPath = ensureTrailingSlash(Astro.url.pathname);
@@ -16,63 +27,244 @@ function isActive(href: string): boolean {
   if (href === '/') return currentPath === '/';
   return currentPath === href || currentPath.startsWith(href);
 }
+
+// A dropdown is "active" when the current page is one of its internal children.
+function dropdownActive(children: NavChild[]): boolean {
+  return children.some(
+    (c) => 'href' in c && !c.external && isActive(c.href),
+  );
+}
 ---
 
 <header id="navigation" class="site-nav" role="banner">
   <div class="site-nav__inner">
-    <!-- Logo / wordmark -->
-    <a class="site-nav__home" href="/" aria-label="R3 RESTORE. REINVEST. RENEW. — Go to home page">
-      <span class="site-nav__wordmark" aria-hidden="true">R3</span>
+    <!-- Wordmark — full text ≥600px, "R3" below -->
+    <a
+      class="site-nav__home"
+      href="/"
+      aria-label="R3 RESTORE. REINVEST. RENEW. — Go to home page"
+    >
+      <span class="site-nav__wordmark site-nav__wordmark--full" aria-hidden="true"
+        >R3&nbsp;&nbsp;RESTORE. REINVEST. RENEW.</span
+      >
+      <span class="site-nav__wordmark site-nav__wordmark--short" aria-hidden="true"
+        >R3</span
+      >
     </a>
 
-    <!-- Desktop primary nav links -->
-    <nav class="site-nav__links" aria-label="Primary navigation">
+    <!-- ── Desktop primary nav (≥960px) ──────────────────────────────────── -->
+    <nav class="site-nav__desktop" aria-label="Primary navigation">
       <ul role="list">
-        {NAV_ITEMS.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class:list={['site-nav__link', isActive(item.href) && 'is-active']}
-              aria-current={isActive(item.href) ? 'page' : undefined}
-              target={item.external ? '_blank' : undefined}
-              rel={item.external ? 'noopener noreferrer' : undefined}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
+        {NAV_ITEMS.map((item) =>
+          item.children ? (
+            <li>
+              <details class="site-nav__dropdown">
+                <summary
+                  class:list={[
+                    'site-nav__link',
+                    'site-nav__dropdown-summary',
+                    dropdownActive(item.children) && 'is-active',
+                  ]}
+                >
+                  {item.label}
+                  <svg
+                    class="site-nav__caret"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </summary>
+                <ul class="site-nav__dropdown-panel" role="list">
+                  {item.children.map((child) =>
+                    isNavDivider(child) ? (
+                      <li class="site-nav__dd-divider"><hr /></li>
+                    ) : isNavSection(child) ? (
+                      <li class="site-nav__dd-section">{child.section}</li>
+                    ) : (
+                      <li>
+                        <a
+                          href={child.href}
+                          class:list={[
+                            'site-nav__dd-link',
+                            !child.external && isActive(child.href) && 'is-active',
+                          ]}
+                          target={child.external ? '_blank' : undefined}
+                          rel={child.external ? 'noopener noreferrer' : undefined}
+                          aria-current={
+                            !child.external && isActive(child.href)
+                              ? 'page'
+                              : undefined
+                          }
+                        >
+                          {child.label}
+                          {child.external && (
+                            <span class="site-nav__ext-note"> (opens in new window)</span>
+                          )}
+                        </a>
+                      </li>
+                    ),
+                  )}
+                </ul>
+              </details>
+            </li>
+          ) : (
+            <li>
+              <a
+                href={item.href}
+                class:list={[
+                  'site-nav__link',
+                  isActive(item.href!) && 'is-active',
+                ]}
+                aria-current={isActive(item.href!) ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ),
+        )}
       </ul>
+
+      <!-- Search icon -->
+      <a class="site-nav__search" href="/search/" aria-label="Search">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="7" />
+          <line x1="21" y1="21" x2="16.5" y2="16.5" />
+        </svg>
+      </a>
     </nav>
 
-    <!-- Mobile hamburger via <details> (zero-JS; Enter/Space open natively) -->
+    <!-- ── Mobile hamburger + left-sliding drawer (<960px) ───────────────── -->
     <details class="site-nav__mobile">
-      <summary aria-label="Open navigation menu">
-        <span class="site-nav__hamburger-icon" aria-hidden="true">
-          <!-- SVG hamburger icon — no icon-font dependency -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false">
-            <line x1="3" y1="6"  x2="21" y2="6" />
+      <summary class="site-nav__hamburger">
+        <span class="site-nav__hamburger-open" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" />
             <line x1="3" y1="12" x2="21" y2="12" />
             <line x1="3" y1="18" x2="21" y2="18" />
           </svg>
+          <span class="site-nav__hamburger-label">MENU</span>
         </span>
-        <span class="site-nav__menu-label" aria-hidden="true">MENU</span>
+        <span class="site-nav__hamburger-close" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <line x1="5" y1="5" x2="19" y2="19" />
+            <line x1="19" y1="5" x2="5" y2="19" />
+          </svg>
+          <span class="site-nav__hamburger-label">CLOSE</span>
+        </span>
+        <span class="sr-only">Toggle navigation menu</span>
       </summary>
-      <ul class="site-nav__mobile-list" role="list">
-        {NAV_ITEMS.map((item) => (
+
+      <div class="site-nav__drawer-backdrop"></div>
+      <nav class="site-nav__drawer" aria-label="Mobile navigation menu">
+        <ul role="list">
+          {NAV_ITEMS.map((item) =>
+            item.children ? (
+              <li>
+                <details class="site-nav__drawer-sub">
+                  <summary class="site-nav__drawer-link site-nav__drawer-sub-summary">
+                    <span>{item.label}</span>
+                    <svg class="site-nav__caret" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </summary>
+                  <ul class="site-nav__drawer-submenu" role="list">
+                    {item.children.map((child) =>
+                      isNavDivider(child) ? (
+                        <li class="site-nav__drawer-divider"><hr /></li>
+                      ) : isNavSection(child) ? (
+                        <li class="site-nav__drawer-section">{child.section}</li>
+                      ) : (
+                        <li>
+                          <a
+                            href={child.href}
+                            class="site-nav__drawer-link site-nav__drawer-child"
+                            target={child.external ? '_blank' : undefined}
+                            rel={child.external ? 'noopener noreferrer' : undefined}
+                          >
+                            {child.label}
+                            {child.external && (
+                              <span class="sr-only"> (opens in new window)</span>
+                            )}
+                          </a>
+                        </li>
+                      ),
+                    )}
+                  </ul>
+                </details>
+              </li>
+            ) : (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={[
+                    'site-nav__drawer-link',
+                    isActive(item.href!) && 'is-active',
+                  ]}
+                  aria-current={isActive(item.href!) ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ),
+          )}
+
+          <li class="site-nav__drawer-divider"><hr /></li>
+
           <li>
-            <a
-              href={item.href}
-              class:list={['site-nav__mobile-link', isActive(item.href) && 'is-active']}
-              aria-current={isActive(item.href) ? 'page' : undefined}
-              target={item.external ? '_blank' : undefined}
-              rel={item.external ? 'noopener noreferrer' : undefined}
-            >
-              {item.label}
+            <a class="site-nav__drawer-link site-nav__drawer-icon" href="/search/">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <span>Search</span>
             </a>
           </li>
-        ))}
-      </ul>
+          <li>
+            <a class="site-nav__drawer-link site-nav__drawer-icon" href="/privacy/">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              <span>Privacy</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </details>
+
+    <!-- Mobile search — the live mobile bar is: hamburger | R3 | search -->
+    <a class="site-nav__search--mobile" href="/search/" aria-label="Search">
+      <svg
+        width="26"
+        height="26"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <circle cx="11" cy="11" r="7" />
+        <line x1="21" y1="21" x2="16.5" y2="16.5" />
+      </svg>
+      <span class="site-nav__hamburger-label" aria-hidden="true">SEARCH</span>
+    </a>
   </div>
 </header>
 
@@ -86,15 +278,14 @@ function isActive(href: string): boolean {
     z-index: 100;
     height: 90px;
     background: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16), 0 1px 10px rgba(0, 0, 0, 0.12);
   }
 
   .site-nav__inner {
     height: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -108,11 +299,10 @@ function isActive(href: string): boolean {
     min-height: 44px;
     padding: 0 8px;
     text-decoration: none;
-    color: var(--color-r3-primary, #0d4474);
     flex-shrink: 0;
   }
   .site-nav__home:focus-visible {
-    outline: 2px solid var(--color-r3-primary, #0d4474);
+    outline: 2px solid #004085;
     outline-offset: 2px;
     border-radius: 4px;
   }
@@ -120,160 +310,455 @@ function isActive(href: string): boolean {
   .site-nav__wordmark {
     font-family: Roboto, sans-serif;
     font-weight: 900;
-    font-size: 22px;
     letter-spacing: 0.004em;
     line-height: 1;
-    color: var(--color-r3-primary, #0d4474);
+    color: #004085;
+  }
+  .site-nav__wordmark--full {
+    font-size: 22px;
+  }
+  .site-nav__wordmark--short {
+    display: none;
+    font-size: 30px;
   }
 
-  /* ── Desktop nav links ───────────────────────────────────────────────── */
-  .site-nav__links ul {
+  /* ── Desktop nav ─────────────────────────────────────────────────────── */
+  .site-nav__desktop {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .site-nav__desktop > ul {
+    display: flex;
+    align-items: center;
     gap: 0.125rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
+  /* Shared top-level link / dropdown-summary styling */
   .site-nav__link {
     display: inline-flex;
     align-items: center;
+    gap: 2px;
     min-height: 44px;
-    min-width: 44px;
-    padding: 0 12px;
-    color: var(--color-r3-primary, #0d4474);
+    padding: 12px 16px;
+    color: #333333;
     text-decoration: none;
     font-family: Roboto, sans-serif;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
     border-radius: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
     transition: background 0.15s ease;
+    white-space: nowrap;
   }
-
   .site-nav__link:hover {
-    background: rgba(13, 68, 116, 0.06);
+    background: rgba(0, 0, 0, 0.05);
     text-decoration: underline;
   }
-
   .site-nav__link:focus-visible {
-    outline: 2px solid var(--color-r3-primary, #0d4474);
+    outline: 2px solid #004085;
     outline-offset: 2px;
     text-decoration: none;
   }
-
   .site-nav__link.is-active {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 2px;
+    background: #e8e8e8;
   }
 
-  /* ── Mobile hamburger (<details>) ────────────────────────────────────── */
-  .site-nav__mobile {
-    display: none; /* shown only via media query below */
+  /* ── Desktop "About" dropdown (<details>) ────────────────────────────── */
+  .site-nav__dropdown {
     position: relative;
   }
+  .site-nav__dropdown-summary {
+    list-style: none;
+  }
+  .site-nav__dropdown-summary::-webkit-details-marker {
+    display: none;
+  }
+  .site-nav__dropdown-summary::marker {
+    content: '';
+  }
+  .site-nav__caret {
+    transition: transform 0.2s ease;
+  }
+  .site-nav__dropdown[open] .site-nav__dropdown-summary .site-nav__caret {
+    transform: rotate(180deg);
+  }
 
-  .site-nav__mobile > summary {
-    /* Reset <summary> browser defaults */
+  .site-nav__dropdown-panel {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 4px);
+    min-width: 230px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.12);
+    list-style: none;
+    margin: 0;
+    padding: 6px 0;
+    z-index: 101;
+  }
+
+  .site-nav__dd-section {
+    margin-top: 6px;
+    padding: 8px 20px 4px;
+    font-family: Roboto, sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    color: #555555;
+  }
+  .site-nav__dd-section:first-child {
+    margin-top: 0;
+  }
+  .site-nav__dd-divider {
+    padding: 6px 0;
+  }
+  .site-nav__dd-divider hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 0;
+  }
+  .site-nav__dd-link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 6px 20px;
+    color: #333333;
+    text-decoration: none;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .site-nav__dd-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+    text-decoration: underline;
+  }
+  .site-nav__dd-link:focus-visible {
+    outline: 2px solid #004085;
+    outline-offset: -2px;
+    text-decoration: none;
+  }
+  .site-nav__dd-link.is-active {
+    background: #e8f0f8;
+    font-weight: 900;
+  }
+  .site-nav__ext-note {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  /* ── Search icon ─────────────────────────────────────────────────────── */
+  .site-nav__search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    margin-left: 0.25rem;
+    color: #333333;
+    border-radius: 4px;
+    transition: background 0.15s ease;
+  }
+  .site-nav__search:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  .site-nav__search:focus-visible {
+    outline: 2px solid #004085;
+    outline-offset: 2px;
+  }
+
+  /* ── Mobile hamburger + drawer (<details>) ───────────────────────────── */
+  .site-nav__mobile {
+    display: none;
+  }
+  .site-nav__hamburger {
     list-style: none;
     -webkit-appearance: none;
     appearance: none;
     cursor: pointer;
-    /* WCAG 2.5.5 tap target ≥ 44×44px */
     min-height: 44px;
-    min-width: 44px;
-    padding: 0 12px;
+    min-width: 60px;
+    padding: 0 8px;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2px;
-    color: var(--color-r3-primary, #0d4474);
+    color: #333333;
     border-radius: 4px;
     user-select: none;
   }
-
-  /* Remove the default disclosure triangle in all browsers */
-  .site-nav__mobile > summary::-webkit-details-marker { display: none; }
-  .site-nav__mobile > summary::marker { content: ''; }
-
-  .site-nav__mobile > summary:focus-visible {
-    outline: 2px solid var(--color-r3-primary, #0d4474);
+  .site-nav__hamburger::-webkit-details-marker {
+    display: none;
+  }
+  .site-nav__hamburger::marker {
+    content: '';
+  }
+  .site-nav__hamburger:focus-visible {
+    outline: 2px solid #004085;
     outline-offset: 2px;
   }
-
-  .site-nav__hamburger-icon {
+  .site-nav__hamburger-open,
+  .site-nav__hamburger-close {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 1px;
   }
-
-  .site-nav__menu-label {
-    font-size: 9px;
+  .site-nav__hamburger-close {
+    display: none;
+  }
+  .site-nav__mobile[open] .site-nav__hamburger-open {
+    display: none;
+  }
+  .site-nav__mobile[open] .site-nav__hamburger-close {
+    display: flex;
+  }
+  .site-nav__hamburger-label {
+    font-size: 10px;
     font-weight: 900;
     letter-spacing: 0.04em;
     font-family: Roboto, sans-serif;
   }
 
-  /* Dropdown panel */
-  .site-nav__mobile-list {
-    display: none; /* hidden until [open] */
-    position: absolute;
-    right: 0;
-    top: calc(100% + 4px);
-    min-width: 220px;
+  /* Backdrop — covers the viewport behind the drawer */
+  .site-nav__drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 199;
+  }
+
+  /* Left-sliding drawer panel */
+  .site-nav__drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
     background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    z-index: 200;
+    overflow-y: auto;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    padding: 90px 0 1.5rem; /* clear the fixed app-bar */
+  }
+  .site-nav__drawer > ul {
     list-style: none;
     margin: 0;
-    padding: 0.5rem 0;
-    z-index: 101;
+    padding: 8px 0;
   }
-
-  .site-nav__mobile[open] > .site-nav__mobile-list {
-    display: block;
-  }
-
-  .site-nav__mobile-link {
+  .site-nav__drawer-link {
     display: flex;
     align-items: center;
-    /* WCAG 2.5.5 tap target ≥ 44px tall */
+    width: 100%;
     min-height: 44px;
-    padding: 0 16px;
-    color: var(--color-r3-primary, #0d4474);
+    padding: 10px 16px;
+    color: #0d4474;
     text-decoration: none;
     font-family: Roboto, sans-serif;
+    font-size: 16px;
     font-weight: 700;
-    font-size: 14px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-align: left;
   }
-
-  .site-nav__mobile-link:hover {
-    background: rgba(13, 68, 116, 0.06);
-    text-decoration: underline;
+  .site-nav__drawer-link:hover,
+  .site-nav__drawer-link:focus {
+    background: #f0f4f8;
   }
-
-  .site-nav__mobile-link:focus-visible {
-    outline: 2px solid var(--color-r3-primary, #0d4474);
+  .site-nav__drawer-link:focus-visible {
+    outline: 2px solid #0d4474;
     outline-offset: -2px;
+  }
+  .site-nav__drawer-link.is-active {
+    background: #e8f0f8;
+    border-left: 3px solid #0d4474;
+  }
+  .site-nav__drawer-sub {
+    list-style: none;
+  }
+  .site-nav__drawer-sub-summary {
+    list-style: none;
+    justify-content: space-between;
+  }
+  .site-nav__drawer-sub-summary::-webkit-details-marker {
+    display: none;
+  }
+  .site-nav__drawer-sub-summary::marker {
+    content: '';
+  }
+  .site-nav__drawer-sub[open] .site-nav__drawer-sub-summary .site-nav__caret {
+    transform: rotate(180deg);
+  }
+  .site-nav__drawer-submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+  }
+  .site-nav__drawer-child {
+    font-weight: 400;
+    padding-left: 32px;
+    color: #333333;
+  }
+  .site-nav__drawer-section {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px 10px 32px;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #555555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .site-nav__drawer-divider {
+    padding: 8px 16px;
+  }
+  .site-nav__drawer-divider hr {
+    border: none;
+    border-top: 1px solid #dddddd;
+    margin: 0;
+  }
+  .site-nav__drawer-icon {
+    gap: 12px;
+    font-weight: 400;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Mobile-only search — stacked icon + "SEARCH" label, mirrors the hamburger.
+     Hidden until the hamburger breakpoint. */
+  .site-nav__search--mobile {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    min-height: 44px;
+    min-width: 60px;
+    padding: 0 8px;
+    color: #333333;
     text-decoration: none;
+    border-radius: 4px;
+  }
+  .site-nav__search--mobile:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  .site-nav__search--mobile:focus-visible {
+    outline: 2px solid #004085;
+    outline-offset: 2px;
   }
 
-  .site-nav__mobile-link.is-active {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 2px;
+  /* ── Responsive breakpoints — matching the live Nuxt nav ─────────────── */
+
+  /* Desktop search icon shows only on lg+ (≥1264px), as on the live site */
+  @media (max-width: 1263.98px) {
+    .site-nav__desktop .site-nav__search {
+      display: none;
+    }
   }
 
-  /* ── Responsive breakpoint ───────────────────────────────────────────── */
-  @media (max-width: 768px) {
-    .site-nav__links {
+  /* Below 960px: collapse to the hamburger; bar becomes [☰] [R3] [search] */
+  @media (max-width: 959.98px) {
+    .site-nav__desktop {
       display: none;
     }
     .site-nav__mobile {
       display: inline-block;
+      order: 1;
+    }
+    .site-nav__home {
+      order: 2;
+    }
+    .site-nav__search--mobile {
+      display: flex;
+      order: 3;
+    }
+  }
+
+  @media (max-width: 599.98px) {
+    .site-nav__wordmark--full {
+      display: none;
+    }
+    .site-nav__wordmark--short {
+      display: inline;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-nav__caret {
+      transition: none;
     }
   }
 </style>
+
+<script>
+  // Progressive enhancement for the <details>-based menus. The menus work
+  // without JS (native <details> toggle); this just adds the niceties the
+  // live Vuetify nav has: click-outside + Esc to close, and close-on-navigate.
+  function enhanceNav() {
+    const dropdown = document.querySelector<HTMLDetailsElement>('.site-nav__dropdown');
+    const mobile = document.querySelector<HTMLDetailsElement>('.site-nav__mobile');
+
+    // Close the desktop "About" dropdown on outside-click or Esc.
+    if (dropdown) {
+      document.addEventListener('click', (e) => {
+        if (dropdown.open && !dropdown.contains(e.target as Node)) {
+          dropdown.open = false;
+        }
+      });
+      dropdown.addEventListener('keydown', (e) => {
+        if ((e as KeyboardEvent).key === 'Escape') {
+          dropdown.open = false;
+          dropdown.querySelector('summary')?.focus();
+        }
+      });
+    }
+
+    // Mobile drawer: close on backdrop click, Esc, or following a link.
+    if (mobile) {
+      mobile.querySelector('.site-nav__drawer-backdrop')?.addEventListener('click', () => {
+        mobile.open = false;
+      });
+      document.addEventListener('keydown', (e) => {
+        if (mobile.open && (e as KeyboardEvent).key === 'Escape') {
+          mobile.open = false;
+          mobile.querySelector('summary')?.focus();
+        }
+      });
+      mobile.querySelectorAll<HTMLAnchorElement>('.site-nav__drawer a[href]').forEach((a) => {
+        a.addEventListener('click', () => {
+          mobile.open = false;
+        });
+      });
+    }
+  }
+
+  enhanceNav();
+  document.addEventListener('astro:after-swap', enhanceNav);
+</script>
