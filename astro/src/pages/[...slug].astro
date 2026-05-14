@@ -15,11 +15,17 @@ import MapEmbed from '~/components/MapEmbed.astro';
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
   return pages
-    // `index` is the homepage (index.astro). `funding` is NOT served here:
-    // the live site redirects /funding/ → / (meta-refresh), so it is wired as
-    // an astro.config.ts redirect instead. Excluding it here avoids a
-    // duplicate-route collision with that redirect.
-    .filter((p) => p.data.slug !== 'index' && p.data.slug !== 'funding')
+    // Slugs served by dedicated routes, NOT this catch-all:
+    //   index   → index.astro (the homepage)
+    //   funding → an astro.config.ts redirect to / (matches the live site)
+    //   contact → contact.astro (the live /contact/ is a custom form page,
+    //             not the bare Strapi `pages.contact` body)
+    .filter(
+      (p) =>
+        p.data.slug !== 'index' &&
+        p.data.slug !== 'funding' &&
+        p.data.slug !== 'contact',
+    )
     .map((p) => ({
       params: { slug: p.data.slug === 'index' ? undefined : p.data.slug },
       props: { entry: p },
