@@ -6,6 +6,40 @@ chronological order.
 
 ---
 
+## v0.6.0 — 2026-05-14
+
+### Phase 6 — Accessibility polish
+
+- `tests/e2e/a11y-sweep.spec.ts` — site-wide axe-core AA sweep
+  (`wcag2a` / `wcag2aa` / `wcag21a` / `wcag21aa`) across 18 routes ×
+  3 viewports = 54 scans. **0 violations.**
+- Lighthouse a11y = 100 on every route (lightcap MCP, mobile preset).
+  The first-pass run surfaced two issues axe's tag filter doesn't cover:
+  - `label-content-name-mismatch` (WCAG 2.5.3, Level A) on `/` —
+    `HomeSplashCard` carried an `aria-label` that omitted the visible date
+    text. Dropped it; the link's visible text (title + tagline + date) is
+    now its accessible name.
+  - `heading-order` on `/news/` — `NewsCard` gained a `headingLevel` prop
+    (default `h3`, correct on the homepage under the `h2` "News & Updates"
+    section). `/news/` index passes `h2` so card titles follow its `h1`
+    without skipping a level.
+- Keyboard focus-order verification (static source inspection + live
+  Tab-key walk via Chrome DevTools) uncovered and fixed a **serious
+  site-wide regression**: `Dialog.vue`'s `<Teleport to="body">`
+  mishydrated under Astro's `client:idle` island boundary and destroyed
+  the skip-links `<nav>` on every page (WCAG 2.4.1 Bypass Blocks, Level
+  A). axe-core and Lighthouse missed it because they run before
+  `client:idle` fires. Removed the Teleport — a native `<dialog>` opened
+  with `showModal()` is top-layer-promoted and never needed it; modal
+  display, `::backdrop`, and the native focus trap all still verified.
+- `tests/e2e/skip-links.spec.ts` — regression guard that explicitly waits
+  past `client:idle` hydration before asserting both skip links survive
+  and stay `<body>`'s first child.
+- Full Playwright e2e suite green throughout — 162 tests
+  (was 147 before the skip-links guard).
+
+---
+
 ## v0.5.0 — 2026-05-14
 
 ### Phase 5 — Sitemap + JSON-LD + AI readiness + Plausible guard
