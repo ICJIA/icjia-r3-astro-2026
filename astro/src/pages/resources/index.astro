@@ -1,57 +1,155 @@
 ---
 // astro/src/pages/resources/index.astro
+//
+// /resources/ — port of the Nuxt pages/resources/index.vue: a 3-up grid of
+// elevated image cards (cover photo, centred title, "Find out more »"),
+// ordered by the Strapi `ranking` field, with a "single page" link below.
+
 import BaseLayout from '~/layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 const all = await getCollection('resources');
-const sorted = [...all].sort((a, b) => a.data.title.localeCompare(b.data.title));
+// The live /resources/ page orders by Strapi `ranking` ascending.
+const sorted = [...all].sort(
+  (a, b) => (a.data.ranking ?? 999) - (b.data.ranking ?? 999),
+);
 ---
 
-<BaseLayout title="Resources" description="Guides and reference materials for R3 grant applicants.">
+<BaseLayout
+  title="Resources"
+  description="Access resources, toolkits, and informational materials to help you navigate the R3 (Restore, Reinvest, Renew) program."
+>
   <div class="page-wrap">
-    <h1>Resources</h1>
-    <ul class="resource-list" role="list">
+    <h1>R3 Resources</h1>
+
+    <ul class="resource-grid" role="list">
       {sorted.map((r) => (
-        <li>
-          <a href={r.data.path} class="resource-link">
-            <h2>{r.data.title}</h2>
-            {r.data.summary && <p>{r.data.summary}</p>}
+        <li class="resource-card">
+          <a class="resource-card__link" href={r.data.path}>
+            {r.data.coverURL && (
+              <Image
+                class="resource-card__img"
+                src={r.data.coverURL}
+                alt=""
+                inferSize
+                widths={[400, 800]}
+                sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 33vw"
+                loading="lazy"
+              />
+            )}
+            <h2 class="resource-card__title">{r.data.title}</h2>
+            <span class="resource-card__cta">Find out more&nbsp;&raquo;</span>
           </a>
         </li>
       ))}
     </ul>
+
     <p class="resource-aside">
-      <a href="/resources/single-page/">View all resources on a single page →</a>
+      <a href="/resources/single-page/">
+        Show all R3 resources on a single page (mobile-friendly)&nbsp;&raquo;
+      </a>
     </p>
   </div>
 </BaseLayout>
 
 <style>
-  .page-wrap { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
-  .resource-list { list-style: none; padding: 0; margin: 1.5rem 0; display: grid; gap: 1rem; }
-  .resource-link {
-    display: block;
-    background: #fff;
-    border: 1px solid var(--color-r3-card-border);
-    border-radius: 6px;
-    padding: 1rem 1.25rem;
-    color: inherit;
-    text-decoration: none;
-    min-height: 44px;
+  .page-wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
   }
-  .resource-link:hover, .resource-link:focus-visible {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    outline: 2px solid var(--color-r3-primary);
+
+  .resource-grid {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 960px) {
+    .resource-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    .resource-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .resource-card {
+    display: flex;
+  }
+  .resource-card__link {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 11px 15px rgba(0, 0, 0, 0.2), 0 9px 46px rgba(0, 0, 0, 0.12);
+    padding: 1rem 0.75rem 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .resource-card__link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 20px rgba(0, 0, 0, 0.25), 0 12px 50px rgba(0, 0, 0, 0.16);
+  }
+  .resource-card__link:focus-visible {
+    outline: 3px solid var(--color-r3-primary, #0d4474);
     outline-offset: 2px;
   }
-  .resource-link h2 { margin: 0 0 0.25rem; color: var(--color-r3-primary); font-size: 1.125rem; }
-  .resource-link p { margin: 0; color: var(--color-r3-text-muted); }
-  .resource-aside { margin-top: 2rem; }
+
+  .resource-card__img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .resource-card__title {
+    margin: 1rem 0 0.75rem;
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: var(--color-r3-primary, #0d4474);
+  }
+
+  .resource-card__cta {
+    margin-top: auto;
+    align-self: center;
+    background: var(--color-r3-primary, #0d4474);
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 14px;
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 4px;
+  }
+  .resource-card__link:hover .resource-card__cta {
+    background: #062a47;
+  }
+
+  .resource-aside {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 14px;
+  }
   .resource-aside a {
-    color: var(--color-r3-primary);
+    color: var(--color-r3-primary, #0d4474);
     text-decoration: underline;
     min-height: 44px;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
   }
 </style>

@@ -1,18 +1,15 @@
 ---
 // astro/src/pages/research/index.astro
 //
-// Lists Research Hub articles (hubArticles collection — rows tagged
-// 'r3', 'cannabis', or 'all research'). Articles link OUT to the live Hub
-// site rather than being re-rendered locally — preserves current behavior.
+// /research/ — port of the Nuxt pages/research/index.vue: a 2-up grid of
+// elevated cards (date | type, title, Hub splash image, abstract,
+// "Read Article (Web) »"). Each card links OUT to the live Research Hub.
 //
-// Hub article URL pattern verified against the legacy Nuxt pages/research/index.vue
-// (gotoArticle function, line ~391):
-//   https://icjia.illinois.gov/researchhub/articles/<slug>
-// This is the canonical public Hub URL used by the production Nuxt site.
+// The hubArticles collection is exclusively Hub articles (filtered by
+// HUB_TAGS), so the type label is always "Article" — matching the live page.
 
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { formatDate } from '~/lib/dateFormat';
 
 const all = await getCollection('hubArticles');
 const sorted = [...all].sort(
@@ -21,40 +18,74 @@ const sorted = [...all].sort(
     new Date(a.data.date ?? a.data.createdAt ?? 0).getTime(),
 );
 
-function hubArticleURL(slug: string): string {
-  // Canonical Hub article URL — matches legacy Nuxt gotoArticle() implementation.
-  // Pattern: https://icjia.illinois.gov/researchhub/articles/<slug>
-  return `https://icjia.illinois.gov/researchhub/articles/${slug}`;
+// Faithful port of the Nuxt research page's formatDate — full month name,
+// same `toLocaleDateString` call so build output matches the live site.
+function formatResearchDate(d: string | undefined): string {
+  if (!d) return '';
+  return new Date(d).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 }
+
+function truncate(s: string | null | undefined, n = 850): string {
+  if (!s) return '';
+  return s.length <= n ? s : `${s.slice(0, n)}...`;
+}
+
+const hubArticleURL = (slug: string): string =>
+  `https://icjia.illinois.gov/researchhub/articles/${slug}`;
 ---
 
 <BaseLayout
   title="Research"
-  description="ICJIA research hub articles tagged R3."
+  description="Explore R3 research, publications, and data-driven resources from the Illinois Criminal Justice Information Authority (ICJIA)."
 >
   <div class="page-wrap">
-    <h1>Research</h1>
-    <p>
-      The <a href="https://icjia.illinois.gov" target="_blank" rel="noopener noreferrer">Illinois Criminal Justice Information Authority (ICJIA)</a>
+    <h1>R3 Research</h1>
+    <p class="research-intro">
+      The
+      <a href="https://icjia.illinois.gov" target="_blank" rel="noopener noreferrer">
+        Illinois Criminal Justice Information Authority (ICJIA)</a>
       is the state's lead agency on justice funding and research.
-      <a href="https://icjia.illinois.gov/researchhub" target="_blank" rel="noopener noreferrer">ICJIA's Research Hub</a>
-      provides a host of resources (publications, continuums, dashboards, datasets)
-      to support data-driven decision-making for improved outcomes.
+      <a href="https://icjia.illinois.gov/researchhub" target="_blank" rel="noopener noreferrer">
+        ICJIA's Research Hub</a>
+      provides a host of resources (publications, continuums, dashboards,
+      datasets) to support data-driven decision-making for improved outcomes.
     </p>
-    <ul class="research-list" role="list">
+
+    <ul class="research-grid" role="list">
       {sorted.map((a) => (
         <li class="research-card">
-          <article>
-            <time datetime={a.data.date ?? a.data.createdAt}>
-              {formatDate(a.data.date ?? a.data.createdAt)}
-            </time>
-            <h2>
-              <a href={hubArticleURL(a.data.slug)} rel="noopener noreferrer" target="_blank">
-                {a.data.title}
-              </a>
-            </h2>
-            {a.data.abstract && <p>{a.data.abstract}</p>}
-          </article>
+          <a
+            class="research-card__link"
+            href={hubArticleURL(a.data.slug)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <p class="research-card__meta">
+              <span class="research-card__date">
+                {formatResearchDate(a.data.date ?? a.data.createdAt)}
+              </span>
+              <span class="research-card__sep" aria-hidden="true"> | </span>
+              <span class="research-card__type">Article</span>
+            </p>
+            <h2 class="research-card__title">{a.data.title}</h2>
+            <img
+              class="research-card__img"
+              src={`/hub-images/${a.data._id}-splash.jpeg`}
+              alt=""
+              width="800"
+              height="200"
+              loading="lazy"
+              decoding="async"
+            />
+            {a.data.abstract && (
+              <p class="research-card__abstract">{truncate(a.data.abstract)}</p>
+            )}
+            <span class="research-card__cta">Read Article (Web)&nbsp;&raquo;</span>
+          </a>
         </li>
       ))}
     </ul>
@@ -62,16 +93,99 @@ function hubArticleURL(slug: string): string {
 </BaseLayout>
 
 <style>
-  .page-wrap { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
-  .research-list { list-style: none; padding: 0; margin: 1.5rem 0; display: grid; gap: 1.5rem; }
-  .research-card article {
-    background: #fff;
-    border: 1px solid var(--color-r3-card-border);
-    border-radius: 6px;
-    padding: 1rem 1.25rem;
+  .page-wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
   }
-  .research-card time { font-size: 0.75rem; font-weight: 700; color: var(--color-r3-text-muted); }
-  .research-card h2 { margin: 0.25rem 0 0.5rem; font-size: 1.125rem; line-height: 1.4; }
-  .research-card h2 a { color: var(--color-r3-primary); text-decoration: underline; min-height: 44px; display: inline-flex; align-items: center; }
-  .research-card p { margin: 0; line-height: 1.5; }
+
+  .research-intro {
+    max-width: 1080px;
+    line-height: 1.6;
+  }
+
+  .research-grid {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  @media (max-width: 768px) {
+    .research-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .research-card {
+    display: flex;
+  }
+  .research-card__link {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16), 0 3px 14px rgba(0, 0, 0, 0.12);
+    padding: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .research-card__link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.16);
+  }
+  .research-card__link:focus-visible {
+    outline: 3px solid var(--color-r3-primary, #0d4474);
+    outline-offset: 2px;
+  }
+
+  .research-card__meta {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  .research-card__date {
+    font-weight: 700;
+    color: #000000;
+    text-transform: uppercase;
+  }
+  .research-card__type {
+    font-weight: 400;
+    color: #555555;
+    text-transform: uppercase;
+  }
+
+  .research-card__title {
+    margin: 1.25rem 0 0.75rem;
+    font-weight: 900;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    color: var(--color-r3-text, #1a1a1a);
+  }
+
+  .research-card__img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid #fafafa;
+    margin-bottom: 1.25rem;
+  }
+
+  .research-card__abstract {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .research-card__cta {
+    margin-top: 1.25rem;
+    align-self: flex-end;
+    color: var(--color-r3-primary, #0d4474);
+    font-weight: 900;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
 </style>

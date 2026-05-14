@@ -247,13 +247,14 @@ const faqs = defineCollection({
 //
 // Live introspection of `Resource` type (2026-05-08) confirmed these fields
 // exist: title, slug, summary, body, searchMeta, ranking (Int), cover
-// (UploadFileEntityResponse — relational, omitted), showTableOfContents,
+// (UploadFileEntityResponse — relational), showTableOfContents,
 // hideFromSitemap, hideFromSearch, createdAt, updatedAt, publishedAt.
 //
-// `ranking` (Int) exists on the live API but is intentionally omitted from
-// the query — Phase 4b list pages sort by title. If Strapi ranking-based
-// ordering is required later, add `ranking: z.number().nullable().optional()`
-// to the schema and include `ranking` in the GQL attributes list.
+// `ranking` (Int) and `cover` (the card thumbnail) are BOTH queried — the live
+// /resources/ page is a ranking-ordered image-card grid, so both are required
+// for visual parity. `cover` is a Strapi v4 relational upload; the GQL shape is
+// `cover { data { attributes { url } } }`. `coverURL` is flattened in the
+// transform via `absoluteMediaURL`.
 //
 // The following plan-listed fields do NOT exist on `Resource` and are omitted:
 //   - mediaTitle  (GRAPHQL_VALIDATION_FAILED: "Cannot query field")
@@ -268,8 +269,9 @@ const resources = defineCollection({
         data {
           id
           attributes {
-            title slug summary body searchMeta
+            title slug summary body searchMeta ranking
             hideFromSitemap hideFromSearch showTableOfContents
+            cover { data { attributes { url } } }
             createdAt updatedAt publishedAt
           }
         }
@@ -284,6 +286,20 @@ const resources = defineCollection({
       summary: z.string().nullable().optional(),
       body: z.string().nullable().optional(),
       searchMeta: z.string().nullable().optional(),
+      ranking: z.number().nullable().optional(),
+      cover: z
+        .object({
+          data: z
+            .object({
+              attributes: z
+                .object({ url: z.string().nullable().optional() })
+                .partial(),
+            })
+            .nullable()
+            .optional(),
+        })
+        .nullable()
+        .optional(),
       hideFromSitemap: z.boolean().optional(),
       hideFromSearch: z.boolean().optional(),
       showTableOfContents: z.boolean().optional(),
@@ -295,6 +311,7 @@ const resources = defineCollection({
       ...data,
       rawText: rawText(data.body ?? ''),
       path: ensureTrailingSlash(`/resources/${data.slug}`),
+      coverURL: absoluteMediaURL(data.cover?.data?.attributes?.url),
     })),
 });
 
