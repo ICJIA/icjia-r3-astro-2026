@@ -9,7 +9,6 @@ import '~/styles/global.css';
 import SkipLinks from '~/components/SkipLinks.astro';
 import SiteNav from '~/components/SiteNav.astro';
 import SiteFooter from '~/components/SiteFooter.astro';
-import Breadcrumb from '~/components/Breadcrumb.astro';
 import Dialog from '~/components/Dialog.vue';
 import { websiteSchema } from '~/lib/schemas';
 
@@ -110,7 +109,8 @@ const ldJSON = websiteSchema();
       role="main"
       style={`padding-top: 90px; background: ${pageBackground}; min-height: 100vh; flex: 1 0 auto;`}
     >
-      <Breadcrumb />
+      <!-- No breadcrumb bar: the live site keeps TheBreadcrumbBar commented
+           out in app.vue, so an invisible migration renders none either. -->
       <slot />
     </main>
     <SiteFooter />
