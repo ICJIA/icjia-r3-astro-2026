@@ -1,37 +1,5 @@
+# Root-level ignores. The Astro app carries its own astro/.gitignore for
+# build output, generated types, test artifacts, env files, etc.
 node_modules
-*.log*
-.nuxt
-.nitro
-.cache
-.output
-.env
-dist
-public/hub-images/*
-public/siteMeta.json
-public/sitemap.json
-public/posts.json
-public/pages.json
-public/resources.json
-public/routesFaqs.json
-public/routesPages.json
-public/routesFaqs.json
-public/routesResources.json
-public/routesNews.json
-public/sitemap.xml
-assets/json/appRoutes.json
-assets/json/searchIndex.json
-assets/json/faqs.json
-assets/json/resources.json
-public/faqs.json
-public/manual.json
-
-content/*
-src/hub.json
-src/faqs.json
-src/resources.json
-src/faqCategories.json
-
-# Generated test and audit files
-test-results.json
-audit-output.log
-coverage/
+.DS_Store
+*.log

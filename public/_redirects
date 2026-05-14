@@ -1,4 +1,0 @@
-# Empty _redirects file to disable Netlify's default SPA fallback
-# This ensures pre-rendered static files from Nuxt Content are served correctly
-# See: https://answers.netlify.com/t/nuxt-generate-deployed-but-wont-load-page-properly/82950
-

@@ -1,109 +1,100 @@
 # ICJIA R3 Program Website
 
-![R3 - Restore. Reinvest. Renew.](public/og-image.png)
+![R3 - Restore. Reinvest. Renew.](astro/public/og-image.png)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
-![Node](https://img.shields.io/badge/Node-22.14.0-339933?logo=node.js&logoColor=white)
-![Nuxt](https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxtdotjs&logoColor=white)
+![Node](https://img.shields.io/badge/Node-22.22.2-339933?logo=node.js&logoColor=white)
+![Astro](https://img.shields.io/badge/Astro-6-FF5D01?logo=astro&logoColor=white)
 
 Official website for Illinois' R3 (Restore, Reinvest, Renew) program.
 
-🌐 **Live Site**: [https://r3.illinois.gov](https://r3.illinois.gov)  
-📚 **Documentation Portal**: [https://r3.illinois.gov/docs/](https://r3.illinois.gov/docs/)  
-🤖 **LLM Context**: [ICJIA_LLM_BLUEPRINT.md](./markdown-documentation/ICJIA_LLM_BLUEPRINT.md) (Use this for AI context)
+🌐 **Live Site**: [https://r3.illinois.gov](https://r3.illinois.gov)
 
 ---
 
-## 🚀 Quick Start
+## Stack
+
+- **Framework**: Astro 6 (`output: 'static'`), Tailwind CSS 4 via `@tailwindcss/vite`
+- **Islands**: Vue 3 via `@astrojs/vue` — only the Search, Dialog, and Contact
+  form hydrate; every other component ships zero JavaScript
+- **Content**: live Strapi (`r3.icjia-api.cloud`) + Research Hub
+  (`researchhub.icjia-api.cloud`) GraphQL, fetched and zod-validated at build
+  time — no markdown fixtures on disk, no prebuild step
+- **Hosting**: Netlify (build base = `astro/`)
+- **Analytics**: Plausible (`plausible.icjia.cloud`)
+
+## Quick start
 
 ```bash
-# 1. Setup
-nvm use && yarn install
-
-# 2. Content Generation (Strapi CMS -> Markdown)
-yarn scripts
-
-# 3. Development
-yarn dev  # Runs at http://localhost:8000
+cd astro
+nvm use         # Node 22.22.2
+yarn install
+yarn dev        # http://localhost:4321
+yarn build      # writes astro/dist/
+yarn preview    # serves astro/dist/
+yarn test       # vitest unit tests
+yarn test:e2e   # playwright e2e (mobile / tablet / desktop)
+./scripts/check-all.sh   # full pre-push gate: check + test + build + e2e
 ```
 
-## 🛠 Standards & Architecture
-- **Framework**: Nuxt 4, Vue 3, Vuetify 3.
-- **Config**: Centralized `config.js` (No `.env` files for public API paths).
-- **SEO**: Lighthouse 100/100 via `usePageSeo` and JSON-LD.
-- **Accessibility**: 100/100 WCAG 2.1 AAA (0 axe violations at AAA level).
-- **Docs**: Mandatory WCAG 2.1 AAA portal at `/docs/`.
+## Project structure
 
-## 📂 Documentation Index
-| File | Description |
-| :--- | :--- |
-| **[LLM Blueprint](./markdown-documentation/ICJIA_LLM_BLUEPRINT.md)** | **Start Here**. Essential info for AI/Developers. |
-| [Netlify Deployment](./markdown-documentation/NETLIFY_DEPLOYMENT_V1.md) | Image CDN, CSP, and deployment policies. |
-| [SEO Guide](./markdown-documentation/SEO_IMPLEMENTATION_GUIDE.md) | Patterns for Meta tags and Structured Data. |
-| [Config System](./markdown-documentation/CONFIG_SYSTEM.md) | How the centralized config works. |
-| [Audit Guide](./markdown-documentation/DOCUMENTATION_PORTAL_PROMPT_V4_OPTIMIZED.md) | Accessibility auditing and portal generation. |
-| [Changelog](./CHANGELOG.md) | Security audit, accessibility audit, and blue team summaries. |
+- `astro/` — the website source (this is the entire app)
+- `astro/CHANGELOG.md` — granular per-release changelog
+- `astro/MIGRATION.md` — per-phase migration record (baselines, verification)
+- `docs/superpowers/specs/` — design spec
+- `docs/superpowers/plans/` — implementation plan
+- `netlify.toml` — Netlify build config + security headers (build base `astro/`)
 
-## Security Posture (Red Team Audit -- March 2026)
+## Standards
 
-A red team security review simulates how an attacker would probe the application for weaknesses. The full audit covered XSS (cross-site scripting), injection attacks, dependency vulnerabilities, Content Security Policy, CORS, authentication, and data exposure. See [CHANGELOG.md](./CHANGELOG.md) for the complete findings.
+- **Mobile Lighthouse Performance**: ≥ 95 on every route
+- **Accessibility**: 100 on every route — WCAG 2.1 AA, IITAA, ADA Title II
+- **Best Practices**: 100 on every route
+- **SEO**: 100 on every route
 
-**9 findings identified. 5 mitigated, 2 accepted, 2 require backend changes:**
+## Accessibility
 
-| Severity | Finding | Status |
-|----------|---------|--------|
-| Critical | CSP allowed `'unsafe-eval'` | **MITIGATED** -- Removed from CSP header |
-| Critical | CORS wildcard (`*`) | **MITIGATED** -- Header removed entirely |
-| Critical | axios SSRF vulnerability | **MITIGATED** -- Upgraded to v1.13.6 |
-| High | No server-side form validation | Requires backend API changes (outside this repo) |
-| High | No rate limiting | Requires backend API or gateway changes |
-| High | No CSRF tokens | **PARTIALLY MITIGATED** by CORS fix |
-| Medium | Unrestricted iframe in DOMPurify | **MITIGATED** -- Iframes now whitelisted to ArcGIS domains only |
-| Medium | `'unsafe-inline'` in CSP | **ACCEPTED** -- Required by Vuetify framework |
-| Medium | Public audit reports | **ACCEPTED** -- Required for IITAA compliance transparency |
+Accessibility is verified two ways on every build:
 
-**What passed:** No hardcoded secrets, proper DOMPurify sanitization on all rendered HTML, devtools disabled, route whitelist validation, safe redirect handling, no file uploads, no `eval()` usage, privacy-focused analytics.
+- **axe-core sweep** — `tests/e2e/a11y-sweep.spec.ts` runs axe-core
+  (`wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa`) against every route in the
+  emitted `sitemap.xml`, across mobile / tablet / desktop viewports.
+- **Lighthouse** — accessibility score audited per route via the `lightcap`
+  Lighthouse runner.
 
-## Defensive Security (Blue Team Summary -- March 2026)
+The full axe-core results and any mitigations are recorded below — see
+[**Accessibility audit results**](#accessibility-audit-results).
 
-The blue team review documents existing security measures already protecting users:
+### Accessibility audit results
 
-- **Static site generation (SSG)**: No runtime server processing eliminates SQL injection, remote code execution, and most server-side attacks
-- **Strong HTTP headers**: X-Frame-Options, X-Content-Type-Options, Referrer-Policy, and CSP are all configured in `netlify.toml`
-- **Input sanitization**: DOMPurify v3.2.6 sanitizes all user inputs and CMS-sourced HTML before rendering
-- **No authentication surface**: No user accounts, sessions, or credentials to steal
-- **Privacy-first analytics**: Plausible Analytics (no cookies, no personal data, GDPR-compliant)
-- **Whitelisted domains**: Both image sources and API connections are restricted to approved domains via CSP and Nuxt config
+_Populated by the latest full axe-core sweep against the built `sitemap.xml`._
 
-## Lighthouse Audit (April 2026)
+<!-- AXE-AUDIT-RESULTS -->
 
-Full Lighthouse audit across all pages. All pages score **100 for Accessibility**, **100 for SEO**, and **100 for Best Practices**. Production performance: 6 of 9 pages score **100**, remaining pages 88-97. See [CHANGELOG.md](./CHANGELOG.md) for detailed scores and fixes.
+## Security
 
-| Page | Perf | A11y | BP | SEO |
-|------|------|------|----|-----|
-| `/` | 96 | 100 | 100 | 100 |
-| `/contact` | 100 | 100 | 100 | 100 |
-| `/faqs` | 97 | 100 | 100 | 100 |
-| `/news` | 88 | 100 | 100 | 100 |
-| `/research` | 100 | 100 | 100 | 100 |
-| `/resources` | 100 | 100 | 100 | 100 |
-| `/search` | 100 | 100 | 100 | 100 |
-| `/translate` | 100 | 100 | 100 | 100 |
+The site inherits the security posture established in the March 2026 red-team
+review and carried through the Astro rebuild:
 
-Key optimizations: lazy-loaded Fuse.js/DOMPurify/axios to eliminate render-blocking JS, trailing slash normalization for consistent Plausible analytics, SSR hydration fixes for deterministic date formatting, and static `useAsyncData` keys to prevent payload mismatches with Netlify Pretty URLs.
+- **Static generation** — no runtime server, eliminating SQL injection, RCE,
+  and most server-side attack surface
+- **Content-Security-Policy + hardened headers** — CSP, `X-Frame-Options`,
+  `X-Content-Type-Options`, `Referrer-Policy`, `X-XSS-Protection` are set in
+  `netlify.toml`; no `'unsafe-eval'`, no CORS wildcard
+- **HTML sanitization** — all Strapi-sourced markdown is rendered through
+  `markdown-it` + DOMPurify; iframes are whitelisted to ArcGIS domains only
+- **No authentication surface** — no accounts, sessions, or credentials
+- **Privacy-first analytics** — Plausible (no cookies, no personal data)
+- **Whitelisted origins** — image and `connect-src` origins are restricted to
+  approved hosts via the CSP
 
-## Accessibility Audit (March 2026)
+## Migration history
 
-Full axe-core WCAG 2.1 Level AA audit across all 25 pages in 3 viewports (desktop, tablet, mobile):
-
-| Metric | Result |
-|--------|--------|
-| Pages tested | 25 |
-| Individual tests | 6,775 |
-| Violations found | **0** |
-| Skip link verification | **Pass** (all pages) |
-
-Compliant with **WCAG 2.1 AA**, **IITAA** (Illinois state standard), and **ADA Title II**. Full report at `/docs/accessibility/`.
+This site was rebuilt from Nuxt 4 + Vuetify 3 to Astro 6 + Tailwind 4. The
+Nuxt-era source remains in this repository's git history (and on the `main`
+branch until cutover). See `astro/CHANGELOG.md` and `astro/MIGRATION.md` for
+the per-phase record, and `docs/superpowers/specs/` for the design spec.
 
 ---
 *Maintained by the ICJIA Web Development Team.*
