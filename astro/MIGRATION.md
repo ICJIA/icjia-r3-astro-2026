@@ -296,3 +296,105 @@ position, so the teleport was never necessary. The `<dialog>` now stays as
 the island root; skip links survive hydration; modal display, `::backdrop`,
 and the native focus trap all still work (verified live). Full e2e suite
 (147 tests) green after the change.
+
+## Phase 7 — Performance polish (2026-05-14)
+
+All audits: lightcap MCP, Lighthouse v13, mobile preset, against
+`astro preview` on `127.0.0.1:4321`.
+
+### Baseline (Astro, before tuning)
+
+The first audit pass found **every route already ≥ 95** except the
+homepage, which was unstable: repeated runs returned 96 → 95 → 94 → 93
+with LCP climbing 2.8s → 3.2s. Cause: the two splash images and four
+"Applicant Tools" photos were raw `<img>` tags pointing at full-size
+Strapi JPEGs on `r3.icjia-api.cloud` — every audit re-fetched them
+cross-origin, so LCP tracked Strapi's response-time variance.
+
+| Route | Perf (baseline) |
+|---|---:|
+| `/` | 93–96 (unstable) |
+| `/eligibility/` | 99 |
+| `/contact/` | 100 |
+| `/collaboratives/` | 99 |
+| `/board/` | 99 |
+| `/faqs/` | 100 |
+| `/funding/` | 99 |
+| `/meetings/` | 99 |
+| `/privacy/` | 100 |
+| `/news/` | 99 |
+| `/news/r3-2022-annual-report/` | 99 |
+| `/resources/` | 98 |
+| `/resources/spanish-language-materials/` | 100 |
+| `/resources/single-page/` | 99 |
+| `/research/` | 99 |
+| `/search/` | 99 |
+| `/translate/` | 99 |
+| `/404/` | 100 |
+
+A11y = 100 every route (Phase 6). BP = 100 every route except
+`/eligibility/` = 96 — the ArcGIS storymap iframe logs entries in the
+Chrome DevTools Issues panel, the *exact* pre-existing item the Nuxt P0
+baseline also carried (Phase 0 table). SEO = 100 every route.
+
+### Task 7.2 fix — homepage images → Astro `<Image>`
+
+The homepage was the only route under the ≥95 bar. Fix: converted
+`HomeSplashCard.astro` and `HomePhotoBoxes.astro` from raw `<img>` to
+Astro's `<Image>` (`inferSize` + `widths` + `sizes`), and authorized
+`r3.icjia-api.cloud` in `astro.config.ts` `image.domains`. Astro now
+fetches those images at build time, emits responsive optimized webp into
+`/_astro/`, and serves them from the site's own origin — no runtime
+Strapi round-trip. The LCP image dropped 100 kB JPEG → 21 kB webp (400w
+mobile variant). The stale `preloadImages` prop (it pointed at the
+now-unused Strapi URL) was removed; `<Image loading="eager"
+fetchpriority="high">` carries LCP priority. `home.spec.ts`'s preload
+assertion was rewritten to test the real intent — eager, high-priority,
+locally-optimized.
+
+### Final (Astro, after tuning) — vs Nuxt P0 baseline
+
+| Route | Perf | A11y | BP | SEO | Nuxt P0 | Δ |
+|---|---:|---:|---:|---:|---:|---:|
+| `/` | 98 | 100 | 100 | 100 | 65 | +33 |
+| `/eligibility/` | 99 | 100 | 96 | 100 | 52 | +47 |
+| `/contact/` | 100 | 100 | 100 | 100 | 93 | +7 |
+| `/collaboratives/` | 99 | 100 | 100 | 100 | 60 | +39 |
+| `/board/` | 99 | 100 | 100 | 100 | 84 | +15 |
+| `/faqs/` | 100 | 100 | 100 | 100 | 63 | +37 |
+| `/funding/` | 99 | 100 | 100 | 100 | 65 | +34 |
+| `/meetings/` | 99 | 100 | 100 | 100 | 89 | +10 |
+| `/privacy/` | 100 | 100 | 100 | 100 | 88 | +12 |
+| `/news/` | 99 | 100 | 100 | 100 | n/a | — |
+| `/news/r3-2022-annual-report/` | 99 | 100 | 100 | 100 | 88 | +11 |
+| `/resources/` | 98 | 100 | 100 | 100 | 72 | +26 |
+| `/resources/spanish-language-materials/` | 100 | 100 | 100 | 100 | 89 | +11 |
+| `/resources/single-page/` | 99 | 100 | 100 | 100 | 87 | +12 |
+| `/research/` | 99 | 100 | 100 | 100 | n/a | — |
+| `/search/` | 99 | 100 | 100 | 100 | 93 | +6 |
+| `/translate/` | 99 | 100 | 100 | 100 | 91 | +8 |
+| `/404/` | 100 | 100 | 100 | 100 | n/a | — |
+
+`/` post-fix: stable across 3 runs (98, 97, 98), LCP 2.3–2.5s. The other
+17 routes were unchanged by the fix (`HomeSplashCard` / `HomePhotoBoxes`
+are homepage-only) — re-spot-checked `/contact/` 100, `/eligibility/` 99,
+`/resources/` 98, all matching baseline.
+
+**Astro mobile Perf average ≈ 99.2** (Nuxt P0 average ≈ 79). Every route
+≥ 95, exceeding the Phase 7 exit criteria (≥ 95 every route, average
+≥ 98).
+
+### Known headroom (not blocking — exit criteria met)
+
+- **Render-blocking CSS ~570 ms, every route.** The `BaseLayout` CSS
+  bundle (~50 kB Tailwind + global) exceeds Astro's
+  `inlineStylesheets: 'auto'` inline threshold, so it ships as a
+  render-blocking `<link>`. Switching to `inlineStylesheets: 'always'`
+  would eliminate it but inlines ~50 kB into every page (no cross-page
+  CSS caching) — a real trade-off the plan deliberately did not call for.
+- **Homepage `image-delivery` ~122 kB.** The director-letter photo
+  (`public/DirectorAdamsResized.jpg`, 1000×1043, 87 kB, displayed
+  140×140, below-the-fold + lazy) is the main remaining offender.
+  Converting it needs the file moved into `src/assets/`; left as-is
+  because it does not affect LCP/FCP and the homepage already scores
+  97–98.
