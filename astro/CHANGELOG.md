@@ -6,6 +6,30 @@ chronological order.
 
 ---
 
+## v0.10.0 — 2026-05-15
+
+### Public-facing accessibility audit report
+
+A live audit report is now published at `/documentation/accessibility/`
+(modeled on `dvfr.illinois.gov/docs/accessibility/`) showing the latest
+axe-core sweep across desktop / tablet / mobile viewports for every URL
+in the sitemap. Current snapshot: 25 pages × 3 viewports = 75 scans,
+**0 violations**, 1770 axe-rule passes, skip-link coverage 75/75.
+
+- New script: `astro/scripts/generate-a11y-report.mjs` — Playwright +
+  axe-core 4.11.4 + `@axe-core/playwright`. Reads `dist/sitemap-0.xml`,
+  audits each URL × 3 viewports against `http://localhost:4321/`
+  (configurable via `A11Y_BASE_URL`), and emits the styled HTML report.
+- Report page: `src/pages/documentation/accessibility/index.astro`
+  (initially shipped as a static `public/` file, then refactored to a
+  routed Astro page so both `/documentation/accessibility/` and
+  `/documentation/accessibility/index.html` resolve in dev and prod —
+  Astro dev's static-file handler doesn't directory-index `public/`).
+- Cloud `ultrareview` across the full `migration/astro-full → main` diff
+  returned zero findings.
+
+---
+
 ## v0.9.0 — 2026-05-15
 
 ### Phase 9 — Exhaustive accessibility audit + parity polish
