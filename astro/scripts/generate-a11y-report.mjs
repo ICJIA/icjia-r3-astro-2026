@@ -2,8 +2,9 @@
 // astro/scripts/generate-a11y-report.mjs
 //
 // Sitemap-driven axe-core sweep across desktop / tablet / mobile viewports.
-// Writes a styled HTML report to public/documentation/accessibility/index.html
-// modeled on https://dvfr.illinois.gov/docs/accessibility/.
+// Writes a styled HTML report to src/pages/documentation/accessibility/index.astro
+// (served at /documentation/accessibility/ — Astro routes both the trailing-slash
+// form and /index.html). Modeled on https://dvfr.illinois.gov/docs/accessibility/.
 //
 // Usage:
 //   yarn build                              # in one shell (emits dist/sitemap-0.xml)
@@ -27,7 +28,7 @@ const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..');
 
 const BASE_URL = process.env.A11Y_BASE_URL ?? 'http://localhost:4321';
-const OUT_HTML = path.join(ROOT, 'public/documentation/accessibility/index.html');
+const OUT_HTML = path.join(ROOT, 'src/pages/documentation/accessibility/index.astro');
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'];
 
 const VIEWPORTS = [
@@ -245,7 +246,7 @@ function renderHTML(d) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHTML(d.siteName)} — Accessibility Audit Report</title>
   <meta name="description" content="axe-core accessibility audit report for ${escapeHTML(d.siteName)}, ${escapeHTML(d.siteOrg)}.">
-  <style>
+  <style is:global>
     *, *::before, *::after { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
     body {
