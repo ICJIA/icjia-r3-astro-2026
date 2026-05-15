@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restore. Reinvest. Renew. (R3) — Accessibility Audit Report</title>
+  <meta name="description" content="axe-core accessibility audit report for Restore. Reinvest. Renew. (R3), Illinois Criminal Justice Information Authority (ICJIA).">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #fff;
+    }
+    a { color: #0d4474; text-decoration: underline; }
+    a:hover, a:focus { color: #062a48; }
+    a:focus-visible { outline: 3px solid #0d4474; outline-offset: 2px; }
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #ffd54f;
+      color: #1a1a1a;
+      padding: 0.5rem 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      z-index: 100;
+    }
+    .skip-link:focus { left: 0; }
+    h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 900;
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #1a1a1a;
+      line-height: 1.15;
+    }
+    h2 {
+      font-size: clamp(1.4rem, 3vw, 1.875rem);
+      font-weight: 900;
+      margin: 3rem 0 1rem;
+      line-height: 1.2;
+    }
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 1.75rem 0 0.5rem;
+    }
+    h4 {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      margin: 1.25rem 0 0.5rem;
+    }
+    p { margin: 0.6rem 0; }
+    ul, ol { margin: 0.6rem 0; padding-left: 1.75rem; }
+    li { margin: 0.25rem 0; }
+    code {
+      background: #f4f4f5;
+      padding: 0.125rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      word-break: break-all;
+    }
+    .description {
+      font-size: 1.0625rem;
+      color: #2a2a2a;
+      margin: 0 0 1.5rem;
+    }
+    .meta {
+      margin: 0.35rem 0;
+      font-size: 1rem;
+    }
+    .meta strong { color: #1a1a1a; }
+    .summary-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+      list-style: none;
+      padding: 0;
+    }
+    .summary-cards li { margin: 0; }
+    .card {
+      background: #d6f0d4;
+      border-radius: 6px;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+    }
+    .card-label {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #1a3a1a;
+    }
+    .card-value {
+      display: block;
+      font-size: clamp(2.5rem, 8vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-top: 0.5rem;
+      color: #0c2a0c;
+    }
+    .results-table-wrap {
+      overflow-x: auto;
+      margin: 1rem 0 2rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+    }
+    table.results {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    table.results thead {
+      background: #1a1a1a;
+      color: #fff;
+    }
+    table.results th {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      font-weight: 700;
+    }
+    table.results td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #e9e9e9;
+      vertical-align: middle;
+    }
+    table.results tbody tr:nth-child(even) td { background: #f7f7f8; }
+    table.results tbody tr:last-child td { border-bottom: none; }
+    .cell-pass {
+      background: #d6f0d4 !important;
+      color: #0c2a0c;
+      font-weight: 700;
+    }
+    .cell-fail {
+      background: #fde0e0 !important;
+      color: #6a1a1a;
+      font-weight: 700;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e0e0e0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    @media print {
+      body { max-width: none; padding: 0; }
+      .summary-cards { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <main id="main">
+    <h1>🔍 Restore. Reinvest. Renew. (R3) &mdash; Accessibility Audit Report</h1>
+    <p class="description">Accessibility audit report for the Restore. Reinvest. Renew. (R3) program website (Illinois Criminal Justice Information Authority (ICJIA)).</p>
+
+    <p class="meta"><strong>Generated:</strong> 05/15/2026, 08:06:17 AM</p>
+    <p class="meta"><strong>Environment:</strong> Development (http://localhost:4321)</p>
+    <p class="meta"><strong>axe-core version:</strong> 4.11.4</p>
+    <p class="meta"><strong>Pages tested:</strong> 25</p>
+    <p class="meta"><strong>Viewports tested:</strong> desktop, tablet, mobile</p>
+    <p class="meta"><strong>Themes tested:</strong> default</p>
+    <p class="meta"><strong>Repo access:</strong> Public &mdash; <a href="https://github.com/ICJIA/icjia-r3-v5-nuxt">github.com/ICJIA/icjia-r3-v5-nuxt</a></p>
+
+    <ul class="summary-cards" aria-label="Audit summary statistics">
+      <li>
+        <div class="card">
+          <span class="card-label">Total Violations</span>
+          <strong class="card-value">0</strong>
+        </div>
+      </li>
+      <li>
+        <div class="card">
+          <span class="card-label">Total Passes</span>
+          <strong class="card-value">1770</strong>
+        </div>
+      </li>
+      <li>
+        <div class="card">
+          <span class="card-label">Pages Passing</span>
+          <strong class="card-value">25<span style="font-size:0.5em;color:#1a3a1a;">/25</span></strong>
+        </div>
+      </li>
+      <li>
+        <div class="card">
+          <span class="card-label">Skip Links</span>
+          <strong class="card-value">75<span style="font-size:0.5em;color:#1a3a1a;">/75</span></strong>
+        </div>
+      </li>
+    </ul>
+
+    <h2 id="results">📋 All Tested Pages</h2>
+    <div class="results-table-wrap">
+      <table class="results" aria-describedby="results">
+        <thead>
+          <tr>
+            <th scope="col">URL</th>
+            <th scope="col">Viewport</th>
+            <th scope="col">Violations</th>
+            <th scope="col">Passes</th>
+            <th scope="col">Skip&nbsp;Link</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><code>/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>25</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>26</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>26</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/board/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>27</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/board/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>26</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/board/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>27</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/collaboratives/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/collaboratives/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>22</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/collaboratives/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>22</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/contact/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>28</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/contact/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>27</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/contact/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>27</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/eligibility/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>26</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/eligibility/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/eligibility/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/faqs/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/faqs/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/faqs/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/meetings/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/meetings/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>22</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/meetings/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>22</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/2021-01-21-release/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/2021-01-21-release/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>21</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/2021-01-21-release/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>21</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/2022-06-23-r3-grants-list/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/2022-06-23-r3-grants-list/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>21</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/2022-06-23-r3-grants-list/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>21</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/2023-04-06-annual-report-2023/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/2023-04-06-annual-report-2023/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>21</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/2023-04-06-annual-report-2023/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>21</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>25</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/icjia-awards-35-million-in-restore-reinvest-and-renew-r3-program-grants/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/lend-us-your-expertise-become-a-grant-application-reviewer/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/lend-us-your-expertise-become-a-grant-application-reviewer/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>21</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/lend-us-your-expertise-become-a-grant-application-reviewer/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>21</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/r3-2021-annual-report/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/r3-2021-annual-report/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>21</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/r3-2021-annual-report/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>21</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/r3-2022-annual-report/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/r3-2022-annual-report/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>22</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/r3-2022-annual-report/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>22</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/restore-reinvest-renew-r3-program-grants-apply-now/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>25</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/restore-reinvest-renew-r3-program-grants-apply-now/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/news/restore-reinvest-renew-r3-program-grants-apply-now/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/privacy/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/privacy/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>22</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/privacy/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>22</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/research/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>25</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/research/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>25</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/research/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>25</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/ampli-fund-portal-guide-and-tip-sheet/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/ampli-fund-portal-guide-and-tip-sheet/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/ampli-fund-portal-guide-and-tip-sheet/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/prequalification-steps/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>25</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/prequalification-steps/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/prequalification-steps/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/single-page/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>25</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/single-page/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/single-page/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/spanish-language-materials/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>24</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/spanish-language-materials/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/spanish-language-materials/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/video-resources/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>23</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/video-resources/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>21</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/resources/video-resources/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>21</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/search/</code></td>
+          <td>desktop</td>
+          <td>0</td>
+          <td>27</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/search/</code></td>
+          <td>tablet</td>
+          <td>0</td>
+          <td>25</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        <tr>
+          <td><code>/search/</code></td>
+          <td>mobile</td>
+          <td>0</td>
+          <td>25</td>
+          <td class="cell-pass">✅</td>
+          <td class="cell-pass">✅ Pass</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="about-axe">About axe-core</h2>
+    <h3>What does axe-core test for?</h3>
+    <ul>
+      <li>Semantic HTML structure (headings, landmarks, lists)</li>
+      <li>Keyboard navigation and focus management</li>
+      <li>Color contrast (programmatically — over solid backgrounds only)</li>
+      <li>Form labels and field associations</li>
+      <li>Alternative text on images and decorative-image conventions</li>
+      <li>ARIA roles, states, properties, and valid attribute values</li>
+      <li>Page-level requirements (document title, lang attribute, viewport meta)</li>
+      <li>Interactive element accessible names (buttons, links, controls)</li>
+      <li>Duplicate IDs that would confuse assistive tech</li>
+    </ul>
+
+    <h3>Why is axe-core critical for accessibility?</h3>
+    <p>
+      axe-core is the industry-standard automated accessibility testing engine, used by
+      Microsoft, Google, the U.S. federal government, and most accessibility-conformance
+      tools. Automated audits catch roughly 30&ndash;40% of WCAG conformance issues; the
+      remainder (text-over-image contrast, keyboard traps, screen-reader experience,
+      meaningful sequence) require human review. axe-core eliminates the large class of
+      <em>regressions</em> that would otherwise reach production undetected, and is run on
+      every build of this site via the Playwright e2e sweep at
+      <code>tests/e2e/a11y-sweep.spec.ts</code>.
+    </p>
+
+    <h3>Rule Categories in This Audit</h3>
+    <ul>
+      <li><strong>WCAG 2.1 Level A &amp; AA</strong> &mdash; the legal-conformance bar for ADA Title II / IITAA / Section 508 (the target this site is audited against).</li>
+      <li><strong>Best-practice rules</strong> &mdash; landmark structure, heading order, and other Deque-recommended checks beyond strict WCAG.</li>
+      <li><strong>Experimental rules</strong> &mdash; not included in this audit (only stable WCAG 2.1 A/AA tagged rules are run).</li>
+    </ul>
+
+    <h3>Configured Rules</h3>
+    <p>The audit runs every axe-core rule tagged <code>wcag2a</code>, <code>wcag2aa</code>, <code>wcag21a</code>, or <code>wcag21aa</code> (68 rules total in this version of axe-core):</p>
+    <ul>
+        <li><code>area-alt</code> — Ensure &lt;area&gt; elements of image maps have alternative text</li>
+        <li><code>aria-allowed-attr</code> — Ensure an element&#39;s role supports its ARIA attributes</li>
+        <li><code>aria-braille-equivalent</code> — Ensure aria-braillelabel and aria-brailleroledescription have a non-braille equivalent</li>
+        <li><code>aria-command-name</code> — Ensure every ARIA button, link and menuitem has an accessible name</li>
+        <li><code>aria-conditional-attr</code> — Ensure ARIA attributes are used as described in the specification of the element&#39;s role</li>
+        <li><code>aria-deprecated-role</code> — Ensure elements do not use deprecated roles</li>
+        <li><code>aria-hidden-body</code> — Ensure aria-hidden=&quot;true&quot; is not present on the document body.</li>
+        <li><code>aria-hidden-focus</code> — Ensure aria-hidden elements are not focusable nor contain focusable elements</li>
+        <li><code>aria-input-field-name</code> — Ensure every ARIA input field has an accessible name</li>
+        <li><code>aria-meter-name</code> — Ensure every ARIA meter node has an accessible name</li>
+        <li><code>aria-progressbar-name</code> — Ensure every ARIA progressbar node has an accessible name</li>
+        <li><code>aria-prohibited-attr</code> — Ensure ARIA attributes are not prohibited for an element&#39;s role</li>
+        <li><code>aria-required-attr</code> — Ensure elements with ARIA roles have all required ARIA attributes</li>
+        <li><code>aria-required-children</code> — Ensure elements with an ARIA role that require child roles contain them</li>
+        <li><code>aria-required-parent</code> — Ensure elements with an ARIA role that require parent roles are contained by them</li>
+        <li><code>aria-roledescription</code> — Ensure aria-roledescription is only used on elements with an implicit or explicit role</li>
+        <li><code>aria-roles</code> — Ensure all elements with a role attribute use a valid value</li>
+        <li><code>aria-toggle-field-name</code> — Ensure every ARIA toggle field has an accessible name</li>
+        <li><code>aria-tooltip-name</code> — Ensure every ARIA tooltip node has an accessible name</li>
+        <li><code>aria-valid-attr</code> — Ensure attributes that begin with aria- are valid ARIA attributes</li>
+        <li><code>aria-valid-attr-value</code> — Ensure all ARIA attributes have valid values</li>
+        <li><code>audio-caption</code> — Ensure &lt;audio&gt; elements have captions</li>
+        <li><code>autocomplete-valid</code> — Ensure the autocomplete attribute is correct and suitable for the form field</li>
+        <li><code>avoid-inline-spacing</code> — Ensure that text spacing set through style attributes can be adjusted with custom stylesheets</li>
+        <li><code>blink</code> — Ensure &lt;blink&gt; elements are not used</li>
+        <li><code>button-name</code> — Ensure buttons have discernible text</li>
+        <li><code>bypass</code> — Ensure each page has at least one mechanism for a user to bypass navigation and jump straight to the content</li>
+        <li><code>color-contrast</code> — Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds</li>
+        <li><code>css-orientation-lock</code> — Ensure content is not locked to any specific display orientation, and the content is operable in all display orientations</li>
+        <li><code>definition-list</code> — Ensure &lt;dl&gt; elements are structured correctly</li>
+        <li><code>dlitem</code> — Ensure &lt;dt&gt; and &lt;dd&gt; elements are contained by a &lt;dl&gt;</li>
+        <li><code>document-title</code> — Ensure each HTML document contains a non-empty &lt;title&gt; element</li>
+        <li><code>duplicate-id-aria</code> — Ensure every id attribute value used in ARIA and in labels is unique</li>
+        <li><code>form-field-multiple-labels</code> — Ensure form field does not have multiple label elements</li>
+        <li><code>frame-focusable-content</code> — Ensure &lt;frame&gt; and &lt;iframe&gt; elements with focusable content do not have tabindex=-1</li>
+        <li><code>frame-title</code> — Ensure &lt;iframe&gt; and &lt;frame&gt; elements have an accessible name</li>
+        <li><code>frame-title-unique</code> — Ensure &lt;iframe&gt; and &lt;frame&gt; elements contain a unique title attribute</li>
+        <li><code>html-has-lang</code> — Ensure every HTML document has a lang attribute</li>
+        <li><code>html-lang-valid</code> — Ensure the lang attribute of the &lt;html&gt; element has a valid value</li>
+        <li><code>html-xml-lang-mismatch</code> — Ensure that HTML elements with both valid lang and xml:lang attributes agree on the base language of the page</li>
+        <li><code>image-alt</code> — Ensure &lt;img&gt; elements have alternative text or a role of none or presentation</li>
+        <li><code>input-button-name</code> — Ensure input buttons have discernible text</li>
+        <li><code>input-image-alt</code> — Ensure &lt;input type=&quot;image&quot;&gt; elements have alternative text</li>
+        <li><code>label</code> — Ensure every form element has a label</li>
+        <li><code>label-content-name-mismatch</code> — Ensure that elements labelled through their content must have their visible text as part of their accessible name</li>
+        <li><code>link-in-text-block</code> — Ensure links are distinguished from surrounding text in a way that does not rely on color</li>
+        <li><code>link-name</code> — Ensure links have discernible text</li>
+        <li><code>list</code> — Ensure that lists are structured correctly</li>
+        <li><code>listitem</code> — Ensure &lt;li&gt; elements are used semantically</li>
+        <li><code>marquee</code> — Ensure &lt;marquee&gt; elements are not used</li>
+        <li><code>meta-refresh</code> — Ensure &lt;meta http-equiv=&quot;refresh&quot;&gt; is not used for delayed refresh</li>
+        <li><code>meta-viewport</code> — Ensure &lt;meta name=&quot;viewport&quot;&gt; does not disable text scaling and zooming</li>
+        <li><code>nested-interactive</code> — Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies</li>
+        <li><code>no-autoplay-audio</code> — Ensure &lt;video&gt; or &lt;audio&gt; elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio</li>
+        <li><code>object-alt</code> — Ensure &lt;object&gt; elements have alternative text</li>
+        <li><code>p-as-heading</code> — Ensure bold, italic text and font-size is not used to style &lt;p&gt; elements as a heading</li>
+        <li><code>role-img-alt</code> — Ensure [role=&quot;img&quot;] elements have alternative text</li>
+        <li><code>scrollable-region-focusable</code> — Ensure elements that have scrollable content are accessible by keyboard in Safari</li>
+        <li><code>select-name</code> — Ensure select element has an accessible name</li>
+        <li><code>server-side-image-map</code> — Ensure that server-side image maps are not used</li>
+        <li><code>summary-name</code> — Ensure summary elements have discernible text</li>
+        <li><code>svg-img-alt</code> — Ensure &lt;svg&gt; elements with an img, graphics-document or graphics-symbol role have accessible text</li>
+        <li><code>table-fake-caption</code> — Ensure that tables with a caption use the &lt;caption&gt; element.</li>
+        <li><code>td-has-header</code> — Ensure that each non-empty data cell in a &lt;table&gt; larger than 3 by 3  has one or more table headers</li>
+        <li><code>td-headers-attr</code> — Ensure that each cell in a table that uses the headers attribute refers only to other &lt;th&gt; elements in that table</li>
+        <li><code>th-has-data-cells</code> — Ensure that &lt;th&gt; elements and elements with role=columnheader/rowheader have data cells they describe</li>
+        <li><code>valid-lang</code> — Ensure lang attributes have valid values</li>
+        <li><code>video-caption</code> — Ensure &lt;video&gt; elements have captions</li>
+    </ul>
+
+    <h2 id="skip-links">What Are Skip Links?</h2>
+    <p>
+      Skip links are accessibility features that let keyboard and screen-reader users
+      bypass repetitive navigation and jump straight to the main content of a page.
+      Without one, every page visit requires tabbing through the entire site
+      navigation before reaching anything useful.
+    </p>
+    <p>
+      Skip links are <strong>required by WCAG 2.1 Level A (Success Criterion 2.4.1
+      &mdash; Bypass Blocks)</strong>. A compliant implementation requires four things:
+    </p>
+    <ul>
+      <li>The skip link must be the first focusable element in source order.</li>
+      <li>It must target a real element (typically <code>#main-content</code> or <code>#main</code>).</li>
+      <li>It must be keyboard-accessible (i.e., a real <code>&lt;a&gt;</code>, not a <code>&lt;div&gt;</code> with a click handler).</li>
+      <li>It must become visible when focused, even if hidden off-screen at rest.</li>
+    </ul>
+    <p><strong>Current status:</strong> ✅ All skip links present (75/75).</p>
+    <p>To verify yourself: load any page, press <kbd>Tab</kbd>, and the skip-to-main link should be the first thing that focuses. References:
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html">W3C SC 2.4.1 Understanding doc</a>,
+      <a href="https://webaim.org/techniques/skipnav/">WebAIM skip-nav technique</a>.
+    </p>
+
+    <h2 id="environments">About Testing Environments</h2>
+    <p>
+      This report was generated against the <strong>development</strong> environment at
+      <code>Development (http://localhost:4321)</code>. Audit results from development and
+      production should be functionally identical &mdash; the rendered HTML / ARIA / DOM
+      structure is the same in both modes &mdash; but stating the environment explicitly
+      lets reviewers reproduce the audit and ties results to a specific code revision.
+    </p>
+    <p>
+      The same axe-core sweep runs against a production build on every CI run via
+      <code>tests/e2e/a11y-sweep.spec.ts</code>, hard-failing the build on any
+      violation. New routes are picked up automatically.
+    </p>
+
+    <h2 id="compliance">Accessibility Standards &amp; Compliance</h2>
+
+    <h3>WCAG 2.1 Level AA</h3>
+    <p>
+      The site is audited against
+      <a href="https://www.w3.org/TR/WCAG21/">WCAG 2.1 Level AA</a> — the international
+      consensus standard for web accessibility. Level A is the minimum-bar set of
+      success criteria; Level AA adds the contrast, reflow, and text-resize criteria
+      that mid-grade accessibility programs target. AAA criteria (the strictest tier)
+      are not in scope.
+    </p>
+
+    <h3>IITAA (Illinois Information Technology Accessibility Act)</h3>
+    <p>
+      The State of Illinois requires that public-facing IT comply with
+      <a href="https://www.dhs.state.il.us/page.aspx?item=32765">IITAA</a>,
+      which formally adopts WCAG 2.1 Level AA. Auditing to WCAG 2.1 AA is therefore
+      the operative compliance target for any Illinois state agency site, including
+      Illinois Criminal Justice Information Authority (ICJIA).
+    </p>
+
+    <h3>ADA Title II</h3>
+    <p>
+      The April 2024 final rule from the U.S. Department of Justice updates
+      <a href="https://www.ada.gov/resources/2024-03-08-web-rule/">ADA Title II</a>
+      to require state and local government websites to conform to WCAG 2.1 Level AA.
+      The compliance deadline for entities of this size is 2026; this site already
+      satisfies the requirement.
+    </p>
+
+    <h3>Section 508</h3>
+    <p>
+      Section 508 of the U.S. Rehabilitation Act establishes the federal-government
+      accessibility baseline and was harmonized with WCAG 2.0 Level AA in the 2017
+      "Refresh" update. Conformance with WCAG 2.1 AA exceeds Section 508 requirements.
+    </p>
+  </main>
+
+  <footer>
+    <p>
+      Site built with Astro 6 and Tailwind 4. Report generated by
+      <code>scripts/generate-a11y-report.mjs</code> using axe-core
+      4.11.4 via Playwright 1.59.1 at
+      05/15/2026, 08:06:17 AM.
+    </p>
+    <p>
+      Source: <a href="https://github.com/ICJIA/icjia-r3-v5-nuxt/blob/migration/astro-full/astro/scripts/generate-a11y-report.mjs">scripts/generate-a11y-report.mjs</a>
+      &middot; <a href="/">← Back to site</a>
+    </p>
+  </footer>
+</body>
+</html>
