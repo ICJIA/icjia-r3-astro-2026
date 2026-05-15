@@ -3,3 +3,8 @@
 node_modules
 .DS_Store
 *.log
+
+# Netlify CLI state (linked-site, deploy cache). Created wherever you run
+# `netlify` commands — at the root and inside astro/ for this repo. Per
+# Netlify's recommendation, never committed.
+.netlify/

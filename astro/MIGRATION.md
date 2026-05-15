@@ -448,3 +448,92 @@ history and on `main`. Root `README.md` rewritten for the Astro era; root
 `.gitignore` reduced to non-Nuxt essentials.
 
 Full Playwright e2e green against a production build: **195 tests**.
+
+---
+
+## Phase 9 — Exhaustive a11y audit + parity polish (2026-05-15)
+
+Final audit pass with four independent tools, plus two parity fixes
+surfaced by the audit and one developer-experience tweak.
+
+### Four-tool accessibility sweep (all 25 sitemap pages)
+
+| Tool | Coverage | Result |
+|---|---|---|
+| `axecap` (axe-core 4.11, level AA) | 25 sitemap pages, desktop — `/eligibility/` audited via Chrome `evaluate_script` axe injection (the ArcGIS iframe blocks `audit_url`'s network-idle wait) | **0 violations** |
+| `axe-core` via Playwright (`a11y-sweep.spec.ts`) | 26 routes × 3 viewports = 78 scans (carries from Phase 6) | **0 violations** |
+| `lightcap` (Lighthouse), desktop | 25 sitemap pages | **100/100** every route |
+| `lightcap` (Lighthouse), mobile | 5 representative pages incl. `/eligibility/`, `/contact/` | **100/100** every route |
+| `contrastcap` pixel sampling | homepage (only page with text-over-image surfaces) | **0 failures**, lowest sampled ratio **6.11:1** |
+
+### Finding 1 — `HomePhotoBoxes` description text (WCAG 1.4.3 AA)
+
+`contrastcap` pixel-sampling against the actual photos flagged the FAQs
+and Collaboratives photo-box description text as failing AA — white over
+~`#8a8c8d` (3.38:1) and ~`#858786` (3.62:1) respectively, where 4.5:1 is
+required. axe-core cannot pixel-sample over images and only marks these
+as "color-contrast: needs review," so the failure had been latent through
+Phase 6.
+
+Fix: strengthened the `.photo-box__overlay` gradient endpoint from
+`rgba(0,0,0,0.1)` to `rgba(0,0,0,0.5)` — preserves the gradient
+character. Re-measured ratios:
+
+| Photo box | Before | After |
+|---|---:|---:|
+| FAQs description | 3.38 ❌ | **6.11** ✓ |
+| Collaboratives description | 3.62 ❌ | **6.24** ✓ |
+| Eligibility description | 9.13 | 11.47 |
+| Resources description | 7.39 | 9.80 |
+
+### Finding 2 — `/eligibility/` ArcGIS embed parity
+
+The live `r3.illinois.gov` renders the eligibility catch-all body in a
+`<v-container fluid>` — full-viewport-width with a 16px container inset —
+so its ArcGIS StoryMap embed stretches edge-to-edge. The Astro version
+had been capped at 1080px like the other catch-all pages.
+
+Fix: added an `isFluid = data.slug === 'eligibility'` flag in
+`[...slug].astro` that applies `.page-layout--fluid { max-width: none }`.
+The existing 1rem (16px) horizontal padding already matched the
+original's container inset, so dropping the max-width was the whole
+change.
+
+Verified at 1440px viewport via Chrome DevTools: the Astro iframe now
+renders at **1393px @ left:16**, byte-for-byte identical to live
+`r3.illinois.gov`.
+
+### `trailingSlash: 'ignore'` + sitemap `serialize`
+
+Astro's `'always'` mode 404s no-slash URLs in dev with a "Did you mean…?"
+hint. Switched to `'ignore'` so `astro dev` accepts both `/eligibility`
+and `/eligibility/`. Production unchanged — Netlify Pretty URLs continues
+to 301 non-slash → slash for SEO (verified `GET /eligibility` on the
+branch deploy: **200**, final URL `/eligibility/`).
+
+`@astrojs/sitemap` doesn't expose a `trailingSlash` option in this
+version (the TS signature rejects it; build emits a warning and silently
+skips sitemap emission). The supported pattern is `serialize`:
+
+```ts
+serialize(item) {
+  if (item.url && !item.url.endsWith('/')) item.url = `${item.url}/`;
+  return item;
+},
+```
+
+All 25 sitemap `<loc>` entries now end with `/`. The
+`trailing-slash.spec.ts` e2e test continues to enforce slash-suffixed
+internal links independent of Astro config.
+
+### Branch deploy (verified)
+
+`netlify deploy --alias=migration-astro-full`. Live at
+<https://migration-astro-full--illinois-r3.netlify.app>. Production
+`r3.illinois.gov` untouched.
+
+### Lessons-learned doc
+
+Distilled findings + pitfalls + the four-tool a11y methodology
+captured in <../MIGRATION_PLAYBOOK.md> at the repo root, as a
+jumpstart guide for the next ICJIA Nuxt-to-Astro migration.

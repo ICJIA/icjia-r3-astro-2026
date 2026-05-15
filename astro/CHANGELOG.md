@@ -6,6 +6,59 @@ chronological order.
 
 ---
 
+## v0.9.0 — 2026-05-15
+
+### Phase 9 — Exhaustive accessibility audit + parity polish
+
+**Comprehensive 4-tool a11y sweep across all 25 sitemap pages.** The site
+is verified 100% WCAG 2.1 AA via four independent tools — axe-core (via
+both `axecap` and the existing Playwright e2e sweep), Lighthouse `lightcap`
+(desktop + mobile), and `contrastcap` pixel-sampling for text-over-image
+regions. Results: 0 violations, 100/100 every route, lowest pixel-sampled
+contrast ratio 6.11:1. README accessibility section refreshed with the
+new four-tool table.
+
+**`HomePhotoBoxes` description text contrast (WCAG 1.4.3 AA).**
+`contrastcap` pixel-sampling against the actual photos flagged the FAQs
+and Collaboratives photo-box description text as failing — white over
+~#8a8c8d (3.38:1) and ~#858786 (3.62:1) respectively, where 4.5:1 is
+required. axe-core cannot sample pixels over images and only marks these
+as "needs review," which is why the failure had been latent. Strengthened
+the `.photo-box__overlay` gradient endpoint from `rgba(0,0,0,0.1)` to
+`rgba(0,0,0,0.5)`, keeping the gradient character but raising all
+over-image text to ≥6.11:1 worst case (re-measured: FAQs description
+6.11, Collaboratives 6.24, Eligibility 11.47, Resources 9.80).
+
+**`/eligibility/` ArcGIS embed full-bleed.** The live r3.illinois.gov
+`/eligibility/` renders its catch-all body inside a `<v-container fluid>`,
+so the ArcGIS StoryMap embed (and the body text) stretch the full viewport
+width with a 16px inset — not capped at 1080px like the other catch-all
+pages on the original. The Astro version had been capped. Added an
+`isFluid` flag in `[...slug].astro` (`data.slug === 'eligibility'`) that
+drops the `max-width` on the page layout; the existing `1rem` (16px) side
+padding already matched the original's container inset. Verified at 1440px
+viewport the iframe now renders at **1393px @ left:16**, byte-for-byte
+the same width/position as the live site.
+
+**`trailingSlash: 'ignore'`.** Astro's `'always'` mode 404s the no-slash
+form of every route during `astro dev` — a "Did you mean…?" hint that's
+helpful for one wrong click but confusing when typing URLs by hand.
+Switched to `'ignore'`: dev now serves both `/eligibility` and
+`/eligibility/` with 200. Production behavior is unchanged — Netlify
+Pretty URLs still 301s non-slash → slash for SEO (verified on the branch
+deploy: `GET /eligibility` → 200, final URL `/eligibility/`); the sitemap
+integration now uses a `serialize` hook to pin every `<loc>` to
+`/`-suffixed canonical form; the BaseLayout `<link rel="canonical">`
+continues to use `data.path` from `content.config.ts`
+(`ensureTrailingSlash`-normalized); and `trailing-slash.spec.ts` continues
+to enforce slash-suffixed internal links independent of this config.
+
+**Netlify branch deploy.** Bundled the three fixes above into one
+`netlify deploy --alias=migration-astro-full` ship. Live at
+<https://migration-astro-full--illinois-r3.netlify.app>.
+
+---
+
 ## v0.8.0 — 2026-05-14
 
 ### Phase 8 — CI gate + "invisible migration" parity pass + Astro-only branch

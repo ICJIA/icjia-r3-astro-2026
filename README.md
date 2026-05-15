@@ -55,33 +55,41 @@ yarn test:e2e   # playwright e2e (mobile / tablet / desktop)
 
 ## Accessibility
 
-Accessibility is verified two ways on every build:
+Accessibility is verified four ways:
 
-- **axe-core sweep** — `tests/e2e/a11y-sweep.spec.ts` runs axe-core
+- **axe-core sweep (e2e)** — `tests/e2e/a11y-sweep.spec.ts` runs axe-core
   (`wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa`) against every route in the
-  emitted `sitemap.xml`, across mobile / tablet / desktop viewports.
-- **Lighthouse** — accessibility score audited per route via the `lightcap`
-  Lighthouse runner.
+  emitted `sitemap.xml`, across mobile / tablet / desktop viewports, on
+  every build.
+- **axe-core via `axecap`** — sitemap-wide AA audit via the `axecap` MCP
+  runner.
+- **Lighthouse via `lightcap`** — accessibility score audited per route,
+  both desktop and mobile viewports.
+- **`contrastcap` pixel sampling** — resolves axe-core's "needs review"
+  verdicts on text-over-image regions by sampling the actual rendered
+  pixels behind each text node and computing the real WCAG ratio. The only
+  tool of the four that can give a definitive answer when text sits on a
+  photographic background (the homepage `.splash-card` and `.photo-box`).
 
-The full axe-core results and any mitigations are recorded below — see
+The full audit results and any mitigations are recorded below — see
 [**Accessibility audit results**](#accessibility-audit-results).
 
 ### Accessibility audit results
 
-Latest sweep — every route in the built `sitemap.xml` (25 routes) plus
-`/404/`, across mobile / tablet / desktop:
+Most recent comprehensive sweep — every route in the built `sitemap.xml`
+audited via four independent tools:
 
-| Metric | Result |
-|--------|--------|
-| Routes audited | 26 (25 sitemap + `/404/`) |
-| Viewports | 3 — mobile, tablet, desktop |
-| Total axe-core scans | 78 |
-| WCAG 2.1 A / AA violations | **0** |
-| Lighthouse accessibility (per route) | **100** |
+| Tool | Coverage | Result |
+|------|----------|--------|
+| axe-core via `axecap` (level AA) | 25 sitemap pages, desktop | **0 violations** |
+| axe-core via Playwright (`a11y-sweep.spec.ts`) | 26 routes × 3 viewports = 78 scans | **0 violations** |
+| Lighthouse via `lightcap`, desktop | 25 sitemap pages | **100 / 100 every route** |
+| Lighthouse via `lightcap`, mobile | 5 representative pages incl. `/eligibility/`, `/contact/` | **100 / 100 every route** |
+| `contrastcap` pixel sampling | homepage (text-over-image regions) | **0 failures**, lowest sampled ratio **6.11:1** |
 
-Tags audited: `wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa`. The sweep runs on
-every build (`tests/e2e/a11y-sweep.spec.ts`) and hard-fails on any violation.
-The current sweep is clean — no outstanding mitigations.
+Tags audited: `wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa`. The e2e sweep
+runs on every build and hard-fails on any violation. The current sweep is
+clean across all four tools.
 
 **Mitigations applied during the Astro rebuild** (full detail in
 `astro/MIGRATION.md`):
@@ -91,6 +99,7 @@ The current sweep is clean — no outstanding mitigations.
 | `HomeSplashCard` `aria-label` omitted the visible date text | 2.5.3 (A) | Dropped the redundant `aria-label`; the link's visible text is its accessible name |
 | `/news/` card titles jumped `h1` → `h3` | 1.3.1 / best-practice | `NewsCard` gained a `headingLevel` prop; `/news/` passes `h2` |
 | `Dialog.vue`'s `<Teleport>` destroyed the skip-links `<nav>` on `client:idle` hydration, site-wide | 2.4.1 (A) | Removed the `<Teleport>` — a native `<dialog>` + `showModal()` is top-layer-promoted and never needed it; regression test added |
+| `HomePhotoBoxes` description text failed 4.5:1 over bright photos (FAQs 3.38:1, Collaboratives 3.62:1) | 1.4.3 (AA) | Pixel-sampled by `contrastcap`. Strengthened the gradient overlay endpoint from `rgba(0,0,0,0.1)` to `rgba(0,0,0,0.5)` — all over-image text now sits at ≥6.11:1 worst case while keeping the photo's character. axe-core can't pixel-sample over images and reports these as "needs review"; `contrastcap` is the authoritative measure |
 
 Compliant with **WCAG 2.1 AA**, **IITAA** (Illinois state standard), and
 **ADA Title II**.

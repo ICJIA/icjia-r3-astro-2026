@@ -40,6 +40,12 @@ const { entry } = Astro.props;
 const data = entry.data;
 const html = data.body ? renderMarkdown(data.body) : '';
 
+// /eligibility/ uses the live site's fluid full-width layout. The Nuxt original
+// renders the eligibility catch-all body inside a <v-container fluid>, so its
+// ArcGIS StoryMap embed — and the body text — stretch the full viewport width
+// (16px inset), not the 1080px column the other catch-all pages sit in here.
+const isFluid = data.slug === 'eligibility';
+
 // Build a "Navigation" table of contents from the body's <h2> headings
 // (markdown-it-anchor gives each one a stable id) when the page opts in.
 const showTOC = data.showTableOfContents === true;
@@ -70,7 +76,7 @@ function relativeTime(iso: string | undefined): string {
   publishedAt={data.createdAt}
   updatedAt={data.updatedAt}
 >
-  <div class:list={['page-layout', showTOC && toc.length > 0 && 'page-layout--has-toc']}>
+  <div class:list={['page-layout', isFluid && 'page-layout--fluid', showTOC && toc.length > 0 && 'page-layout--has-toc']}>
     <div class="page-content">
       <h1>{data.title}</h1>
       <article class="markdown-body" set:html={html} />
@@ -99,6 +105,13 @@ function relativeTime(iso: string | undefined): string {
     max-width: 1080px;
     margin: 0 auto;
     padding: 1.5rem 1rem 3rem;
+  }
+
+  /* /eligibility/ is full-width to match the live site's <v-container fluid>.
+     The 1rem (16px) horizontal padding above already matches the original's
+     16px container inset, so dropping the max-width is the whole change. */
+  .page-layout--fluid {
+    max-width: none;
   }
 
   /* Two-column layout when a TOC sidebar is present (Nuxt used 9 / 3 cols) */

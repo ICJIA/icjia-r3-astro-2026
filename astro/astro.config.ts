@@ -17,7 +17,15 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://r3.illinois.gov',
   output: 'static',
-  trailingSlash: 'always',
+  // `'ignore'` lets the dev server serve both `/eligibility` and `/eligibility/`
+  // — Astro's `'always'` mode 404s the no-slash form with a "Did you mean…?"
+  // hint, which was confusing when typing URLs by hand. Production behavior is
+  // unchanged: Netlify Pretty URLs still 301s non-slash → slash for SEO, the
+  // sitemap (below) keeps emitting `/`-suffixed canonical URLs, the BaseLayout
+  // `<link rel="canonical">` uses `data.path` which is normalized via
+  // `ensureTrailingSlash`, and the `trailing-slash.spec.ts` e2e test continues
+  // to enforce slash-suffixed internal links independent of this config.
+  trailingSlash: 'ignore',
   // The live site's /funding/ is a meta-refresh redirect to the homepage with
   // no content page. In `output: 'static'` Astro emits exactly that — an HTML
   // page with `<meta http-equiv="refresh">` — so this matches r3.illinois.gov.
@@ -48,6 +56,15 @@ export default defineConfig({
         !page.includes('/translate/') &&
         !page.includes('/404/') &&
         !page.includes('/funding/'), // redirect-only route, not real content
+      // Top-level `trailingSlash: 'ignore'` lets the sitemap integration emit
+      // both forms — pin every <loc> to its `/`-suffixed canonical form so
+      // crawlers index a single URL per page. (The dedicated `trailingSlash`
+      // sitemap option isn't in this @astrojs/sitemap version's type signature;
+      // `serialize` is the supported hook for URL shape enforcement.)
+      serialize(item) {
+        if (item.url && !item.url.endsWith('/')) item.url = `${item.url}/`;
+        return item;
+      },
       changefreq: 'weekly',
       priority: 0.5,
     }),
