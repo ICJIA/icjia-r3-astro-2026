@@ -152,8 +152,11 @@ const ldJSON = websiteSchema();
         if (!a) return;
         const href = a.getAttribute('href');
         if (!href || !isExternal(href)) return;
-        // Whitelist: ICJIA + Illinois.gov + ArcGIS skip the modal
-        if (/icjia\.illinois\.gov|illinois\.gov|arcgis\.com/.test(new URL(href, window.location.href).host)) return;
+        // Whitelist: ICJIA + Illinois.gov + ArcGIS + our own Strapi CDN
+        // (icjia-api.cloud) skip the modal — those hosts carry our own
+        // content (including search-result PDF downloads), so the
+        // "you are leaving R3" warning would be wrong.
+        if (/icjia\.illinois\.gov|illinois\.gov|arcgis\.com|icjia-api\.cloud/.test(new URL(href, window.location.href).host)) return;
         e.preventDefault();
         window.dispatchEvent(new CustomEvent('r3-dialog:open', {
           detail: {

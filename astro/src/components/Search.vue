@@ -1,9 +1,15 @@
 <!-- astro/src/components/Search.vue -->
 <!--
-  Vue 3 SFC island. Loads /searchIndex.json on mount, builds a Fuse instance,
-  renders matched results as the user types. Supports filter chips by
-  collection type. ~26 KB total when minified+gzipped (Vue runtime + Fuse +
-  this component code).
+  Vue 3 SFC island. Loads /searchIndex.json on mount, builds a Fuse instance
+  with `includeMatches: true`, renders matched results as the user types.
+  Filter chips by collection type are query-driven (only appear after a
+  query produces matches, counts reflect that query's results). Zero-match
+  chips are disabled; the active filter auto-resets to "All" if a new
+  query would orphan it.
+
+  PDFs linked from page bodies are first-class search rows (type=`pdf`,
+  path=the PDF URL directly). PDF result links open in a new tab. Every
+  result renders a snippet of the matched text with the match `<mark>`-ed.
 
   Mounted at /search/ with `client:idle`.
 -->
@@ -14,12 +20,28 @@
       id="search-input"
       v-model="query"
       type="search"
-      placeholder="Search the R3 site"
+      placeholder="Search the R3 site, including PDF contents"
       autocomplete="off"
       class="search__input"
     />
 
-    <fieldset class="search__filters" v-if="rows.length">
+    <p class="search__count" aria-live="polite">
+      <template v-if="!loaded">Loading search index…</template>
+      <template v-else-if="!query.trim()">
+        Type above to search the R3 site &mdash; {{ rows.length }} pages, news posts, resources, research articles, and PDF documents indexed.
+      </template>
+      <template v-else-if="results.length === 0">
+        No matches for &ldquo;{{ query }}&rdquo;.
+      </template>
+      <template v-else>
+        {{ results.length }} match{{ results.length === 1 ? '' : 'es' }}<template v-if="activeType !== 'all'"> in {{ typeLabel(activeType as Row['type']) }}</template>.
+      </template>
+    </p>
+
+    <fieldset
+      v-if="loaded && query.trim() && matched.length"
+      class="search__filters"
+    >
       <legend class="sr-only">Filter by content type</legend>
       <button
         v-for="t in types"
@@ -28,23 +50,33 @@
         class="search__chip"
         :class="{ 'is-active': activeType === t.key }"
         :aria-pressed="activeType === t.key"
+        :disabled="t.key !== 'all' && countByType(t.key) === 0"
         @click="setType(t.key)"
       >
         {{ t.label }} ({{ countByType(t.key) }})
       </button>
     </fieldset>
 
-    <p class="search__count" aria-live="polite">
-      <template v-if="!loaded">Loading index…</template>
-      <template v-else-if="!query">{{ rows.length }} indexed pages</template>
-      <template v-else>{{ results.length }} match{{ results.length === 1 ? '' : 'es' }}</template>
-    </p>
-
-    <ul v-if="loaded && query && results.length" class="search__results" role="list">
-      <li v-for="r in results.slice(0, 50)" :key="r.id">
-        <a :href="r.path">
-          <span class="search__type">{{ typeLabel(r.type) }}</span>
-          <strong>{{ r.title }}</strong>
+    <ul
+      v-if="loaded && query.trim() && results.length"
+      class="search__results"
+      role="list"
+    >
+      <li v-for="r in results.slice(0, 50)" :key="r.item.id">
+        <a
+          :href="r.item.path"
+          :target="r.item.type === 'pdf' ? '_blank' : undefined"
+          :rel="r.item.type === 'pdf' ? 'noopener noreferrer' : undefined"
+        >
+          <span class="search__type">
+            {{ typeLabel(r.item.type) }}<template v-if="r.item.type === 'pdf'"> &middot; opens in new tab</template>
+          </span>
+          <strong>{{ r.item.title }}</strong>
+          <p
+            v-if="snippetHTMLFor(r)"
+            class="search__snippet"
+            v-html="snippetHTMLFor(r)"
+          ></p>
         </a>
       </li>
     </ul>
@@ -52,11 +84,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
-import Fuse from 'fuse.js';
+import { computed, onMounted, ref, watch } from 'vue';
+import Fuse, { type FuseResult, type FuseResultMatch } from 'fuse.js';
 
 interface Row {
-  type: 'pages' | 'news' | 'faqs' | 'resources' | 'hubArticles';
+  type: 'pages' | 'news' | 'resources' | 'hubArticles' | 'pdf';
   id: string;
   title: string;
   path: string;
@@ -74,9 +106,9 @@ const types = [
   { key: 'all',         label: 'All' },
   { key: 'pages',       label: 'Pages' },
   { key: 'news',        label: 'News' },
-  { key: 'faqs',        label: 'FAQs' },
   { key: 'resources',   label: 'Resources' },
   { key: 'hubArticles', label: 'Research' },
+  { key: 'pdf',         label: 'PDFs' },
 ] as const;
 
 function typeLabel(t: Row['type']): string {
@@ -84,22 +116,79 @@ function typeLabel(t: Row['type']): string {
   return found ? found.label : t;
 }
 
+const matched = computed<FuseResult<Row>[]>(() => {
+  if (!fuse.value || !query.value.trim()) return [];
+  return fuse.value.search(query.value);
+});
+
 function countByType(t: typeof activeType.value): number {
-  if (t === 'all') return rows.value.length;
-  return rows.value.filter((r) => r.type === t).length;
+  if (t === 'all') return matched.value.length;
+  return matched.value.filter((r) => r.item.type === t).length;
 }
 
 function setType(t: typeof activeType.value): void {
   activeType.value = t;
 }
 
-const results = computed<Row[]>(() => {
-  if (!fuse.value || !query.value.trim()) return [];
-  const matched = fuse.value.search(query.value).map((m) => m.item);
+const results = computed<FuseResult<Row>[]>(() => {
   return activeType.value === 'all'
-    ? matched
-    : matched.filter((r) => r.type === activeType.value);
+    ? matched.value
+    : matched.value.filter((r) => r.item.type === activeType.value);
 });
+
+// If a new query has zero matches in the currently-active type, fall back
+// to "All" so the UI never lands in a dead-end "0 matches" state while
+// matches exist in other types.
+watch(matched, (m) => {
+  if (activeType.value === 'all') return;
+  const inActive = m.filter((r) => r.item.type === activeType.value).length;
+  if (inActive === 0) activeType.value = 'all';
+});
+
+// ─── Snippet rendering ──────────────────────────────────────────────────
+
+function escapeHTML(s: string): string {
+  return s.replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string),
+  );
+}
+
+function collapseWS(s: string): string {
+  // PDF text from pdf.js often has stretches of whitespace from layout
+  // reflow; collapse to single spaces so the snippet reads cleanly.
+  return s.replace(/\s+/g, ' ');
+}
+
+function longestMatchIndex(m: FuseResultMatch): readonly [number, number] | null {
+  if (!m.indices?.length) return null;
+  return m.indices.reduce<readonly [number, number]>(
+    (best, cur) => (cur[1] - cur[0] > best[1] - best[0] ? cur : best),
+    m.indices[0],
+  );
+}
+
+const SNIPPET_CONTEXT = 80;
+
+function snippetHTMLFor(r: FuseResult<Row>): string {
+  const m = (r.matches ?? []).find((x) => x.key === 'rawText');
+  if (!m) return '';
+  const idx = longestMatchIndex(m);
+  if (!idx) return '';
+
+  const [start, end] = idx;
+  const text = r.item.rawText;
+  const snipStart = Math.max(0, start - SNIPPET_CONTEXT);
+  const snipEnd = Math.min(text.length, end + 1 + SNIPPET_CONTEXT);
+
+  const before = collapseWS(text.slice(snipStart, start));
+  const hit = collapseWS(text.slice(start, end + 1));
+  const after = collapseWS(text.slice(end + 1, snipEnd));
+
+  const leadEllipsis = snipStart > 0 ? '…' : '';
+  const trailEllipsis = snipEnd < text.length ? '…' : '';
+
+  return `${leadEllipsis}${escapeHTML(before)}<mark>${escapeHTML(hit)}</mark>${escapeHTML(after)}${trailEllipsis}`;
+}
 
 onMounted(async () => {
   const res = await fetch('/searchIndex.json');
@@ -113,6 +202,7 @@ onMounted(async () => {
     threshold: 0.3,
     ignoreLocation: true,
     minMatchCharLength: 2,
+    includeMatches: true,
   });
   loaded.value = true;
 });
@@ -155,6 +245,12 @@ onMounted(async () => {
   background: var(--color-r3-primary);
   color: #fff;
 }
+.search__chip:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  border-color: var(--color-r3-text-muted, #555);
+  color: var(--color-r3-text-muted, #555);
+}
 .search__chip:focus-visible {
   outline: 3px solid var(--color-r3-primary);
   outline-offset: 2px;
@@ -187,5 +283,23 @@ onMounted(async () => {
   color: var(--color-r3-text-muted);
   display: block;
   margin-bottom: 0.25rem;
+}
+.search__snippet {
+  color: var(--color-r3-text-muted, #555);
+  font-size: 0.875rem;
+  margin: 0.5rem 0 0;
+  line-height: 1.45;
+  /* PDF excerpts can be long; cap height with smooth fade-out instead of
+     hard truncation so the snippet hint stays scannable. */
+  max-height: 4.5em;
+  overflow: hidden;
+  position: relative;
+}
+.search__snippet :deep(mark) {
+  background: #fff59d;
+  color: #1a1a1a;
+  padding: 0 2px;
+  border-radius: 2px;
+  font-weight: 600;
 }
 </style>
