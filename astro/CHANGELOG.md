@@ -6,6 +6,69 @@ chronological order.
 
 ---
 
+## v1.0.0 — 2026-05-23
+
+First post-cutover release. Marks the Astro rebuild as the production
+site (no more "migration" framing) and rolls up the post-cutover
+verification sweep.
+
+### Production audit — all 26 sitemap routes
+
+**axe-core sweep (Playwright + axe-core 4.11.4, all viewports)**
+
+| | |
+|---|---:|
+| Pages tested | 26 |
+| Viewports | desktop / tablet / mobile (78 scans) |
+| **Total violations** | **0** |
+| Total passes | 1772 |
+| Pages passing | 26 / 26 |
+| Skip-link coverage | 78 / 78 |
+
+Single violation surfaced during the first pass — `scrollable-region-focusable`
+(WCAG 2.1.1 A) on the `/documentation/accessibility/` results table wrapper
+itself (overflow-x with no keyboard focus). Fixed by adding
+`role="region"`, `aria-labelledby="results"`, and `tabindex="0"` to
+the wrap in `scripts/generate-a11y-report.mjs` and the live page; re-run
+came back clean.
+
+**Lighthouse mobile, all 26 sitemap routes (live r3.illinois.gov)**
+
+24 routes at Perf 98–100. Two outliers:
+
+| Route | Perf | Note |
+|---|---:|---|
+| `/news/icjia-awards…/` | 94 | LCP 3.1s; remote Strapi-hosted body image. ~204 KiB unoptimized. |
+| `/research/` | 86 | LCP 4.1s; 4× Research Hub splash images served at ~819 KiB total. Hub-side asset, outside this repo. |
+
+Astro A11y / BP / SEO = 100 across all 26 routes (modulo the pre-existing
+`/eligibility/` BP=96 ArcGIS-iframe inspector warning, carried over from
+the Nuxt baseline; and `/resources/single-page/` SEO=66, intentionally
+`noindex` — the printable view).
+
+**axe-core via `axecap` (desktop, AA, 12 representative routes)** — 0
+violations on every route audited.
+
+### Aggregate vs. the Nuxt baseline
+
+| Metric | Nuxt P0 | Astro v1.0.0 |
+|---|---:|---:|
+| Mobile Perf avg | ≈ 79 | **≈ 98** |
+| Mobile Perf min | 52 (`/eligibility/`) | **86** (`/research/`) |
+| Routes ≥ 95 mobile | 4 / 25 | **24 / 26** |
+| axe-core violations | 3 (best-practice, `/404`) | **0** |
+| Lighthouse a11y avg | 100 | 100 |
+
+### Misc
+
+- `package.json` bumped 0.10.0 → 1.0.0.
+- Public `/documentation/accessibility/` report regenerated with today's
+  snapshot (1772 passes, 0 violations).
+- Migration is complete; "migration" terminology retired from this file
+  going forward.
+
+---
+
 ## 2026-05-23 — `font-display: optional` on Lato / Roboto / Raleway → kill `/eligibility/` mobile CLS
 
 The earlier iframe-inline-style fix made the markup correct but **did not move

@@ -440,7 +440,7 @@ function renderHTML(d) {
     </ul>
 
     <h2 id="results">📋 All Tested Pages</h2>
-    <div class="results-table-wrap">
+    <div class="results-table-wrap" role="region" aria-labelledby="results" tabindex="0">
       <table class="results" aria-describedby="results">
         <thead>
           <tr>
