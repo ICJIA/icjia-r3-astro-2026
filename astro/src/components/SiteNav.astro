@@ -31,7 +31,7 @@ function isActive(href: string): boolean {
 // A dropdown is "active" when the current page is one of its internal children.
 function dropdownActive(children: NavChild[]): boolean {
   return children.some(
-    (c) => 'href' in c && !c.external && isActive(c.href),
+    (c) => 'href' in c && typeof c.href === 'string' && !c.external && isActive(c.href),
   );
 }
 ---
@@ -86,7 +86,23 @@ function dropdownActive(children: NavChild[]): boolean {
                     isNavDivider(child) ? (
                       <li class="site-nav__dd-divider"><hr /></li>
                     ) : isNavSection(child) ? (
-                      <li class="site-nav__dd-section">{child.section}</li>
+                      <li class="site-nav__dd-section">
+                        {child.href ? (
+                          <a
+                            href={child.href}
+                            class="site-nav__dd-section-link"
+                            target={child.external ? '_blank' : undefined}
+                            rel={child.external ? 'noopener noreferrer' : undefined}
+                          >
+                            {child.section}
+                            {child.external && (
+                              <span class="site-nav__ext-note"> (opens in new window)</span>
+                            )}
+                          </a>
+                        ) : (
+                          child.section
+                        )}
+                      </li>
                     ) : (
                       <li>
                         <a
@@ -188,7 +204,23 @@ function dropdownActive(children: NavChild[]): boolean {
                       isNavDivider(child) ? (
                         <li class="site-nav__drawer-divider"><hr /></li>
                       ) : isNavSection(child) ? (
-                        <li class="site-nav__drawer-section">{child.section}</li>
+                        <li class="site-nav__drawer-section">
+                          {child.href ? (
+                            <a
+                              href={child.href}
+                              class="site-nav__drawer-section-link"
+                              target={child.external ? '_blank' : undefined}
+                              rel={child.external ? 'noopener noreferrer' : undefined}
+                            >
+                              {child.section}
+                              {child.external && (
+                                <span class="sr-only"> (opens in new window)</span>
+                              )}
+                            </a>
+                          ) : (
+                            child.section
+                          )}
+                        </li>
                       ) : (
                         <li>
                           <a
@@ -416,6 +448,31 @@ function dropdownActive(children: NavChild[]): boolean {
   .site-nav__dd-section:first-child {
     margin-top: 0;
   }
+  /* When a section heading is also a link, keep the heading look (bold, gray,
+     no underline) but give it interactive affordance on hover/focus. */
+  .site-nav__dd-section-link {
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
+  }
+  .site-nav__dd-section-link:hover,
+  .site-nav__dd-section-link:focus-visible {
+    text-decoration: underline;
+    color: var(--color-r3-primary, #0d4474);
+    outline: none;
+  }
+  .site-nav__dd-section-link:focus-visible {
+    outline: 2px solid var(--color-r3-primary, #0d4474);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  .site-nav__dd-section:has(.site-nav__dd-section-link) {
+    padding: 0;
+  }
+  .site-nav__dd-section-link {
+    display: block;
+    padding: 8px 20px 4px;
+  }
   .site-nav__dd-divider {
     padding: 6px 0;
   }
@@ -625,6 +682,33 @@ function dropdownActive(children: NavChild[]): boolean {
     color: #555555;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+  }
+  /* Same heading look in the mobile drawer; the link wrapper covers the row
+     so the entire 44px tap target is interactive. */
+  .site-nav__drawer-section:has(.site-nav__drawer-section-link) {
+    padding: 0;
+  }
+  .site-nav__drawer-section-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 16px 10px 32px;
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+  }
+  .site-nav__drawer-section-link:hover,
+  .site-nav__drawer-section-link:focus-visible {
+    text-decoration: underline;
+    color: var(--color-r3-primary, #0d4474);
+    outline: none;
+  }
+  .site-nav__drawer-section-link:focus-visible {
+    outline: 2px solid var(--color-r3-primary, #0d4474);
+    outline-offset: -2px;
   }
   .site-nav__drawer-divider {
     padding: 8px 16px;

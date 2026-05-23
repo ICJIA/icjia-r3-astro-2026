@@ -6,6 +6,34 @@ chronological order.
 
 ---
 
+## 2026-05-23 — About dropdown: section headings are now clickable
+
+User report: clicking the "About the R3 Program" or "Applicant Tools"
+text in the desktop / mobile drawer dropdown did nothing — they were
+rendered as non-interactive `<li class="...-dd-section">` labels, faithfully
+porting the Nuxt original. Any item that looks like a menu entry must
+actually navigate; otherwise the cursor / focus shift on hover is a lie.
+
+- `navConfig.ts`: `NavSection` now carries optional `href` + `external`.
+  `About the R3 Program` is wired to the ArcGIS StoryMap (the same target
+  the duplicate inner link below it pointed at — that inner link is removed
+  to avoid the doubled entry). `Applicant Tools` is wired to `/resources/`
+  (the page where the applicant toolset actually lives).
+- `SiteNav.astro`: both desktop dropdown and mobile drawer render the
+  section's text inside an `<a>` when `href` is set. Existing
+  `(opens in new window)` and `sr-only` patterns reused for external targets.
+- CSS: new `.site-nav__dd-section-link` and `.site-nav__drawer-section-link`
+  classes inherit the parent section's heading look (bold Roboto-900, gray,
+  uppercase on mobile) and `text-decoration: none` by default. Hover /
+  `:focus-visible` adds the underline and primary-color shift so keyboard
+  and pointer users get a clear affordance — the section still *reads* as
+  a heading at rest. Mobile-drawer link fills the full 44px tap row.
+- TypeScript narrowing fixed in `dropdownActive(children)` so the optional
+  `NavSection.href` doesn't get passed as `string | undefined` to `isActive`.
+  `astro check` back to 0/0/0; vitest 120/120; build 28 pages clean.
+
+---
+
 ## 2026-05-23 — `/eligibility/` mobile perf fixes
 
 Post-cutover live re-audit found `/eligibility/` mobile Perf sitting at

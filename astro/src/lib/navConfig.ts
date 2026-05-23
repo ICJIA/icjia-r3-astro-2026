@@ -23,9 +23,11 @@ export interface NavLink {
   external?: boolean;
 }
 
-/** A non-interactive section header inside a dropdown. */
+/** A section header inside a dropdown. Optionally a link itself. */
 export interface NavSection {
   section: string;
+  href?: string;
+  external?: boolean;
 }
 
 /** A horizontal divider inside a dropdown. */
@@ -47,18 +49,17 @@ export const NAV_ITEMS: NavItem[] = [
   {
     label: 'About',
     children: [
-      { section: 'About the R3 Program' },
+      {
+        section: 'About the R3 Program',
+        href: 'https://storymaps.arcgis.com/stories/8607e513363e49f5b02a6e7d8a82432a',
+        external: true,
+      },
       { label: 'R3 news', href: '/news/' },
       { label: 'Meetings', href: '/meetings/' },
       { label: 'R3 Program Board', href: '/board/' },
       { label: 'Research', href: '/research/' },
-      {
-        label: 'About the R3 Program',
-        href: 'https://storymaps.arcgis.com/stories/8607e513363e49f5b02a6e7d8a82432a',
-        external: true,
-      },
       { divider: true },
-      { section: 'Applicant Tools' },
+      { section: 'Applicant Tools', href: '/resources/' },
       { label: 'FAQs', href: '/faqs/' },
       { label: 'Collaboratives', href: '/collaboratives/' },
       { label: 'Resources', href: '/resources/' },
