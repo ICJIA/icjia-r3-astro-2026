@@ -130,10 +130,33 @@ review and carried through the Astro rebuild:
 
 ## Migration history
 
-This site was rebuilt from Nuxt 4 + Vuetify 3 to Astro 6 + Tailwind 4. The
-Nuxt-era source remains in this repository's git history (and on the `main`
-branch until cutover). See `astro/CHANGELOG.md` and `astro/MIGRATION.md` for
-the per-phase record, and `docs/superpowers/specs/` for the design spec.
+This site was rebuilt from Nuxt 4 + Vuetify 3 to Astro 6 + Tailwind 4 over
+ten migration phases (v0.1.0 – v0.10.0). The cutover landed on
+**2026-05-23**: `main` was force-replaced with the Astro tip and Netlify
+rebuilt production from the new tree. See:
+
+- [`astro/CHANGELOG.md`](./astro/CHANGELOG.md) — granular per-release record,
+  starting with the cutover entry at the top
+- [`astro/MIGRATION.md`](./astro/MIGRATION.md) — per-phase baselines and
+  verification results (incl. the Nuxt P0 Lighthouse table)
+- [`MIGRATION_PLAYBOOK.md`](./MIGRATION_PLAYBOOK.md) — lessons-learned
+  jumpstart guide for the next ICJIA Nuxt-to-Astro migration
+- `docs/superpowers/specs/` — original design spec
+- `docs/superpowers/plans/` — phase-by-phase implementation plan
+
+The pre-cutover Nuxt 4 `main` is preserved at the **`pre-astro-cutover`**
+git tag (and on the historical `feat/nuxt4-migration` branch). The
+**`v0.10.0`** tag marks the cutover commit on `main`.
+
+### Mobile Lighthouse — Nuxt vs Astro (cutover day measurement)
+
+| Route | Nuxt P0 | Astro | Δ |
+|---|---:|---:|---:|
+| `/` | 63 (LCP 6.8s) | **100** (LCP 1.7s) | **+37** |
+| `/eligibility/` | 59 (LCP 14.1s) | **90** | **+31** |
+| `/collaboratives/` | 68 | **98** | **+30** |
+
+A11y / Best Practices / SEO held at 100 across the categories audited.
 
 ---
 *Maintained by the ICJIA Web Development Team.*

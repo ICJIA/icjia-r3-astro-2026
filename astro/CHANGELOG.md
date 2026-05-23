@@ -6,6 +6,67 @@ chronological order.
 
 ---
 
+## 2026-05-23 — Production cutover
+
+The Astro rebuild is live on `main` and deployed to
+[r3.illinois.gov](https://r3.illinois.gov). The Nuxt 4 + Vuetify 3 era is
+over; the repository is Astro-only going forward.
+
+### What shipped
+
+- `main` force-replaced with the `migration/astro-full` tip (`c663ffc`).
+  Tagged **`v0.10.0`** at the cutover commit.
+- **`pre-astro-cutover`** tag preserves the final Nuxt 4 `main` state
+  (`00da1b2`) as a recoverable safety net. The Nuxt source also remains
+  on the historical `feat/nuxt4-migration` branch.
+- Netlify production project (`illinois-r3`) rebuilt automatically from
+  the new `main`; `netlify.toml` `base = "astro"` was already in place.
+- 22 stale dependabot PRs against Nuxt-era dependencies (axios,
+  basic-ftp, h3, defu, devalue, rollup, simple-git, dompurify,
+  node-forge, fast-xml-parser, lodash, happy-dom, etc.) closed with an
+  explanatory comment.
+- `migration/astro-full` branch deleted from `origin` (now redundant
+  with `main`).
+
+### Production verification
+
+| Check | Result |
+|---|---|
+| `<meta name="generator" content="Astro …">` | present |
+| Astro scoped-style markers (`data-astro-cid-*`) | present |
+| `/_astro/*.webp` build-pipeline images | present |
+| Vuetify / `v-app` / `v-container` references | **0** |
+| About → R3 Program StoryMap URL | `8607e513363e49f5b02a6e7d8a82432a` ✓ (matches the May 11 Nuxt update) |
+
+### Mobile Lighthouse parity vs. previous Nuxt production
+
+Re-measured on cutover day against a side-by-side run of the live
+Nuxt site (just before push) and the local Astro preview (`yarn
+preview`) on identical viewports.
+
+| Route | Nuxt P0 | Astro now | Δ |
+|---|---:|---:|---:|
+| `/` | 63 (LCP 6.8s) | **100** (LCP 1.7s) | **+37** |
+| `/eligibility/` | 59 (LCP 14.1s) | **90** | **+31** |
+| `/collaboratives/` | 68 | **98** | **+30** |
+
+A11y, Best Practices, and SEO all remain 100 on the routes audited
+during cutover — matching the Nuxt baseline at those categories.
+
+### Two pre-cutover commits intentionally discarded from main
+
+The Nuxt-era `main` tip carried two commits that did not need to be
+preserved through the force-replace:
+
+| Commit | Reason discarded |
+|---|---|
+| `00da1b2 fix: meta` | Accidentally committed Astro `.astro/` build artifacts + `playwright-report/` + `test-results/` — all generated files, all `.gitignore`d in the Astro tree. |
+| `54f6627 chore: update About → About the R3 Program StoryMap link` | Already incorporated in the Astro tree (verified `navConfig.ts` carries the new StoryMap ID `8607…32a`). |
+
+Both remain recoverable via the `pre-astro-cutover` tag.
+
+---
+
 ## v0.10.0 — 2026-05-15
 
 ### Public-facing accessibility audit report
