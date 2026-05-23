@@ -109,6 +109,29 @@ describe('renderMarkdown', () => {
     expect(html).toContain('title="Map"');
   });
 
+  it('strips invalid CSS units from iframe height/width attributes', () => {
+    // The HTML width/height attributes accept a non-negative integer only,
+    // not a CSS length. Strapi-authored markup carries `height="1500px"`,
+    // which browsers don't reliably honor as a layout reservation pre-CSS —
+    // causing CLS ~0.20 on mobile cold loads. The sanitizer strips the unit
+    // so the attribute parses as an integer and the box is reserved at
+    // parse time.
+    const html = renderMarkdown(
+      '<iframe src="https://storymaps.arcgis.com/foo" width="100%" height="1500px"></iframe>',
+    );
+    expect(html).toContain('height="1500"');
+    expect(html).not.toContain('height="1500px"');
+    // Percentage widths are valid on the HTML attribute and must survive untouched.
+    expect(html).toContain('width="100%"');
+  });
+
+  it('leaves bare-integer iframe dimensions untouched', () => {
+    const html = renderMarkdown(
+      '<iframe src="https://storymaps.arcgis.com/foo" height="800"></iframe>',
+    );
+    expect(html).toContain('height="800"');
+  });
+
   it('applies attrs plugin — curly-brace class syntax', () => {
     const html = renderMarkdown('## Section {.highlight}');
     expect(html).toMatch(/class="highlight"/);

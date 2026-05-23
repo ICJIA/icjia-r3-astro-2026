@@ -46,6 +46,20 @@ DOMPurify.addHook('afterSanitizeAttributes', (node) => {
   }
 });
 
+// The HTML iframe width/height attributes accept a non-negative integer only,
+// not a CSS length. Strapi-authored markup carries `height="1500px"`, which
+// browsers don't reliably honor as a layout reservation pre-CSS — causing
+// CLS ~0.20 on mobile cold loads. Strip the unit so the attribute parses as
+// an integer and the iframe box is reserved at parse time.
+DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+  if (node.nodeName !== 'IFRAME') return;
+  const el = node as Element;
+  for (const attr of ['width', 'height']) {
+    const v = el.getAttribute(attr);
+    if (v && /^\d+px$/i.test(v)) el.setAttribute(attr, v.replace(/px$/i, ''));
+  }
+});
+
 // Normalize internal route links to a trailing slash so Strapi-body content
 // honours the site's `trailingSlash: 'always'` policy — a non-slash internal
 // link 404s on `astro dev` and forces a 301 hop in production. Only clean

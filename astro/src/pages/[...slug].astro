@@ -75,6 +75,7 @@ function relativeTime(iso: string | undefined): string {
   canonical={new URL(data.path, Astro.site).toString()}
   publishedAt={data.createdAt}
   updatedAt={data.updatedAt}
+  preconnectOrigins={isFluid ? ['https://storymaps.arcgis.com'] : []}
 >
   <div class:list={['page-layout', isFluid && 'page-layout--fluid', showTOC && toc.length > 0 && 'page-layout--has-toc']}>
     <div class="page-content">

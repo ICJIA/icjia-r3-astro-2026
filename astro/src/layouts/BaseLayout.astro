@@ -18,6 +18,7 @@ interface Props {
   ogImage?: string;
   canonical?: string;
   preloadImages?: string[];
+  preconnectOrigins?: string[];
   pageBackground?: string;
   publishedAt?: string;
   updatedAt?: string;
@@ -31,6 +32,7 @@ const {
   ogImage = 'https://r3.illinois.gov/og-image.png',
   canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://r3.illinois.gov').toString(),
   preloadImages = [],
+  preconnectOrigins = [],
   pageBackground = 'var(--color-r3-bg)',
   publishedAt,
   updatedAt,
@@ -69,6 +71,10 @@ const ldJSON = websiteSchema();
     <link rel="preconnect" href="https://r3.icjia-api.cloud" crossorigin />
     <link rel="preconnect" href="https://researchhub.icjia-api.cloud" crossorigin />
     <link rel="preconnect" href="https://plausible.icjia.cloud" />
+
+    {preconnectOrigins.map((origin) => (
+      <link rel="preconnect" href={origin} crossorigin />
+    ))}
 
     {preloadImages.map((src) => (
       <link rel="preload" as="image" href={src} fetchpriority="high" />

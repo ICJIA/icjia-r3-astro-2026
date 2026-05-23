@@ -6,6 +6,25 @@ chronological order.
 
 ---
 
+## 2026-05-23 — `/eligibility/` mobile perf fixes
+
+Post-cutover live re-audit found `/eligibility/` mobile Perf sitting at
+**~66 (median of 5 runs)** vs. desktop **96**, with **LCP ~10s** and
+**CLS 0.20** — both dominated by the ArcGIS StoryMap iframe loading
+cross-origin on a cold Lighthouse 3G simulation. The local-preview
+measurement during Phase 7 read 99 because the iframe was warm-cached.
+
+Two targeted fixes, no UX change:
+
+- **Conditional `<link rel="preconnect" href="https://storymaps.arcgis.com" crossorigin>`** on `/eligibility/` only (`preconnectOrigins` prop on `BaseLayout`, passed from `[...slug].astro` when `data.slug === 'eligibility'`). Warms DNS + TLS before the iframe is parsed; other routes don't pay the connection-slot cost.
+- **Strip the invalid `px` unit from iframe `height`/`width` attributes** in `markdown.ts`. Strapi authors the embed as `height="1500px"`, which is invalid per HTML5 (the iframe attribute is a non-negative integer, not a CSS length). Some browsers don't reliably reserve space pre-CSS when the unit is present — causing the CLS 0.20 shift. Stripping the unit makes the attribute parse as an integer and the box is reserved at parse time. New `markdown.test.ts` cases (`strips invalid CSS units…`, `leaves bare-integer…`) guard the behavior.
+
+Verification: `astro check` 0/0/0, vitest 118/118, build clean, dist
+inspection confirms preconnect emits on `/eligibility/` only and
+`<iframe … height="1500" …>` (no `px`).
+
+---
+
 ## 2026-05-23 — Production cutover
 
 The Astro rebuild is live on `main` and deployed to
