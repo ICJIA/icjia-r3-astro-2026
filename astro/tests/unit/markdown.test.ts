@@ -132,6 +132,25 @@ describe('renderMarkdown', () => {
     expect(html).toContain('height="800"');
   });
 
+  it('promotes iframe dimensions to inline style so CSS reserves the box pre-load', () => {
+    // The HTML attribute alone doesn't reliably reserve a CSS box; the iframe
+    // can still reflow when its content loads, producing CLS. Inline style is
+    // authoritative — browsers honor it at parse time, before the iframe's
+    // cross-origin content arrives.
+    const html = renderMarkdown(
+      '<iframe src="https://storymaps.arcgis.com/foo" width="100%" height="1500px"></iframe>',
+    );
+    expect(html).toMatch(/<iframe[^>]*style="[^"]*height:\s*1500px[^"]*"/);
+    expect(html).toMatch(/<iframe[^>]*style="[^"]*width:\s*100%[^"]*"/);
+  });
+
+  it('falls back to aspect-ratio when iframe has no explicit pixel height', () => {
+    const html = renderMarkdown(
+      '<iframe src="https://storymaps.arcgis.com/foo" width="100%"></iframe>',
+    );
+    expect(html).toMatch(/<iframe[^>]*style="[^"]*aspect-ratio:\s*4\s*\/\s*3[^"]*"/);
+  });
+
   it('applies attrs plugin — curly-brace class syntax', () => {
     const html = renderMarkdown('## Section {.highlight}');
     expect(html).toMatch(/class="highlight"/);

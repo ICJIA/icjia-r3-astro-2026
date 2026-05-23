@@ -48,9 +48,13 @@ DOMPurify.addHook('afterSanitizeAttributes', (node) => {
 
 // The HTML iframe width/height attributes accept a non-negative integer only,
 // not a CSS length. Strapi-authored markup carries `height="1500px"`, which
-// browsers don't reliably honor as a layout reservation pre-CSS — causing
-// CLS ~0.20 on mobile cold loads. Strip the unit so the attribute parses as
-// an integer and the iframe box is reserved at parse time.
+// (a) is invalid for the attribute, and (b) doesn't bind a CSS box dimension
+// — so the iframe reflows when its cross-origin content loads, producing
+// CLS ~0.20 on mobile cold loads. Two fixes here:
+//   1. Strip the `px` unit from width/height so the attribute parses as an
+//      integer (still useful for browsers that read the attribute).
+//   2. Promote the height to an inline `style` so the iframe box is
+//      reserved by CSS at parse time, before the iframe's content arrives.
 DOMPurify.addHook('afterSanitizeAttributes', (node) => {
   if (node.nodeName !== 'IFRAME') return;
   const el = node as Element;
@@ -58,6 +62,13 @@ DOMPurify.addHook('afterSanitizeAttributes', (node) => {
     const v = el.getAttribute(attr);
     if (v && /^\d+px$/i.test(v)) el.setAttribute(attr, v.replace(/px$/i, ''));
   }
+  const w = el.getAttribute('width');
+  const h = el.getAttribute('height');
+  const parts: string[] = ['width: 100%', 'max-width: 100%'];
+  if (h && /^\d+$/.test(h)) parts.push(`height: ${h}px`);
+  else if (w === '100%') parts.push('aspect-ratio: 4 / 3');
+  const existing = el.getAttribute('style');
+  el.setAttribute('style', existing ? `${existing}; ${parts.join('; ')}` : parts.join('; '));
 });
 
 // Normalize internal route links to a trailing slash so Strapi-body content
