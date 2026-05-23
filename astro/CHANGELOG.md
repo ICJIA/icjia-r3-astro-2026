@@ -6,6 +6,42 @@ chronological order.
 
 ---
 
+## 2026-05-23 — `font-display: optional` on Lato / Roboto / Raleway → kill `/eligibility/` mobile CLS
+
+The earlier iframe-inline-style fix made the markup correct but **did not move
+CLS**. The post-deploy lightcap re-run still showed CLS 0.20 on every warm-iframe
+run. Extracting `layout-shifts` from the Lighthouse JSON pinned the culprit:
+
+```
+selector: div.page-layout > div.page-content > article.markdown-body > p
+score:    0.199
+```
+
+A paragraph inside the Strapi-rendered body — not the iframe. Classic
+font-swap reflow: first paint uses the fallback (Arial / system-ui),
+then Lato/Roboto/Raleway arrive late under Lighthouse's 3G simulation
+and the paragraph reflows. The iframe loading at roughly the same
+moment was just coincident, not causal.
+
+Fix: replace the fontsource `@import` lines in `global.css` (which
+hard-code `font-display: swap`) with manual `@font-face` declarations
+pointing at the same fontsource `.woff2` files but pinning
+**`font-display: optional`**. Latin subset only — 6 files
+(Roboto-Variable, Raleway-Variable, Lato 300/400/400-italic/700),
+totalling ~150 kB.
+
+Trade-off: a first-time visitor on a slow connection won't see the
+custom font on first paint (the browser sticks with the fallback if
+the .woff2 isn't ready within ~100 ms). On a return visit the .woff2
+is cached and renders immediately. No FOUT, no reflow, no CLS.
+
+Verification: `astro check` 0/0/0, vitest 120/120, build clean, dist
+includes the 6 `latin-*.woff2` files. CSS has `font-display: optional`
+and no `font-display: swap`. Awaiting deploy to re-run the
+`/eligibility/` mobile audit.
+
+---
+
 ## 2026-05-23 — About dropdown: section headings are now clickable
 
 User report: clicking the "About the R3 Program" or "Applicant Tools"
