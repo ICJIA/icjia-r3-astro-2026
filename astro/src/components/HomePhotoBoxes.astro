@@ -70,9 +70,12 @@ const BOXES: Box[] = [
         />
         <!-- Gradient overlay: top-dark to bottom-light, matching Nuxt original -->
         <div class="photo-box__overlay" aria-hidden="true"></div>
-        <!-- Title + text anchored top-left, matching Nuxt card layout -->
+        <!-- Title + text anchored top-left, matching Nuxt card layout.
+             Title is <h3> (parent section is <h2>Applicant Tools</h2>) so axe's
+             `p-as-heading` experimental rule and SR heading navigation both
+             find it. -->
         <div class="photo-box__content">
-          <p class="photo-box__title">{b.title}</p>
+          <h3 class="photo-box__title">{b.title}</h3>
           <p class="photo-box__text">{b.text}</p>
         </div>
       </a>

@@ -6,6 +6,39 @@ chronological order.
 
 ---
 
+## v1.0.1 — 2026-05-23
+
+Fix homepage `p-as-heading` (axe DevTools, WCAG 1.3.1 A — flagged
+experimental in axe so the standard `wcag2*` tag set didn't catch it).
+
+axe DevTools export (`r3.illinois.gov-2026-05-23.json`, extension
+4.129.1, axe-core 4.11.4, experimental rules enabled) reported
+**3 serious violations** on `/`:
+
+| Element | Rule |
+|---|---|
+| `.photo-box__title` ("Eligibility") | `p-as-heading` |
+| `.photo-box__title` ("Collaboratives") | `p-as-heading` |
+| `.photo-box__title` ("Resources") | `p-as-heading` |
+
+The `HomePhotoBoxes` titles were rendered as `<p class="photo-box__title">`
+but styled as headings (bold, 26px, bordered underline). Promoted them
+to `<h3>` — semantically correct (the parent section is
+`<h2>Applicant Tools</h2>`, so `h3` keeps heading order intact) and
+appears in SR heading-navigation lists. Scoped CSS keeps the visual
+identical (Astro's `[data-astro-cid-…]` selector outranks the global
+`.markdown-body h3` margin rule on specificity).
+
+Note for the future: the standard a11y sweep
+(`a11y-sweep.spec.ts` / `generate-a11y-report.mjs`) audits with
+`tags: ['wcag2a','wcag2aa','wcag21a','wcag21aa']` only — it does NOT
+include axe-core's `experimental` ruleset, which is where
+`p-as-heading` lives. axe DevTools enables it by default. Could be
+added to our tag list as a follow-up if we want this caught
+automatically going forward.
+
+---
+
 ## v1.0.0 — 2026-05-23
 
 First post-cutover release. Marks the Astro rebuild as the production
