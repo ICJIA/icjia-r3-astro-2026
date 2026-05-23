@@ -410,7 +410,7 @@ function renderHTML(d) {
     <p class="meta"><strong>Pages tested:</strong> ${d.pagesTested}</p>
     <p class="meta"><strong>Viewports tested:</strong> ${escapeHTML(d.viewports)}</p>
     <p class="meta"><strong>Themes tested:</strong> ${escapeHTML(d.themes)}</p>
-    <p class="meta"><strong>Repo access:</strong> Public &mdash; <a href="https://github.com/ICJIA/icjia-r3-v5-nuxt">github.com/ICJIA/icjia-r3-v5-nuxt</a></p>
+    <p class="meta"><strong>Repo access:</strong> Public &mdash; <a href="https://github.com/ICJIA/icjia-r3-astro-2026">github.com/ICJIA/icjia-r3-astro-2026</a></p>
 
     <ul class="summary-cards" aria-label="Audit summary statistics">
       <li>
@@ -579,7 +579,7 @@ function renderHTML(d) {
       ${escapeHTML(d.generatedAt)}.
     </p>
     <p>
-      Source: <a href="https://github.com/ICJIA/icjia-r3-v5-nuxt/blob/migration/astro-full/astro/scripts/generate-a11y-report.mjs">scripts/generate-a11y-report.mjs</a>
+      Source: <a href="https://github.com/ICJIA/icjia-r3-astro-2026/blob/main/astro/scripts/generate-a11y-report.mjs">scripts/generate-a11y-report.mjs</a>
       &middot; <a href="/">← Back to site</a>
     </p>
   </footer>

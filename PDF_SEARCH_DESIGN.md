@@ -922,4 +922,4 @@ These are real questions worth resolving before v1 ships, not after.
 ---
 
 *Last revised 2026-05-15. Companion to the R3 inline reference at*
-*`github.com/ICJIA/icjia-r3-v5-nuxt/blob/main/astro/src/lib/pdfText.ts`.*
+*`github.com/ICJIA/icjia-r3-astro-2026/blob/main/astro/src/lib/pdfText.ts`.*

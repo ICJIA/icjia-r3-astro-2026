@@ -235,10 +235,11 @@ This shape worked here. Adapt per project.
 
 |  |  |
 |---|---|
-| Repo | <https://github.com/ICJIA/icjia-r3-v5-nuxt> |
-| Migration branch | `migration/astro-full` |
-| Branch deploy | <https://migration-astro-full--illinois-r3.netlify.app> |
-| Final version | `astro/package.json` v0.9.0 |
+| Repo | <https://github.com/ICJIA/icjia-r3-astro-2026> |
+| Migration branch | `migration/astro-full` — merged into `main` on cutover (2026-05-23) and deleted |
+| Pre-cutover `main` | `pre-astro-cutover` git tag (last Nuxt 4 state, recoverable) |
+| Cutover commit / release tag | `v0.10.0` |
+| Final version | `astro/package.json` v0.10.0 |
 | Phases | See `astro/MIGRATION.md` and `astro/CHANGELOG.md` |
 
 ---
