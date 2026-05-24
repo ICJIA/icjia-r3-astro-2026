@@ -26,12 +26,11 @@ export default defineConfig({
   // `ensureTrailingSlash`, and the `trailing-slash.spec.ts` e2e test continues
   // to enforce slash-suffixed internal links independent of this config.
   trailingSlash: 'ignore',
-  // The live site's /funding/ is a meta-refresh redirect to the homepage with
-  // no content page. In `output: 'static'` Astro emits exactly that — an HTML
-  // page with `<meta http-equiv="refresh">` — so this matches r3.illinois.gov.
-  redirects: {
-    '/funding': '/',
-  },
+  // /funding is a legacy URL — Nuxt era had no real funding page, it just
+  // bounced visitors to /. Previously emitted as an Astro `redirects` entry,
+  // which produces a meta-refresh HTML page in static output (slower and
+  // weaker SEO signal than a server 301). v1.0.8 moved the redirect to
+  // netlify.toml as a proper edge 301 → see `[[redirects]]` block there.
   image: {
     // Authorize the Strapi media host so <Image> can pull the homepage
     // splash + photo-box images at build time and emit optimized,
@@ -53,8 +52,7 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('/sandbox/') &&
         !page.includes('/preview/') &&
-        !page.includes('/404/') &&
-        !page.includes('/funding/'), // redirect-only route, not real content
+        !page.includes('/404/'),
       // Top-level `trailingSlash: 'ignore'` lets the sitemap integration emit
       // both forms — pin every <loc> to its `/`-suffixed canonical form so
       // crawlers index a single URL per page. (The dedicated `trailingSlash`

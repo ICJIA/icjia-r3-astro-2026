@@ -15,6 +15,18 @@
   PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "1"
   PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1"
 
+# /funding — legacy URL, no real content. Edge 301 to the homepage where
+# the NOFO splash cards live. Previously a meta-refresh page emitted by
+# Astro `redirects` (v1.0.7 and earlier); moved here in v1.0.8 for a
+# proper server-side 301 (faster + stronger SEO signal than meta-refresh).
+# Single rule matches both `/funding` and `/funding/` — Netlify's redirect
+# engine is loose on trailing slashes.
+[[redirects]]
+  from = "/funding"
+  to = "/"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]

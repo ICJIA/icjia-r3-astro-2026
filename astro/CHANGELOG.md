@@ -6,6 +6,37 @@ chronological order.
 
 ---
 
+## v1.0.8 — 2026-05-24
+
+Convert `/funding` from a meta-refresh page to a proper Netlify edge 301.
+Closes the last Siteimprove flag on the site.
+
+**`astro.config.ts`** — removed the `redirects: { '/funding': '/' }`
+block. In `output: 'static'`, Astro renders that as a `<meta
+http-equiv="refresh">` HTML page, which is a weaker SEO signal than a
+server-side 301 and adds a parse-and-redirect round-trip for the user.
+Also removed the now-dead `!page.includes('/funding/')` sitemap filter.
+
+**`netlify.toml`** — added a `[[redirects]]` block for `/funding` →
+`/` with `status = 301` and `force = true`. Netlify's redirect engine
+matches both `/funding` and `/funding/` from a single rule.
+
+**`src/pages/404.astro`** — dropped the "Funding" quickLink. It pointed
+at `/funding/` which now 301s to `/` — the same destination as the
+"R3 Home" quickLink already in the list, so it was redundant.
+
+**Verified:**
+
+- `pnpm test`  — 129/129 pass
+- `pnpm check` — 0/0/0 (43 files)
+- `pnpm build` — 28 pages (was 27; the sitemap entry for /funding/ no
+  longer needs filtering because the route no longer exists). The
+  `dist/funding/` directory is no longer emitted.
+- `check-links --external` — **0 CRITICAL, 0 WARNING, 0 NOTICE.**
+  Full site is link-clean.
+
+---
+
 ## v1.0.7 — 2026-05-24
 
 Follow-up to v1.0.6: relocate Language Access Plan (LAP) content from
