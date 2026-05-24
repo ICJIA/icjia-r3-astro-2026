@@ -6,6 +6,62 @@ chronological order.
 
 ---
 
+## v1.0.4 — 2026-05-24
+
+Image-delivery wins on the homepage + a build-time WebP pipeline for
+Strapi body images. Targets the `image-delivery-insight` Lighthouse
+finding that was draining the mobile Perf score down to 97.
+
+**Director portrait (homepage).** `<img src="/DirectorAdamsResized.jpg">`
+was a 87 KB static JPG, 1000×1043 source, served for a 140×140 display.
+Now an Astro `<Image>` (`src/assets/director-adams.jpg`, `widths={[140,
+280, 420]}`, `format="webp"`, `sizes="140px"`) emits three properly-sized
+WebP variants per build. Also removed the unused 1.14 MB
+`public/DirectorAdams.jpg` original.
+
+**Body-image WebP pipeline.** Implements [checklist §5 tier 2](
+https://github.com/ICJIA/adult-redeploy-client-next/blob/master/docs/astro-conversion-checklist.md):
+
+- `scripts/fetch-cms-images.mjs` — runs as `prebuild`. Hits Strapi v4
+  GraphQL for `pages` / `posts` / `resources` / `weeklyFaqs` `body`
+  fields, regexes out every `r3.icjia-api.cloud/uploads/...` URL,
+  downloads each unique URL once, runs Sharp to emit WebP variants at
+  `[640, 960, 1280]` widths (capped at source width), writes the
+  manifest to `src/lib/cmsImageManifest.json`. Buffers cached under
+  `.cache/cms-img/<sha1>` so re-builds skip the network. Pipeline
+  failures (Strapi outage, bad URL) are logged but never fail the
+  build — the markdown hook falls back to the original Strapi URL
+  when a lookup misses.
+- `src/lib/cmsImage.ts` — `getCmsImage(url)` lookup helper.
+- `src/lib/markdown.ts` — new DOMPurify `afterSanitizeAttributes` hook
+  rewrites `<img src>` to the manifest entry, adds `srcset`, and fills
+  in intrinsic dimensions. **Aspect-ratio-aware**: if the author set
+  `width="750"` on a 1188×1188 source, the hook computes `height="750"`
+  (proportional) rather than stamping the source intrinsic 1188 (which
+  would produce a letterboxed box). Naive "intrinsic-only" code would
+  blow up CLS on every author-constrained image.
+- Manifest committed; `public/_cms-img/` WebPs and `.cache/cms-img/`
+  buffers gitignored. Current state: 1 entry (the 287 KB news-page PNG
+  → 3 WebP variants), pipeline ready to scale as authors add more.
+
+**Tests.** `tests/unit/cmsImage.test.ts` for the helper (null on miss,
+shape contract on hit). `tests/unit/markdown.test.ts` adds the
+no-op-on-miss case AND the aspect-ratio computation case. Suite now
+**129/129 pass**.
+
+**Other.** Fixed `start-dev-server.sh` line 39 — `${*}` errored under
+`set -u` when invoked with no args. Now uses `${*:+ }${*:-}` so the
+empty case is safe.
+
+**Verification:**
+
+- `pnpm test`  — 129/129 pass
+- `pnpm check` — 0/0/0 (43 files)
+- `pnpm build` — 28 pages, prebuild emits manifest, Astro emits 3
+  director-adams WebP variants
+
+---
+
 ## v1.0.3 — 2026-05-24
 
 Switch Netlify build from yarn to pnpm so local dev and CI use the same

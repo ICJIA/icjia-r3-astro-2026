@@ -15,6 +15,7 @@ import anchor from 'markdown-it-anchor';
 import attrs from 'markdown-it-attrs';
 import createDOMPurify from 'dompurify';
 import { Window } from 'happy-dom';
+import { getCmsImage } from './cmsImage';
 
 const md = new MarkdownIt({ html: true, linkify: true, typographer: false })
   .use(attrs)
@@ -83,6 +84,47 @@ DOMPurify.addHook('afterSanitizeAttributes', (node) => {
   const href = el.getAttribute('href');
   if (href && /^\/[a-z0-9][a-z0-9/_-]*$/i.test(href) && !href.endsWith('/')) {
     el.setAttribute('href', `${href}/`);
+  }
+});
+
+// Rewrite Strapi body-image URLs to the build-time WebP variants generated
+// by scripts/fetch-cms-images.mjs. Original URL is preserved verbatim when
+// the manifest has no entry (transient Strapi outage during prebuild, or a
+// brand-new image authored after the last build) — the site keeps working,
+// just loses the WebP win until the next deploy.
+//
+// Width/height: respect the author's intent (Strapi-authored width="750" is
+// usually a display constraint), but fill in the missing dimension from the
+// manifest's intrinsic aspect ratio so the browser reserves the correct
+// box and CLS stays at zero. Naive "just set both to manifest values" would
+// override author-set widths and blow up layouts; naive "set whichever is
+// missing to manifest intrinsic" would produce wrong aspects when the
+// author overrode one dimension. Compute the missing one proportionally.
+DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+  if (node.nodeName !== 'IMG') return;
+  const el = node as Element;
+  const src = el.getAttribute('src');
+  if (!src) return;
+  const entry = getCmsImage(src);
+  if (!entry) return;
+  el.setAttribute('src', entry.src);
+  el.setAttribute('srcset', entry.srcset);
+
+  const authorW = el.getAttribute('width');
+  const authorH = el.getAttribute('height');
+  if (!authorW && !authorH) {
+    el.setAttribute('width', String(entry.width));
+    el.setAttribute('height', String(entry.height));
+  } else if (authorW && !authorH) {
+    const w = Number.parseInt(authorW, 10);
+    if (Number.isFinite(w) && w > 0) {
+      el.setAttribute('height', String(Math.round((entry.height / entry.width) * w)));
+    }
+  } else if (!authorW && authorH) {
+    const h = Number.parseInt(authorH, 10);
+    if (Number.isFinite(h) && h > 0) {
+      el.setAttribute('width', String(Math.round((entry.width / entry.height) * h)));
+    }
   }
 });
 

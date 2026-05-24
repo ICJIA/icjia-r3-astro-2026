@@ -185,6 +185,43 @@ describe('renderMarkdown', () => {
     expect(html).not.toContain('decoding="async"');
   });
 
+  // CMS image rewrite — when a body <img> points at a Strapi URL that's in
+  // the build-time manifest (populated by scripts/fetch-cms-images.mjs),
+  // the sanitizer swaps src/srcset/intrinsic-dims to the optimized variants.
+  // Unknown URLs fall through unchanged so a brand-new image added to
+  // Strapi after the last prebuild still renders, just without WebP.
+  it('leaves the src untouched for a URL not in the cms-image manifest', () => {
+    const html = renderMarkdown(
+      '<img src="https://r3.icjia-api.cloud/uploads/never-seen-this-one.png" alt="">',
+    );
+    expect(html).toContain('src="https://r3.icjia-api.cloud/uploads/never-seen-this-one.png"');
+    expect(html).not.toContain('srcset=');
+    expect(html).not.toContain('/_cms-img/');
+  });
+
+  // When the manifest IS hit, computed height/width must honor the author's
+  // explicit display dimension instead of defaulting to the source intrinsic.
+  // Bug pattern this guards: author sets width="750" on a 1188×1188 square
+  // source; naive code stamps height="1188" (the source intrinsic) and the
+  // browser draws a 750×1188 letterbox. Correct behavior: compute height
+  // from the manifest aspect (1188/1188 = 1) × 750 = 750.
+  it('computes proportional height when author overrode width on a manifest-hit image', async () => {
+    const manifest = (await import('~/lib/cmsImageManifest.json')).default as
+      Record<string, { width: number; height: number }>;
+    const sampleUrl = Object.keys(manifest)[0];
+    if (!sampleUrl) return; // empty manifest → no-op, same fallback as renderer
+    const meta = manifest[sampleUrl];
+    const authorWidth = Math.max(1, Math.round(meta.width / 2));
+    const expectedHeight = Math.round((meta.height / meta.width) * authorWidth);
+    const html = renderMarkdown(
+      `<img src="${sampleUrl}" alt="x" width="${authorWidth}">`,
+    );
+    expect(html).toContain(`width="${authorWidth}"`);
+    expect(html).toContain(`height="${expectedHeight}"`);
+    expect(html).toContain('srcset=');
+    expect(html).toContain('/_cms-img/');
+  });
+
   it('handles empty input', () => {
     expect(renderMarkdown('')).toBe('');
   });

@@ -13,9 +13,11 @@ import BaseLayout from '~/layouts/BaseLayout.astro';
 import HomeSplashCard from '~/components/HomeSplashCard.astro';
 import HomePhotoBoxes from '~/components/HomePhotoBoxes.astro';
 import NewsCard from '~/components/NewsCard.astro';
+import { Image } from 'astro:assets';
 import { getCollection, getEntry } from 'astro:content';
 import { renderMarkdown } from '~/lib/markdown';
 import { HOMEPAGE_SPLASH } from '~/lib/manualPages';
+import directorAdamsPhoto from '../assets/director-adams.jpg';
 
 const homePage = await getEntry('pages', 'index');
 const homeBody = homePage?.data.body ? renderMarkdown(homePage.data.body) : '';
@@ -49,10 +51,13 @@ const latestNews = [...allNews]
     <div class="director-letter-inner">
       <h2>Letter From the Director</h2>
       <p>
-        <img
-          src="/DirectorAdamsResized.jpg"
-          width="140"
-          height="140"
+        <Image
+          src={directorAdamsPhoto}
+          widths={[140, 280, 420]}
+          sizes="140px"
+          format="webp"
+          width={140}
+          height={140}
           alt="ICJIA Executive Director, Delrice Adams"
           class="director-photo"
           loading="lazy"

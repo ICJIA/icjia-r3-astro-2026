@@ -36,5 +36,5 @@ fi
 # Drop the leading `--` separator if the caller used it.
 if [ "${1:-}" = "--" ]; then shift; fi
 
-echo "→ pnpm dev ${*}"
+echo "→ pnpm dev${*:+ }${*:-}"
 exec pnpm dev "$@"

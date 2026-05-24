@@ -30,3 +30,9 @@ test-results/
 playwright-report/
 playwright/.cache/
 coverage/
+
+# CMS image pipeline — buffers cached so re-builds skip the network;
+# WebP variants regenerated each build. Manifest (src/lib/cmsImageManifest.json)
+# IS committed so dev/CI agree on lookups even before prebuild runs.
+.cache/cms-img/
+public/_cms-img/
