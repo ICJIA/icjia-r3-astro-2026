@@ -53,7 +53,6 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('/sandbox/') &&
         !page.includes('/preview/') &&
-        !page.includes('/translate/') &&
         !page.includes('/404/') &&
         !page.includes('/funding/'), // redirect-only route, not real content
       // Top-level `trailingSlash: 'ignore'` lets the sitemap integration emit

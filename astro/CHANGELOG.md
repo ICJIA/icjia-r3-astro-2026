@@ -6,6 +6,46 @@ chronological order.
 
 ---
 
+## v1.0.7 — 2026-05-24
+
+Follow-up to v1.0.6: relocate Language Access Plan (LAP) content from
+the deleted `/translate/` page onto `/contact/`, and clean up the dead
+sitemap filter.
+
+**`src/pages/contact.astro`** — added a "Need language assistance?"
+section to the existing contact card, parallel in structure to the R3
+Q&A section above it. New copy is tightened from the original
+`/translate/` LAP text:
+
+- LAP commitment paragraph (Title VI / federal LEP guidance — required
+  for federally-funded programs)
+- Mailto for `LAPRequests@illinois.gov`
+
+The Google Translate explainer from the old page is intentionally
+dropped — onsite translation will return when an Illinois DoIT-licensed
+solution (WeGlot) is in place; for now, language assistance is
+request-based via the email above.
+
+**`astro.config.ts`** — removed the now-dead
+`!page.includes('/translate/')` sitemap filter (translate page was
+deleted in v1.0.6).
+
+**Audit follow-up:** the user also cleaned up 5 of 6 Strapi-side
+`youtube.com` URLs to add the `www.` prefix during this round.
+Remaining 3 WARNING items are all Strapi-side and CMS-editable:
+- 1 × `youtube.com/watch?v=gvqOC2JCCJI` (missing `www.`)
+- 1 × `sam.gov/content/home` (page removed by SAM)
+- 1 × IRS EIN URL (IRS renamed the page)
+
+**Verified:**
+
+- `pnpm test`  — 129/129 pass
+- `pnpm check` — 0/0/0 (43 files)
+- `pnpm build` — 27 pages
+- `check-links --external` — 0 CRITICAL, 3 WARNING (all Strapi), 0 NOTICE
+
+---
+
 ## v1.0.6 — 2026-05-24
 
 Fix all 4 source-side link errors flagged by the new
