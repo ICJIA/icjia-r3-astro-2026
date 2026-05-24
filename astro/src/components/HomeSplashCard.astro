@@ -41,18 +41,26 @@ const colorWash =
   cardIndex === 0
     ? 'rgba(200,120,120,0.15)'
     : 'rgba(120,140,200,0.15)';
+
+// Dynamic wrapper element — <a> when the card has an externalURL, plain
+// <div> when it doesn't (e.g., expired NOFO cards that are now purely
+// informational). Astro renders the variable as an HTML tag because the
+// identifier starts with a capital letter.
+const Tag = externalURL ? 'a' : 'div';
+const linkProps = externalURL
+  ? { href: externalURL, target: '_blank', rel: 'noopener noreferrer' }
+  : {};
 ---
 
-<div class="splash-card">
+<div class:list={["splash-card", { "splash-card--static": !externalURL }]}>
   <!-- No aria-label: the link's visible text (title + tagline + date) is its
        accessible name. An aria-label that omitted the date would trip
-       WCAG 2.5.3 label-content-name-mismatch. -->
-  <a
-    class="splash-card__link"
-    href={externalURL ?? '#'}
-    target={externalURL ? '_blank' : undefined}
-    rel={externalURL ? 'noopener noreferrer' : undefined}
-  >
+       WCAG 2.5.3 label-content-name-mismatch.
+       Wrapper is <a> when externalURL is set, plain <div> when not — avoids
+       an <a href="#"> dead link for expired NOFOs (see manualPages.ts).
+       The .splash-card--static class drops cursor:pointer and the hover
+       transform/zoom so the card no longer signals clickability. -->
+  <Tag class="splash-card__link" {...linkProps}>
     <div class="splash-card__media">
       <Image
         src={src}
@@ -86,7 +94,7 @@ const colorWash =
         </div>
       </div>
     </div>
-  </a>
+  </Tag>
 </div>
 
 <style>
@@ -102,6 +110,23 @@ const colorWash =
   .splash-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Static (non-link) variant — expired NOFO cards. Card is purely
+     informational, so drop the hover lift/shadow and the cursor that
+     would imply clickability. The hover-zoom on the splash image is
+     also suppressed (see .splash-card__img rule below). */
+  .splash-card--static {
+    cursor: default;
+  }
+
+  .splash-card--static:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .splash-card--static:hover .splash-card__img {
+    transform: none;
   }
 
   .splash-card__link {

@@ -6,6 +6,39 @@ chronological order.
 
 ---
 
+## v1.0.5 — 2026-05-24
+
+Remove AmpliFund links from the homepage. Both NOFOs are closed, so
+sending users to AmpliFund (where they can't apply) was a worse UX than
+just describing the past opportunity.
+
+**`src/lib/manualPages.ts`** — dropped `externalURL` from both
+`HOMEPAGE_SPLASH` entries. The card titles, taglines, and "EXPIRED"
+date stay so the cards remain informational.
+
+**`src/components/HomeSplashCard.astro`** — replaced the always-`<a>`
+wrapper with a dynamic-tag pattern: `const Tag = externalURL ? 'a' :
+'div'`. When `externalURL` is absent the wrapper renders as a plain
+`<div>` instead of an `<a href="#">` dead link (which would scroll-to-top
+on click and trip WCAG 2.4.4 / 2.4.9 indirectly). Added a
+`.splash-card--static` modifier that drops `cursor: pointer`, the
+hover-translate, the hover box-shadow, and the image hover-zoom so the
+card no longer signals clickability.
+
+Note: the `/resources/single-page/` route still contains an
+"AmpliFund Portal Guide and Tip Sheet" section with PDFs from Strapi.
+That content is CMS-managed (not in source) — remove it from Strapi if
+the guides should also come down.
+
+**Verified:**
+
+- `pnpm test`  — 129/129 pass
+- `pnpm check` — 0/0/0
+- `pnpm build` — 28 pages; both splash cards now render
+  `<div class="splash-card splash-card--static">` wrappers with no href
+
+---
+
 ## v1.0.4 — 2026-05-24
 
 Image-delivery wins on the homepage + a build-time WebP pipeline for

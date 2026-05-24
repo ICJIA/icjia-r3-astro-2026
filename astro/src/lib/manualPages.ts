@@ -14,10 +14,14 @@ export interface SplashCard {
   applicationDate?: string; // descriptive text under the tagline (e.g. "EXPIRED")
 }
 
+// AmpliFund externalURLs were removed 2026-05-24 (v1.0.5) because both
+// NOFOs have closed — sending users to AmpliFund where they can't apply is
+// a worse experience than just describing the past opportunity. Cards stay
+// as informational blocks; `applicationDate` defaults to "EXPIRED" in
+// HomeSplashCard.astro and HomeSplashCard renders a non-link wrapper when
+// `externalURL` is absent.
 export const HOMEPAGE_SPLASH: SplashCard[] = [
   {
-    externalURL:
-      'https://il.amplifund.com/Public/Opportunities/Details/025c7e5e-0584-4bab-b2ce-c6528f5c132e',
     src: 'https://r3.icjia-api.cloud/uploads/r32025_1_08392baf96.jpg',
     lazySrc: 'https://r3.icjia-api.cloud/uploads/r32025_1_08392baf96.jpg',
     tagline:
@@ -25,8 +29,6 @@ export const HOMEPAGE_SPLASH: SplashCard[] = [
     title: 'Notice of Funding Opportunity',
   },
   {
-    externalURL:
-      'https://il.amplifund.com/Public/Opportunities/Details/41c400bd-795c-444a-a8db-9bad138127be',
     src: 'https://r3.icjia-api.cloud/uploads/large_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg',
     lazySrc:
       'https://r3.icjia-api.cloud/uploads/thumbnail_getty_images_Br_GGMIVO_9r_U_unsplash_f4b0e5293b.jpg',
