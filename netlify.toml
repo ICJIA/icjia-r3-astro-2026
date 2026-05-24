@@ -18,7 +18,14 @@
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://plausible.icjia.cloud https://siteimproveanalytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: https://r3.icjia-api.cloud; font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com; connect-src 'self' https://r3.icjia-api.cloud https://researchhub.icjia-api.cloud https://mail.icjia.cloud https://plausible.icjia.cloud; frame-src 'self' https://storymaps.arcgis.com https://arcgis.com https://*.arcgis.com"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # CSP tightened 2026-05-24 (v1.0.2): dropped unused Google Fonts origins
+    # from style-src and font-src (fonts have been self-hosted via @fontsource
+    # since v0.10.0), and dropped cdn.jsdelivr.net + siteimproveanalytics.com
+    # from script-src (legacy Nuxt-era entries, verified zero references in
+    # astro/src/). frame-src keeps the ArcGIS hosts because Strapi body
+    # content embeds StoryMaps via iframe.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.icjia.cloud; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: https://r3.icjia-api.cloud; font-src 'self' data:; connect-src 'self' https://r3.icjia-api.cloud https://researchhub.icjia-api.cloud https://mail.icjia.cloud https://plausible.icjia.cloud; frame-src 'self' https://storymaps.arcgis.com https://arcgis.com https://*.arcgis.com"
 
 # Astro hashes asset filenames in /_astro/ so they can be cached forever.
 [[headers]]

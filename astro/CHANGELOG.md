@@ -6,6 +6,54 @@ chronological order.
 
 ---
 
+## v1.0.2 — 2026-05-24
+
+Apply three patterns from the ICJIA Astro conversion checklist
+(`github.com/ICJIA/adult-redeploy-client-next/blob/master/docs/astro-conversion-checklist.md`).
+
+**1. CSP cleanup (`netlify.toml`).** Verified zero references in
+`astro/src/`, then dropped:
+
+- `style-src`: `https://fonts.googleapis.com` — fonts self-hosted via
+  `@fontsource` since v0.10.0
+- `font-src`: `https://fonts.gstatic.com` and `https://fonts.googleapis.com`
+  — same reason
+- `script-src`: `https://cdn.jsdelivr.net` and
+  `https://siteimproveanalytics.com` — legacy Nuxt-era entries
+
+Added `Permissions-Policy: camera=(), microphone=(), geolocation=()` since
+none of those APIs are used on the site. Smaller CSP surface, no cross-origin
+whitelisting for things we don't actually load.
+
+**2. Plausible script variant** (`BaseLayout.astro`). Swapped
+`/js/script.js` → `/js/script.file-downloads.outbound-links.js`. Two extra
+events now fire automatically with no per-link instrumentation:
+
+- `Outbound Link: Click` — any `<a>` to an off-domain host
+- `File Download` — any `<a>` ending in `.pdf`/`.docx`/`.xlsx`/`.csv`/etc.
+
+These slice cleanly in the Plausible dashboard under Goals. Useful for the
+PDF-heavy `/resources/` and `/documentation/` sections, where outbound
+clicks and downloads were previously invisible. Same defer attribute, same
+CSP origin, +~2 KB.
+
+**3. Markdown body `<img>` perf attributes** (`astro/src/lib/markdown.ts`).
+Added a DOMPurify `afterSanitizeAttributes` hook that injects
+`loading="lazy"` and `decoding="async"` on any body `<img>` that doesn't
+already carry them. Strapi authors don't set perf attributes by default,
+so long body pages were eager-fetching every below-the-fold image.
+Explicit author values are preserved — an LCP candidate in markdown that
+opts into `loading="eager"` keeps it. Four new tests bring the suite to
+**124/124 pass**.
+
+**Local dev: pnpm.** Removed `"packageManager": "yarn@1.22.22"` from
+`astro/package.json` so Corepack stops blocking `pnpm` locally. Netlify
+build still uses yarn (production deployment pipeline unchanged; switching
+CI to pnpm is a separate change). Added `start-dev-server.sh` at the repo
+root for a one-command `pnpm dev` boot.
+
+---
+
 ## v1.0.1 — 2026-05-23
 
 Fix homepage `p-as-heading` (axe DevTools, WCAG 1.3.1 A — flagged

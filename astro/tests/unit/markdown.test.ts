@@ -156,6 +156,35 @@ describe('renderMarkdown', () => {
     expect(html).toMatch(/class="highlight"/);
   });
 
+  // Body-image perf attributes — Strapi authors don't set them; the sanitizer
+  // injects sensible defaults so long body pages don't eager-fetch every
+  // below-the-fold image. Explicit author values must win.
+  it('adds loading="lazy" to body <img> without an explicit loading value', () => {
+    const html = renderMarkdown('![alt](https://example.com/x.jpg)');
+    expect(html).toMatch(/<img[^>]*loading="lazy"/);
+  });
+
+  it('adds decoding="async" to body <img> without an explicit decoding value', () => {
+    const html = renderMarkdown('![alt](https://example.com/x.jpg)');
+    expect(html).toMatch(/<img[^>]*decoding="async"/);
+  });
+
+  it('preserves explicit loading="eager" on body <img> (LCP override)', () => {
+    const html = renderMarkdown(
+      '<img src="https://example.com/lcp.jpg" loading="eager" alt="">',
+    );
+    expect(html).toContain('loading="eager"');
+    expect(html).not.toContain('loading="lazy"');
+  });
+
+  it('preserves explicit decoding value on body <img>', () => {
+    const html = renderMarkdown(
+      '<img src="https://example.com/x.jpg" decoding="sync" alt="">',
+    );
+    expect(html).toContain('decoding="sync"');
+    expect(html).not.toContain('decoding="async"');
+  });
+
   it('handles empty input', () => {
     expect(renderMarkdown('')).toBe('');
   });

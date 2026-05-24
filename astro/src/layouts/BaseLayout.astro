@@ -97,12 +97,18 @@ const ldJSON = websiteSchema();
 
     <!-- Plausible analytics: bare <script> in <head>. Native browser navigation
          in Astro static = full page load = pageview auto-fires. No SPA tracking
-         needed. CSP allows plausible.icjia.cloud (netlify.toml). -->
+         needed. CSP allows plausible.icjia.cloud (netlify.toml).
+         The `.file-downloads.outbound-links.js` variant auto-tracks two extra
+         events with no per-link instrumentation:
+           - `Outbound Link: Click` — any <a> off-domain
+           - `File Download` — any <a> ending in .pdf/.docx/.xlsx/.csv/etc.
+         Useful for the PDF-heavy /resources/ and /documentation/ sections.
+         Slices show up under Goals in the Plausible dashboard. -->
     <script
       is:inline
       defer
       data-domain="r3.illinois.gov"
-      src="https://plausible.icjia.cloud/js/script.js"
+      src="https://plausible.icjia.cloud/js/script.file-downloads.outbound-links.js"
     ></script>
   </head>
   <body style={`background: ${pageBackground};`}>

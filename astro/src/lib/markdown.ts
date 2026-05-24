@@ -86,6 +86,18 @@ DOMPurify.addHook('afterSanitizeAttributes', (node) => {
   }
 });
 
+// Strapi-authored body images ship without performance attributes by default.
+// Inject `loading="lazy"` and `decoding="async"` on any <img> that lacks them
+// so long body pages (/resources/, /documentation/) don't eager-fetch
+// below-the-fold images. Explicit author values are preserved — an LCP
+// candidate in markdown that opts into `loading="eager"` keeps it.
+DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+  if (node.nodeName !== 'IMG') return;
+  const el = node as Element;
+  if (!el.hasAttribute('loading')) el.setAttribute('loading', 'lazy');
+  if (!el.hasAttribute('decoding')) el.setAttribute('decoding', 'async');
+});
+
 /** Convert Markdown to safe HTML. Strapi-body content goes through here.
  * Iframes are restricted to ArcGIS hosts (storymaps.arcgis.com or any
  * subdomain of arcgis.com). All other iframes are stripped. */
