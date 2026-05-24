@@ -6,6 +6,55 @@ chronological order.
 
 ---
 
+## v1.0.3 — 2026-05-24
+
+Switch Netlify build from yarn to pnpm so local dev and CI use the same
+package manager. Removes the dual-lockfile drift risk and aligns with the
+all-Astro-projects-use-pnpm preference.
+
+**Build pipeline (`netlify.toml`):**
+
+- `command = "yarn build"` → `"pnpm build"`
+- env: `YARN_VERSION = "1.22.22"` → `PNPM_VERSION = "10.33.0"`
+
+**Package metadata (`astro/package.json`):**
+
+- Bumped `packageManager` to `"pnpm@10.33.0"` (Corepack now uses pnpm
+  locally and on Netlify).
+- **Declared two previously-phantom transitive deps explicitly.** yarn 1's
+  flat `node_modules` was hoisting these automatically; pnpm's strict
+  isolation refuses to expose them as phantoms, so we declare:
+  - `zod ^4.4.3` — used directly via `import { z } from 'zod/v4'` in
+    `src/content.config.ts` (collection schemas) and
+    `src/__mocks__/astro-content.ts` (test mock).
+  - `sharp ^0.34.5` — Astro's image-processing engine, called by
+    `<Image>` to emit WebP variants at build time.
+- Added `pnpm.onlyBuiltDependencies = ["esbuild", "sharp"]` so pnpm 10's
+  build-script gate auto-approves the native binaries we need (otherwise
+  CI would silently skip post-install for both and the build would die
+  on `Could not find Sharp`).
+
+**Lockfile:**
+
+- Removed `astro/yarn.lock`, committed `astro/pnpm-lock.yaml`.
+
+**Repo hygiene:**
+
+- Removed the stale 694 MB root-level `/node_modules` (Nuxt-era leftover).
+  TypeScript was walking up the directory tree from `astro/src/...` and
+  resolving `zod` from the old root install, then failing to reconcile
+  it with `astro/node_modules/.pnpm/zod@4.4.3/...` — 101 `_zod.version.minor`
+  mismatch errors. Deleting the stale tree resolves it.
+
+**Verification:**
+
+- `pnpm test` — 124/124 pass
+- `pnpm check` — 0 errors, 0 warnings, 0 hints
+- `pnpm build` — 28 pages, sitemap-index.xml emitted, all images
+  optimized via sharp
+
+---
+
 ## v1.0.2 — 2026-05-24
 
 Apply three patterns from the ICJIA Astro conversion checklist

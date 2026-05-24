@@ -1,11 +1,15 @@
 [build]
   base = "astro"
-  command = "yarn build"
+  # Local dev and CI both use pnpm (v1.0.3, 2026-05-24). pnpm version is
+  # pinned via the `packageManager` field in astro/package.json so Corepack
+  # uses the same binary locally and on Netlify. PNPM_VERSION is set as a
+  # fallback for Netlify's auto-detection path.
+  command = "pnpm build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "22.22.2"
-  YARN_VERSION = "1.22.22"
+  PNPM_VERSION = "10.33.0"
   MISE_DISABLE = "1"
   PUPPETEER_SKIP_DOWNLOAD = "1"
   PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "1"
