@@ -6,6 +6,58 @@ chronological order.
 
 ---
 
+## v1.0.6 — 2026-05-24
+
+Fix all 4 source-side link errors flagged by the new
+`scripts/check-links.mjs` audit. Drops CRITICAL from 7 → 0 and WARNING
+from 10 → 8 (remaining 8 are Strapi-side redirects, not in this repo).
+
+**1. /translate page deleted.** The page generated 5 dead links to
+`translate.google.com/translate?u=...` — a URL pattern Google removed
+in 2019 (the website-proxy translation feature is gone). Modern browsers
+(Chrome, Safari, Edge, Firefox) auto-detect non-English pages and offer
+in-browser translation, so the dedicated page no longer adds value.
+Also removed the "Translate" link from `SiteFooter.astro`.
+
+> **Note for follow-up:** the deleted page also carried Language Access
+> Plan (LAP) compliance text and the `LAPRequests@illinois.gov` contact
+> for translation requests — Title VI / federal LEP guidance for
+> federally-funded programs. If that content needs to live on the site,
+> the natural home is `/contact/` or `/privacy/`. Currently no other
+> page references it.
+
+**2. GitHub repo links converted to plain text.** The repo
+(`github.com/ICJIA/icjia-r3-astro-2026`) is private, so GitHub returns
+404 to unauthenticated visitors — including link checkers and the
+public visitors who clicked these. Changed both occurrences in
+`/documentation/accessibility/` from `<a href="…">…</a>` to `<code>` /
+plain-text spans. The repo is still credited; visitors no longer get a
+404 page.
+
+**3. `www2.illinois.gov` → `gov.illinois.gov`.** The Governor's page
+moved when Illinois consolidated its `www2.illinois.gov` subdomain.
+Direct fix in `SiteFooter.astro:80`. Was 307-redirecting to
+`www.illinois.gov` (the state homepage, not the Governor's office) —
+now points at the current Governor's office URL directly.
+
+**4. DHS IITAA link → DoIT.** Illinois moved IITAA documentation from
+`www.dhs.state.il.us/page.aspx?item=32765` to
+`doit.illinois.gov/initiatives/accessibility/iitaa.html`. Updated the
+reference in `/documentation/accessibility/index.astro`.
+
+**Tooling:** added `scripts/check-links.mjs` (run with `--external`
+to HEAD-check off-domain URLs). Categorizes findings into CRITICAL /
+WARNING / NOTICE buckets matching Siteimprove's severity model.
+
+**Verified:**
+
+- `pnpm test`  — 129/129 pass
+- `pnpm check` — 0/0/0 (43 files)
+- `pnpm build` — 27 pages (was 28; translate removed)
+- `node scripts/check-links.mjs --external` — 0 CRITICAL, 8 WARNING (all Strapi), 0 NOTICE
+
+---
+
 ## v1.0.5 — 2026-05-24
 
 Remove AmpliFund links from the homepage. Both NOFOs are closed, so
