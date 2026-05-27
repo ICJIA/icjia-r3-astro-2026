@@ -831,8 +831,7 @@ When this package ships, the natural rollout order:
 
 These are real questions worth resolving before v1 ships, not after.
 
-1. **Concurrency**: How many PDFs do we fetch in parallel? Default 4?
-   Configurable? `unpdf` itself isn't CPU-heavy but the fetches matter
+1. **Concurrency**: How many PDFs do we fetch in parallel? Default 4?               
    when indexing 100+ PDFs.
 2. **Merged vs per-page text**: `mergePages: true` gives one string per
    PDF — easy snippet, no page numbers. `mergePages: false` gives an
