@@ -6,6 +6,45 @@ chronological order.
 
 ---
 
+## v1.0.9 — 2026-05-27
+
+Three small wins from the v6.4 Astro-conversion checklist: a sitemap
+discovery fix, a search affordance on the 404 page, and a `?q=`
+deep-link reader so the two connect.
+
+**`netlify.toml`** — added two `[[redirects]]` blocks mapping
+`/sitemap.xml` and `/sitemap.xml/` to `/sitemap-0.xml` with `status =
+200` (rewrite, not 301, so the canonical sitemap URL stays
+`/sitemap.xml` in search-console reports). `@astrojs/sitemap` always
+emits `sitemap-index.xml` + `sitemap-0.xml`, never `sitemap.xml`, but
+`public/robots.txt` advertises the conventional `/sitemap.xml` URL.
+Without these rules, crawlers following robots hit a 404.
+
+**`src/pages/404.astro`** — added a `<form method="get"
+action="/search/">` with a `name="q"` input between the heading and the
+quick-links grid, plus a "Still can't find what you're looking for?
+Contact us." fallback line. R3 navy styling, 44px touch targets, focus
+rings. Pure HTML, no JS — the submission target hits the new `?q=`
+reader in Search.vue.
+
+**`src/components/Search.vue`** — `onMounted` now reads `?q=` from
+`URLSearchParams` and prefills the `query` ref + focuses
+`#search-input` before fetching the index. So `/search/?q=foo` arrives
+with the query already in the input and results materialize as soon as
+Fuse builds. Drives the 404 → search hand-off; also works for any
+external link that sets `q`.
+
+**Verified:**
+
+- `pnpm check` — 0/0/0 (43 files)
+- `pnpm test`  — 129/129 pass
+- Browser at `/search/?q=grants` → input focused with value "grants",
+  32 matches rendered with chip filters populated by type.
+- Mobile (375px) 404: hero scales down, form row stays inline, quick
+  links wrap, contact fallback line readable.
+
+---
+
 ## v1.0.8 — 2026-05-24
 
 Convert `/funding` from a meta-refresh page to a proper Netlify edge 301.

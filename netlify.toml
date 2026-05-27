@@ -15,6 +15,22 @@
   PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "1"
   PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1"
 
+# /sitemap.xml — @astrojs/sitemap emits sitemap-index.xml + sitemap-0.xml,
+# never sitemap.xml. robots.txt advertises the conventional /sitemap.xml URL,
+# so without this rewrite crawlers following robots hit a 404. status = 200
+# (rewrite, not 301) so the canonical sitemap URL stays /sitemap.xml in
+# search-console reports. Two rules cover both slash forms because Netlify's
+# matcher does not collapse trailing slashes for static asset paths.
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-0.xml"
+  status = 200
+
+[[redirects]]
+  from = "/sitemap.xml/"
+  to = "/sitemap-0.xml"
+  status = 200
+
 # /funding — legacy URL, no real content. Edge 301 to the homepage where
 # the NOFO splash cards live. Previously a meta-refresh page emitted by
 # Astro `redirects` (v1.0.7 and earlier); moved here in v1.0.8 for a

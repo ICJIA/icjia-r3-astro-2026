@@ -191,6 +191,18 @@ function snippetHTMLFor(r: FuseResult<Row>): string {
 }
 
 onMounted(async () => {
+  // ?q= deep-link: /search/?q=foo arrives with the query prefilled and the
+  // input focused, so the 404 page's search form (and any external link that
+  // sets q) drives results without re-typing. Set BEFORE the fetch so the
+  // user sees their query in the input while "Loading search index…" shows;
+  // results materialize automatically once Fuse builds because `matched` is
+  // a computed of fuse.value + query.value.
+  const initialQ = new URLSearchParams(window.location.search).get('q');
+  if (initialQ) {
+    query.value = initialQ;
+    document.getElementById('search-input')?.focus();
+  }
+
   const res = await fetch('/searchIndex.json');
   if (!res.ok) {
     console.error('search index fetch failed', res.status);
