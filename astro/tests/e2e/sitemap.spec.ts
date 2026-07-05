@@ -2,7 +2,8 @@
 //
 // Regression coverage for the @astrojs/sitemap integration: the index
 // resolves, every emitted URL is trailing-slash canonical, and the
-// non-content routes (sandbox/preview/translate/404) stay out of it.
+// non-content routes (sandbox/preview/translate/404) plus the noindex
+// printable view (/resources/single-page/) stay out of it.
 
 import { test, expect } from '@playwright/test';
 
@@ -24,11 +25,13 @@ test('every URL in sitemap-0.xml has a trailing slash', async ({ request }) => {
   }
 });
 
-test('sitemap excludes /sandbox /preview /translate /404', async ({ request }) => {
+test('sitemap excludes /sandbox /preview /translate /404 and the noindex single-page view', async ({ request }) => {
   const r = await request.get('/sitemap-0.xml');
   const xml = await r.text();
   expect(xml).not.toMatch(/\/sandbox\//);
   expect(xml).not.toMatch(/\/preview\//);
   expect(xml).not.toMatch(/\/translate\//);
   expect(xml).not.toMatch(/\/404\//);
+  // noindex printable view (v1.0.10) — must render but stay out of the sitemap
+  expect(xml).not.toMatch(/\/resources\/single-page\//);
 });

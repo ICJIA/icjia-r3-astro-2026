@@ -49,10 +49,14 @@ export default defineConfig({
   integrations: [
     vue(),
     sitemap({
+      // /resources/single-page/ is a deliberately-noindex printable view
+      // (see src/pages/resources/single-page.astro) — listing a noindex URL
+      // in the sitemap reads as a soft error in Search Console.
       filter: (page) =>
         !page.includes('/sandbox/') &&
         !page.includes('/preview/') &&
-        !page.includes('/404/'),
+        !page.includes('/404/') &&
+        !page.includes('/resources/single-page/'),
       // Top-level `trailingSlash: 'ignore'` lets the sitemap integration emit
       // both forms — pin every <loc> to its `/`-suffixed canonical form so
       // crawlers index a single URL per page. (The dedicated `trailingSlash`

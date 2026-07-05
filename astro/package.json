@@ -1,14 +1,14 @@
 {
   "name": "icjia-r3-astro",
   "type": "module",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "packageManager": "pnpm@10.33.0",
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/fetch-cms-images.mjs",
+    "prebuild": "node scripts/fetch-cms-images.mjs && node scripts/build-hub-card-images.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -17,7 +17,8 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "smoke": "tsx scripts/smoke-collections.ts",
-    "fetch:cms-images": "node scripts/fetch-cms-images.mjs"
+    "fetch:cms-images": "node scripts/fetch-cms-images.mjs",
+    "build:hub-card-images": "node scripts/build-hub-card-images.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",

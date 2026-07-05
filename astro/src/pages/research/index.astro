@@ -35,16 +35,52 @@ function truncate(s: string | null | undefined, n = 850): string {
   return s.length <= n ? s : `${s.slice(0, n)}...`;
 }
 
-// Prefer the locally-ported Hub splash image; fall back to the Hub CDN URL
-// from the Strapi `splash` field; omit the image if neither is available.
-function researchImageSrc(
+// Card images, in preference order: build-time WebP variants from
+// scripts/build-hub-card-images.mjs (public/_hub-card — sized for the
+// 200px-tall card slot, served via srcset); the full-resolution local
+// splash JPEG (dev fallback — `astro dev` doesn't run the prebuild
+// pipeline); the Hub CDN URL from the Strapi `splash` field; or no image.
+const CARD_DIR = 'public/_hub-card';
+const cardVariants = new Map<string, number[]>();
+if (fs.existsSync(CARD_DIR)) {
+  for (const f of fs.readdirSync(CARD_DIR)) {
+    const m = f.match(/^(.+)-(\d+)\.webp$/);
+    if (!m) continue;
+    const widths = cardVariants.get(m[1]) ?? [];
+    widths.push(Number(m[2]));
+    cardVariants.set(m[1], widths);
+  }
+  for (const widths of cardVariants.values()) widths.sort((a, b) => a - b);
+}
+
+// Rendered card-image width, derived from the grid CSS below: 2-up ≥769px
+// (capped by the 1280px page-wrap), 1-up below; the 72px constant is the
+// page-wrap + card-link padding (plus half the grid gap in the 2-up case).
+const CARD_SIZES =
+  '(min-width: 1280px) 568px, (min-width: 769px) calc(50vw - 72px), calc(100vw - 72px)';
+
+interface CardImage {
+  src: string;
+  srcset?: string;
+  sizes?: string;
+}
+
+function researchImage(
   id: string,
   splashURL: string | null | undefined,
-): string | null {
-  if (fs.existsSync(`public/hub-images/${id}-splash.jpeg`)) {
-    return `/hub-images/${id}-splash.jpeg`;
+): CardImage | null {
+  const widths = cardVariants.get(id);
+  if (widths && widths.length > 0) {
+    return {
+      src: `/_hub-card/${id}-${widths[0]}.webp`,
+      srcset: widths.map((w) => `/_hub-card/${id}-${w}.webp ${w}w`).join(', '),
+      sizes: CARD_SIZES,
+    };
   }
-  return splashURL || null;
+  if (fs.existsSync(`public/hub-images/${id}-splash.jpeg`)) {
+    return { src: `/hub-images/${id}-splash.jpeg` };
+  }
+  return splashURL ? { src: splashURL } : null;
 }
 
 const hubArticleURL = (slug: string): string =>
@@ -70,7 +106,7 @@ const hubArticleURL = (slug: string): string =>
 
     <ul class="research-grid" role="list">
       {sorted.map((a) => {
-        const imgSrc = researchImageSrc(a.data._id, a.data.splashURL);
+        const img = researchImage(a.data._id, a.data.splashURL);
         return (
           <li class="research-card">
             <a
@@ -87,10 +123,12 @@ const hubArticleURL = (slug: string): string =>
                 <span class="research-card__type">Article</span>
               </p>
               <h2 class="research-card__title">{a.data.title}</h2>
-              {imgSrc && (
+              {img && (
                 <img
                   class="research-card__img"
-                  src={imgSrc}
+                  src={img.src}
+                  srcset={img.srcset}
+                  sizes={img.sizes}
                   alt=""
                   width="800"
                   height="200"

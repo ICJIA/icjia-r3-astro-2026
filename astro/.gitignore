@@ -36,3 +36,7 @@ coverage/
 # IS committed so dev/CI agree on lookups even before prebuild runs.
 .cache/cms-img/
 public/_cms-img/
+
+# Research-card WebP variants (scripts/build-hub-card-images.mjs) —
+# regenerated each build from the committed public/hub-images sources.
+public/_hub-card/

@@ -6,6 +6,53 @@ chronological order.
 
 ---
 
+## v1.0.10 — 2026-07-05
+
+Fixes from today's full-site audit (lightcap + axecap + contrastcap, all
+26 sitemap pages, mobile + desktop). The site audited clean nearly
+everywhere — 0 axe violations in 52 runs, 0 contrast failures, Lighthouse
+100s across the board — except three items: `/research/` mobile
+performance (87, LCP 4.1s), the noindex `/resources/single-page/` view
+appearing in the sitemap, and third-party ArcGIS embed noise on
+`/eligibility/` (accepted; see end of entry).
+
+**`scripts/build-hub-card-images.mjs`** (new) — prebuild sibling of
+`fetch-cms-images.mjs`: emits 640/960/1280px WebP variants (q82, aspect
+preserved) of every committed `public/hub-images/*-splash.jpeg` into
+gitignored `public/_hub-card/`. The research grid was serving the
+full-resolution splash JPEGs (up to 5743px / 443 KiB) into a 200px-tall
+cover-cropped card slot — ~2.2 MB of image waste on desktop, ~819 KiB on
+mobile. Worst offender drops 443 KiB → 26 KiB at the mobile breakpoint.
+Chained into `prebuild`; also runnable as `pnpm build:hub-card-images`.
+Never fails the build (same philosophy as the CMS pipeline).
+
+**`src/pages/research/index.astro`** — cards now render the `_hub-card`
+variants via `srcset` plus a `sizes` attribute derived from the grid CSS,
+falling back to the original splash JPEG when the variants are absent
+(`astro dev` doesn't run prebuild) and to the Hub CDN URL when no local
+image exists — the same degradation ladder as the CMS image manifest.
+
+**`astro.config.ts`** — the sitemap filter now also drops
+`/resources/single-page/`: it is a deliberately-noindex printable view,
+and a noindex URL inside the sitemap reads as a soft error in Search
+Console. Sitemap goes 26 → 25 URLs; the page itself still builds,
+renders, and keeps its `noindex`.
+
+**`tests/e2e/sitemap.spec.ts`** — exclusion test extended to assert
+`/resources/single-page/` stays out of `sitemap-0.xml`.
+
+**`playwright.config.ts`** — webServer command switched `yarn` → `pnpm`,
+matching the v1.0.3 package-manager standardization (under Corepack,
+`yarn` errors against a pnpm `packageManager` pin).
+
+Audited but deliberately unchanged: `/eligibility/` Perf 98 / BP 96 traces
+entirely to the embedded ArcGIS StoryMap (third-party cookie flag,
+bf-cache blockers, Esri's 5-minute CDN TTL — not actionable in-repo); the
+awards-article body image already ships WebP + srcset from the CMS
+pipeline and its residual ~20 KiB flag is srcset-ladder granularity; the
+home page's 12 contrast *warnings* are text-over-image advisories that
+all measure 6.11–11.73:1, comfortably past their AA thresholds.
+
 ## v1.0.9 — 2026-05-27
 
 Three small wins from the v6.4 Astro-conversion checklist: a sitemap
