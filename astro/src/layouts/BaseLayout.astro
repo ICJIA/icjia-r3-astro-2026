@@ -47,6 +47,21 @@ function truncate(s: string, max = 160): string {
 }
 const description = truncate(rawDescription);
 
+// Brand suffix appended to every page's <title>. Puts the unique page name
+// first and the brand last (SEO best-practice ordering) and lifts short
+// section titles ("Contact", "Resources") over the ~30-char minimum that
+// bare "R3 | <word>" fell under. The homepage passes a descriptive title so
+// it doesn't render as "<program name> | <program name>".
+//
+// Adaptive length: the full suffix (+32 chars) would push medium CMS titles
+// past the ~60-char point where titles read as "too long" and get truncated
+// in SERPs. When it would, fall back to a minimal " | R3" so we lift short
+// titles without compounding long ones (news headlines arrive 60–170 chars
+// from Strapi — inherently long, flagged for authors, not worsened here).
+const SITE_NAME = 'Restore, Reinvest, Renew (R3)';
+const withBrand = `${title} | ${SITE_NAME}`;
+const documentTitle = withBrand.length <= 60 ? withBrand : `${title} | R3`;
+
 const datePublished = publishedAt ?? updatedAt;
 const dateModified = updatedAt ?? publishedAt;
 
@@ -58,7 +73,7 @@ const ldJSON = websiteSchema();
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>R3 | {title}</title>
+    <title>{documentTitle}</title>
     <meta name="description" content={description} />
     {noIndex && <meta name="robots" content="noindex" />}
 
@@ -82,6 +97,7 @@ const ldJSON = websiteSchema();
 
     <meta name="author" content="Illinois Criminal Justice Information Authority" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />

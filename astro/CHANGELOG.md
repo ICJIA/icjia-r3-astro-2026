@@ -6,6 +6,47 @@ chronological order.
 
 ---
 
+## v1.0.11 — 2026-07-08
+
+SiteImprove SEO/QA scoresheet remediation. The sheet's findings are almost
+all editorial (title length, text-to-code ratio, readability, word count) or
+correct-as-is — every empty `alt` on the site is an intentional decorative
+image (`role="presentation"`, accessible name on the link), and a build-wide
+scan found **zero** content images missing alt. The live site already scores
+Lighthouse SEO 100 / A11y 100 / Perf 96. Four code-fixable items are handled
+here; the rest are content-author work, catalogued in
+`docs/siteimprove-content-checklist-2026-07-08.md`.
+
+**`src/layouts/BaseLayout.astro`** — page `<title>` reworked from `R3 | {title}`
+to `{title} | Restore, Reinvest, Renew (R3)` (unique name first, brand last —
+SEO best practice). Bare section titles were 11–14 chars (`R3 | Contact`),
+under SiteImprove's ~30-char floor; they now run 37–40. The suffix is
+**adaptive**: when the full brand would push a title past 60 chars it falls
+back to a minimal ` | R3`, so short titles get lifted without compounding the
+long news headlines Strapi supplies (60–170 chars). Also adds `og:site_name`.
+
+**`src/pages/index.astro`** — homepage title `"Restore. Reinvest. Renew."` →
+`"Illinois R3 Grant Program"`, so with the new suffix it reads
+`Illinois R3 Grant Program | Restore, Reinvest, Renew (R3)` (57 chars) instead
+of a redundant `<program> | <program>`.
+
+**`src/pages/resources/index.astro`** — resource cover `<Image>` switched from
+`inferSize` to an explicit `width={800} height={534}`. `inferSize` set the
+width attribute to the Strapi upload's intrinsic size (up to 7276px), so Astro
+emitted the fallback `src` at full resolution — a 4.5 MB `.webp` shipped beside
+the tiny 400/800w `srcset` (SiteImprove "images larger than 1MB"; two files,
+4.5 MB + 1.0 MB). Capping the width caps the fallback (now 51 KB / 33 KB); the
+card is `object-fit:cover` in a fixed 300px box, so the declared aspect never
+drives layout. The build now ships **zero** images over 1 MB.
+
+**`src/pages/search.astro`** — meta description lengthened 31 → ~130 chars.
+
+Verified: `astro check` 0/0/0, 129/129 unit tests, e2e title regexes still
+match the new format, build ships no image > 1 MB, `/resources/` grid
+screenshotted unchanged.
+
+---
+
 ## v1.0.10 — 2026-07-05
 
 Fixes from today's full-site audit (lightcap + axecap + contrastcap, all

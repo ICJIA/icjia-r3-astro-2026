@@ -28,11 +28,19 @@ const sorted = [...all].sort(
         <li class="resource-card">
           <a class="resource-card__link" href={r.data.path}>
             {r.data.coverURL && (
+              // Explicit width/height (not inferSize): Strapi cover uploads are
+              // full-resolution (e.g. 7276×4856). inferSize sets the width attr
+              // to the intrinsic size, so Astro emits the fallback `src` at full
+              // res — a 4.5 MB .webp shipped alongside the tiny 400/800w srcset
+              // (SiteImprove "images > 1MB"). Capping width to 800 caps the
+              // fallback; the card is object-fit:cover in a fixed 300px box, so
+              // the declared 800×534 aspect never drives layout.
               <Image
                 class="resource-card__img"
                 src={r.data.coverURL}
                 alt=""
-                inferSize
+                width={800}
+                height={534}
                 widths={[400, 800]}
                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 33vw"
                 loading="lazy"
