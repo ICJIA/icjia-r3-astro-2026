@@ -13,6 +13,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro sync && astro check",
+    "nuke": "bash ../nuke",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
