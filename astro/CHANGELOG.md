@@ -6,13 +6,64 @@ chronological order.
 
 ---
 
-## v1.0.12 — 2026-09-01
+## 2026-09-01
 
-Homepage hero swap. With both R3 NOFOs closed, the two-up splash row was
-advertising two expired funding opportunities as the first thing on the page.
-It is replaced by a single full-bleed band pointing at the R3 StoryMap, built
-from a supplied PowerPoint mock. The splash row is **preserved, not deleted** —
-it returns on a one-line flag flip when the next NOFO opens.
+### v1.0.13 — scroll-to-top arrow centring; dev server clears caches on start
+
+**`src/layouts/BaseLayout.astro`** — the floating scroll-to-top button's `↑`
+was sitting in the top-left of its 48px circle, not the middle. Measured in
+page: 14.6px left and 6px above centre. The button is created in this file's
+inline script and revealed as `display:inline-flex`, but it set no
+`align-items` / `justify-content`, and a flex container defaults to
+`flex-start` on the main axis and `stretch` on the cross axis. The UA's
+`text-align:center` does not compensate — the anonymous flex item wrapping the
+glyph is sized to its content, so there is no free space to distribute. Adding
+the two centring declarations takes the offset to 0.01px / 0px. `line-height`
+was tested and ruled out as a contributor. The button lives in BaseLayout, so
+this lands on every page.
+
+**`tests/e2e/scroll-to-top.spec.ts`** (new) — regression guard across the three
+Playwright viewports. Asserts the measured offset between the glyph box and the
+button box rather than the CSS declarations, so it also catches a regression
+arriving through padding, line-height, or a future swap to an `<svg>` icon. It
+was confirmed to fail on all four routes before the fix (14.59px vs a 1.5px
+tolerance). `/contact/` at tablet height scrolls only 366px, under BaseLayout's
+400px `SHOW_AFTER` reveal threshold, so the button correctly never appears
+there; that case skips with a stated reason rather than asserting nothing.
+
+**`start-dev-server.sh`** — now runs `./nuke` before `pnpm dev`, with
+`--no-clean` to opt out. A stale `node_modules/.vite` cannot survive into a new
+session: that cache is keyed by a browserHash, and once it stops matching what
+the browser requests, Vite answers module requests with
+`504 (Outdated Optimize Dep)`. Client islands then fail to hydrate with nothing
+but a console error — the symptom that prompted this was `/search/` stuck on
+"Loading search index" while production was fine. The clean is effectively
+free: 1897ms to `ready` after a full nuke against 1983ms warm, because Astro
+re-syncs content from Strapi and the Hub on every dev start regardless and Vite
+rebuilds its dep cache lazily.
+
+This does **not** make that failure impossible, and the script's header says so.
+The incident that prompted it came from a re-optimize *during* a live session —
+running `pnpm check`, `pnpm build`, or the e2e suite against a running dev
+server changes the Vite config under it, and tabs opened beforehand still hold
+the old hash. Recovery there is a hard reload or restarting the script.
+Pre-declaring `fuse.js` in `optimizeDeps.include` was considered and rejected:
+a fresh boot plus a first `/search/` visit was reproduced cleanly, so lazy
+discovery was not the trigger and the change would have been speculative.
+
+Verified: `astro check` 0/0/0, 129/129 unit tests, 185/185 e2e passing with 1
+skipped (the unscrollable tablet `/contact/` case above), across mobile, tablet
+and desktop projects. Both `start-dev-server.sh` paths exercised, and its array
+handling checked under bash 3.2 — the stock macOS `/bin/bash` — with `set -u`,
+empty and populated.
+
+### v1.0.12 — homepage hero replaces expired NOFO splash row
+
+With both R3 NOFOs closed, the two-up splash row was advertising two expired
+funding opportunities as the first thing on the page. It is replaced by a
+single full-bleed band pointing at the R3 StoryMap, built from a supplied
+PowerPoint mock. The splash row is **preserved, not deleted** — it returns on
+a one-line flag flip when the next NOFO opens.
 
 **`src/lib/manualPages.ts`** — new `SHOW_HOMEPAGE_SPLASH: boolean` switch.
 `false` (current) renders `HomeHero`; `true` restores the untouched

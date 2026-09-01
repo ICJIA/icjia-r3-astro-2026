@@ -173,6 +173,13 @@ const ldJSON = websiteSchema();
         'background:#0d4474','color:#fff','font-size:24px','cursor:pointer',
         'box-shadow:0 4px 12px rgba(0,0,0,0.2)','display:none',
         'min-width:44px','min-height:44px',
+        // The scroll handler shows this as inline-flex, so the ↑ is a flex
+        // item and needs explicit centring: a flex container defaults to
+        // justify-content:flex-start / align-items:stretch, which parked the
+        // glyph 14.6px left and 6px above the circle's centre. The UA's
+        // text-align:center cannot fix it — the anonymous flex item is sized
+        // to its content, so there is no slack to distribute.
+        'align-items:center','justify-content:center',
       ].join(';');
       btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
       btn.addEventListener('focus', () => { btn.style.outline = '3px solid #fff'; btn.style.outlineOffset = '2px'; });
