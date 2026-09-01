@@ -1,12 +1,39 @@
-# Astro Migration Changelog
+# R3 Changelog
 
-All notable changes to the Astro rebuild of r3.illinois.gov live here.
-Most recent at the top; entries grouped by date, days in reverse
-chronological order.
+All notable changes to r3.illinois.gov live here — the Astro app under
+`astro/` and the repo-level tooling around it. Versions track
+`astro/package.json`. Most recent at the top; entries grouped by date, days in
+reverse chronological order.
+
+Entries from v0.1.0 through the 2026-05-23 cutover cover the Nuxt 4 + Vuetify 3
+to Astro 6 + Tailwind 4 migration; see `astro/MIGRATION.md` for the per-phase
+baselines behind them.
 
 ---
 
 ## 2026-09-01
+
+### v1.0.14 — move the changelog to the repo root
+
+**`CHANGELOG.md`** (moved from `astro/CHANGELOG.md`) — the file had lived beside
+the app it versions, which was right while `astro/` was one subproject among
+several during the migration. It is now the only subproject, and entries have
+started covering repo-level tooling that lives outside it — v1.0.13 documents
+`start-dev-server.sh` at the root — so the conventional root location fits
+better than the old one. Moved with `git mv`, so `git log --follow` still
+reaches the full history.
+
+Live references updated to the new path: `README.md` (project structure and
+migration-history index), `MIGRATION_PLAYBOOK.md` (companion-docs list and the
+phases table), `docs/full-site-audit-2026-07-05.md`, `astro/CRASH_COURSE.md`,
+and `astro/MIGRATION.md`. References inside `docs/superpowers/plans/` and
+`docs/superpowers/specs/` are deliberately left pointing at the old path — those
+are dated records of what was planned and done at the time, not live links.
+
+The H1 changed from "Astro Migration Changelog" to "R3 Changelog": the migration
+finished at v1.0.0 and the file has tracked ordinary releases since, so the old
+title no longer described it. Nothing reads this file programmatically, and
+Netlify builds from `base = "astro"`, so the move cannot affect a deploy.
 
 ### v1.0.13 — scroll-to-top arrow centring; dev server clears caches on start
 

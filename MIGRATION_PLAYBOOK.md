@@ -6,7 +6,7 @@ migrating a Nuxt + Vuetify site to Astro.
 This is the distilled lessons-learned companion to:
 
 - `astro/MIGRATION.md` — phase-by-phase journal with measurements
-- `astro/CHANGELOG.md` — what shipped, by version
+- `CHANGELOG.md` — what shipped, by version
 - `README.md` — current-state overview + a11y methodology
 
 ---
@@ -240,7 +240,7 @@ This shape worked here. Adapt per project.
 | Pre-cutover `main` | `pre-astro-cutover` git tag (last Nuxt 4 state, recoverable) |
 | Cutover commit / release tag | `v0.10.0` |
 | Final version | `astro/package.json` v0.10.0 |
-| Phases | See `astro/MIGRATION.md` and `astro/CHANGELOG.md` |
+| Phases | See `astro/MIGRATION.md` and `CHANGELOG.md` |
 
 ---
 

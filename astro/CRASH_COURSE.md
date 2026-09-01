@@ -2,7 +2,7 @@
 
 > **NOTE:** This crash course was written for the i2i project. Collection
 > names, routes, API endpoints, and code examples are i2i-specific. For
-> R3-specific values, see `astro/CHANGELOG.md`, `astro/MIGRATION.md`, and
+> R3-specific values, see `CHANGELOG.md`, `astro/MIGRATION.md`, and
 > `astro/src/content.config.ts`. The mental-model content (islands,
 > frontmatter, hydration directives) applies identically to R3.
 

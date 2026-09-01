@@ -40,8 +40,8 @@ yarn test:e2e   # playwright e2e (mobile / tablet / desktop)
 ## Project structure
 
 - `astro/` — the website source (this is the entire app)
-- `astro/CHANGELOG.md` — granular per-release changelog
 - `astro/MIGRATION.md` — per-phase migration record (baselines, verification)
+- `CHANGELOG.md` — granular per-release changelog
 - `docs/superpowers/specs/` — design spec
 - `docs/superpowers/plans/` — implementation plan
 - `netlify.toml` — Netlify build config + security headers (build base `astro/`)
@@ -135,7 +135,7 @@ ten migration phases (v0.1.0 – v0.10.0). The cutover landed on
 **2026-05-23**: `main` was force-replaced with the Astro tip and Netlify
 rebuilt production from the new tree. See:
 
-- [`astro/CHANGELOG.md`](./astro/CHANGELOG.md) — granular per-release record,
+- [`CHANGELOG.md`](./CHANGELOG.md) — granular per-release record,
   starting with the cutover entry at the top
 - [`astro/MIGRATION.md`](./astro/MIGRATION.md) — per-phase baselines and
   verification results (incl. the Nuxt P0 Lighthouse table)

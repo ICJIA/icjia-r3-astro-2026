@@ -1,7 +1,7 @@
 # R3 Astro Migration Notes
 
 Working notes, baselines, and per-phase verification results for the
-Nuxt → Astro 6 migration. Companion to `astro/CHANGELOG.md`.
+Nuxt → Astro 6 migration. Companion to `CHANGELOG.md` in the repo root.
 
 ---
 

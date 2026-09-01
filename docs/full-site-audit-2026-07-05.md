@@ -120,7 +120,7 @@ served by the research cards via `srcset`+`sizes`, worst image 443 KiB →
 26.6 KiB), the sitemap filter exclusion + e2e assertion, and a
 `playwright.config.ts` `yarn`→`pnpm` webServer fix. Findings 3–5 remain
 accepted as documented above (third-party embed / srcset granularity /
-passing contrast advisories). Full details in `astro/CHANGELOG.md`
+passing contrast advisories). Full details in `CHANGELOG.md`
 (v1.0.10).
 
 Pre-push verification: `astro check` 0 errors / 0 warnings / 0 hints,
