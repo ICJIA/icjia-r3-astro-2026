@@ -5,8 +5,9 @@
 // Box list ported from components/content/HomePhotoBoxes.vue.
 //
 // Layout: 2-up grid on md+, stacked on mobile (matches Nuxt flex:6 columns).
-// Gradient overlay runs top-to-bottom (rgba(0,0,0,0.6) → rgba(0,0,0,0.1))
-// with title+text anchored at the top-left — exactly as in the Vue original.
+// Title+text sit on an opaque scrim at the top-left; the photo below it carries
+// only a light tonal wash. See the .photo-box__content comment for why the
+// scrim is opaque rather than a translucent gradient.
 //
 // Box images go through Astro's <Image> (inferSize) so they are fetched from
 // Strapi at build time, converted to webp, and served locally.
@@ -126,31 +127,55 @@ const BOXES: Box[] = [
     transition: transform 0.3s ease;
   }
 
-  /* Gradient overlay: rgba(0,0,0,0.6) top → rgba(0,0,0,0.5) bottom.
-     The bottom-end was rgba(0,0,0,0.1) to match the Nuxt original, but pixel
-     sampling (contrastcap) flagged the `.photo-box__text` description as a
-     WCAG 1.4.3 AA failure over bright photos (3.38:1 / 3.62:1, needs 4.5:1)
-     because the text sits ~y=130/300 where the original gradient had already
-     lightened to ~0.36 opacity. Holding the bottom at 0.5 keeps the gradient
-     character but lifts worst-case contrast to ≥4.7:1 over pure white. */
+  /* Tonal wash only. This used to be a 0.6→0.5 black gradient doing double duty
+     as the text backdrop, which forced it dark enough to mute every photo. Now
+     that .photo-box__content carries its own opaque scrim, the wash is purely
+     for tonal unity across four unrelated stock photos and to keep the hover
+     zoom from feeling flat, so it can be much lighter. */
   .photo-box__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.5)
-    );
+    background: rgba(0, 0, 0, 0.22);
     pointer-events: none;
   }
 
-  /* Title + text: top-left, matching Nuxt px-3 py-5 positioning */
+  /* Title + text: top-left, matching Nuxt px-3 py-5 positioning.
+
+     SCRIM ALPHA. The old design put white text straight onto the photo behind a
+     0.6→0.1 gradient, which made the effective contrast a function of whatever
+     pixels the stock photo happened to supply — it measured 3.38:1 over the
+     bright FAQ image, a WCAG 1.4.3 AA failure, and any future CMS image swap
+     could reintroduce that silently. The scrim below is dense enough that the
+     WORST case — a pure-white photo pixel, the brightest a photo can be — still
+     lands at 12.9:1 for white text. That floor holds for any image, so the pass
+     no longer depends on which photo the CMS serves. 0.85 keeps a hint of the
+     photo readable through the bar; the floor stays above AA (4.5:1) all the
+     way down to alpha 0.55 if a lighter bar is ever wanted.
+
+     EQUAL HEIGHT. Fixed height rather than content height, so all four bars line
+     up regardless of how long each title and description runs.
+
+     The bottom 28px is a fade that softens the edge against the photo. Text is
+     AA-safe well into that fade, not just above it: the scrim only has to hold
+     alpha 0.458 to keep white text at 4.5:1 over a pure-white photo, which the
+     fade does for its first ~46%. So the guarantee runs to y=185px, while the
+     worst wrap measured across breakpoints is the four-line Collaboratives
+     description at the narrowest 2-up column (~965px viewport), ending at
+     y=168px. If a future description is long enough to push past y=185, the bar
+     needs to grow — a shorter fade buys more room than a taller bar does, since
+     it keeps more of the fixed height fully opaque. */
   .photo-box__content {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    height: 200px;
     padding: 1.25rem 0.75rem;
+    background: linear-gradient(
+      to bottom,
+      rgba(20, 24, 29, 0.85) calc(100% - 28px),
+      rgba(20, 24, 29, 0) 100%
+    );
   }
 
   .photo-box__title {
@@ -160,7 +185,6 @@ const BOXES: Box[] = [
     font-weight: 700;
     font-size: 1.625rem; /* ~26px, matching Nuxt font-size: 26px */
     color: #fff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
   }
 
@@ -169,6 +193,5 @@ const BOXES: Box[] = [
     color: #fff;
     font-size: 1rem;
     line-height: 1.5;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   }
 </style>

@@ -44,6 +44,12 @@ export interface NavItem {
   children?: NavChild[];
 }
 
+// The ArcGIS StoryMap that serves as the R3 program overview. Referenced both
+// by the About menu below and by the homepage hero (HomeHero.astro), so it
+// lives here rather than being spelled out twice.
+export const R3_STORYMAP_URL =
+  'https://storymaps.arcgis.com/stories/8607e513363e49f5b02a6e7d8a82432a';
+
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: '/' },
   {
@@ -51,7 +57,7 @@ export const NAV_ITEMS: NavItem[] = [
     children: [
       {
         section: 'About the R3 Program',
-        href: 'https://storymaps.arcgis.com/stories/8607e513363e49f5b02a6e7d8a82432a',
+        href: R3_STORYMAP_URL,
         external: true,
       },
       { label: 'R3 news', href: '/news/' },

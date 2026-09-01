@@ -14,6 +14,16 @@ export interface SplashCard {
   applicationDate?: string; // descriptive text under the tagline (e.g. "EXPIRED")
 }
 
+// Homepage splash slot switch. `false` shows HomeHero.astro — the single
+// full-bleed StoryMap band used while no NOFO is open. Flip to `true` when a
+// new R3 NOFO opens and the two-up HOMEPAGE_SPLASH row below should come back
+// (update its taglines/externalURLs/applicationDate at the same time).
+//
+// Typed `boolean` rather than left as the literal `false` on purpose: it stops
+// TypeScript narrowing the constant, which would make the splash branch in
+// pages/index.astro look like dead code.
+export const SHOW_HOMEPAGE_SPLASH: boolean = false;
+
 // AmpliFund externalURLs were removed 2026-05-24 (v1.0.5) because both
 // NOFOs have closed — sending users to AmpliFund where they can't apply is
 // a worse experience than just describing the past opportunity. Cards stay

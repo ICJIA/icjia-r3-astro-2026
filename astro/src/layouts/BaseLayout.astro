@@ -12,12 +12,22 @@ import SiteFooter from '~/components/SiteFooter.astro';
 import Dialog from '~/components/Dialog.vue';
 import { websiteSchema } from '~/lib/schemas';
 
+// A responsive <img> needs its preload to carry the same srcset/sizes the
+// element will use — a bare `href` preload would warm one candidate while the
+// browser picks another and downloads the image twice. Plain strings are still
+// accepted for fixed-width images.
+export interface PreloadImage {
+  href: string;
+  imagesrcset?: string;
+  imagesizes?: string;
+}
+
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
   canonical?: string;
-  preloadImages?: string[];
+  preloadImages?: (string | PreloadImage)[];
   preconnectOrigins?: string[];
   pageBackground?: string;
   publishedAt?: string;
@@ -91,8 +101,13 @@ const ldJSON = websiteSchema();
       <link rel="preconnect" href={origin} crossorigin />
     ))}
 
-    {preloadImages.map((src) => (
-      <link rel="preload" as="image" href={src} fetchpriority="high" />
+    {preloadImages.map((img) => (
+      <link
+        rel="preload"
+        as="image"
+        fetchpriority="high"
+        {...(typeof img === 'string' ? { href: img } : img)}
+      />
     ))}
 
     <meta name="author" content="Illinois Criminal Justice Information Authority" />

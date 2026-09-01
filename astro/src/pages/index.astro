@@ -2,25 +2,57 @@
 // astro/src/pages/index.astro
 //
 // Real homepage — Phase 4g.3. Mirrors the Nuxt pages/index.vue layout:
-//   1. Splash row (two NOFO cards from HOMEPAGE_SPLASH)
+//   1. Hero slot — HomeHero (StoryMap band) or, when SHOW_HOMEPAGE_SPLASH is
+//      true, the two-up NOFO splash row from HOMEPAGE_SPLASH
 //   2. Strapi `pages.index` body content (markdown)
 //   3. Director letter section (Director Adams photo + actual Nuxt prose)
 //   4. Applicant Tools (HomePhotoBoxes) + News & Updates (latest 2 posts)
 //
-// LCP: first splash image is preloaded via BaseLayout preloadImages prop.
+// LCP: whichever image fills the hero slot is the largest above-the-fold
+// paint, so it is preloaded via BaseLayout's preloadImages prop.
 
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import HomeSplashCard from '~/components/HomeSplashCard.astro';
+import HomeHero from '~/components/HomeHero.astro';
 import HomePhotoBoxes from '~/components/HomePhotoBoxes.astro';
 import NewsCard from '~/components/NewsCard.astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import { getCollection, getEntry } from 'astro:content';
 import { renderMarkdown } from '~/lib/markdown';
-import { HOMEPAGE_SPLASH } from '~/lib/manualPages';
+import { HOMEPAGE_SPLASH, SHOW_HOMEPAGE_SPLASH } from '~/lib/manualPages';
+import {
+  HOME_HERO_IMAGE,
+  HOME_HERO_WIDTHS,
+  HOME_HERO_SIZES,
+  HOME_HERO_FORMAT,
+} from '~/lib/homeHero';
 import directorAdamsPhoto from '../assets/director-adams.jpg';
 
 const homePage = await getEntry('pages', 'index');
 const homeBody = homePage?.data.body ? renderMarkdown(homePage.data.body) : '';
+
+// Resolve the hero background through the same options HomeHero.astro passes
+// to <Image> (both read lib/homeHero.ts) so the preload below warms exactly
+// the files the <img> will request. Skipped when the splash row is showing —
+// its first card already carries loading="eager" + fetchpriority="high".
+const heroImage = SHOW_HOMEPAGE_SPLASH
+  ? null
+  : await getImage({
+      src: HOME_HERO_IMAGE,
+      widths: HOME_HERO_WIDTHS,
+      sizes: HOME_HERO_SIZES,
+      format: HOME_HERO_FORMAT,
+    });
+
+const preloadImages = heroImage
+  ? [
+      {
+        href: heroImage.src,
+        imagesrcset: heroImage.srcSet.attribute,
+        imagesizes: HOME_HERO_SIZES,
+      },
+    ]
+  : [];
 
 const allNews = await getCollection('news');
 const latestNews = [...allNews]
@@ -31,15 +63,21 @@ const latestNews = [...allNews]
 <BaseLayout
   title="Illinois R3 Grant Program"
   description="The R3 (Restore, Reinvest, and Renew) program invests in communities most affected by systemic racism and disinvestment through economic development, violence prevention, reentry, and civil legal aid services."
+  preloadImages={preloadImages}
 >
   <h1 class="sr-only">R3 Restore, Reinvest, Renew - Illinois Criminal Justice Information Authority</h1>
 
-  <!-- Splash Images Section -->
-  <section class="splash-row" aria-label="Funding opportunities">
-    {HOMEPAGE_SPLASH.map((s, i) => (
-      <HomeSplashCard {...s} preload={i === 0} cardIndex={i} />
-    ))}
-  </section>
+  <!-- Hero slot. Both branches fill the same 650px band, so the rest of the
+       page does not shift when SHOW_HOMEPAGE_SPLASH is flipped. -->
+  {SHOW_HOMEPAGE_SPLASH ? (
+    <section class="splash-row" aria-label="Funding opportunities">
+      {HOMEPAGE_SPLASH.map((s, i) => (
+        <HomeSplashCard {...s} preload={i === 0} cardIndex={i} />
+      ))}
+    </section>
+  ) : (
+    <HomeHero />
+  )}
 
   <!-- Strapi pages.index body content -->
   {homeBody && (

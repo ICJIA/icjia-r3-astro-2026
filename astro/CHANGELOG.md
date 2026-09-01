@@ -6,6 +6,78 @@ chronological order.
 
 ---
 
+## v1.0.12 — 2026-09-01
+
+Homepage hero swap. With both R3 NOFOs closed, the two-up splash row was
+advertising two expired funding opportunities as the first thing on the page.
+It is replaced by a single full-bleed band pointing at the R3 StoryMap, built
+from a supplied PowerPoint mock. The splash row is **preserved, not deleted** —
+it returns on a one-line flag flip when the next NOFO opens.
+
+**`src/lib/manualPages.ts`** — new `SHOW_HOMEPAGE_SPLASH: boolean` switch.
+`false` (current) renders `HomeHero`; `true` restores the untouched
+`HOMEPAGE_SPLASH` two-up row. Typed `boolean` rather than left as the literal
+`false` so TypeScript does not narrow it and flag the splash branch in
+`index.astro` as dead code. Verified in both positions: flipping to `true`
+brings the original row back unchanged.
+
+**`src/components/HomeHero.astro`** (new) — the band. Fills the same 650px slot
+the splash row did (the mock's geometry measures to exactly that height, so
+nothing below shifts when the flag is flipped), stepping down to 480px ≤959px
+and 380px ≤600px — the source is 2.18:1 and would otherwise crop to a vertical
+sliver on a phone. Whole band is one link to the StoryMap, `target="_blank"`
+with an sr-only "opens in a new tab"; the accessible name is the panel's own
+heading plus body text, so the visible "Click here" never stands alone as link
+text. Centred panel is opaque, which makes contrast a fixed property of the
+panel colour instead of a function of the photo behind it.
+
+**`src/assets/home-hero-background.png`** (new) — 2000×918 source. Ships as
+WebP at 55 KB (640w) through 329 KB (2000w), not the 5.4 MB original.
+
+**`src/lib/homeHero.ts`** (new) — the `<Image>` options, in one place because
+two call sites need to agree on them: the component that renders the image and
+the page that preloads it. If they drifted, Astro would emit two sets of files
+and the browser would fetch the hero twice.
+
+**`src/layouts/BaseLayout.astro`** — `preloadImages` now accepts
+`{ href, imagesrcset, imagesizes }` as well as a plain string. A responsive
+image needs its preload to carry the same srcset/sizes the `<img>` will use; a
+bare `href` preload warms one candidate while the browser picks another and
+downloads the image twice. Backwards compatible, and nothing was passing this
+prop before.
+
+**`src/pages/index.astro`** — hero slot is now a ternary on the flag, and the
+LCP preload the file's header comment had claimed since Phase 4g.3 is actually
+wired. Build output confirmed byte-identical `imagesrcset` and `srcset`.
+
+**`src/components/HomePhotoBoxes.astro`** — Applicant Tools contrast rework.
+contrastcap was raising seven warnings here: every one passed, but all seven
+were pixel-sampled over a photo, meaning the ratio held only at the sampled
+position and only for the photos the CMS happens to serve today. This entry's
+predecessor had already patched a real 3.38:1 failure in the same spot. The
+title/description block now sits on its own scrim at alpha 0.85, dense enough
+that the worst case a photo can produce — a pure-white pixel — still measures
+12.9:1. White text holds AA down to alpha 0.458, so the guarantee survives any
+future image swap. The scrim is translucent, not solid, so the photo still
+reads through it. Fixed 200px height aligns all four bars; the bottom 28px
+fades into the photo, and text stays AA-safe to y=185px against a worst
+measured wrap of y=168px (four-line Collaboratives copy at the narrowest 2-up
+column, ~965px). The full-tile wash drops from a 0.6→0.5 gradient to a flat
+0.22 now that it no longer doubles as the text backdrop, and the text-shadows
+go with it — they existed only to lift white text off photos.
+
+**`src/lib/navConfig.ts`** — StoryMap URL extracted to `R3_STORYMAP_URL`, now
+shared by the About menu and the hero rather than spelled out twice.
+
+Verified: `astro check` 0/0/0, 129/129 unit tests, production build clean.
+axe-core 0 violations (AA + best-practice + experimental). contrastcap
+**0 failures, 0 warnings — down from 7 warnings**. Lighthouse desktop
+100/100/100/100; mobile 99/100/100/100 with LCP 2.2s, measured against a
+stashed-baseline rebuild that scored 98 and 2.3s beforehand. Hero and photo
+grid screenshotted at 375px, 965px and 1072px.
+
+---
+
 ## v1.0.11 — 2026-07-08
 
 SiteImprove SEO/QA scoresheet remediation. The sheet's findings are almost
